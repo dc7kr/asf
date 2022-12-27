@@ -298,24 +298,28 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../../boards/samr21_xplained_pro</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../port</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../system/reset</state>
 					<state>$PROJ_DIR$/../../../../system/interrupt/system_interrupt_samr21</state>
-					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../system/pinmux</state>
-					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samr21/source</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../system/power</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../system/power/power_sam_d_r</state>
+					<state>$PROJ_DIR$/../../../../system/reset/reset_sam_d_r</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../boards/samr21_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../system</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -565,24 +569,28 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../../boards/samr21_xplained_pro</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../port</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../system/reset</state>
 					<state>$PROJ_DIR$/../../../../system/interrupt/system_interrupt_samr21</state>
-					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../system/pinmux</state>
-					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samr21/source</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../system/power</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../system/power/power_sam_d_r</state>
+					<state>$PROJ_DIR$/../../../../system/reset/reset_sam_d_r</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../boards/samr21_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../system</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1257,24 +1265,28 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../../boards/samr21_xplained_pro</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../port</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../system/reset</state>
 					<state>$PROJ_DIR$/../../../../system/interrupt/system_interrupt_samr21</state>
-					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../system/pinmux</state>
-					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samr21/source</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../system/power</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../system/power/power_sam_d_r</state>
+					<state>$PROJ_DIR$/../../../../system/reset/reset_sam_d_r</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../boards/samr21_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../system</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1524,24 +1536,28 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../../boards/samr21_xplained_pro</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../port</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../system/reset</state>
 					<state>$PROJ_DIR$/../../../../system/interrupt/system_interrupt_samr21</state>
-					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../system/pinmux</state>
-					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samr21/source</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../system/power</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../system/power/power_sam_d_r</state>
+					<state>$PROJ_DIR$/../../../../system/reset/reset_sam_d_r</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../boards/samr21_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../system</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1958,9 +1974,6 @@
 						<group>
 							<name>instance</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/dac.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/port.h</name>
 							</file>
 							<file>
@@ -1971,9 +1984,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/sysctrl.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/sercom1.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/sercom0.h</name>
@@ -1989,9 +1999,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/evsys.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/tc6.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/pac2.h</name>
@@ -2018,13 +2025,13 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/eic.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/tc7.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/tcc2.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/ac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/sbmatrix.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/tcc0.h</name>
@@ -2042,6 +2049,9 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/usb.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/sercom1.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/tc5.h</name>
 							</file>
 							<file>
@@ -2054,9 +2064,6 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/pac1.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/i2s.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/instance/pm.h</name>
 							</file>
 							<file>
@@ -2064,28 +2071,10 @@
 							</file>
 						</group>
 						<group>
-							<name>pio</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21e16a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21e17a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21g17a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21g16a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21e18a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21g18a.h</name>
-							</file>
-						</group>
-						<group>
 							<name>component</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/hmatrixb.h</name>
+							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/eic.h</name>
 							</file>
@@ -2111,9 +2100,6 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/tcc.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/i2s.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/ac.h</name>
 							</file>
 							<file>
@@ -2126,13 +2112,13 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/rtc.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/dsu.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/port.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/pac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/dsu.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/wdt.h</name>
@@ -2147,10 +2133,28 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/tc.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/dac.h</name>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/sercom.h</name>
+							</file>
+						</group>
+						<group>
+							<name>pio</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21e16a.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/sercom.h</name>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21e17a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21g17a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21g16a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21e18a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21g18a.h</name>
 							</file>
 						</group>
 						<file>
@@ -2183,13 +2187,13 @@
 					<name>$PROJ_DIR$/../../../../../utils/preprocessor/mrecursion.h</name>
 				</file>
 				<file>
+					<name>$PROJ_DIR$/../../../../../utils/preprocessor/stringz.h</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../../utils/preprocessor/preprocessor.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../utils/preprocessor/tpaste.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../utils/preprocessor/stringz.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../utils/preprocessor/mrepeat.h</name>
@@ -2243,6 +2247,9 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock_config_check.h</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock_feature.h</name>
+						</file>
 					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../../system/clock/gclk.h</name>
@@ -2250,18 +2257,6 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../system/clock/clock.h</name>
 					</file>
-					<group>
-						<name>quick_start_gclk</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/quick_start_gclk/qs_gclk_basic.h</name>
-						</file>
-					</group>
-					<group>
-						<name>quick_start_clock</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/quick_start_clock/qs_clock_source.h</name>
-						</file>
-					</group>
 				</group>
 				<group>
 					<name>interrupt</name>
@@ -2277,16 +2272,28 @@
 							<name>$PROJ_DIR$/../../../../system/interrupt/system_interrupt_samr21/system_interrupt_features.h</name>
 						</file>
 					</group>
+				</group>
+				<group>
+					<name>power</name>
 					<group>
-						<name>quick_start</name>
+						<name>power_sam_d_r</name>
 						<file>
-							<name>$PROJ_DIR$/../../../../system/interrupt/quick_start/qs_system_interrupt.h</name>
+							<name>$PROJ_DIR$/../../../../system/power/power_sam_d_r/power.h</name>
 						</file>
 					</group>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../system/system.h</name>
 				</file>
+				<group>
+					<name>reset</name>
+					<group>
+						<name>reset_sam_d_r</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../system/reset/reset_sam_d_r/reset.h</name>
+						</file>
+					</group>
+				</group>
 			</group>
 			<group>
 				<name>wdt</name>

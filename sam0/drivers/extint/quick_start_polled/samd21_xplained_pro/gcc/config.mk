@@ -54,7 +54,7 @@ TARGET_SRAM = extint_quick_start_polled_sram.elf
 CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam0/boards/samd21_xplained_pro/board_init.c       \
-       sam0/drivers/extint/extint.c                       \
+       sam0/drivers/extint/extint_sam_d_r/extint.c        \
        sam0/drivers/extint/quick_start_polled/qs_extint_basic.c \
        sam0/drivers/port/port.c                           \
        sam0/drivers/system/clock/clock_samd21_r21/clock.c \
@@ -76,6 +76,7 @@ INC_PATH = \
        sam0/boards                                        \
        sam0/boards/samd21_xplained_pro                    \
        sam0/drivers/extint                                \
+       sam0/drivers/extint/extint_sam_d_r                 \
        sam0/drivers/extint/quick_start_polled             \
        sam0/drivers/extint/quick_start_polled/samd21_xplained_pro \
        sam0/drivers/port                                  \
@@ -85,6 +86,10 @@ INC_PATH = \
        sam0/drivers/system/interrupt                      \
        sam0/drivers/system/interrupt/system_interrupt_samd21 \
        sam0/drivers/system/pinmux                         \
+       sam0/drivers/system/power                          \
+       sam0/drivers/system/power/power_sam_d_r            \
+       sam0/drivers/system/reset                          \
+       sam0/drivers/system/reset/reset_sam_d_r            \
        sam0/utils                                         \
        sam0/utils/cmsis/samd21/include                    \
        sam0/utils/cmsis/samd21/source                     \

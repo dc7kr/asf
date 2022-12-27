@@ -100,6 +100,12 @@
 // From module: SYSTEM - Interrupt Driver
 #include <system_interrupt.h>
 
+// From module: SYSTEM - Power Management for SAM D20/D21/R21/D10/D11
+#include <power.h>
+
+// From module: SYSTEM - Reset Management for SAM D20/D21/R21/D10/D11
+#include <reset.h>
+
 // From module: Sleep manager - SAMD implementation
 #include <samd/sleepmgr.h>
 #include <sleepmgr.h>

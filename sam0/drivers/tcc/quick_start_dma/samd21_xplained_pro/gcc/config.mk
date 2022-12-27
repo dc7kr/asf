@@ -55,8 +55,8 @@ CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam0/boards/samd21_xplained_pro/board_init.c       \
        sam0/drivers/dma/dma.c                             \
-       sam0/drivers/events/events.c                       \
        sam0/drivers/events/events_hooks.c                 \
+       sam0/drivers/events/events_sam_d_r/events.c        \
        sam0/drivers/port/port.c                           \
        sam0/drivers/system/clock/clock_samd21_r21/clock.c \
        sam0/drivers/system/clock/clock_samd21_r21/gclk.c  \
@@ -80,6 +80,7 @@ INC_PATH = \
        sam0/boards/samd21_xplained_pro                    \
        sam0/drivers/dma                                   \
        sam0/drivers/events                                \
+       sam0/drivers/events/events_sam_d_r                 \
        sam0/drivers/port                                  \
        sam0/drivers/system                                \
        sam0/drivers/system/clock                          \
@@ -87,6 +88,10 @@ INC_PATH = \
        sam0/drivers/system/interrupt                      \
        sam0/drivers/system/interrupt/system_interrupt_samd21 \
        sam0/drivers/system/pinmux                         \
+       sam0/drivers/system/power                          \
+       sam0/drivers/system/power/power_sam_d_r            \
+       sam0/drivers/system/reset                          \
+       sam0/drivers/system/reset/reset_sam_d_r            \
        sam0/drivers/tcc                                   \
        sam0/drivers/tcc/quick_start_dma                   \
        sam0/drivers/tcc/quick_start_dma/samd21_xplained_pro \

@@ -54,8 +54,8 @@ TARGET_SRAM = events_quick_start_sram.elf
 CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam0/boards/samd11_xplained_pro/board_init.c       \
-       sam0/drivers/events/events.c                       \
        sam0/drivers/events/events_hooks.c                 \
+       sam0/drivers/events/events_sam_d_r/events.c        \
        sam0/drivers/events/quick_start/qs_events_basic.c  \
        sam0/drivers/port/port.c                           \
        sam0/drivers/system/clock/clock_samd10_d11/clock.c \
@@ -77,6 +77,7 @@ INC_PATH = \
        sam0/boards                                        \
        sam0/boards/samd11_xplained_pro                    \
        sam0/drivers/events                                \
+       sam0/drivers/events/events_sam_d_r                 \
        sam0/drivers/events/quick_start                    \
        sam0/drivers/events/quick_start/samd11_xplained_pro \
        sam0/drivers/port                                  \
@@ -86,6 +87,10 @@ INC_PATH = \
        sam0/drivers/system/interrupt                      \
        sam0/drivers/system/interrupt/system_interrupt_samd10_d11 \
        sam0/drivers/system/pinmux                         \
+       sam0/drivers/system/power                          \
+       sam0/drivers/system/power/power_sam_d_r            \
+       sam0/drivers/system/reset                          \
+       sam0/drivers/system/reset/reset_sam_d_r            \
        sam0/utils                                         \
        sam0/utils/cmsis/samd11/include                    \
        sam0/utils/cmsis/samd11/source                     \

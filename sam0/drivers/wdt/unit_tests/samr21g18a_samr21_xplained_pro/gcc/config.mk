@@ -96,6 +96,10 @@ INC_PATH = \
        sam0/drivers/system/interrupt                      \
        sam0/drivers/system/interrupt/system_interrupt_samr21 \
        sam0/drivers/system/pinmux                         \
+       sam0/drivers/system/power                          \
+       sam0/drivers/system/power/power_sam_d_r            \
+       sam0/drivers/system/reset                          \
+       sam0/drivers/system/reset/reset_sam_d_r            \
        sam0/drivers/wdt                                   \
        sam0/drivers/wdt/unit_tests                        \
        sam0/drivers/wdt/unit_tests/samr21g18a_samr21_xplained_pro \

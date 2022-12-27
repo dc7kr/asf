@@ -61,8 +61,8 @@ CSRCS = \
        sam0/drivers/system/pinmux/pinmux.c                \
        sam0/drivers/system/system.c                       \
        sam0/drivers/tc/quick_start_timer/qs_tc_timer.c    \
-       sam0/drivers/tc/tc.c                               \
        sam0/drivers/tc/tc_interrupt.c                     \
+       sam0/drivers/tc/tc_sam_d_r/tc.c                    \
        sam0/utils/cmsis/samd20/source/gcc/startup_samd20.c \
        sam0/utils/cmsis/samd20/source/system_samd20.c     \
        sam0/utils/syscalls/gcc/syscalls.c
@@ -83,9 +83,14 @@ INC_PATH = \
        sam0/drivers/system/interrupt                      \
        sam0/drivers/system/interrupt/system_interrupt_samd20 \
        sam0/drivers/system/pinmux                         \
+       sam0/drivers/system/power                          \
+       sam0/drivers/system/power/power_sam_d_r            \
+       sam0/drivers/system/reset                          \
+       sam0/drivers/system/reset/reset_sam_d_r            \
        sam0/drivers/tc                                    \
        sam0/drivers/tc/quick_start_timer                  \
        sam0/drivers/tc/quick_start_timer/samd20_xplained_pro \
+       sam0/drivers/tc/tc_sam_d_r                         \
        sam0/utils                                         \
        sam0/utils/cmsis/samd20/include                    \
        sam0/utils/cmsis/samd20/source                     \

@@ -83,6 +83,10 @@ INC_PATH = \
        sam0/drivers/system/pinmux                         \
        sam0/drivers/system/pinmux/quick_start             \
        sam0/drivers/system/pinmux/quick_start/samd21_xplained_pro \
+       sam0/drivers/system/power                          \
+       sam0/drivers/system/power/power_sam_d_r            \
+       sam0/drivers/system/reset                          \
+       sam0/drivers/system/reset/reset_sam_d_r            \
        sam0/utils                                         \
        sam0/utils/cmsis/samd21/include                    \
        sam0/utils/cmsis/samd21/source                     \
