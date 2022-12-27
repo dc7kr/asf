@@ -3,7 +3,7 @@
  *
  * \brief Board configuration.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -41,9 +41,6 @@
 
 #ifndef CONF_BOARD_H_INCLUDED
 #define CONF_BOARD_H_INCLUDED
-
-/** Define to avoid disabling the watchdog at startup. */
-#define CONF_BOARD_KEEP_WATCHDOG_AT_INIT
 
 /** Enable Com Port. */
 #define CONF_BOARD_UART_CONSOLE

@@ -42,7 +42,7 @@ MCU = atxmega256a3bu
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_gfx_mono_example1_xmega_a3bu_xplained.elf
+TARGET = gfx_mono_example1.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
@@ -52,9 +52,9 @@ CSRCS = \
        common/services/gfx_mono/gfx_mono_c12832_a1z.c     \
        common/services/gfx_mono/gfx_mono_framebuffer.c    \
        common/services/gfx_mono/gfx_mono_generic.c        \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/spi/xmega_usart_spi/usart_spi.c    \
        xmega/boards/xmega_a3bu_xplained/init.c            \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/usart/usart.c
 
@@ -71,12 +71,12 @@ INC_PATH = \
        common/services/gfx_mono                           \
        common/services/gfx_mono/example1/atxmega256a3bu_xmega_a3bu_xplained \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/spi                                \
        common/utils                                       \
        xmega/boards                                       \
        xmega/boards/xmega_a3bu_xplained                   \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/pmic                                 \
        xmega/drivers/usart                                \
@@ -127,7 +127,8 @@ CFLAGS =
 CPPFLAGS = \
        -D BOARD=XMEGA_A3BU_XPLAINED                       \
        -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA       \
-       -D GFX_MONO_C12832_A1Z=1
+       -D GFX_MONO_C12832_A1Z=1                           \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

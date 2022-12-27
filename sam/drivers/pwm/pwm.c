@@ -3,7 +3,7 @@
  *
  * \brief Pulse Width Modulation (PWM) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -52,6 +52,8 @@ extern "C" {
 /**
  * \defgroup sam_drivers_pwm_group Pulse Width Modulation (PWM)
  *
+ * See \ref sam_pwm_quickstart.
+ *
  * Driver for the PWM (Pulse Width Modulation). This driver provides access to the 
  * main features of the PWM controller.
  *
@@ -71,44 +73,44 @@ extern "C" {
 /**
  * \brief Get channel number from bitmask.
  *
- * \param dw_channel Bitmask of channel ID.
+ * \param ul_channel Bitmask of channel ID.
  *
  * \retval Channel number.
  */
-static uint32_t pwm_converter(uint32_t dw_channel)
+static uint32_t pwm_converter(uint32_t ul_channel)
 {
-	uint32_t retval = 0;
+	uint32_t ul_ret = 0;
 
-	while (!(dw_channel & 1)) {
-		retval++;
-		dw_channel >>= 1;
+	while (!(ul_channel & 1)) {
+		ul_ret++;
+		ul_channel >>= 1;
 	}
 
-	return retval;
+	return ul_ret;
 }
 
 /**
- * \brief Find a prescaler/divisor couple to generate the desired dw_frequency
- * from dw_mck.
+ * \brief Find a prescaler/divisor couple to generate the desired ul_frequency
+ * from ul_mck.
  *
- * \param dw_frequency Desired frequency in Hz.
- * \param dw_mck Master clock frequency in Hz.
+ * \param ul_frequency Desired frequency in Hz.
+ * \param ul_mck Master clock frequency in Hz.
  *
  * \retval Return the value to be set in the PWM Clock Register (PWM Mode Register for SAM3N)
  * or PWM_INVALID_ARGUMENT if the configuration cannot be met.
  */
-static uint32_t pwm_clocks_generate(uint32_t dw_frequency, uint32_t dw_mck)
+static uint32_t pwm_clocks_generate(uint32_t ul_frequency, uint32_t ul_mck)
 {
-	uint32_t dw_divisors[PWM_CLOCK_PRE_MAX] =
+	uint32_t ul_divisors[PWM_CLOCK_PRE_MAX] =
 			{ 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024 };
 	uint32_t pre = 0;
 	uint32_t div;
 
 	/* Find prescaler and divisor values */
-	div = (dw_mck / dw_divisors[pre]) / dw_frequency;
+	div = (ul_mck / ul_divisors[pre]) / ul_frequency;
 	while ((div > PWM_CLOCK_DIV_MAX) && (pre < PWM_CLOCK_PRE_MAX)) {
 		pre++;
-		div = (dw_mck / dw_divisors[pre]) / dw_frequency;
+		div = (ul_mck / ul_divisors[pre]) / ul_frequency;
 	}
 
 	/* Return result */
@@ -133,8 +135,8 @@ uint32_t pwm_init(Pwm *p_pwm, pwm_clock_t *clock_config)
 	uint32_t result;
 
 	/* Clock A */
-	if (clock_config->dw_clka != 0) {
-		result = pwm_clocks_generate(clock_config->dw_clka, clock_config->dw_mck);
+	if (clock_config->ul_clka != 0) {
+		result = pwm_clocks_generate(clock_config->ul_clka, clock_config->ul_mck);
 		if (result == PWM_INVALID_ARGUMENT) {
 			return result;
 		}
@@ -143,8 +145,8 @@ uint32_t pwm_init(Pwm *p_pwm, pwm_clock_t *clock_config)
 	}
 
 	/* Clock B */
-	if (clock_config->dw_clkb != 0) {
-		result = pwm_clocks_generate(clock_config->dw_clkb, clock_config->dw_mck);
+	if (clock_config->ul_clkb != 0) {
+		result = pwm_clocks_generate(clock_config->ul_clkb, clock_config->ul_mck);
 
 		if (result == PWM_INVALID_ARGUMENT) {
 			return result;
@@ -175,7 +177,7 @@ uint32_t pwm_channel_init(Pwm *p_pwm, pwm_channel_t *p_channel)
 	uint32_t ch_num = pwm_converter(channel);
 
 	/* Channel Mode/Clock Register */
-	ch_mode_reg = (p_channel->dw_prescaler & 0xF) |
+	ch_mode_reg = (p_channel->ul_prescaler & 0xF) |
 			(p_channel->polarity << 9) |
 #if (SAM3U || SAM3S || SAM3XA || SAM4S)
 			(p_channel->counter_event) |
@@ -187,18 +189,18 @@ uint32_t pwm_channel_init(Pwm *p_pwm, pwm_channel_t *p_channel)
 	p_pwm->PWM_CH_NUM[ch_num].PWM_CMR = ch_mode_reg;
 
 	/* Channel Duty Cycle Register */
-	p_pwm->PWM_CH_NUM[ch_num].PWM_CDTY = p_channel->dw_duty;
+	p_pwm->PWM_CH_NUM[ch_num].PWM_CDTY = p_channel->ul_duty;
 
 	/* Channel Period Register */
-	p_pwm->PWM_CH_NUM[ch_num].PWM_CPRD = p_channel->dw_period;
+	p_pwm->PWM_CH_NUM[ch_num].PWM_CPRD = p_channel->ul_period;
 
 #if (SAM3U || SAM3S || SAM3XA || SAM4S)
 	/* Channel Dead Time Register */
 	if (p_channel->b_deadtime_generator) {
 		p_pwm->PWM_CH_NUM[ch_num].PWM_DT =
 				PWM_DT_DTL(p_channel->
-				w_deadtime_pwml) | PWM_DT_DTH(p_channel->
-				w_deadtime_pwmh);
+				us_deadtime_pwml) | PWM_DT_DTH(p_channel->
+				us_deadtime_pwmh);
 	}
 
 	/* Output Selection Register */
@@ -221,8 +223,8 @@ uint32_t pwm_channel_init(Pwm *p_pwm, pwm_channel_t *p_channel)
 	}
 
 	/* Fault Protection Value Register */
-	p_pwm->PWM_FPV = ((p_channel->dw_fault_output_pwmh) << ch_num) |
-			(((p_channel->dw_fault_output_pwml) << ch_num) << 16);
+	p_pwm->PWM_FPV = ((p_channel->ul_fault_output_pwmh) << ch_num) |
+			(((p_channel->ul_fault_output_pwml) << ch_num) << 16);
 
 	/* Fault Protection Enable Register */
 	uint32_t fault_enable_reg = 0;
@@ -260,29 +262,29 @@ uint32_t pwm_channel_init(Pwm *p_pwm, pwm_channel_t *p_channel)
  *
  * \param p_pwm Pointer to a PWM instance.
  * \param p_channel Configurations of the specified PWM channel.
- * \param dw_period New period value.
+ * \param ul_period New period value.
  *
  * \retval 0 if changing succeeds, otherwise fails.
  */
 uint32_t pwm_channel_update_period(Pwm *p_pwm, pwm_channel_t *p_channel,
-		uint32_t dw_period)
+		uint32_t ul_period)
 {
 	uint32_t ch_num = pwm_converter(p_channel->channel);
 
 	/** Check parameter */
-	if (p_channel->dw_duty > dw_period) {
+	if (p_channel->ul_duty > ul_period) {
 		return PWM_INVALID_ARGUMENT;
 	} else {
 		/* Save new period value */
-		p_channel->dw_period = dw_period;
+		p_channel->ul_period = ul_period;
 
 #if (SAM3N)
 		/* Set CPD bit to change period value */
 		p_pwm->PWM_CH_NUM[ch_num].PWM_CMR |= PWM_CMR_CPD;
 
-		p_pwm->PWM_CH_NUM[ch_num].PWM_CUPD = dw_period;
+		p_pwm->PWM_CH_NUM[ch_num].PWM_CUPD = ul_period;
 #else
-		p_pwm->PWM_CH_NUM[ch_num].PWM_CPRDUPD = dw_period;
+		p_pwm->PWM_CH_NUM[ch_num].PWM_CPRDUPD = ul_period;
 #endif
 	}
 
@@ -294,21 +296,21 @@ uint32_t pwm_channel_update_period(Pwm *p_pwm, pwm_channel_t *p_channel,
  *
  * \param p_pwm Pointer to a PWM instance.
  * \param p_channel Configurations of the specified PWM channel.
- * \param dw_duty New duty cycle value.
+ * \param ul_duty New duty cycle value.
  *
  * \retval 0 if changing succeeds, otherwise fails.
  */
 uint32_t pwm_channel_update_duty(Pwm *p_pwm, pwm_channel_t *p_channel,
-		uint32_t dw_duty)
+		uint32_t ul_duty)
 {
 	uint32_t ch_num = pwm_converter(p_channel->channel);
 
 		/** Check parameter */
-	if (p_channel->dw_period < dw_duty) {
+	if (p_channel->ul_period < ul_duty) {
 		return PWM_INVALID_ARGUMENT;
 	} else {
 		/* Save new duty cycle value */
-		p_channel->dw_duty = dw_duty;
+		p_channel->ul_duty = ul_duty;
 
 #if (SAM3N)
 		/* Clear CPD bit to change duty cycle value */
@@ -316,9 +318,9 @@ uint32_t pwm_channel_update_duty(Pwm *p_pwm, pwm_channel_t *p_channel,
 		mode &= ~PWM_CMR_CPD;
 		p_pwm->PWM_CH_NUM[ch_num].PWM_CMR = mode;
 
-		p_pwm->PWM_CH_NUM[ch_num].PWM_CUPD = dw_duty;
+		p_pwm->PWM_CH_NUM[ch_num].PWM_CUPD = ul_duty;
 #else
-		p_pwm->PWM_CH_NUM[ch_num].PWM_CDTYUPD = dw_duty;
+		p_pwm->PWM_CH_NUM[ch_num].PWM_CDTYUPD = ul_duty;
 #endif
 	}
 
@@ -346,11 +348,11 @@ uint32_t pwm_channel_get_counter(Pwm *p_pwm, pwm_channel_t *p_channel)
  * \note The PWM channel should be initialized by pwm_channel_init() before it is enabled.
  *
  * \param p_pwm Pointer to a PWM instance.
- * \param dw_channel Bitmask of PWM channels.
+ * \param ul_channel Bitmask of PWM channels.
  */
-void pwm_channel_enable(Pwm *p_pwm, uint32_t dw_channel)
+void pwm_channel_enable(Pwm *p_pwm, uint32_t ul_channel)
 {
-	p_pwm->PWM_ENA = dw_channel;
+	p_pwm->PWM_ENA = ul_channel;
 }
 
 /**
@@ -359,11 +361,11 @@ void pwm_channel_enable(Pwm *p_pwm, uint32_t dw_channel)
  * \note The PWM channel should be disabled, and then it can be initialized by pwm_channel_init().
  *
  * \param p_pwm Pointer to a PWM instance.
- * \param dw_channel Bitmask of PWM channels.
+ * \param ul_channel Bitmask of PWM channels.
  */
-void pwm_channel_disable(Pwm *p_pwm, uint32_t dw_channel)
+void pwm_channel_disable(Pwm *p_pwm, uint32_t ul_channel)
 {
-	p_pwm->PWM_DIS = dw_channel;
+	p_pwm->PWM_DIS = ul_channel;
 }
 
 /**
@@ -415,18 +417,18 @@ uint32_t pwm_channel_get_interrupt_mask(Pwm *p_pwm)
  * \brief Enable the interrupt of a channel counter event and fault protection.
  *
  * \param p_pwm Pointer to a PWM instance.
- * \param dw_event Bitmask of channel number to enable counter event interrupt.
- * \param dw_fault Bitmask of channel number to enable fault protection interrupt (ignored by SAM3N).
+ * \param ul_event Bitmask of channel number to enable counter event interrupt.
+ * \param ul_fault Bitmask of channel number to enable fault protection interrupt (ignored by SAM3N).
  */
-void pwm_channel_enable_interrupt(Pwm *p_pwm, uint32_t dw_event,
-		uint32_t dw_fault)
+void pwm_channel_enable_interrupt(Pwm *p_pwm, uint32_t ul_event,
+		uint32_t ul_fault)
 {
 #if (SAM3N)
-	p_pwm->PWM_IER = dw_event;
+	p_pwm->PWM_IER = ul_event;
 	/* Remove warning */
-	dw_fault = dw_fault;
+	ul_fault = ul_fault;
 #else
-	p_pwm->PWM_IER1 = dw_event | (dw_fault << 16);
+	p_pwm->PWM_IER1 = ul_event | (ul_fault << 16);
 #endif
 }
 
@@ -434,18 +436,18 @@ void pwm_channel_enable_interrupt(Pwm *p_pwm, uint32_t dw_event,
  * \brief Disable the interrupt of a channel counter event and fault protection.
  *
  * \param p_pwm Pointer to a PWM instance.
- * \param dw_event Bitmask of channel number to disable counter event interrupt.
- * \param dw_fault Bitmask of channel number to disable fault protection interrupt (ignored by SAM3N).
+ * \param ul_event Bitmask of channel number to disable counter event interrupt.
+ * \param ul_fault Bitmask of channel number to disable fault protection interrupt (ignored by SAM3N).
  */
-void pwm_channel_disable_interrupt(Pwm *p_pwm, uint32_t dw_event,
-		uint32_t dw_fault)
+void pwm_channel_disable_interrupt(Pwm *p_pwm, uint32_t ul_event,
+		uint32_t ul_fault)
 {
 #if (SAM3N)
-	p_pwm->PWM_IDR = dw_event;
+	p_pwm->PWM_IDR = ul_event;
 	/* Remove warning */
-	dw_fault = dw_fault;
+	ul_fault = ul_fault;
 #else
-	p_pwm->PWM_IDR1 = dw_event | (dw_fault << 16);
+	p_pwm->PWM_IDR1 = ul_event | (ul_fault << 16);
 #endif
 }
 
@@ -498,22 +500,22 @@ void pwm_channel_update_output(Pwm *p_pwm, pwm_channel_t *p_channel,
  *
  * \param p_pwm Pointer to a PWM instance.
  * \param p_channel Configurations of the specified PWM channel.
- * \param w_deadtime_pwmh New dead-time value for PWMH output.
- * \param w_deadtime_pwml New dead-time value for PWML output.
+ * \param us_deadtime_pwmh New dead-time value for PWMH output.
+ * \param us_deadtime_pwml New dead-time value for PWML output.
  */
 void pwm_channel_update_dead_time(Pwm *p_pwm, pwm_channel_t *p_channel,
-		uint16_t w_deadtime_pwmh, uint16_t w_deadtime_pwml)
+		uint16_t us_deadtime_pwmh, uint16_t us_deadtime_pwml)
 {
 	uint32_t ch_num = pwm_converter(p_channel->channel);
 
 	/* Save new dead time value */
-	p_channel->w_deadtime_pwmh = w_deadtime_pwmh;
-	p_channel->w_deadtime_pwml = w_deadtime_pwml;
+	p_channel->us_deadtime_pwmh = us_deadtime_pwmh;
+	p_channel->us_deadtime_pwml = us_deadtime_pwml;
 
 	/* Write channel dead time update register */
 	p_pwm->PWM_CH_NUM[ch_num].PWM_DTUPD =
-			PWM_DTUPD_DTLUPD(w_deadtime_pwml) |
-			PWM_DTUPD_DTHUPD(w_deadtime_pwmh);
+			PWM_DTUPD_DTLUPD(us_deadtime_pwml) |
+			PWM_DTUPD_DTHUPD(us_deadtime_pwmh);
 }
 
 
@@ -606,12 +608,12 @@ uint32_t pwm_cmp_init(Pwm *p_pwm, pwm_cmp_t *p_cmp)
 	pmc_cmp_unit_t raw_unit = p_cmp->unit;
 	uint32_t unit = pwm_converter(raw_unit);
 
-	p_pwm->PWM_CMP[unit].PWM_CMPV = PWM_CMPV_CV(p_cmp->dw_value) |
+	p_pwm->PWM_CMP[unit].PWM_CMPV = PWM_CMPV_CV(p_cmp->ul_value) |
 			(p_cmp->b_is_decrementing << 24);
 
-	p_pwm->PWM_CMP[unit].PWM_CMPM = PWM_CMPM_CTR(p_cmp->dw_trigger) |
-			PWM_CMPM_CPR(p_cmp->dw_period) |
-			PWM_CMPM_CUPR(p_cmp->dw_update_period);
+	p_pwm->PWM_CMP[unit].PWM_CMPM = PWM_CMPM_CTR(p_cmp->ul_trigger) |
+			PWM_CMPM_CPR(p_cmp->ul_period) |
+			PWM_CMPM_CUPR(p_cmp->ul_update_period);
 
 	/** Boolean of generating a match pulse */
 	if (p_cmp->b_pulse_on_line_0) {
@@ -649,12 +651,12 @@ uint32_t pwm_cmp_change_setting(Pwm *p_pwm, pwm_cmp_t *p_cmp)
 	pmc_cmp_unit_t raw_unit = p_cmp->unit;
 	uint32_t unit = pwm_converter(raw_unit);
 
-	p_pwm->PWM_CMP[unit].PWM_CMPVUPD = PWM_CMPV_CV(p_cmp->dw_value) |
+	p_pwm->PWM_CMP[unit].PWM_CMPVUPD = PWM_CMPV_CV(p_cmp->ul_value) |
 			(p_cmp->b_is_decrementing << 24);
 
-	p_pwm->PWM_CMP[unit].PWM_CMPMUPD = PWM_CMPM_CTR(p_cmp->dw_trigger) |
-			PWM_CMPM_CPR(p_cmp->dw_period) |
-			PWM_CMPM_CUPR(p_cmp->dw_update_period);
+	p_pwm->PWM_CMP[unit].PWM_CMPMUPD = PWM_CMPM_CTR(p_cmp->ul_trigger) |
+			PWM_CMPM_CPR(p_cmp->ul_period) |
+			PWM_CMPM_CUPR(p_cmp->ul_update_period);
 
 	/** Boolean of generating a match pulse */
 	if (p_cmp->b_pulse_on_line_0) {
@@ -715,16 +717,16 @@ uint32_t pwm_cmp_get_update_counter(Pwm *p_pwm, pmc_cmp_unit_t unit)
  * \brief Enable the interrupt of comparison.
  *
  * \param p_pwm Pointer to a PWM instance.
- * \param dw_sources Bitmask of comparison unit.
+ * \param ul_sources Bitmask of comparison unit.
  * \param type PWM_CMP_MATCH enables the match interrupt of the unit. PWM_CMP_UPDATE enables the update interrupt of the comparison unit.
  */
-void pwm_cmp_enable_interrupt(Pwm *p_pwm, uint32_t dw_sources,
+void pwm_cmp_enable_interrupt(Pwm *p_pwm, uint32_t ul_sources,
 		pwm_cmp_interrupt_t type)
 {
 	if (type == PWM_CMP_MATCH) {
-		p_pwm->PWM_IER2 = (dw_sources << 8);
+		p_pwm->PWM_IER2 = (ul_sources << 8);
 	} else if (type == PWM_CMP_UPDATE) {
-		p_pwm->PWM_IER2 = (dw_sources << 16);
+		p_pwm->PWM_IER2 = (ul_sources << 16);
 	} else {
 		/* Do Nothing */
 	}
@@ -734,16 +736,16 @@ void pwm_cmp_enable_interrupt(Pwm *p_pwm, uint32_t dw_sources,
  * \brief Disable the interrupt of comparison.
  *
  * \param p_pwm Pointer to a PWM instance.
- * \param dw_sources Bitmask of comparison unit.
+ * \param ul_sources Bitmask of comparison unit.
  * \param type PWM_CMP_MATCH disables the match interrupt of the unit. PWM_CMP_UPDATE disables the update interrupt of the comparison unit.
  */
-void pwm_cmp_disable_interrupt(Pwm *p_pwm, uint32_t dw_sources,
+void pwm_cmp_disable_interrupt(Pwm *p_pwm, uint32_t ul_sources,
 		pwm_cmp_interrupt_t type)
 {
 	if (type == PWM_CMP_MATCH) {
-		p_pwm->PWM_IDR2 = (dw_sources << 8);
+		p_pwm->PWM_IDR2 = (ul_sources << 8);
 	} else if (type == PWM_CMP_UPDATE) {
-		p_pwm->PWM_IDR2 = (dw_sources << 16);
+		p_pwm->PWM_IDR2 = (ul_sources << 16);
 	} else {
 		/* Do Nothing */
 	}
@@ -752,7 +754,7 @@ void pwm_cmp_disable_interrupt(Pwm *p_pwm, uint32_t dw_sources,
 /**
  * \brief Set PDC transfer request mode.
  *
- * \note If configure Synchronous channels update mode as 'PWM_SYNC_UPDATE_MODE_0' or 'PWM_SYNC_UPDATE_MODE_1' via pwm_sync_init(), dw_pdc_request will be ignored and PDC transfer request will never occur.
+ * \note If configure Synchronous channels update mode as 'PWM_SYNC_UPDATE_MODE_0' or 'PWM_SYNC_UPDATE_MODE_1' via pwm_sync_init(), ul_pdc_request will be ignored and PDC transfer request will never occur.
  *
  * \param p_pwm Pointer to a PWM instance.
  * \param request_mode PDC transfer request mode.
@@ -774,22 +776,22 @@ void pwm_pdc_set_request_mode(Pwm *p_pwm, pwm_pdc_request_mode_t request_mode,
  * \brief Enable the interrupt of PDC transfer.
  *
  * \param p_pwm Pointer to a PWM instance.
- * \param dw_sources Bitmask of PWM PDC transfer interrupt sources.
+ * \param ul_sources Bitmask of PWM PDC transfer interrupt sources.
  */
-void pwm_pdc_enable_interrupt(Pwm *p_pwm, uint32_t dw_sources)
+void pwm_pdc_enable_interrupt(Pwm *p_pwm, uint32_t ul_sources)
 {
-	p_pwm->PWM_IER2 = dw_sources;
+	p_pwm->PWM_IER2 = ul_sources;
 }
 
 /**
  * \brief Disable the interrupt of PDC transfer.
  *
  * \param p_pwm Pointer to a PWM instance.
- * \param dw_sources Bitmask of PWM PDC transfer interrupt sources.
+ * \param ul_sources Bitmask of PWM PDC transfer interrupt sources.
  */
-void pwm_pdc_disable_interrupt(Pwm *p_pwm, uint32_t dw_sources)
+void pwm_pdc_disable_interrupt(Pwm *p_pwm, uint32_t ul_sources)
 {
-	p_pwm->PWM_IDR2 = dw_sources;
+	p_pwm->PWM_IDR2 = ul_sources;
 }
 
 /**
@@ -797,12 +799,12 @@ void pwm_pdc_disable_interrupt(Pwm *p_pwm, uint32_t dw_sources)
  *
  * \param p_pwm Pointer to a PWM instance.
  * \param mode Synchronous channels update mode.
- * \param dw_update_period Time between each update of the synchronous channels.
+ * \param ul_update_period Time between each update of the synchronous channels.
  *
  * \retval 0 if initialization succeeds, otherwise fails.
  */
 uint32_t pwm_sync_init(Pwm *p_pwm, pwm_sync_update_mode_t mode,
-		uint32_t dw_update_period)
+		uint32_t ul_update_period)
 {
 	uint32_t sync_mode = p_pwm->PWM_SCM;
 
@@ -811,7 +813,7 @@ uint32_t pwm_sync_init(Pwm *p_pwm, pwm_sync_update_mode_t mode,
 
 	p_pwm->PWM_SCM = sync_mode;
 
-	p_pwm->PWM_SCUP = PWM_SCUP_UPR(dw_update_period);
+	p_pwm->PWM_SCUP = PWM_SCUP_UPR(ul_update_period);
 
 	return 0;
 }
@@ -832,11 +834,11 @@ void pwm_sync_unlock_update(Pwm *p_pwm)
  * \brief Change the wanted time between each update of the synchronous channels.
  *
  * \param p_pwm Pointer to a PWM instance.
- * \param dw_update_period Time between each update of the synchronous channels.
+ * \param ul_update_period Time between each update of the synchronous channels.
  */
-void pwm_sync_change_period(Pwm *p_pwm, uint32_t dw_update_period)
+void pwm_sync_change_period(Pwm *p_pwm, uint32_t ul_update_period)
 {
-	p_pwm->PWM_SCUPUPD = PWM_SCUPUPD_UPRUPD(dw_update_period);
+	p_pwm->PWM_SCUPUPD = PWM_SCUPUPD_UPRUPD(ul_update_period);
 }
 
 /**
@@ -855,40 +857,40 @@ uint32_t pwm_sync_get_period_counter(Pwm *p_pwm)
  * \brief Enable the interrupt of synchronous channel.
  *
  * \param p_pwm Pointer to a PWM instance.
- * \param dw_sources Bitmask of PWM synchronous channels interrupt sources.
+ * \param ul_sources Bitmask of PWM synchronous channels interrupt sources.
  */
-void pwm_sync_enable_interrupt(Pwm *p_pwm, uint32_t dw_sources)
+void pwm_sync_enable_interrupt(Pwm *p_pwm, uint32_t ul_sources)
 {
-	p_pwm->PWM_IER2 = dw_sources;
+	p_pwm->PWM_IER2 = ul_sources;
 }
 
 /**
  * \brief Disable the interrupt of synchronous channels.
  *
  * \param p_pwm Pointer to a PWM instance.
- * \param dw_sources Bitmask of PWM synchronous channels interrupt sources.
+ * \param ul_sources Bitmask of PWM synchronous channels interrupt sources.
  */
-void pwm_sync_disable_interrupt(Pwm *p_pwm, uint32_t dw_sources)
+void pwm_sync_disable_interrupt(Pwm *p_pwm, uint32_t ul_sources)
 {
-	p_pwm->PWM_IDR2 = dw_sources;
+	p_pwm->PWM_IDR2 = ul_sources;
 }
 
 /**
  * \brief Enable PWM write protect.
  *
  * \param p_pwm Pointer to a PWM instance.
- * \param dw_group Bitmask of PWM register group.
+ * \param ul_group Bitmask of PWM register group.
  * \param b_sw Boolean of software protect. True for software protect and false for hardware protect.
  */
-void pwm_enable_protect(Pwm *p_pwm, uint32_t dw_group, bool b_sw)
+void pwm_enable_protect(Pwm *p_pwm, uint32_t ul_group, bool b_sw)
 {
 	uint32_t wp = 0;
 
 	if (b_sw) {
-		wp = PWM_WRITE_PROTECT_KEY | (dw_group << 2) |
+		wp = PWM_WRITE_PROTECT_KEY | (ul_group << 2) |
 				PWM_WPCR_WPCMD(PWM_WRITE_PROTECT_SW_ENABLE);
 	} else {
-		wp = PWM_WRITE_PROTECT_KEY | (dw_group << 2) |
+		wp = PWM_WRITE_PROTECT_KEY | (ul_group << 2) |
 				PWM_WPCR_WPCMD(PWM_WRITE_PROTECT_HW_ENABLE);
 	}
 
@@ -901,12 +903,12 @@ void pwm_enable_protect(Pwm *p_pwm, uint32_t dw_group, bool b_sw)
  * \note Only a hardware reset of PWM controller (handled by PMC) can disable hardware write protect.
  *
  * \param p_pwm Pointer to a PWM instance.
- * \param dw_group Bitmask of PWM register group.
+ * \param ul_group Bitmask of PWM register group.
  */
-void pwm_disable_protect(Pwm *p_pwm, uint32_t dw_group)
+void pwm_disable_protect(Pwm *p_pwm, uint32_t ul_group)
 {
 	p_pwm->PWM_WPCR =
-			PWM_WRITE_PROTECT_KEY | (dw_group << 2) |
+			PWM_WRITE_PROTECT_KEY | (ul_group << 2) |
 			PWM_WPCR_WPCMD(PWM_WRITE_PROTECT_SW_DISABLE);
 }
 
@@ -923,12 +925,12 @@ bool pwm_get_protect_status(Pwm *p_pwm, pwm_protect_t *p_protect)
 {
 	uint32_t wpsr = p_pwm->PWM_WPSR;
 
-	p_protect->dw_hw_status = (wpsr >> 8) & 0x3F;
+	p_protect->ul_hw_status = (wpsr >> 8) & 0x3F;
 	/** Bitmask of PWM register group for write protect software status */
-	p_protect->dw_sw_status = (wpsr & 0x3F);
+	p_protect->ul_sw_status = (wpsr & 0x3F);
 
 	if ((PWM_WPSR_WPVS & wpsr) == PWM_WPSR_WPVS) {
-		p_protect->dw_offset =
+		p_protect->ul_offset =
 				(wpsr & PWM_WPSR_WPVSRC_Msk) >>
 				PWM_WPSR_WPVSRC_Pos;
 		return true;

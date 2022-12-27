@@ -12,7 +12,7 @@
 #
 # \file
 #
-# Copyright (c) 2011 Atmel Corporation. All rights reserved.
+# Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
 #
 # \asf_license_start
 #
@@ -278,7 +278,8 @@ cxxflags-gnu-y  += -ffunction-sections -fdata-sections
 cflags-gnu-y += -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int
 cflags-gnu-y += -Wmain -Wparentheses
 cflags-gnu-y += -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused
-cflags-gnu-y += -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef
+cflags-gnu-y += -Wuninitialized -Wunknown-pragmas -Wfloat-equal
+# -Wundef
 cflags-gnu-y += -Wshadow -Wbad-function-cast -Wwrite-strings
 cflags-gnu-y += -Wsign-compare -Waggregate-return 
 cflags-gnu-y += -Wmissing-declarations
@@ -314,8 +315,15 @@ ar_flags = $(arflags-gnu-y)
 # Source files list and part informations must already be included before
 # running this makefile
 
+# If a custom build directory is specified, use it -- force trailing / in directory name.
+ifdef BUILD_DIR
+	build-dir       := $(dir $(BUILD_DIR))$(if $(notdir $(BUILD_DIR)),$(notdir $(BUILD_DIR))/)
+else
+	build-dir        =
+endif
+
 # Create object files list from source files list.
-obj-y                   := $(addsuffix .o,$(basename $(CSRCS) $(ASSRCS)))
+obj-y                   := $(addprefix $(build-dir), $(addsuffix .o,$(basename $(CSRCS) $(ASSRCS))))
 # Create dependency files list from source files list.
 dep-files               := $(wildcard $(foreach f,$(obj-y),$(basename $(f)).d))
 
@@ -389,7 +397,7 @@ debug_sram: all
 objfiles: $(obj-y)
 
 # Create object files from C source files.
-%.o: %.c $(PRJ_PATH)/sam/utils/make/Makefile.in config.mk
+$(build-dir)%.o: %.c $(PRJ_PATH)/sam/utils/make/Makefile.in config.mk
 	@echo $(MSG_MKDIR)
 ifeq ($(os),Windows)
 	-mkdir $(subst /,\,$(dir $@))
@@ -400,7 +408,7 @@ endif
 	$(Q)$(CC) $(c_flags) -c $< -o $@
 
 # Create object files from C++ source files.
-%.o: %.cpp $(PRJ_PATH)/sam/utils/make/Makefile.in config.mk
+$(build-dir)%.o: %.cpp $(PRJ_PATH)/sam/utils/make/Makefile.in config.mk
 	@echo $(MSG_MKDIR)
 ifeq ($(os),Windows)
 	-mkdir $(subst /,\,$(dir $@))
@@ -411,7 +419,7 @@ endif
 	$(Q)$(CXX) $(cxx_flags) -c $< -o $@
 
 # Preprocess and assemble: create object files from assembler source files.
-%.o: %.S $(PRJ_PATH)/sam/utils/make/Makefile.in config.mk
+$(build-dir)%.o: %.S $(PRJ_PATH)/sam/utils/make/Makefile.in config.mk
 	@echo $(MSG_MKDIR)
 ifeq ($(os),Windows)
 	-mkdir $(subst /,\,$(dir $@))

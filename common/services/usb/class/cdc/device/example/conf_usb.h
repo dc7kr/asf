@@ -55,7 +55,7 @@
 #if BOARD == UC3B_BOARD_CONTROLLER
 # define  USB_DEVICE_PRODUCT_ID            USB_PID_ATMEL_UC3_CDC_DEBUG
 #else
-# define  USB_DEVICE_PRODUCT_ID            USB_PID_ATMEL_AVR_CDC
+# define  USB_DEVICE_PRODUCT_ID            USB_PID_ATMEL_ASF_CDC
 #endif
 #define  USB_DEVICE_MAJOR_VERSION         1
 #define  USB_DEVICE_MINOR_VERSION         0
@@ -67,7 +67,7 @@
 //	(USB_CONFIG_ATTR_REMOTE_WAKEUP|USB_CONFIG_ATTR_BUS_POWERED)
 
 //! USB Device string definitions (Optional)
-#define  USB_DEVICE_MANUFACTURE_NAME      "ATMEL AVR"
+#define  USB_DEVICE_MANUFACTURE_NAME      "ATMEL ASF"
 #define  USB_DEVICE_PRODUCT_NAME          "CDC Virtual Com"
 // #define  USB_DEVICE_SERIAL_NAME           "12...EF"
 
@@ -79,6 +79,8 @@
  */
 //! To authorize the High speed
 #if (UC3A3||UC3A4)
+#define  USB_DEVICE_HS_SUPPORT
+#elif (SAM3XA)
 #define  USB_DEVICE_HS_SUPPORT
 #endif
 //@}

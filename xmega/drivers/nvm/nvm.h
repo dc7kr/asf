@@ -483,13 +483,16 @@ void nvm_eeprom_erase_all(void);
 		part_is_defined(ATxmega128A1U) | \
 		part_is_defined(ATxmega128A3)  | \
 		part_is_defined(ATxmega128A3U) | \
-		part_is_defined(ATxmega128A4U) | \
-		part_is_defined(ATxmega128B1)  | \
-		part_is_defined(ATxmega128B3)  | \
 		part_is_defined(ATxmega128D3)  | \
 		part_is_defined(ATxmega128D4)
 #    define FLASH_SIZE      (128*1024L)
 #    define FLASH_PAGE_SIZE (512)
+
+#  elif part_is_defined(ATxmega128A4U)         | \
+		part_is_defined(ATxmega128B1)  | \
+		part_is_defined(ATxmega128B3)
+#    define FLASH_SIZE      (128*1024L)
+#    define FLASH_PAGE_SIZE (256)
 
 // 192K devices
 #  elif part_is_defined(ATxmega192A3U) | \

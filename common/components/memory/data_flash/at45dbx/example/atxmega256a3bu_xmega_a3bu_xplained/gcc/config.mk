@@ -42,16 +42,16 @@ MCU = atxmega256a3bu
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_components_memory_data_flash_at45dbx_example_atxmega256a3bu_xmega_a3bu_xplained.elf
+TARGET = at45dbx_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/components/memory/data_flash/at45dbx/at45dbx.c \
        common/components/memory/data_flash/at45dbx/example/at45dbx_example.c \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/spi/xmega_usart_spi/usart_spi.c    \
        xmega/boards/xmega_a3bu_xplained/init.c            \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/usart/usart.c
 
@@ -67,12 +67,12 @@ INC_PATH = \
        common/components/memory/data_flash/at45dbx/example/atxmega256a3bu_xmega_a3bu_xplained \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/spi                                \
        common/utils                                       \
        xmega/boards                                       \
        xmega/boards/xmega_a3bu_xplained                   \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/pmic                                 \
        xmega/drivers/usart                                \
@@ -122,7 +122,8 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D BOARD=XMEGA_A3BU_XPLAINED                       \
-       -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA
+       -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA       \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

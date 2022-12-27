@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_applications_led_chaser_stk600-rcuc3l0.elf
+TARGET = led_chaser.elf
 
 # List of C source files.
 CSRCS = \

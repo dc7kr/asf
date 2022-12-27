@@ -8,7 +8,7 @@
  *
  *****************************************************************************/
 /**
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -58,14 +58,14 @@
  *
  * \{
  */
-
+ 
 #include <avr32/io.h>
 #include <stdint.h>
 #include "compiler.h"
 #include "status_codes.h"
 #include "conf_twis.h"
 
-/**
+/** 
  * \name TWI Driver Compatibility
  * Codes for UC3 devices using TWI modules can easily be ported
  * to UC3 devices with TWIM module
@@ -128,19 +128,16 @@ typedef struct
 }
 twis_slave_fct_t;
 
-/**
- * \brief Initialize the TWI Slave Module
- *
- * \param twis         Base address of the TWI (i.e. &AVR32_TWI).
- * \param *opt        Options for initializing the TWI module
- *                    (see \ref twis_options_t)
- * \param *slave_fct  Pointer on application functions
- */
+// Function Declarations
+
 status_code_t twis_slave_init (volatile avr32_twis_t *twis,
 		const twis_options_t *opt, const twis_slave_fct_t *slave_fct);
+
+void twis_send_data_ack(volatile avr32_twis_t *twis);
+
+void twis_send_data_nack(volatile avr32_twis_t *twis, bool stop_callback);
 
 /**
  * \}
  */
-
 #endif // _TWIS_H_

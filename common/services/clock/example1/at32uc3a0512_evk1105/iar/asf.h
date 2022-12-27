@@ -57,6 +57,9 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: EVK1105 board support
 #include <led.h>
 
@@ -78,8 +81,5 @@
 
 // From module: System Clock Control - UC3 A implementation
 #include <sysclk.h>
-
-// From module: TIMING - Delay routines
-#include <delay.h>
 
 #endif // ASF_H

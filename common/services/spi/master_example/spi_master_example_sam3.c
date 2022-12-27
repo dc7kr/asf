@@ -3,7 +3,7 @@
  *
  * \brief Example of usage of the SPI Master Mode Basic Services.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -78,12 +78,7 @@
  *
  */
 
-
-#include "compiler.h"
-#include "board.h"
-#include "gpio.h"
-#include "sysclk.h"
-#include "spi_master.h"
+#include "asf.h"
 #include "conf_spi_master_example.h"
 
 uint16_t status;	// Status value for dataflash.

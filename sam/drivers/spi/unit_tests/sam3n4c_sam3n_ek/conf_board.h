@@ -3,7 +3,7 @@
  *
  * \brief Board configuration.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -42,20 +42,14 @@
 #ifndef CONF_BOARD_H_INCLUDED
 #define CONF_BOARD_H_INCLUDED
 
-/** Define to avoid disabling the watchdog at startup. */
-//#define CONF_BOARD_KEEP_WATCHDOG_AT_INIT
-
 /** Enable COM Port. */
 #define CONF_BOARD_UART_CONSOLE
 
 /** SPI pins initialization */
 #define CONF_BOARD_SPI
+
 /** SPI pin NPCS3 initialization */
 #define CONF_BOARD_SPI_NPCS3
-/** SPI pins NPCS3 PIO index */
-#define BOARD_SPI_NPCS3_GPIO        SPI_NPCS3_GPIO_PA22
-/** SPI pins NPCS3 PIO configuration */
-#define BOARD_SPI_NPCS3_GPIO_FLAGS  SPI_NPCS3_GPIO_PA22_FLAGS
 
 /** USART Hw ID used by the console (UART0). */
 #define CONSOLE_UART_ID          ID_UART0

@@ -3,7 +3,7 @@
  *
  * \brief Sensors Xplained Accelerometer Drop Detection Demo
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -43,7 +43,7 @@
  * \section intro Introduction
  * This is an application illustrating a few basic examples on how to use
  * the \ref mems_sensor_api along with sensor events and the
- * \ref gfx_mono_font facilities in the AVR Software Framework.
+ * \ref gfx_mono_font facilities in the ASF.
  *
  * \section files Main Files
  * - inertial_sensor.c Main application module

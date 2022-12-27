@@ -45,12 +45,14 @@ PART = sam3s4c
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam_drivers_pmc_unit_tests_sam3s_ek_flash.elf
-TARGET_SRAM = sam_drivers_pmc_unit_tests_sam3s_ek_sram.elf
+TARGET_FLASH = pmc_unit_tests_flash.elf
+TARGET_SRAM = pmc_unit_tests_sram.elf
 
 # List of C source files.
 CSRCS = \
        common/services/clock/sam3s/sysclk.c               \
+       common/services/serial/usart_serial.c              \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c                     \
@@ -74,6 +76,7 @@ INC_PATH = \
        common/services/clock                              \
        common/services/gpio                               \
        common/services/serial                             \
+       common/services/serial/sam_uart                    \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
        sam/boards                                         \
@@ -87,6 +90,7 @@ INC_PATH = \
        sam/utils/cmsis/sam3s/include                      \
        sam/utils/cmsis/sam3s/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include \
        ./sam/drivers/pmc/unit_tests/sam3s4c_sam3s_ek/gcc 
 

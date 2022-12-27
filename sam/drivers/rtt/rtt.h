@@ -3,7 +3,7 @@
  *
  * \brief Real-time Timer (RTT) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -52,12 +52,12 @@ extern "C" {
 /**INDENT-ON**/
 /// @endcond
 
-uint32_t rtt_init(Rtt *p_rtt, uint16_t w_prescaler);
-void rtt_enable_interrupt(Rtt *p_rtt, uint32_t dw_sources);
-void rtt_disable_interrupt(Rtt *p_rtt, uint32_t dw_sources);
+uint32_t rtt_init(Rtt *p_rtt, uint16_t us_prescaler);
+void rtt_enable_interrupt(Rtt *p_rtt, uint32_t ul_sources);
+void rtt_disable_interrupt(Rtt *p_rtt, uint32_t ul_sources);
 uint32_t rtt_read_timer_value(Rtt *p_rtt);
 uint32_t rtt_get_status(Rtt *p_rtt);
-uint32_t rtt_write_alarm_time(Rtt *p_rtt, uint32_t dw_alarm_time);
+uint32_t rtt_write_alarm_time(Rtt *p_rtt, uint32_t ul_alarm_time);
 
 /// @cond 0
 /**INDENT-OFF**/

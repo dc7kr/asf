@@ -624,7 +624,7 @@ bool sensor_selftest (sensor_t *sensor, int *test_code, void *arg)
 }
 
 /**
- * @brief AVR Software Framework Common Sensor API version
+ * @brief Atmel Software Framework Common Sensor API version
  *
  * This routine Gets the Sensor API version number and release date.
  *
@@ -633,8 +633,8 @@ bool sensor_selftest (sensor_t *sensor, int *test_code, void *arg)
 const char * sensor_api_version (void)
 {
 	static const char sensors_xplained_version [] =
-		"$Id: sensor.c 28664 2012-02-16 15:47:17Z xleprevo $ $Revision: 28664 $ "
-		"$Date: 2012-02-16 16:47:17 +0100 (Thu, 16 Feb 2012) $";
+		"$Id: sensor.c 29446 2012-03-02 12:51:57Z xleprevo $ $Revision: 29446 $ "
+		"$Date: 2012-03-02 13:51:57 +0100 (Fri, 02 Mar 2012) $";
 
 	return sensors_xplained_version;
 }

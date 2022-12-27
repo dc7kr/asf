@@ -3,7 +3,7 @@
  *
  * \brief Synchronous Serial Controller (SSC) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -75,27 +75,27 @@ enum ssc_return_code {
 //! Data frame structure.
 typedef struct {
 	//! Data bits length per transfer, should be 0 to 31.
-	uint32_t dw_datlen;
+	uint32_t ul_datlen;
 	//! Bit sequence LSBF or MSBF.
 	//! For receiver configuration, SSC_RFMR_MSBF or 0.
 	//! For transmitter configuration, SSC_TFMR_MSBF or 0.
-	uint32_t dw_msbf;
+	uint32_t ul_msbf;
 	//! Data number per frame, should be 0 to 15.
-	uint32_t dw_datnb;
+	uint32_t ul_datnb;
 	//! Frame Sync. length should be 0 to 15.
-	uint32_t dw_fslen;
+	uint32_t ul_fslen;
 	//! Frame Sync. length extension field, should be 0 to 15.
-	uint32_t dw_fslen_ext;
+	uint32_t ul_fslen_ext;
 	//! Frame Sync. output selection.
 	//! For receiver configuration, one of SSC_RFMR_FSOS_NONE, SSC_RFMR_FSOS_NEGATIVE, SSC_RFMR_FSOS_POSITIVE,
 	//! SSC_RFMR_FSOS_LOW, SSC_RFMR_FSOS_HIGH or SSC_RFMR_FSOS_TOGGLING.
 	//! For transmitter configuration, one of SSC_TFMR_FSOS_NONE, SSC_TFMR_FSOS_NEGATIVE, SSC_TFMR_FSOS_POSITIVE
 	//! SSC_TFMR_FSOS_LOW, SSC_TFMR_FSOS_HIGH, SSC_TFMR_FSOS_TOGGLING,
-	uint32_t dw_fsos;
+	uint32_t ul_fsos;
 	//! Frame Sync. edge detection.
 	//! For receiver configuration, SSC_RFMR_FSEDGE_POSITIVE or SSC_RFMR_FSEDGE_NEGATIVE.
 	//! For transmitter configuration, SSC_TFMR_FSEDGE_POSITIVE or SSC_TFMR_FSEDGE_NEGATIVE.
-	uint32_t dw_fsedge;
+	uint32_t ul_fsedge;
 } data_frame_opt_t;
 
 //! Clock mode structure.
@@ -103,23 +103,23 @@ typedef struct {
 	//! Communication clock selection.
 	//! For receiver configuration, one of SSC_RCMR_CKS_MCK, SSC_RCMR_CKS_TK or SSC_RCMR_CKS_RK.
 	//! For transmitter configuration, one of SSC_TCMR_CKS_MCK, SSC_TCMR_CKS_TK or SSC_TCMR_CKS_RK.
-	uint32_t dw_cks;
+	uint32_t ul_cks;
 	//! Communication clock output mode selection.
 	//! For receiver configuration, one of SSC_RCMR_CKO_NONE, SSC_RCMR_CKO_CONTINUOUS or SSC_RCMR_CKO_TRANSFER.
 	//! For transmitter configuration, one of SSC_TCMR_CKO_NONE, SSC_TCMR_CKO_CONTINUOUS or SSC_TCMR_CKO_TRANSFER.
-	uint32_t dw_cko;
+	uint32_t ul_cko;
 	//! Communication clock inversion.
 	//! For receiver configuration, SSC_RCMR_CKI or 0.
 	//! For transmitter configuration, SSC_TCMR_CKI or 0.
-	uint32_t dw_cki;
+	uint32_t ul_cki;
 	//! Communication clock gating selection.
 	//! For receiver configuration, one of SSC_RCMR_CKG_NONE, SSC_RCMR_CKG_CONTINUOUS and SSC_RCMR_CKG_TRANSFER.
 	//! For transmitter configuration, one of SSC_TCMR_CKG_NONE, SSC_TCMR_CKG_CONTINUOUS and SSC_TCMR_CKG_TRANSFER.
-	uint32_t dw_ckg;
+	uint32_t ul_ckg;
 	//! Period divider selection, should be 0 to 255.
-	uint32_t dw_period;
+	uint32_t ul_period;
 	//! Communication start delay, should be 0 to 255.
-	uint32_t dw_sttdly;
+	uint32_t ul_sttdly;
 	//! Communication start selection.
 	//! For receiver configuration, one of SSC_RCMR_START_CONTINUOUS, SSC_RCMR_START_TRANSMIT, SSC_RCMR_START_RF_LOW,
 	//! SSC_RCMR_START_RF_HIGH, SSC_RCMR_START_RF_FALLING, SSC_RCMR_START_RF_RISING, SSC_RCMR_START_RF_LEVEL, 
@@ -127,7 +127,7 @@ typedef struct {
 	//! For transmitter configuration, one of SSC_TCMR_START_CONTINUOUS, SSC_TCMR_START_TRANSMIT, SSC_TCMR_START_RF_LOW,
 	//! SSC_TCMR_START_RF_HIGH, SSC_TCMR_START_RF_FALLING, SSC_TCMR_START_RF_RISING, SSC_TCMR_START_RF_LEVEL, 
 	//! SSC_TCMR_START_RF_EDGE or SSC_TCMR_START_CMP_0.
-	uint32_t dw_start_sel;
+	uint32_t ul_start_sel;
 } clock_opt_t;
 
 //! SSC working role in I2S mode.
@@ -150,11 +150,11 @@ enum {
 	SSC_AUDIO_STERO = (SSC_AUDIO_CH_LEFT | SSC_AUDIO_CH_RIGHT)
 };
 
-uint32_t ssc_set_clock_divider(Ssc *p_ssc, uint32_t dw_bitclock, uint32_t dw_mck);
-void ssc_i2s_set_transmitter(Ssc *p_ssc, uint32_t dw_mode,
-		uint32_t dw_cks, uint32_t dw_ch_mode, uint32_t dw_datlen);
-void ssc_i2s_set_receiver(Ssc *p_ssc, uint32_t dw_mode,
-		uint32_t dw_cks, uint32_t dw_ch_mode, uint32_t dw_datlen);
+uint32_t ssc_set_clock_divider(Ssc *p_ssc, uint32_t ul_bitclock, uint32_t ul_mck);
+void ssc_i2s_set_transmitter(Ssc *p_ssc, uint32_t ul_mode,
+		uint32_t ul_cks, uint32_t ul_ch_mode, uint32_t ul_datlen);
+void ssc_i2s_set_receiver(Ssc *p_ssc, uint32_t ul_mode,
+		uint32_t ul_cks, uint32_t ul_ch_mode, uint32_t ul_datlen);
 void ssc_reset(Ssc *p_ssc);
 void ssc_enable_rx(Ssc *p_ssc);
 void ssc_disable_rx(Ssc *p_ssc);
@@ -162,16 +162,16 @@ void ssc_enable_tx(Ssc *p_ssc);
 void ssc_disable_tx(Ssc *p_ssc);
 void ssc_set_normal_mode(Ssc *p_ssc);
 void ssc_set_loop_mode(Ssc *p_ssc);
-void ssc_set_rx_stop_selection(Ssc *p_ssc, uint32_t dw_sel);
-void ssc_set_td_default_level(Ssc *p_ssc, uint32_t dw_level);
+void ssc_set_rx_stop_selection(Ssc *p_ssc, uint32_t ul_sel);
+void ssc_set_td_default_level(Ssc *p_ssc, uint32_t ul_level);
 void ssc_enable_tx_frame_sync_data(Ssc *p_ssc);
 void ssc_disable_tx_frame_sync_data(Ssc *p_ssc);
 void ssc_set_receiver(Ssc *p_ssc, clock_opt_t *p_rx_clk_opt, data_frame_opt_t *p_rx_data_frame);
 void ssc_set_transmitter(Ssc *p_ssc, clock_opt_t *p_tx_clk_opt, data_frame_opt_t *p_tx_data_frame);
-void ssc_set_rx_compare(Ssc *p_ssc, uint32_t dw_id, uint32_t dw_value);
-uint32_t ssc_get_rx_compare(Ssc *p_ssc, uint32_t dw_id);
-void ssc_enable_interrupt(Ssc *p_ssc, uint32_t dw_sources);
-void ssc_disable_interrupt(Ssc *p_ssc, uint32_t dw_sources);
+void ssc_set_rx_compare(Ssc *p_ssc, uint32_t ul_id, uint32_t ul_value);
+uint32_t ssc_get_rx_compare(Ssc *p_ssc, uint32_t ul_id);
+void ssc_enable_interrupt(Ssc *p_ssc, uint32_t ul_sources);
+void ssc_disable_interrupt(Ssc *p_ssc, uint32_t ul_sources);
 uint32_t ssc_get_interrupt_mask(Ssc *p_ssc);
 uint32_t ssc_get_status(Ssc *p_ssc);
 uint32_t ssc_is_tx_ready(Ssc *p_ssc);
@@ -186,15 +186,15 @@ uint32_t ssc_is_rx_buf_full(Ssc *p_ssc);
 uint32_t ssc_is_tx_buf_empty(Ssc *p_ssc);
 Pdc *ssc_get_pdc_base(Ssc *p_ssc);
 #endif
-uint32_t ssc_write(Ssc *p_ssc, uint32_t dw_frame);
-uint32_t ssc_read(Ssc *p_ssc, uint32_t *dw_data);
-void ssc_write_sync_data(Ssc *p_ssc, uint32_t dw_frame);
+uint32_t ssc_write(Ssc *p_ssc, uint32_t ul_frame);
+uint32_t ssc_read(Ssc *p_ssc, uint32_t *ul_data);
+void ssc_write_sync_data(Ssc *p_ssc, uint32_t ul_frame);
 uint32_t ssc_read_sync_data(Ssc *p_ssc);
 #if (SAM3XA || SAM3U)
 void *ssc_get_tx_access(Ssc *p_ssc);
 void *ssc_get_rx_access(Ssc *p_ssc);
 #endif
-void ssc_set_writeprotect(Ssc *p_ssc, uint32_t dw_enable);
+void ssc_set_writeprotect(Ssc *p_ssc, uint32_t ul_enable);
 uint32_t ssc_get_writeprotect_status(Ssc *p_ssc);
 
 /// @cond 0

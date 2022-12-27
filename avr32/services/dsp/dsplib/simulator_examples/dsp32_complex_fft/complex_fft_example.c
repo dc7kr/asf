@@ -3,7 +3,7 @@
  *
  * \brief 32 bits complex FFT program test
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,7 +40,7 @@
  */
 
 /**
- * \defgroup group_avr32_services_dsplib_simulator_example_dsp32_complex_fft DSPLIB - 32-bit fixed-point complex FFT example
+ * \mainpage
  * \section intro Introduction
  * This example demonstrates how to use the 32-bit complex FFT function.\n
  * To visualize the result, you may set a breakpoint after the sprintf and

@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for GPBR driver.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -145,12 +145,12 @@ void RTT_Handler(void)
  */
 static void gpbr_test_configure_rtt(void)
 {
-	uint32_t dw_previous_time;
+	uint32_t ul_previous_time;
 
 	/* Configure RTT for a 1 second tick interrupt */
 	rtt_init(RTT, 32768);
-	dw_previous_time = rtt_read_timer_value(RTT);
-	while (dw_previous_time == rtt_read_timer_value(RTT));
+	ul_previous_time = rtt_read_timer_value(RTT);
+	while (ul_previous_time == rtt_read_timer_value(RTT));
 
 	/* Enable RTT alarms interrupt to return from backup mode */
 	NVIC_DisableIRQ(RTT_IRQn);
@@ -167,42 +167,42 @@ static void gpbr_test_configure_rtt(void)
  */
 static void run_gpbr_test(const struct test_case *test)
 {
-	uint32_t dw_read_value = 0;
-	uint32_t dw_last_page_addr = LAST_PAGE_ADDRESS;
-	uint32_t *dw_back_mode_flag_addr = (uint32_t *) dw_last_page_addr;
-	uint32_t dw_normal_mode_flag = NORMAL_MODE_FLAG;
-	uint32_t dw_backup_mode_flag = BACKUP_MODE_FLAG;
+	uint32_t ul_read_value = 0;
+	uint32_t ul_last_page_addr = LAST_PAGE_ADDRESS;
+	uint32_t *ul_back_mode_flag_addr = (uint32_t *) ul_last_page_addr;
+	uint32_t ul_normal_mode_flag = NORMAL_MODE_FLAG;
+	uint32_t ul_backup_mode_flag = BACKUP_MODE_FLAG;
 	uint8_t uc_write_success_flag = 1;
 
 	/* Initialize flash: 6 wait states for flash writing. */
 	flash_init(FLASH_ACCESS_MODE_128, FLASH_WAIT_STATE_NBR);
 
 	/* Unlock flash page. */
-	flash_unlock(dw_last_page_addr,
-			dw_last_page_addr + IFLASH_PAGE_SIZE - 1, NULL, NULL);
+	flash_unlock(ul_last_page_addr,
+			ul_last_page_addr + IFLASH_PAGE_SIZE - 1, NULL, NULL);
 
-	if ((*dw_back_mode_flag_addr) == BACKUP_MODE_FLAG) {
+	if ((*ul_back_mode_flag_addr) == BACKUP_MODE_FLAG) {
 		/* Read the data from GPBR0 */
-		dw_read_value = gpbr_read(GPBR0);
+		ul_read_value = gpbr_read(GPBR0);
 
 #if SAM4S
 		/* Erase flag page */
-		flash_erase_page(dw_last_page_addr,
+		flash_erase_page(ul_last_page_addr,
 			IFLASH_ERASE_PAGES_4);
 
 		/* Clear backup mode flag */
-		if (flash_write(dw_last_page_addr,
+		if (flash_write(ul_last_page_addr,
 						(uint8_t *) &
-						dw_normal_mode_flag,
+						ul_normal_mode_flag,
 						sizeof(uint32_t),
 						0) != FLASH_RC_OK) {
 			uc_write_success_flag = 0;
 		}
 #else
 		/* Clear backup mode flag */
-		if (flash_write(dw_last_page_addr,
+		if (flash_write(ul_last_page_addr,
 						(uint8_t *) &
-						dw_normal_mode_flag,
+						ul_normal_mode_flag,
 						sizeof(uint32_t),
 						1) != FLASH_RC_OK) {
 			uc_write_success_flag = 0;
@@ -211,7 +211,7 @@ static void run_gpbr_test(const struct test_case *test)
 
 		/* Return test result */
 		test_assert_true(test,
-				(dw_read_value == GPBR_UNIT_TEST_CONST_DATA)
+				(ul_read_value == GPBR_UNIT_TEST_CONST_DATA)
 				&& uc_write_success_flag,
 				"Test GPBR: GPBR write error!");
 
@@ -235,18 +235,18 @@ static void run_gpbr_test(const struct test_case *test)
 
 #if SAM4S
 	/* Erase flag page */
-	flash_erase_page(dw_last_page_addr,
+	flash_erase_page(ul_last_page_addr,
 			IFLASH_ERASE_PAGES_4);
 
 	/* Write backup mode flag */
-	if (flash_write(dw_last_page_addr, (uint8_t *) & dw_backup_mode_flag,
+	if (flash_write(ul_last_page_addr, (uint8_t *) & ul_backup_mode_flag,
 					sizeof(uint32_t), 0) != FLASH_RC_OK) {
 		/* Flag wirte failed, return error */
 		test_assert_true(test, 0, "Test GPBR: GPBR write error!");
 	}
 #else
 	/* Write backup mode flag */
-	if (flash_write(dw_last_page_addr, (uint8_t *) & dw_backup_mode_flag,
+	if (flash_write(ul_last_page_addr, (uint8_t *) & ul_backup_mode_flag,
 					sizeof(uint32_t), 1) != FLASH_RC_OK) {
 		/* Flag wirte failed, return error */
 		test_assert_true(test, 0, "Test GPBR: GPBR write error!");

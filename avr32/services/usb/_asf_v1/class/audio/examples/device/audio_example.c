@@ -1,10 +1,14 @@
-/*****************************************************************************
- *
+/**
  * \file
  *
- * \brief Main file of the USB AUDIO example.
+ * \mainpage
+ * \section title Main file of the USB AUDIO example.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * \section file File(s)
+ * - \ref audio_example.c
+ * - \ref device_audio_task.c
+ *
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

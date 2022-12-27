@@ -1,6 +1,0 @@
-<workspace>
-	<batchBuild></batchBuild>
-	<project>
-		<path>$WS_DIR$\xmega_drivers_rtc_example_stk600_rc064x_atxmega384c3.ewp</path>
-	</project>
-</workspace>

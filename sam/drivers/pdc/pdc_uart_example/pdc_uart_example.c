@@ -3,7 +3,7 @@
  *
  * \brief PDC_UART Example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -80,14 +80,7 @@
  *
  */
 
-#include "board.h"
-#include "sysclk.h"
-#include "gpio.h"
-#include "exceptions.h"
-#include "pio.h"
-#include "uart.h"
-#include "pdc.h"
-#include "pmc.h"
+#include "asf.h"
 #include "conf_board.h"
 #include "conf_pdc_uart_example.h"
 
@@ -99,11 +92,11 @@
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 
 /* Pdc tansfer buffer */
-uint8_t pdc_buffer[BUFFER_SIZE];
+uint8_t g_uc_pdc_buffer[BUFFER_SIZE];
 /* PDC data packet for transfer */
-pdc_packet_t pdc_uart_packet;
+pdc_packet_t g_pdc_uart_packet;
 /* Pointer to UART PDC register base */
-Pdc *p_uart_pdc;
+Pdc *g_p_uart_pdc;
 
 /**
  * \brief Interrupt handler for UART interrupt.
@@ -113,8 +106,8 @@ void console_uart_irq_handler(void)
 	/* Get UART status and check if PDC receive buffer is full */
 	if ((uart_get_status(CONSOLE_UART) & UART_SR_RXBUFF) == UART_SR_RXBUFF) {
 		/* Configure PDC for data receive and transmit */
-		pdc_rx_init(p_uart_pdc, &pdc_uart_packet, NULL);
-		pdc_tx_init(p_uart_pdc, &pdc_uart_packet, NULL);
+		pdc_rx_init(g_p_uart_pdc, &g_pdc_uart_packet, NULL);
+		pdc_tx_init(g_p_uart_pdc, &g_pdc_uart_packet, NULL);
 	}
 }
 
@@ -164,17 +157,17 @@ int main(void)
 	puts(STRING_HEADER);
 
 	/* Get pointer to UART PDC register base */
-	p_uart_pdc = uart_get_pdc_base(CONSOLE_UART);
+	g_p_uart_pdc = uart_get_pdc_base(CONSOLE_UART);
 
 	/* Initialize PDC data packet for transfer */
-	pdc_uart_packet.dw_addr = (uint32_t) pdc_buffer;
-	pdc_uart_packet.dw_size = BUFFER_SIZE;
+	g_pdc_uart_packet.ul_addr = (uint32_t) g_uc_pdc_buffer;
+	g_pdc_uart_packet.ul_size = BUFFER_SIZE;
 
 	/* Configure PDC for data receive */
-	pdc_rx_init(p_uart_pdc, &pdc_uart_packet, NULL);
+	pdc_rx_init(g_p_uart_pdc, &g_pdc_uart_packet, NULL);
 
 	/* Enable PDC transfers */
-	pdc_enable_transfer(p_uart_pdc, PERIPH_PTCR_RXTEN | PERIPH_PTCR_TXTEN);
+	pdc_enable_transfer(g_p_uart_pdc, PERIPH_PTCR_RXTEN | PERIPH_PTCR_TXTEN);
 
 	/* Enable UART IRQ */
 	uart_enable_interrupt(CONSOLE_UART, UART_IER_RXBUFF);

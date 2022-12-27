@@ -3,7 +3,7 @@
  *
  * \brief API driver for HX8347A TFT display component.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -382,7 +382,7 @@ static void hx8347a_delay(uint32_t ul_ms)
 static void hx8347a_check_box_coordinates(uint32_t *p_ul_x1, uint32_t *p_ul_y1,
 		uint32_t *p_ul_x2, uint32_t *p_ul_y2)
 {
-	uint32_t dw;
+	uint32_t ul;
 
 	if (*p_ul_x1 >= HX8347A_LCD_WIDTH) {
 		*p_ul_x1 = HX8347A_LCD_WIDTH - 1;
@@ -401,15 +401,15 @@ static void hx8347a_check_box_coordinates(uint32_t *p_ul_x1, uint32_t *p_ul_y1,
 	}
 
 	if (*p_ul_x1 > *p_ul_x2) {
-		dw = *p_ul_x1;
+		ul = *p_ul_x1;
 		*p_ul_x1 = *p_ul_x2;
-		*p_ul_x2 = dw;
+		*p_ul_x2 = ul;
 	}
 
 	if (*p_ul_y1 > *p_ul_y2) {
-		dw = *p_ul_y1;
+		ul = *p_ul_y1;
 		*p_ul_y1 = *p_ul_y2;
-		*p_ul_y2 = dw;
+		*p_ul_y2 = ul;
 	}
 }
 
@@ -573,7 +573,7 @@ uint32_t hx8347a_init(struct hx8347a_opt_t *p_opt)
 	hx8347a_write_register(HX8347A_CYCLE_CTRL7,
 			HX8347A_CYCLE_CTRL7_GDOF(0xF0));
 
-	hx8347a_set_window(0, 0, p_opt->dw_width, p_opt->dw_height);
+	hx8347a_set_window(0, 0, p_opt->ul_width, p_opt->ul_height);
 	hx8347a_set_foreground_color(p_opt->foreground_color);
 	hx8347a_set_cursor_position(0, 0);
 	return 0;
@@ -640,12 +640,12 @@ void hx8347a_set_foreground_color(hx8347a_color_t us_color)
  */
 void hx8347a_fill(hx8347a_color_t us_color)
 {
-	uint32_t dw;
+	uint32_t i;
 
 	hx8347a_set_cursor_position(0, 0);
 	hx8347a_write_ram_prepare();
 
-	for (dw = HX8347A_LCD_WIDTH * HX8347A_LCD_HEIGHT; dw > 0; dw--) {
+	for (i = HX8347A_LCD_WIDTH * HX8347A_LCD_HEIGHT; i > 0; i--) {
 		hx8347a_write_ram(us_color);
 	}
 }

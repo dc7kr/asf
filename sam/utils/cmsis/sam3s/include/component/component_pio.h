@@ -117,12 +117,10 @@ typedef struct {
   RoReg PIO_PCRHR;      /**< \brief (Pio Offset: 0x164) Parallel Capture Reception Holding Register */
   RwReg PIO_RPR;        /**< \brief (Pio Offset: 0x168) Receive Pointer Register */
   RwReg PIO_RCR;        /**< \brief (Pio Offset: 0x16C) Receive Counter Register */
-  RwReg PIO_TPR;        /**< \brief (Pio Offset: 0x170) Transmit Pointer Register */
-  RwReg PIO_TCR;        /**< \brief (Pio Offset: 0x174) Transmit Counter Register */
+  RoReg Reserved14[2];
   RwReg PIO_RNPR;       /**< \brief (Pio Offset: 0x178) Receive Next Pointer Register */
   RwReg PIO_RNCR;       /**< \brief (Pio Offset: 0x17C) Receive Next Counter Register */
-  RwReg PIO_TNPR;       /**< \brief (Pio Offset: 0x180) Transmit Next Pointer Register */
-  RwReg PIO_TNCR;       /**< \brief (Pio Offset: 0x184) Transmit Next Counter Register */
+  RoReg Reserved15[2];
   WoReg PIO_PTCR;       /**< \brief (Pio Offset: 0x188) Transfer Control Register */
   RoReg PIO_PTSR;       /**< \brief (Pio Offset: 0x18C) Transfer Status Register */
 } Pio;
@@ -1633,14 +1631,6 @@ typedef struct {
 #define PIO_RCR_RXCTR_Pos 0
 #define PIO_RCR_RXCTR_Msk (0xffffu << PIO_RCR_RXCTR_Pos) /**< \brief (PIO_RCR) Receive Counter Register */
 #define PIO_RCR_RXCTR(value) ((PIO_RCR_RXCTR_Msk & ((value) << PIO_RCR_RXCTR_Pos)))
-/* -------- PIO_TPR : (PIO Offset: 0x170) Transmit Pointer Register -------- */
-#define PIO_TPR_TXPTR_Pos 0
-#define PIO_TPR_TXPTR_Msk (0xffffffffu << PIO_TPR_TXPTR_Pos) /**< \brief (PIO_TPR) Transmit Counter Register */
-#define PIO_TPR_TXPTR(value) ((PIO_TPR_TXPTR_Msk & ((value) << PIO_TPR_TXPTR_Pos)))
-/* -------- PIO_TCR : (PIO Offset: 0x174) Transmit Counter Register -------- */
-#define PIO_TCR_TXCTR_Pos 0
-#define PIO_TCR_TXCTR_Msk (0xffffu << PIO_TCR_TXCTR_Pos) /**< \brief (PIO_TCR) Transmit Counter Register */
-#define PIO_TCR_TXCTR(value) ((PIO_TCR_TXCTR_Msk & ((value) << PIO_TCR_TXCTR_Pos)))
 /* -------- PIO_RNPR : (PIO Offset: 0x178) Receive Next Pointer Register -------- */
 #define PIO_RNPR_RXNPTR_Pos 0
 #define PIO_RNPR_RXNPTR_Msk (0xffffffffu << PIO_RNPR_RXNPTR_Pos) /**< \brief (PIO_RNPR) Receive Next Pointer */
@@ -1649,14 +1639,6 @@ typedef struct {
 #define PIO_RNCR_RXNCTR_Pos 0
 #define PIO_RNCR_RXNCTR_Msk (0xffffu << PIO_RNCR_RXNCTR_Pos) /**< \brief (PIO_RNCR) Receive Next Counter */
 #define PIO_RNCR_RXNCTR(value) ((PIO_RNCR_RXNCTR_Msk & ((value) << PIO_RNCR_RXNCTR_Pos)))
-/* -------- PIO_TNPR : (PIO Offset: 0x180) Transmit Next Pointer Register -------- */
-#define PIO_TNPR_TXNPTR_Pos 0
-#define PIO_TNPR_TXNPTR_Msk (0xffffffffu << PIO_TNPR_TXNPTR_Pos) /**< \brief (PIO_TNPR) Transmit Next Pointer */
-#define PIO_TNPR_TXNPTR(value) ((PIO_TNPR_TXNPTR_Msk & ((value) << PIO_TNPR_TXNPTR_Pos)))
-/* -------- PIO_TNCR : (PIO Offset: 0x184) Transmit Next Counter Register -------- */
-#define PIO_TNCR_TXNCTR_Pos 0
-#define PIO_TNCR_TXNCTR_Msk (0xffffu << PIO_TNCR_TXNCTR_Pos) /**< \brief (PIO_TNCR) Transmit Counter Next */
-#define PIO_TNCR_TXNCTR(value) ((PIO_TNCR_TXNCTR_Msk & ((value) << PIO_TNCR_TXNCTR_Pos)))
 /* -------- PIO_PTCR : (PIO Offset: 0x188) Transfer Control Register -------- */
 #define PIO_PTCR_RXTEN (0x1u << 0) /**< \brief (PIO_PTCR) Receiver Transfer Enable */
 #define PIO_PTCR_RXTDIS (0x1u << 1) /**< \brief (PIO_PTCR) Receiver Transfer Disable */

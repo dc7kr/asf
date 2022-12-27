@@ -4,7 +4,7 @@
  * \brief USBC host driver
  * Compliance with common driver UHD
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -713,7 +713,11 @@ bool uhd_ep_alloc(
 				AVR32_USBC_UPCFG0_PTOKEN_IN:
 				AVR32_USBC_UPCFG0_PTOKEN_OUT,
 		ep_type = ep_desc->bmAttributes&USB_EP_TYPE_MASK;
-		ep_interval = ep_desc->bInterval;
+		if (ep_type == USB_EP_TYPE_BULK) {
+			ep_interval = 0; // Ignore bInterval for bulk endpoint
+		} else {
+			ep_interval = ep_desc->bInterval;
+		}
 		uhd_configure_pipe(pipe, ep_interval, ep_addr, ep_type, ep_dir,
 				le16_to_cpu(ep_desc->wMaxPacketSize),
 				0);
@@ -1435,7 +1439,7 @@ static void uhd_ctrl_phase_data_out(void)
 	uhd_udesc_rst_buf0_size(0);
 
 	// Link the user buffer directly on USB hardware DMA
-	memcpy(uhd_ctrl_request_first->payload, uhd_ctrl_buffer, nb_trans);
+	memcpy(uhd_ctrl_buffer, uhd_ctrl_request_first->payload, nb_trans);
 
 	// Update counters
 	uhd_ctrl_request_first->payload += nb_trans;
@@ -1780,8 +1784,13 @@ static void uhd_pipe_interrupt(uint8_t pipe)
  */
 static void uhd_ep_abort_pipe(uint8_t pipe, uhd_trans_status_t status)
 {
-	// Stop transfer
-	uhd_reset_pipe(pipe);
+	unsigned long config;
+
+	// Reset pipe but keep configuration
+	config = USBC_ARRAY(upcfg0,pipe);
+	uhd_disable_pipe(pipe);
+	uhd_enable_pipe(pipe);
+	USBC_ARRAY(upcfg0,pipe) = config;
 
 	// Interrupts has been reseted, then renable it
 	uhd_enable_stall_interrupt(pipe);

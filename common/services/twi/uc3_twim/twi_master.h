@@ -7,7 +7,7 @@
  * This file defines a useful set of functions for the TWIM interface on AVR UC3
  * devices.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -52,9 +52,10 @@
 #include "status_codes.h"
 #include "twim.h"
 
+typedef volatile avr32_twi_t *twi_master_t;
 typedef twi_options_t twi_master_options_t;
 
-static inline int twi_master_setup(volatile avr32_twim_t *twi, twi_master_options_t *opt)
+static inline int twi_master_setup(twi_master_t twi, twi_master_options_t *opt)
 {
   int status;
   opt->pba_hz = sysclk_get_pba_hz();
@@ -71,8 +72,9 @@ static inline int twi_master_setup(volatile avr32_twim_t *twi, twi_master_option
   return(status);
 }
 
-extern int twi_master_write(volatile avr32_twim_t *twi, const twi_package_t *package);
-extern int twi_master_read(volatile avr32_twim_t *twi, const twi_package_t *package);
-extern void twi_master_enable(volatile avr32_twim_t *twi);
-extern void twi_master_disable(volatile avr32_twim_t *twi);
+int twi_master_write(twi_master_t twi, const twi_package_t *package);
+int twi_master_read(twi_master_t twi, const twi_package_t *package);
+void twi_master_enable(twi_master_t twi);
+void twi_master_disable(twi_master_t twi);
+
 #endif  // _TWI_MASTER_H_

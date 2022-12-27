@@ -8,7 +8,7 @@
  *
  * To use this board define BOARD=XMEGA_A3BU_XPLAINED.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -159,7 +159,19 @@
 //! MOSI pin
 #define AT45DBX_MASTER_MOSI             IOPORT_CREATE_PIN(PORTD, 3)
 //! MISO pin
-#define AT45DBX_MASTER_MISO		IOPORT_CREATE_PIN(PORTD, 2)
+#define AT45DBX_MASTER_MISO             IOPORT_CREATE_PIN(PORTD, 2)
+//@}
+
+//! \name MXT143E Xplained top module
+//@{
+#define MXT143E_XPLAINED_USART_SPI      &USARTC1
+#define MXT143E_XPLAINED_CS             IOPORT_CREATE_PIN(PORTC, 4)
+#define MXT143E_XPLAINED_SCK            IOPORT_CREATE_PIN(PORTC, 7)
+#define MXT143E_XPLAINED_MOSI           IOPORT_CREATE_PIN(PORTC, 5)
+#define MXT143E_XPLAINED_MISO           IOPORT_CREATE_PIN(PORTC, 6)
+#define MXT143E_XPLAINED_DC             IOPORT_CREATE_PIN(PORTC, 3)
+#define MXT143E_XPLAINED_BACKLIGHT      IOPORT_CREATE_PIN(PORTA, 4)
+#define MXT143E_XPLAINED_LCD_RESET      IOPORT_CREATE_PIN(PORTA, 6)
 //@}
 
 /**
@@ -327,6 +339,14 @@
  */
 #  if !defined(CONF_BOARD_ENABLE_USARTD0)
 #    define CONF_BOARD_ENABLE_USARTD0
+#  endif
+
+/**
+ * \def CONF_BOARD_ENABLE_USARTE0
+ * \brief Initialize IO pins for USART 0 on port E
+ */
+#  if !defined(CONF_BOARD_ENABLE_USARTE0)
+#    define CONF_BOARD_ENABLE_USARTE0
 #  endif
 
 //@}

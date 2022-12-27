@@ -3,7 +3,7 @@
  *
  * \brief Cyclic Redundancy Check module driver
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -53,7 +53,7 @@ extern "C" {
 /**
  * \defgroup crc_group CRC module driver
  *
- * See \ref crc_quickstart.
+ * See \ref xmega_crc_quickstart.
  *
  * \brief Low-level driver implementation for the AVR XMEGA AU Cyclic
  * Redundancy Check (CRC) module.
@@ -115,7 +115,7 @@ uint32_t crc_dma_checksum_stop(void);
 #endif
 
 /**
- * \page crc_quickstart Quick start guide for CRC driver
+ * \page xmega_crc_quickstart Quick start guide for CRC driver
  *
  * This is the quick start guide for the \ref crc_group "CRC driver", with
  * step-by-step instructions on how to configure and use the drivers in a

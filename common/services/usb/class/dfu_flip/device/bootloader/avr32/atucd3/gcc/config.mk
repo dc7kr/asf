@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_usb_class_dfu_atmel_device_bootloader_avr32_uc3d.elf
+TARGET = bootloader_avr32.elf
 
 # List of C source files.
 CSRCS = \

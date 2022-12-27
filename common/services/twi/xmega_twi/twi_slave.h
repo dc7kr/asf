@@ -7,7 +7,7 @@
  * This file defines a useful set of functions for the TWI interface on AVR xmega
  * devices.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -52,14 +52,13 @@
 #include "status_codes.h"
 #include "twis.h"
 
+typedef TWI_t *twi_slave_t;
 typedef twi_options_t twi_slave_options_t;
 
-static inline void twi_slave_setup(TWI_t *twi,
-				   twi_slave_options_t *opt,
-				   TWI_Slave_t *twiSlave,
-				   void (*processDataFunction) (void),
-				   uint8_t address,
-				   TWI_SLAVE_INTLVL_t intLevel)
+static inline void twi_slave_setup(twi_slave_t twi,
+		twi_slave_options_t *opt, TWI_Slave_t *twiSlave,
+		void (*processDataFunction) (void), uint8_t address,
+		TWI_SLAVE_INTLVL_t intLevel)
 {
 	opt->speed_reg = TWI_BAUD(sysclk_get_cpu_hz(),opt->speed);
 

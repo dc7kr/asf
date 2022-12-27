@@ -42,11 +42,12 @@ MCU = atxmega256a3bu
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_usb_class_hid_device_mouse_example_atxmega256a3bu_xmega_a3bu_xplained.elf
+TARGET = mouse_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        common/services/usb/class/hid/device/mouse/example/atxmega256a3bu_xmega_a3bu_xplained/ui.c \
        common/services/usb/class/hid/device/mouse/example/main.c \
@@ -55,7 +56,6 @@ CSRCS = \
        common/services/usb/class/hid/device/udi_hid.c     \
        common/services/usb/udc/udc.c                      \
        xmega/boards/xmega_a3bu_xplained/init.c            \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/usb/usb_device.c
 
@@ -69,6 +69,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/sleepmgr                           \
        common/services/usb                                \
        common/services/usb/class/hid                      \
@@ -81,7 +82,6 @@ INC_PATH = \
        xmega/boards                                       \
        xmega/boards/xmega_a3bu_xplained                   \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/sleep                                \
        xmega/drivers/usb                                  \
@@ -131,7 +131,8 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D BOARD=XMEGA_A3BU_XPLAINED                       \
-       -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA
+       -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA       \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

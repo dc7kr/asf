@@ -6,7 +6,7 @@
  *
  * This file defines a useful set of functions for TWI on AVR32 devices.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -97,7 +97,7 @@ typedef struct
   //! TWI chip address to communicate with.
   char chip;
   //! TWI address/commands to issue to the other chip (node).
-  unsigned int addr;
+  uint8_t addr[3];
   //! Length of the TWI data address segment (1-3 bytes).
   int addr_length;
   //! Where to find the data to be written.

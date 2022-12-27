@@ -3,7 +3,7 @@
  *
  * \brief 32-bit IIR filtering
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,7 +40,7 @@
  */
 
 /**
- * \defgroup avr32_services_dsplib_simulator_example_dsp32_iir DSPLIB - 32-bit fixed-point IIR filter example
+ * \mainpage
  * \section intro Introduction
  * This example demonstrates how to use the 32-bit IIR Filter function.\n
  * To visualize the result, you may set a breakpoint after the sprintf and

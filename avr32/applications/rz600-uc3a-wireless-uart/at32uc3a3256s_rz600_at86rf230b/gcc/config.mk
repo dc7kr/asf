@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_applications_rz600-uc3a-wireless-uart-at86rf230b.elf
+TARGET = rz600-uc3a-wireless-uart.elf
 
 # List of C source files.
 CSRCS = \

@@ -3,7 +3,7 @@
  *
  * \brief Matrix example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -90,13 +90,7 @@
  *    \endcode
  */
 
-#include "board.h"
-#include "sysclk.h"
-#include "gpio.h"
-#include "uart.h"
-#include "pmc.h"
-#include "matrix.h"
-#include "pio.h"
+#include "asf.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 
@@ -119,8 +113,8 @@
 		"-- "BOARD_NAME" --\r\n" \
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 
-/* Global dw_ms_ticks in milliseconds since start of application */
-volatile uint32_t dw_ms_ticks = 0;
+/* Global g_ul_ms_ticks in milliseconds since start of application */
+volatile uint32_t g_ul_ms_ticks = 0;
 
 /**
  * \brief Configure the console UART.
@@ -128,7 +122,7 @@ volatile uint32_t dw_ms_ticks = 0;
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ SystemCoreClock, 115200, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
 
 	/* Configure PIO */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
@@ -153,33 +147,33 @@ static void configure_console(void)
 /**
  * \brief Toggle led at the given time.
  *
- * \param dw_dly_ticks  Delay to wait for, in milliseconds.
+ * \param ul_dly_ticks  Delay to wait for, in milliseconds.
  *
  * \return Led toggle times.
  */
-static uint32_t toggle_led_test(uint32_t dw_dly_ticks)
+static uint32_t toggle_led_test(uint32_t ul_dly_ticks)
 {
-	int32_t dw_cnt = 0;
-	uint32_t dw_cur_ticks;
+	int32_t ul_cnt = 0;
+	uint32_t ul_cur_ticks;
 
-	dw_cur_ticks = dw_ms_ticks;
+	ul_cur_ticks = g_ul_ms_ticks;
 	do {
-		dw_cnt++;
+		ul_cnt++;
 		gpio_toggle_pin(LED0_GPIO);
-	} while ((dw_ms_ticks - dw_cur_ticks) < dw_dly_ticks);
+	} while ((g_ul_ms_ticks - ul_cur_ticks) < ul_dly_ticks);
 
-	return dw_cnt;
+	return ul_cnt;
 }
 
 /**
  * \brief Handler for System Tick interrupt.
  *
  * Process System Tick Event.
- * Increment the dw_ms_ticks counter.
+ * Increment the g_ul_ms_ticks counter.
  */
 void SysTick_Handler(void)
 {
-	dw_ms_ticks++;
+	g_ul_ms_ticks++;
 }
 
 /**
@@ -189,8 +183,8 @@ void SysTick_Handler(void)
  */
 int main(void)
 {
-	uint32_t dw_slave_id;
-	int32_t dw_cnt;
+	uint32_t ul_slave_id;
+	int32_t ul_cnt;
 
 	/* Initialize the system */
 	sysclk_init();
@@ -211,25 +205,25 @@ int main(void)
 
 	/* First, test with Round-Robin arbitration without default master */
 	puts("-- Test1: configure Round-Robin arbitration without default master. --\r");
-	for (dw_slave_id = 0; dw_slave_id < MATRIX_SLAVE_NUM; dw_slave_id++) {
-		matrix_set_slave_arbitration_type(dw_slave_id,
+	for (ul_slave_id = 0; ul_slave_id < MATRIX_SLAVE_NUM; ul_slave_id++) {
+		matrix_set_slave_arbitration_type(ul_slave_id,
 				MATRIX_ARBT_ROUND_ROBIN);
-		matrix_set_slave_default_master_type(dw_slave_id,
+		matrix_set_slave_default_master_type(ul_slave_id,
 				MATRIX_DEFMSTR_NO_DEFAULT_MASTER);
 	}
-	dw_cnt = toggle_led_test(1000);
-	printf("    Led toggled %d times in one second\n\r", dw_cnt);
+	ul_cnt = toggle_led_test(1000);
+	printf("    Led toggled %d times in one second\n\r", ul_cnt);
 
 	/* Second, test with Round-Robin arbitration with last access master */
 	puts("-- Test2: configure Round-Robin arbitration with last access master. --\r");
-	for (dw_slave_id = 0; dw_slave_id < MATRIX_SLAVE_NUM; dw_slave_id++) {
-		matrix_set_slave_arbitration_type(dw_slave_id,
+	for (ul_slave_id = 0; ul_slave_id < MATRIX_SLAVE_NUM; ul_slave_id++) {
+		matrix_set_slave_arbitration_type(ul_slave_id,
 				MATRIX_ARBT_ROUND_ROBIN);
-		matrix_set_slave_default_master_type(dw_slave_id,
+		matrix_set_slave_default_master_type(ul_slave_id,
 				MATRIX_DEFMSTR_LAST_DEFAULT_MASTER);
 	}
-	dw_cnt = toggle_led_test(1000);
-	printf("    Led toggled %d times in one second\n\r", dw_cnt);
+	ul_cnt = toggle_led_test(1000);
+	printf("    Led toggled %d times in one second\n\r", ul_cnt);
 
 	/* Endless loop */
 	while (1) {

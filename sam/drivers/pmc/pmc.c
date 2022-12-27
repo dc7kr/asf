@@ -3,7 +3,7 @@
  *
  * \brief Power Management Controller (PMC) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -41,6 +41,16 @@
 
 #include "pmc.h"
 
+#if (SAM3N)
+# define MAX_PERIPH_ID    31
+#elif (SAM3XA)
+# define MAX_PERIPH_ID    44
+#elif (SAM3U)
+# define MAX_PERIPH_ID    29
+#elif (SAM3S || SAM4S)
+# define MAX_PERIPH_ID    34
+#endif
+
 /// @cond 0
 /**INDENT-OFF**/
 #ifdef __cplusplus
@@ -62,125 +72,208 @@ extern "C" {
  */
 
 /**
- * \brief Initialize PMC with default settings.
- *
- * \return 0 if successful.
- */
-uint32_t pmc_init(void)
-{
-	return 0;
-}
-
-/**
- * \brief Enable plla clock.
- *
- * \param mula Plla multiplier.
- * \param pllacount Plla counter.
- * \param diva Divider.
- */
-void pmc_enable_pllack(uint32_t mula, uint32_t pllacount, uint32_t diva)
-{
-	pmc_disable_pllack();	// Hardware BUG FIX : first disable the PLL to unlock the lock! 
-	// It occurs when re-enabling the PLL with the same parameters.
-
-#if (SAM3XA || SAM3S || SAM3U || SAM4S)
-	PMC->CKGR_PLLAR =
-			CKGR_PLLAR_ONE | CKGR_PLLAR_DIVA(diva) |
-			CKGR_PLLAR_PLLACOUNT(pllacount) | CKGR_PLLAR_MULA(mula);
-	while ((PMC->PMC_SR & PMC_SR_LOCKA) == 0);
-#else
-	PMC->CKGR_PLLAR = CKGR_PLLAR_ONE | CKGR_PLLAR_DIVA(diva) |
-			CKGR_PLLAR_PLLACOUNT(pllacount) | CKGR_PLLAR_MULA(mula);
-	while ((PMC->PMC_SR & PMC_SR_LOCKA) == 0);
-#endif
-}
-
-/**
- * \brief Is plla clocked?
- *
- * \retval 0 Not locked.
- * \retval 1 Locked.
- */
-uint32_t pmc_is_locked_pllack(void)
-{
-#if (SAM3N)
-	return (PMC->PMC_SR & PMC_SR_LOCKA);
-#else
-	return (PMC->PMC_SR & PMC_SR_LOCKA);
-#endif
-}
-
-/**
- * \brief Disable plla clock.
- */
-void pmc_disable_pllack(void)
-{
-	PMC->CKGR_PLLAR = CKGR_PLLAR_MULA(0);
-}
-
-/**
- * \brief Set prescaler of the peripheral clock.
- * \param dw_id Peripheral ID.
- * \param dw_pres Prescaler value.
- */
-void pmc_pck_set_prescaler(uint32_t dw_id, uint32_t dw_pres)
-{
-	PMC->PMC_PCK[dw_id] =
-			(PMC->PMC_PCK[dw_id] & ~PMC_PCK_PRES_Msk) | dw_pres;
-	while ((PMC->PMC_SCER & (PMC_SCER_PCK0 << dw_id))
-			&& !(PMC->PMC_SR & (PMC_SR_PCKRDY0 << dw_id)));
-}
-
-/**
- * \brief Set the source of the peripheral clock.
- * \param dw_id Peripheral ID.
- * \param dw_source Source selection value.
- */
-void pmc_pck_set_source(uint32_t dw_id, uint32_t dw_source)
-{
-	PMC->PMC_PCK[dw_id] =
-			(PMC->PMC_PCK[dw_id] & ~PMC_PCK_CSS_Msk) | dw_source;
-	while ((PMC->PMC_SCER & (PMC_SCER_PCK0 << dw_id))
-			&& !(PMC->PMC_SR & (PMC_SR_PCKRDY0 << dw_id)));
-}
-
-/**
  * \brief Set the prescaler of the MCK. 
- * \param dw_pres Prescaler value.
+ *
+ * \param ul_pres Prescaler value.
  */
-void pmc_mck_set_prescaler(uint32_t dw_pres)
+void pmc_mck_set_prescaler(uint32_t ul_pres)
 {
 	PMC->PMC_MCKR = 
-			(PMC->PMC_MCKR & (uint32_t) ~ PMC_MCKR_PRES_Msk) | dw_pres;
+			(PMC->PMC_MCKR & (~PMC_MCKR_PRES_Msk)) | ul_pres;
 	while (!(PMC->PMC_SR & PMC_SR_MCKRDY));
 }
 
 /**
  * \brief Set the source of the MCK.
- * \param dw_source Source selection value.
+ *
+ * \param ul_source Source selection value.
  */
-void pmc_mck_set_source(uint32_t dw_source)
+void pmc_mck_set_source(uint32_t ul_source)
 {
 	PMC->PMC_MCKR = 
-			(PMC->PMC_MCKR & (uint32_t) ~ PMC_MCKR_CSS_Msk) | dw_source;
+			(PMC->PMC_MCKR & (~PMC_MCKR_CSS_Msk)) | ul_source;
 	while (!(PMC->PMC_SR & PMC_SR_MCKRDY));
 }
 
 /**
- * \brief Switch slow clock source selection to external 32k (Xtal or Bypass).
- * This function disables the PLLs.
+ * \brief Switch master clock source selection to slow clock.
  *
- * \note Switching sclk back to 32krc is only possible by shutting down the VDDIO
+ * \param ul_pres Processor clock prescaler.
+ *
+ * \retval 0 Success.
+ * \retval 1 Timeout error.
+ */
+uint32_t pmc_switch_mck_to_sclk(uint32_t ul_pres)
+{
+	uint32_t ul_timeout;
+
+	PMC->PMC_MCKR = (PMC->PMC_MCKR & (~PMC_MCKR_CSS_Msk)) | PMC_MCKR_CSS_SLOW_CLK;
+	for (ul_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY); --ul_timeout) {
+		if (ul_timeout == 0) {
+			return 1;
+		}
+	}
+
+	PMC->PMC_MCKR = (PMC->PMC_MCKR & (~PMC_MCKR_PRES_Msk)) | ul_pres;
+	for (ul_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY); --ul_timeout) {
+		if (ul_timeout == 0) {
+			return 1;
+		}
+	}
+
+	return 0;
+}
+
+/**
+ * \brief Switch master clock source selection to main clock.
+ *
+ * \param ul_pres Processor clock prescaler.
+ *
+ * \retval 0 Success.
+ * \retval 1 Timeout error.
+ */
+uint32_t pmc_switch_mck_to_mainck(uint32_t ul_pres)
+{
+	uint32_t ul_timeout;
+
+	PMC->PMC_MCKR = (PMC->PMC_MCKR & (~PMC_MCKR_CSS_Msk)) |
+			PMC_MCKR_CSS_MAIN_CLK;
+	for (ul_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
+			--ul_timeout) {
+		if (ul_timeout == 0) {
+			return 1;
+		}
+	}
+
+	PMC->PMC_MCKR = (PMC->PMC_MCKR & (~PMC_MCKR_PRES_Msk)) | ul_pres;
+	for (ul_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
+			--ul_timeout) {
+		if (ul_timeout == 0) {
+			return 1;
+		}
+	}
+
+	return 0;
+}
+
+/**
+ * \brief Switch master clock source selection to PLLA clock.
+ *
+ * \param ul_pres Processor clock prescaler.
+ *
+ * \retval 0 Success.
+ * \retval 1 Timeout error.
+ */
+uint32_t pmc_switch_mck_to_pllack(uint32_t ul_pres)
+{
+	uint32_t ul_timeout;
+
+	PMC->PMC_MCKR = (PMC->PMC_MCKR & (~PMC_MCKR_PRES_Msk)) | ul_pres;
+	for (ul_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
+			--ul_timeout) {
+		if (ul_timeout == 0) {
+			return 1;
+		}
+	}
+	
+	PMC->PMC_MCKR = (PMC->PMC_MCKR & (~PMC_MCKR_CSS_Msk)) |
+			PMC_MCKR_CSS_PLLA_CLK;
+
+	for (ul_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
+			--ul_timeout) {
+		if (ul_timeout == 0) {
+			return 1;
+		}
+	}
+
+	return 0;
+}
+
+#if (SAM3S || SAM4S)
+/**
+ * \brief Switch master clock source selection to PLLB clock.
+ *
+ * \param ul_pres Processor clock prescaler.
+ *
+ * \retval 0 Success.
+ * \retval 1 Timeout error.
+ */
+uint32_t pmc_switch_mck_to_pllbck(uint32_t ul_pres)
+{
+	uint32_t ul_timeout;
+
+	PMC->PMC_MCKR = (PMC->PMC_MCKR & (~PMC_MCKR_PRES_Msk)) | ul_pres;
+	for (ul_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
+			--ul_timeout) {
+		if (ul_timeout == 0) {
+			return 1;
+		}
+	}
+
+	PMC->PMC_MCKR = (PMC->PMC_MCKR & (~PMC_MCKR_CSS_Msk)) |
+			PMC_MCKR_CSS_PLLB_CLK;
+	for (ul_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
+			--ul_timeout) {
+		if (ul_timeout == 0) {
+			return 1;
+		}
+	}
+
+	return 0;
+}
+#endif
+
+#if (SAM3XA || SAM3U)
+/**
+ * \brief Switch master clock source selection to UPLL clock.
+ *
+ * \param ul_pres Processor clock prescaler.
+ *
+ * \retval 0 Success.
+ * \retval 1 Timeout error.
+ */
+uint32_t pmc_switch_mck_to_upllck(uint32_t ul_pres)
+{
+	uint32_t ul_timeout;
+
+	PMC->PMC_MCKR = (PMC->PMC_MCKR & (~PMC_MCKR_PRES_Msk)) | ul_pres;
+	for (ul_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
+			--ul_timeout) {
+		if (ul_timeout == 0) {
+			return 1;
+		}
+	}
+
+	PMC->PMC_MCKR = (PMC->PMC_MCKR & (~PMC_MCKR_CSS_Msk)) |
+			PMC_MCKR_CSS_UPLL_CLK;
+	for (ul_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
+			--ul_timeout) {
+		if (ul_timeout == 0) {
+			return 1;
+		}
+	}
+
+	return 0;
+}
+#endif
+
+/**
+ * \brief Switch slow clock source selection to external 32k (Xtal or Bypass).
+ * 
+ * \note This function disables the PLLs.
+ *
+ * \note Switching SCLK back to 32krc is only possible by shutting down the VDDIO
  * power supply.
  *
- * \param dw_bypass 0 for Xtal, 1 for bypass.
+ * \param ul_bypass 0 for Xtal, 1 for bypass.
  */
-void pmc_switch_sclk_to_32kxtal(uint32_t dw_bypass)
+void pmc_switch_sclk_to_32kxtal(uint32_t ul_bypass)
 {
 	/* Set Bypass mode if required */
-	if (dw_bypass == 1)
+	if (ul_bypass == 1) {
 		SUPC->SUPC_MR |= SUPC_MR_KEY(SUPC_KEY_VALUE) |
 				SUPC_MR_OSCBYPASS;
+	}
 
 	SUPC->SUPC_CR |= SUPC_CR_KEY(SUPC_KEY_VALUE) | SUPC_CR_XTALSEL;
 }
@@ -188,42 +281,39 @@ void pmc_switch_sclk_to_32kxtal(uint32_t dw_bypass)
 /**
  * \brief Check if the external 32k Xtal is ready.
  *
- * \retval 0 Success.
- * \retval 1 Timeout error.
+ * \retval 1 External 32k Xtal is ready.
+ * \retval 0 External 32k Xtal is not ready.
  */
 uint32_t pmc_osc_is_ready_32kxtal(void)
 {
-	if (!(SUPC->SUPC_SR & SUPC_SR_OSCSEL)
-			&& !(PMC->PMC_SR & PMC_SR_OSCSELS))
-		return 1;
-	else
-		return 0;
+	return ((SUPC->SUPC_SR & SUPC_SR_OSCSEL)
+			&& (PMC->PMC_SR & PMC_SR_OSCSELS));
 }
 
 /**
  * \brief Switch main clock source selection to internal fast RC.
  *
- * \param dw_moscrcf Fast RC oscillator(4/8/12Mhz).
+ * \param ul_moscrcf Fast RC oscillator(4/8/12Mhz).
  *
  * \retval 0 Success.
  * \retval 1 Timeout error.
  * \retval 2 Invalid frequency.
  */
-void pmc_switch_mainck_to_fastrc(uint32_t dw_moscrcf)
+void pmc_switch_mainck_to_fastrc(uint32_t ul_moscrcf)
 {
-	uint32_t dw_needXTEN = 0;
+	uint32_t ul_needXTEN = 0;
 
 	/* Enable Fast RC oscillator but DO NOT switch to RC now */
-	if (PMC->CKGR_MOR & CKGR_MOR_MOSCXTEN)
+	if (PMC->CKGR_MOR & CKGR_MOR_MOSCXTEN) {
 		PMC->CKGR_MOR = (PMC->CKGR_MOR & ~CKGR_MOR_MOSCRCF_Msk) |
 				PMC_CKGR_MOR_KEY_VALUE | CKGR_MOR_MOSCRCEN |
-				dw_moscrcf;
-	else {
-		dw_needXTEN = 1;
+				ul_moscrcf;
+	} else {
+		ul_needXTEN = 1;
 		PMC->CKGR_MOR = (PMC->CKGR_MOR & ~CKGR_MOR_MOSCRCF_Msk) |
 				PMC_CKGR_MOR_KEY_VALUE | CKGR_MOR_MOSCRCEN |
 				CKGR_MOR_MOSCXTEN | CKGR_MOR_MOSCXTST(PMC_XTAL_STARTUP_TIME) |
-				dw_moscrcf;
+				ul_moscrcf;
 	}
 
 	/* Wait the Fast RC to stabilize */
@@ -233,21 +323,22 @@ void pmc_switch_mainck_to_fastrc(uint32_t dw_moscrcf)
 	PMC->CKGR_MOR = (PMC->CKGR_MOR & ~CKGR_MOR_MOSCSEL) | PMC_CKGR_MOR_KEY_VALUE;
 
 	// BUG FIX : clock_example3_sam3s does not switch sclk->mainck with XT disabled.
-	if (dw_needXTEN)
+	if (ul_needXTEN) {
 		PMC->CKGR_MOR = (PMC->CKGR_MOR & ~CKGR_MOR_MOSCXTEN) |
 				PMC_CKGR_MOR_KEY_VALUE;
+	}
 }
 
 /**
  * \brief Enable fast RC oscillator.
  *
- * \param dw_rc Fast RC oscillator(4/8/12Mhz).
+ * \param ul_rc Fast RC oscillator(4/8/12Mhz).
  */
-void pmc_osc_enable_fastrc(uint32_t dw_rc)
+void pmc_osc_enable_fastrc(uint32_t ul_rc)
 {
 	/* Enable Fast RC oscillator but DO NOT switch to RC now. Keep MOSCSEL to 1 */
 	PMC->CKGR_MOR = PMC_CKGR_MOR_KEY_VALUE | CKGR_MOR_MOSCSEL |
-			CKGR_MOR_MOSCXTEN | CKGR_MOR_MOSCRCEN | dw_rc;
+			CKGR_MOR_MOSCXTEN | CKGR_MOR_MOSCRCEN | ul_rc;
 	/* Wait the Fast RC to stabilize */
 	while (!(PMC->PMC_SR & PMC_SR_MOSCRCS));
 }
@@ -262,37 +353,25 @@ void pmc_osc_disable_fastrc(void)
 }
 
 /**
- * \brief Check if the external fast RC is ready.
- *
- * \retval 0 Success.
- * \retval 1 Timeout error.
- */
-uint32_t pmc_osc_is_ready_fastrc(void)
-{
-	/* Is the Fast RC selected? */
-	if (PMC->PMC_SR & PMC_SR_MOSCSELS)
-		return 1;
-	else
-		return 0;
-}
-
-/**
  * \brief Switch main clock source selection to external Xtal/Bypass. 
- * The function may switch mck to sclk if mck source is mainck to avoid any system crash.
+ * The function may switch MCK to SCLK if MCK source is MAINCK to avoid any 
+ * system crash.
  *
- * \param dw_bypass 0 for Xtal, 1 for bypass.
+ * \note If used in Xtal mode, the Xtal is automatically enabled.
+ *
+ * \param ul_bypass 0 for Xtal, 1 for bypass.
  *
  * \retval 0 Success.
  * \retval 1 Timeout error.
  */
-void pmc_switch_mainck_to_xtal(uint32_t dw_bypass)
+void pmc_switch_mainck_to_xtal(uint32_t ul_bypass)
 {
 	/* Enable Main Xtal oscillator */
-	if (dw_bypass)
+	if (ul_bypass) {
 		PMC->CKGR_MOR = (PMC->CKGR_MOR & ~CKGR_MOR_MOSCXTEN) |
 				PMC_CKGR_MOR_KEY_VALUE | CKGR_MOR_MOSCXTBY |
 				CKGR_MOR_MOSCSEL;
-	else {
+	} else {
 		PMC->CKGR_MOR = (PMC->CKGR_MOR & ~CKGR_MOR_MOSCXTBY) |
 				PMC_CKGR_MOR_KEY_VALUE | CKGR_MOR_MOSCXTEN |
 				CKGR_MOR_MOSCXTST(PMC_XTAL_STARTUP_TIME);
@@ -305,158 +384,164 @@ void pmc_switch_mainck_to_xtal(uint32_t dw_bypass)
 
 /**
  * \brief Disable the external Xtal.
- * \param dw_bypass 0 for Xtal, 1 for bypass.
+ *
+ * \param ul_bypass 0 for Xtal, 1 for bypass.
  */
-void pmc_osc_disable_xtal(uint32_t dw_bypass)
+void pmc_osc_disable_xtal(uint32_t ul_bypass)
 {
 	/* Disable xtal oscillator */
-	if (dw_bypass)
+	if (ul_bypass) {
 		PMC->CKGR_MOR = (PMC->CKGR_MOR & ~CKGR_MOR_MOSCXTBY) |
 				PMC_CKGR_MOR_KEY_VALUE;
-	else
+	} else {
 		PMC->CKGR_MOR = (PMC->CKGR_MOR & ~CKGR_MOR_MOSCXTEN) |
 				PMC_CKGR_MOR_KEY_VALUE;
+	}
 }
 
 /**
- * \brief Check if the Xtal is ready.
+ * \brief Check if the MAINCK is ready. Depending on MOSCEL, MAINCK can be one
+ * of Xtal, bypass or internal RC.
  *
- * \retval 0 Success.
- * \retval 1 Timeout error.
+ * \retval 1 Xtal is ready.
+ * \retval 0 Xtal is not ready.
  */
-uint32_t pmc_osc_is_ready_xtal(void)
+uint32_t pmc_osc_is_ready_mainck(void)
 {
-	/* Is the xtal selected? */
-	if (PMC->PMC_SR & PMC_SR_MOSCSELS)
-		return 1;
-	else
-		return 0;
+	return PMC->PMC_SR & PMC_SR_MOSCSELS;
 }
 
 /**
- * \brief Switch master clock source selection to slow clock.
+ * \brief Enable PLLA clock.
  *
- * \param dw_pres Processor clock prescaler.
- *
- * \retval 0 Success.
- * \retval 1 Timeout error.
+ * \param mula PLLA multiplier.
+ * \param pllacount PLLA counter.
+ * \param diva Divider.
  */
-uint32_t pmc_switch_mck_to_sclk(uint32_t dw_pres)
+void pmc_enable_pllack(uint32_t mula, uint32_t pllacount, uint32_t diva)
 {
-	uint32_t dw_timeout;
+	pmc_disable_pllack(); // Hardware BUG FIX : first disable the PLL to unlock the lock! 
+	// It occurs when re-enabling the PLL with the same parameters.
 
-	PMC->PMC_MCKR = (PMC->PMC_MCKR & (uint32_t) ~ PMC_MCKR_CSS_Msk) | PMC_MCKR_CSS_SLOW_CLK;
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY); --dw_timeout)
-		if (dw_timeout == 0)
-			return 1;
-
-	PMC->PMC_MCKR = (PMC->PMC_MCKR & (uint32_t) ~ PMC_MCKR_PRES_Msk) | dw_pres;
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY); --dw_timeout)
-		if (dw_timeout == 0)
-			return 1;
-
-	return 0;
+	PMC->CKGR_PLLAR = CKGR_PLLAR_ONE | CKGR_PLLAR_DIVA(diva) |
+			CKGR_PLLAR_PLLACOUNT(pllacount) | CKGR_PLLAR_MULA(mula);
+	while ((PMC->PMC_SR & PMC_SR_LOCKA) == 0);
 }
 
 /**
- * \brief Switch master clock source selection to main clock.
- *
- * \param dw_pres Processor clock prescaler.
- *
- * \retval 0 Success.
- * \retval 1 Timeout error.
+ * \brief Disable PLLA clock.
  */
-uint32_t pmc_switch_mck_to_mainck(uint32_t dw_pres)
+void pmc_disable_pllack(void)
 {
-	uint32_t dw_timeout;
-
-	PMC->PMC_MCKR = (PMC->PMC_MCKR & (uint32_t) ~ PMC_MCKR_CSS_Msk) |
-			PMC_MCKR_CSS_MAIN_CLK;
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
-			--dw_timeout)
-		if (dw_timeout == 0)
-			return 1;
-
-	PMC->PMC_MCKR = (PMC->PMC_MCKR & (uint32_t) ~ PMC_MCKR_PRES_Msk) | dw_pres;
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
-			--dw_timeout)
-		if (dw_timeout == 0)
-			return 1;
-
-	return 0;
+	PMC->CKGR_PLLAR = CKGR_PLLAR_ONE | CKGR_PLLAR_MULA(0);
 }
 
 /**
- * \brief Switch master clock source selection to plla clock.
+ * \brief Is PLLA locked?
  *
- * \param dw_pres Processor clock prescaler.
- *
- * \retval 0 Success.
- * \retval 1 Timeout error.
+ * \retval 0 Not locked.
+ * \retval 1 Locked.
  */
-uint32_t pmc_switch_mck_to_pllack(uint32_t dw_pres)
+uint32_t pmc_is_locked_pllack(void)
 {
-	uint32_t dw_timeout;
+	return (PMC->PMC_SR & PMC_SR_LOCKA);
+}
 
-	PMC->PMC_MCKR = (PMC->PMC_MCKR & (uint32_t) ~ PMC_MCKR_PRES_Msk) | dw_pres;
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
-			--dw_timeout)
-		if (dw_timeout == 0)
-			return 1;
-	
-	PMC->PMC_MCKR = (PMC->PMC_MCKR & (uint32_t) ~ PMC_MCKR_CSS_Msk) |
-			PMC_MCKR_CSS_PLLA_CLK;
-
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
-			--dw_timeout)
-		if (dw_timeout == 0)
-			return 1;
-
-	return 0;
+#if (SAM3S || SAM4S)
+/**
+ * \brief Enable PLLB clock.
+ *
+ * \param mulb PLLB multiplier.
+ * \param pllbcount PLLB counter.
+ * \param divb Divider.
+ */
+void pmc_enable_pllbck(uint32_t mulb, uint32_t pllbcount, uint32_t divb)
+{
+	pmc_disable_pllbck(); // Hardware BUG FIX : first disable the PLL to unlock the lock! 
+	// It occurs when re-enabling the PLL with the same parameters.
+	PMC->CKGR_PLLBR =
+			CKGR_PLLBR_DIVB(divb) | CKGR_PLLBR_PLLBCOUNT(pllbcount)
+			| CKGR_PLLBR_MULB(mulb);
+	while ((PMC->PMC_SR & PMC_SR_LOCKB) == 0);
 }
 
 /**
- * \brief Enable the clock of a peripheral. The peripheral ID is used
- * to identify which peripheral is targeted.
+ * \brief Disable PLLB clock.
+ */
+void pmc_disable_pllbck(void)
+{
+	PMC->CKGR_PLLBR = CKGR_PLLBR_MULB(0);
+}
+
+/**
+ * \brief Is PLLB locked?
+ *
+ * \retval 0 Not locked.
+ * \retval 1 Locked.
+ */
+uint32_t pmc_is_locked_pllbck(void)
+{
+	return (PMC->PMC_SR & PMC_SR_LOCKB);
+}
+#endif
+
+#if (SAM3XA || SAM3U)
+/**
+ * \brief Enable UPLL clock.
+ */
+void pmc_enable_upll_clock(void)
+{
+	PMC->CKGR_UCKR = CKGR_UCKR_UPLLCOUNT(3) | CKGR_UCKR_UPLLEN;
+
+	/* Wait UTMI PLL Lock Status */
+	while (!(PMC->PMC_SR & PMC_SR_LOCKU));
+}
+
+/**
+ * \brief Disable UPLL clock.
+ */
+void pmc_disable_upll_clock(void)
+{
+	PMC->CKGR_UCKR &= ~CKGR_UCKR_UPLLEN;
+}
+
+/**
+ * \brief Is UPLL locked?
+ *
+ * \retval 0 Not locked.
+ * \retval 1 Locked.
+ */
+uint32_t pmc_is_locked_upll(void)
+{
+	return (PMC->PMC_SR & PMC_SR_LOCKU);
+}
+#endif
+
+/**
+ * \brief Enable the specified peripheral clock.
  *
  * \note The ID must NOT be shifted (i.e., 1 << ID_xxx).
  *
- * \param dw_id Peripheral ID (ID_xxx).
+ * \param ul_id Peripheral ID (ID_xxx).
  *
  * \retval 0 Success.
  * \retval 1 Invalid parameter.
  */
-uint32_t pmc_enable_periph_clk(uint32_t dw_id)
+uint32_t pmc_enable_periph_clk(uint32_t ul_id)
 {
-#if (SAM3N)
-	if (dw_id > 31)
+	if (ul_id > MAX_PERIPH_ID) {
 		return 1;
-#elif (SAM3XA)
-	if (dw_id > 44)
-		return 1;
-#elif (SAM3U)
-	if (dw_id > 29)
-		return 1;
-#elif (SAM3S || SAM4S)
-	if (dw_id > 34)
-		return 1;
-#endif
+	}
 
-	if (dw_id < 32) {
-		if ((PMC->PMC_PCSR0 & ((uint32_t) 1 << dw_id)) ==
-				((uint32_t) 1 << dw_id)) {
-			//TRACE_DEBUG( "PMC_EnablePeripheral: clock of peripheral"  " %u is already enabled\n\r", dw_id ) ;
-		} else {
-			PMC->PMC_PCER0 = 1 << dw_id;
+	if (ul_id < 32) {
+		if ((PMC->PMC_PCSR0 & (1u << ul_id)) != (1u << ul_id)) {
+			PMC->PMC_PCER0 = 1 << ul_id;
 		}
 #if (SAM3S || SAM3XA || SAM4S)
 	} else {
-		dw_id -= 32;
-		if ((PMC->PMC_PCSR1 & ((uint32_t) 1 << dw_id)) ==
-				((uint32_t) 1 << dw_id)) {
-			//TRACE_DEBUG( "PMC_EnablePeripheral: clock of peripheral"  " %u is already enabled\n\r", dw_id + 32 ) ;
-		} else {
-			PMC->PMC_PCER1 = 1 << dw_id;
+		ul_id -= 32;
+		if ((PMC->PMC_PCSR1 & (1u << ul_id)) != (1u << ul_id)) {
+			PMC->PMC_PCER1 = 1 << ul_id;
 		}
 #endif
 	}
@@ -465,47 +550,30 @@ uint32_t pmc_enable_periph_clk(uint32_t dw_id)
 }
 
 /**
- * \brief Disable the clock of a peripheral. The peripheral ID is used
- * to identify which peripheral is targeted.
+ * \brief Disable the specified peripheral clock.
  *
  * \note The ID must NOT be shifted (i.e., 1 << ID_xxx).
  *
- * \param dw_id Peripheral ID (ID_xxx).
+ * \param ul_id Peripheral ID (ID_xxx).
  *
  * \retval 0 Success.
  * \retval 1 Invalid parameter.
  */
-uint32_t pmc_disable_periph_clk(uint32_t dw_id)
+uint32_t pmc_disable_periph_clk(uint32_t ul_id)
 {
-#if (SAM3N)
-	if (dw_id > 31)
+	if (ul_id > MAX_PERIPH_ID) {
 		return 1;
-#elif (SAM3XA)
-	if (dw_id > 44)
-		return 1;
-#elif (SAM3U)
-	if (dw_id > 29)
-		return 1;
-#elif (SAM3S || SAM4S)
-	if (dw_id > 34)
-		return 1;
-#endif
+	}
 
-	if (dw_id < 32) {
-		if ((PMC->PMC_PCSR0 & ((uint32_t) 1 << dw_id)) !=
-				((uint32_t) 1 << dw_id)) {
-			//TRACE_DEBUG("PMC_DisablePeripheral: clock of peripheral" " %u is not enabled\n\r", dw_id ) ;
-		} else {
-			PMC->PMC_PCDR0 = 1 << dw_id;
+	if (ul_id < 32) {
+		if ((PMC->PMC_PCSR0 & (1u << ul_id)) == (1u << ul_id)) {
+			PMC->PMC_PCDR0 = 1 << ul_id;
 		}
 #if (SAM3S || SAM3XA || SAM4S)
 	} else {
-		dw_id -= 32;
-		if ((PMC->PMC_PCSR1 & ((uint32_t) 1 << dw_id)) !=
-				((uint32_t) 1 << dw_id)) {
-			//TRACE_DEBUG( "PMC_DisablePeripheral: clock of peripheral" " %u is not enabled\n\r", dw_id + 32 ) ;
-		} else {
-			PMC->PMC_PCDR1 = 1 << dw_id;
+		ul_id -= 32;
+		if ((PMC->PMC_PCSR1 & (1u << ul_id)) == (1u << ul_id)) {
+			PMC->PMC_PCDR1 = 1 << ul_id;
 		}
 #endif
 	}
@@ -541,70 +609,89 @@ void pmc_disable_all_periph_clk(void)
 }
 
 /**
- * \brief Get the status of the specified peripheral clock.
+ * \brief Check if the specified peripheral clock is enabled.
  *
  * \note The ID must NOT be shifted (i.e., 1 << ID_xxx).
  *
- * \param dw_id Peripheral ID (ID_xxx).
+ * \param ul_id Peripheral ID (ID_xxx).
  *
- * \retval 0 Clock is active.
- * \retval 1 Clock is inactive.
- * \retval 2 Invalid parameter.
+ * \retval 0 Peripheral clock is disabled or unknown.
+ * \retval 1 Peripheral clock is enabled.
  */
-uint32_t pmc_is_periph_clk_enabled(uint32_t dw_id)
+uint32_t pmc_is_periph_clk_enabled(uint32_t ul_id)
 {
-#if (SAM3N)
-	if (dw_id > 31)
-		return 2;
-#elif (SAM3XA)
-	if (dw_id > 44)
-		return 2;
-#elif (SAM3U)
-	if (dw_id > 29)
-		return 2;
-#elif (SAM3S || SAM4S)
-	if (dw_id > 34)
-		return 2;
-#endif
+	if (ul_id > MAX_PERIPH_ID) {
+		return 0;
+	}
 
 #if (SAM3S || SAM3XA || SAM4S)
-	if (dw_id < 32) {
+	if (ul_id < 32) {
 #endif
-		if ((PMC->PMC_PCSR0 & ((uint32_t) 1 << dw_id))) {
-			return 0;
-		} else {
+		if ((PMC->PMC_PCSR0 & (1u << ul_id))) {
 			return 1;
+		} else {
+			return 0;
 		}
 #if (SAM3S || SAM3XA || SAM4S)
 	} else {
-		dw_id -= 32;
-		if ((PMC->PMC_PCSR1 & ((uint32_t) 1 << dw_id))) {
-			return 0;
-		} else {
+		ul_id -= 32;
+		if ((PMC->PMC_PCSR1 & (1u << ul_id))) {
 			return 1;
+		} else {
+			return 0;
 		}
 	}
 #endif
 }
 
 /**
+ * \brief Set the prescaler for the specified programmable clock.
+ *
+ * \param ul_id Peripheral ID.
+ * \param ul_pres Prescaler value.
+ */
+void pmc_pck_set_prescaler(uint32_t ul_id, uint32_t ul_pres)
+{
+	PMC->PMC_PCK[ul_id] =
+			(PMC->PMC_PCK[ul_id] & ~PMC_PCK_PRES_Msk) | ul_pres;
+	while ((PMC->PMC_SCER & (PMC_SCER_PCK0 << ul_id))
+			&& !(PMC->PMC_SR & (PMC_SR_PCKRDY0 << ul_id)));
+}
+
+/**
+ * \brief Set the source oscillator for the specified programmable clock.
+ *
+ * \param ul_id Peripheral ID.
+ * \param ul_source Source selection value.
+ */
+void pmc_pck_set_source(uint32_t ul_id, uint32_t ul_source)
+{
+	PMC->PMC_PCK[ul_id] =
+			(PMC->PMC_PCK[ul_id] & ~PMC_PCK_CSS_Msk) | ul_source;
+	while ((PMC->PMC_SCER & (PMC_SCER_PCK0 << ul_id))
+			&& !(PMC->PMC_SR & (PMC_SR_PCKRDY0 << ul_id)));
+}
+
+/**
  * \brief Switch programmable clock source selection to slow clock.
  *
- * \param dw_id Id of the programmable clock.
- * \param dw_pres Programmable clock prescaler.
+ * \param ul_id Id of the programmable clock.
+ * \param ul_pres Programmable clock prescaler.
  *
  * \retval 0 Success.
  * \retval 1 Timeout error.
  */
-uint32_t pmc_switch_pck_to_sclk(uint32_t dw_id, uint32_t dw_pres)
+uint32_t pmc_switch_pck_to_sclk(uint32_t ul_id, uint32_t ul_pres)
 {
-	uint32_t dw_timeout;
+	uint32_t ul_timeout;
 
-	PMC->PMC_PCK[dw_id] = PMC_PCK_CSS_SLOW_CLK | dw_pres;
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & (PMC_SR_PCKRDY0 << dw_id));
-			--dw_timeout)
-		if (dw_timeout == 0)
+	PMC->PMC_PCK[ul_id] = PMC_PCK_CSS_SLOW_CLK | ul_pres;
+	for (ul_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & (PMC_SR_PCKRDY0 << ul_id));
+			--ul_timeout) {
+		if (ul_timeout == 0) {
 			return 1;
+		}
+	}
 
 	return 0;
 }
@@ -612,65 +699,123 @@ uint32_t pmc_switch_pck_to_sclk(uint32_t dw_id, uint32_t dw_pres)
 /**
  * \brief Switch programmable clock source selection to main clock.
  *
- * \param dw_id Id of the programmable clock.
- * \param dw_pres Programmable clock prescaler.
+ * \param ul_id Id of the programmable clock.
+ * \param ul_pres Programmable clock prescaler.
  *
  * \retval 0 Success.
  * \retval 1 Timeout error.
  */
-uint32_t pmc_switch_pck_to_mainck(uint32_t dw_id, uint32_t dw_pres)
+uint32_t pmc_switch_pck_to_mainck(uint32_t ul_id, uint32_t ul_pres)
 {
-	uint32_t dw_timeout;
+	uint32_t ul_timeout;
 
-	PMC->PMC_PCK[dw_id] = PMC_PCK_CSS_MAIN_CLK | dw_pres;
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & (PMC_SR_PCKRDY0 << dw_id));
-			--dw_timeout)
-		if (dw_timeout == 0)
+	PMC->PMC_PCK[ul_id] = PMC_PCK_CSS_MAIN_CLK | ul_pres;
+	for (ul_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & (PMC_SR_PCKRDY0 << ul_id));
+			--ul_timeout) {
+		if (ul_timeout == 0) {
 			return 1;
+		}
+	}
 
 	return 0;
 }
 
 /**
- * \brief Switch programmable clock source selection to plla clock.
+ * \brief Switch programmable clock source selection to PLLA clock.
  *
- * \param dw_id Id of the programmable clock.
- * \param dw_pres Programmable clock prescaler.
+ * \param ul_id Id of the programmable clock.
+ * \param ul_pres Programmable clock prescaler.
  *
  * \retval 0 Success.
  * \retval 1 Timeout error.
  */
-uint32_t pmc_switch_pck_to_pllack(uint32_t dw_id, uint32_t dw_pres)
+uint32_t pmc_switch_pck_to_pllack(uint32_t ul_id, uint32_t ul_pres)
 {
-	uint32_t dw_timeout;
+	uint32_t ul_timeout;
 
-	PMC->PMC_PCK[dw_id] = PMC_PCK_CSS_PLLA_CLK | dw_pres;
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & (PMC_SR_PCKRDY0 << dw_id));
-			--dw_timeout)
-		if (dw_timeout == 0)
+	PMC->PMC_PCK[ul_id] = PMC_PCK_CSS_PLLA_CLK | ul_pres;
+	for (ul_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & (PMC_SR_PCKRDY0 << ul_id));
+			--ul_timeout) {
+		if (ul_timeout == 0) {
 			return 1;
+		}
+	}
 
 	return 0;
 }
+
+#if (SAM3S || SAM4S)
+/**
+ * \brief Switch programmable clock source selection to PLLB clock.
+ *
+ * \param ul_id Id of the programmable clock.
+ * \param ul_pres Programmable clock prescaler.
+ *
+ * \retval 0 Success.
+ * \retval 1 Timeout error.
+ */
+uint32_t pmc_switch_pck_to_pllbck(uint32_t ul_id, uint32_t ul_pres)
+{
+	uint32_t ul_timeout;
+
+	PMC->PMC_PCK[ul_id] = PMC_PCK_CSS_PLLB_CLK | ul_pres;
+	for (ul_timeout = PMC_TIMEOUT;
+			!(PMC->PMC_SR & (PMC_SR_PCKRDY0 << ul_id));
+			--ul_timeout) {
+		if (ul_timeout == 0) {
+			return 1;
+		}
+	}
+
+	return 0;
+}
+#endif
+
+#if (SAM3XA || SAM3U)
+/**
+ * \brief Switch programmable clock source selection to UPLL clock.
+ *
+ * \param ul_id Id of the programmable clock.
+ * \param ul_pres Programmable clock prescaler.
+ *
+ * \retval 0 Success.
+ * \retval 1 Timeout error.
+ */
+uint32_t pmc_switch_pck_to_upllck(uint32_t ul_id, uint32_t ul_pres)
+{
+	uint32_t ul_timeout;
+
+	PMC->PMC_PCK[ul_id] = PMC_PCK_CSS_UPLL_CLK | ul_pres;
+	for (ul_timeout = PMC_TIMEOUT;
+			!(PMC->PMC_SR & (PMC_SR_PCKRDY0 << ul_id));
+			--ul_timeout) {
+		if (ul_timeout == 0) {
+			return 1;
+		}
+	}
+
+	return 0;
+}
+#endif
 
 /**
  * \brief Enable the specified programmable clock.
  *
- * \param dw_id Id of the programmable clock.
+ * \param ul_id Id of the programmable clock.
  */
-void pmc_enable_pck(uint32_t dw_id)
+void pmc_enable_pck(uint32_t ul_id)
 {
-	PMC->PMC_SCER = PMC_SCER_PCK0 << dw_id;
+	PMC->PMC_SCER = PMC_SCER_PCK0 << ul_id;
 }
 
 /**
  * \brief Disable the specified programmable clock.
  *
- * \param dw_id Id of the programmable clock.
+ * \param ul_id Id of the programmable clock.
  */
-void pmc_disable_pck(uint32_t dw_id)
+void pmc_disable_pck(uint32_t ul_id)
 {
-	PMC->PMC_SCDR = PMC_SCER_PCK0 << dw_id;
+	PMC->PMC_SCDR = PMC_SCER_PCK0 << ul_id;
 }
 
 /**
@@ -690,31 +835,144 @@ void pmc_disable_all_pck(void)
 }
 
 /**
- * \brief Get the status of the specified programmable clock.
+ * \brief Check if the specified programmable clock is enabled.
  *
- * \param dw_id Id of the programmable clock.
+ * \param ul_id Id of the programmable clock.
  *
- * \retval 0 Clock is inactive.
- * \retval 1 Clock is active.
- * \retval 2 Invalid selection.
+ * \retval 0 Programmable clock is disabled or unknown.
+ * \retval 1 Programmable clock is enabled.
  */
-uint32_t pmc_is_pck_enabled(uint32_t dw_id)
+uint32_t pmc_is_pck_enabled(uint32_t ul_id)
 {
-	if (dw_id > 2)
-		return 2;
+	if (ul_id > 2) {
+		return 0;
+	}
 
-	return (PMC->PMC_SCSR & (PMC_SCSR_PCK0 << dw_id));
+	return (PMC->PMC_SCSR & (PMC_SCSR_PCK0 << ul_id));
+}
+
+#if (SAM3S || SAM3XA || SAM4S)
+/**
+ * \brief Switch UDP (USB) clock source selection to PLLA clock.
+ *
+ * \param ul_usbdiv Clock divisor.
+ */
+void pmc_switch_udpck_to_pllack(uint32_t ul_usbdiv)
+{
+	PMC->PMC_USB = PMC_USB_USBDIV(ul_usbdiv);
+}
+#endif
+
+#if (SAM3S || SAM4S)
+/**
+ * \brief Switch UDP (USB) clock source selection to PLLB clock.
+ *
+ * \param ul_usbdiv Clock divisor.
+ */
+void pmc_switch_udpck_to_pllbck(uint32_t ul_usbdiv)
+{
+	PMC->PMC_USB = PMC_USB_USBDIV(ul_usbdiv) | PMC_USB_USBS;
+}
+#endif
+
+#if (SAM3XA)
+/**
+ * \brief Switch UDP (USB) clock source selection to UPLL clock.
+ *
+ * \param dw_usbdiv Clock divisor.
+ */
+void pmc_switch_udpck_to_upllck(uint32_t ul_usbdiv)
+{
+	PMC->PMC_USB = PMC_USB_USBS | PMC_USB_USBDIV(ul_usbdiv);
+}
+#endif
+
+#if (SAM3S || SAM3XA || SAM4S)
+/**
+ * \brief Enable UDP (USB) clock.
+ */
+void pmc_enable_udpck(void)
+{
+# if (SAM3S || SAM4S)
+	PMC->PMC_SCER = PMC_SCER_UDP;
+# else
+	PMC->PMC_SCER = PMC_SCER_UOTGCLK;
+# endif
+}
+
+/**
+ * \brief Disable UDP (USB) clock.
+ */
+void pmc_disable_udpck(void)
+{
+# if (SAM3S || SAM4S)
+	PMC->PMC_SCDR = PMC_SCDR_UDP;
+# else
+	PMC->PMC_SCDR = PMC_SCDR_UOTGCLK;
+# endif
+}
+#endif
+
+/** 
+ * \brief Enable PMC interrupts.
+ *
+ * \param ul_sources Interrupt sources bit map.
+ */
+void pmc_enable_interrupt(uint32_t ul_sources)
+{
+	PMC->PMC_IER = ul_sources;
+}
+
+/** 
+ * \brief Disable PMC interrupts.
+ *
+ * \param ul_sources Interrupt sources bit map.
+ */
+void pmc_disable_interrupt(uint32_t ul_sources)
+{
+	PMC->PMC_IDR = ul_sources;
+}
+
+/** 
+ * \brief Get PMC interrupt mask.
+ *
+ * \return The interrupt mask value.
+ */
+uint32_t pmc_get_interrupt_mask(void)
+{
+	return PMC->PMC_IMR;
+}
+
+/**
+ * \brief Get current status.
+ *
+ * \return The current PMC status.
+ */
+uint32_t pmc_get_status(void)
+{
+	return PMC->PMC_SR;
 }
 
 /**
  * \brief Set the wake-up inputs for fast startup mode registers (event generation).
  *
- * \param dw_inputs Wake up inputs to enable.
+ * \param ul_inputs Wake up inputs to enable.
  */
-void pmc_set_fast_startup_input(uint32_t dw_inputs)
+void pmc_set_fast_startup_input(uint32_t ul_inputs)
 {
-	PMC->PMC_FSMR &= (uint32_t) ~ PMC_FAST_STARTUP_Msk;
-	PMC->PMC_FSMR |= dw_inputs;
+	ul_inputs &= (~ PMC_FAST_STARTUP_Msk);
+	PMC->PMC_FSMR |= ul_inputs;
+}
+
+/**
+ * \brief Clear the wake-up inputs for fast startup mode registers (remove event generation).
+ *
+ * \param ul_inputs Wake up inputs to disable.
+ */
+void pmc_clr_fast_startup_input(uint32_t ul_inputs)
+{
+	ul_inputs &= (~ PMC_FAST_STARTUP_Msk);
+	PMC->PMC_FSMR &= ~ul_inputs;
 }
 
 /**
@@ -767,56 +1025,17 @@ void pmc_enable_backupmode(void)
 }
 
 /** 
- * \brief Enable PMC interrupts.
- *
- * \param dw_sources Interrupt sources bit map.
- */
-void pmc_enable_interrupt(uint32_t dw_sources)
-{
-	PMC->PMC_IER = dw_sources;
-}
-
-/** 
- * \brief Disable PMC interrupts.
- *
- * \param dw_sources Interrupt sources bit map.
- */
-void pmc_disable_interrupt(uint32_t dw_sources)
-{
-	PMC->PMC_IDR = dw_sources;
-}
-
-/** 
- * \brief Read PMC interrupt mask.
- *
- * \return The interrupt mask value.
- */
-uint32_t pmc_get_interrupt_mask(void)
-{
-	return PMC->PMC_IMR;
-}
-
-/**
- * \brief Get current status.
- *
- * \return The current PMC status.
- */
-uint32_t pmc_get_status(void)
-{
-	return PMC->PMC_SR;
-}
-
-/** 
  * \brief Enable or disable write protect of PMC registers.
  *
- * \param dw_enable 1 to enable, 0 to disable.
+ * \param ul_enable 1 to enable, 0 to disable.
  */
-void pmc_set_writeprotect(uint32_t dw_enable)
+void pmc_set_writeprotect(uint32_t ul_enable)
 {
-	if (dw_enable)
+	if (ul_enable) {
 		PMC->PMC_WPMR = PMC_WPMR_WPKEY_VALUE | PMC_WPMR_WPEN;
-	else
+	} else {
 		PMC->PMC_WPMR = PMC_WPMR_WPKEY_VALUE;
+	}
 }
 
 /** 
@@ -829,225 +1048,6 @@ uint32_t pmc_get_writeprotect_status(void)
 {
 	return PMC->PMC_WPMR & PMC_WPMR_WPEN;
 }
-
-#if (SAM3S || SAM4S)
-/**
- * \brief Enable pllb clock.
- *
- * \param mulb Pllb multiplier.
- * \param pllbcount Pllb counter.
- * \param divb Divider.
- */
-void pmc_enable_pllbck(uint32_t mulb, uint32_t pllbcount, uint32_t divb)
-{
-	pmc_disable_pllbck();	// Hardware BUG FIX : first disable the PLL to unlock the lock! 
-	// It occurs when re-enabling the PLL with the same parameters.
-	PMC->CKGR_PLLBR =
-			CKGR_PLLBR_DIVB(divb) | CKGR_PLLBR_PLLBCOUNT(pllbcount)
-			| CKGR_PLLBR_MULB(mulb);
-	while ((PMC->PMC_SR & PMC_SR_LOCKB) == 0);
-}
-
-/**
- * \brief Is pllb clocked?
- *
- * \retval 0 Not locked.
- * \retval 1 Locked.
- */
-uint32_t pmc_is_locked_pllbck(void)
-{
-	return (PMC->PMC_SR & PMC_SR_LOCKB);
-}
-
-/**
- * \brief Disable pllb clock.
- */
-void pmc_disable_pllbck(void)
-{
-	PMC->CKGR_PLLBR = CKGR_PLLBR_MULB(0);
-}
-
-/**
- * \brief Switch master clock source selection to pllb clock.
- *
- * \param dw_pres Processor clock prescaler.
- *
- * \retval 0 Success.
- * \retval 1 Timeout error.
- */
-uint32_t pmc_switch_mck_to_pllbck(uint32_t dw_pres)
-{
-	uint32_t dw_timeout;
-
-	PMC->PMC_MCKR = (PMC->PMC_MCKR & (uint32_t) ~ PMC_MCKR_PRES_Msk) | dw_pres;
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
-			--dw_timeout)
-		if (dw_timeout == 0)
-			return 1;
-
-	PMC->PMC_MCKR = (PMC->PMC_MCKR & (uint32_t) ~ PMC_MCKR_CSS_Msk) |
-			PMC_MCKR_CSS_PLLB_CLK;
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
-			--dw_timeout)
-		if (dw_timeout == 0)
-			return 1;
-
-	return 0;
-}
-
-/**
- * \brief Switch programmable clock source selection to pllb clock.
- *
- * \param dw_id Id of the programmable clock.
- * \param dw_pres Programmable clock prescaler.
- *
- * \retval 0 Success.
- * \retval 1 Timeout error.
- */
-uint32_t pmc_switch_pck_to_pllbck(uint32_t dw_id, uint32_t dw_pres)
-{
-	uint32_t dw_timeout;
-
-	PMC->PMC_PCK[dw_id] = PMC_PCK_CSS_PLLB_CLK | dw_pres;
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & (PMC_SR_PCKRDY0 << dw_id));
-			--dw_timeout)
-		if (dw_timeout == 0)
-			return 1;
-
-	return 0;
-}
-
-/**
- * \brief Switch udp (usb) clock source selection to pllb clock.
- *
- * \param dw_usbdiv Clock divisor.
- */
-void pmc_switch_udpck_to_pllbck(uint32_t dw_usbdiv)
-{
-	PMC->PMC_USB = PMC_USB_USBDIV(dw_usbdiv) | PMC_USB_USBS;
-}
-#endif
-
-#if (SAM3S || SAM3XA || SAM4S)
-/**
- * \brief Switch udp (usb) clock source selection to plla clock.
- *
- * \param dw_usbdiv Clock divisor.
- */
-void pmc_switch_udpck_to_pllack(uint32_t dw_usbdiv)
-{
-	PMC->PMC_USB = PMC_USB_USBDIV(dw_usbdiv);
-}
-
-/**
- * \brief Enable udp (usb) clock.
- */
-void pmc_enable_udpck(void)
-{
-#if (SAM3S || SAM4S)
-	PMC->PMC_SCER = PMC_SCER_UDP;
-#else
-	PMC->PMC_SCER = PMC_SCER_UOTGCLK;
-#endif
-}
-
-/**
- * \brief Disable udp (usb) clock.
- */
-void pmc_disable_udpck(void)
-{
-#if (SAM3S || SAM4S)
-	PMC->PMC_SCDR = PMC_SCDR_UDP;
-#else
-	PMC->PMC_SCDR = PMC_SCDR_UOTGCLK;
-#endif
-}
-#endif
-
-
-#if (SAM3XA || SAM3U)
-/**
- * \brief Is UTMI PLL clocked?
- *
- * \retval 0 Not locked.
- * \retval 1 Locked.
- */
-uint32_t pmc_is_locked_upll(void)
-{
-	return (PMC->PMC_SR & PMC_SR_LOCKU);
-}
-
-/**
- * \brief Enable UPLL clock.
- */
-void pmc_enable_upll_clock(void)
-{
-	PMC->CKGR_UCKR = CKGR_UCKR_UPLLCOUNT(3) | CKGR_UCKR_UPLLEN;
-
-	/* Wait UTMI PLL Lock Status */
-	while (!(PMC->PMC_SR & PMC_SR_LOCKU));
-}
-
-/**
- * \brief Disable UPLL clock.
- */
-void pmc_disable_upll_clock(void)
-{
-	PMC->CKGR_UCKR &= ~CKGR_UCKR_UPLLEN;
-}
-
-/**
- * \brief Switch master clock source selection to upll clock.
- *
- * \param dw_pres Processor clock prescaler.
- *
- * \retval 0 Success.
- * \retval 1 Timeout error.
- */
-uint32_t pmc_switch_mck_to_upllck(uint32_t dw_pres)
-{
-	uint32_t dw_timeout;
-
-	PMC->PMC_MCKR = (PMC->PMC_MCKR & (uint32_t) ~ PMC_MCKR_PRES_Msk) | dw_pres;
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
-			--dw_timeout)
-		if (dw_timeout == 0)
-			return 1;
-
-	PMC->PMC_MCKR = (PMC->PMC_MCKR & (uint32_t) ~ PMC_MCKR_CSS_Msk) |
-			PMC_MCKR_CSS_UPLL_CLK;
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & PMC_SR_MCKRDY);
-			--dw_timeout)
-		if (dw_timeout == 0)
-			return 1;
-
-	return 0;
-}
-
-/**
- * \brief Switch programmable clock source selection to upll clock.
- *
- * \param dw_id Id of the programmable clock.
- * \param dw_pres Programmable clock prescaler.
- *
- * \retval 0 Success.
- * \retval 1 Timeout error.
- */
-uint32_t pmc_switch_pck_to_upllck(uint32_t dw_id, uint32_t dw_pres)
-{
-	uint32_t dw_timeout;
-
-	PMC->PMC_PCK[dw_id] = PMC_PCK_CSS_UPLL_CLK | dw_pres;
-	for (dw_timeout = PMC_TIMEOUT; !(PMC->PMC_SR & (PMC_SR_PCKRDY0 << dw_id));
-			--dw_timeout)
-		if (dw_timeout == 0)
-			return 1;
-
-	return 0;
-}
-#endif
-
-//@}
 
 /// @cond 0
 /**INDENT-OFF**/

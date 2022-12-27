@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_components_memory_data_flash_at45dbx_example_stk600-rcuc3l4.elf
+TARGET = at45dbx_example.elf
 
 # List of C source files.
 CSRCS = \

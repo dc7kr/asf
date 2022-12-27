@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for common clock service
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -255,7 +255,7 @@ static void run_pll_dfll_test(const struct test_case *test)
 {
 	uint32_t wait;
 	bool status;
-#ifdef CONFIG_PLL0_SOURCE || CONFIG_PLL1_SOURCE
+#if (defined CONFIG_PLL0_SOURCE) || (defined CONFIG_PLL1_SOURCE)
 	struct pll_config pllcfg;
 #endif
 
@@ -380,6 +380,7 @@ static void run_generic_clock_test(const struct test_case *test)
 {
 	struct genclk_config gencfg;
 	bool status;
+	genclk_config_defaults(&gencfg, CONFIG_GENERIC_ID);
 	genclk_config_set_source(&gencfg, CONFIG_GENERIC_SRC);
 	genclk_config_set_divider(&gencfg, CONFIG_GENERIC_DIV);
 	genclk_enable(&gencfg, CONFIG_GENERIC_ID);
@@ -460,7 +461,7 @@ int main (void)
 	// Run all tests in the test suite.
 	test_suite_run(&clock_suite);
 
-	while (1) {
+	while (true) {
 		__asm__("nop");
 	};
 }

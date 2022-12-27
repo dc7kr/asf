@@ -60,6 +60,9 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: EBI SDRAM Controller
 #include <sdramc.h>
 
@@ -150,9 +153,6 @@
 
 // From module: TC - Timer/Counter
 #include <tc.h>
-
-// From module: TIMING - Delay routines
-#include <delay.h>
 
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter
 #include <usart.h>

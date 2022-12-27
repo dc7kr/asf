@@ -3,7 +3,7 @@
  *
  * \brief 32-bit NLMS filtering
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,7 +40,7 @@
  */
 
 /**
- * \defgroup group_avr32_services_dsplib_simulator_example_dsp32_nlms DSPLIB - 32-bit fixed-point NLMS filter example
+ * \mainpage
  * \section intro Introduction
  * This example demonstrates a way to use the 32-bit NLMS Filter function.\n
  * To visualize the result, you may set a breakpoint after the sprintf and

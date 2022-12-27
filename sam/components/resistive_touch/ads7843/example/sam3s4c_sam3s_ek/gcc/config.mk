@@ -45,13 +45,14 @@ PART = sam3s4c
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam_components_resistive_touch_ads7843_example_sam3s_ek_flash.elf
-TARGET_SRAM = sam_components_resistive_touch_ads7843_example_sam3s_ek_sram.elf
+TARGET_FLASH = ads7843_example_flash.elf
+TARGET_SRAM = ads7843_example_sram.elf
 
 # List of C source files.
 CSRCS = \
        common/services/clock/sam3s/sysclk.c               \
        common/services/spi/sam_spi/spi_master.c           \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3s_ek/init.c                         \
        sam/components/display/aat31xx/aat31xx.c           \
        sam/components/display/ili9325/ili9325.c           \
@@ -80,6 +81,7 @@ INC_PATH = \
        common/services/gpio                               \
        common/services/spi                                \
        common/services/spi/sam_spi                        \
+       common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3s_ek                                \
        sam/components/display/aat31xx                     \
@@ -97,6 +99,7 @@ INC_PATH = \
        sam/utils/cmsis/sam3s/include                      \
        sam/utils/cmsis/sam3s/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include \
        ./sam/components/resistive_touch/ads7843/example/sam3s4c_sam3s_ek/gcc
 

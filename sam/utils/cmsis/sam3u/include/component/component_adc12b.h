@@ -67,12 +67,10 @@ typedef struct {
   RoReg Reserved3[37];
   RwReg ADC12B_RPR;    /**< \brief (Adc12b Offset: 0x100) Receive Pointer Register */
   RwReg ADC12B_RCR;    /**< \brief (Adc12b Offset: 0x104) Receive Counter Register */
-  RwReg ADC12B_TPR;    /**< \brief (Adc12b Offset: 0x108) Transmit Pointer Register */
-  RwReg ADC12B_TCR;    /**< \brief (Adc12b Offset: 0x10C) Transmit Counter Register */
+  RoReg Reserved4[2];
   RwReg ADC12B_RNPR;   /**< \brief (Adc12b Offset: 0x110) Receive Next Pointer Register */
   RwReg ADC12B_RNCR;   /**< \brief (Adc12b Offset: 0x114) Receive Next Counter Register */
-  RwReg ADC12B_TNPR;   /**< \brief (Adc12b Offset: 0x118) Transmit Next Pointer Register */
-  RwReg ADC12B_TNCR;   /**< \brief (Adc12b Offset: 0x11C) Transmit Next Counter Register */
+  RoReg Reserved5[2];
   WoReg ADC12B_PTCR;   /**< \brief (Adc12b Offset: 0x120) Transfer Control Register */
   RoReg ADC12B_PTSR;   /**< \brief (Adc12b Offset: 0x124) Transfer Status Register */
 } Adc12b;
@@ -82,13 +80,23 @@ typedef struct {
 #define ADC12B_CR_START (0x1u << 1) /**< \brief (ADC12B_CR) Start Conversion */
 /* -------- ADC12B_MR : (ADC12B Offset: 0x04) Mode Register -------- */
 #define ADC12B_MR_TRGEN (0x1u << 0) /**< \brief (ADC12B_MR) Trigger Enable */
+#define   ADC12B_MR_TRGEN_DIS (0x0u << 0) /**< \brief (ADC12B_MR) Hardware triggers are disabled. Starting a conversion is only possible by software. */
+#define   ADC12B_MR_TRGEN_EN (0x1u << 0) /**< \brief (ADC12B_MR) Hardware trigger selected by TRGSEL field is enabled. */
 #define ADC12B_MR_TRGSEL_Pos 1
 #define ADC12B_MR_TRGSEL_Msk (0x7u << ADC12B_MR_TRGSEL_Pos) /**< \brief (ADC12B_MR) Trigger Selection */
 #define ADC12B_MR_TRGSEL(value) ((ADC12B_MR_TRGSEL_Msk & ((value) << ADC12B_MR_TRGSEL_Pos)))
+#define   ADC12B_MR_TRGSEL_ADC_TRIG0 (0x0u << 1) /**< \brief (ADC12B_MR) External trigger */
+#define   ADC12B_MR_TRGSEL_ADC_TRIG1 (0x1u << 1) /**< \brief (ADC12B_MR) TIO Output of the Timer Counter Channel 0 */
+#define   ADC12B_MR_TRGSEL_ADC_TRIG2 (0x2u << 1) /**< \brief (ADC12B_MR) TIO Output of the Timer Counter Channel 1 */
+#define   ADC12B_MR_TRGSEL_ADC_TRIG3 (0x3u << 1) /**< \brief (ADC12B_MR) TIO Output of the Timer Counter Channel 2 */
+#define   ADC12B_MR_TRGSEL_ADC_TRIG4 (0x4u << 1) /**< \brief (ADC12B_MR) PWM Event Line 0 */
+#define   ADC12B_MR_TRGSEL_ADC_TRIG5 (0x5u << 1) /**< \brief (ADC12B_MR) PWM Event Line 1 */
 #define ADC12B_MR_LOWRES (0x1u << 4) /**< \brief (ADC12B_MR) Resolution */
-#define ADC12B_MR_LOWRES_BITS_12 (0x0u << 4) /**< \brief (ADC_MR) 12-bit resolution */
-#define ADC12B_MR_LOWRES_BITS_10 (0x1u << 4) /**< \brief (ADC_MR) 10-bit resolution */
+#define   ADC12B_MR_LOWRES_BITS_12 (0x0u << 4) /**< \brief (ADC12B_MR) 12-bit resolution */
+#define   ADC12B_MR_LOWRES_BITS_10 (0x1u << 4) /**< \brief (ADC12B_MR) 10-bit resolution */
 #define ADC12B_MR_SLEEP (0x1u << 5) /**< \brief (ADC12B_MR) Sleep Mode */
+#define   ADC12B_MR_SLEEP_NORMAL (0x0u << 5) /**< \brief (ADC12B_MR) Normal Mode: The ADC Core and reference voltage circuitry are kept ON between conversions */
+#define   ADC12B_MR_SLEEP_SLEEP (0x1u << 5) /**< \brief (ADC12B_MR) Sleep Mode: The ADC Core and reference voltage circuitry are OFF between conversions */
 #define ADC12B_MR_PRESCAL_Pos 8
 #define ADC12B_MR_PRESCAL_Msk (0xffu << ADC12B_MR_PRESCAL_Pos) /**< \brief (ADC12B_MR) Prescaler Rate Selection */
 #define ADC12B_MR_PRESCAL(value) ((ADC12B_MR_PRESCAL_Msk & ((value) << ADC12B_MR_PRESCAL_Pos)))
@@ -237,14 +245,6 @@ typedef struct {
 #define ADC12B_RCR_RXCTR_Pos 0
 #define ADC12B_RCR_RXCTR_Msk (0xffffu << ADC12B_RCR_RXCTR_Pos) /**< \brief (ADC12B_RCR) Receive Counter Register */
 #define ADC12B_RCR_RXCTR(value) ((ADC12B_RCR_RXCTR_Msk & ((value) << ADC12B_RCR_RXCTR_Pos)))
-/* -------- ADC12B_TPR : (ADC12B Offset: 0x108) Transmit Pointer Register -------- */
-#define ADC12B_TPR_TXPTR_Pos 0
-#define ADC12B_TPR_TXPTR_Msk (0xffffffffu << ADC12B_TPR_TXPTR_Pos) /**< \brief (ADC12B_TPR) Transmit Counter Register */
-#define ADC12B_TPR_TXPTR(value) ((ADC12B_TPR_TXPTR_Msk & ((value) << ADC12B_TPR_TXPTR_Pos)))
-/* -------- ADC12B_TCR : (ADC12B Offset: 0x10C) Transmit Counter Register -------- */
-#define ADC12B_TCR_TXCTR_Pos 0
-#define ADC12B_TCR_TXCTR_Msk (0xffffu << ADC12B_TCR_TXCTR_Pos) /**< \brief (ADC12B_TCR) Transmit Counter Register */
-#define ADC12B_TCR_TXCTR(value) ((ADC12B_TCR_TXCTR_Msk & ((value) << ADC12B_TCR_TXCTR_Pos)))
 /* -------- ADC12B_RNPR : (ADC12B Offset: 0x110) Receive Next Pointer Register -------- */
 #define ADC12B_RNPR_RXNPTR_Pos 0
 #define ADC12B_RNPR_RXNPTR_Msk (0xffffffffu << ADC12B_RNPR_RXNPTR_Pos) /**< \brief (ADC12B_RNPR) Receive Next Pointer */
@@ -253,14 +253,6 @@ typedef struct {
 #define ADC12B_RNCR_RXNCTR_Pos 0
 #define ADC12B_RNCR_RXNCTR_Msk (0xffffu << ADC12B_RNCR_RXNCTR_Pos) /**< \brief (ADC12B_RNCR) Receive Next Counter */
 #define ADC12B_RNCR_RXNCTR(value) ((ADC12B_RNCR_RXNCTR_Msk & ((value) << ADC12B_RNCR_RXNCTR_Pos)))
-/* -------- ADC12B_TNPR : (ADC12B Offset: 0x118) Transmit Next Pointer Register -------- */
-#define ADC12B_TNPR_TXNPTR_Pos 0
-#define ADC12B_TNPR_TXNPTR_Msk (0xffffffffu << ADC12B_TNPR_TXNPTR_Pos) /**< \brief (ADC12B_TNPR) Transmit Next Pointer */
-#define ADC12B_TNPR_TXNPTR(value) ((ADC12B_TNPR_TXNPTR_Msk & ((value) << ADC12B_TNPR_TXNPTR_Pos)))
-/* -------- ADC12B_TNCR : (ADC12B Offset: 0x11C) Transmit Next Counter Register -------- */
-#define ADC12B_TNCR_TXNCTR_Pos 0
-#define ADC12B_TNCR_TXNCTR_Msk (0xffffu << ADC12B_TNCR_TXNCTR_Pos) /**< \brief (ADC12B_TNCR) Transmit Counter Next */
-#define ADC12B_TNCR_TXNCTR(value) ((ADC12B_TNCR_TXNCTR_Msk & ((value) << ADC12B_TNCR_TXNCTR_Pos)))
 /* -------- ADC12B_PTCR : (ADC12B Offset: 0x120) Transfer Control Register -------- */
 #define ADC12B_PTCR_RXTEN (0x1u << 0) /**< \brief (ADC12B_PTCR) Receiver Transfer Enable */
 #define ADC12B_PTCR_RXTDIS (0x1u << 1) /**< \brief (ADC12B_PTCR) Receiver Transfer Disable */

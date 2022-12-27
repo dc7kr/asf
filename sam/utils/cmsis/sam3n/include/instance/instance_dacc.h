@@ -51,12 +51,8 @@
 #define REG_DACC_ISR           (0x4003C018U) /**< \brief (DACC) Interrupt Status Register */
 #define REG_DACC_WPMR          (0x4003C0E4U) /**< \brief (DACC) Write Protect Mode Register */
 #define REG_DACC_WPSR          (0x4003C0E8U) /**< \brief (DACC) Write Protect Status Register */
-#define REG_DACC_RPR           (0x4003C100U) /**< \brief (DACC) Receive Pointer Register */
-#define REG_DACC_RCR           (0x4003C104U) /**< \brief (DACC) Receive Counter Register */
 #define REG_DACC_TPR           (0x4003C108U) /**< \brief (DACC) Transmit Pointer Register */
 #define REG_DACC_TCR           (0x4003C10CU) /**< \brief (DACC) Transmit Counter Register */
-#define REG_DACC_RNPR          (0x4003C110U) /**< \brief (DACC) Receive Next Pointer Register */
-#define REG_DACC_RNCR          (0x4003C114U) /**< \brief (DACC) Receive Next Counter Register */
 #define REG_DACC_TNPR          (0x4003C118U) /**< \brief (DACC) Transmit Next Pointer Register */
 #define REG_DACC_TNCR          (0x4003C11CU) /**< \brief (DACC) Transmit Next Counter Register */
 #define REG_DACC_PTCR          (0x4003C120U) /**< \brief (DACC) Transfer Control Register */
@@ -71,12 +67,8 @@
 #define REG_DACC_ISR  (*(RoReg*)0x4003C018U) /**< \brief (DACC) Interrupt Status Register */
 #define REG_DACC_WPMR (*(RwReg*)0x4003C0E4U) /**< \brief (DACC) Write Protect Mode Register */
 #define REG_DACC_WPSR (*(RoReg*)0x4003C0E8U) /**< \brief (DACC) Write Protect Status Register */
-#define REG_DACC_RPR  (*(RwReg*)0x4003C100U) /**< \brief (DACC) Receive Pointer Register */
-#define REG_DACC_RCR  (*(RwReg*)0x4003C104U) /**< \brief (DACC) Receive Counter Register */
 #define REG_DACC_TPR  (*(RwReg*)0x4003C108U) /**< \brief (DACC) Transmit Pointer Register */
 #define REG_DACC_TCR  (*(RwReg*)0x4003C10CU) /**< \brief (DACC) Transmit Counter Register */
-#define REG_DACC_RNPR (*(RwReg*)0x4003C110U) /**< \brief (DACC) Receive Next Pointer Register */
-#define REG_DACC_RNCR (*(RwReg*)0x4003C114U) /**< \brief (DACC) Receive Next Counter Register */
 #define REG_DACC_TNPR (*(RwReg*)0x4003C118U) /**< \brief (DACC) Transmit Next Pointer Register */
 #define REG_DACC_TNCR (*(RwReg*)0x4003C11CU) /**< \brief (DACC) Transmit Next Counter Register */
 #define REG_DACC_PTCR (*(WoReg*)0x4003C120U) /**< \brief (DACC) Transfer Control Register */

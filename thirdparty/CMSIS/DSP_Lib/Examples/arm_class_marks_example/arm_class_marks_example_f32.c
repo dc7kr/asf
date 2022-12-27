@@ -25,7 +25,7 @@
 /** 
  * @ingroup groupExamples 
  */ 
- 
+
 /**    
  * @defgroup ClassMarks Class Marks Example  
  *
@@ -65,7 +65,8 @@
 /** \example arm_class_marks_example_f32.c 
   */  
 #include "arm_math.h" 
- 
+#include "asf.h"
+
 #define USE_STATIC_INIT 
  
  /* ---------------------------------------------------------------------- 

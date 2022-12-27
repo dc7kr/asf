@@ -7,7 +7,7 @@
  *                       can be used.
  *
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -240,7 +240,7 @@ static void aic23b_write_control_word(aic23b_ctrl_t ctrl)
   twi_package_t twi_package =
   {
     .chip         = AIC23B_TWI_ADDRESS,
-    .addr_length  = AVR32_TWI_MMR_IADRSZ_NO_ADDR,
+    .addr_length  = 0,
     .buffer       = &my_ctrl,
     .length       = sizeof(my_ctrl)
   };

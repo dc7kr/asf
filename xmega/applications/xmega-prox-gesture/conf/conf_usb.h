@@ -55,7 +55,7 @@
 #define  USB_DEVICE_MAJOR_VERSION         1
 #define  USB_DEVICE_MINOR_VERSION         0
 #define  USB_DEVICE_POWER                 100
-#define  USB_DEVICE_MANUFACTURE_NAME      "ATMEL AVR"
+#define  USB_DEVICE_MANUFACTURE_NAME      "ATMEL ASF"
 #define  USB_DEVICE_PRODUCT_NAME          "CDC"
 
 #define  USB_DEVICE_ATTR                  \

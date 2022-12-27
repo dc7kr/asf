@@ -3,7 +3,7 @@
  *
  * \brief Cyclic Redundancy Check Calculation Unit (CRCCU) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -62,22 +62,22 @@ extern "C" {
  * \brief Configure CRCCU descriptor.
  *
  * \param p_crccu Pointer to a CRCCU instance.
- * \param dw_crc_dscr_addr CRCCU descriptor address.
+ * \param ul_crc_dscr_addr CRCCU descriptor address.
  */
-void crccu_configure_descriptor(Crccu *p_crccu, uint32_t dw_crc_dscr_addr)
+void crccu_configure_descriptor(Crccu *p_crccu, uint32_t ul_crc_dscr_addr)
 {
-	p_crccu->CRCCU_DSCR = dw_crc_dscr_addr;
+	p_crccu->CRCCU_DSCR = ul_crc_dscr_addr;
 }
 
 /**
  * \brief Configure the CRCCU mode.
  *
  * \param p_crccu Pointer to a CRCCU instance. 
- * \param dw_mode CRC work mode.
+ * \param ul_mode CRC work mode.
  */
-void crccu_configure_mode(Crccu *p_crccu, uint32_t dw_mode)
+void crccu_configure_mode(Crccu *p_crccu, uint32_t ul_mode)
 {
-	p_crccu->CRCCU_MR = dw_mode;
+	p_crccu->CRCCU_MR = ul_mode;
 }
 
 /**

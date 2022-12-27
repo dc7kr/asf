@@ -3,7 +3,7 @@
  *
  * \brief AVR XMEGA Advanced Encryption Standard (AES) driver
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -64,7 +64,7 @@ void aes_configure(enum aes_dec decrypt, enum aes_auto auto_start,
 /**
  * \brief Load key memory
  *
- * \note The key is a user defined value of 16 bytes in Xmega Crypto Engine.
+ * \note The key is a user defined value of 16 bytes in AVR XMEGA Crypto Engine.
  *
  * \param key_in     Pointer to AES key input.
  *
@@ -83,7 +83,7 @@ void aes_set_key(t_key key_in)
 /**
  * \brief Get key memory
  *
- * \note The key is a user defined value of 16 bytes in Xmega Crypto Engine.
+ * \note The key is a user defined value of 16 bytes in AVR XMEGA Crypto Engine.
  *
  * \param key_out    Pointer to AES key output.
  *
@@ -102,7 +102,8 @@ void aes_get_key(t_key key_out)
 /**
  * \brief Load state memory
  *
- * \note The state is a user defined value of 16 bytes in Xmega Crypto Engine.
+ * \note The state is a user defined value of 16 bytes in AVR XMEGA Crypto
+ * Engine.
  *
  * \param data_in    Pointer to AES input date.
  *
@@ -121,7 +122,8 @@ void aes_write_inputdata(t_data data_in)
 /**
  * \brief Get state memory
  *
- * \note The state is a user defined value of 16 bytes in Xmega Crypto Engine.
+ * \note The state is a user defined value of 16 bytes in AVR XMEGA Crypto
+ * Engine.
  *
  * \param data_out   Pointer to AES output date.
  *

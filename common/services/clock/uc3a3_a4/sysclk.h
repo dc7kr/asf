@@ -3,7 +3,7 @@
  *
  * \brief Chip-specific system clock management functions
  *
- * Copyright (c) 2010-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -44,6 +44,160 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+/**
+ * \page sysclk_quickstart Quick Start Guide for the System Clock Management service (UC3A3/UC3A4)
+ *
+ * This is the quick start guide for the \ref sysclk_group "System Clock Management"
+ * service, with step-by-step instructions on how to configure and use the service for
+ * specific use cases.
+ *
+ * \section sysclk_quickstart_usecases System Clock Management use cases
+ * - \ref sysclk_quickstart_basic
+ * - \ref sysclk_quickstart_use_case_2
+ *
+ * \section sysclk_quickstart_basic Basic usage of the System Clock Management service
+ * This section will present a basic use case for the System Clock Management service.
+ * This use case will configure the main system clock to 48MHz, using an internal PLL
+ * module to multiply the frequency of a crystal attached to the microcontroller. The
+ * peripheral bus clocks are scaled down from the speed of the main system clock.
+ *
+ * \subsection sysclk_quickstart_use_case_1_prereq Prerequisites
+ *  - None
+ *
+ * \subsection sysclk_quickstart_use_case_1_setup_steps Initialization code
+ * Add to the application initialization code:
+ * \code
+ *    sysclk_init();
+ * \endcode
+ *
+ * \subsection sysclk_quickstart_use_case_1_setup_steps_workflow Workflow
+ * -# Configure the system clocks according to the settings in conf_clock.h:
+ *    \code sysclk_init(); \endcode
+ *
+ * \subsection sysclk_quickstart_use_case_1_example_code Example code
+ *   Add or uncomment the following in your conf_clock.h header file, commenting out all other
+ *   definitions of the same symbol(s):
+ *   \code
+ *   #define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_PLL0
+ *
+ *   // Fpll0 = (Fclk * PLL_mul) / PLL_div
+ *   #define CONFIG_PLL0_SOURCE          PLL_SRC_OSC0
+ *   #define CONFIG_PLL0_MUL             (48000000UL / BOARD_OSC0_HZ)
+ *   #define CONFIG_PLL0_DIV             1
+ *
+ *   // Fbus = Fsys / (2 ^ BUS_div)
+ *   #define CONFIG_SYSCLK_CPU_DIV       0
+ *   #define CONFIG_SYSCLK_PBA_DIV       1
+ *   #define CONFIG_SYSCLK_PBB_DIV       1
+ *   \endcode
+ *
+ * \subsection sysclk_quickstart_use_case_1_example_workflow Workflow
+ *  -# Configure the main system clock to use the output of the PLL0 module as its source:
+ *   \code #define CONFIG_SYSCLK_SOURCE      SYSCLK_SRC_PLL0 \endcode
+ *  -# Configure the PLL0 module to use external crystal oscillator OSC0 as its source:
+ *   \code #define CONFIG_PLL0_SOURCE        SYSCLK_SRC_OSC0 \endcode
+ *  -# Configure the PLL0 module to multiply the external oscillator OSC0 frequency up to 48MHz:
+ *   \code
+ *   #define CONFIG_PLL0_MUL             (48000000UL / BOARD_OSC0_HZ)
+ *   #define CONFIG_PLL0_DIV             1 
+ *   \endcode
+ *   \note For user boards, \c BOARD_OSC0_HZ should be defined in the board \c conf_board.h configuration
+ *         file as the frequency of the crystal attached to OSC0.
+ *  -# Configure the main clock to run at the full 48MHz, scale the peripheral busses to run at one
+ *     half (2 to the power of 1) of the system clock speed:
+ *    \code
+ *    #define CONFIG_SYSCLK_CPU_DIV       0
+ *    #define CONFIG_SYSCLK_PBA_DIV       1
+ *    #define CONFIG_SYSCLK_PBB_DIV       1
+ *    \endcode
+ *    \note Some dividers are powers of two, while others are integer division factors. Refer to the
+ *          formulas in the conf_clock.h template commented above each division define.
+ */
+
+/**
+ * \page sysclk_quickstart_use_case_2 Advanced use case - Peripheral Bus Clock Management (UC3A3/UC3A4)
+ *
+ * \section sysclk_quickstart_use_case_2 Advanced use case - Peripheral Bus Clock Management
+ * This section will present a more advanced use case for the System Clock Management service.
+ * This use case will configure the main system clock to 48MHz, using an internal PLL
+ * module to multiply the frequency of a crystal attached to the microcontroller. The peripheral bus
+ * clocks will be divided down by a factor of two, and the USB clock will be configured via a
+ * seperate PLL module.
+ *
+ * \subsection sysclk_quickstart_use_case_2_prereq Prerequisites
+ *  - None
+ *
+ * \subsection sysclk_quickstart_use_case_2_setup_steps Initialization code
+ * Add to the application initialization code:
+ * \code
+ *    sysclk_init();
+ * \endcode
+ *
+ * \subsection sysclk_quickstart_use_case_2_setup_steps_workflow Workflow
+ * -# Configure the system clocks according to the settings in conf_clock.h:
+ *    \code sysclk_init(); \endcode
+ *
+ * \subsection sysclk_quickstart_use_case_2_example_code Example code
+ *   Add or uncomment the following in your conf_clock.h header file, commenting out all other
+ *   definitions of the same symbol(s):
+ *   \code
+ *   #define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_PLL0
+ *
+ *   // Fpll0 = (Fclk * PLL_mul) / PLL_div
+ *   #define CONFIG_PLL0_SOURCE          PLL_SRC_OSC0
+ *   #define CONFIG_PLL0_MUL             (48000000UL / BOARD_OSC0_HZ)
+ *   #define CONFIG_PLL0_DIV             1
+ *
+ *   // Fbus = Fsys / (2 ^ BUS_div)
+ *   #define CONFIG_SYSCLK_CPU_DIV       0
+ *   #define CONFIG_SYSCLK_PBA_DIV       1
+ *   #define CONFIG_SYSCLK_PBB_DIV       1
+ *
+ *   #define CONFIG_USBCLK_SOURCE        USBCLK_SRC_PLL1
+ *
+ *   // Fpll1 = (Fclk * PLL_mul) / PLL_div
+ *   #define CONFIG_PLL1_SOURCE          PLL_SRC_OSC0
+ *   #define CONFIG_PLL1_MUL             (48000000UL / BOARD_OSC0_HZ)
+ *   #define CONFIG_PLL1_DIV             1
+ *
+ *   // Fusb = Fsys / USB_div
+ *   #define CONFIG_USBCLK_DIV           4
+ *   \endcode
+ *
+ * \subsection sysclk_quickstart_use_case_2_example_workflow Workflow
+ *  -# Configure the main system clock to use the output of the PLL0 module as its source:
+ *   \code #define CONFIG_SYSCLK_SOURCE           SYSCLK_SRC_PLL0 \endcode
+ *  -# Configure the PLL0 module to use external crystal oscillator OSC0 as its source:
+ *   \code #define CONFIG_PLL0_SOURCE             SYSCLK_SRC_OSC0 \endcode
+ *  -# Configure the PLL0 module to multiply the external oscillator OSC0 frequency up to 48MHz:
+ *   \code
+ *   #define CONFIG_PLL0_MUL              (48000000UL / BOARD_OSC0_HZ)
+ *   #define CONFIG_PLL0_DIV              1 
+ *   \endcode
+ *   \note For user boards, \c BOARD_OSC0_HZ should be defined in the board \c conf_board.h configuration
+ *         file as the frequency of the crystal attached to OSC0.
+ *  -# Configure the main clock to run at the full 48MHz, scale the peripheral busses to run at one
+ *     half (2 to the power of 1) of the system clock speed:
+ *    \code
+ *    #define CONFIG_SYSCLK_CPU_DIV       0
+ *    #define CONFIG_SYSCLK_PBA_DIV       1
+ *    #define CONFIG_SYSCLK_PBB_DIV       1
+ *    \endcode
+ *    \note Some dividers are powers of two, while others are integer division factors. Refer to the
+ *          formulas in the conf_clock.h template commented above each division define.
+ *  -# Configure the USB module clock to use the output of the PLL1 module as its source:
+ *   \code #define CONFIG_USBCLK_SOURCE           USBCLK_SRC_PLL1 \endcode
+ *  -# Configure the PLL1 module to use external crystal oscillator OSC0 as its source:
+ *   \code #define CONFIG_PLL1_SOURCE             SYSCLK_SRC_OSC0 \endcode
+ *  -# Configure the PLL1 module to multiply the external oscillator OSC0 frequency up to 48MHz:
+ *   \code
+ *   #define CONFIG_PLL1_MUL              (48000000UL / BOARD_OSC0_HZ)
+ *   #define CONFIG_PLL1_DIV              1
+ *   \endcode
+ *  -# Configure the USB module to perform a division by four on the input clock speed:
+ *   \code #define CONFIG_USBCLK_DIV              4 \endcode
+ */
 
 /**
  * \weakgroup sysclk_group

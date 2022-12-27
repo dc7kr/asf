@@ -1,10 +1,13 @@
-/*****************************************************************************
- *
+/**
  * \file
  *
- * \brief Benchmark pattern file
+ * \mainpage
+ * \section title Benchmark pattern file
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * \section file File(s)
+ * - \ref benchmark.c
+ *
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

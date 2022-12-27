@@ -1,10 +1,9 @@
-/**************************************************************************
- *
+/**
  * \file
  *
- * \brief Declaration of main function used by Composite example 1
+ * \brief Declaration of main function used by Composite example 2
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -38,11 +37,12 @@
  *
  * \asf_license_stop
  *
- ***************************************************************************/
-
+ */
 
 #ifndef _MAIN_H_
 #define _MAIN_H_
+
+#include "usb_protocol_cdc.h"
 
 /*! \brief Called by MSC interface
  * Callback running when USB Host enable MSC interface
@@ -73,12 +73,12 @@ void main_mouse_disable(void);
  *
  * \retval true if keyboard startup is ok
  */
-bool main_kbd_enable(void);
+bool main_keyboard_enable(void);
 
 /*! \brief Called by HID interface
  * Callback running when USB Host disable keyboard interface
  */
-void main_kbd_disable(void);
+void main_keyboard_disable(void);
 
 /*! \brief Called by CDC interface
  * Callback running when USB Host enable CDC interface
@@ -87,10 +87,15 @@ void main_kbd_disable(void);
  */
 bool main_cdc_enable(void);
 
-/*! \brief Called by CDC interface
- * Callback running when USB Host disable cdc interface
+/*! \brief Closes the communication port
+ * This is called by CDC interface when USB Host disable it.
  */
 void main_cdc_disable(void);
+
+/*! \brief Save new DTR state to change led behavior.
+ * The DTR notify that the terminal have open or close the communication port.
+ */
+void main_cdc_set_dtr(bool b_enable);
 
 /*! \brief Called when Vbus line state change
  */
@@ -122,20 +127,8 @@ void main_remotewakeup_disable(void);
  */
 bool main_extra_string(void);
 
-/*! \brief Called by CDC interface to config port
+/*! \brief Initialize the memories used by examples
  */
-void main_cdc_config_uart(usb_cdc_line_coding_t * cfg);
-
-/*! \brief Called by CDC interface to open/close port communication
- */
-void main_cdc_set_dtr(bool b_enable);
-
-/*! \brief Called by UART interrupt when a data is received
- */
-void main_uart_rx_occur(bool b_error, uint8_t value_rx);
-
-/*! \brief Called by UART interrupt when it is ready to send next data
- */
-bool main_uart_tx_free(uint8_t * value_rx);
+void memories_initialization(void);
 
 #endif // _MAIN_H_

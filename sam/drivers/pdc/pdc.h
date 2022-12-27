@@ -3,7 +3,7 @@
  *
  * \brief Peripheral DMA Controller (PDC) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -57,7 +57,7 @@ typedef struct pdc_packet {
 	/** \brief Address for PDC transfer packet.
 	 *  The pointer to packet data start address. For pointer or next pointer register (_PR).
 	 */
-	uint32_t dw_addr;
+	uint32_t ul_addr;
 	/** \brief PDC transfer packet size.
 	 *  Size for counter or next counter register (_CR). The max value is 0xffff.
 	 *  The unit of size is based on peripheral data width, that is, data width that each time 
@@ -65,15 +65,15 @@ typedef struct pdc_packet {
 	 *  E.g., size of PDC for USART is in number of bytes, but size of PDC for 16 bit SSC is in 
 	 *  number of 16 bit word.
 	 */
-	uint32_t dw_size;
+	uint32_t ul_size;
 } pdc_packet_t;
 
 void pdc_tx_init(Pdc *p_pdc, pdc_packet_t *p_packet,
 		pdc_packet_t *p_next_packet);
 void pdc_rx_init(Pdc *p_pdc, pdc_packet_t *p_packet,
 		pdc_packet_t *p_next_packet);
-void pdc_enable_transfer(Pdc *p_pdc, uint32_t dw_controls);
-void pdc_disable_transfer(Pdc *p_pdc, uint32_t dw_controls);
+void pdc_enable_transfer(Pdc *p_pdc, uint32_t ul_controls);
+void pdc_disable_transfer(Pdc *p_pdc, uint32_t ul_controls);
 uint32_t pdc_read_status(Pdc *p_pdc);
 uint32_t pdc_read_rx_ptr(Pdc *p_pdc);
 uint32_t pdc_read_rx_counter(Pdc *p_pdc);

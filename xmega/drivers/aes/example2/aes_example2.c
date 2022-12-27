@@ -3,7 +3,7 @@
  *
  * \brief AVR XMEGA Advanced Encryption Standard (AES) example
  *
- * Copyright (C) 2010 - 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2010 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -177,19 +177,16 @@ static bool aes_lastsubkey_generate(t_key key, t_key last_sub_key)
 
 	do {
 		/* Wait until AES is finished or an error occurs. */
-	} while ((AES.STATUS & (AES_SRIF_bm | AES_ERROR_bm) ) == 0);
+	} while (aes_is_busy());
 
 	/* If not error. */
-	if ((AES.STATUS & AES_ERROR_bm) == 0) {
+	if (!aes_is_error()) {
 		/* Store the last subkey. */
-		uint8_t * temp_last_sub_key = last_sub_key;
-		for (i = 0; i < BLOCK_LENGTH; i++) {
-			*(temp_last_sub_key++) = AES.KEY;
-		}
-		AES.STATUS = AES_SRIF_bm;
+		aes_get_key(last_sub_key);
+		aes_clear_interrupt_flag();
 		keygen_ok = true;
 	} else {
-		AES.STATUS = AES_ERROR_bm;
+		aes_clear_error_flag();
 		keygen_ok = false;
 	}
 	return keygen_ok;
@@ -206,7 +203,7 @@ static void aes_isr_handler(void)
 	uint8_t i;
 
 	/* Store the result if not error. */
-	if ((AES.STATUS & AES_ERROR_bm) == 0) {
+	if (!aes_is_error()) {
 		aes_read_outputdata(single_ans);
 	} else {
 		success = false;

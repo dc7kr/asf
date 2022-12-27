@@ -3,7 +3,7 @@
  *
  * \brief USB Device Controller (UDC) optimized for DFU FLIP Device
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -155,7 +155,7 @@ static UDC_DESC_STORAGE usb_str_lgid_desc_t udc_string_desc_languageid = {
  *
  * \return 1 if it is done or 0 if interface is not found
  */
-static bool udc_iface_disable(void) @ "BOOT"
+static bool udc_iface_disable(void)
 {
 	// Disable interface
 	udi_dfu_atmel_disable();
@@ -173,7 +173,7 @@ static bool udc_iface_disable(void) @ "BOOT"
  *
  * \return 1 if it is done or 0 if interface is not found
  */
-static bool udc_iface_enable(void) @ "BOOT"
+static bool udc_iface_enable(void)
 {
 	// Enable the interface
 	return udi_dfu_atmel_enable();
@@ -197,7 +197,7 @@ void udc_stop(void)
  * \brief Reset the current configuration of the USB device,
  * This routines can be called by UDD when a RESET on the USB line occurs.
  */
-void udc_reset(void) @ "BOOT"
+void udc_reset(void)
 {
 	if (udc_num_configuration) {
 		udc_iface_disable();
@@ -220,7 +220,7 @@ void udc_sof_notify(void)
  *
  * \return true if success
  */
-static bool udc_req_std_dev_get_status(void) @ "BOOT"
+static bool udc_req_std_dev_get_status(void)
 {
 	udd_set_setup_payload(
 			(uint8_t *) &udc_device_status,
@@ -233,7 +233,7 @@ static bool udc_req_std_dev_get_status(void) @ "BOOT"
  * \brief Change the address of device
  * Callback called at the end of request set address
  */
-static void udc_valid_address(void) @ "BOOT"
+static void udc_valid_address(void)
 {
 	udd_set_address(udd_g_ctrlreq.req.wValue & 0x7F);
 }
@@ -244,7 +244,7 @@ static void udc_valid_address(void) @ "BOOT"
  *
  * \return true if success
  */
-static bool udc_req_std_dev_set_address(void) @ "BOOT"
+static bool udc_req_std_dev_set_address(void)
 {
 	// The address must be changed at the end of setup request after the handshake
 	// then we use a callback to change address
@@ -258,7 +258,7 @@ static bool udc_req_std_dev_set_address(void) @ "BOOT"
  *
  * \return true if success
  */
-static bool udc_req_std_dev_get_str_desc(void) @ "BOOT"
+static bool udc_req_std_dev_get_str_desc(void)
 {
 	uint8_t i;
 	uint8_t *str;
@@ -313,7 +313,7 @@ static bool udc_req_std_dev_get_str_desc(void) @ "BOOT"
  *
  * \return true if success
  */
-static bool udc_req_std_dev_get_descriptor(void) @ "BOOT"
+static bool udc_req_std_dev_get_descriptor(void)
 {
 	// Check descriptor ID
 	switch ((uint8_t) (udd_g_ctrlreq.req.wValue >> 8)) {
@@ -356,7 +356,7 @@ static bool udc_req_std_dev_get_descriptor(void) @ "BOOT"
  *
  * \return true if success
  */
-static bool udc_req_std_dev_get_configuration(void) @ "BOOT"
+static bool udc_req_std_dev_get_configuration(void)
 {
 	udd_set_setup_payload(
 			&udc_num_configuration, 1);
@@ -369,7 +369,7 @@ static bool udc_req_std_dev_get_configuration(void) @ "BOOT"
  *
  * \return true if success
  */
-static bool udc_req_std_dev_set_configuration(void) @ "BOOT"
+static bool udc_req_std_dev_set_configuration(void)
 {
 	// Reset current configuration
 	udc_reset();
@@ -393,11 +393,7 @@ static bool udc_req_std_dev_set_configuration(void) @ "BOOT"
  *
  * \return true if the request is supported
  */
-#if XMEGA_B
 static bool udc_reqstd(void)
-#else
-static bool udc_reqstd(void) @ "BOOT"
-#endif
 {
 	if (USB_REQ_RECIP_DEVICE != Udd_setup_recipient()) {
 		return false;
@@ -431,7 +427,7 @@ static bool udc_reqstd(void) @ "BOOT"
  *
  * \return true if the request is supported
  */
-static bool udc_req_iface(void) @ "BOOT"
+static bool udc_req_iface(void)
 {
 	// Send the SETUP request to the UDI corresponding to the interface number
 	return udi_dfu_atmel_setup();
@@ -451,11 +447,7 @@ static bool udc_req_iface(void) @ "BOOT"
  *
  * \return true if the request is supported, else the request is stalled by UDD
  */
-#if XMEGA_B
-bool udc_process_setup(void) @ "BOOT2"
-#else
-bool udc_process_setup(void) @ "BOOT"
-#endif
+bool udc_process_setup(void)
 {
 	// By default no data (receive/send) and no callbacks registered
 	udd_g_ctrlreq.payload_size = 0;

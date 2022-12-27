@@ -1,9 +1,9 @@
 /**
  * \file
  *
- * \brief Clock configuration.
+ * \brief SAM3N clock configuration.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -64,12 +64,18 @@
 //#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_3
 
 // ===== PLL0 (A) Options   (Fpll = (Fclk * PLL_mul) / PLL_div)
+// Use mul and div effective values here.
 #define CONFIG_PLL0_SOURCE          PLL_SRC_MAINCK_XTAL
 #define CONFIG_PLL0_MUL             8
 #define CONFIG_PLL0_DIV             1
 
-// ===== USB Clock Source Options   (Fusb = FpllX / USB_div)
-//#define CONFIG_USBCLK_SOURCE        USBCLK_SRC_PLL0
-//#define CONFIG_USBCLK_DIV           1
+// ===== Target frequency (System clock)
+// - XTAL frequency: 12MHz
+// - System clock source: PLLA
+// - System clock prescaler: 2 (divided by 2)
+// - PLLA source: XTAL
+// - PLLA output: XTAL * 8 / 1
+// - System clock is: 12 * 8 / 1 / 2 = 48MHz
+
 
 #endif /* CONF_CLOCK_H_INCLUDED */

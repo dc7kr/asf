@@ -3,7 +3,7 @@
  *
  * \brief All USB VIDs and PIDs from Atmel USB applications
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -110,23 +110,23 @@
 
 //! \name The range 2400h to 24FFh is reserved to PIDs for ASF applications
 //! @{
-#define  USB_PID_ATMEL_AVR_HIDMOUSE                0x2400
-#define  USB_PID_ATMEL_AVR_HIDKEYBOARD             0x2401
-#define  USB_PID_ATMEL_AVR_HIDGENERIC              0x2402
-#define  USB_PID_ATMEL_AVR_MSC                     0x2403
-#define  USB_PID_ATMEL_AVR_CDC                     0x2404
-#define  USB_PID_ATMEL_AVR_PHDC                    0x2405
-#define  USB_PID_ATMEL_AVR_MSC_HIDMOUSE            0x2420
-#define  USB_PID_ATMEL_AVR_MSC_HIDS_CDC            0x2421
-#define  USB_PID_ATMEL_AVR_MSC_HIDKEYBOARD         0x2422
+#define  USB_PID_ATMEL_ASF_HIDMOUSE                0x2400
+#define  USB_PID_ATMEL_ASF_HIDKEYBOARD             0x2401
+#define  USB_PID_ATMEL_ASF_HIDGENERIC              0x2402
+#define  USB_PID_ATMEL_ASF_MSC                     0x2403
+#define  USB_PID_ATMEL_ASF_CDC                     0x2404
+#define  USB_PID_ATMEL_ASF_PHDC                    0x2405
+#define  USB_PID_ATMEL_ASF_MSC_HIDMOUSE            0x2420
+#define  USB_PID_ATMEL_ASF_MSC_HIDS_CDC            0x2421
+#define  USB_PID_ATMEL_ASF_MSC_HIDKEYBOARD         0x2422
 #define  USB_PID_ATMEL_ASF_VENDOR_CLASS            0x2423
-#define  USB_PID_ATMEL_AVR_MSC_CDC                 0x2424
-#define  USB_PID_ATMEL_AVR_TWO_CDC                 0x2425
-#define  USB_PID_ATMEL_AVR_XPLAIN_BC_POWERONLY     0x2430
-#define  USB_PID_ATMEL_AVR_XPLAIN_BC_TERMINAL      0x2431
-#define  USB_PID_ATMEL_AVR_XPLAIN_BC_TOUCH         0x2432
-#define  USB_PID_ATMEL_AVR_AUDIO_SPEAKER           0x2433
-#define  USB_PID_ATMEL_AVR_XMEGA_B1_XPLAINED       0x2434
+#define  USB_PID_ATMEL_ASF_MSC_CDC                 0x2424
+#define  USB_PID_ATMEL_ASF_TWO_CDC                 0x2425
+#define  USB_PID_ATMEL_ASF_XPLAIN_BC_POWERONLY     0x2430
+#define  USB_PID_ATMEL_ASF_XPLAIN_BC_TERMINAL      0x2431
+#define  USB_PID_ATMEL_ASF_XPLAIN_BC_TOUCH         0x2432
+#define  USB_PID_ATMEL_ASF_AUDIO_SPEAKER           0x2433
+#define  USB_PID_ATMEL_ASF_XMEGA_B1_XPLAINED       0x2434
 //! @}
 
 //! \name The range 2F00h to 2FFFh is reserved to official PIDs for AVR bootloaders

@@ -3,7 +3,7 @@
  *
  * \brief Watchdog Timer (WDT) example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -88,15 +88,9 @@
  *    \endcode
  */
 
-#include "board.h"
-#include "wdt.h"
-#include "pio.h"
-#include "uart.h"
-#include "pmc.h"
+#include "asf.h"
 #include "conf_board.h"
-#include "pio_handler.h"
 #include "led.h"
-#include <stdio.h>
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -123,11 +117,11 @@ extern "C" {
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 
 /** Pushbutton event flag */
-volatile bool button_event = false;
+volatile bool g_b_button_event = false;
 /** System Tick event flag */
-volatile bool systick_event = false;
+volatile bool g_b_systick_event = false;
 /** System tick increased by 1 every millisecond */
-volatile uint32_t systick = 0;
+volatile uint32_t g_ul_ms_ticks = 0;
 
 
 /**
@@ -135,9 +129,9 @@ volatile uint32_t systick = 0;
  */
 void SysTick_Handler(void)
 {
-	/* Set systick event flag (systick_event) and add 1 to systick. */
-	systick_event = true;
-	systick++;
+	/* Set systick event flag (g_b_systick_event) and add 1 to systick. */
+	g_b_systick_event = true;
+	g_ul_ms_ticks++;
 }
 
 /**
@@ -159,9 +153,9 @@ void WDT_Handler(void)
  */
 static void button_handler(uint32_t id, uint32_t mask)
 {
-	/* Set button event flag (button_event). */
+	/* Set button event flag (g_b_button_event). */
 	if ((PUSHBUTTON_ID == id) && (PUSHBUTTON_MASK == mask)) {
-		button_event = true;
+		g_b_button_event = true;
 	}
 }
 
@@ -271,22 +265,22 @@ int main(void)
 
 	while (1) {
 
-		if (systick_event == true) {
-			systick_event = false;
+		if (g_b_systick_event == true) {
+			g_b_systick_event = false;
 
 			/* Toggle LED at the given period. */
-			if ((systick % BLINK_PERIOD) == 0) {
+			if ((g_ul_ms_ticks % BLINK_PERIOD) == 0) {
 				LED_Toggle(LED0_GPIO);
 			}
 
 			/* Restart watchdog at the given period. */
-			if ((systick % WDT_RESTART_PERIOD) == 0) {
+			if ((g_ul_ms_ticks % WDT_RESTART_PERIOD) == 0) {
 				wdt_restart(WDT);
 			}
 		}
 
 		/* Simulate deadlock when button is pressed. */
-		if (button_event == true) {
+		if (g_b_button_event == true) {
 			puts("Program enters infinite loop for triggering watchdog interrupt.\r");
 			while (1) {
 			}

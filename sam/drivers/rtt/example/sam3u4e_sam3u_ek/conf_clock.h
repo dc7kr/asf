@@ -1,9 +1,9 @@
 /**
  * \file
  *
- * \brief Clock configuration.
+ * \brief SAM3U clock configuration.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -55,20 +55,36 @@
 //#define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_UPLLCK
 
 // ===== System Clock (MCK) Prescaler Options   (Fmck = Fsys / (SYSCLK_PRES))
-#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_1
-//#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_CLK_2
-//#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_CLK_4
-//#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_CLK_8
-//#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_CLK_16
-//#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_CLK_32
-//#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_CLK_64
-//#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_CLK_3
+//#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_1
+#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_2
+//#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_4
+//#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_8
+//#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_16
+//#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_32
+//#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_64
+//#define CONFIG_SYSCLK_PRES          SYSCLK_PRES_3
 
 // ===== PLL0 (A) Options   (Fpll = (Fclk * PLL_mul) / PLL_div)
+// Use mul and div effective values here.
 #define CONFIG_PLL0_SOURCE          PLL_SRC_MAINCK_XTAL
 #define CONFIG_PLL0_MUL             16
-#define CONFIG_PLL0_DIV             2
+#define CONFIG_PLL0_DIV             1
 
 // ===== UPLL (UTMI) Hardware fixed at 480 Mhz.
+
+// ===== USB Clock Source fixed at UPLL.
+
+// ===== Target frequency (System clock)
+// - XTAL frequency: 12MHz
+// - System clock source: PLLA
+// - System clock prescaler: 2 (divided by 2)
+// - PLLA source: XTAL
+// - PLLA output: XTAL * 16 / 1
+// - System clock is: 12 * 16 / 1 / 2 = 96MHz
+// ===== Target frequency (USB Clock)
+// - USB clock source: UPLL
+// - UPLL frequency: 480MHz
+// - USB clock: 480MHz
+
 
 #endif /* CONF_CLOCK_H_INCLUDED */

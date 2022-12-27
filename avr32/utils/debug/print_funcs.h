@@ -4,7 +4,7 @@
  *
  * \brief Strings and integers print module for debug purposes.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -45,7 +45,7 @@
 #define _PRINT_FUNCS_H_
 
 /**
- * \defgroup group_avr32_utils_print_funcs UTILITY - USART Debug strings
+ * \defgroup group_avr32_utils_print_funcs USART Debug strings
  *
  * This driver adds functionality to print debug strings and data through a dedicated USART. It supports writing both single
  * characters, strings, and integer values in both decimal and hexadecimal form.

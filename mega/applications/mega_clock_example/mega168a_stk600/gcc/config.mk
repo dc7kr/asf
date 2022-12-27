@@ -42,7 +42,7 @@ MCU = atmega168a
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = mega_applications_mega_clock_example_mega168a_stk600.elf
+TARGET = mega_clock_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \

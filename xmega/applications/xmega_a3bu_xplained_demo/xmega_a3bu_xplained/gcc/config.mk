@@ -42,7 +42,7 @@ MCU = atxmega256a3bu
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_applications_xmega_a3bu_xplained_demo_xmega_a3bu_xplained.elf
+TARGET = xmega_a3bu_xplained_demo.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
@@ -56,6 +56,7 @@ CSRCS = \
        common/services/gfx_mono/gfx_mono_spinctrl.c       \
        common/services/gfx_mono/gfx_mono_text.c           \
        common/services/gfx_mono/sysfont.c                 \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        common/services/spi/xmega_usart_spi/usart_spi.c    \
        common/services/usb/class/cdc/device/udi_cdc.c     \
@@ -74,7 +75,7 @@ CSRCS = \
        xmega/applications/xmega_a3bu_xplained_demo/timezone.c \
        xmega/boards/xmega_a3bu_xplained/init.c            \
        xmega/drivers/adc/adc.c                            \
-       xmega/drivers/ioport/ioport.c                      \
+       xmega/drivers/adc/xmega_aau/adc_aau.c              \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/rtc32/rtc32.c                        \
        xmega/drivers/usart/usart.c                        \
@@ -94,6 +95,7 @@ INC_PATH = \
        common/services/clock                              \
        common/services/gfx_mono                           \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/sleepmgr                           \
        common/services/spi                                \
        common/services/usb                                \
@@ -108,7 +110,6 @@ INC_PATH = \
        xmega/boards/xmega_a3bu_xplained                   \
        xmega/drivers/adc                                  \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/pmic                                 \
        xmega/drivers/rtc32                                \
@@ -166,6 +167,7 @@ CPPFLAGS = \
        -D BOARD=XMEGA_A3BU_XPLAINED                       \
        -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA       \
        -D GFX_MONO_C12832_A1Z=1                           \
+       -D IOPORT_XMEGA_COMPAT                             \
        -D NUMBER_OF_PORTS=1                               \
        -D QTOUCH_STUDIO_MASKS=1                           \
        -D QT_DELAY_CYCLES=1                               \

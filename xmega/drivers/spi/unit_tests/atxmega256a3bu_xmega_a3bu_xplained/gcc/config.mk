@@ -42,17 +42,17 @@ MCU = atxmega256a3bu
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_drivers_spi_unit_tests_atxmega256a3bu_xmega_a3bu_xplained.elf
+TARGET = spi_unit_tests.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/serial/usart_serial.c              \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c                     \
        xmega/boards/xmega_a3bu_xplained/init.c            \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/spi/spi.c                            \
        xmega/drivers/spi/unit_tests/unit_tests.c          \
@@ -68,13 +68,14 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
+       common/services/serial/xmega_usart                 \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
        xmega/boards                                       \
        xmega/boards/xmega_a3bu_xplained                   \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/pmic                                 \
        xmega/drivers/spi                                  \
@@ -128,6 +129,7 @@ CFLAGS =
 CPPFLAGS = \
        -D BOARD=XMEGA_A3BU_XPLAINED                       \
        -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA       \
+       -D IOPORT_XMEGA_COMPAT                             \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_
 

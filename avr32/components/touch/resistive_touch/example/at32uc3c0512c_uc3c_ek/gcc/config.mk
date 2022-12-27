@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_components_touch_resitive_example_uc3c_ek.elf
+TARGET = resitive_example.elf
 
 # List of C source files.
 CSRCS = \

@@ -7,7 +7,7 @@
  * This file contains the possible external configuration of the memory access
  * control.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -54,7 +54,7 @@
 /*! \name Activation of Logical Unit Numbers
  */
 //! @{
-#define LUN_0                ENABLE     //!< On-Chip Virtual Memory.
+#define LUN_0                DISABLE    //!< On-Chip Virtual Memory.
 #define LUN_1                ENABLE     //!< AT45DBX Data Flash.
 #define LUN_2                DISABLE    //!< SD/MMC Card over SPI.
 #define LUN_3                ENABLE     //!< SD/MMC Card over MCI Slot 0.

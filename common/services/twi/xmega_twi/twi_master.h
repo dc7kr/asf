@@ -7,7 +7,7 @@
  * This file defines a useful set of functions for the TWI interface on AVR xmega
  * devices.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -50,9 +50,10 @@
 #include "sysclk.h"
 #include "twim.h"
 
+typedef TWI_t *twi_master_t;
 typedef twi_options_t twi_master_options_t;
 
-static inline int twi_master_setup(volatile TWI_t *twi, twi_master_options_t *opt)
+static inline int twi_master_setup(twi_master_t twi, twi_master_options_t *opt)
 {
 	opt->speed_reg = TWI_BAUD(sysclk_get_cpu_hz(),opt->speed);
 

@@ -42,11 +42,12 @@ MCU = atxmega128a1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_drivers_adc_unit_tests_xmega_a1_xplained.elf
+TARGET = adc_unit_tests.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/serial/usart_serial.c              \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        common/utils/stdio/read.c                          \
@@ -55,8 +56,8 @@ CSRCS = \
        xmega/boards/xmega_a1_xplained/init.c              \
        xmega/drivers/adc/adc.c                            \
        xmega/drivers/adc/unit_tests/unit_tests.c          \
+       xmega/drivers/adc/xmega_aau/adc_aau.c              \
        xmega/drivers/dac/dac.c                            \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/usart/usart.c
 
@@ -70,7 +71,9 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
+       common/services/serial/xmega_usart                 \
        common/services/sleepmgr                           \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
@@ -81,7 +84,6 @@ INC_PATH = \
        xmega/drivers/adc/unit_tests/atxmega128a1_xmega_a1_xplained \
        xmega/drivers/cpu                                  \
        xmega/drivers/dac                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/pmic                                 \
        xmega/drivers/sleep                                \
@@ -132,6 +134,7 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D BOARD=XMEGA_A1_XPLAINED                         \
+       -D IOPORT_XMEGA_COMPAT                             \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_
 

@@ -3,7 +3,7 @@
  *
  * \brief SAM3U-EK Board Definition.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -323,7 +323,7 @@
 
 //! LED #0 pin definition (BLUE).
 #define LED0_GPIO 		(PIO_PB0_IDX)
-#define LED0_GPIO_FLAGS (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
+#define LED0_FLAGS (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
 
 #define PIN_LED_0   {1 << 0, PIOB, ID_PIOB, PIO_OUTPUT_0, PIO_DEFAULT}
 #define PIN_LED_0_MASK 1 << 0
@@ -334,7 +334,7 @@
 
 //! LED #1 pin definition (GREEN). 
 #define LED1_GPIO 		(PIO_PB1_IDX)
-#define LED1_GPIO_FLAGS (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
+#define LED1_FLAGS (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
 
 #define PIN_LED_1   {1 << 1, PIOB, ID_PIOB, PIO_OUTPUT_1, PIO_DEFAULT}
 #define PIN_LED_1_MASK 1 << 1
@@ -344,7 +344,15 @@
 #define PIN_LED_1_ATTR PIO_DEFAULT
 
 //! LED #2 pin definition (RED). 
+#define LED2_GPIO 		(PIO_PB2_IDX)
+#define LED2_GPIO_FLAGS (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
+
 #define PIN_LED_2   {1 << 2, PIOB, ID_PIOB, PIO_OUTPUT_1, PIO_DEFAULT}
+#define PIN_LED_2_MASK 1 << 2
+#define PIN_LED_2_PIO PIOB
+#define PIN_LED_2_ID ID_PIOB
+#define PIN_LED_2_TYPE PIO_OUTPUT_1
+#define PIN_LED_2_ATTR PIO_DEFAULT
 
 //! List of all LEDs definitions.
 #define PINS_LEDS   PIN_LED_0, PIN_LED_1, PIN_LED_2
@@ -468,35 +476,36 @@
 #define PINS_SPI0      PIN_SPI0_MISO, PIN_SPI0_MOSI, PIN_SPI0_SPCK
 /** SPI MISO pin definition. */
 #define SPI_MISO_GPIO 		(PIO_PA13_IDX)
-#define SPI_MISO_GPIO_FLAGS (PIO_PERIPH_A | PIO_DEFAULT)
+#define SPI_MISO_FLAGS (PIO_PERIPH_A | PIO_DEFAULT)
 /** SPI MOSI pin definition. */
 #define SPI_MOSI_GPIO 		(PIO_PA14_IDX)
-#define SPI_MOSI_GPIO_FLAGS (PIO_PERIPH_A | PIO_DEFAULT)
+#define SPI_MOSI_FLAGS (PIO_PERIPH_A | PIO_DEFAULT)
 /** SPI SPCK pin definition. */
 #define SPI_SPCK_GPIO 		(PIO_PA15_IDX)
-#define SPI_SPCK_GPIO_FLAGS (PIO_PERIPH_A | PIO_DEFAULT)
-/** SPI chip select0 pin definition. */
-#define SPI_NPCS0_GPIO 		(PIO_PA16_IDX)
-#define SPI_NPCS0_GPIO_FLAGS (PIO_PERIPH_A | PIO_DEFAULT)
-/** SPI chip select 1 pin definition. */
-#define SPI_NPCS1_GPIO_PA0 		  (PIO_PA0_IDX)
-#define SPI_NPCS1_GPIO_PA0_FLAGS  (PIO_PERIPH_B | PIO_DEFAULT)
-#define SPI_NPCS1_GPIO_PC3 	      (PIO_PC3_IDX)
-#define SPI_NPCS1_GPIO_PC3_FLAGS  (PIO_PERIPH_B | PIO_DEFAULT)
-#define SPI_NPCS1_GPIO_PC19 	  (PIO_PC19_IDX)
-#define SPI_NPCS1_GPIO_PC19_FLAGS (PIO_PERIPH_B | PIO_DEFAULT)
-/** SPI chip select 2 pin definition. */
-#define SPI_NPCS2_GPIO_PA1 	      (PIO_PA1_IDX)
-#define SPI_NPCS2_GPIO_PA1_FLAGS  (PIO_PERIPH_B | PIO_DEFAULT)
-#define SPI_NPCS2_GPIO_PC4 	      (PIO_PC4_IDX)
-#define SPI_NPCS2_GPIO_PC4_FLAGS  (PIO_PERIPH_B | PIO_DEFAULT)
-#define SPI_NPCS2_GPIO_PC14 	  (PIO_PC14_IDX)
-#define SPI_NPCS2_GPIO_PC14_FLAGS (PIO_PERIPH_B | PIO_DEFAULT)
-/** SPI chip select 3 pin definition. */
-#define SPI_NPCS3_GPIO_PA19 	  (PIO_PA19_IDX)
-#define SPI_NPCS3_GPIO_PA19_FLAGS (PIO_PERIPH_B | PIO_DEFAULT)
-#define SPI_NPCS3_GPIO_PC5 		  (PIO_PC5_IDX)
-#define SPI_NPCS3_GPIO_PC5_FLAGS  (PIO_PERIPH_B | PIO_DEFAULT)
+#define SPI_SPCK_FLAGS (PIO_PERIPH_A | PIO_DEFAULT)
+
+/** SPI chip select 0 pin definition. (Only one configuration is possible) */
+#define SPI_NPCS0_GPIO            (PIO_PA16_IDX)
+#define SPI_NPCS0_FLAGS           (PIO_PERIPH_A | PIO_DEFAULT)
+/** SPI chip select 1 pin definition. (multiple configurations are possible) */
+#define SPI_NPCS1_PA0_GPIO 		  (PIO_PA0_IDX)
+#define SPI_NPCS1_PA0_FLAGS       (PIO_PERIPH_B | PIO_DEFAULT)
+#define SPI_NPCS1_PC3_GPIO 	      (PIO_PC3_IDX)
+#define SPI_NPCS1_PC3_FLAGS       (PIO_PERIPH_B | PIO_DEFAULT)
+#define SPI_NPCS1_PC19_GPIO 	  (PIO_PC19_IDX)
+#define SPI_NPCS1_PC19_FLAGS      (PIO_PERIPH_B | PIO_DEFAULT)
+/** SPI chip select 2 pin definition. (multiple configurations are possible) */
+#define SPI_NPCS2_PA1_GPIO 	      (PIO_PA1_IDX)
+#define SPI_NPCS2_PA1_FLAGS       (PIO_PERIPH_B | PIO_DEFAULT)
+#define SPI_NPCS2_PC4_GPIO 	      (PIO_PC4_IDX)
+#define SPI_NPCS2_PC4_FLAGS       (PIO_PERIPH_B | PIO_DEFAULT)
+#define SPI_NPCS2_PC14_GPIO 	  (PIO_PC14_IDX)
+#define SPI_NPCS2_PC14_FLAGS      (PIO_PERIPH_B | PIO_DEFAULT)
+/** SPI chip select 3 pin definition. (multiple configurations are possible) */
+#define SPI_NPCS3_PA19_GPIO 	  (PIO_PA19_IDX)
+#define SPI_NPCS3_PA19_FLAGS      (PIO_PERIPH_B | PIO_DEFAULT)
+#define SPI_NPCS3_PC5_GPIO 		  (PIO_PC5_IDX)
+#define SPI_NPCS3_PC5_FLAGS       (PIO_PERIPH_B | PIO_DEFAULT)
 
 //! SSC pins definition.
 #define PIN_SSC_TD      {0x1 << 26, PIOA,ID_PIOA, PIO_PERIPH_A, PIO_DEFAULT}

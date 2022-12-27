@@ -3,7 +3,7 @@
  *
  * \brief SAM3X-EK board init.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -46,14 +46,15 @@
 
 void board_init(void)
 {
-#ifndef CONF_BOARD_KEEP_WATCHDOG_AT_INIT 
+#ifndef CONF_BOARD_KEEP_WATCHDOG_AT_INIT
 	/* Disable the watchdog */
 	WDT->WDT_MR = WDT_MR_WDDIS;
 #endif
 
 	/* Configure LED pins */
-	gpio_configure_pin(LED0_GPIO, LED0_GPIO_FLAGS);
-	gpio_configure_pin(LED1_GPIO, LED1_GPIO_FLAGS);
+	gpio_configure_pin(LED0_GPIO, LED0_FLAGS);
+	gpio_configure_pin(LED1_GPIO, LED1_FLAGS);
+	gpio_configure_pin(LED2_GPIO, LED2_FLAGS);
 
 	/* Configure Push Button pins */
 	gpio_configure_pin(GPIO_PUSH_BUTTON_1, GPIO_PUSH_BUTTON_1_FLAGS);
@@ -93,48 +94,79 @@ void board_init(void)
 
 	/* Configure SPI0 pins */
 #ifdef CONF_BOARD_SPI0
-	gpio_configure_pin(SPI0_MISO_GPIO, SPI0_MISO_GPIO_FLAGS);
-	gpio_configure_pin(SPI0_MOSI_GPIO, SPI0_MOSI_GPIO_FLAGS);
-	gpio_configure_pin(SPI0_SPCK_GPIO, SPI0_SPCK_GPIO_FLAGS);
+	gpio_configure_pin(SPI0_MISO_GPIO, SPI0_MISO_FLAGS);
+	gpio_configure_pin(SPI0_MOSI_GPIO, SPI0_MOSI_FLAGS);
+	gpio_configure_pin(SPI0_SPCK_GPIO, SPI0_SPCK_FLAGS);
 
-	#ifdef CONF_BOARD_SPI0_NPCS0
-		gpio_configure_pin(BOARD_SPI0_NPCS0_GPIO, BOARD_SPI0_NPCS0_GPIO_FLAGS);
-	#endif
+	/**
+	 * For NPCS 1, 2, and 3, different PINs can be used to access the same
+	 * NPCS line.
+	 * Depending on the application requirements, the default PIN may not be
+	 * available.
+	 * Hence a different PIN should be selected using the
+	 * CONF_BOARD_SPI_NPCS_GPIO and
+	 * CONF_BOARD_SPI_NPCS_FLAGS macros.
+	 */
 
-	#ifdef CONF_BOARD_SPI0_NPCS1
-		gpio_configure_pin(BOARD_SPI0_NPCS1_GPIO, BOARD_SPI0_NPCS1_GPIO_FLAGS);
-	#endif
+#   ifdef CONF_BOARD_SPI0_NPCS0
+		gpio_configure_pin(SPI0_NPCS0_GPIO, SPI0_NPCS0_FLAGS);
+#   endif
 
-	#ifdef CONF_BOARD_SPI0_NPCS2
-		gpio_configure_pin(BOARD_SPI0_NPCS2_GPIO, BOARD_SPI0_NPCS2_GPIO_FLAGS);
-	#endif
+#   ifdef CONF_BOARD_SPI0_NPCS1
+#       if defined(CONF_BOARD_SPI0_NPCS1_GPIO) && \
+		defined(CONF_BOARD_SPI0_NPCS1_FLAGS)
+			gpio_configure_pin(CONF_BOARD_SPI0_NPCS1_GPIO,
+					CONF_BOARD_SPI0_NPCS1_FLAGS);
+#       else
+			gpio_configure_pin(SPI0_NPCS1_PA29_GPIO,
+					SPI0_NPCS1_PA29_FLAGS);
+#       endif
+#   endif
 
-	#ifdef CONF_BOARD_SPI0_NPCS3
-		gpio_configure_pin(BOARD_SPI0_NPCS3_GPIO, BOARD_SPI0_NPCS3_GPIO_FLAGS);
-	#endif
-#endif
+#   ifdef CONF_BOARD_SPI0_NPCS2
+#       if defined(CONF_BOARD_SPI0_NPCS2_GPIO) && \
+		defined(CONF_BOARD_SPI0_NPCS2_FLAGS)
+			gpio_configure_pin(CONF_BOARD_SPI0_NPCS2_GPIO,
+					CONF_BOARD_SPI0_NPCS2_FLAGS);
+#       else
+			gpio_configure_pin(SPI0_NPCS2_PA30_GPIO,
+					SPI0_NPCS2_PA30_FLAGS);
+#       endif
+#   endif
+
+#   ifdef CONF_BOARD_SPI0_NPCS3
+#       if defined(CONF_BOARD_SPI0_NPCS3_GPIO) && \
+		defined(CONF_BOARD_SPI0_NPCS3_FLAGS)
+			gpio_configure_pin(CONF_BOARD_SPI0_NPCS3_GPIO,
+					CONF_BOARD_SPI0_NPCS3_FLAGS);
+#       else
+			gpio_configure_pin(SPI0_NPCS3_PA31_GPIO,
+					SPI0_NPCS3_PA31_FLAGS);
+#       endif
+#   endif
+#endif // #ifdef CONF_BOARD_SPI0
 
 	/* Configure SPI1 pins */
 #ifdef CONF_BOARD_SPI1
-	gpio_configure_pin(SPI1_MISO_GPIO, SPI1_MISO_GPIO_FLAGS);
-	gpio_configure_pin(SPI1_MOSI_GPIO, SPI1_MOSI_GPIO_FLAGS);
-	gpio_configure_pin(SPI1_SPCK_GPIO, SPI1_SPCK_GPIO_FLAGS);
+	gpio_configure_pin(SPI1_MISO_GPIO, SPI1_MISO_FLAGS);
+	gpio_configure_pin(SPI1_MOSI_GPIO, SPI1_MOSI_FLAGS);
+	gpio_configure_pin(SPI1_SPCK_GPIO, SPI1_SPCK_FLAGS);
 
-	#ifdef CONF_BOARD_SPI1_NPCS0
-		gpio_configure_pin(BOARD_SPI1_NPCS0_GPIO, BOARD_SPI1_NPCS0_GPIO_FLAGS);
-	#endif
+#   ifdef CONF_BOARD_SPI1_NPCS0
+		gpio_configure_pin(SPI1_NPCS0_GPIO, SPI1_NPCS0_FLAGS);
+#   endif
 
-	#ifdef CONF_BOARD_SPI1_NPCS1
-		gpio_configure_pin(BOARD_SPI1_NPCS1_GPIO, BOARD_SPI1_NPCS1_GPIO_FLAGS);
-	#endif
+#   ifdef CONF_BOARD_SPI1_NPCS1
+		gpio_configure_pin(SPI1_NPCS1_GPIO, SPI1_NPCS1_FLAGS);
+#   endif
 
-	#ifdef CONF_BOARD_SPI1_NPCS2
-		gpio_configure_pin(BOARD_SPI1_NPCS2_GPIO, BOARD_SPI1_NPCS2_GPIO_FLAGS);
-	#endif
+#   ifdef CONF_BOARD_SPI1_NPCS2
+		gpio_configure_pin(SPI1_NPCS2_GPIO, SPI1_NPCS2_FLAGS);
+#   endif
 
-	#ifdef CONF_BOARD_SPI1_NPCS3
-		gpio_configure_pin(BOARD_SPI1_NPCS3_GPIO, BOARD_SPI1_NPCS3_GPIO_FLAGS);
-	#endif
+#   ifdef CONF_BOARD_SPI1_NPCS3
+		gpio_configure_pin(SPI1_NPCS3_GPIO, SPI1_NPCS3_FLAGS);
+#   endif
 #endif
 
 #ifdef CONF_BOARD_TWI0
@@ -186,7 +218,7 @@ void board_init(void)
 
 #ifdef CONF_BOARD_ADM3485_RE
 	/* Configure RS485 transceiver ADM3485 RE pin */
-    gpio_configure_pin(PIN_RE_IDX, PIN_RE_FLAGS);
+	gpio_configure_pin(PIN_RE_IDX, PIN_RE_FLAGS);
 	gpio_set_pin_low(PIN_RE_IDX);
 #endif
 
@@ -232,7 +264,7 @@ void board_init(void)
 	gpio_configure_pin(PIN_EBI_ADDR_BUS_A18, PIN_EBI_ADDR_BUS_FLAG2);
 	gpio_configure_pin(PIN_EBI_ADDR_BUS_A19, PIN_EBI_ADDR_BUS_FLAG2);
 	gpio_configure_pin(PIN_EBI_ADDR_BUS_A20, PIN_EBI_ADDR_BUS_FLAG2);
-#endif
+#endif // #ifdef CONF_BOARD_SMC_PSRAM
 
 #ifdef CONF_BOARD_HX8347A
 	/* Configure LCD EBI pins */
@@ -256,10 +288,21 @@ void board_init(void)
 	gpio_configure_pin(PIN_EBI_NWE, PIN_EBI_NWE_FLAGS);
 	gpio_configure_pin(PIN_EBI_NCS2, PIN_EBI_NCS2_FLAGS);
 	gpio_configure_pin(PIN_EBI_LCD_RS, PIN_EBI_LCD_RS_FLAGS);
-#endif
+#endif // #ifdef CONF_BOARD_HX8347A
 
 #ifdef CONF_BOARD_AAT3194
 	/* Configure Backlight control pin */
 	gpio_configure_pin(BOARD_BACKLIGHT, BOARD_BACKLIGHT_FLAG);
 #endif
+
+#ifdef CONF_BOARD_USB_PORT
+	/* Configure USB_ID (UOTGID) pin */
+	gpio_configure_pin(USB_ID_GPIO, USB_ID_FLAGS);
+	/* Configure USB_VBOF (UOTGVBOF) pin */
+	gpio_configure_pin(USB_VBOF_GPIO, USB_VBOF_FLAGS);
+	/* Configure FAULT detect pin */
+	gpio_configure_pin(USB_OVERCURRENT_DETECT_GPIO,
+			USB_OVERCURRENT_DETECT_FLAGS);
+#endif
+
 }

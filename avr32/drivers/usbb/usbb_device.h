@@ -3,7 +3,7 @@
  *
  * \brief USBB Device Driver header file.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -464,7 +464,7 @@
   //! kills last bank
 #define  udd_kill_last_in_bank(ep)                 USBB_EP_REG_SET(UECON,KILLBK,ep)
   //! tests if last bank killed
-#define  Is_udd_last_in_bank_killed(ep)            USBB_EP_TST_BITS(UECON,KILLBK,ep)
+#define  Is_udd_killing_last_in_bank(ep)            USBB_EP_TST_BITS(UECON,KILLBK,ep)
   //! forces all banks full (OUT) or free (IN) interrupt
 #define  udd_force_bank_interrupt(ep)              USBB_EP_REG_SET(UESTA,NBUSYBK,ep)
   //! unforces all banks full (OUT) or free (IN) interrupt

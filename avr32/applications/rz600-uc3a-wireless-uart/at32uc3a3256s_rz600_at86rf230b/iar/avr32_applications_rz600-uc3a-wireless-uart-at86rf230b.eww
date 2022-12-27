@@ -1,6 +1,0 @@
-<workspace>
-	<batchBuild></batchBuild>
-	<project>
-		<path>$WS_DIR$\avr32_applications_rz600-uc3a-wireless-uart-at86rf230b.ewp</path>
-	</project>
-</workspace>

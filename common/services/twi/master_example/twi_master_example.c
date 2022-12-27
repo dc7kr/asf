@@ -4,7 +4,7 @@
  *
  * \brief Example of usage of the TWI Master Mode Basic Services.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -151,10 +151,12 @@ int main(void)
   LED_Off(LED0_GPIO);
 
   twi_package_t packet = {
-    .addr         = EEPROM_MEM_ADDR,      // TWI slave memory address data
 #ifdef SAM
+    .addr[0]      = EEPROM_MEM_ADDR >> 8, // TWI slave memory address data MSB
+    .addr[1]      = EEPROM_MEM_ADDR,      // TWI slave memory address data LSB
     .addr_length  = sizeof (uint16_t),    // TWI slave memory address data size
 #else
+    .addr[0]      = EEPROM_MEM_ADDR,      // TWI slave memory address data MSB
     .addr_length  = sizeof (uint8_t),     // TWI slave memory address data size
 #endif
     .chip         = EEPROM_BUS_ADDR,      // TWI slave bus address
@@ -168,10 +170,12 @@ int main(void)
   uint8_t data_received[PATTERN_TEST_LENGTH] = {0};
 
   twi_package_t packet_received = {
-    .addr         = EEPROM_MEM_ADDR,      // TWI slave memory address data
 #ifdef SAM
+    .addr[0]      = EEPROM_MEM_ADDR >> 8, // TWI slave memory address data MSB
+    .addr[1]      = EEPROM_MEM_ADDR,      // TWI slave memory address data LSB
     .addr_length  = sizeof (uint16_t),    // TWI slave memory address data size
 #else
+    .addr[0]      = EEPROM_MEM_ADDR,      // TWI slave memory address data MSB
     .addr_length  = sizeof (uint8_t),     // TWI slave memory address data size
 #endif
     .chip         = EEPROM_BUS_ADDR,      // TWI slave bus address

@@ -3,7 +3,7 @@
  *
  * \brief Chip-specific oscillator management functions.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -82,9 +82,9 @@ extern "C" {
 #define OSC_MAINCK_BYPASS_HZ		BOARD_FREQ_MAINCK_BYPASS		//!< External bypass oscillator.
 //@}
 
-static inline void osc_enable(uint32_t dw_id)
+static inline void osc_enable(uint32_t ul_id)
 {
-	switch (dw_id) {
+	switch (ul_id) {
 	case OSC_SLCK_32K_RC:
 		break;
 
@@ -120,9 +120,9 @@ static inline void osc_enable(uint32_t dw_id)
 	}
 }
 
-static inline void osc_disable(uint32_t dw_id)
+static inline void osc_disable(uint32_t ul_id)
 {
-	switch (dw_id) {
+	switch (ul_id) {
 	case OSC_SLCK_32K_RC:
 	case OSC_SLCK_32K_XTAL:
 	case OSC_SLCK_32K_BYPASS:
@@ -144,9 +144,9 @@ static inline void osc_disable(uint32_t dw_id)
 	}
 }
 
-static inline bool osc_is_ready(uint32_t dw_id)
+static inline bool osc_is_ready(uint32_t ul_id)
 {
-	switch (dw_id) {
+	switch (ul_id) {
 	case OSC_SLCK_32K_RC:
 		return 1;
 
@@ -157,19 +157,17 @@ static inline bool osc_is_ready(uint32_t dw_id)
 	case OSC_MAINCK_4M_RC:
 	case OSC_MAINCK_8M_RC:
 	case OSC_MAINCK_12M_RC:
-		return pmc_osc_is_ready_fastrc();
-
 	case OSC_MAINCK_XTAL:
 	case OSC_MAINCK_BYPASS:
-		return pmc_osc_is_ready_xtal();
+		return pmc_osc_is_ready_mainck();
 	}
 
 	return 0;
 }
 
-static inline uint32_t osc_get_rate(uint32_t dw_id)
+static inline uint32_t osc_get_rate(uint32_t ul_id)
 {
-	switch (dw_id) {
+	switch (ul_id) {
 	case OSC_SLCK_32K_RC:
 		return OSC_SLCK_32K_RC_HZ;
 

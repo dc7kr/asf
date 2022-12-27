@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for RSTC driver.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -44,7 +44,7 @@
 #include <board.h>
 #include <sysclk.h>
 #include <wdt.h>
-#include <flash_efc.h>
+#include <gpbr.h>
 #include <rstc.h>
 #include <string.h>
 #include <unit_test/suite.h>
@@ -101,13 +101,6 @@ int (*ptr_put) (void volatile *, int);
 volatile void *volatile stdio_base;
 #endif
 
-/** Start RSTC test flag value. */
-#define START_FLAG             0xAA55AA55
-
-/** Test step of chip reset. */
-#define STEP_WDT               0
-#define STEP_SOFTWARE          1
-
 /** Reset type of chip. */
 #define GENERAL_RESET          (0x00 << RSTC_SR_RSTTYP_Pos)
 #define BACKUP_RESET           (0x01 << RSTC_SR_RSTTYP_Pos)
@@ -115,153 +108,85 @@ volatile void *volatile stdio_base;
 #define SOFTWARE_RESET         (0x03 << RSTC_SR_RSTTYP_Pos)
 #define USER_RESET             (0x04 << RSTC_SR_RSTTYP_Pos)
 
-/** Flash wait state number. */
-#define FLASH_WAIT_STATE_NBR   6
+/** GPBR registers used for saving test state. */
+#define RSTC_GPBR_FLAG         GPBR0
+#define RSTC_GPBR_STEP         GPBR1
+#define RSTC_GPBR_RES1         GPBR2
+#define RSTC_GPBR_RES2         GPBR3
 
-/** WDT load value. */
-#define WDT_LOAD_VALUE         26
+/** RSTC start flag value. */
+#define RSTC_UT_START_FLAG     0x1337BEEF
 
-/** RSTC test structure. */
-typedef struct {
-	uint32_t dw_flag;
-	uint32_t dw_step;
-	uint32_t dw_step0_result;
-} rstc_test_t;
-
-rstc_test_t st_unit_test;
+/** Test step of chip reset. */
+#define RSTC_UT_STEP1          1
+#define RSTC_UT_STEP2          2
+#define RSTC_UT_STEP3          3
 
 /**
  * \brief Test Reset Controller.
  *
  * This test check the reset type of RSTC when the chip resets for different reasons.
- *
- * \param test Current test case.
  */
-static void run_rstc_test(const struct test_case *test)
+static void run_rstc_test(void)
 {
-	uint32_t dw_last_page_addr = LAST_PAGE_ADDRESS;
-	static uint32_t dw_reset_type;
+	uint32_t dw_reset_type;
 
-	/* Initialize flash: 6 wait states for flash writing. */
-	flash_init(FLASH_ACCESS_MODE_128, FLASH_WAIT_STATE_NBR);
-
-	/* Unlock flash page. */
-	flash_unlock(dw_last_page_addr,
-			dw_last_page_addr + IFLASH_PAGE_SIZE - 1, NULL, NULL);
-
-	/* Read the RSTC test data in the flash. */
-	memcpy((uint8_t *) & st_unit_test, (uint8_t *) dw_last_page_addr,
-			sizeof(rstc_test_t));
+	if (gpbr_read(RSTC_GPBR_FLAG) != RSTC_UT_START_FLAG) {
+		gpbr_write(RSTC_GPBR_FLAG, RSTC_UT_START_FLAG);
+		gpbr_write(RSTC_GPBR_STEP, RSTC_UT_STEP1);
+	}
 
 	/* Get the reset type of this time. */
 	dw_reset_type = rstc_get_reset_cause(RSTC);
 
-	switch (st_unit_test.dw_flag) {
-	case START_FLAG:
-		if (st_unit_test.dw_step == STEP_WDT) {
-			/* Prepare transfer to Software reset test. */
-			wdt_disable(WDT);
-			st_unit_test.dw_flag = START_FLAG;
-			st_unit_test.dw_step = STEP_SOFTWARE;
-			st_unit_test.dw_step0_result = WDT_RESET;
-
-#if SAM4S
-			/* For SAM4S, the EWP command is not supported, the pages requires
-			   erased first. */
-			flash_erase_page(dw_last_page_addr,
-					IFLASH_ERASE_PAGES_4);
-
-			flash_write(dw_last_page_addr,
-					(uint8_t *) & st_unit_test,
-					sizeof(rstc_test_t), 0);
-#else
-			flash_write(dw_last_page_addr,
-					(uint8_t *) & st_unit_test,
-					sizeof(rstc_test_t), 1);
-#endif
-
-			rstc_start_software_reset(RSTC);
-			while (1) {
-			}
-		} else if (st_unit_test.dw_step == STEP_SOFTWARE) {
-			wdt_disable(WDT);
-			/* Check first reset test result. */
-			test_assert_true(test,
-					st_unit_test.dw_step0_result ==
-					WDT_RESET,
-					"Test: unexpected RSTC reset type!");
-
-			/* Check sencond reset test result. */
-			test_assert_true(test, dw_reset_type == SOFTWARE_RESET,
-					"Test: unexpected RSTC reset type!");
-
-			/* Clear the flag for next round test. */
-			memset((uint8_t *) & st_unit_test, 0,
-					sizeof(rstc_test_t));
-
-
-#if SAM4S
-			/* For SAM4S, the EWP command is not supported, the pages requires
-			   erased first. */
-			flash_erase_page(dw_last_page_addr,
-					IFLASH_ERASE_PAGES_4);
-
-			flash_write(dw_last_page_addr,
-					(uint8_t *) & st_unit_test,
-					sizeof(rstc_test_t), 0);
-#else
-			flash_write(dw_last_page_addr,
-					(uint8_t *) & st_unit_test,
-					sizeof(rstc_test_t), 1);
-#endif
-		} else {
-			/* Prepare transfer to Watchdog reset test. */
-			st_unit_test.dw_flag = START_FLAG;
-			st_unit_test.dw_step = STEP_WDT;
-			st_unit_test.dw_step0_result = 0;
-
-#if SAM4S
-			/* For SAM4S, the EWP command is not supported, the pages requires
-			   erased first. */
-			flash_erase_page(dw_last_page_addr,
-					IFLASH_ERASE_PAGES_4);
-
-			flash_write(dw_last_page_addr,
-					(uint8_t *) & st_unit_test,
-					sizeof(rstc_test_t), 0);
-#else
-			flash_write(dw_last_page_addr,
-					(uint8_t *) & st_unit_test,
-					sizeof(rstc_test_t), 1);
-#endif
-			wdt_init(WDT, WDT_MR_WDRSTEN, WDT_LOAD_VALUE,
-					WDT_LOAD_VALUE);
-			while (1) {
-			}
-		}
-		break;
-	default:
-		/* Prepare transfer to Watchdog reset test. */
-		st_unit_test.dw_flag = START_FLAG;
-		st_unit_test.dw_step = STEP_WDT;
-		st_unit_test.dw_step0_result = 0;
-
-#if SAM4S
-		/* For SAM4S, the EWP command is not supported, the pages requires
-		   erased first. */
-		flash_erase_page(dw_last_page_addr, IFLASH_ERASE_PAGES_4);
-
-		flash_write(dw_last_page_addr, (uint8_t *) & st_unit_test,
-				sizeof(rstc_test_t), 0);
-#else
-		flash_write(dw_last_page_addr, (uint8_t *) & st_unit_test,
-				sizeof(rstc_test_t), 1);
-#endif
-		wdt_init(WDT, WDT_MR_WDRSTEN, WDT_LOAD_VALUE, WDT_LOAD_VALUE);
+	/* Read current step. */
+	switch (gpbr_read(RSTC_GPBR_STEP)) {
+	case RSTC_UT_STEP1:
+	  	/* Step 1: Software reset test. */
+		wdt_disable(WDT);
+		gpbr_write(RSTC_GPBR_STEP, RSTC_UT_STEP2);
+		rstc_start_software_reset(RSTC);
 		while (1) {
 		}
+
+	case RSTC_UT_STEP2:
+	  	/* Save reset type in RES1 */
+		gpbr_write(RSTC_GPBR_RES1, dw_reset_type);
+
+	  	/* Step 2: Watchdog reset test. */
+		gpbr_write(RSTC_GPBR_STEP, RSTC_UT_STEP3);
+		wdt_init(WDT, WDT_MR_WDRSTEN, 0, 0);
+		while (1) {
+		}
+		
+	case RSTC_UT_STEP3:
+	  	/* Save reset type in RES2 */
+		gpbr_write(RSTC_GPBR_RES2, dw_reset_type);
+		wdt_disable(WDT);
 		break;
+
+	default:
+	  	wdt_disable(WDT);
+		puts("\r\nrun_rstc_test: corrupted data, unknown step!\r\n");
+		while (1) {
+		}
 	}
+}
+
+/**
+ * \brief Test Reset Controller.
+ *
+ * Read test results stored in the GPBR registers.
+ *
+ * \param test Current test case.
+ */
+static void check_rstc_test(const struct test_case *test)
+{
+	test_assert_true(test, gpbr_read(RSTC_GPBR_RES1) == SOFTWARE_RESET,
+			"Test: unexpected reset type, expected SOFTWARE_RESET!");
+
+	test_assert_true(test, gpbr_read(RSTC_GPBR_RES2) == WDT_RESET,
+			"Test: unexpected reset type, expected WDT_RESET!");
 }
 
 /**
@@ -284,8 +209,11 @@ int main(void)
 	setbuf(stdout, NULL);
 #endif
 
+	/* Perform actual test and store results in RSTC_GPBR_RESX. */
+	run_rstc_test();
+
 	/* Define all the test cases. */
-	DEFINE_TEST_CASE(rstc_test, NULL, run_rstc_test, NULL,
+	DEFINE_TEST_CASE(rstc_test, NULL, check_rstc_test, NULL,
 			"Reset Controller, check reset type");
 
 	/* Put test case addresses in an array. */
@@ -298,6 +226,12 @@ int main(void)
 	/* Run all tests in the test suite. */
 	test_suite_run(&rstc_suite);
 
+	/* Clear test flag. */
+	gpbr_write(RSTC_GPBR_FLAG, 0);
+	
+	/* Disable watchdog */
+	wdt_disable(WDT);
+	
 	while (1) {
 		/* Busy-wait forever. */
 	}

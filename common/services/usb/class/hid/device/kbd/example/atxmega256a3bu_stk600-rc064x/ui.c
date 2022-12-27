@@ -3,7 +3,7 @@
  *
  * \brief User Interface
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -47,7 +47,10 @@
 #include "led.h"
 #include "ui.h"
 
-static struct{
+//! Sequence process running each \c SEQUENCE_PERIOD ms
+#define SEQUENCE_PERIOD 150
+
+static struct {
 	bool b_modifier;
 	bool b_down;
 	uint8_t u8_value;
@@ -76,6 +79,14 @@ static struct{
 	{false,false,HID_D},
 	{false,true,HID_ENTER},
 	{false,false,HID_ENTER},
+	// Delay to wait "notepad" focus
+	{false,false,0}, // No key (= SEQUENCE_PERIOD delay)
+	{false,false,0}, // No key (= SEQUENCE_PERIOD delay)
+	{false,false,0}, // No key (= SEQUENCE_PERIOD delay)
+	{false,false,0}, // No key (= SEQUENCE_PERIOD delay)
+	{false,false,0}, // No key (= SEQUENCE_PERIOD delay)
+	{false,false,0}, // No key (= SEQUENCE_PERIOD delay)
+	{false,false,0}, // No key (= SEQUENCE_PERIOD delay)
 	// Display "Atmel "
 	{true,true,HID_MODIFIER_RIGHT_SHIFT}, // Enable Maj
 	{false,true,HID_A},
@@ -178,7 +189,7 @@ void ui_process(uint16_t framenumber)
 	}
 	// Scan process running each 2ms
 	cpt_sof++;
-	if ((cpt_sof%2)==0) {
+	if ((cpt_sof % 2) == 0) {
 		return;
 	}
 
@@ -189,8 +200,8 @@ void ui_process(uint16_t framenumber)
 		sequence_running = true;
 	}
 
-	// Sequence process running each 200ms
-	if (200 > cpt_sof) {
+	// Sequence process running each period
+	if (SEQUENCE_PERIOD > cpt_sof) {
 		return;
 	}
 	cpt_sof = 0;
@@ -198,40 +209,42 @@ void ui_process(uint16_t framenumber)
 	if (sequence_running) {
 		// Send next key
 		u8_value = ui_sequence[u8_sequence_pos].u8_value;
-		if (ui_sequence[u8_sequence_pos].b_modifier) {
-			if (ui_sequence[u8_sequence_pos].b_down) {
-				sucess = udi_hid_kbd_modifier_down(u8_value);
+		if (u8_value!=0) {
+			if (ui_sequence[u8_sequence_pos].b_modifier) {
+				if (ui_sequence[u8_sequence_pos].b_down) {
+					sucess = udi_hid_kbd_modifier_down(u8_value);
+				} else {
+					sucess = udi_hid_kbd_modifier_up(u8_value);
+				}
 			} else {
-				sucess = udi_hid_kbd_modifier_up(u8_value);
+				if (ui_sequence[u8_sequence_pos].b_down) {
+					sucess = udi_hid_kbd_down(u8_value);
+				} else {
+					sucess = udi_hid_kbd_up(u8_value);
+				}
 			}
-		} else {
-			if (ui_sequence[u8_sequence_pos].b_down) {
-				sucess = udi_hid_kbd_down(u8_value);
-			} else {
-				sucess = udi_hid_kbd_up(u8_value);
+			if (!sucess) {
+				return; // Retry it on next schedule
 			}
-		}
-		if (!sucess) {
-			return; // Retry it on next schedule
 		}
 		// Valid sequence position
 		u8_sequence_pos++;
-		if (u8_sequence_pos>=sizeof(ui_sequence)/sizeof(ui_sequence[0])) {
-			u8_sequence_pos=0;
-			sequence_running=false;
+		if (u8_sequence_pos >=
+			sizeof(ui_sequence) / sizeof(ui_sequence[0])) {
+			u8_sequence_pos = 0;
+			sequence_running = false;
 		}
 	}
-
 }
 
 void ui_kbd_led(uint8_t value)
 {
-	if (value&HID_LED_NUM_LOCK) {
+	if (value & HID_LED_NUM_LOCK) {
 		LED_On(LED2_GPIO);
 	} else {
 		LED_Off(LED2_GPIO);
 	}
-	if (value&HID_LED_CAPS_LOCK) {
+	if (value & HID_LED_CAPS_LOCK) {
 		LED_On(LED3_GPIO);
 	} else {
 		LED_Off(LED3_GPIO);

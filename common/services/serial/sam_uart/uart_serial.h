@@ -3,7 +3,7 @@
  *
  * \brief Uart Serial for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -38,7 +38,6 @@
  * \asf_license_stop
  *
  */
-
 #ifndef _UART_SERIAL_H_
 #define _UART_SERIAL_H_
 
@@ -72,21 +71,73 @@ typedef struct uart_rs232_options {
 
 } usart_rs232_options_t;
 
-typedef usart_rs232_options_t usart_serial_options_t; 
+typedef usart_rs232_options_t usart_serial_options_t;
+
+typedef Uart *usart_if;
 
 /*! \brief Initializes the Usart in master mode.
  *
  * \param usart       Base address of the USART instance.
- * \param opt         Options needed to set up RS232 communication (see \ref usart_options_t).
- *
+ * \param opt         Options needed to set up RS232 communication (see
+ *                    \ref usart_options_t).
  */
-static inline void usart_serial_init(Uart * p_uart, usart_serial_options_t *opt)
+static inline void usart_serial_init(usart_if p_uart,
+		usart_serial_options_t *opt)
 {
-
 	sam_uart_opt_t uart_settings;
-	uart_settings.dw_mck = sysclk_get_peripheral_hz();
-	uart_settings.dw_baudrate = opt->baudrate;
-	uart_settings.dw_mode = opt->paritytype;
+	uart_settings.ul_mck = sysclk_get_peripheral_hz();
+	uart_settings.ul_baudrate = opt->baudrate;
+	uart_settings.ul_mode = opt->paritytype;
+
+#ifdef UART
+	if (UART == p_uart) {
+		sysclk_enable_peripheral_clock(ID_UART);
+	}
+#else
+# ifdef UART0
+	if (UART0 == p_uart) {
+		sysclk_enable_peripheral_clock(ID_UART0);
+	}
+# endif
+# ifdef UART1
+	if (UART1 == p_uart) {
+		sysclk_enable_peripheral_clock(ID_UART1);
+	}
+# endif
+#endif // ifdef UART
+
+#ifdef USART
+	if (USART == (Usart*)p_uart) {
+		sysclk_enable_peripheral_clock(ID_USART);
+	}
+#else
+# ifdef USART0
+	if (USART0 == (Usart*)p_uart) {
+		sysclk_enable_peripheral_clock(ID_USART0);
+	}
+# endif
+# ifdef USART1
+	if (USART1 == (Usart*)p_uart) {
+		sysclk_enable_peripheral_clock(ID_USART1);
+	}
+# endif
+# ifdef USART2
+	if (USART2 == (Usart*)p_uart) {
+		sysclk_enable_peripheral_clock(ID_USART2);
+	}
+# endif
+# ifdef USART3
+	if (USART3 == (Usart*)p_uart) {
+		sysclk_enable_peripheral_clock(ID_USART3);
+	}
+# endif
+# ifdef USART4
+	if (USART4 == (Usart*)p_uart) {
+		sysclk_enable_peripheral_clock(ID_USART4);
+	}
+# endif
+#endif // ifdef USART
+
 
 	/* Configure UART */
 	uart_init(p_uart, &uart_settings);
@@ -100,9 +151,10 @@ static inline void usart_serial_init(Uart * p_uart, usart_serial_options_t *opt)
  *
  * \return Status.
  *   \retval 1  The character was written.
- *   \retval 0  The function timed out before the USART transmitter became ready to send.
+ *   \retval 0  The function timed out before the USART transmitter became
+ *              ready to send.
  */
-static inline int usart_serial_putchar(Uart * p_uart, const int8_t c)
+static inline int usart_serial_putchar(usart_if p_uart, const uint8_t c)
 {
 	while (uart_write(p_uart, c)!=1);
 	return 1;
@@ -113,9 +165,31 @@ static inline int usart_serial_putchar(Uart * p_uart, const int8_t c)
  * \param data   Data to read
  *
  */
-static inline void usart_serial_getchar(Uart * p_uart, int8_t *data)
+static inline void usart_serial_getchar(usart_if p_uart, uint8_t *data)
 {
 	uart_read(p_uart, (uint8_t *)data);
 }
 
-#endif  // _USART_SERIAL_H_
+/**
+ * \brief Send a sequence of bytes to a USART device
+ *
+ * \param usart Base address of the USART instance.
+ * \param data   data buffer to write
+ * \param len    Length of data
+ *
+ */
+status_code_t usart_serial_write_packet(usart_if usart, const uint8_t *data,
+		size_t len);
+
+/**
+ * \brief Reveive a sequence of bytes to a USART device
+ *
+ * \param usart Base address of the USART instance.
+ * \param data   data buffer to write
+ * \param len    Length of data
+ *
+ */
+status_code_t usart_serial_read_packet(usart_if usart, uint8_t *data,
+		size_t len);
+
+#endif  // _UART_SERIAL_H_

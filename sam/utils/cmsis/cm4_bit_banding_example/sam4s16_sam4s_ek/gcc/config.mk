@@ -45,11 +45,12 @@ PART = sam4s16c
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam_utils_cmsis_cm4_bit_banding_example_sam4s_ek_flash.elf
-TARGET_SRAM = sam_utils_cmsis_cm4_bit_banding_example_sam4s_ek_sram.elf
+TARGET_FLASH = cmsis_cm4_bit_banding_example_flash.elf
+TARGET_SRAM = cmsis_cm4_bit_banding_example_sram.elf
 
 # List of C source files.
 CSRCS = \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam4s_ek/init.c                         \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
@@ -65,6 +66,7 @@ ASSRCS =
 INC_PATH = \
        common/boards                                      \
        common/services/gpio                               \
+       common/utils                                       \
        sam/boards                                         \
        sam/boards/sam4s_ek                                \
        sam/drivers/pio                                    \
@@ -73,6 +75,7 @@ INC_PATH = \
        sam/utils/cmsis/sam4s/include                      \
        sam/utils/cmsis/sam4s/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
        thirdparty/CMSIS/Lib/GCC \
        ./sam/utils/cmsis/cm4_bit_banding_example/sam4s16_sam4s_ek/gcc
@@ -83,7 +86,7 @@ LIB_PATH =  \
 
 # List of libraries to use during linking.
 LIBS =  \
-       arm_cortexM4lf_math                               
+       arm_cortexM4l_math                                
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam4s/sam4s16/gcc/flash.ld

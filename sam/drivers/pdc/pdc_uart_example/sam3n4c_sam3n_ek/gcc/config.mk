@@ -45,12 +45,13 @@ PART = sam3n4c
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam_drivers_pdc_pdc_uart_example_sam3n_ek_flash.elf
-TARGET_SRAM = sam_drivers_pdc_pdc_uart_example_sam3n_ek_sram.elf
+TARGET_FLASH = pdc_pdc_uart_example_flash.elf
+TARGET_SRAM = pdc_pdc_uart_example_sram.elf
 
 # List of C source files.
 CSRCS = \
        common/services/clock/sam3n/sysclk.c               \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3n_ek/init.c                         \
        sam/drivers/pdc/pdc.c                              \
        sam/drivers/pdc/pdc_uart_example/pdc_uart_example.c \
@@ -71,6 +72,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3n_ek                                \
        sam/drivers/pdc                                    \
@@ -83,6 +85,7 @@ INC_PATH = \
        sam/utils/cmsis/sam3n/include                      \
        sam/utils/cmsis/sam3n/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include \
        ./sam/drivers/pdc/pdc_uart_example/sam3n4c_sam3n_ek/gcc
 

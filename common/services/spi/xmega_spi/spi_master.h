@@ -7,7 +7,7 @@
  * This file defines a useful set of functions for the SPI interface on AVR
  * devices.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -64,7 +64,7 @@ extern "C" {
  * @{
  *
  * \section xmega_spi_master_qucikstart_section Quick Start Guide
- * See \ref spi_master_quickstart
+ * See \ref common_spi_master_quickstart
  */
 
 /*! \name Spi Master Management Configuration

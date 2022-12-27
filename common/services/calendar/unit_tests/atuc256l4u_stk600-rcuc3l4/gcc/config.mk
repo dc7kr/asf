@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_calendar_unit_tests_stk600-rcuc3l4.elf
+TARGET = calendar_unit_tests.elf
 
 # List of C source files.
 CSRCS = \
@@ -67,6 +67,7 @@ CSRCS = \
        common/services/clock/uc3l/osc.c                   \
        common/services/clock/uc3l/pll.c                   \
        common/services/clock/uc3l/sysclk.c                \
+       common/services/serial/usart_serial.c              \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c
@@ -93,6 +94,7 @@ INC_PATH = \
        common/services/calendar/unit_tests/atuc256l4u_stk600-rcuc3l4 \
        common/services/clock                              \
        common/services/serial                             \
+       common/services/serial/uc3_usart                   \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
        ./common/services/calendar/unit_tests/atuc256l4u_stk600-rcuc3l4/gcc

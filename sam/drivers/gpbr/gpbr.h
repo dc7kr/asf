@@ -3,7 +3,7 @@
  *
  * \brief General Purpose Backup Registers (GPBR) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -64,8 +64,8 @@ typedef enum gpbr_num_type {
 	GPBR7
 } gpbr_num_t;
 
-uint32_t gpbr_read(gpbr_num_t dw_reg_num);
-void gpbr_write(gpbr_num_t dw_reg_num, uint32_t dw_value);
+uint32_t gpbr_read(gpbr_num_t ul_reg_num);
+void gpbr_write(gpbr_num_t ul_reg_num, uint32_t ul_value);
 
 /// @cond 0
 /**INDENT-OFF**/

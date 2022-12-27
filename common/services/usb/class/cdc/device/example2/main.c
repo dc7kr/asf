@@ -3,7 +3,7 @@
  *
  * \brief CDC Application Main functions
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -198,8 +198,12 @@ void main_cdc_set_dtr(uint8_t port, bool b_enable)
  *      <br>initializes interrupt
  *      <br>manages UI
  *      <br>
+ *    - uart_xmega.c,
+ *      <br>implementation of RS232 bridge for XMEGA parts
  *    - uart_uc3.c,
- *      <br>implementation of RS232 bridge for uc3 parts
+ *      <br>implementation of RS232 bridge for UC3 parts
+ *    - uart_sam.c,
+ *      <br>implementation of RS232 bridge for SAM parts
  *    - specific implementation for each target "./examples/product_board/":
  *       - conf_foo.h   configuration of each module
  *       - ui.c        implement the user's interface (leds,buttons...)

@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for WDT driver.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -102,10 +102,10 @@ volatile void *volatile stdio_base;
 #endif
 
 /* Is set to 1 when a watchdog interrupt happens */
-static volatile int wdt_triggered = 0U;
+static volatile int gs_wdt_triggered = 0U;
 
 /* Systick Counter */
-static volatile uint32_t dw_ms_ticks = 0U;
+static volatile uint32_t gs_ul_ms_ticks = 0U;
 
 /**
  * \brief WDT interrupt handler.
@@ -116,7 +116,7 @@ void WDT_Handler(void)
 	WDT->WDT_SR; 
 	
 	/* Update state machine */
-	wdt_triggered = 1;
+	gs_wdt_triggered = 1;
 }
 
 /**
@@ -125,18 +125,18 @@ void WDT_Handler(void)
 void SysTick_Handler(void)
 {
 	/* Increment counter necessary in delay(). */
-	dw_ms_ticks++;
+	gs_ul_ms_ticks++;
 }
 
 /**
  * \brief Delay number of tick Systicks (happens every 1 ms).
  */
-static void delay_ms(uint32_t dw_dly_ticks)
+static void delay_ms(uint32_t ul_dly_ticks)
 {
-	uint32_t dw_cur_ticks;
+	uint32_t ul_cur_ticks;
 
-	dw_cur_ticks = dw_ms_ticks;
-	while ((dw_ms_ticks - dw_cur_ticks) < dw_dly_ticks) {
+	ul_cur_ticks = gs_ul_ms_ticks;
+	while ((gs_ul_ms_ticks - ul_cur_ticks) < ul_dly_ticks) {
 	}
 }
 
@@ -158,16 +158,16 @@ static void run_wdt_test(const struct test_case *test)
 	/* Test1: Initialize WDT to trigger a reset after 100ms */
 	wdt_init(WDT, WDT_MR_WDFIEN, 26, 26);
 	delay_ms(50);
-	test_assert_true(test, wdt_triggered == 0, "Test1: unexpected watchdog interrupt!");
+	test_assert_true(test, gs_wdt_triggered == 0, "Test1: unexpected watchdog interrupt!");
 
 	/* Test2: Restart the watchdog */
 	wdt_restart(WDT);
 	delay_ms(50);
-	test_assert_true(test, wdt_triggered == 0, "Test2: unexpected watchdog interrupt!");
+	test_assert_true(test, gs_wdt_triggered == 0, "Test2: unexpected watchdog interrupt!");
 	
 	/* Test 3: Trigger the watchdog interrupt (reset) */
 	delay_ms(200);
-	test_assert_true(test, wdt_triggered == 1, "Test3: no watchdog interrupt received, expected one!");
+	test_assert_true(test, gs_wdt_triggered == 1, "Test3: no watchdog interrupt received, expected one!");
 }
 
 /**
@@ -211,6 +211,9 @@ int main(void)
 
 	/* Run all tests in the test suite */
 	test_suite_run(&wdt_suite);
+
+	/* Disable the watchdog */
+	wdt_disable(WDT);
 
 	while (1) {
 		/* Busy-wait forever. */

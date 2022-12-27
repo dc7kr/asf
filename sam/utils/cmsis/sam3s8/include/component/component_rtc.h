@@ -41,9 +41,9 @@
 #define _SAM3S8_RTC_COMPONENT_
 
 /* ============================================================================= */
-/**  SOFTWARE API DEFINITION FOR Real Time Clock */
+/**  SOFTWARE API DEFINITION FOR Real-time Clock */
 /* ============================================================================= */
-/** \addtogroup SAM3S8_RTC Real Time Clock */
+/** \addtogroup SAM3S8_RTC Real-time Clock */
 /*@{*/
 
 #if !(defined(__ASSEMBLY__) || defined(__IAR_SYSTEMS_ASM__))

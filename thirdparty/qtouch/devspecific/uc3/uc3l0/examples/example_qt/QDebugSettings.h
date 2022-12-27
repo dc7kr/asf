@@ -1,4 +1,4 @@
-/* This source file is part of the ATMEL QTouch Library Release 4.3.1 */
+/* This source file is part of the ATMEL QTouch Library Release 4.4 */
 /*****************************************************************************
  *
  * \file
@@ -9,7 +9,7 @@
  * - Support email:      touch@atmel.com
  *
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -100,6 +100,19 @@ extern "C"
 
 #define		PROJECT_ID			0xE003
 #define		INTERFACE			SPI2W
+
+#define QDEBUG_SPI_BAUD_RATE				48000
+#define QDEBUG_SPI_USART					(&AVR32_USART2)
+#define QDEBUG_SPI_SCK_PIN         			AVR32_USART2_CLK_0_1_PIN
+#define QDEBUG_SPI_SCK_FUNCTION    			AVR32_USART2_CLK_0_1_FUNCTION
+#define QDEBUG_SPI_MISO_PIN        			AVR32_USART2_RXD_0_0_PIN
+#define QDEBUG_SPI_MISO_FUNCTION   			AVR32_USART2_RXD_0_0_FUNCTION
+#define QDEBUG_SPI_MOSI_PIN        			AVR32_USART2_TXD_0_0_PIN
+#define QDEBUG_SPI_MOSI_FUNCTION   			AVR32_USART2_TXD_0_0_FUNCTION
+#define QDEBUG_SPI_NSS_PIN         			AVR32_USART2_RTS_0_PIN
+#define QDEBUG_SPI_NSS_FUNCTION    			AVR32_USART2_RTS_0_FUNCTION
+
+#define QDEBUG_PBA_FREQ_HZ					48000000UL
 
 //! @}
 

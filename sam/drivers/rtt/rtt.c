@@ -3,7 +3,7 @@
  *
  * \brief Real-time Timer (RTT) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -72,9 +72,9 @@ extern "C" {
  *
  * \return 0 if successful.
  */
-uint32_t rtt_init(Rtt *p_rtt, uint16_t w_prescaler)
+uint32_t rtt_init(Rtt *p_rtt, uint16_t us_prescaler)
 {
-	p_rtt->RTT_MR = (w_prescaler | RTT_MR_RTTRST);
+	p_rtt->RTT_MR = (us_prescaler | RTT_MR_RTTRST);
 	return 0;
 }
 
@@ -82,22 +82,22 @@ uint32_t rtt_init(Rtt *p_rtt, uint16_t w_prescaler)
  * \brief Enable RTT interrupts.
  *
  * \param p_rtt Pointer to an RTT instance.
- * \param dw_sources Interrupts to be enabled.
+ * \param ul_sources Interrupts to be enabled.
  */
-void rtt_enable_interrupt(Rtt *p_rtt, uint32_t dw_sources)
+void rtt_enable_interrupt(Rtt *p_rtt, uint32_t ul_sources)
 {
-	p_rtt->RTT_MR |= dw_sources;
+	p_rtt->RTT_MR |= ul_sources;
 }
 
 /**
  * \brief Disable RTT interrupts.
  *
  * \param p_rtt Pointer to an RTT instance.
- * \param dw_sources Interrupts to be disabled.
+ * \param ul_sources Interrupts to be disabled.
  */
-void rtt_disable_interrupt(Rtt *p_rtt, uint32_t dw_sources)
+void rtt_disable_interrupt(Rtt *p_rtt, uint32_t ul_sources)
 {
-	p_rtt->RTT_MR &= (~dw_sources);
+	p_rtt->RTT_MR &= (~ul_sources);
 }
 
 /**
@@ -128,19 +128,19 @@ uint32_t rtt_get_status(Rtt *p_rtt)
  * \brief Configure the RTT to generate an alarm at the given time.
  *
  * \param p_rtt Pointer to an RTT instance.
- * \param dw_alarm_time Alarm time.
+ * \param ul_alarm_time Alarm time.
  *
  * \retval 0 Configuration is done.
  * \retval 1 Parameter error.
  */
-uint32_t rtt_write_alarm_time(Rtt *p_rtt, uint32_t dw_alarm_time)
+uint32_t rtt_write_alarm_time(Rtt *p_rtt, uint32_t ul_alarm_time)
 {
-	if (dw_alarm_time == 0) {
+	if (ul_alarm_time == 0) {
 		return 1;
 	}
 
 	/* Alarm time = ALMV + 1 */
-	p_rtt->RTT_AR = dw_alarm_time - 1;
+	p_rtt->RTT_AR = ul_alarm_time - 1;
 	return 0;
 }
 

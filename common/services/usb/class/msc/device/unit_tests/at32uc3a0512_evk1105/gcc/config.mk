@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_usb_class_msc_device_unit_tests_evk1105.elf
+TARGET = device_unit_tests.elf
 
 # List of C source files.
 CSRCS = \
@@ -73,6 +73,7 @@ CSRCS = \
        common/components/memory/data_flash/at45dbx/at45dbx_mem.c \
        common/components/memory/virtual_mem/virtual_mem.c \
        common/services/clock/uc3a0_a1/sysclk.c            \
+       common/services/serial/usart_serial.c              \
        common/services/sleepmgr/uc3/sleepmgr.c            \
        common/services/spi/uc3_spi/spi_master.c           \
        common/services/storage/ctrl_access/ctrl_access.c  \
@@ -110,6 +111,7 @@ INC_PATH = \
        common/components/memory/virtual_mem               \
        common/services/clock                              \
        common/services/serial                             \
+       common/services/serial/uc3_usart                   \
        common/services/sleepmgr                           \
        common/services/spi                                \
        common/services/spi/uc3_spi                        \

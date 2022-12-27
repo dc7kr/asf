@@ -3,7 +3,7 @@
  *
  * \brief CMSIS Example.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -71,17 +71,16 @@
  *
  */
 
-#include "compiler.h"
-#include "exceptions.h"
+#include "asf.h"
 #include "conf_board.h"
 
-__INLINE static void delay_ms(uint32_t dw_dly_ticks);
+__INLINE static void delay_ms(uint32_t ul_dly_ticks);
 __INLINE static void led_config(void);
-__INLINE static void led_on(uint32_t dw_led);
-__INLINE static void led_off(uint32_t dw_led);
+__INLINE static void led_on(uint32_t ul_led);
+__INLINE static void led_off(uint32_t ul_led);
 
 /* Systick Counter */
-static volatile uint32_t dw_ms_ticks = 0U;
+static volatile uint32_t g_ul_ms_ticks = 0U;
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -97,18 +96,18 @@ extern "C" {
 void SysTick_Handler(void)
 {
 	/* Increment counter necessary in delay(). */
-	dw_ms_ticks++;
+	g_ul_ms_ticks++;
 }
 
 /**
  * \brief Delay number of tick Systicks (happens every 1 ms).
  */
-__INLINE static void delay_ms(uint32_t dw_dly_ticks)
+__INLINE static void delay_ms(uint32_t ul_dly_ticks)
 {
-	uint32_t dw_cur_ticks;
+	uint32_t ul_cur_ticks;
 
-	dw_cur_ticks = dw_ms_ticks;
-	while ((dw_ms_ticks - dw_cur_ticks) < dw_dly_ticks) {
+	ul_cur_ticks = g_ul_ms_ticks;
+	while ((g_ul_ms_ticks - ul_cur_ticks) < ul_dly_ticks) {
 	}
 }
 
@@ -126,19 +125,19 @@ __INLINE static void led_config(void)
 /**
 * \brief Switch on LED.
 */
-__INLINE static void led_on(uint32_t dw_led)
+__INLINE static void led_on(uint32_t ul_led)
 {
 	/* Turn On LED. */
-	LED0_PIO->PIO_CODR = dw_led;
+	LED0_PIO->PIO_CODR = ul_led;
 }
 
 /**
 * \brief Switch off LED.
 */
-__INLINE static void led_off(uint32_t dw_led)
+__INLINE static void led_off(uint32_t ul_led)
 {
 	/* Turn Off LED. */
-	LED0_PIO->PIO_SODR = dw_led;
+	LED0_PIO->PIO_SODR = ul_led;
 }
 
 /**

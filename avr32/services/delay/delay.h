@@ -6,7 +6,7 @@
  *
  * This file contains definitions and services to handle "delays".
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -47,7 +47,7 @@
 #define _DELAY_H_
 
 /**
- * \defgroup group_avr32_services_basic_delay TIMING - Delay function
+ * \defgroup group_avr32_services_basic_delay Delay functions
  *
  * Driver for busy-waiting. Supports delaying a number of milliseconds,
  * and works in both standalone and with FreeRTOS.

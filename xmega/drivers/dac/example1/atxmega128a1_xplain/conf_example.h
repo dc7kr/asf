@@ -38,8 +38,8 @@
  * \asf_license_stop
  *
  */
-#ifndef CONF_BOARD_H
-#define CONF_BOARD_H
+#ifndef CONF_EXAMPLE_H
+#define CONF_EXAMPLE_H
 
 #include <compiler.h>
 #include <dac.h>
@@ -51,4 +51,4 @@
 //! \note This is the left channel of Xplain's on-board amplifier.
 #define SPEAKER_DAC_CHANNEL    DAC_CH0
 
-#endif /* CONF_BOARD_H */
+#endif /* CONF_EXAMPLE_H */

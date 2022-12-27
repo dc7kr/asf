@@ -42,7 +42,7 @@ MCU = atmega2560
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = mega_drivers_tc_timeout_example1_mega2560_stk600.elf
+TARGET = tc_timeout_example1.elf
 
 # C source files located from the top-level source directory
 CSRCS = \

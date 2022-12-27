@@ -3,7 +3,7 @@
  *
  * \brief USB configuration file
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -195,6 +195,7 @@
 //! Interface callback definition
 #define  UDI_MSC_ENABLE_EXT()          true
 #define  UDI_MSC_DISABLE_EXT()
+#define  UDI_MSC_NOTIFY_TRANS_EXT()
 
 /**
  * USB MSC low level configuration
@@ -418,7 +419,7 @@
 #define UDI_COMPOSITE_DESC_FS \
 	.udi_cdc_iad               = UDI_CDC_IAD_DESC, \
 	.udi_cdc_comm              = UDI_CDC_COMM_DESC, \
-	.udi_cdc_data              = UDI_CDC_DATA_DESC, \
+	.udi_cdc_data              = UDI_CDC_DATA_DESC_FS, \
 	.udi_msc                   = UDI_MSC_DESC_FS, \
 	.udi_hid_mouse             = UDI_HID_MOUSE_DESC
 
@@ -426,7 +427,7 @@
 #define UDI_COMPOSITE_DESC_HS \
 	.udi_cdc_iad               = UDI_CDC_IAD_DESC, \
 	.udi_cdc_comm              = UDI_CDC_COMM_DESC, \
-	.udi_cdc_data              = UDI_CDC_DATA_DESC, \
+	.udi_cdc_data              = UDI_CDC_DATA_DESC_HS, \
 	.udi_msc                   = UDI_MSC_DESC_HS, \
 	.udi_hid_mouse             = UDI_HID_MOUSE_DESC
 

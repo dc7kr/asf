@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for ili9325 driver.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -121,7 +121,7 @@ volatile void *volatile stdio_base;
 /* RGB888 to RGB565 filter */
 #define DATA_FILTER        0x00F8FCF8
 
-struct ili9325_opt_t ili9325_display_opt;
+struct ili9325_opt_t g_ili9325_display_opt;
 
 /**
  * \brief Read data from LCD Register.
@@ -155,11 +155,11 @@ static void run_test_init(const struct test_case *test)
 	volatile uint16_t register_value;
 
 	/* Test1: Check the initialize function */
-	ili9325_display_opt.dw_width = ILI9325_LCD_WIDTH;
-	ili9325_display_opt.dw_height = ILI9325_LCD_HEIGHT;
-	ili9325_display_opt.foreground_color = COLOR_BLACK;
-	ili9325_display_opt.background_color = COLOR_WHITE;
-	ili9325_init(&ili9325_display_opt);
+	g_ili9325_display_opt.ul_width = ILI9325_LCD_WIDTH;
+	g_ili9325_display_opt.ul_height = ILI9325_LCD_HEIGHT;
+	g_ili9325_display_opt.foreground_color = COLOR_BLACK;
+	g_ili9325_display_opt.background_color = COLOR_WHITE;
+	ili9325_init(&g_ili9325_display_opt);
 
 	/* Check the important none zero setting registers */
 	register_value = ili9325_read_register(ILI9325_DISP_CTRL1);

@@ -3,7 +3,7 @@
  *
  * \brief Clock system example 1.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -79,13 +79,10 @@
  *
  */
 
-#include "board.h"
-#include "gpio.h"
-#include "sysclk.h"
-#include "exceptions.h"
+#include "asf.h"
 
-/* Global dw_ms_ticks in milliseconds since start of application */
-volatile uint32_t dw_ms_ticks = 0;
+/* Global ul_ms_ticks in milliseconds since start of application */
+volatile uint32_t ul_ms_ticks = 0;
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -96,28 +93,28 @@ extern "C" {
 /// @endcond
 
 /**
- * \brief Wait for the given number of milliseconds (using the dw_ms_ticks generated
+ * \brief Wait for the given number of milliseconds (using the ul_ms_ticks generated
  * by the SAM microcontroller system tick).
  *
- * \param dw_dly_ticks  Delay to wait for, in milliseconds.
+ * \param ul_dly_ticks  Delay to wait for, in milliseconds.
  */
-static void mdelay(uint32_t dw_dly_ticks)
+static void mdelay(uint32_t ul_dly_ticks)
 {
-	uint32_t dw_cur_ticks;
+	uint32_t ul_cur_ticks;
 
-	dw_cur_ticks = dw_ms_ticks;
-	while ((dw_ms_ticks - dw_cur_ticks) < dw_dly_ticks) {
+	ul_cur_ticks = ul_ms_ticks;
+	while ((ul_ms_ticks - ul_cur_ticks) < ul_dly_ticks) {
 	}
 }
 
 /**
  * \brief Handler for Sytem Tick interrupt.
  *
- * Process System Tick Event and increments the dw_ms_ticks counter.
+ * Process System Tick Event and increments the ul_ms_ticks counter.
  */
 void SysTick_Handler(void)
 {
-	dw_ms_ticks++;
+	ul_ms_ticks++;
 }
 
 /**

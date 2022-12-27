@@ -8,7 +8,7 @@
  *
  *****************************************************************************/
 /**
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -280,8 +280,7 @@ status_code_t twim_read_packet (volatile avr32_twim_t *twim,
 		twim_inst->cr = AVR32_TWIM_CR_SWRST_MASK;
 		twim_inst->cr = AVR32_TWIM_CR_MDIS_MASK;
 		// selection of first valid byte of the address
-		twim_tx_data = (uint8_t *) (&(package->addr));
-		twim_tx_data += (4 - package->addr_length);
+		twim_tx_data = package->addr;
 		// set the number of bytes to transmit
 		twim_tx_nb_bytes = package->addr_length;
 		// mask NACK, TXRDY and RXRDY interrupts
@@ -439,8 +438,7 @@ status_code_t twim_write_packet (volatile avr32_twim_t *twim,
 	//check if internal address access is performed
 	if (package->addr_length) {
 		// selection of first valid byte of the address
-		twim_tx_data = (uint8_t *) (&(package->addr));
-		twim_tx_data += (4 - package->addr_length);
+		twim_tx_data = package->addr;
 		// set the number of bytes to transmit
 		twim_tx_nb_bytes = package->addr_length;
 		// set next transfer to true

@@ -1,10 +1,17 @@
-/*****************************************************************************
- *
+/**
  * \file
  *
- * \brief DSP demo.
+ * \mainpage
+ * \section title DSP demo.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * \section file File(s)
+ * - \ref demo.c
+ * - \ref dsp_process.c
+ * - \ref dsp_sprintf.c
+ * - \ref gui.c
+ * - \ref controller.h
+ *
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

@@ -3,7 +3,7 @@
  *
  * \brief Chip-specific reset cause functions
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -47,6 +47,8 @@
 /**
  * \defgroup group_avr32_drivers_cpu AVR32 reset cause
  * \ingroup reset_cause_group
+ *
+ * See \ref reset_cause_quickstart
  *
  * @{
  */

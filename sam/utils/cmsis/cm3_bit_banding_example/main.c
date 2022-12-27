@@ -3,7 +3,7 @@
  *
  * \brief Bit Banding Example.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -77,9 +77,8 @@
  *
  */
 
-#include <stdlib.h>
 #include <math.h>
-#include "board.h"
+#include "asf.h"
 #include "conf_board.h"
 
 /**
@@ -97,7 +96,7 @@
                           +(  (uint32_t)(bit)*4))))
 
 //! Counts for 1ms timeTicks.
-volatile uint32_t dw_ms_ticks = 0;
+volatile uint32_t g_ul_ms_ticks = 0;
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -110,12 +109,12 @@ extern "C" {
 /**
  * \brief Delay number of tick Systicks (happens every 1 ms).
  */
-__INLINE static void delay_ms(uint32_t dw_dly_ticks)
+__INLINE static void delay_ms(uint32_t ul_dly_ticks)
 {
-	uint32_t dw_cur_ticks;
+	uint32_t ul_cur_ticks;
 
-	dw_cur_ticks = dw_ms_ticks;
-	while ((dw_ms_ticks - dw_cur_ticks) < dw_dly_ticks);
+	ul_cur_ticks = g_ul_ms_ticks;
+	while ((g_ul_ms_ticks - ul_cur_ticks) < ul_dly_ticks);
 }
 
  /**
@@ -135,7 +134,7 @@ __INLINE static void led_config(void)
 void SysTick_Handler(void)
 {
 	// Increment counter necessary in delay().
-	dw_ms_ticks++;
+	g_ul_ms_ticks++;
 }
 
 /**
@@ -153,7 +152,7 @@ int main(void)
 	WDT->WDT_MR = WDT_MR_WDDIS;
 
 	// Set up SysTick Timer for 1 msec interrupts.
-	if (SysTick_Config(SystemCoreClock / 1000)) {
+	if (SysTick_Config(SystemCoreClock/ 1000)) {
 		// Capture error.
 		while (1);
 	}

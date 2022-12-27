@@ -17,7 +17,7 @@
  *****************************************************************************/
 
 /**
- * Copyright (c) 2010 - 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -168,7 +168,7 @@ uint8_t read_data[6];
  *
  * \remarks The function will initialize the clocks.
  */
-void init_sys_clocks (void)
+static void init_sys_clocks (void)
 {
 	if (pcl_configure_clocks (&pcl_freq_param) != PASS) {
 		while (1){
@@ -181,7 +181,7 @@ void init_sys_clocks (void)
  * \remarks TWI interface initialization
  *
  */
-void twim_init (void)
+static void twim_init (void)
 {
 	int8_t status;
 #if BOARD == UC3L_EK
@@ -283,7 +283,9 @@ int main (void)
 	// TWI chip address to communicate with
 	packet.chip = TARGET_ADDRESS;
 	// TWI address/commands to issue to the other chip (node)
-	packet.addr = VIRTUALMEM_ADDR;
+	packet.addr[0] = (VIRTUALMEM_ADDR >> 16) & 0xff;
+	packet.addr[1] = (VIRTUALMEM_ADDR >> 8) & 0xff;
+	packet.addr[2] = VIRTUALMEM_ADDR & 0xff;
 	// Length of the TWI data address segment (1-3 bytes)
 	packet.addr_length = TARGET_ADDR_LGT;
 	// Where to find the data to be written
@@ -308,7 +310,9 @@ int main (void)
 	// How many bytes do we want to write
 	packet_received.length = PATTERN_TEST_LENGTH;
 	// TWI address/commands to issue to the other chip (node)
-	packet_received.addr = VIRTUALMEM_ADDR;
+	packet_received.addr[0] = (VIRTUALMEM_ADDR >> 16) & 0xff;
+	packet_received.addr[1] = (VIRTUALMEM_ADDR >> 8) & 0xff;
+	packet_received.addr[2] = VIRTUALMEM_ADDR & 0xff;
 	// Where to find the data to be written
 	packet_received.buffer = read_data;
 	print_dbg ("Reading data from TARGET\r\n");

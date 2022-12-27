@@ -42,20 +42,20 @@ MCU = atxmega128b1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_components_memory_data_flash_at45dbx_unit_tests_xmega_b1_xplained.elf
+TARGET = at45dbx_unit_tests.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/components/memory/data_flash/at45dbx/at45dbx.c \
        common/components/memory/data_flash/at45dbx/unit_tests/unit_tests.c \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/serial/usart_serial.c              \
        common/services/spi/xmega_usart_spi/usart_spi.c    \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c                     \
        xmega/boards/xmega_b1_xplained/init.c              \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/usart/usart.c
 
@@ -71,14 +71,15 @@ INC_PATH = \
        common/components/memory/data_flash/at45dbx/unit_tests/atxmega128b1_xmega_b1_xplained \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
+       common/services/serial/xmega_usart                 \
        common/services/spi                                \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
        xmega/boards                                       \
        xmega/boards/xmega_b1_xplained                     \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/pmic                                 \
        xmega/drivers/usart                                \
@@ -128,6 +129,7 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D BOARD=XMEGA_B1_XPLAINED                         \
+       -D IOPORT_XMEGA_COMPAT                             \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_
 

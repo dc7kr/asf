@@ -3,7 +3,7 @@
  *
  * \brief Main functions for USB composite example
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -52,43 +52,12 @@
 #include "udi_hid.h"
 #include "udi_cdc.h"
 #include "ui.h"
-#include "conf_access.h"
-#include "at45dbx.h"
 #include "uart.h"
-#include "fifo.h"
-#include <stdio.h>    // printf redirection
 
+static bool main_b_keyboard_enable = false;
 static bool main_b_mouse_enable = false;
 static bool main_b_msc_enable = false;
-static bool main_b_kbd_enable = false;
 static bool main_b_cdc_enable = false;
-
-
-#if UC3A3
-//! \brief Init HMatrix
-static void init_hmatrix(void);
-#endif
-#if ((defined SD_MMC_MCI_0_MEM) && (SD_MMC_MCI_0_MEM == ENABLE)) \
-	|| ((defined SD_MMC_MCI_1_MEM) && (SD_MMC_MCI_1_MEM == ENABLE))
-//! \brief Initializes SD/MMC resources: GPIO, MCI and SD/MMC.
-static void sd_mmc_mci_resources_init(void);
-#endif
-
-/*! \brief Function for CDC interface
- */
-#define  MAIN_CDC_FIFO_SIZE    32       // Must be a power of 2
-static bool main_b_com_startup = false;
-static bool main_b_com_open = false;
-static uint8_t fifo_rx[MAIN_CDC_FIFO_SIZE];
-static uint8_t fifo_tx[MAIN_CDC_FIFO_SIZE];
-static fifo_desc_t fifo_desc_rx;
-static fifo_desc_t fifo_desc_tx;
-const char main_msg_welcome[] = "\x0C"
-		"--------------------------\r\n"
-		"    ATMEL CDC UART bridge \r\n"
-		"--------------------------\r\n";
-static void main_cdc_open(bool b_enable);
-
 
 /*! \brief Main function. Execution starts here.
  */
@@ -105,25 +74,7 @@ int main(void)
 	ui_init();
 	ui_powerdown();
 
-#if UC3A3
-	// Init Hmatrix bus
-	sysclk_enable_pbb_module(SYSCLK_HMATRIX);
-	init_hmatrix();
-#endif
-#if (defined AT45DBX_MEM) && (AT45DBX_MEM == ENABLE)
-	at45dbx_init();
-#endif
-#if ((defined SD_MMC_MCI_0_MEM) && (SD_MMC_MCI_0_MEM == ENABLE)) \
-	|| ((defined SD_MMC_MCI_1_MEM) && (SD_MMC_MCI_1_MEM == ENABLE))
-	// Initialize SD/MMC with MCI PB clock.
-	sysclk_enable_pbb_module(SYSCLK_MCI);
-	sysclk_enable_hsb_module(SYSCLK_DMACA);
-	sd_mmc_mci_resources_init();
-#endif
-
-	// Initialize the FIFOs
-	fifo_init(&fifo_desc_rx, &fifo_rx, MAIN_CDC_FIFO_SIZE);
-	fifo_init(&fifo_desc_tx, &fifo_tx, MAIN_CDC_FIFO_SIZE);
+	memories_initialization();
 
 	// Start USB stack to authorize VBus monitoring
 	udc_start();
@@ -137,43 +88,13 @@ int main(void)
 	// The main loop manages only the power mode
 	// because the USB management is done by interrupt
 	while (true) {
+
 		if (main_b_msc_enable) {
 			if (!udi_msc_process_trans()) {
 				sleepmgr_enter_sleep();
 			}
 		}else{
 			sleepmgr_enter_sleep();
-		}
-
-		if (main_b_com_open) {
-			// To display a message when the port is open
-			if (main_b_com_startup) {
-				udi_cdc_ctrl_signal_dsr(true);
-				udi_cdc_ctrl_signal_dsr(false);
-				main_b_com_startup = false;
-			}
-			//** The transfer fifo<->CDC is done in the main loop
-			// to reduce process time in TX/RX UART interrupts
-			// Transfer CDC RX to UART TX fifo
-			while (udi_cdc_is_rx_ready()) {
-				if (fifo_get_free_size(&fifo_desc_tx) == 0)
-					break;  // Fifo full then transmission
-				ui_com_rx_start();
-				fifo_push_uint8(&fifo_desc_tx, udi_cdc_getc());
-				uart_enable_tx();
-			}
-			// Transfer UART RX fifo to CDC TX
-			while (udi_cdc_is_tx_ready()) {
-				uint8_t value_pull;
-				int status;
-				status = fifo_pull_uint8(&fifo_desc_rx, &value_pull);
-				if (status != FIFO_OK) {
-					// No data then end of loop
-					ui_com_tx_stop();
-					break;
-				}
-				udi_cdc_putc(value_pull);
-			}
 		}
 	}
 }
@@ -203,7 +124,7 @@ void main_sof_action(void)
 {
 	if ((!main_b_mouse_enable) ||
 		(!main_b_msc_enable) ||
-		(!main_b_kbd_enable) ||
+		(!main_b_keyboard_enable) ||
 		(!main_b_cdc_enable))
 		return;
 	ui_process(udd_get_frame_number());
@@ -219,6 +140,13 @@ void main_remotewakeup_disable(void)
 	ui_wakeup_disable();
 }
 
+/*! \brief Example of extra USB string maangement
+ * This feature is available for single or composite device
+ * which want implement additional USB string than
+ * Manufacture, Product and serial number ID.
+ *
+ * return true, if the string ID requested is know and managed by this functions
+ */
 bool main_extra_string(void)
 {
    static uint8_t udi_cdc_name[] = "CDC interface";
@@ -300,20 +228,22 @@ void main_mouse_disable(void)
 	main_b_mouse_enable = false;
 }
 
-bool main_kbd_enable(void)
+bool main_keyboard_enable(void)
 {
-	main_b_kbd_enable = true;
+	main_b_keyboard_enable = true;
 	return true;
 }
 
-void main_kbd_disable(void)
+void main_keyboard_disable(void)
 {
-	main_b_kbd_enable = false;
+	main_b_keyboard_enable = false;
 }
 
 bool main_cdc_enable(void)
 {
 	main_b_cdc_enable = true;
+	// Open communication
+	uart_open();
 	return true;
 }
 
@@ -321,130 +251,19 @@ void main_cdc_disable(void)
 {
 	main_b_cdc_enable = false;
 	// Close communication
-	main_cdc_open(false);
+	uart_close();
 }
-
-#if UC3A3
-/*! \name Hmatrix bus configuration
- */
-static void init_hmatrix(void)
-{
-	union {
-		unsigned long scfg;
-		avr32_hmatrix_scfg_t SCFG;
-	} u_avr32_hmatrix_scfg;
-
-	// For the internal-flash HMATRIX slave, use last master as default.
-	u_avr32_hmatrix_scfg.scfg =
-			AVR32_HMATRIX.scfg[AVR32_HMATRIX_SLAVE_FLASH];
-	u_avr32_hmatrix_scfg.SCFG.defmstr_type =
-			AVR32_HMATRIX_DEFMSTR_TYPE_LAST_DEFAULT;
-	AVR32_HMATRIX.scfg[AVR32_HMATRIX_SLAVE_FLASH] =
-			u_avr32_hmatrix_scfg.scfg;
-}
-#endif
-
-
-#if ((defined SD_MMC_MCI_0_MEM) && (SD_MMC_MCI_0_MEM == ENABLE)) \
-	|| ((defined SD_MMC_MCI_1_MEM) && (SD_MMC_MCI_1_MEM == ENABLE))
-#include "mci.h"
-#include "conf_sd_mmc_mci.h"
-
-/*! \brief Initializes SD/MMC resources: GPIO, MCI and SD/MMC.
- */
-static void sd_mmc_mci_resources_init(void)
-{
-	static const gpio_map_t SD_MMC_MCI_GPIO_MAP = {
-		{SD_SLOT_8BITS_CLK_PIN, SD_SLOT_8BITS_CLK_FUNCTION},     // SD CLK.
-		{SD_SLOT_8BITS_CMD_PIN, SD_SLOT_8BITS_CMD_FUNCTION},     // SD CMD.
-		{SD_SLOT_8BITS_DATA0_PIN, SD_SLOT_8BITS_DATA0_FUNCTION}, // SD DAT[0].
-		{SD_SLOT_8BITS_DATA1_PIN, SD_SLOT_8BITS_DATA1_FUNCTION}, // DATA Pin.
-		{SD_SLOT_8BITS_DATA2_PIN, SD_SLOT_8BITS_DATA2_FUNCTION}, // DATA Pin.
-		{SD_SLOT_8BITS_DATA3_PIN, SD_SLOT_8BITS_DATA3_FUNCTION}, // DATA Pin.
-		{SD_SLOT_8BITS_DATA4_PIN, SD_SLOT_8BITS_DATA4_FUNCTION}, // DATA Pin.
-		{SD_SLOT_8BITS_DATA5_PIN, SD_SLOT_8BITS_DATA5_FUNCTION}, // DATA Pin.
-		{SD_SLOT_8BITS_DATA6_PIN, SD_SLOT_8BITS_DATA6_FUNCTION}, // DATA Pin.
-		{SD_SLOT_8BITS_DATA7_PIN, SD_SLOT_8BITS_DATA7_FUNCTION}  // DATA Pin.
-	};
-
-	// MCI options.
-	static const mci_options_t MCI_OPTIONS = {
-		.card_speed = 400000,
-		.card_slot = SD_SLOT_8BITS, // Default card initialization.
-	};
-
-	// Assign I/Os to MCI.
-	gpio_enable_module(SD_MMC_MCI_GPIO_MAP,
-			sizeof(SD_MMC_MCI_GPIO_MAP) /
-			sizeof(SD_MMC_MCI_GPIO_MAP[0]));
-
-	// Enable pull-up for Card Detect.
-	gpio_enable_pin_pull_up(SD_SLOT_8BITS_CARD_DETECT);
-
-	// Enable pull-up for Write Protect.
-	gpio_enable_pin_pull_up(SD_SLOT_8BITS_WRITE_PROTECT);
-
-	sd_mmc_mci_init(&MCI_OPTIONS, sysclk_get_pbb_hz(), sysclk_get_cpu_hz());
-}
-#endif // SD_MMC_MCI_0_MEM == ENABLE || SD_MMC_MCI_1_MEM == ENABLE
-
-
-void main_cdc_config_uart(usb_cdc_line_coding_t * cfg)
-{
-	uart_config(cfg);
-}
-
 
 void main_cdc_set_dtr(bool b_enable)
 {
-	main_cdc_open(b_enable);
-}
-
-static void main_cdc_open(bool b_enable)
-{
 	if (b_enable) {
-		// Open communication
-		fifo_flush(&fifo_desc_rx);
-		fifo_flush(&fifo_desc_tx);
-		uart_open();
+		// Host terminal has open COM
 		ui_com_open();
-		main_b_com_startup = true;
-		main_b_com_open = true;
-	} else {
-		// Close communication
-		uart_close();
+	}else{
+		// Host terminal has close COM
 		ui_com_close();
-		main_b_com_startup = false;
-		main_b_com_open = false;
 	}
 }
-
-void main_uart_rx_occur(bool b_error, uint8_t value_rx)
-{
-	int status;
-	if (b_error) {
-		udi_cdc_signal_framing_error();
-		ui_com_error();
-	}
-	status = fifo_push_uint8(&fifo_desc_rx, value_rx);
-	if (status != FIFO_OK) {
-		// Fifo full
-		udi_cdc_signal_overrun();
-		ui_com_overflow();
-	}
-	ui_com_tx_start();
-}
-
-bool main_uart_tx_free(uint8_t * value_rx)
-{
-	if (fifo_pull_uint8(&fifo_desc_tx, value_rx) == FIFO_OK) {
-		return true;
-	}
-	// Fifo empty then Stop UART transmission
-	ui_com_rx_stop();
-	return false;
-}
-
 
 /**
  * \mainpage ASF USB Device Composite
@@ -464,11 +283,12 @@ bool main_uart_tx_free(uint8_t * value_rx)
  * For example, a CDC device can appear as a virtual COM port, which greatly
  * simplifies application development on the host side.
  *
- *
  * \section startup Startup
  * The example uses all memories available on the board and connects these to
  * USB Device Mass Storage stack.
- * Also, the example uses the buttons or sensors available on the board
+ * Also, the example is a bridge between a USART from the main MCU
+ * and the USB CDC interface.
+ * And, the example uses the buttons or sensors available on the board
  * to simulate a standard mouse, keyboard.
  * After loading firmware, connect the board (EVKxx,XPlain,...) to the USB Host.
  * When connected to a USB host system this application allows to display
@@ -479,13 +299,20 @@ bool main_uart_tx_free(uint8_t * value_rx)
  * - Connect the USART peripheral to the USART interface of the board.
  * - Connect the application to a USB host (e.g. a PC)
  *   with a mini-B (embedded side) to A (PC host side) cable.
- * The application will behave as a virtual COM (see Windows Hardware Manager).
+ * The application will behave as a virtual COM (see Windows Device Manager).
  * - Open a hyperterminal on both COM ports (RS232 and Virtual COM)
  * - Select the same configuration for both COM ports up to 115200 baud.
- * - Type a character in one hyperterminal and see it in the other.
+ * - Type a character in one hyperterminal and it will echo in the other.
  *
  * \note
  * This example uses the native MSC and HID drivers on Unix/Mac/Windows OS, except for Win98.
+ * About CDC, on the first connection of the board on the PC,
+ * the operating system will detect a new peripheral:
+ * - This will open a new hardware installation window.
+ * - Choose "No, not this time" to connect to Windows Update for this installation
+ * - click "Next"
+ * - When requested to search the INF file, browse to the same folder of this main.c file.
+ * - click "Next"
  *
  * \copydoc UI
  *
@@ -509,16 +336,16 @@ bool main_uart_tx_free(uint8_t * value_rx)
  *      <br>manages UI
  *    - udi_composite_desc.c,udi_composite_conf.h,
  *      <br>USB Device composite definition
+ *    - uart_xmega.c,
+ *      <br>implementation of RS232 bridge for XMEGA parts
+ *    - uart_uc3.c,
+ *      <br>implementation of RS232 bridge for UC3 parts
+ *    - uart_sam.c,
+ *      <br>implementation of RS232 bridge for SAM parts
  *    - specific implementation for each target "./examples/product_board/":
  *       - conf_foo.h   configuration of each module
  *       - ui.c        implement of user's interface (buttons, leds)
- *       - uart.c       implement of RS232 bridge
  *
  * <SUP>1</SUP> The memory data transfers are done outside USB interrupt routine.
  * This is done in the MSC process ("udi_msc_process_trans()") called by main loop.
- * <SUP>1</SUP>Simple FIFOs are implemented between UART and CDC interfaces.
- * The CDC I/O routines are called directly in UART RX/TX interrupts
- * to avoid data being lost.
- * In this case, the CDC I/O routines are called in the main loop to fill
- * or read FIFOs. The redirection of printf to CDC is supported for GCC only.
  */

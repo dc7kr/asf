@@ -3,7 +3,7 @@
  *
  * \brief Example specific clock configuration file
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -42,6 +42,7 @@
 #ifndef _CONF_CLOCK_H
 #define _CONF_CLOCK_H
 
-
+#define CONFIG_SYSCLK_SOURCE SYSCLK_SRC_RC32MHZ
 
 #endif  // _CONF_BOARD_H
+

@@ -3,7 +3,7 @@
  *
  * \brief USB host Mass Storage Class interface.
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -76,6 +76,7 @@ typedef struct {
 	uhc_device_t *dev;
 	usb_ep_t ep_in;
 	usb_ep_t ep_out;
+	uint8_t iface_num;
 	uint8_t nb_lun;
 	uhi_msc_lun_t *lun;
 } uhi_msc_dev_t;
@@ -242,6 +243,7 @@ uhc_enum_status_t uhi_msc_install(uhc_device_t * dev)
 			&& (ptr_iface->bInterfaceProtocol == MSC_PROTOCOL_BULK) ) {
 				// USB HID Mouse interface found
 				b_iface_supported = true;
+				uhi_msc_dev_sel->iface_num = ptr_iface->bInterfaceNumber;
 				uhi_msc_dev.ep_in = 0;
 				uhi_msc_dev.ep_out = 0;
 			} else {
@@ -344,7 +346,7 @@ static void uhi_msc_enable_step1(void)
 	req.bmRequestType = USB_REQ_RECIP_INTERFACE|USB_REQ_TYPE_CLASS|USB_REQ_DIR_IN;
 	req.bRequest = USB_REQ_MSC_GET_MAX_LUN;
 	req.wValue = 0;
-	req.wIndex = 0;
+	req.wIndex = uhi_msc_dev_sel->iface_num;
 	req.wLength = 1;
 	uhd_setup_request(uhi_msc_dev_sel->dev->address,
 			&req,

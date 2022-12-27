@@ -3,7 +3,7 @@
  *
  * \brief Board configuration.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -58,46 +58,5 @@
 #define SPI_MASTER_BASE      SPI0
 /** SPI base address for SPI slave mode, (on different board) */
 #define SPI_SLAVE_BASE       SPI0
-
-/** Board SPI0 chip select0 pin definition. */
-#define BOARD_SPI0_NPCS0_GPIO         SPI0_NPCS0_GPIO
-#define BOARD_SPI0_NPCS0_GPIO_FLAGS   SPI0_NPCS0_GPIO_FLAGS
-
-/** Board SPI0 chip select1 pin definition, as there are sevral pins which 
- *  can be used as SPI chip select1, so this needs to be modified according 
- *  to actual board.
- */
-//#define BOARD_SPI0_NPCS1_GPIO         SPI0_NPCS1_GPIO_PA29
-//#define BOARD_SPI0_NPCS1_GPIO_FLAGS   SPI0_NPCS1_GPIO_PA29_FLAGS
-
-/** Board SPI0 chip select2 pin definition, as there are sevral pins which 
- *  can be used as SPI chip select2, so this needs to be modified according 
- *  to actual board.
- */
-//#define BOARD_SPI0_NPCS2_GPIO         SPI0_NPCS2_GPIO_PA30
-//#define BOARD_SPI0_NPCS2_GPIO_FLAGS   SPI0_NPCS2_GPIO_PA30_FLAGS
-
-/** Board SPI0 chip select3 pin definition, as there are sevral pins which 
- *  can be used as SPI chip select3, so this needs to be modified according 
- *  to actual board.
- */
-//#define BOARD_SPI0_NPCS3_GPIO         SPI0_NPCS3_GPIO_PA31
-//#define BOARD_SPI0_NPCS3_GPIO_FLAGS   SPI0_NPCS3_GPIO_PA31_FLAGS
-
-/** Board SPI1 chip select0 pin definition. */
-//#define BOARD_SPI1_NPCS0_GPIO         SPI1_NPCS0_GPIO
-//#define BOARD_SPI1_NPCS0_GPIO_FLAGS   SPI1_NPCS0_GPIO_FLAGS
-
-/** Board SPI1 chip select1 pin definition. */
-//#define BOARD_SPI1_NPCS1_GPIO         SPI1_NPCS1_GPIO
-//#define BOARD_SPI1_NPCS1_GPIO_FLAGS   SPI1_NPCS1_GPIO_FLAGS
-
-/** Board SPI1 chip select2 pin definition. */
-//#define BOARD_SPI1_NPCS2_GPIO         SPI1_NPCS2_GPIO
-//#define BOARD_SPI1_NPCS2_GPIO_FLAGS   SPI1_NPCS2_GPIO_FLAGS
-
-/** Board SPI1 chip select3 pin definition. */
-//#define BOARD_SPI1_NPCS3_GPIO         SPI1_NPCS3_GPIO
-//#define BOARD_SPI1_NPCS3_GPIO_FLAGS   SPI1_NPCS3_GPIO_FLAGS
 
 #endif /* CONF_BOARD_H_INCLUDED */

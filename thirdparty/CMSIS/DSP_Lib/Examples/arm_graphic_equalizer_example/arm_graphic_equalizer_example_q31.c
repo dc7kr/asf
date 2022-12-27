@@ -22,7 +22,7 @@
 * Version 1.0.0 2010/09/20 KK
 *    Production release and review comments incorporated.
 * ------------------------------------------------------------------- */ 
- 
+
 /** 
  * @ingroup groupExamples 
  */ 
@@ -109,9 +109,9 @@
 /** \example arm_graphic_equalizer_example_q31.c 
  */  
  
-     
 #include "arm_math.h" 
 #include "math_helper.h"
+#include "asf.h"
 
 /* Length of the overall data in the test */ 
 #define TESTLENGTH 320

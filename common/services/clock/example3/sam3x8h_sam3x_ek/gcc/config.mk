@@ -45,13 +45,14 @@ PART = sam3x8h
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = common_services_basic_clock_example3_sam3x_ek_flash.elf
-TARGET_SRAM = common_services_basic_clock_example3_sam3x_ek_sram.elf
+TARGET_FLASH = clock_example3_flash.elf
+TARGET_SRAM = clock_example3_sram.elf
 
 # List of C source files.
 CSRCS = \
        common/services/clock/example3/clock_example3_sam.c \
        common/services/clock/sam3x/sysclk.c               \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3x_ek/init.c                         \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
@@ -71,6 +72,7 @@ INC_PATH = \
        common/services/clock                              \
        common/services/clock/example3/sam3x8h_sam3x_ek    \
        common/services/gpio                               \
+       common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3x_ek                                \
        sam/drivers/pio                                    \
@@ -80,6 +82,7 @@ INC_PATH = \
        sam/utils/cmsis/sam3x/include                      \
        sam/utils/cmsis/sam3x/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include \
        ./common/services/clock/example3/sam3x8h_sam3x_ek/gcc
 

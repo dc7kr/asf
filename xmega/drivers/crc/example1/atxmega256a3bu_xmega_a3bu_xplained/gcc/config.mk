@@ -42,15 +42,15 @@ MCU = atxmega256a3bu
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_drivers_crc_example1_xmega_a3bu_xplained.elf
+TARGET = crc_example1.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        xmega/boards/xmega_a3bu_xplained/init.c            \
        xmega/drivers/crc/crc.c                            \
        xmega/drivers/crc/example1/example1.c              \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c
 
 # Assembler source files located from the top-level source directory
@@ -63,6 +63,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/utils                                       \
        xmega/boards                                       \
        xmega/boards/xmega_a3bu_xplained                   \
@@ -70,7 +71,6 @@ INC_PATH = \
        xmega/drivers/crc                                  \
        xmega/drivers/crc/example1                         \
        xmega/drivers/crc/example1/atxmega256a3bu_xmega_a3bu_xplained \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
@@ -118,7 +118,8 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D BOARD=XMEGA_A3BU_XPLAINED                       \
-       -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA
+       -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA       \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

@@ -60,6 +60,9 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: EVK1100 board support
 #include <led.h>
 
@@ -81,9 +84,6 @@
 
 // From module: System Clock Control - UC3 A implementation
 #include <sysclk.h>
-
-// From module: TIMING - Delay routines
-#include <delay.h>
 
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter
 #include <usart.h>

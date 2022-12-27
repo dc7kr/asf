@@ -3,7 +3,7 @@
  *
  * \brief AVR XMEGA Analog to Digital Converter driver
  *
- * Copyright (c) 2010-2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -66,13 +66,20 @@ extern "C" {
  * must be set up before the configuration is written to either an ADC module or
  * one of their channels.
  *
- * After the ADC has been configured, it must be enabled before any conversions
- * can be done.
+ * After the ADC has been configured it must be enabled before any conversions
+ * may be performed. To ensure accurate conversions, please wait for at least
+ * the specified start-up time between enabling the ADC module, and starting
+ * a conversion. For most XMEGA devices the start-up time is specified
+ * to be a maximum of 24 ADC clock cycles. Please verify the start-up time for
+ * the device in use.
+ *
+ * \note Not all of the documented functions are available on all devices. This
+ * is due to differences in the ADC feature set. Refer to the device manual and
+ * datasheet for details on which features are available for a specific device.
  *
  * \note The functions for creating/changing configurations are not protected
  * against interrupts. The functions that read from or write to the ADC's
  * registers are protected unless otherwise noted.
- *
  *
  * \section dependencies Dependencies
  * This driver depends on the following modules:
@@ -83,6 +90,47 @@ extern "C" {
  * critical code sections.
  * @{
  */
+
+/**
+ * \internal
+ * \name Workaround definitions
+ *
+ * \todo Remove workarounds for missing definitions in device header files
+ * @{
+ */
+  
+#ifndef ADC_CH_OFFSET_gp
+#define ADC_CH_OFFSET_gp        4 
+#endif  
+
+#define ADC_EVACT_SYNCHSWEEP_tmpfix_gc 0x06
+
+#define ADC_CH_GAIN_DIV2_tmpfix_gc     (0x07 << 2)
+
+#define ADC_CURRLIMIT_tmpfix_gm        (0x03 << 5)
+
+typedef enum ADC_CURRLIMIT_tmpfix_enum {
+	ADC_CURRLIMIT_NO_tmpfix_gc       = (0x00 << 5),
+	ADC_CURRLIMIT_SMALL_tmpfix_gc    = (0x01 << 5),
+	ADC_CURRLIMIT_MEDIUM_tmpfix_gc   = (0x02 << 5),
+	ADC_CURRLIMIT_LARGE_tmpfix_gc    = (0x03 << 5),
+} ADC_CURRLIMIT_tmpfix_t;
+
+/* Compatibility macro for IAR */
+#if defined(__ICCAVR__)
+#  define _WORDREGISTER WORDREGISTER
+#endif
+
+typedef struct ADC_CH_tmpfix_struct {
+	register8_t CTRL;
+	register8_t MUXCTRL;
+	register8_t INTCTRL;
+	register8_t INTFLAGS;
+	_WORDREGISTER(RES);
+	register8_t SCAN;
+	register8_t reserved_0x07;
+} ADC_CH_tmpfix_t;
+/** @} */
 
 /**
  * \defgroup adc_module_group ADC module
@@ -105,13 +153,33 @@ extern "C" {
  */
 #if XMEGA_A || XMEGA_AU
 #  define ADC_NR_OF_CHANNELS    4
-#elif XMEGA_D
+#elif XMEGA_B || XMEGA_C || XMEGA_D
 #  define ADC_NR_OF_CHANNELS    1
 #endif
 
-//! ADC configuration
+/**
+ * \def CONFIG_ADC_VERSION
+ * \brief XMEGA ADC version
+ *
+ * This driver supports two versions of the XMEGA ADC. Version 2 is found in
+ * all XMEGA AU, B and C devices and features current limitation, input scan,
+ * internal GND, VCC/2 reference and 1/2x input gain. This symbol is used to
+ * control, at compile-time, which version the driver should support.
+ *
+ * For XMEGA AU, B and C devices, this symbol is automatically defined as 2.
+ * For other devices, this symbol defaults to 1, but can be overridden by
+ * defining it in conf_adc.h.
+ */
+#if XMEGA_AU || XMEGA_B || XMEGA_C || defined(__DOXYGEN__)
+#  define CONFIG_ADC_VERSION    2
+#elif !defined(CONFIG_ADC_VERSION)
+#  define CONFIG_ADC_VERSION    1
+#endif
+
+/** ADC configuration */
 struct adc_config {
-#if XMEGA_A || XMEGA_AU
+#if ADC_NR_OF_CHANNELS > 1
+	/* DMA group request is stored in CTRLA */
 	uint8_t ctrla;
 #endif
 	uint8_t ctrlb;
@@ -126,27 +194,28 @@ struct adc_config {
  * \note The temperature sensor calibration is sampled at 85 degrees Celsius
  * with unsigned, 12-bit conversion.
  */
-//@{
+/** @{ */
 
-//! ADC A, calibration byte 0.
+/** ADC A, calibration byte 0. */
 #define ADCACAL0      offsetof(NVM_PROD_SIGNATURES_t, ADCACAL0)
-//! ADC A, calibration byte 1.
+/** ADC A, calibration byte 1. */
 #define ADCACAL1      offsetof(NVM_PROD_SIGNATURES_t, ADCACAL1)
-//! ADC B, calibration byte 0.
+/** ADC B, calibration byte 0. */
 #define ADCBCAL0      offsetof(NVM_PROD_SIGNATURES_t, ADCBCAL0)
-//! ADC B, calibration byte 1.
+/** ADC B, calibration byte 1. */
 #define ADCBCAL1      offsetof(NVM_PROD_SIGNATURES_t, ADCBCAL1)
-//! Temperature sensor calibration byte 0.
+/** Temperature sensor calibration byte 0. */
 #define TEMPSENSE0    offsetof(NVM_PROD_SIGNATURES_t, TEMPSENSE0)
-//! Temperature sensor calibration byte 1.
+/** Temperature sensor calibration byte 1. */
 #define TEMPSENSE1    offsetof(NVM_PROD_SIGNATURES_t, TEMPSENSE1)
 
-//@}
+/** @} */
 
-//! \brief ADC calibration data
+/** \brief ADC calibration data */
 enum adc_calibration_data {
-	ADC_CAL_ADCA,    //!< ADC A pipeline calibration data.
-	ADC_CAL_ADCB,    //!< ADC B pipeline calibration data.
+	ADC_CAL_ADCA,    /**< ADC A pipeline calibration data. */
+	ADC_CAL_ADCB,    /**< ADC B pipeline calibration data. */
+
 	/**
 	 * \brief Temperature sensor calibration data.
 	 * \note 12-bit unsigned, measured at 85 degrees Celsius, equivalent to
@@ -155,26 +224,26 @@ enum adc_calibration_data {
 	ADC_CAL_TEMPSENSE,
 };
 
-//! \name ADC channel masks
-//@{
+/** \name ADC channel masks */
+/** @{ */
 
-#define ADC_CH0      (1U << 0)                 //!< ADC channel 0.
+#define ADC_CH0      (1U << 0)                 /**< ADC channel 0. */
 
-#if XMEGA_A || XMEGA_AU
-#  define ADC_CH1    (1U << 1)                 //!< ADC channel 1.
-#  define ADC_CH2    (1U << 2)                 //!< ADC channel 2.
-#  define ADC_CH3    (1U << 3)                 //!< ADC channel 3.
-#endif /* XMEGA_A || XMEGA_AU */
+#if XMEGA_A || XMEGA_AU || defined(__DOXYGEN__)
+#  define ADC_CH1    (1U << 1)                 /**< ADC channel 1. */
+#  define ADC_CH2    (1U << 2)                 /**< ADC channel 2. */
+#  define ADC_CH3    (1U << 3)                 /**< ADC channel 3. */
+#endif
 
-//@}
+/** @} */
 
-//! \name Internal ADC input masks
-//@{
+/** \name Internal ADC input masks */
+/** @{ */
 
-#define ADC_INT_TEMPSENSE    ADC_TEMPREF_bm    //!< Temperature sensor.
-#define ADC_INT_BANDGAP      ADC_BANDGAP_bm    //!< Bandgap reference.
+#define ADC_INT_TEMPSENSE    ADC_TEMPREF_bm    /**< Temperature sensor. */
+#define ADC_INT_BANDGAP      ADC_BANDGAP_bm    /**< Bandgap reference. */
 
-//@}
+/** @} */
 
 /**
  * \brief ADC conversion trigger settings
@@ -183,13 +252,15 @@ enum adc_calibration_data {
  * Refer to the device manual for detailed information.
  */
 enum adc_trigger {
-	//! Manually triggered conversions
+	/** Manually triggered conversions */
 	ADC_TRIG_MANUAL,
+
 	/**
 	 * \brief Freerunning conversion sweeps
 	 * \note These will start as soon as the ADC is enabled.
 	 */
 	ADC_TRIG_FREERUN_SWEEP,
+
 	/**
 	 * \brief Event-triggered conversions on individual channels
 	 * Pairs each event channel with an ADC channel.
@@ -197,12 +268,18 @@ enum adc_trigger {
 	 * by the number of channels to trigger conversions on.
 	 */
 	ADC_TRIG_EVENT_SINGLE,
-#if XMEGA_A || XMEGA_AU || defined(__DOXYGEN__)
+
+#if ADC_NR_OF_CHANNELS > 1
+
 	/**
 	 * \brief Event-triggered conversion sweeps
 	 * \note Only the base event channel is used in this mode.
 	 */
 	ADC_TRIG_EVENT_SWEEP,
+#endif
+
+#if XMEGA_A || (CONFIG_ADC_VERSION == 2)
+
 	/**
 	 * \brief Event-triggered, synchronized conversion sweeps
 	 * \note Only the base event channel is used in this mode.
@@ -211,41 +288,47 @@ enum adc_trigger {
 #endif
 };
 
-//! \brief ADC signedness settings
+/** \brief ADC signedness settings */
 enum adc_sign {
-	ADC_SIGN_OFF,                    //!< Unsigned conversions.
-	ADC_SIGN_ON = ADC_CONMODE_bm,    //!< Signed conversions.
+	ADC_SIGN_OFF,                    /**< Unsigned conversions. */
+	ADC_SIGN_ON = ADC_CONMODE_bm,    /**< Signed conversions. */
 };
 
-//! \brief ADC resolution settings
+/** \brief ADC resolution settings */
 enum adc_resolution {
-	//! 8-bit resolution, right-adjusted.
+	/** 8-bit resolution, right-adjusted. */
 	ADC_RES_8       = ADC_RESOLUTION_8BIT_gc,
-	//! 12-bit resolution, right-adjusted.
+	/** 12-bit resolution, right-adjusted. */
 	ADC_RES_12      = ADC_RESOLUTION_12BIT_gc,
-	//! 12-bit resolution, left-adjusted.
+	/** 12-bit resolution, left-adjusted. */
 	ADC_RES_12_LEFT = ADC_RESOLUTION_LEFT12BIT_gc,
 };
 
-//! \brief ADC reference settings
+/**
+ * \brief ADC reference settings
+ *
+ * \note The choice in voltage reference varies between device families.
+ * Refer to the device manual for detailed information.
+ */
 enum adc_reference {
-	//! Internal 1 V from bandgap reference.
+	/** Internal 1 V from bandgap reference. */
 	ADC_REF_BANDGAP  = ADC_REFSEL_INT1V_gc,
-	//! VCC divided by 1.6.
+	/** VCC divided by 1.6. */
 	ADC_REF_VCC      = ADC_REFSEL_VCC_gc,
-	//! External reference on AREFA pin.
+#if !XMEGA_B3 || defined(__DOXYGEN__)
+	/** External reference on AREFA pin. */
 	ADC_REF_AREFA    = ADC_REFSEL_AREFA_gc,
-	//! External reference on AREFB pin.
+#endif
+	/** External reference on AREFB pin. */
 	ADC_REF_AREFB    = ADC_REFSEL_AREFB_gc,
-#if XMEGA_AU || defined(__DOXYGEN__)
-	//! VCC divided by 2 (Only available on some devices)
+#if CONFIG_ADC_VERSION == 2
+	/** VCC divided by 2. */
 	ADC_REF_VCCDIV2 = ADC_REFSEL_VCCDIV2_gc,
 #endif
-#if XMEGA_B
-	//! VCC divided by 2.
-	ADC_REF_VCC_2 = ADC_REFSEL_VCCDIV2_gc
-#endif
 };
+
+/** \name Internal functions for driver */
+/** @{ */
 
 /**
  * \internal
@@ -258,14 +341,15 @@ enum adc_reference {
  *
  * \return Pointer to ADC channel
  */
-__always_inline ADC_CH_t *adc_get_channel(ADC_t *adc, uint8_t ch_mask);
-__always_inline ADC_CH_t *adc_get_channel(ADC_t *adc, uint8_t ch_mask)
+__always_inline ADC_CH_tmpfix_t *adc_get_channel(ADC_t *adc, uint8_t ch_mask);
+
+__always_inline ADC_CH_tmpfix_t *adc_get_channel(ADC_t *adc, uint8_t ch_mask)
 {
 	uint8_t index = 0;
 
 	Assert(ch_mask & ((1 << ADC_NR_OF_CHANNELS) - 1));
 
-	// Use a conditional inline ctz for optimzation.
+	/* Use a conditional inline ctz for optimzation. */
 #if ADC_NR_OF_CHANNELS > 4
 	if (!(ch_mask & 0x0f)) {
 		index += 4;
@@ -284,12 +368,14 @@ __always_inline ADC_CH_t *adc_get_channel(ADC_t *adc, uint8_t ch_mask)
 	}
 #endif
 
-	return &adc->CH0 + index;
+	return (ADC_CH_tmpfix_t *)(&adc->CH0 + index);
 }
 
+/** @} */
+
 #if defined(CONFIG_ADC_CALLBACK_ENABLE) || defined(__DOXYGEN__)
-//! \name ADC interrupt callback function
-//@{
+/** \name ADC interrupt callback function */
+/** @{ */
 
 /**
  * \def CONFIG_ADC_CALLBACK_ENABLE
@@ -321,7 +407,7 @@ __always_inline ADC_CH_t *adc_get_channel(ADC_t *adc, uint8_t ch_mask)
 #  define CONFIG_ADC_CALLBACK_TYPE    uint16_t
 #endif
 
-//! Datatype of ADC conversion result parameter for callback
+/** Datatype of ADC conversion result parameter for callback */
 typedef CONFIG_ADC_CALLBACK_TYPE adc_result_t;
 
 /**
@@ -337,11 +423,11 @@ typedef void (*adc_callback_t)(ADC_t *adc, uint8_t ch_mask, adc_result_t res);
 
 void adc_set_callback(ADC_t *adc, adc_callback_t callback);
 
-//@}
-#endif /* CONFIG_ADC_CALLBACK_ENABLE */
+/** @} */
+#endif
 
-//! \name ADC module management
-//@{
+/** \name ADC module management */
+/** @{ */
 
 void adc_enable(ADC_t *adc);
 void adc_disable(ADC_t *adc);
@@ -398,9 +484,9 @@ static inline void adc_start_conversion(ADC_t *adc, uint8_t ch_mask)
  */
 static inline int16_t adc_get_signed_result(ADC_t *adc, uint8_t ch_mask)
 {
-	int16_t    val;
+	int16_t val;
 	irqflags_t flags;
-	ADC_CH_t   *adc_ch;
+	ADC_CH_tmpfix_t *adc_ch;
 
 	adc_ch = adc_get_channel(adc, ch_mask);
 
@@ -426,9 +512,9 @@ static inline int16_t adc_get_signed_result(ADC_t *adc, uint8_t ch_mask)
  */
 static inline uint16_t adc_get_unsigned_result(ADC_t *adc, uint8_t ch_mask)
 {
-	uint16_t   val;
+	uint16_t val;
 	irqflags_t flags;
-	ADC_CH_t   *adc_ch;
+	ADC_CH_tmpfix_t *adc_ch;
 
 	adc_ch = adc_get_channel(adc, ch_mask);
 
@@ -519,12 +605,13 @@ static inline void adc_flush(ADC_t *adc)
  *
  * \note The ADC must be enabled for this function to have any effect.
  */
-#define adc_set_compare_value(adc, val)                                        \
-	do {                                                                   \
-		irqflags_t ATPASTE2(adc_flags, __LINE__) =  cpu_irq_save();    \
-		(adc)->CMP = val;                                              \
-		cpu_irq_restore(ATPASTE2(adc_flags, __LINE__));                \
-	} while (0)
+#define adc_set_compare_value(adc, val)\
+	do {\
+		irqflags_t ATPASTE2(adc_flags, __LINE__) =  cpu_irq_save();\
+		(adc)->CMP = val;\
+		cpu_irq_restore(ATPASTE2(adc_flags, __LINE__));\
+	}\
+	while (0)
 
 /**
  * \brief Get compare value directly from ADC
@@ -625,10 +712,10 @@ static inline uint16_t adc_get_calibration_data(enum adc_calibration_data cal)
 	return data;
 }
 
-//@}
+/** @} */
 
-//! \name ADC module configuration
-//@{
+/** \name ADC module configuration */
+/** @{ */
 
 void adc_write_configuration(ADC_t *adc, const struct adc_config *conf);
 void adc_read_configuration(ADC_t *adc, struct adc_config *conf);
@@ -653,20 +740,22 @@ static inline void adc_set_clock_rate(struct adc_config *conf, uint32_t clk_adc)
 {
 	uint32_t clk_per;
 	uint16_t ratio;
-	uint8_t  psc;
+	uint8_t psc;
 
 	Assert(clk_adc);
 #if XMEGA_A || XMEGA_AU
 	Assert(clk_adc <= 2000000UL);
-#elif XMEGA_D
+#elif XMEGA_B || XMEGA_D
 	Assert(clk_adc <= 1400000UL);
+#elif XMEGA_C
+	Assert(clk_adc <= 1800000UL);
 #endif
 
 	clk_per = sysclk_get_per_hz();
 	ratio = clk_per / clk_adc;
 
-	// Round ratio up to the nearest prescaling factor.
-	if(ratio <= 4) {
+	/* Round ratio up to the nearest prescaling factor. */
+	if (ratio <= 4) {
 		psc = ADC_PRESCALER_DIV4_gc;
 	} else if (ratio <= 8) {
 		psc = ADC_PRESCALER_DIV8_gc;
@@ -702,7 +791,7 @@ static inline void adc_set_conversion_parameters(struct adc_config *conf,
 		enum adc_sign sign, enum adc_resolution res,
 		enum adc_reference ref)
 {
-	// Preserve all but conversion and resolution config.
+	/* Preserve all but conversion and resolution config. */
 	conf->ctrlb &= ~(ADC_CONMODE_bm | ADC_RESOLUTION_gm);
 	conf->ctrlb |= (uint8_t)res | (uint8_t)sign;
 
@@ -738,7 +827,7 @@ static inline void adc_set_conversion_trigger(struct adc_config *conf,
 	Assert(nr_of_ch <= ADC_NR_OF_CHANNELS);
 #if XMEGA_A || XMEGA_AU
 	Assert(base_ev_ch <= 7);
-#elif XMEGA_D
+#elif XMEGA_B || XMEGA_C || XMEGA_D
 	Assert(base_ev_ch <= 3);
 #endif
 
@@ -754,7 +843,7 @@ static inline void adc_set_conversion_trigger(struct adc_config *conf,
 				(nr_of_ch << ADC_EVACT_gp);
 		break;
 
-#if XMEGA_A || XMEGA_AU
+#if ADC_NR_OF_CHANNELS > 1
 	case ADC_TRIG_FREERUN_SWEEP:
 		conf->ctrlb |= ADC_FREERUN_bm;
 		conf->evctrl = (nr_of_ch - 1) << ADC_SWEEP_gp;
@@ -766,12 +855,16 @@ static inline void adc_set_conversion_trigger(struct adc_config *conf,
 				(base_ev_ch << ADC_EVSEL_gp) |
 				ADC_EVACT_SWEEP_gc;
 		break;
-
+#endif
+#if XMEGA_A || (CONFIG_ADC_VERSION == 2)
 	case ADC_TRIG_EVENT_SYNCSWEEP:
 		conf->ctrlb &= ~ADC_FREERUN_bm;
-		conf->evctrl = ((nr_of_ch - 1) << ADC_SWEEP_gp) |
+		conf->evctrl =
+#  if ADC_NR_OF_CHANNELS > 1
+				((nr_of_ch - 1) << ADC_SWEEP_gp) |
+#  endif
 				(base_ev_ch << ADC_EVSEL_gp) |
-				ADC_EVACT_SYNCHSWEEP_gc;
+				ADC_EVACT_SYNCHSWEEP_tmpfix_gc;
 		break;
 #endif
 
@@ -780,7 +873,8 @@ static inline void adc_set_conversion_trigger(struct adc_config *conf,
 	}
 }
 
-#if XMEGA_A || XMEGA_AU
+#if ADC_NR_OF_CHANNELS > 1
+
 /**
  * \brief Set DMA request group
  *
@@ -794,6 +888,7 @@ static inline void adc_set_conversion_trigger(struct adc_config *conf,
  * \arg 2, 3 or 4 to enable.
  *
  * \note The number of channels in the DMA request group cannot be 1.
+ * \note Not all device families feature this setting.
  */
 static inline void adc_set_dma_request_group(struct adc_config *conf,
 		uint8_t nr_of_ch)
@@ -807,6 +902,7 @@ static inline void adc_set_dma_request_group(struct adc_config *conf,
 		conf->ctrla = ADC_DMASEL_OFF_gc;
 	}
 }
+
 #endif
 
 /**
@@ -838,25 +934,12 @@ static inline void adc_disable_internal_input(struct adc_config *conf,
 }
 
 #if XMEGA_AU || defined(__DOXYGEN__)
-
-//! \brief ADC gain stage impedance settings
+/** \brief ADC gain stage impedance settings */
 enum adc_gainstage_impmode {
-	//! High impedance sources
-        ADC_GAIN_HIGHIMPEDANCE,
-	//! Low impedance sources
-        ADC_GAIN_LOWIMPEDANCE,
-};
-
-//! \brief ADC current limit settings
-enum adc_current_limit {
-	//! No current limit
-	ADC_CURRENT_LIMIT_NO,
-	//! Low current limit, max sampling rate 1.5 MSPS
-	ADC_CURRENT_LIMIT_LOW,
-	//! Medium current limit, max sampling rate 1 MSPS
-	ADC_CURRENT_LIMIT_MED,
-	//! High current limit, max sampling rate 0.5 MSPS
-	ADC_CURRENT_LIMIT_HIGH
+	/** High impedance sources */
+	ADC_GAIN_HIGHIMPEDANCE,
+	/** Low impedance sources */
+	ADC_GAIN_LOWIMPEDANCE,
 };
 
 /**
@@ -865,7 +948,7 @@ enum adc_current_limit {
  * \param conf Pointer to ADC module configuration.
  * \param mode Gain stage impedance mode.
  *
- * \note Only the AVR XMEGA AU family features this setting.
+ * \note Not all device families feature this setting.
  */
 static inline void adc_set_gain_impedance_mode(struct adc_config *conf,
 		enum adc_gainstage_impmode impmode)
@@ -884,6 +967,21 @@ static inline void adc_set_gain_impedance_mode(struct adc_config *conf,
 	}
 }
 
+#endif
+
+#if CONFIG_ADC_VERSION == 2
+/** \brief ADC current limit settings */
+enum adc_current_limit {
+	/** No current limit */
+	ADC_CURRENT_LIMIT_NO,
+	/** Low current limit, max sampling rate 1.5 MSPS */
+	ADC_CURRENT_LIMIT_LOW,
+	/** Medium current limit, max sampling rate 1 MSPS */
+	ADC_CURRENT_LIMIT_MED,
+	/** High current limit, max sampling rate 0.5 MSPS */
+	ADC_CURRENT_LIMIT_HIGH
+};
+
 /**
  * \brief Set ADC current limit
  *
@@ -896,32 +994,36 @@ static inline void adc_set_gain_impedance_mode(struct adc_config *conf,
  * \param conf Pointer to ADC module configuration.
  * \param currlimit Current limit setting.
  *
- * \note Only the AVR XMEGA AU family features this setting.
+ * \note Not all device families feature this setting.
  */
 static inline void adc_set_current_limit(struct adc_config *conf,
 		enum adc_current_limit currlimit)
 {
-	conf->ctrlb &= ~ADC_CURRLIMIT_gm;
+	conf->ctrlb &= ~ADC_CURRLIMIT_tmpfix_gm;
 
 	switch (currlimit) {
 	case ADC_CURRENT_LIMIT_NO:
-		conf->ctrlb |= ADC_CURRLIMIT_NO_gc;
+		conf->ctrlb |= ADC_CURRLIMIT_NO_tmpfix_gc;
 		break;
+
 	case ADC_CURRENT_LIMIT_LOW:
-		conf->ctrlb |= ADC_CURRLIMIT_SMALL_gc;
+		conf->ctrlb |= ADC_CURRLIMIT_SMALL_tmpfix_gc;
 		break;
+
 	case ADC_CURRENT_LIMIT_MED:
-		conf->ctrlb |= ADC_CURRLIMIT_MEDIUM_gc;
+		conf->ctrlb |= ADC_CURRLIMIT_MEDIUM_tmpfix_gc;
 		break;
+
 	case ADC_CURRENT_LIMIT_HIGH:
-		conf->ctrlb |= ADC_CURRLIMIT_LARGE_gc;
+		conf->ctrlb |= ADC_CURRLIMIT_LARGE_tmpfix_gc;
 		break;
+
 	default:
 		Assert(0);
 	}
 }
 
-#endif /* XMEGA USB */
+#endif
 
 /**
  * \brief Set ADC compare value in configuration
@@ -929,10 +1031,11 @@ static inline void adc_set_current_limit(struct adc_config *conf,
  * \param conf Pointer to ADC module configuration.
  * \param val Compare value to set.
  */
-#define adc_set_config_compare_value(conf, val)    \
-	do {                                       \
-		conf->cmp = (uint16_t)val;         \
-	} while (0)
+#define adc_set_config_compare_value(conf, val)\
+	do {\
+		conf->cmp = (uint16_t)val;\
+	}\
+	while (0)
 
 /**
  * \brief Get ADC compare value from configuration
@@ -941,7 +1044,7 @@ static inline void adc_set_current_limit(struct adc_config *conf,
  */
 #define adc_get_config_compare_value(conf)    (conf->cmp)
 
-//@}
+/** @} */
 
 /** @} */
 
@@ -968,12 +1071,12 @@ static inline void adc_set_current_limit(struct adc_config *conf,
 #  define CONFIG_ADC_INTLVL    ADC_CH_INTLVL_LO_gc
 #endif
 
-//! ADC channel configuration
+/** ADC channel configuration */
 struct adc_channel_config {
 	uint8_t ctrl;
 	uint8_t muxctrl;
 	uint8_t intctrl;
-#if XMEGA_AU || defined(__DOXYGEN__)
+#if CONFIG_ADC_VERSION == 2
 	uint8_t scan;
 #endif
 };
@@ -998,31 +1101,34 @@ enum adcch_positive_input {
 	ADCCH_POS_PIN6,
 	ADCCH_POS_PIN7,
 
-//! \name Input pins on alternate port.
-//@{
-#if XMEGA_A4 || XMEGA_A4U || XMEGA_D || XMEGA_A3U
+	/** \name Input pins on alternate port. */
+	/** @{ */
+#if XMEGA_A3U || XMEGA_A4 || XMEGA_A4U || XMEGA_B\
+	|| XMEGA_C || XMEGA_D || defined(__DOXYGEN__)
+	/* A3U, A4, A4U, B, C and D feature ADC8:11 input pins. */
 	ADCCH_POS_PIN8,
 	ADCCH_POS_PIN9,
 	ADCCH_POS_PIN10,
 	ADCCH_POS_PIN11,
 #endif
-#if XMEGA_D3 || XMEGA_A3U
+#if XMEGA_A3U || XMEGA_B || XMEGA_C || XMEGA_D3 || defined(__DOXYGEN__)
+	/* A3U, B, C and D3 feature ADC12:15 input pins. */
 	ADCCH_POS_PIN12,
 	ADCCH_POS_PIN13,
 	ADCCH_POS_PIN14,
 	ADCCH_POS_PIN15,
 #endif
-//@}
+	/** @} */
 
-//! \name Internal inputs.
-//@{
-	ADCCH_POS_TEMPSENSE,     //!< Temperature sensor.
-	ADCCH_POS_BANDGAP,       //!< Bandgap reference.
-	ADCCH_POS_SCALED_VCC,    //!< VCC scaled down by 10.
-#if XMEGA_A || XMEGA_AU
-	ADCCH_POS_DAC,           //!< DAC output.
+	/** \name Internal inputs. */
+	/** @{ */
+	ADCCH_POS_TEMPSENSE,     /**< Temperature sensor. */
+	ADCCH_POS_BANDGAP,       /**< Bandgap reference. */
+	ADCCH_POS_SCALED_VCC,    /**< VCC scaled down by 10. */
+#if XMEGA_A || XMEGA_AU || defined(__DOXYGEN__)
+	ADCCH_POS_DAC,           /**< DAC output. */
 #endif
-//@}
+	/** @} */
 };
 
 /**
@@ -1040,63 +1146,63 @@ enum adcch_positive_input {
  * manual for an overview of available input signals.
  */
 enum adcch_negative_input {
-//! \name Input pins for differential measurements with 1x gain.
-//@{
-	//! ADC0 pin
+	/** \name Input pins for differential measurements with 1x gain. */
+	/** @{ */
+	/** ADC0 pin */
 	ADCCH_NEG_PIN0,
-	//! ADC1 pin
+	/** ADC1 pin */
 	ADCCH_NEG_PIN1,
-	//! ADC2 pin
+	/** ADC2 pin */
 	ADCCH_NEG_PIN2,
-	//! ADC3 pin
+	/** ADC3 pin */
 	ADCCH_NEG_PIN3,
-//@}
+	/** @} */
 
-//! \name Input pins for differential measurements with any gain.
-//@{
-	//! ADC4 pin
+	/** \name Input pins for differential measurements with any gain. */
+	/** @{ */
+	/** ADC4 pin */
 	ADCCH_NEG_PIN4,
-	//! ADC5 pin
+	/** ADC5 pin */
 	ADCCH_NEG_PIN5,
-	//! ADC6 pin
+	/** ADC6 pin */
 	ADCCH_NEG_PIN6,
-	//! ADC7 pin
+	/** ADC7 pin */
 	ADCCH_NEG_PIN7,
-//@}
+	/** @} */
 
-#if XMEGA_AU || defined(__DOXYGEN__)
-//! \name GND signals for differential measurements.
-//@{
-	//! PAD ground
+#if CONFIG_ADC_VERSION == 2
+	/** \name GND signals for differential measurements. */
+	/** @{ */
+	/** PAD ground */
 	ADCCH_NEG_PAD_GND,
-	//! Internal ground
+	/** Internal ground */
 	ADCCH_NEG_INTERNAL_GND,
-//@}
+	/** @} */
 #endif
 
-	//! Single ended mode
+	/** Single ended mode */
 	ADCCH_NEG_NONE,
 };
 
-//! \brief ADC channel interrupt modes
+/** \brief ADC channel interrupt modes */
 enum adcch_mode {
-	//! Set interrupt flag when conversions complete.
+	/** Set interrupt flag when conversions complete. */
 	ADCCH_MODE_COMPLETE = ADC_CH_INTMODE_COMPLETE_gc,
-	//! Set interrupt flag when conversion result is below compare value.
+	/** Set interrupt flag when conversion result is below compare value. */
 	ADCCH_MODE_BELOW    = ADC_CH_INTMODE_BELOW_gc,
-	//! Set interrupt flag when conversion result is above compare value.
+	/** Set interrupt flag when conversion result is above compare value. */
 	ADCCH_MODE_ABOVE    = ADC_CH_INTMODE_ABOVE_gc,
 };
 
-//! \name ADC channel configuration
-//@{
+/** \name ADC channel configuration */
+/** @{ */
 
 void adcch_write_configuration(ADC_t *adc, uint8_t ch_mask,
 		const struct adc_channel_config *ch_conf);
 void adcch_read_configuration(ADC_t *adc, uint8_t ch_mask,
 		struct adc_channel_config *ch_conf);
 
-//! Force enabling of gainstage with unity gain.
+/** Force enabling of gainstage with unity gain. */
 #define ADCCH_FORCE_1X_GAINSTAGE 0xff
 
 /**
@@ -1112,24 +1218,33 @@ void adcch_read_configuration(ADC_t *adc, uint8_t ch_mask,
 static inline uint8_t adcch_get_gain_setting(uint8_t gain)
 {
 	switch (gain) {
-#if XMEGA_AU
-	case 0: return ADC_CH_GAIN_DIV2_gc;
+#if (CONFIG_ADC_VERSION == 2) || XMEGA_D
+	case 0:
+		return ADC_CH_GAIN_DIV2_tmpfix_gc;
 #endif
-	case 1: return ADC_CH_GAIN_1X_gc;
+	case 1:
+		return ADC_CH_GAIN_1X_gc;
 
-	case 2: return ADC_CH_GAIN_2X_gc;
+	case 2:
+		return ADC_CH_GAIN_2X_gc;
 
-	case 4: return ADC_CH_GAIN_4X_gc;
+	case 4:
+		return ADC_CH_GAIN_4X_gc;
 
-	case 8: return ADC_CH_GAIN_8X_gc;
+	case 8:
+		return ADC_CH_GAIN_8X_gc;
 
-	case 16: return ADC_CH_GAIN_16X_gc;
+	case 16:
+		return ADC_CH_GAIN_16X_gc;
 
-	case 32: return ADC_CH_GAIN_32X_gc;
+	case 32:
+		return ADC_CH_GAIN_32X_gc;
 
-	case 64: return ADC_CH_GAIN_64X_gc;
+	case 64:
+		return ADC_CH_GAIN_64X_gc;
 
-	case ADCCH_FORCE_1X_GAINSTAGE : return ADC_CH_GAIN_1X_gc;
+	case ADCCH_FORCE_1X_GAINSTAGE:
+		return ADC_CH_GAIN_1X_gc;
 
 	default:
 		Assert(0);
@@ -1176,14 +1291,14 @@ static inline void adcch_set_input(struct adc_channel_config *ch_conf,
 		enum adcch_positive_input pos, enum adcch_negative_input neg,
 		uint8_t gain)
 {
-#if XMEGA_AU
-	// A gain value of 0 on AU devices is 1/2 gain
+#if (CONFIG_ADC_VERSION == 2) || XMEGA_D
+	/* A gain value of 0 on AU, B or D devices is 1/2 gain */
 #else
-	// Zero gain is not applicable on other devices
+	/* Zero gain is not applicable on other devices */
 	Assert(gain);
 #endif
 
-	// Configure for internal input.
+	/* Configure for internal input. */
 	if (pos >= ADCCH_POS_TEMPSENSE) {
 		Assert(gain == 1);
 		Assert(neg == ADCCH_NEG_NONE);
@@ -1194,14 +1309,14 @@ static inline void adcch_set_input(struct adc_channel_config *ch_conf,
 		return;
 	}
 
-	// Configure for single-ended measurement.
+	/* Configure for single-ended measurement. */
 	if (neg == ADCCH_NEG_NONE) {
 		Assert(gain == 1);
 
 		ch_conf->ctrl = ADC_CH_INPUTMODE_SINGLEENDED_gc;
 		ch_conf->muxctrl = pos << ADC_CH_MUXPOS_gp;
 
-	// Configure for differential measurement.
+		/* Configure for differential measurement. */
 	} else {
 		/* Pins 0-3 can only be used for negative input if the gain
 		 * stage is not used, i.e., unity gain.
@@ -1213,31 +1328,38 @@ static inline void adcch_set_input(struct adc_channel_config *ch_conf,
 			ch_conf->muxctrl = (pos << ADC_CH_MUXPOS_gp) |
 					(neg << ADC_CH_MUXNEG_gp);
 		} else if (neg <= ADCCH_NEG_PIN7) {
-		/* Pins 4-7 can be used for all gain settings, including unity
-		 * gain, which is available even if the gain stage is active.
-		 */
+			/* Pins 4-7 can be used for all gain settings, including
+			 * unity
+			 * gain, which is available even if the gain stage is
+			 *active.
+			 */
 			ch_conf->ctrl = ADC_CH_INPUTMODE_DIFFWGAIN_gc |
 					adcch_get_gain_setting(gain);
 			ch_conf->muxctrl = (pos << ADC_CH_MUXPOS_gp) |
 					((neg - ADCCH_NEG_PIN4) <<
 					ADC_CH_MUXNEG_gp);
 		}
-#if XMEGA_AU
+
+#if CONFIG_ADC_VERSION == 2
 		else {
-		/* The bitmasks for the on-chip GND signals change when gain is
-		 * enabled. To avoid unnecessary current consumption, do not
-		 * enable gainstage for unity gain unless user explicitly
-		 * specifies it with the ADCCH_FORCE_1X_GAINSTAGE macro.
-		 */
+			/* The bitmasks for the on-chip GND signals change when
+			 * gain is
+			 * enabled. To avoid unnecessary current consumption, do
+			 *not
+			 * enable gainstage for unity gain unless user
+			 *explicitly
+			 * specifies it with the ADCCH_FORCE_1X_GAINSTAGE macro.
+			 */
 			if (gain == 1) {
 				ch_conf->ctrl = ADC_CH_INPUTMODE_DIFF_gc;
 				neg = (neg == ADCCH_NEG_PAD_GND) ?
-						0x05 : 0x07;
+						ADCCH_NEG_PIN5 : ADCCH_NEG_PIN7;
+                                                
 			} else {
 				ch_conf->ctrl = ADC_CH_INPUTMODE_DIFFWGAIN_gc |
-					adcch_get_gain_setting(gain);
+						adcch_get_gain_setting(gain);
 				neg = (neg == ADCCH_NEG_INTERNAL_GND) ?
-						0x04 : 0x07;
+						ADCCH_NEG_PIN4 : ADCCH_NEG_PIN7;
 			}
 
 			ch_conf->muxctrl = (pos << ADC_CH_MUXPOS_gp) |
@@ -1247,7 +1369,7 @@ static inline void adcch_set_input(struct adc_channel_config *ch_conf,
 	}
 }
 
-#if XMEGA_AU || defined(__DOXYGEN__)
+#if CONFIG_ADC_VERSION == 2
 
 /**
  * \brief Set ADC channel 0 pin scan
@@ -1315,7 +1437,7 @@ static inline void adcch_disable_interrupt(struct adc_channel_config *ch_conf)
 	ch_conf->intctrl |= ADC_CH_INTLVL_OFF_gc;
 }
 
-//@}
+/** @} */
 
 /** @} */
 

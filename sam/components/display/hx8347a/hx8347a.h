@@ -3,7 +3,7 @@
  *
  * \brief API driver for HX8347A TFT display component.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -618,8 +618,8 @@ typedef uint16_t hx8347a_color_t;
  * Input parameters when initializing HX8347A driver.
  */
 struct hx8347a_opt_t {
-	uint32_t dw_width;                  //!< lcd width in pixel
-	uint32_t dw_height;                 //!< lcd height in pixel
+	uint32_t ul_width;                  //!< lcd width in pixel
+	uint32_t ul_height;                 //!< lcd height in pixel
 	hx8347a_color_t foreground_color;   //!< lcd foreground color
 	hx8347a_color_t background_color;   //!< lcd background color
 };

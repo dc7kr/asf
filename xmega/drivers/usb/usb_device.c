@@ -4,7 +4,7 @@
  * \brief USB Device driver
  * Compliance with common driver UDD
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -132,14 +132,7 @@
 #ifndef USB_DEVICE_MAX_EP
 #  error USB_DEVICE_MAX_EP not defined
 #endif
-#if (USB_DEVICE_MAX_EP!=0)
-// Errata: FIFO Multipacket generates a TC interrupt for each USB packets
-// For silicon version impacted by this errata, the TC FIFO is set at maximum
-// Note: Remove it when all silicons are fixed
-#  define USB_DEVICE_MAX_EP_TEMP 15
-#else
-#  define USB_DEVICE_MAX_EP_TEMP 0
-#endif
+
 
 /**
  * \name Power management routine.
@@ -198,13 +191,13 @@ static void udd_sleep_mode(bool b_idle) {
  */
 struct udd_sram_data {
 #if XMEGA_A1U
-#  if (0!=((USB_DEVICE_MAX_EP_TEMP+1)%4))
-	uint8_t padding_align[16 - ((USB_DEVICE_MAX_EP_TEMP + 1) *
+#  if (0!=((USB_DEVICE_MAX_EP+1)%4))
+	uint8_t padding_align[16 - ((USB_DEVICE_MAX_EP + 1) *
 					sizeof(uint32_t)) % 16];
 #  endif
 #endif
-	uint32_t fifo[USB_DEVICE_MAX_EP_TEMP + 1];
-	USB_EP_t ep_ctrl[2 * (USB_DEVICE_MAX_EP_TEMP + 1)];
+	uint32_t fifo[USB_DEVICE_MAX_EP + 1];
+	USB_EP_t ep_ctrl[2 * (USB_DEVICE_MAX_EP + 1)];
 	uint16_t frame_number;
 };
 #if XMEGA_A1U
@@ -269,8 +262,6 @@ static udd_ctrl_ep_state_t udd_ep_control_state;
 static uint16_t udd_ctrl_prev_payload_nb_trans;
 //! Number of data received/sent to/from udd_g_ctrlreq.payload buffer
 static uint16_t udd_ctrl_payload_nb_trans;
-//! Signal if the data sent during IN DATA need of IN ZLP
-static bool udd_ctrl_payload_need_in_zlp;
 
 /**
  * \brief Buffer to store the data received on control endpoint (SETUP/OUT endpoint 0)
@@ -450,9 +441,13 @@ void udd_enable(void)
 	// The USB hardware need of 48MHz in full speed mode
 	sysclk_enable_usb(48);
 	udd_set_full_speed();
+#endif
+
+// The XMEGA_A1U does not support the RC calibration through Keepalive (Low speed).
+#if (!defined USB_DEVICE_LOW_SPEED) || (!XMEGA_A1U)
 # ifdef CONFIG_OSC_AUTOCAL
 #   if CONFIG_OSC_AUTOCAL_REF_OSC == OSC_ID_USBSOF
-	// Now the full mode is enabled and the SOF calibration can be enabled
+	// The SOF calibration can be enabled
 	DFLLRC32M.CTRL = DFLL_ENABLE_bm;
 #   endif
 # endif
@@ -461,7 +456,7 @@ void udd_enable(void)
 	flags = cpu_irq_save();
 
 	// Reset endpoints table
-	for (i = 0; i < ((USB_DEVICE_MAX_EP_TEMP + 1) * 2); i++) {
+	for (i = 0; i < ((USB_DEVICE_MAX_EP + 1) * 2); i++) {
 		udd_sram.ep_ctrl[i].CTRL = 0;
 	}
 #if (0!=USB_DEVICE_MAX_EP)
@@ -473,7 +468,7 @@ void udd_enable(void)
 
 	//** Enable USB hardware
 	usb_pad_init();
-	udd_set_nb_max_ep(USB_DEVICE_MAX_EP_TEMP);
+	udd_set_nb_max_ep(USB_DEVICE_MAX_EP);
 	udd_enable_interface();
 	udd_enable_store_frame_number();
 	udd_set_ep_table_addr(udd_sram.ep_ctrl);
@@ -646,6 +641,9 @@ bool udd_ep_clear_halt(udd_ep_id_t ep)
 	Assert(udd_ep_is_valid(ep));
 
 	ep_ctrl = udd_ep_get_ctrl(ep);
+	if (!udd_endpoint_is_stall(ep_ctrl)) {
+		return true; // No stall on going
+	}
 	udd_endpoint_disable_stall(ep_ctrl);
 
 	// If a job is register on clear halt action
@@ -853,12 +851,16 @@ ISR(USB_TRNCOMPL_vect)
 	udd_ep_id_t ep;
 #endif
 
-	// Check reception of SETUP packet on control endpoint
-	if (udd_ctrl_interrupt_tc_setup()) {
-		goto udd_interrupt_tc_end; // Interrupt acked by control endpoint managed
+	if (!udd_is_tc_event()) {
+		// If no other transfer complete
+		// then check reception of SETUP packet on control endpoint
+		if (udd_ctrl_interrupt_tc_setup()) {
+			// Interrupt acked by control endpoint managed
+			goto udd_interrupt_tc_end;
+		}
+		Assert(false);
 	}
 	// Check IN/OUT transfer complet on all endpoints
-	Assert(udd_is_tc_event());
 	udd_ack_tc_event();
 
 #if (0!=USB_DEVICE_MAX_EP)
@@ -1038,9 +1040,6 @@ static void udd_ctrl_setup_received(void)
 	}
 
 	if (Udd_setup_is_in()) {
-		// Compute if an IN ZLP must be send after IN data
-		udd_ctrl_payload_need_in_zlp =
-				((udd_g_ctrlreq.payload_size % USB_DEVICE_EP_CTRL_SIZE) == 0);
 		udd_ctrl_prev_payload_nb_trans = 0;
 		udd_ctrl_payload_nb_trans = 0;
 		udd_ep_control_state = UDD_EPCTRL_DATA_IN;
@@ -1063,6 +1062,7 @@ static void udd_ctrl_setup_received(void)
 
 static void udd_ctrl_in_sent(void)
 {
+	static bool b_shortpacket = false;
 	uint16_t nb_remain;
 
 	if (UDD_EPCTRL_HANDSHAKE_WAIT_IN_ZLP == udd_ep_control_state) {
@@ -1076,36 +1076,33 @@ static void udd_ctrl_in_sent(void)
 
 	nb_remain = udd_g_ctrlreq.payload_size - udd_ctrl_payload_nb_trans;
 	if (0 == nb_remain) {
-		// All content of current buffer payload are sent
-		if (!udd_ctrl_payload_need_in_zlp) {
-			// It is the end of data phase, because the last data packet is a short packet
-			// then generate an OUT ZLP for handshake phase.
+		// Update number of total data sending by previous playlaod buffer
+		udd_ctrl_prev_payload_nb_trans += udd_ctrl_payload_nb_trans;
+		if ((udd_g_ctrlreq.req.wLength == udd_ctrl_prev_payload_nb_trans)
+				|| b_shortpacket) {
+			// All data requested are transfered or a short packet has been sent
+			// then it is the end of data phase.
+			// Generate an OUT ZLP for handshake phase.
 			udd_ctrl_send_zlp_out();
 			return;
 		}
-		if ((udd_g_ctrlreq.req.wLength > (udd_ctrl_prev_payload_nb_trans
-				+ udd_g_ctrlreq.payload_size))
-				|| (!udd_g_ctrlreq.over_under_run)
+		// Need of new buffer because the data phase is not complet
+		if ((!udd_g_ctrlreq.over_under_run)
 				|| (!udd_g_ctrlreq.over_under_run())) {
-			// Underrun or data packet complete
-			// than send zlp on IN (note don't change DataToggle)
-			udd_ctrl_payload_need_in_zlp = false;
-			udd_control_in_set_bytecnt(0);
-			goto udd_ctrl_in_sent_continue;
+			// Underrun then send zlp on IN
+			// nb_remain == 0 allows to send a IN ZLP
+		} else {
+			// A new payload buffer is given
+			udd_ctrl_payload_nb_trans = 0;
+			nb_remain = udd_g_ctrlreq.payload_size;
 		}
-		// A new payload buffer is given
-		// Update number of total data sending by previous payload buffer
-		udd_ctrl_prev_payload_nb_trans += udd_ctrl_payload_nb_trans;
-		// Update maangement of current playoad transfer
-		udd_ctrl_payload_nb_trans = 0;
-		nb_remain = udd_g_ctrlreq.payload_size;
-		// Compute if an IN ZLP must be send after IN data
-		udd_ctrl_payload_need_in_zlp =
-				((udd_g_ctrlreq.payload_size % USB_DEVICE_EP_CTRL_SIZE) == 0);
 	}
 	// Continue transfer an send next data
-	if (nb_remain > USB_DEVICE_EP_CTRL_SIZE) {
+	if (nb_remain >= USB_DEVICE_EP_CTRL_SIZE) {
 		nb_remain = USB_DEVICE_EP_CTRL_SIZE;
+		b_shortpacket = false;
+	} else {
+		b_shortpacket = true;
 	}
 	udd_control_in_set_bytecnt(nb_remain);
 
@@ -1113,7 +1110,6 @@ static void udd_ctrl_in_sent(void)
 	udd_control_in_set_buf(udd_g_ctrlreq.payload + udd_ctrl_payload_nb_trans);
 	udd_ctrl_payload_nb_trans += nb_remain;
 
-udd_ctrl_in_sent_continue:
 	// Valid and sent the data available in control endpoint buffer
 	udd_control_in_clear_NACK0();
 }
@@ -1188,8 +1184,8 @@ static void udd_ctrl_out_received(void)
 
 static void udd_ctrl_underflow(void)
 {
-	if (udd_control_out_tc()) {
-		return; // underflow ignored if OUT data is received
+	if (udd_is_tc_event() || udd_ctrl_interrupt_tc_setup()) {
+		return; // underflow ignored if a transfer complete has been no processed
 	}
 	if (UDD_EPCTRL_DATA_OUT == udd_ep_control_state) {
 		// Host want to stop OUT transaction
@@ -1205,8 +1201,8 @@ static void udd_ctrl_underflow(void)
 
 static void udd_ctrl_overflow(void)
 {
-	if (udd_control_in_tc()) {
-		return; // overflow ignored if IN data is received
+	if (udd_is_tc_event() || udd_ctrl_interrupt_tc_setup()) {
+		return; // overflow ignored if a transfer complete has been no processed
 	}
 	if (UDD_EPCTRL_DATA_IN == udd_ep_control_state) {
 		// Host want to stop IN transaction

@@ -3,7 +3,7 @@
  *
  * \brief Main functions for the Voltage meter demonstration.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -356,7 +356,7 @@ int main(void)
 	 * - callback function
 	 */
 	adc_set_conversion_parameters(&adc_conf, ADC_SIGN_OFF, ADC_RES_12,
-		ADC_REF_VCC_2);
+		ADC_REF_VCCDIV2);
 	adc_set_clock_rate(&adc_conf, 200000UL);
 	adc_set_conversion_trigger(&adc_conf, ADC_TRIG_MANUAL, 0, 0);
 	adc_write_configuration(&EXT_VIN_ADC_MODULE, &adc_conf);

@@ -3,7 +3,7 @@
  *
  * \brief Universal Asynchronous Receiver Transceiver (UART) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -97,13 +97,13 @@ uint32_t uart_init(Uart *p_uart, const sam_uart_opt_t *p_uart_opt)
 
 	/* Check and configure baudrate */
 	/* Asynchronous, no oversampling */
-	cd = (p_uart_opt->dw_mck / p_uart_opt->dw_baudrate) / UART_MCK_DIV;
+	cd = (p_uart_opt->ul_mck / p_uart_opt->ul_baudrate) / UART_MCK_DIV;
 	if (cd < UART_MCK_DIV_MIN_FACTOR || cd > UART_MCK_DIV_MAX_FACTOR)
 		return 1;
 
 	p_uart->UART_BRGR = cd;
 	/* Configure mode */
-	p_uart->UART_MR = p_uart_opt->dw_mode;
+	p_uart->UART_MR = p_uart_opt->ul_mode;
 
 	/* Disable PDC channel */
 	p_uart->UART_PTCR = UART_PTCR_RXTDIS | UART_PTCR_TXTDIS;
@@ -217,21 +217,21 @@ void uart_reset(Uart *p_uart)
 /** \brief Enable UART interrupts.
  *
  * \param p_uart Pointer to a UART instance.
- *  \param dw_sources Interrupts to be enabled.
+ *  \param ul_sources Interrupts to be enabled.
  */
-void uart_enable_interrupt(Uart *p_uart, uint32_t dw_sources)
+void uart_enable_interrupt(Uart *p_uart, uint32_t ul_sources)
 {
-	p_uart->UART_IER = dw_sources;
+	p_uart->UART_IER = ul_sources;
 }
 
 /** \brief Disable UART interrupts.
  *
  * \param p_uart Pointer to a UART instance.
- *  \param dw_sources Interrupts to be disabled.
+ *  \param ul_sources Interrupts to be disabled.
  */
-void uart_disable_interrupt(Uart *p_uart, uint32_t dw_sources)
+void uart_disable_interrupt(Uart *p_uart, uint32_t ul_sources)
 {
-	p_uart->UART_IDR = dw_sources;
+	p_uart->UART_IDR = ul_sources;
 }
 
 /** \brief Read UART interrupt mask.

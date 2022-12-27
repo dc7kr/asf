@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../../../../../common/services/clock/xmega/sysclk.c ../../../../../../common/services/sleepmgr/xmega/sleepmgr.c ../../des_example.c ../../../../ioport/ioport.c ../../../../../boards/xmega_a1_xplained/init.c  ../../../../../boards/xmega_a1_xplained/xmega_a1_xplained.h ../../../../../../common/boards/board.h ../../../../cpu/xmega_reset_cause.h ../../../../../../common/services/gpio/xmega_ioport/xmega_gpio.h ../../../../../utils/parts.h ../../../../../utils/status_codes.h ../../../../../../common/services/clock/xmega/osc.h ../../../../../../common/utils/interrupt.h ../../../../../utils/compiler.h ../../../../../../common/services/sleepmgr/xmega/sleepmgr.h ../../../../../../common/services/clock/osc.h ../../../../../utils/progmem.h ../../../../../../common/services/clock/xmega/sysclk.h ../../../../sleep/sleep.h ../../../../../utils/bit_handling/clz_ctz.h ../conf_board.h ../../../../../../common/services/clock/xmega/pll.h ../../../../../utils/preprocessor/mrepeat.h ../../../../../utils/preprocessor/preprocessor.h ../../../../../../common/services/gpio/gpio.h ../../../../../../common/services/clock/sysclk.h ../conf_sleepmgr.h ../../../../../utils/assembler.h ../conf_clock.h ../conf_example.h ../../../../../../common/services/sleepmgr/sleepmgr.h ../../../../../../common/utils/interrupt/interrupt_avr8.h ../../../../ioport/ioport.h ../../../../../../common/services/clock/genclk.h ../../../des.h ../../../../cpu/ccp.h ../../../../../utils/preprocessor/stringz.h ../../../../../utils/preprocessor/tpaste.h ../../../../../../common/services/clock/pll.h
+INPUT                  =  ../../../../../../common/services/clock/xmega/sysclk.c ../../../../../../common/services/sleepmgr/xmega/sleepmgr.c ../../des_example.c ../../../../../boards/xmega_a1_xplained/init.c ../../../../../../common/services/ioport/xmega/ioport_compat.c  ../../../../../../common/services/ioport/xmega/ioport.h ../../../../../boards/xmega_a1_xplained/xmega_a1_xplained.h ../../../../../../common/boards/board.h ../../../../cpu/xmega_reset_cause.h ../../../../../../common/services/gpio/xmega_ioport/xmega_gpio.h ../../../../../utils/parts.h ../../../../../utils/status_codes.h ../../../../../../common/services/clock/xmega/osc.h ../../../../../../common/utils/interrupt.h ../../../../../utils/compiler.h ../../../../../../common/services/sleepmgr/xmega/sleepmgr.h ../../../../../../common/services/clock/osc.h ../../../../../utils/progmem.h ../../../../../../common/services/clock/xmega/sysclk.h ../../../../sleep/sleep.h ../../../../../utils/bit_handling/clz_ctz.h ../conf_board.h ../../../../../../common/services/clock/xmega/pll.h ../../../../../utils/preprocessor/mrepeat.h ../../../../../utils/preprocessor/preprocessor.h ../../../../../../common/services/gpio/gpio.h ../../../../../../common/services/clock/sysclk.h ../../../../../../common/services/ioport/xmega/ioport_compat.h ../conf_sleepmgr.h ../../../../../utils/assembler.h ../conf_clock.h ../conf_example.h ../../../../../../common/services/sleepmgr/sleepmgr.h ../../../../../../common/utils/interrupt/interrupt_avr8.h ../../../../../../common/services/clock/genclk.h ../../../des.h ../../../../cpu/ccp.h ../../../../../utils/preprocessor/stringz.h ../../../../../utils/preprocessor/tpaste.h ../../../../../../common/services/ioport/ioport.h ../../../../../../common/services/clock/pll.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../.. ../../../../../../common/services/clock ../../../../../../common/services/gpio ../../../../../../common/boards ../../../../../utils/preprocessor ../../../../../utils ../../../../../boards/xmega_a1_xplained ../../../../ioport .. ../../../../../boards ../../../../../../common/utils ../../../../../../common/services/sleepmgr ../../../../sleep ../../.. ../../../../cpu
+INCLUDE_PATH           =  ../.. ../../../../../../common/services/clock ../../../../../../common/services/gpio ../../../../../../common/boards ../../../../../utils/preprocessor ../../../../../utils ../../../../../boards/xmega_a1_xplained .. ../../../../../boards ../../../../../../common/utils ../../../../../../common/services/sleepmgr ../../../../sleep ../../.. ../../../../cpu ../../../../../../common/services/ioport
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the
@@ -1369,7 +1369,7 @@ INCLUDE_FILE_PATTERNS  =
 # undefined via #undef or recursively expanded use the := operator
 # instead of the = operator.
 
-PREDEFINED             = __DOXYGEN__ __AVR32_ABI_COMPILER__ __attribute__()= __GNUC__=4  BOARD=XMEGA_A1_XPLAINED __AVR_ATxmega128A1__
+PREDEFINED             = __DOXYGEN__ __AVR32_ABI_COMPILER__ __attribute__()= __GNUC__=4  BOARD=XMEGA_A1_XPLAINED IOPORT_XMEGA_COMPAT= __AVR_ATxmega128A1__
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then
 # this tag can be used to specify a list of macro names that should be expanded.

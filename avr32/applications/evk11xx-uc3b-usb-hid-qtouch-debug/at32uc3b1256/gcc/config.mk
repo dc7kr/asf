@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_applications_evk11xx-uc3b-usb-hid-qtouch-debug_example.elf
+TARGET = evk11xx-uc3b-usb-hid-qtouch-debug.elf
 
 # List of C source files.
 CSRCS = \

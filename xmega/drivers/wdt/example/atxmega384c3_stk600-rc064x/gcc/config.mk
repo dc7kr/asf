@@ -42,13 +42,13 @@ MCU = atxmega384c3
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_drivers_wdt_example_stk600-rc064x_atxmega384c3.elf
+TARGET = wdt_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        xmega/boards/stk600/rc064x/init.c                  \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/wdt/example/wdt_example.c            \
        xmega/drivers/wdt/wdt.c
@@ -63,11 +63,11 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/utils                                       \
        xmega/boards                                       \
        xmega/boards/stk600/rc064x                         \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/wdt                                  \
        xmega/drivers/wdt/example/atxmega384c3_stk600-rc064x \
@@ -116,7 +116,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=STK600_RC064X
+       -D BOARD=STK600_RC064X                             \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

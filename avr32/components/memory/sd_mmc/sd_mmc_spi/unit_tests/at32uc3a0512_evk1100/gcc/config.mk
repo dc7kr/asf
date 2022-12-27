@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_components_memory_sdmmc_spi_unit_tests_evk1100.elf
+TARGET = spi_unit_tests.elf
 
 # List of C source files.
 CSRCS = \
@@ -66,6 +66,7 @@ CSRCS = \
        avr32/drivers/spi/spi.c                            \
        avr32/drivers/usart/usart.c                        \
        common/services/clock/uc3a0_a1/sysclk.c            \
+       common/services/serial/usart_serial.c              \
        common/services/storage/ctrl_access/ctrl_access.c  \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
@@ -94,6 +95,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/serial                             \
+       common/services/serial/uc3_usart                   \
        common/services/storage/ctrl_access                \
        common/utils                                       \
        common/utils/stdio/stdio_serial \

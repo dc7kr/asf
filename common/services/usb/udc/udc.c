@@ -3,7 +3,7 @@
  *
  * \brief USB Device Controller (UDC)
  *
- * Copyright (c) 2009 - 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -551,12 +551,13 @@ static bool udc_req_std_dev_set_feature(void)
  * \return true if success
  */
 #if (0!=USB_DEVICE_MAX_EP)
-static bool udc_req_std_epset_feature(void)
+static bool udc_req_std_ep_set_feature(void)
 {
 	if (udd_g_ctrlreq.req.wLength) {
 		return false;
 	}
 	if (udd_g_ctrlreq.req.wValue == USB_EP_FEATURE_HALT) {
+		udd_ep_abort(udd_g_ctrlreq.req.wIndex & 0xFF);
 		return udd_ep_set_halt(udd_g_ctrlreq.req.wIndex & 0xFF);
 	}
 	return false;
@@ -987,7 +988,7 @@ static bool udc_reqstd(void)
 			case USB_REQ_CLEAR_FEATURE:
 				return udc_req_std_ep_clear_feature();
 			case USB_REQ_SET_FEATURE:
-				return udc_req_std_epset_feature();
+				return udc_req_std_ep_set_feature();
 			default:
 				break;
 			}

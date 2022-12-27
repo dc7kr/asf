@@ -57,6 +57,9 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: EIC - External Interrupt Controller
 #include <eic.h>
 
@@ -88,9 +91,6 @@
 
 // From module: System Clock Control - UC3 A3/A4 implementation
 #include <sysclk.h>
-
-// From module: TIMING - Delay routines
-#include <delay.h>
 
 // From module: UC3-A3 Xplained board support
 #include <led.h>

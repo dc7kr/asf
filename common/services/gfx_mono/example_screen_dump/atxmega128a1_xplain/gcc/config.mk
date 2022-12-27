@@ -42,7 +42,7 @@ MCU = atxmega128a1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_gfx_mono_example_screen_dump_xplain.elf
+TARGET = gfx_mono_example_screen_dump.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
@@ -52,10 +52,10 @@ CSRCS = \
        common/services/gfx_mono/gfx_mono_c12832_a1z.c     \
        common/services/gfx_mono/gfx_mono_framebuffer.c    \
        common/services/gfx_mono/gfx_mono_generic.c        \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/serial/usart_serial.c              \
        common/services/spi/xmega_usart_spi/usart_spi.c    \
        xmega/boards/xplain/init.c                         \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/usart/usart.c
 
 # Assembler source files located from the top-level source directory
@@ -70,13 +70,14 @@ INC_PATH = \
        common/services/gfx_mono                           \
        common/services/gfx_mono/example_screen_dump/atxmega128a1_xplain \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
+       common/services/serial/xmega_usart                 \
        common/services/spi                                \
        common/utils                                       \
        xmega/boards                                       \
        xmega/boards/xplain                                \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/pmic                                 \
        xmega/drivers/usart                                \
        xmega/utils                                        \
@@ -125,7 +126,8 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D BOARD=XPLAIN                                    \
-       -D GFX_MONO_C12832_A1Z=1
+       -D GFX_MONO_C12832_A1Z=1                           \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

@@ -42,15 +42,15 @@ MCU = atxmega128b1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_drivers_lcd_example_stk600-rc100x_lcdx.elf
+TARGET = lcd_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        xmega/boards/stk600/rc100x_lcdx/init.c             \
        xmega/components/display/c42048a/c42048a_full_matrix0/c42048a.c \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/lcd/example/lcd_example.c            \
        xmega/drivers/lcd/lcd.c                            \
        xmega/drivers/nvm/nvm.c                            \
@@ -66,13 +66,13 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/sleepmgr                           \
        common/utils                                       \
        xmega/boards                                       \
        xmega/boards/stk600/rc100x_lcdx                    \
        xmega/components/display/c42048a/c42048a_full_matrix0 \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/lcd                                  \
        xmega/drivers/lcd/example/atxmega128b1_stk600-rc100x_lcdx \
        xmega/drivers/nvm                                  \
@@ -124,7 +124,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=STK600_RC100X_LCDX
+       -D BOARD=STK600_RC100X_LCDX                        \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS = 

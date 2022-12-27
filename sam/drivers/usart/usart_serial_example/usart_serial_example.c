@@ -3,7 +3,7 @@
  *
  * \brief USART Serial example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -84,18 +84,8 @@
  *
  */
 
-#include <stdio.h>
 #include <string.h>
-#include "sysclk.h"
-#include "board.h"
-#include "exceptions.h"
-#include "usart.h"
-#include "uart.h"
-#include "pmc.h"
-#include "gpio.h"
-#include "pio.h"
-#include "tc.h"
-#include "pdc.h"
+#include "asf.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_example.h"
@@ -124,25 +114,25 @@
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 
 /** Receive buffer. */
-static uint8_t p_buffer[2][BUFFER_SIZE];
+static uint8_t gs_puc_buffer[2][BUFFER_SIZE];
 
 /** Current bytes in buffer. */
-static uint32_t dw_size_buffer = BUFFER_SIZE;
+static uint32_t gs_ul_size_buffer = BUFFER_SIZE;
 
 /** Byte mode read buffer. */
-static uint16_t us_read_buffer = 0;
+static uint16_t gs_us_read_buffer = 0;
 
 /** Current transfer mode. */
-static uint8_t uc_trans_mode = PDC_TRANSFER;
+static uint8_t gs_uc_trans_mode = PDC_TRANSFER;
 
 /** Buffer number in use. */
-static uint8_t uc_buf_num = 0;
+static uint8_t gs_uc_buf_num = 0;
 
 /** PDC data packet. */
-pdc_packet_t st_packet;
+pdc_packet_t g_st_packet;
 
 /** Pointer to PDC register base. */
-Pdc *p_pdc;
+Pdc *g_p_pdc;
 
 /**
  * \brief Interrupt handler for USART. Echo the bytes received and start the next
@@ -150,38 +140,38 @@ Pdc *p_pdc;
  */
 void USART_Handler(void)
 {
-	uint32_t dw_status;
+	uint32_t ul_status;
 
 	/* Read USART Status. */
-	dw_status = usart_get_status(BOARD_USART);
+	ul_status = usart_get_status(BOARD_USART);
 
-	if (uc_trans_mode == PDC_TRANSFER) {
+	if (gs_uc_trans_mode == PDC_TRANSFER) {
 		/* Receive buffer is full. */
-		if (dw_status & US_CSR_ENDRX) {
+		if (ul_status & US_CSR_ENDRX) {
 			/* Disable timer. */
 			tc_stop(TC0, 0);
 
 			/* Echo back buffer. */
-			st_packet.dw_addr = (uint32_t)p_buffer[uc_buf_num];
-			st_packet.dw_size = dw_size_buffer;
-			pdc_tx_init(p_pdc, &st_packet, NULL);
-			pdc_enable_transfer(p_pdc, PERIPH_PTCR_TXTEN);
-			uc_buf_num = MAX_BUF_NUM - uc_buf_num;
-			dw_size_buffer = BUFFER_SIZE;
+			g_st_packet.ul_addr = (uint32_t)gs_puc_buffer[gs_uc_buf_num];
+			g_st_packet.ul_size = gs_ul_size_buffer;
+			pdc_tx_init(g_p_pdc, &g_st_packet, NULL);
+			pdc_enable_transfer(g_p_pdc, PERIPH_PTCR_TXTEN);
+			gs_uc_buf_num = MAX_BUF_NUM - gs_uc_buf_num;
+			gs_ul_size_buffer = BUFFER_SIZE;
 
 			/* Restart read on buffer. */
-			st_packet.dw_addr = (uint32_t)p_buffer[uc_buf_num];
-			st_packet.dw_size = BUFFER_SIZE;
-			pdc_rx_init(p_pdc, &st_packet, NULL);
+			g_st_packet.ul_addr = (uint32_t)gs_puc_buffer[gs_uc_buf_num];
+			g_st_packet.ul_size = BUFFER_SIZE;
+			pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
 
 			/* Restart timer. */
 			tc_start(TC0, 0);
 		}
 	} else {
 		/* Transfer without PDC. */
-		if (dw_status & US_CSR_RXRDY) {
-			usart_getchar(BOARD_USART, (uint32_t *)&us_read_buffer);
-			usart_write(BOARD_USART, us_read_buffer);
+		if (ul_status & US_CSR_RXRDY) {
+			usart_getchar(BOARD_USART, (uint32_t *)&gs_us_read_buffer);
+			usart_write(BOARD_USART, gs_us_read_buffer);
 		}
 	}
 }
@@ -192,28 +182,28 @@ void USART_Handler(void)
  */
 void TC0_Handler(void)
 {
-	uint32_t dw_status;
-	uint32_t dw_byte_total = 0;
+	uint32_t ul_status;
+	uint32_t ul_byte_total = 0;
 
 	/* Read TC0 Status. */
-	dw_status = tc_get_status(TC0, 0);
+	ul_status = tc_get_status(TC0, 0);
 
 	/* RC compare. */
-	if (((dw_status & TC_SR_CPCS) == TC_SR_CPCS) &&
-			(uc_trans_mode == PDC_TRANSFER)) {
+	if (((ul_status & TC_SR_CPCS) == TC_SR_CPCS) &&
+			(gs_uc_trans_mode == PDC_TRANSFER)) {
 		/* Flush PDC buffer. */
-		dw_byte_total = BUFFER_SIZE - pdc_read_rx_counter(p_pdc);
-		if (dw_byte_total == 0) {
+		ul_byte_total = BUFFER_SIZE - pdc_read_rx_counter(g_p_pdc);
+		if (ul_byte_total == 0) {
 			/* Return when no bytes received. */
 			return;
 		}
 
 		/* Log current size. */
-		dw_size_buffer = dw_byte_total;
+		gs_ul_size_buffer = ul_byte_total;
 
 		/* Trigger USART ENDRX. */
-		st_packet.dw_size = 0;
-		pdc_rx_init(p_pdc, &st_packet, NULL);
+		g_st_packet.ul_size = 0;
+		pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
 	}
 }
 
@@ -223,7 +213,6 @@ void TC0_Handler(void)
  */
 static void configure_usart(void)
 {
-	static uint32_t dw_sysclk;
 	const sam_usart_opt_t usart_console_settings = {
 		BOARD_USART_BAUDRATE,
 		US_MR_CHRL_8_BIT,
@@ -233,15 +222,12 @@ static void configure_usart(void)
 		/* This field is only used in IrDA mode. */
 		0
 	};
-
-	/* Get system clock. */
-	dw_sysclk = sysclk_get_main_hz();
-
+	
 	/* Enable the peripheral clock in the PMC. */
 	pmc_enable_periph_clk(BOARD_ID_USART);
 
 	/* Configure USART in serial mode. */
-	usart_init_rs232(BOARD_USART, &usart_console_settings, dw_sysclk);
+	usart_init_rs232(BOARD_USART, &usart_console_settings, sysclk_get_cpu_hz());
 
 	/* Disable all the interrupts. */
 	usart_disable_interrupt(BOARD_USART, ALL_INTERRUPT_MASK);
@@ -260,20 +246,20 @@ static void configure_usart(void)
  */
 static void configure_tc(void)
 {
-	uint32_t dw_div;
-	uint32_t dw_tcclks;
-	static uint32_t dw_sysclk;
+	uint32_t ul_div;
+	uint32_t ul_tcclks;
+	static uint32_t ul_sysclk;
 
 	/* Get system clock. */
-	dw_sysclk = sysclk_get_main_hz();
+	ul_sysclk = sysclk_get_cpu_hz();
 
 	/* Configure PMC. */
 	pmc_enable_periph_clk(ID_TC0);
 
 	/* Configure TC for a 50Hz frequency and trigger on RC compare. */
-	tc_find_mck_divisor(TC_FREQ, dw_sysclk, &dw_div, &dw_tcclks, dw_sysclk);
-	tc_init(TC0, 0, dw_tcclks | TC_CMR_CPCTRG);
-	tc_write_rc(TC0, 0, (dw_sysclk / dw_div) / TC_FREQ);
+	tc_find_mck_divisor(TC_FREQ, ul_sysclk, &ul_div, &ul_tcclks, ul_sysclk);
+	tc_init(TC0, 0, ul_tcclks | TC_CMR_CPCTRG);
+	tc_write_rc(TC0, 0, (ul_sysclk / ul_div) / TC_FREQ);
 
 	/* Configure and enable interrupt on RC compare. */
 	NVIC_EnableIRQ((IRQn_Type) ID_TC0);
@@ -286,7 +272,7 @@ static void configure_tc(void)
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_main_hz(), 115200, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
 
 	/* Configure PIO. */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
@@ -318,9 +304,9 @@ static void usart_clear(void)
 	usart_reset_tx(BOARD_USART);
 
 	/* Clear PDC counter. */
-	st_packet.dw_addr = 0;
-	st_packet.dw_size = 0;
-	pdc_rx_init(p_pdc, &st_packet, NULL);
+	g_st_packet.ul_addr = 0;
+	g_st_packet.ul_size = 0;
+	pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
 
 	/* Enable receiver & transmitter. */
 	usart_enable_tx(BOARD_USART);
@@ -361,22 +347,22 @@ int main(void)
 	configure_usart();
 
 	/* Get board USART PDC base address and enable receiver and transmitter. */
-	p_pdc = usart_get_pdc_base(BOARD_USART);
-	pdc_enable_transfer(p_pdc, PERIPH_PTCR_RXTEN | PERIPH_PTCR_TXTEN);
+	g_p_pdc = usart_get_pdc_base(BOARD_USART);
+	pdc_enable_transfer(g_p_pdc, PERIPH_PTCR_RXTEN | PERIPH_PTCR_TXTEN);
 
 	/* Configure TC. */
 	configure_tc();
 
 	/* Start receiving data and start timer. */
-	st_packet.dw_addr = (uint32_t)p_buffer[uc_buf_num];
-	st_packet.dw_size = BUFFER_SIZE;
-	pdc_rx_init(p_pdc, &st_packet, NULL);
+	g_st_packet.ul_addr = (uint32_t)gs_puc_buffer[gs_uc_buf_num];
+	g_st_packet.ul_size = BUFFER_SIZE;
+	pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
 
-	dw_size_buffer = BUFFER_SIZE;
+	gs_ul_size_buffer = BUFFER_SIZE;
 
 	puts("-I- Default Transfer with PDC \r\n"
 			"-I- Press 's' to switch transfer mode \r");
-	uc_trans_mode = PDC_TRANSFER;
+	gs_uc_trans_mode = PDC_TRANSFER;
 
 	usart_disable_interrupt(BOARD_USART, US_IDR_RXRDY);
 	usart_enable_interrupt(BOARD_USART, US_IER_ENDRX);
@@ -390,9 +376,9 @@ int main(void)
 			switch (uc_char) {
 			case 's':
 			case 'S':
-				if (uc_trans_mode == PDC_TRANSFER) {
+				if (gs_uc_trans_mode == PDC_TRANSFER) {
 					/* Disable PDC controller. */
-					pdc_disable_transfer(p_pdc,
+					pdc_disable_transfer(g_p_pdc,
 							PERIPH_PTCR_RXTDIS | PERIPH_PTCR_TXTDIS);
 					/* Transfer to no PDC communication mode, and disable the ENDRX interrupt. */
 					usart_disable_interrupt(BOARD_USART, US_IDR_ENDRX);
@@ -402,29 +388,29 @@ int main(void)
 					
 					/* Enable the RXRDY interrupt. */
 					usart_enable_interrupt(BOARD_USART, US_IER_RXRDY);
-					uc_trans_mode = BYTE_TRANSFER;
+					gs_uc_trans_mode = BYTE_TRANSFER;
 
 					puts("-I- Transfer without PDC \r");
-				} else if (uc_trans_mode == BYTE_TRANSFER) {
-					pdc_enable_transfer(p_pdc,
+				} else if (gs_uc_trans_mode == BYTE_TRANSFER) {
+					pdc_enable_transfer(g_p_pdc,
 							PERIPH_PTCR_RXTEN | PERIPH_PTCR_TXTEN);
 					/* Clear USART controller. */
 					usart_clear();
 
 					/* Reset pdc current buffer size. */
-					dw_size_buffer = BUFFER_SIZE;
-					uc_buf_num = 0;
+					gs_ul_size_buffer = BUFFER_SIZE;
+					gs_uc_buf_num = 0;
 
 					/* Start receiving data. */
-					st_packet.dw_addr = (uint32_t)p_buffer[uc_buf_num];
-					st_packet.dw_size = BUFFER_SIZE;
-					pdc_rx_init(p_pdc, &st_packet, NULL);
+					g_st_packet.ul_addr = (uint32_t)gs_puc_buffer[gs_uc_buf_num];
+					g_st_packet.ul_size = BUFFER_SIZE;
+					pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
 					
 					/* Transfer to PDC communication mode, disable RXRDY interrupt and enable ENDRX interrupt. */
 					usart_disable_interrupt(BOARD_USART, US_IER_RXRDY);
 					usart_enable_interrupt(BOARD_USART, US_IER_ENDRX);
 
-					uc_trans_mode = PDC_TRANSFER;
+					gs_uc_trans_mode = PDC_TRANSFER;
 					puts("-I- Transfer with PDC \r");
 				}
 				break;

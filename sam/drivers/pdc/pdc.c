@@ -3,7 +3,7 @@
  *
  * \brief Peripheral DMA Controller (PDC) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -74,12 +74,12 @@ void pdc_tx_init(Pdc *p_pdc, pdc_packet_t *p_packet,
 		pdc_packet_t *p_next_packet)
 {
 	if (p_packet) {
-		p_pdc->PERIPH_TPR = p_packet->dw_addr;
-		p_pdc->PERIPH_TCR = p_packet->dw_size;
+		p_pdc->PERIPH_TPR = p_packet->ul_addr;
+		p_pdc->PERIPH_TCR = p_packet->ul_size;
 	}
 	if (p_next_packet) {
-		p_pdc->PERIPH_TNPR = p_next_packet->dw_addr;
-		p_pdc->PERIPH_TNCR = p_next_packet->dw_size;
+		p_pdc->PERIPH_TNPR = p_next_packet->ul_addr;
+		p_pdc->PERIPH_TNCR = p_next_packet->ul_size;
 	}
 }
 
@@ -96,12 +96,12 @@ void pdc_rx_init(Pdc *p_pdc, pdc_packet_t *p_packet,
 		pdc_packet_t *p_next_packet)
 {
 	if (p_packet) {
-		p_pdc->PERIPH_RPR = p_packet->dw_addr;
-		p_pdc->PERIPH_RCR = p_packet->dw_size;
+		p_pdc->PERIPH_RPR = p_packet->ul_addr;
+		p_pdc->PERIPH_RCR = p_packet->ul_size;
 	}
 	if (p_next_packet) {
-		p_pdc->PERIPH_RNPR = p_next_packet->dw_addr;
-		p_pdc->PERIPH_RNCR = p_next_packet->dw_size;
+		p_pdc->PERIPH_RNPR = p_next_packet->ul_addr;
+		p_pdc->PERIPH_RNCR = p_next_packet->ul_size;
 	}
 }
 
@@ -112,26 +112,26 @@ void pdc_rx_init(Pdc *p_pdc, pdc_packet_t *p_packet,
  * peripheral.
  *
  * \param p_pdc Pointer to a PDC instance.
- * \param dw_controls Transfer directions. 
+ * \param ul_controls Transfer directions. 
  * (bit PERIPH_PTCR_RXTEN and bit PERIPH_PTCR_TXTEN)
  */
-void pdc_enable_transfer(Pdc *p_pdc, uint32_t dw_controls)
+void pdc_enable_transfer(Pdc *p_pdc, uint32_t ul_controls)
 {
 	p_pdc->PERIPH_PTCR =
-			dw_controls & (PERIPH_PTCR_RXTEN | PERIPH_PTCR_TXTEN);
+			ul_controls & (PERIPH_PTCR_RXTEN | PERIPH_PTCR_TXTEN);
 }
 
 /**
  * \brief Disable PDC transfers (TX and/or RX)
  *
  * \param p_pdc Pointer to a PDC instance.
- * \param dw_controls Transfer directions. 
+ * \param ul_controls Transfer directions. 
  * (bit PERIPH_PTCR_TXTDIS, bit PERIPH_PTCR_TXTDIS)
  */
-void pdc_disable_transfer(Pdc *p_pdc, uint32_t dw_controls)
+void pdc_disable_transfer(Pdc *p_pdc, uint32_t ul_controls)
 {
 	p_pdc->PERIPH_PTCR =
-			dw_controls & (PERIPH_PTCR_RXTDIS | PERIPH_PTCR_TXTDIS);
+			ul_controls & (PERIPH_PTCR_RXTDIS | PERIPH_PTCR_TXTDIS);
 }
 
 /**

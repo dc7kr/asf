@@ -42,13 +42,14 @@ MCU = atxmega384c3
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_usb_class_msc_device_unit_tests_stk600_atxmega384c.elf
+TARGET = device_unit_tests.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/components/memory/data_flash/at45dbx/at45dbx.c \
        common/components/memory/data_flash/at45dbx/at45dbx_mem.c \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/serial/usart_serial.c              \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        common/services/spi/xmega_spi/spi_master.c         \
@@ -62,7 +63,6 @@ CSRCS = \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c                     \
        xmega/boards/stk600/rc064x/init.c                  \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/spi/spi.c                            \
        xmega/drivers/usart/usart.c                        \
@@ -79,7 +79,9 @@ INC_PATH = \
        common/components/memory/data_flash/at45dbx        \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
+       common/services/serial/xmega_usart                 \
        common/services/sleepmgr                           \
        common/services/spi                                \
        common/services/spi/xmega_spi                      \
@@ -95,7 +97,6 @@ INC_PATH = \
        xmega/boards                                       \
        xmega/boards/stk600/rc064x                         \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/pmic                                 \
        xmega/drivers/sleep                                \
@@ -150,6 +151,7 @@ CPPFLAGS = \
        -D ACCESS_USB_ENABLED                              \
        -D AT45DBX_ENABLE                                  \
        -D BOARD=STK600_RC064X                             \
+       -D IOPORT_XMEGA_COMPAT                             \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_
 

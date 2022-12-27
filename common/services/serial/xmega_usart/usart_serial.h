@@ -1,10 +1,10 @@
 /**
  * \file
  *
- * This file defines a useful set of functions for the Serial interface on AVR XMEGA
- * devices.
+ * This file defines a useful set of functions for the Serial interface on AVR
+ * XMEGA devices.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,7 +39,6 @@
  * \asf_license_stop
  *
  */
-
 #ifndef _USART_SERIAL_H_
 #define _USART_SERIAL_H_
 
@@ -50,13 +49,18 @@
 
 typedef usart_rs232_options_t usart_serial_options_t;
 
+typedef USART_t *usart_if;
+
 /*! \brief Initializes the Usart in master mode.
  *
  * \param usart       Base address of the USART instance.
- * \param baud_rate   Baud rate for communication with slave device in Hz.
+ * \param options     Options needed to set up RS232 communication (see \ref usart_serial_options_t).
  *
+ * \retval true if the inititialization was successfull
+ * \retval false if initialization failed (error in baud rate calculation)
  */
-static inline void usart_serial_init(USART_t *usart, const usart_serial_options_t *options)
+static inline bool usart_serial_init(usart_if usart, const
+		usart_serial_options_t *options)
 {
 	// USART options.
 	usart_rs232_options_t usart_rs232_options;
@@ -105,7 +109,12 @@ static inline void usart_serial_init(USART_t *usart, const usart_serial_options_
 		sysclk_enable_module(SYSCLK_PORT_F,PR_USART1_bm);
 	}
 #endif
-	usart_init_rs232(usart, &usart_rs232_options);
+	if (usart_init_rs232(usart, &usart_rs232_options)) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 /*! \brief Sends a character with the USART.
@@ -115,7 +124,7 @@ static inline void usart_serial_init(USART_t *usart, const usart_serial_options_
  *
  * \return Status code
  */
-static inline enum status_code usart_serial_putchar(USART_t *usart, uint8_t c)
+static inline enum status_code usart_serial_putchar(usart_if usart, uint8_t c)
 {
 	return usart_putchar(usart, c);
 }
@@ -125,7 +134,7 @@ static inline enum status_code usart_serial_putchar(USART_t *usart, uint8_t c)
  * \param data   Data to read
  *
  */
-static inline void usart_serial_getchar(USART_t *usart, uint8_t *data)
+static inline void usart_serial_getchar(usart_if usart, uint8_t *data)
 {
 	*data = usart_getchar(usart);
 }
@@ -138,7 +147,7 @@ static inline void usart_serial_getchar(USART_t *usart, uint8_t *data)
  * \param len    Length of data
  *
  */
-extern status_code_t usart_serial_write_packet(USART_t *usart,const uint8_t *data, size_t len);
+extern status_code_t usart_serial_write_packet(usart_if usart, const uint8_t *data, size_t len);
 
 /**
  * \brief Reveive a sequence of bytes from USART device
@@ -148,6 +157,6 @@ extern status_code_t usart_serial_write_packet(USART_t *usart,const uint8_t *dat
  * \param len    Length of data
  *
  */
-extern status_code_t usart_serial_read_packet(USART_t *usart, uint8_t *data, size_t len);
+extern status_code_t usart_serial_read_packet(usart_if usart, uint8_t *data, size_t len);
 
 #endif  // _USART_SERIAL_H_

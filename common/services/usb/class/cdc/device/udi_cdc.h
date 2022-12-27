@@ -3,7 +3,7 @@
  *
  * \brief USB Device Communication Device Class (CDC) interface definitions.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -116,8 +116,10 @@ typedef struct {
 
 //! CDC communication enpoints size for all speeds
 #define UDI_CDC_COMM_EP_SIZE        64
-//! CDC data enpoints size for all speeds (no need to use 512B for HS)
-#define UDI_CDC_DATA_EPS_SIZE       64
+//! CDC data enpoints size for FS speed (8B, 16B, 32B, 64B)
+#define UDI_CDC_DATA_EPS_FS_SIZE    64
+//! CDC data enpoints size for HS speed (512B only)
+#define UDI_CDC_DATA_EPS_HS_SIZE    512
 
 /**
  * \name Content of interface descriptors for single or first com port
@@ -147,8 +149,15 @@ typedef struct {
    .union_desc.bSlaveInterface0  = UDI_CDC_DATA_IFACE_NUMBER,\
    .iface.iInterface             = UDI_CDC_COMM_STRING_ID,\
    }
-#  define UDI_CDC_DATA_DESC {\
-  UDI_CDC_DATA_DESC_COMMON \
+#  define UDI_CDC_DATA_DESC_FS {\
+  UDI_CDC_DATA_DESC_COMMON_FS \
+   .ep_in.bEndpointAddress       = UDI_CDC_DATA_EP_IN,\
+   .ep_out.bEndpointAddress      = UDI_CDC_DATA_EP_OUT,\
+   .iface.bInterfaceNumber       = UDI_CDC_DATA_IFACE_NUMBER,\
+   .iface.iInterface             = UDI_CDC_DATA_STRING_ID,\
+   }
+#  define UDI_CDC_DATA_DESC_HS {\
+  UDI_CDC_DATA_DESC_COMMON_HS \
    .ep_in.bEndpointAddress       = UDI_CDC_DATA_EP_IN,\
    .ep_out.bEndpointAddress      = UDI_CDC_DATA_EP_OUT,\
    .iface.bInterfaceNumber       = UDI_CDC_DATA_IFACE_NUMBER,\
@@ -184,8 +193,15 @@ typedef struct {
    .union_desc.bSlaveInterface0  = UDI_CDC_DATA_IFACE_NUMBER_2,\
    .iface.iInterface             = UDI_CDC_COMM_STRING_ID_2,\
    }
-#  define UDI_CDC_DATA_DESC_2 {\
-  UDI_CDC_DATA_DESC_COMMON \
+#  define UDI_CDC_DATA_DESC_2_FS {\
+  UDI_CDC_DATA_DESC_COMMON_FS \
+   .ep_in.bEndpointAddress       = UDI_CDC_DATA_EP_IN_2,\
+   .ep_out.bEndpointAddress      = UDI_CDC_DATA_EP_OUT_2,\
+   .iface.bInterfaceNumber       = UDI_CDC_DATA_IFACE_NUMBER_2,\
+   .iface.iInterface             = UDI_CDC_DATA_STRING_ID_2,\
+   }
+#  define UDI_CDC_DATA_DESC_2_HS {\
+  UDI_CDC_DATA_DESC_COMMON_HS \
    .ep_in.bEndpointAddress       = UDI_CDC_DATA_EP_IN_2,\
    .ep_out.bEndpointAddress      = UDI_CDC_DATA_EP_OUT_2,\
    .iface.bInterfaceNumber       = UDI_CDC_DATA_IFACE_NUMBER_2,\
@@ -221,8 +237,15 @@ typedef struct {
    .union_desc.bSlaveInterface0  = UDI_CDC_DATA_IFACE_NUMBER_3,\
    .iface.iInterface             = UDI_CDC_COMM_STRING_ID_3,\
    }
-#  define UDI_CDC_DATA_DESC_3 {\
-  UDI_CDC_DATA_DESC_COMMON \
+#  define UDI_CDC_DATA_DESC_3_FS {\
+  UDI_CDC_DATA_DESC_COMMON_FS \
+   .ep_in.bEndpointAddress       = UDI_CDC_DATA_EP_IN_3,\
+   .ep_out.bEndpointAddress      = UDI_CDC_DATA_EP_OUT_3,\
+   .iface.bInterfaceNumber       = UDI_CDC_DATA_IFACE_NUMBER_3,\
+   .iface.iInterface             = UDI_CDC_DATA_STRING_ID_3,\
+   }
+#  define UDI_CDC_DATA_DESC_3_HS {\
+  UDI_CDC_DATA_DESC_COMMON_HS \
    .ep_in.bEndpointAddress       = UDI_CDC_DATA_EP_IN_3,\
    .ep_out.bEndpointAddress      = UDI_CDC_DATA_EP_OUT_3,\
    .iface.bInterfaceNumber       = UDI_CDC_DATA_IFACE_NUMBER_3,\
@@ -269,9 +292,9 @@ typedef struct {
    .ep_notify.bDescriptorType    = USB_DT_ENDPOINT,\
    .ep_notify.bmAttributes       = USB_EP_TYPE_INTERRUPT,\
    .ep_notify.wMaxPacketSize     = LE16(UDI_CDC_COMM_EP_SIZE),\
-   .ep_notify.bInterval          = 0xFF,
+   .ep_notify.bInterval          = 0x10,
 
-//! Content of CDC DATA interface descriptor for all speeds
+//! Content of CDC DATA interface descriptors
 #define UDI_CDC_DATA_DESC_COMMON \
    .iface.bLength                = sizeof(usb_iface_desc_t),\
    .iface.bDescriptorType        = USB_DT_INTERFACE,\
@@ -282,14 +305,23 @@ typedef struct {
    .iface.bInterfaceProtocol     = 0,\
    .ep_in.bLength                = sizeof(usb_ep_desc_t),\
    .ep_in.bDescriptorType        = USB_DT_ENDPOINT,\
-   .ep_in.wMaxPacketSize         = LE16(UDI_CDC_DATA_EPS_SIZE),\
    .ep_in.bmAttributes           = USB_EP_TYPE_BULK,\
    .ep_in.bInterval              = 0,\
    .ep_out.bLength               = sizeof(usb_ep_desc_t),\
    .ep_out.bDescriptorType       = USB_DT_ENDPOINT,\
-   .ep_out.wMaxPacketSize        = LE16(UDI_CDC_DATA_EPS_SIZE),\
    .ep_out.bmAttributes          = USB_EP_TYPE_BULK,\
    .ep_out.bInterval             = 0,
+
+#define UDI_CDC_DATA_DESC_COMMON_FS \
+   UDI_CDC_DATA_DESC_COMMON \
+   .ep_in.wMaxPacketSize         = LE16(UDI_CDC_DATA_EPS_FS_SIZE),\
+   .ep_out.wMaxPacketSize        = LE16(UDI_CDC_DATA_EPS_FS_SIZE),
+
+#define UDI_CDC_DATA_DESC_COMMON_HS \
+   UDI_CDC_DATA_DESC_COMMON \
+   .ep_in.wMaxPacketSize         = LE16(UDI_CDC_DATA_EPS_HS_SIZE),\
+   .ep_out.wMaxPacketSize        = LE16(UDI_CDC_DATA_EPS_HS_SIZE),
+
 //@}
 
 

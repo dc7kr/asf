@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for SSC driver.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -108,20 +108,20 @@ volatile void *volatile stdio_base;
 #define SSC_IRQ_PRIO           4
 
 /** Transmit buffer content. */
-uint8_t uc_tx_buff[BUFFER_SIZE] = 
+uint8_t g_uc_tx_buff[BUFFER_SIZE] = 
 	{ 0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89 };
 
 /** Receiver buffer content. */
-uint8_t uc_rx_buff[BUFFER_SIZE];
+uint8_t g_uc_rx_buff[BUFFER_SIZE];
 
 /** Receive done flag. */
-volatile uint8_t uc_rx_done = 0;
+volatile uint8_t g_uc_rx_done = 0;
 
 /** Receive index. */
-uint8_t uc_rx_index = 0;
+uint8_t g_uc_rx_index = 0;
 
 /** Transmit index. */
-uint8_t uc_tx_index = 0;
+uint8_t g_uc_tx_index = 0;
 
 /**
  * \brief Synchronous Serial Controller Handler.
@@ -131,10 +131,10 @@ void SSC_Handler(void)
 {
 	ssc_get_status(SSC);
 	
-	ssc_read(SSC, (uint32_t *)&uc_rx_buff[uc_rx_index++]);
+	ssc_read(SSC, (uint32_t *)&g_uc_rx_buff[g_uc_rx_index++]);
 
-	if (BUFFER_SIZE == uc_rx_index) {
-		uc_rx_done = 1;
+	if (BUFFER_SIZE == g_uc_rx_index) {
+		g_uc_rx_done = 1;
 		ssc_disable_interrupt(SSC, SSC_IDR_RXRDY);
 	}
 }
@@ -148,14 +148,14 @@ void SSC_Handler(void)
  */
 static void run_ssc_test(const struct test_case *test)
 {
-	uint32_t dw_mck;
+	uint32_t ul_mck;
 	clock_opt_t tx_clk_option;
 	clock_opt_t rx_clk_option;
 	data_frame_opt_t rx_data_frame_option;
 	data_frame_opt_t tx_data_frame_option;
 	
 	/* Initialize the local varible. */
-	dw_mck = 0;
+	ul_mck = 0;
 	memset((uint8_t *)&rx_clk_option, 0, sizeof(clock_opt_t));
 	memset((uint8_t *)&rx_data_frame_option, 0, sizeof(data_frame_opt_t));
 	memset((uint8_t *)&tx_clk_option, 0, sizeof(clock_opt_t));
@@ -164,44 +164,44 @@ static void run_ssc_test(const struct test_case *test)
 	/* Initialize the SSC module and work in loop mode. */
 	pmc_enable_periph_clk(ID_SSC);
 	ssc_reset(SSC);
-	dw_mck = sysclk_get_main_hz();
-	ssc_set_clock_divider(SSC, SSC_BIT_RATE, dw_mck);
+	ul_mck = sysclk_get_cpu_hz();
+	ssc_set_clock_divider(SSC, SSC_BIT_RATE, ul_mck);
 
 	/* Transmitter clock mode configuration. */
-	tx_clk_option.dw_cks = SSC_TCMR_CKS_MCK;
-	tx_clk_option.dw_cko = SSC_TCMR_CKO_CONTINUOUS;
-	tx_clk_option.dw_cki = 0;
-	tx_clk_option.dw_ckg = SSC_TCMR_CKG_NONE;
-	tx_clk_option.dw_start_sel = SSC_TCMR_START_CONTINUOUS;
-	tx_clk_option.dw_sttdly = 0;
-	tx_clk_option.dw_period = 0;
+	tx_clk_option.ul_cks = SSC_TCMR_CKS_MCK;
+	tx_clk_option.ul_cko = SSC_TCMR_CKO_CONTINUOUS;
+	tx_clk_option.ul_cki = 0;
+	tx_clk_option.ul_ckg = SSC_TCMR_CKG_NONE;
+	tx_clk_option.ul_start_sel = SSC_TCMR_START_CONTINUOUS;
+	tx_clk_option.ul_sttdly = 0;
+	tx_clk_option.ul_period = 0;
 	/* Transmitter frame mode configuration. */
-	tx_data_frame_option.dw_datlen = BIT_LEN_PER_CHANNEL - 1;
-	tx_data_frame_option.dw_msbf = SSC_TFMR_MSBF;
-	tx_data_frame_option.dw_datnb = 0;
-	tx_data_frame_option.dw_fslen = 0;
-	tx_data_frame_option.dw_fslen_ext = 0;
-	tx_data_frame_option.dw_fsos = SSC_TFMR_FSOS_TOGGLING;
-	tx_data_frame_option.dw_fsedge = SSC_TFMR_FSEDGE_POSITIVE;
+	tx_data_frame_option.ul_datlen = BIT_LEN_PER_CHANNEL - 1;
+	tx_data_frame_option.ul_msbf = SSC_TFMR_MSBF;
+	tx_data_frame_option.ul_datnb = 0;
+	tx_data_frame_option.ul_fslen = 0;
+	tx_data_frame_option.ul_fslen_ext = 0;
+	tx_data_frame_option.ul_fsos = SSC_TFMR_FSOS_TOGGLING;
+	tx_data_frame_option.ul_fsedge = SSC_TFMR_FSEDGE_POSITIVE;
 	/* Configure the SSC transmitter. */
 	ssc_set_transmitter(SSC, &tx_clk_option, &tx_data_frame_option);
 	
 	/* Receiver clock mode configuration. */
-	rx_clk_option.dw_cks = SSC_RCMR_CKS_TK;
-	rx_clk_option.dw_cko = SSC_RCMR_CKO_NONE;
-	rx_clk_option.dw_cki = 0;
-	rx_clk_option.dw_ckg = SSC_TCMR_CKG_NONE;
-	rx_clk_option.dw_start_sel = SSC_RCMR_START_RF_EDGE;
-	rx_clk_option.dw_sttdly = 0;
-	rx_clk_option.dw_period = 0;
+	rx_clk_option.ul_cks = SSC_RCMR_CKS_TK;
+	rx_clk_option.ul_cko = SSC_RCMR_CKO_NONE;
+	rx_clk_option.ul_cki = 0;
+	rx_clk_option.ul_ckg = SSC_TCMR_CKG_NONE;
+	rx_clk_option.ul_start_sel = SSC_RCMR_START_RF_EDGE;
+	rx_clk_option.ul_sttdly = 0;
+	rx_clk_option.ul_period = 0;
 	/* Receiver frame mode configuration. */
-	rx_data_frame_option.dw_datlen = BIT_LEN_PER_CHANNEL - 1;
-	rx_data_frame_option.dw_msbf = SSC_TFMR_MSBF;
-	rx_data_frame_option.dw_datnb = 0;
-	rx_data_frame_option.dw_fslen = 0;
-	rx_data_frame_option.dw_fslen_ext = 0;
-	rx_data_frame_option.dw_fsos = SSC_TFMR_FSOS_NONE;
-	rx_data_frame_option.dw_fsedge = SSC_TFMR_FSEDGE_POSITIVE;
+	rx_data_frame_option.ul_datlen = BIT_LEN_PER_CHANNEL - 1;
+	rx_data_frame_option.ul_msbf = SSC_TFMR_MSBF;
+	rx_data_frame_option.ul_datnb = 0;
+	rx_data_frame_option.ul_fslen = 0;
+	rx_data_frame_option.ul_fslen_ext = 0;
+	rx_data_frame_option.ul_fsos = SSC_TFMR_FSOS_NONE;
+	rx_data_frame_option.ul_fsedge = SSC_TFMR_FSEDGE_POSITIVE;
 	/* Configure the SSC receiver. */
 	ssc_set_receiver(SSC, &rx_clk_option, &rx_data_frame_option);
 
@@ -221,14 +221,14 @@ static void run_ssc_test(const struct test_case *test)
 	NVIC_SetPriority(SSC_IRQn, SSC_IRQ_PRIO);
 	NVIC_EnableIRQ(SSC_IRQn);
 
-	for (uc_tx_index = 0; uc_tx_index < BUFFER_SIZE; uc_tx_index++) {
-		ssc_write(SSC, uc_tx_buff[uc_tx_index]);
+	for (g_uc_tx_index = 0; g_uc_tx_index < BUFFER_SIZE; g_uc_tx_index++) {
+		ssc_write(SSC, g_uc_tx_buff[g_uc_tx_index]);
 	}
 	
-	while (!uc_rx_done) {
+	while (!g_uc_rx_done) {
 	}
 
-	test_assert_true(test, (memcmp(uc_rx_buff, uc_tx_buff, BUFFER_SIZE) == 0), 
+	test_assert_true(test, (memcmp(g_uc_rx_buff, g_uc_tx_buff, BUFFER_SIZE) == 0), 
 			"Test: SSC received data is not the same as the transmit data!");
 }
 

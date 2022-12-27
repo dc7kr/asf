@@ -42,13 +42,13 @@ MCU = atxmega128a1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_drivers_pmic_example_xmega_a1_xplained.elf
+TARGET = pmic_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        xmega/boards/xmega_a1_xplained/init.c              \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/pmic/example/pmic_example.c
 
 # Assembler source files located from the top-level source directory
@@ -60,11 +60,11 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/utils                                       \
        xmega/boards                                       \
        xmega/boards/xmega_a1_xplained                     \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/pmic                                 \
        xmega/drivers/pmic/example/atxmega128a1_xplained   \
        xmega/utils                                        \
@@ -112,7 +112,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=XMEGA_A1_XPLAINED
+       -D BOARD=XMEGA_A1_XPLAINED                         \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

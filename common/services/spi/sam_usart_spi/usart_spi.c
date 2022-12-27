@@ -3,7 +3,7 @@
  *
  * \brief SAM USART in SPI mode driver functions.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -125,7 +125,6 @@ void usart_spi_setup_device(Usart *p_usart, struct usart_spi_device *device,
      spi_flags_t flags, unsigned long baud_rate,
      board_spi_select_id_t sel_id)
 {
-	uint32_t dw_sysclk;
 	usart_spi_opt_t opt;
 
 	/* Remove warnings. */
@@ -138,11 +137,8 @@ void usart_spi_setup_device(Usart *p_usart, struct usart_spi_device *device,
 	opt.spi_mode = flags;
 	opt.channel_mode = US_MR_CHMODE_NORMAL;
 	
-	/* Get system clock. */
-	dw_sysclk = sysclk_get_main_hz();
-	
 	/* Initialize the USART module as SPI master. */
-	usart_init_spi_master(p_usart, &opt, dw_sysclk);
+	usart_init_spi_master(p_usart, &opt, sysclk_get_cpu_hz());
 
 	usart_enable_rx(p_usart);
 	usart_enable_tx(p_usart);

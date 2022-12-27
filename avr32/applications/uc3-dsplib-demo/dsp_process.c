@@ -4,7 +4,7 @@
  *
  * \brief DSP Process
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -316,7 +316,11 @@ void dsp_process_init(int cpu_hz, int hsb_hz, int pba_hz, int pbb_hz)
 	signal_in_buf = signal_pre_filter_buf + FIR_NUM_COEF;
 	filter_restore_default();
 
-	dsp16_win_hamm(fft_window,fft_window,(int)BUFFER_LENGTH);
+	/* Fill the initial buffer for the hamming window with ones. This buffer
+	 * will then be multiplied by the hamming window.
+	 */
+	dsp16_gen_step(fft_window, BUFFER_LENGTH, DSP16_Q(1.), DSP16_Q(1.), 0);
+	dsp16_win_hamm(fft_window, fft_window, BUFFER_LENGTH);
 
 	/* Run the interrupt handler manually once to start the ABDAC */
 	dac_reload_callback();

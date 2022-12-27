@@ -45,12 +45,13 @@ PART = sam3sd8c
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam_drivers_crccu_crccu_example_sam3s_ek2_flash.elf
-TARGET_SRAM = sam_drivers_crccu_crccu_example_sam3s_ek2_sram.elf
+TARGET_FLASH = crccu_crccu_example_flash.elf
+TARGET_SRAM = crccu_crccu_example_sram.elf
 
 # List of C source files.
 CSRCS = \
        common/services/clock/sam3s/sysclk.c               \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3s_ek2/init.c                        \
        sam/drivers/crccu/crccu.c                          \
        sam/drivers/crccu/crccu_example/crccu_example.c    \
@@ -73,6 +74,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3s_ek2                               \
        sam/drivers/crccu                                  \
@@ -87,6 +89,7 @@ INC_PATH = \
        sam/utils/cmsis/sam3s8/include                     \
        sam/utils/cmsis/sam3s8/source/templates            \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include \
        ./sam/drivers/crccu/crccu_example/sam3sd8c_sam3s_ek2/gcc
 

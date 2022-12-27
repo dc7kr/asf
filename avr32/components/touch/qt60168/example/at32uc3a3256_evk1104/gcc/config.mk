@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_components_touch_qt60168_example_evk1104.elf
+TARGET = qt60168_example.elf
 
 # List of C source files.
 CSRCS = \

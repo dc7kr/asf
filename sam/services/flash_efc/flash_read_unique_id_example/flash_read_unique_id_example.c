@@ -3,7 +3,7 @@
  *
  * \brief Flash read Unique Identifier example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -91,13 +91,7 @@
  * 
  */
 
-#include "board.h"
-#include "sysclk.h"
-#include "uart.h"
-#include "pmc.h"
-#include "pio.h"
-#include "gpio.h"
-#include "flash_efc.h"
+#include "asf.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 
@@ -112,7 +106,7 @@
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ BOARD_MCK, 115200, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
 
 	/* Configure PIO */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
@@ -142,7 +136,7 @@ static void configure_console(void)
  */
 int main(void)
 {
-	uint32_t dw_rc;
+	uint32_t ul_rc;
 	uint32_t unique_id[4];
 
 	/* Initialize the SAM3 system */
@@ -156,17 +150,17 @@ int main(void)
 	puts(STRING_HEADER);
 
 	/* Initialize Flash service */
-	dw_rc = flash_init(FLASH_ACCESS_MODE_128, 4);
-	if (dw_rc != FLASH_RC_OK) {
-		printf("-F- Initialization error %lu\n\r", dw_rc);
+	ul_rc = flash_init(FLASH_ACCESS_MODE_128, 4);
+	if (ul_rc != FLASH_RC_OK) {
+		printf("-F- Initialization error %lu\n\r", ul_rc);
 		return 0;
 	}
 
 	/* Read the unique ID */
 	puts("-I- Reading 128 bits Unique Identifier\r");
-	dw_rc = flash_read_unique_id(unique_id, 4);
-	if (dw_rc != FLASH_RC_OK) {
-		printf("-F- Read the Unique Identifier error %lu\n\r", dw_rc);
+	ul_rc = flash_read_unique_id(unique_id, 4);
+	if (ul_rc != FLASH_RC_OK) {
+		printf("-F- Read the Unique Identifier error %lu\n\r", ul_rc);
 		return 0;
 	}
 

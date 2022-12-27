@@ -6,7 +6,7 @@
  *
  * This file defines a useful set of functions for TWI on AVR32 devices.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -384,11 +384,38 @@ int twi_probe(volatile avr32_twi_t *twi, char chip_addr)
   // address length
   package.addr_length = 0;
   // internal chip address
-  package.addr = 0;
+  package.addr[0] = 0;
   // perform a master write access
   return (twi_master_write(twi, &package));
 }
 
+/**
+ * \internal
+ * \brief Construct the TWI module address register field
+ *
+ * The TWI module address register is sent out MSB first. And the size controls
+ * which byte is the MSB to start with.
+ *
+ * Please see the device datasheet for details on this.
+ */
+static uint32_t twi_mk_addr(const uint8_t *addr, int len)
+{
+	uint32_t val;
+
+	if (len == 0)
+		return 0;
+
+	val = addr[0];
+	if (len > 1) {
+		val <<= 8;
+		val |= addr[1];
+	}
+	if (len > 2) {
+		val <<= 8;
+		val |= addr[2];
+	}
+	return val;
+}
 
 int twi_master_read(volatile avr32_twi_t *twi, const twi_package_t *package)
 {
@@ -414,7 +441,7 @@ int twi_master_read(volatile avr32_twi_t *twi, const twi_package_t *package)
   twi_inst = twi;
 
   // set internal address for remote chip
-  twi->iadr = package->addr;
+  twi->iadr = twi_mk_addr(package->addr, package->addr_length);
 
   // get a pointer to applicative data
   twi_rx_data = package->buffer;
@@ -487,7 +514,7 @@ int twi_master_write(volatile avr32_twi_t *twi, const twi_package_t *package)
   twi_inst = twi;
 
   // set internal address for remote chip
-  twi->iadr = package->addr;
+  twi->iadr = twi_mk_addr(package->addr, package->addr_length);
 
   // get a pointer to applicative data
   twi_tx_data = package->buffer;
@@ -554,7 +581,7 @@ int twi_master_write_ex(volatile avr32_twi_t *twi, const twi_package_t *package)
   twi_inst = twi;
 
   // set internal address for remote chip
-  twi->iadr = package->addr;
+  twi->iadr = twi_mk_addr(package->addr, package->addr_length);
 
   // get a pointer to applicative data
   twi_tx_data = package->buffer;

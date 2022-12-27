@@ -3,7 +3,7 @@
  *
  * \brief User Interface
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -304,7 +304,7 @@ void ui_uhi_hid_mouse_move(int8_t x,int8_t y,int8_t scroll)
  *
  * Human interface on UC3C_EK :
  * - PWR led is on when power present
- * - Led 0 is on when USB OTG cable is pluged
+ * - Led 0 is on when USB OTG cable is pluged and Vbus is present
  * - Led 1 is continuously on when a device is connected
  * - Led 1 blinks when a HID mouse is enumerated and USB in idle mode
  *   - The blink is slow (1s) with low speed device

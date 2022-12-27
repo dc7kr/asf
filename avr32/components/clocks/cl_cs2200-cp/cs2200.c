@@ -16,7 +16,7 @@
  *                       used.
  *
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -190,7 +190,7 @@ void cs2200_read(uint8_t address, void *buffer, uint8_t len)
 
   do{
     twi_packet.chip        = CS2200_TWI_SLAVE_ADDRESS;         //! TWI chip address to communicate with.
-    twi_packet.addr        = address;                          //! register address/commands inside the slave chip.
+    twi_packet.addr[0]     = address;                          //! Register address/commands inside the slave chip.
     twi_packet.addr_length = 1;                                //! Length of the TWI data address segment (1-3 bytes).
     twi_packet.buffer      = buffer;                           //! Where to find the data to be written.
     twi_packet.length      = len;                              //! How many bytes do we want to write.
@@ -206,7 +206,7 @@ void cs2200_write(uint8_t address, const void *buffer, uint8_t len)
 
   do{
     twi_packet.chip        = CS2200_TWI_SLAVE_ADDRESS;         //! TWI chip address to communicate with.
-    twi_packet.addr        = address | 0x80;                   //! register address/commands inside the slave chip + auto increment.
+    twi_packet.addr[0]     = address | 0x80;                   //! Register address/commands inside the slave chip + auto increment.
     twi_packet.addr_length = 1;                                //! Length of the TWI data address segment (1-3 bytes).
     twi_packet.buffer      = (void *)buffer;                   //! Where to find the data to be written.
     twi_packet.length      = len;                              //! How many bytes do we want to write.
@@ -221,7 +221,7 @@ int cs2200_write_ex(uint8_t address, const void *buffer, uint8_t len)
   twi_package_t twi_packet;
 
   twi_packet.chip        = CS2200_TWI_SLAVE_ADDRESS;         //! TWI chip address to communicate with.
-  twi_packet.addr        = address | 0x80;                   //! register address/commands inside the slave chip + auto increment.
+  twi_packet.addr[0]     = address | 0x80;                   //! Register address/commands inside the slave chip + auto increment.
   twi_packet.addr_length = 1;                                //! Length of the TWI data address segment (1-3 bytes).
   twi_packet.buffer      = (void *)buffer;                   //! Where to find the data to be written.
   twi_packet.length      = len;                              //! How many bytes do we want to write.

@@ -3,7 +3,7 @@
  *
  * \brief Linker script for ATxmega64A1U USB DFU FLIP bootloader
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -48,16 +48,16 @@
 // not be displayed in the dissassembly window.
 -D_..X_FLASH_BASE=10002
 -D_..X_CODE_END=10FFF
--D_..X_INTVEC_END=101FB
+
 
 
 
 //////////////////////////////////////////////////////////////////////////////
 // Code (flash) segments
 -Z(CODE)INTVEC=101F4-101FF
--Z(CODE)BOOT=_..X_FLASH_BASE-101F3
--Z(CODE)CODE=101FC-_..X_CODE_END
--Z(CODE)FARCODE=101FC-_..X_CODE_END
+-P(CODE)BOOT=_..X_FLASH_BASE-_..X_CODE_END
+-P(CODE)CODE=_..X_FLASH_BASE-_..X_CODE_END
+-P(CODE)FARCODE=_..X_FLASH_BASE-_..X_CODE_END
 -Z(CODE)INITTAB=101FC-_..X_CODE_END
 -Z(CODE)NEAR_ID=101FC-_..X_CODE_END
 

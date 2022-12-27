@@ -3,7 +3,7 @@
  *
  * \brief Global interrupt management for 32-bit AVR
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -65,7 +65,7 @@ typedef void (__interrupt *__int_handler)(void);
 #if defined(__GNUC__) || defined(__DOXYGEN__)
 
 /**
- * \brief Define service routine
+ * \brief Macro to declare an interrupt service routine
  *
  * With GCC, this macro only causes the function to be defined as an interrupt
  * service routine, i.e., it does not add any initialization code. A valid
@@ -102,11 +102,15 @@ typedef void (__interrupt *__int_handler)(void);
 #  define ISR(func, int_grp, int_lvl)    \
 	__attribute__((__interrupt__)) static void func (void)
 
+#elif defined(__ICCAVR32__) && defined(CONFIG_INTERRUPT_FORCE_INTC)
+#  define ISR(func, int_grp, int_lvl) \
+		__interrupt static void func (void)
+
 #elif defined(__ICCAVR32__)
 #  define ISR0(...) _Pragma(#__VA_ARGS__)
 #  define ISR(func, int_grp, int_lvl)                                          \
 		ISR0(handler=int_grp, int_lvl)                                 \
-		  __interrupt static void func (void)
+		__interrupt static void func (void)
 #endif
 
 #if defined(__GNUC__) || defined(__DOXYGEN__) || defined(CONFIG_INTERRUPT_FORCE_INTC)

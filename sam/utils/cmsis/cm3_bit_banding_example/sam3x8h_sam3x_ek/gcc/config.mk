@@ -45,11 +45,12 @@ PART = sam3x8h
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam_utils_cmsis_cm3_bit_banding_example_sam3x_ek_flash.elf
-TARGET_SRAM = sam_utils_cmsis_cm3_bit_banding_example_sam3x_ek_sram.elf
+TARGET_FLASH = cmsis_cm3_bit_banding_example_flash.elf
+TARGET_SRAM = cmsis_cm3_bit_banding_example_sram.elf
 
 # List of C source files.
 CSRCS = \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3x_ek/init.c                         \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
@@ -65,6 +66,7 @@ ASSRCS =
 INC_PATH = \
        common/boards                                      \
        common/services/gpio                               \
+       common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3x_ek                                \
        sam/drivers/pio                                    \
@@ -73,6 +75,7 @@ INC_PATH = \
        sam/utils/cmsis/sam3x/include                      \
        sam/utils/cmsis/sam3x/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include \
        ./sam/utils/cmsis/cm3_bit_banding_example/sam3x8h_sam3x_ek/gcc
 

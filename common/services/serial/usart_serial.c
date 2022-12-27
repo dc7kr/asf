@@ -1,13 +1,11 @@
-/*****************************************************************************
+/**
  *
  * \file
  *
  * \brief USART Serial driver functions.
  *
- *                       can be used.
  *
- *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -41,9 +39,8 @@
  *
  * \asf_license_stop
  *
- *****************************************************************************/
-
-#include "xmega_usart/usart_serial.h"
+ */
+#include "serial.h"
 
 /**
  * \brief Send a sequence of bytes to USART device
@@ -53,10 +50,11 @@
  * \param len    Length of data
  *
  */
-status_code_t usart_serial_write_packet(USART_t *usart,const uint8_t *data, size_t len)
+status_code_t usart_serial_write_packet(usart_if usart, const uint8_t *data,
+		size_t len)
 {
 	while (len) {
-		usart_putchar(usart, *data);
+		usart_serial_putchar(usart, *data);
 		len--;
 		data++;
 	}
@@ -71,12 +69,13 @@ status_code_t usart_serial_write_packet(USART_t *usart,const uint8_t *data, size
  * \param len    Length of data
  *
  */
-status_code_t usart_serial_read_packet(USART_t *usart, uint8_t *data, size_t len)
+status_code_t usart_serial_read_packet(usart_if usart, uint8_t *data,
+		size_t len)
 {
-	while(len) {
-		*data = usart_getchar(usart);
+	while (len) {
+		usart_serial_getchar(usart, data);
 		len--;
 		data++;
- 	}
+	}
 	return STATUS_OK;
 }

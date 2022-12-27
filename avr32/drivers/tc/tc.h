@@ -6,7 +6,7 @@
  *
  * AVR32 Timer/Counter driver module.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -47,7 +47,7 @@
 #define _TC_H_
 
 /**
- * \defgroup group_avr32_drivers_tc TIMING - TC - Timer/Counter
+ * \defgroup group_avr32_drivers_tc TC - Timer/Counter
  *
  * Driver for the TC (Timer/Counter). The TC includes three identical 16-bit Timer/Counter channels.
  * Each channel can be independently programmed to perform a wide range of functions including frequency measurement,

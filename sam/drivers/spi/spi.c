@@ -3,7 +3,7 @@
  *
  * \brief Serial Peripheral Interface (SPI) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -59,7 +59,7 @@ extern "C" {
  * @{
  */
 
-#define SPI_WPMR_SPIWPKEY_VALUE SPI_WPMR_SPIWPKEY((uint32_t) 0x535049)
+#define SPI_WPMR_WPKEY_VALUE SPI_WPMR_WPKEY((uint32_t) 0x535049)
 
 /**
  * \brief Reset SPI and set it to Slave mode.
@@ -682,9 +682,9 @@ void *spi_get_rx_access(Spi *p_spi)
 void spi_set_writeprotect(Spi *p_spi, uint32_t ul_enable)
 {
 	if (ul_enable) {
-		p_spi->SPI_WPMR = SPI_WPMR_SPIWPKEY_VALUE | SPI_WPMR_SPIWPEN;
+		p_spi->SPI_WPMR = SPI_WPMR_WPKEY_VALUE | SPI_WPMR_WPEN;
 	} else {
-		p_spi->SPI_WPMR = SPI_WPMR_SPIWPKEY_VALUE;
+		p_spi->SPI_WPMR = SPI_WPMR_WPKEY_VALUE;
 	}
 }
 

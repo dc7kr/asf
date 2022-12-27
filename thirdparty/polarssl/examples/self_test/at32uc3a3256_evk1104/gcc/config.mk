@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_services_polarssl_selftest_example_evk1104.elf
+TARGET = selftest_example.elf
 
 # List of C source files.
 CSRCS = \
@@ -62,6 +62,7 @@ CSRCS = \
        avr32/drivers/intc/intc.c                          \
        avr32/drivers/usart/usart.c                        \
        common/services/clock/uc3a3_a4/sysclk.c            \
+       common/services/serial/usart_serial.c              \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        thirdparty/polarssl/aes.c                          \
@@ -109,6 +110,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/serial                             \
+       common/services/serial/uc3_usart                   \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
        thirdparty/polarssl                                \

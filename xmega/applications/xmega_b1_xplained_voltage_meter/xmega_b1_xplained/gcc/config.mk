@@ -42,18 +42,19 @@ MCU = atxmega128b1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_applications_xmega_b1_xplained_voltage_meter_xmega_b1_xplained.elf
+TARGET = xmega_b1_xplained_voltage_meter.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        xmega/applications/xmega_b1_xplained_voltage_meter/main.c \
        xmega/applications/xmega_b1_xplained_voltage_meter/ui.c \
        xmega/boards/xmega_b1_xplained/init.c              \
        xmega/components/display/c42048a/c42048a_full_matrix0/c42048a.c \
        xmega/drivers/adc/adc.c                            \
-       xmega/drivers/ioport/ioport.c                      \
+       xmega/drivers/adc/xmega_bcd/adc_bcd.c              \
        xmega/drivers/lcd/lcd.c                            \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/tc/tc.c
@@ -68,6 +69,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/sleepmgr                           \
        common/utils                                       \
        xmega/applications/xmega_b1_xplained_voltage_meter \
@@ -77,7 +79,6 @@ INC_PATH = \
        xmega/components/display/c42048a/c42048a_full_matrix0 \
        xmega/drivers/adc                                  \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/lcd                                  \
        xmega/drivers/nvm                                  \
        xmega/drivers/pmic                                 \
@@ -128,7 +129,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=XMEGA_B1_XPLAINED
+       -D BOARD=XMEGA_B1_XPLAINED                         \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

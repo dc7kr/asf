@@ -3,7 +3,7 @@
  *
  * \brief SMC SRAM Example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -101,16 +101,8 @@
  * 
  */
 
-#include "board.h"
-#include "sysclk.h"
-#include "gpio.h"
-#include "exceptions.h"
-#include "pio.h"
-#include "uart.h"
-#include "pmc.h"
-#include "smc.h"
+#include "asf.h"
 #include "conf_board.h"
-#include <stdio.h>
 
 /** Base address of chip select */
 #define SRAM_BASE_ADDRESS		(EBI_CS0_ADDR)

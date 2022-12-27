@@ -3,7 +3,7 @@
  *
  * \brief ADC12 temperature sensor example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -95,25 +95,10 @@
  *
  */
 
-#include "board.h"
-#include "sysclk.h"
-#include "gpio.h"
-#include "exceptions.h"
-#include "pio.h"
-#include "uart.h"
-#include "pmc.h"
-#include "adc.h"
-#include "conf_board.h"
-#include "pio_handler.h"
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
 #include <string.h>
 #include <assert.h>
-
-/*----------------------------------------------------------------------------
- *        Local definitions
- *----------------------------------------------------------------------------*/
+#include "asf.h"
+#include "conf_board.h"
 
 /** ADC clock */
 #define BOARD_ADC_FREQ (6000000)
@@ -143,46 +128,17 @@
 		"-- "BOARD_NAME" --\r\n" \
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 
-/*----------------------------------------------------------------------------
- *        Local variables
- *----------------------------------------------------------------------------*/
 /** adc buffer */
-int16_t g_s_adc_values[BUFFER_SIZE] = { 0 };
+static int16_t gs_s_adc_values[BUFFER_SIZE] = { 0 };
 
 /** Time stamp */
-uint32_t g_ul_time_stamp = 0;
+static uint32_t gs_ul_time_stamp = 0;
 
-/*----------------------------------------------------------------------------
- *        Local functions
- *----------------------------------------------------------------------------*/
-
-/*----------------------------------------------------------------------------
- *        Exported functions
- *----------------------------------------------------------------------------*/
-
-/**
- * Systick handler, start new conversion
- */
-void SysTick_Handler(void)
-{
-	g_ul_time_stamp++;
-	/* Simply to get 10ms interval */
-	if (g_ul_time_stamp % 10 == 0) {
-
-		if ((adc_get_status(ADC).isr_status & ADC_ISR_EOC15) ==
-				ADC_ISR_EOC15) {
-
-			/* Start conversion */
-			adc_start(ADC);
-		}
-
-	}
-}
 
 /** \brief Simple function to replace printf with float formatting.
  *  1 decimal with rounding support.
  */
-static void _PrintTemp(float temp)
+static void print_temp(float temp)
 {
 	int16_t s_integer1 = 0;
 	int32_t l_integer2 = 0;
@@ -225,7 +181,7 @@ static void _PrintTemp(float temp)
  * \param pwBuffer The destination buffer.
  * \param dwSize The size of the buffer.
  */
-static uint32_t ADC_ReadBuffer(Adc * pADC, int16_t * pwBuffer, uint32_t dwSize)
+static uint32_t adc_read_buffer(Adc * pADC, int16_t * pwBuffer, uint32_t dwSize)
 {
 	/* Check if the first PDC bank is free. */
 	if ((pADC->ADC_RCR == 0) && (pADC->ADC_RNCR == 0)) {
@@ -246,56 +202,13 @@ static uint32_t ADC_ReadBuffer(Adc * pADC, int16_t * pwBuffer, uint32_t dwSize)
 	}
 }
 
-/**------------------------------------------------------------------------------
- * Interrupt handler for the ADC.
- *------------------------------------------------------------------------------*/
-void ADC_Handler(void)
-{
-	uint32_t ul_counter;
-	int32_t l_vol;
-	float f_temp;
-	uint32_t ul_value = 0;
-	uint32_t ul_temp_value = 0;
-
-	if ((adc_get_status(ADC).isr_status & ADC_ISR_RXBUFF) == ADC_ISR_RXBUFF) {
-
-		/* Multisample */
-		for (ul_counter = 0; ul_counter < BUFFER_SIZE; ul_counter++) {
-			ul_value += g_s_adc_values[ul_counter];
-		}
-		/* Averaging */
-		ul_temp_value = ul_value / 10;
-		ul_value = ul_value / 100;
-		ul_temp_value -= (ul_value * 10);
-		/* Round for last decimal */
-		if (ul_temp_value > 4) {
-			ul_value++;
-		}
-
-		l_vol = ul_value * VOLT_REF / MAX_DIGITAL;
-	#if SAM3S | SAM3XA	
-		/* Using multiplication (*0.37736) instead of division (/2.65). */
-		f_temp = (float)(l_vol - 800) * 0.37736 + 27.0;
-	#else
-		/* Using multiplication (*0.21186) instead of division (/4.72). */
-		f_temp = (float)(l_vol - 1440) * 0.21186 + 27.0;
-	#endif
-		_PrintTemp(f_temp);
-		/* Clear the buffer. */
-		memset(g_s_adc_values, 0x0, sizeof(g_s_adc_values));
-		/* Start new pdc transfer. */
-		ADC_ReadBuffer(ADC, g_s_adc_values, BUFFER_SIZE);
-
-	}
-}
-
 /**
  *  Configure UART console.
  */
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ BOARD_MCK, 115200, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
 
 	/* Configure PIO. */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
@@ -315,6 +228,68 @@ static void configure_console(void)
 	 * emits one character at a time.
 	 */
 #endif
+}
+
+/**
+ * Systick handler, start new conversion.
+ */
+void SysTick_Handler(void)
+{
+	gs_ul_time_stamp++;
+	/* Simply to get 10ms interval */
+	if (gs_ul_time_stamp % 10 == 0) {
+
+		if ((adc_get_status(ADC).isr_status & ADC_ISR_EOC15) ==
+				ADC_ISR_EOC15) {
+
+			/* Start conversion */
+			adc_start(ADC);
+		}
+
+	}
+}
+
+/**
+ * ADC interrupt handler.
+ */
+void ADC_Handler(void)
+{
+	uint32_t ul_counter;
+	int32_t l_vol;
+	float f_temp;
+	uint32_t ul_value = 0;
+	uint32_t ul_temp_value = 0;
+
+	if ((adc_get_status(ADC).isr_status & ADC_ISR_RXBUFF) == ADC_ISR_RXBUFF) {
+
+		/* Multisample */
+		for (ul_counter = 0; ul_counter < BUFFER_SIZE; ul_counter++) {
+			ul_value += gs_s_adc_values[ul_counter];
+		}
+		/* Averaging */
+		ul_temp_value = ul_value / 10;
+		ul_value = ul_value / 100;
+		ul_temp_value -= (ul_value * 10);
+		/* Round for last decimal */
+		if (ul_temp_value > 4) {
+			ul_value++;
+		}
+
+		l_vol = ul_value * VOLT_REF / MAX_DIGITAL;
+	#if SAM3S | SAM3XA	
+		/* Using multiplication (*0.37736) instead of division (/2.65). */
+		f_temp = (float)(l_vol - 800) * 0.37736 + 27.0;
+	#else
+		/* Using multiplication (*0.21186) instead of division (/4.72). */
+		f_temp = (float)(l_vol - 1440) * 0.21186 + 27.0;
+	#endif
+		print_temp(f_temp);
+		/* Clear the buffer. */
+		memset(gs_s_adc_values, 0x0, sizeof(gs_s_adc_values));
+		/* Start new pdc transfer. */
+		adc_read_buffer(ADC, gs_s_adc_values, BUFFER_SIZE);
+
+	}
 }
 
 /**
@@ -352,13 +327,13 @@ int main(void)
 	 *     prescal: ADCClock = MCK / ( (PRESCAL+1) * 2 ) => 64MHz / ((4+1)*2) = 6.4MHz
 	 *     ADC clock = 6.4 MHz
 	 */
-	adc_init(ADC, BOARD_MCK, 6400000, 8);
+	adc_init(ADC, sysclk_get_cpu_hz(), 6400000, 8);
 
 	adc_configure_timing(ADC, 0, ADC_SETTLING_TIME_3, 1);
 
 	adc_configure_trigger(ADC, ADC_TRIG_SW, 0);
 
-	adc_check(ADC, BOARD_MCK);
+	adc_check(ADC, sysclk_get_cpu_hz());
 
 	/* Enable channel for potentiometer. */
 	adc_enable_channel(ADC, ADC_TEMPERATURE_SENSOR);
@@ -371,7 +346,7 @@ int main(void)
 	/* Start conversion. */
 	adc_start(ADC);
 
-	ADC_ReadBuffer(ADC, g_s_adc_values, BUFFER_SIZE);
+	adc_read_buffer(ADC, gs_s_adc_values, BUFFER_SIZE);
 	/* Enable PDC channel interrupt. */
 	adc_enable_interrupt(ADC, ADC_ISR_RXBUFF);
 

@@ -3,7 +3,7 @@
  *
  * \brief Main functions for USB Device vendor example
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -147,10 +147,16 @@ bool main_vendor_enable(void)
 {
 	main_b_vendor_enable = true;
 	// Start data reception on OUT endpoints
+#if UDI_VENDOR_EPS_SIZE_INT_FS
 	main_vendor_int_in_received(UDD_EP_TRANSFER_OK, 0);
+#endif
+#if UDI_VENDOR_EPS_SIZE_BULK_FS
 	main_vendor_bulk_in_received(UDD_EP_TRANSFER_OK, 0);
+#endif
+#if UDI_VENDOR_EPS_SIZE_ISO_FS
 	main_buf_iso_sel=0;
 	main_vendor_iso_out_received(UDD_EP_TRANSFER_OK, 0);
+#endif
 	return true;
 }
 
@@ -179,6 +185,7 @@ bool main_setup_in_received(void)
 	return true;
 }
 
+#if UDI_VENDOR_EPS_SIZE_INT_FS
 void main_vendor_int_in_received(udd_ep_status_t status,
 		iram_size_t nb_transfered)
 {
@@ -206,7 +213,9 @@ void main_vendor_int_out_received(udd_ep_status_t status,
 			nb_transfered,
 			main_vendor_int_in_received);
 }
+#endif
 
+#if UDI_VENDOR_EPS_SIZE_BULK_FS
 void main_vendor_bulk_in_received(udd_ep_status_t status,
 		iram_size_t nb_transfered)
 {
@@ -234,7 +243,9 @@ void main_vendor_bulk_out_received(udd_ep_status_t status,
 			nb_transfered,
 			main_vendor_bulk_in_received);
 }
+#endif
 
+#if UDI_VENDOR_EPS_SIZE_ISO_FS
 void main_vendor_iso_in_received(udd_ep_status_t status,
 		iram_size_t nb_transfered)
 {
@@ -285,6 +296,7 @@ void main_vendor_iso_out_received(udd_ep_status_t status,
 				UDI_VENDOR_EPS_SIZE_ISO_HS:UDI_VENDOR_EPS_SIZE_ISO_FS,
 			main_vendor_iso_out_received);
 }
+#endif
 
 /**
  * \mainpage ASF USB Device Vendor Example

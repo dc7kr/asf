@@ -3,7 +3,7 @@
  *
  * \brief AVR XMEGA Direct Memory Access Controller driver definitions
  *
- * Copyright (c) 2010-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -49,7 +49,7 @@
 /**
  * \defgroup dma_group Direct Memory Access controller (DMA)
  *
- * See \ref dma_quickstart.
+ * See \ref xmega_dma_quickstart.
  *
  * This is a driver for configuration, enabling, disabling and use of the
  * on-chip XMEGA Direct Memory Access (DMA) controller.
@@ -787,7 +787,7 @@ static inline void dma_channel_set_source_hugemem(struct dma_channel_config *con
 //! @}
 
 /**
- * \page dma_quickstart Quick start guide for the XMEGA DMA driver
+ * \page xmega_dma_quickstart Quick start guide for the XMEGA DMA driver
  *
  * This is the quick start guide for the \ref dma_group "DMA driver", with
  * step-by-step instructions on how to configure and use the driver in a

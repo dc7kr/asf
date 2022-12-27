@@ -6,7 +6,7 @@
  *
  * This file defines a useful set of functions for ADC on AVR UC3 devices.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -47,7 +47,7 @@
 #define _ADCIFA_H_
 
 /**
- * \defgroup group_avr32_drivers_adcifa ANALOG - ADCIFA - ADC Interface A
+ * \defgroup group_avr32_drivers_adcifa ADCIFA - ADC Interface A
  *
  * Driver for the ADCIFA (Analog-to-Digital Converter Interface A).
  * Provides functions for configuration of conversion parameters

@@ -3,7 +3,7 @@
  *
  * \brief Chip-specific system clock management functions.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -71,9 +71,9 @@ uint32_t sysclk_initialized = 0;
  *
  * \param cpu_shift The CPU clock will be divided by \f$2^{mck\_pres}\f$
  */
-void sysclk_set_prescalers(uint32_t dw_pres)
+void sysclk_set_prescalers(uint32_t ul_pres)
 {
-	pmc_mck_set_prescaler(dw_pres);
+	pmc_mck_set_prescaler(ul_pres);
 	SystemCoreClockUpdate();
 }
 
@@ -83,9 +83,9 @@ void sysclk_set_prescalers(uint32_t dw_pres)
  * \param src The new system clock source. Must be one of the constants
  * from the <em>System Clock Sources</em> section.
  */
-void sysclk_set_source(uint32_t dw_src)
+void sysclk_set_source(uint32_t ul_src)
 {
-	switch (dw_src) {
+	switch (ul_src) {
 	case SYSCLK_SRC_SLCK_RC:
 	case SYSCLK_SRC_SLCK_XTAL:
 	case SYSCLK_SRC_SLCK_BYPASS:

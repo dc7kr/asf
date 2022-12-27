@@ -62,6 +62,9 @@
 #include <t2bf.h>
 #include <unistr.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: EBI Static Memory Controller (SMC)
 #include <smc.h>
 
@@ -96,9 +99,6 @@
 
 // From module: TC - Timer/Counter
 #include <tc.h>
-
-// From module: TIMING - Delay routines
-#include <delay.h>
 
 // From module: UC3C-EK board support
 #include <led.h>

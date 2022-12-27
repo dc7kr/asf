@@ -3,7 +3,7 @@
  *
  * \brief USB configuration file
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -118,6 +118,7 @@
 //! Interface callback definition
 #define  UDI_MSC_ENABLE_EXT()          true
 #define  UDI_MSC_DISABLE_EXT()
+#define  UDI_MSC_NOTIFY_TRANS_EXT()
 //@}
 
 //@}

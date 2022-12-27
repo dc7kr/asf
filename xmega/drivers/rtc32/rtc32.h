@@ -3,7 +3,7 @@
  *
  * \brief AVR XMEGA 32-bit Real Time Counter driver definitions
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -47,7 +47,7 @@
 /**
  * \defgroup rtc32_group 32-bit Real Time Counter (RTC32)
  *
- * See \ref rtc32_quickstart.
+ * See \ref xmega_rtc32_quickstart.
  *
  * This is a driver implementation for the XMEGA RTC32.
  *
@@ -190,7 +190,7 @@ void rtc32_init(void);
 //! @}
 
 /**
- * \page rtc32_quickstart Quick start guide for RTC32 driver
+ * \page xmega_rtc32_quickstart Quick start guide for RTC32 driver
  *
  * This is the quick start guide for the \ref rtc32_group "RTC32 driver", with
  * step-by-step instructions on how to configure and use the drivers in a

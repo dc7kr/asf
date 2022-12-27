@@ -3,7 +3,7 @@
  *
  * \brief Parallel Input/Output (PIO) interrupt handler for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -65,10 +65,10 @@ struct s_interrupt_source {
 
 
 /* List of interrupt sources. */
-static struct s_interrupt_source interrupt_sources[MAX_INTERRUPT_SOURCES];
+static struct s_interrupt_source gs_interrupt_sources[MAX_INTERRUPT_SOURCES];
 
 /* Number of currently defined interrupt sources. */
-static uint32_t ul_nb_sources = 0;
+static uint32_t gs_ul_nb_sources = 0;
 
 /**
  * \brief Process an interrupt request on the given PIO controller.
@@ -91,12 +91,12 @@ void pio_handler_process(Pio *p_pio, uint32_t ul_id)
 		i = 0;
 		while (status != 0) {
 			/* Source is configured on the same controller */
-			if (interrupt_sources[i].id == ul_id) {
+			if (gs_interrupt_sources[i].id == ul_id) {
 				/* Source has PIOs whose statuses have changed */
-				if ((status & interrupt_sources[i].mask) != 0) {
-					interrupt_sources[i].handler(interrupt_sources[i].id,
-							interrupt_sources[i].mask);
-					status &= ~(interrupt_sources[i].mask);
+				if ((status & gs_interrupt_sources[i].mask) != 0) {
+					gs_interrupt_sources[i].handler(gs_interrupt_sources[i].id,
+							gs_interrupt_sources[i].mask);
+					status &= ~(gs_interrupt_sources[i].mask);
 				}
 			}
 			i++;
@@ -122,16 +122,16 @@ uint32_t pio_handler_set(Pio *p_pio, uint32_t ul_id, uint32_t ul_mask,
 {
 	struct s_interrupt_source *pSource;
 
-	if (ul_nb_sources >= MAX_INTERRUPT_SOURCES)
+	if (gs_ul_nb_sources >= MAX_INTERRUPT_SOURCES)
 		return 1;
 
 	/* Define new source */
-	pSource = &(interrupt_sources[ul_nb_sources]);
+	pSource = &(gs_interrupt_sources[gs_ul_nb_sources]);
 	pSource->id = ul_id;
 	pSource->mask = ul_mask;
 	pSource->attr = ul_attr;
 	pSource->handler = p_handler;
-	ul_nb_sources++;
+	gs_ul_nb_sources++;
 
 	/* Configure interrupt mode */
 	pio_configure_interrupt(p_pio, ul_mask, ul_attr);
@@ -141,7 +141,7 @@ uint32_t pio_handler_set(Pio *p_pio, uint32_t ul_id, uint32_t ul_mask,
 
 /**
  * \brief Parallel IO Controller A interrupt handler.
- * \Redefined PIOA interrupt handler for NVIC interrupt table.
+ * Redefined PIOA interrupt handler for NVIC interrupt table.
  */
 void PIOA_Handler(void)
 {
@@ -150,7 +150,7 @@ void PIOA_Handler(void)
 
 /**
  * \brief Parallel IO Controller B interrupt handler
- * \Redefined PIOB interrupt handler for NVIC interrupt table.
+ * Redefined PIOB interrupt handler for NVIC interrupt table.
  */
 void PIOB_Handler(void)
 {
@@ -159,7 +159,7 @@ void PIOB_Handler(void)
 
 /**
  * \brief Parallel IO Controller C interrupt handler.
- * \Redefined PIOC interrupt handler for NVIC interrupt table.
+ * Redefined PIOC interrupt handler for NVIC interrupt table.
  */
 void PIOC_Handler(void)
 {
@@ -169,7 +169,7 @@ void PIOC_Handler(void)
 #if SAM3XA
 /**
  * \brief Parallel IO Controller D interrupt handler.
- * \Redefined PIOD interrupt handler for NVIC interrupt table.
+ * Redefined PIOD interrupt handler for NVIC interrupt table.
  */
 void PIOD_Handler(void)
 {
@@ -178,7 +178,7 @@ void PIOD_Handler(void)
 
 /**
  * \brief Parallel IO Controller E interrupt handler.
- * \Redefined PIOE interrupt handler for NVIC interrupt table.
+ * Redefined PIOE interrupt handler for NVIC interrupt table.
  */
 void PIOE_Handler(void)
 {
@@ -187,7 +187,7 @@ void PIOE_Handler(void)
 
 /**
  * \brief Parallel IO Controller F interrupt handler.
- * \Redefined PIOF interrupt handler for NVIC interrupt table.
+ * Redefined PIOF interrupt handler for NVIC interrupt table.
  */
 void PIOF_Handler(void)
 {

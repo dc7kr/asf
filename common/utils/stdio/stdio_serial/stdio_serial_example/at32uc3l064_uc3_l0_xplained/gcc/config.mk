@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_utils_stdio_stdio_serial_uc3-l0_stdio-demo.elf
+TARGET = stdio_serial_stdio_serial_example.elf
 
 # List of C source files.
 CSRCS = \
@@ -65,6 +65,7 @@ CSRCS = \
        common/services/clock/uc3l/dfll.c                  \
        common/services/clock/uc3l/osc.c                   \
        common/services/clock/uc3l/sysclk.c                \
+       common/services/serial/usart_serial.c              \
        common/utils/stdio/read.c                          \
        common/utils/stdio/stdio_serial/stdio_serial_example/stdio_serial_example.c \
        common/utils/stdio/write.c
@@ -88,6 +89,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/serial                             \
+       common/services/serial/uc3_usart                   \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
        common/utils/stdio/stdio_serial/stdio_serial_example/at32uc3l064_uc3_l0_xplained \

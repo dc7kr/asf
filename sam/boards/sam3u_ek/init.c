@@ -3,7 +3,7 @@
  *
  * \brief SAM3U-EK board init.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -52,8 +52,8 @@ void board_init(void)
 #endif
 
 	/* Configure LED pins */
-	gpio_configure_pin(LED0_GPIO, LED0_GPIO_FLAGS);
-	gpio_configure_pin(LED1_GPIO, LED1_GPIO_FLAGS);
+	gpio_configure_pin(LED0_GPIO, LED0_FLAGS);
+	gpio_configure_pin(LED1_GPIO, LED1_FLAGS);
 	
 	/* Configure Push Button pins */
 	gpio_configure_pin(GPIO_PUSH_BUTTON_1, GPIO_PUSH_BUTTON_1_FLAGS);
@@ -93,24 +93,43 @@ void board_init(void)
 	
 	/* Configure SPI pins */
 #ifdef CONF_BOARD_SPI
-	gpio_configure_pin(SPI_MISO_GPIO, SPI_MISO_GPIO_FLAGS);
-	gpio_configure_pin(SPI_MOSI_GPIO, SPI_MOSI_GPIO_FLAGS);
-	gpio_configure_pin(SPI_SPCK_GPIO, SPI_SPCK_GPIO_FLAGS);
-
+	gpio_configure_pin(SPI_MISO_GPIO, SPI_MISO_FLAGS);
+	gpio_configure_pin(SPI_MOSI_GPIO, SPI_MOSI_FLAGS);
+	gpio_configure_pin(SPI_SPCK_GPIO, SPI_SPCK_FLAGS);
+	
+	/**
+	 * For NPCS 1, 2, and 3, different PINs can be used to access the same NPCS line.
+	 * Depending on the application requirements, the default PIN may not be available. 
+	 * Hence a different PIN should be selected using the CONF_BOARD_SPI_NPCS_GPIO and 
+	 * CONF_BOARD_SPI_NPCS_FLAGS macros.
+	 */
+	
 	#ifdef CONF_BOARD_SPI_NPCS0
-		gpio_configure_pin(BOARD_SPI_NPCS0_GPIO, BOARD_SPI_NPCS0_GPIO_FLAGS);
+		gpio_configure_pin(SPI_NPCS0_GPIO, SPI_NPCS0_FLAGS);
 	#endif
 
 	#ifdef CONF_BOARD_SPI_NPCS1
-		gpio_configure_pin(BOARD_SPI_NPCS1_GPIO, BOARD_SPI_NPCS1_GPIO_FLAGS);
+		#if defined(CONF_BOARD_SPI_NPCS1_GPIO) && defined(CONF_BOARD_SPI_NPCS1_FLAGS)
+			gpio_configure_pin(CONF_BOARD_SPI_NPCS1_GPIO, CONF_BOARD_SPI_NPCS1_FLAGS);
+		#else
+			gpio_configure_pin(SPI_NPCS1_PA0_GPIO, SPI_NPCS1_PA0_FLAGS);
+		#endif
 	#endif
 
 	#ifdef CONF_BOARD_SPI_NPCS2
-		gpio_configure_pin(BOARD_SPI_NPCS2_GPIO, BOARD_SPI_NPCS2_GPIO_FLAGS);
+		#if defined(CONF_BOARD_SPI_NPCS2_GPIO) && defined(CONF_BOARD_SPI_NPCS2_FLAGS)
+			gpio_configure_pin(CONF_BOARD_SPI_NPCS2_GPIO, CONF_BOARD_SPI_NPCS2_FLAGS);
+		#else
+			gpio_configure_pin(SPI_NPCS2_PA1_GPIO, SPI_NPCS2_PA1_FLAGS);
+		#endif
 	#endif
 
 	#ifdef CONF_BOARD_SPI_NPCS3
-		gpio_configure_pin(BOARD_SPI_NPCS3_GPIO, BOARD_SPI_NPCS3_GPIO_FLAGS);
+		#if defined(CONF_BOARD_SPI_NPCS3_GPIO) && defined(CONF_BOARD_SPI_NPCS3_FLAGS)
+			gpio_configure_pin(CONF_BOARD_SPI_NPCS3_GPIO, CONF_BOARD_SPI_NPCS3_FLAGS);
+		#else
+			gpio_configure_pin(SPI_NPCS3_PA19_GPIO, SPI_NPCS3_PA19_FLAGS);
+		#endif
 	#endif
 #endif
 

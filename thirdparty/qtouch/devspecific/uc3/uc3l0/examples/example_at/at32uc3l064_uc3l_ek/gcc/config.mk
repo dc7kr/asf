@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_services_qtouch_devspecific_uc3_uc3l0_examples_example_at_at32uc3l064_uc3l_ek.elf
+TARGET = examples_example_at.elf
 
 # List of C source files.
 CSRCS = \
@@ -64,6 +64,10 @@ CSRCS = \
        avr32/drivers/pm/power_clocks_lib.c                \
        avr32/drivers/scif/scif_uc3l.c                     \
        avr32/drivers/usart/usart.c                        \
+       common/services/clock/uc3l/dfll.c                  \
+       common/services/clock/uc3l/osc.c                   \
+       common/services/clock/uc3l/sysclk.c                \
+       common/services/sleepmgr/uc3/sleepmgr.c            \
        thirdparty/qtouch/devspecific/uc3/uc3l0/examples/example_at/main.c
 
 # List of assembler source files.
@@ -86,8 +90,11 @@ INC_PATH = \
        avr32/utils                                        \
        avr32/utils/preprocessor                           \
        common/boards                                      \
+       common/services/clock                              \
+       common/services/sleepmgr                           \
        common/utils                                       \
        thirdparty/qtouch/devspecific/uc3/uc3l0/examples/example_at \
+       thirdparty/qtouch/devspecific/uc3/uc3l0/examples/example_at/at32uc3l064_uc3l_ek \
        thirdparty/qtouch/devspecific/uc3/uc3l0/include \
        ./thirdparty/qtouch/devspecific/uc3/uc3l0/examples/example_at/at32uc3l064_uc3l_ek/gcc
 

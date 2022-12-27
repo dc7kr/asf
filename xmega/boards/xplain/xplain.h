@@ -8,7 +8,7 @@
  *
  * To use this board, define BOARD=XPLAIN.
 
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -59,28 +59,37 @@
 /*! \name GPIO Connections of LEDs
  */
 //! @{
-#  define LED0_GPIO   IOPORT_CREATE_PIN(PORTE,0)
-#  define LED1_GPIO   IOPORT_CREATE_PIN(PORTE,1)
-#  define LED2_GPIO   IOPORT_CREATE_PIN(PORTE,2)
-#  define LED3_GPIO   IOPORT_CREATE_PIN(PORTE,3)
-#  define LED4_GPIO   IOPORT_CREATE_PIN(PORTE,4)
-#  define LED5_GPIO   IOPORT_CREATE_PIN(PORTE,5)
-#  define LED6_GPIO   IOPORT_CREATE_PIN(PORTE,6)
-#  define LED7_GPIO   IOPORT_CREATE_PIN(PORTE,7)
+#define LED0_GPIO            IOPORT_CREATE_PIN(PORTE,0)
+#define LED1_GPIO            IOPORT_CREATE_PIN(PORTE,1)
+#define LED2_GPIO            IOPORT_CREATE_PIN(PORTE,2)
+#define LED3_GPIO            IOPORT_CREATE_PIN(PORTE,3)
+#define LED4_GPIO            IOPORT_CREATE_PIN(PORTE,4)
+#define LED5_GPIO            IOPORT_CREATE_PIN(PORTE,5)
+#define LED6_GPIO            IOPORT_CREATE_PIN(PORTE,6)
+#define LED7_GPIO            IOPORT_CREATE_PIN(PORTE,7)
+
+#define LED0                 LED0_GPIO
+#define LED1                 LED1_GPIO
+#define LED2                 LED2_GPIO
+#define LED3                 LED3_GPIO
+#define LED4                 LED4_GPIO
+#define LED5                 LED5_GPIO
+#define LED6                 LED6_GPIO
+#define LED7                 LED7_GPIO
 //! @}
 
 
 /*! \name GPIO Connections of Push Buttons
  */
 //! @{
-#  define GPIO_PUSH_BUTTON_0	IOPORT_CREATE_PIN(PORTF,0)
-#  define GPIO_PUSH_BUTTON_1	IOPORT_CREATE_PIN(PORTF,1)
-#  define GPIO_PUSH_BUTTON_2	IOPORT_CREATE_PIN(PORTF,2)
-#  define GPIO_PUSH_BUTTON_3	IOPORT_CREATE_PIN(PORTF,3)
-#  define GPIO_PUSH_BUTTON_4	IOPORT_CREATE_PIN(PORTF,4)
-#  define GPIO_PUSH_BUTTON_5	IOPORT_CREATE_PIN(PORTF,5)
-#  define GPIO_PUSH_BUTTON_6	IOPORT_CREATE_PIN(PORTF,6)
-#  define GPIO_PUSH_BUTTON_7	IOPORT_CREATE_PIN(PORTF,7)
+#define GPIO_PUSH_BUTTON_0    IOPORT_CREATE_PIN(PORTF,0)
+#define GPIO_PUSH_BUTTON_1    IOPORT_CREATE_PIN(PORTF,1)
+#define GPIO_PUSH_BUTTON_2    IOPORT_CREATE_PIN(PORTF,2)
+#define GPIO_PUSH_BUTTON_3    IOPORT_CREATE_PIN(PORTF,3)
+#define GPIO_PUSH_BUTTON_4    IOPORT_CREATE_PIN(PORTF,4)
+#define GPIO_PUSH_BUTTON_5    IOPORT_CREATE_PIN(PORTF,5)
+#define GPIO_PUSH_BUTTON_6    IOPORT_CREATE_PIN(PORTF,6)
+#define GPIO_PUSH_BUTTON_7    IOPORT_CREATE_PIN(PORTF,7)
 //! @}
 
 /*! \name SPI Connections of the AT45DBX Data Flash Memory
@@ -111,6 +120,16 @@
 #define BOARD_XOSC_HZ          32768
 #define BOARD_XOSC_TYPE        XOSC_TYPE_32KHZ
 #define BOARD_XOSC_STARTUP_US  500000
+//@}
+
+/*! \name Display Xplained
+ */
+//@{
+#define DISPLAY_XPLAINED_USART_SPI &USARTD1
+#define DISPLAY_XPLAINED_CS        IOPORT_CREATE_PIN(PORTD, 4)
+#define DISPLAY_XPLAINED_TE        IOPORT_CREATE_PIN(PORTD, 2)
+#define DISPLAY_XPLAINED_RESET     IOPORT_CREATE_PIN(PORTD, 1)
+#define DISPLAY_XPLAINED_BACKLIGHT IOPORT_CREATE_PIN(PORTD, 0)
 //@}
 
 #endif  // _XPLAIN_H_

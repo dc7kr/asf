@@ -6,7 +6,7 @@
  *
  * This file defines a useful set of functions for DACIFB on AVR32 devices.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -47,7 +47,7 @@
 #define _DACIFB_H_
 
 /**
- * \defgroup group_avr32_drivers_dacifb ANALOG - DACIFB - DAC Interface B
+ * \defgroup group_avr32_drivers_dacifb DACIFB - DAC Interface B
  *
  * Driver for the Digital to Analog Converter (DAC) Interface B. It provides functions for configuring and using the DAC and its channels.
  *

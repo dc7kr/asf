@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_applications_uc3-l0_avrsblp1_gesture.elf
+TARGET = sensors_prox_gesture.elf
 
 # List of C source files.
 CSRCS = \
@@ -77,6 +77,7 @@ CSRCS = \
        common/services/sensors/sensor_bus.c               \
        common/services/sensors/sensor_nvram.c             \
        common/services/sensors/sensor_platform.c          \
+       common/services/serial/usart_serial.c              \
        common/services/sleepmgr/uc3/sleepmgr.c            \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c
@@ -109,6 +110,7 @@ INC_PATH = \
        common/services/sensors                            \
        common/services/sensors/module_config              \
        common/services/serial                             \
+       common/services/serial/uc3_usart                   \
        common/services/sleepmgr                           \
        common/utils                                       \
        common/utils/stdio/stdio_serial \

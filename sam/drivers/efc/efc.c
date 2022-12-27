@@ -3,7 +3,7 @@
  *
  * \brief Enhanced Embedded Flash Controller (EEFC) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -77,20 +77,20 @@ extern "C" {
  * Local function declaration.
  * Because they are RAM functions, they need 'extern' declaration.
  */
-extern void efc_write_fmr(Efc *p_efc, uint32_t dw_fmr);
-extern uint32_t efc_perform_fcr(Efc *p_efc, uint32_t dw_fcr);
+extern void efc_write_fmr(Efc *p_efc, uint32_t ul_fmr);
+extern uint32_t efc_perform_fcr(Efc *p_efc, uint32_t ul_fcr);
 
 /** 
  * \brief Initialize the EFC controller.
  *
- * \param dw_access_mode 0 for 128-bit, EEFC_FMR_FAM for 64-bit. 
- * \param dw_fws The number of wait states in cycle (no shift).
+ * \param ul_access_mode 0 for 128-bit, EEFC_FMR_FAM for 64-bit. 
+ * \param ul_fws The number of wait states in cycle (no shift).
  *
  * \return 0 if successful.
  */
-uint32_t efc_init(Efc *p_efc, uint32_t dw_access_mode, uint32_t dw_fws)
+uint32_t efc_init(Efc *p_efc, uint32_t ul_access_mode, uint32_t ul_fws)
 {
-	efc_write_fmr(p_efc, dw_access_mode | EEFC_FMR_FWS(dw_fws));
+	efc_write_fmr(p_efc, ul_access_mode | EEFC_FMR_FWS(ul_fws));
 	return EFC_RC_OK;
 }
 
@@ -101,9 +101,9 @@ uint32_t efc_init(Efc *p_efc, uint32_t dw_access_mode, uint32_t dw_fws)
  */
 void efc_enable_frdy_interrupt(Efc *p_efc)
 {
-	uint32_t dw_fmr = p_efc->EEFC_FMR;
+	uint32_t ul_fmr = p_efc->EEFC_FMR;
 
-	efc_write_fmr(p_efc, dw_fmr | EEFC_FMR_FRDY);
+	efc_write_fmr(p_efc, ul_fmr | EEFC_FMR_FRDY);
 }
 
 /** 
@@ -113,22 +113,22 @@ void efc_enable_frdy_interrupt(Efc *p_efc)
  */
 void efc_disable_frdy_interrupt(Efc *p_efc)
 {
-	uint32_t dw_fmr = p_efc->EEFC_FMR;
+	uint32_t ul_fmr = p_efc->EEFC_FMR;
 
-	efc_write_fmr(p_efc, dw_fmr & (~EEFC_FMR_FRDY));
+	efc_write_fmr(p_efc, ul_fmr & (~EEFC_FMR_FRDY));
 }
 
 /** 
  * \brief Set flash access mode.
  *
  * \param p_efc Pointer to an EFC instance.
- * \param dw_mode 0 for 128-bit, EEFC_FMR_FAM for 64-bit.
+ * \param ul_mode 0 for 128-bit, EEFC_FMR_FAM for 64-bit.
  */
-void efc_set_flash_access_mode(Efc *p_efc, uint32_t dw_mode)
+void efc_set_flash_access_mode(Efc *p_efc, uint32_t ul_mode)
 {
-	uint32_t dw_fmr = p_efc->EEFC_FMR & (~EEFC_FMR_FAM);
+	uint32_t ul_fmr = p_efc->EEFC_FMR & (~EEFC_FMR_FAM);
 
-	efc_write_fmr(p_efc, dw_fmr | dw_mode);
+	efc_write_fmr(p_efc, ul_fmr | ul_mode);
 }
 
 /** 
@@ -147,13 +147,13 @@ uint32_t efc_get_flash_access_mode(Efc *p_efc)
  * \brief Set flash wait state.
  *
  * \param p_efc Pointer to an EFC instance.
- * \param dw_fws The number of wait states in cycle (no shift).
+ * \param ul_fws The number of wait states in cycle (no shift).
  */
-void efc_set_wait_state(Efc *p_efc, uint32_t dw_fws)
+void efc_set_wait_state(Efc *p_efc, uint32_t ul_fws)
 {
-	uint32_t dw_fmr = p_efc->EEFC_FMR & (~EEFC_FMR_FWS_Msk);
+	uint32_t ul_fmr = p_efc->EEFC_FMR & (~EEFC_FMR_FWS_Msk);
 
-	efc_write_fmr(p_efc, dw_fmr | EEFC_FMR_FWS(dw_fws));
+	efc_write_fmr(p_efc, ul_fmr | EEFC_FMR_FWS(ul_fws));
 }
 
 /** 
@@ -174,32 +174,32 @@ uint32_t efc_get_wait_state(Efc *p_efc)
  * \note Unique ID commands are not supported, use efc_read_unique_id.
  *
  * \param p_efc Pointer to an EFC instance.
- * \param dw_command Command to perform.
- * \param dw_argument Optional command argument.
+ * \param ul_command Command to perform.
+ * \param ul_argument Optional command argument.
  *
  * \note This function will automatically choose to use IAP function.
  *
  * \return 0 if successful, otherwise returns an error code.
  */
-uint32_t efc_perform_command(Efc *p_efc, uint32_t dw_command,
-		uint32_t dw_argument)
+uint32_t efc_perform_command(Efc *p_efc, uint32_t ul_command,
+		uint32_t ul_argument)
 {
 	// Unique ID commands are not supported.
-	if (dw_command == EFC_FCMD_STUI || dw_command == EFC_FCMD_SPUI) {
+	if (ul_command == EFC_FCMD_STUI || ul_command == EFC_FCMD_SPUI) {
 		return EFC_RC_NOT_SUPPORT;
 	}
 
 #if (SAM3XA || SAM3U4)
 	// Use IAP function with 2 parameters in ROM.
 	static uint32_t(*iap_perform_command) (uint32_t, uint32_t);
-	uint32_t dw_efc_nb = (p_efc == EFC0) ? 0 : 1;
+	uint32_t ul_efc_nb = (p_efc == EFC0) ? 0 : 1;
 
 	iap_perform_command =
 			(uint32_t(*)(uint32_t, uint32_t))
 			*((uint32_t *) CHIP_FLASH_IAP_ADDRESS);
-	iap_perform_command(dw_efc_nb,
-			EEFC_FCR_FKEY(FWP_KEY) | EEFC_FCR_FARG(dw_argument) |
-			EEFC_FCR_FCMD(dw_command));
+	iap_perform_command(ul_efc_nb,
+			EEFC_FCR_FKEY(FWP_KEY) | EEFC_FCR_FARG(ul_argument) |
+			EEFC_FCR_FCMD(ul_command));
 	return (p_efc->EEFC_FSR & (EEFC_FSR_FLOCKE | EEFC_FSR_FCMDE));
 #elif (SAM3N || SAM3S || SAM4S || SAM3U)
 	// Use IAP function with 2 parameter in ROM.
@@ -209,14 +209,14 @@ uint32_t efc_perform_command(Efc *p_efc, uint32_t dw_command,
 			(uint32_t(*)(uint32_t, uint32_t))
 			*((uint32_t *) CHIP_FLASH_IAP_ADDRESS);
 	iap_perform_command(0,
-			EEFC_FCR_FKEY(FWP_KEY) | EEFC_FCR_FARG(dw_argument) |
-			EEFC_FCR_FCMD(dw_command));
+			EEFC_FCR_FKEY(FWP_KEY) | EEFC_FCR_FARG(ul_argument) |
+			EEFC_FCR_FCMD(ul_command));
 	return (p_efc->EEFC_FSR & (EEFC_FSR_FLOCKE | EEFC_FSR_FCMDE));
 #else
 	// Use RAM Function.
 	return efc_perform_fcr(p_efc,
-			EEFC_FCR_FKEY(FWP_KEY) | EEFC_FCR_FARG(dw_argument) |
-			EEFC_FCR_FCMD(dw_command));
+			EEFC_FCR_FKEY(FWP_KEY) | EEFC_FCR_FARG(ul_argument) |
+			EEFC_FCR_FCMD(ul_command));
 
 #endif
 }
@@ -252,10 +252,10 @@ uint32_t efc_get_result(Efc *p_efc)
  * read User Signature
  *
  * \param p_efc Pointer to an EFC instance.
- * \param dw_cmd_st Start command to perform.
- * \param dw_cmd_sp Stop command to perform.
- * \param p_dw_buf Pointer to an data buffer.
- * \param dw_size Buffer size.
+ * \param ul_cmd_st Start command to perform.
+ * \param ul_cmd_sp Stop command to perform.
+ * \param p_ul_buf Pointer to an data buffer.
+ * \param ul_size Buffer size.
  *
  * \return 0 if successful, otherwise returns an error code.
  */
@@ -265,23 +265,23 @@ __ramfunc
 __attribute__ ((section(".ramfunc")))
 #endif
 uint32_t efc_perform_read_sequence(Efc *p_efc,
-		uint32_t dw_cmd_st, uint32_t dw_cmd_sp,
-		uint32_t *p_dw_buf, uint32_t dw_size)
+		uint32_t ul_cmd_st, uint32_t ul_cmd_sp,
+		uint32_t *p_ul_buf, uint32_t ul_size)
 {
-	volatile uint32_t dw_status;
-	uint32_t dw_cnt;
+	volatile uint32_t ul_status;
+	uint32_t ul_cnt;
 
 #if (SAM3U4 || SAM3XA)
-	uint32_t *p_dw_data =
+	uint32_t *p_ul_data =
 			(uint32_t *) ((p_efc == EFC0) ?
 			READ_BUFF_ADDR0 : READ_BUFF_ADDR1);
 #elif (SAM3S || SAM4S || SAM3N || SAM3U)
-	uint32_t *p_dw_data = (uint32_t *) READ_BUFF_ADDR;
+	uint32_t *p_ul_data = (uint32_t *) READ_BUFF_ADDR;
 #else
 	return EFC_RC_NOT_SUPPORT;
 #endif
 
-	if (p_dw_buf == NULL) {
+	if (p_ul_buf == NULL) {
 		return EFC_RC_INVALID;
 	}
 
@@ -289,33 +289,33 @@ uint32_t efc_perform_read_sequence(Efc *p_efc,
 	
 	/* Send the Start Read command */
 	p_efc->EEFC_FCR = EEFC_FCR_FKEY(FWP_KEY) | EEFC_FCR_FARG(0)
-			| EEFC_FCR_FCMD(dw_cmd_st);
+			| EEFC_FCR_FCMD(ul_cmd_st);
 
 	/* Wait for the FRDY bit in the Flash Programming Status Register 
 	 * (EEFC_FSR) falls.
 	 */
 	do {
-		dw_status = p_efc->EEFC_FSR;
-	} while ((dw_status & EEFC_FSR_FRDY) == EEFC_FSR_FRDY);
+		ul_status = p_efc->EEFC_FSR;
+	} while ((ul_status & EEFC_FSR_FRDY) == EEFC_FSR_FRDY);
 
 	/* The data is located in the first address of the Flash
 	 * memory mapping.
 	 */
-	for (dw_cnt = 0; dw_cnt < dw_size; dw_cnt++) {
-		p_dw_buf[dw_cnt] = p_dw_data[dw_cnt];
+	for (ul_cnt = 0; ul_cnt < ul_size; ul_cnt++) {
+		p_ul_buf[ul_cnt] = p_ul_data[ul_cnt];
 	}
 
 	/* To stop the read mode */
 	p_efc->EEFC_FCR =
 			EEFC_FCR_FKEY(FWP_KEY) | EEFC_FCR_FARG(0) |
-			EEFC_FCR_FCMD(dw_cmd_sp);
+			EEFC_FCR_FCMD(ul_cmd_sp);
 
 	/* Wait for the FRDY bit in the Flash Programming Status Register (EEFC_FSR)
 	 * rises.
 	 */
 	do {
-		dw_status = p_efc->EEFC_FSR;
-	} while ((dw_status & EEFC_FSR_FRDY) != EEFC_FSR_FRDY);
+		ul_status = p_efc->EEFC_FSR;
+	} while ((ul_status & EEFC_FSR_FRDY) != EEFC_FSR_FRDY);
 
 	p_efc->EEFC_FMR &= ~(0x1u << 16);
 
@@ -326,23 +326,23 @@ uint32_t efc_perform_read_sequence(Efc *p_efc,
  * \brief Set mode register.
  *
  * \param p_efc Pointer to an EFC instance.
- * \param dw_fmr Value of mode register
+ * \param ul_fmr Value of mode register
  */
 #ifdef __ICCARM__
 __ramfunc
 #else
 __attribute__ ((section(".ramfunc")))
 #endif
-void efc_write_fmr(Efc *p_efc, uint32_t dw_fmr)
+void efc_write_fmr(Efc *p_efc, uint32_t ul_fmr)
 {
-	p_efc->EEFC_FMR = dw_fmr;
+	p_efc->EEFC_FMR = ul_fmr;
 }
 
 /** 
  * \brief Perform command.
  *
  * \param p_efc Pointer to an EFC instance.
- * \param dw_fcr Flash command.
+ * \param ul_fcr Flash command.
  *
  * \return The current status.
  */
@@ -351,16 +351,16 @@ __ramfunc
 #else
 __attribute__ ((section(".ramfunc")))
 #endif
-uint32_t efc_perform_fcr(Efc *p_efc, uint32_t dw_fcr)
+uint32_t efc_perform_fcr(Efc *p_efc, uint32_t ul_fcr)
 {
-	volatile uint32_t dw_status;
+	volatile uint32_t ul_status;
 
-	p_efc->EEFC_FCR = dw_fcr;
+	p_efc->EEFC_FCR = ul_fcr;
 	do {
-		dw_status = p_efc->EEFC_FSR;
-	} while ((dw_status & EEFC_FSR_FRDY) != EEFC_FSR_FRDY);
+		ul_status = p_efc->EEFC_FSR;
+	} while ((ul_status & EEFC_FSR_FRDY) != EEFC_FSR_FRDY);
 
-	return (dw_status & (EEFC_FSR_FLOCKE | EEFC_FSR_FCMDE));
+	return (ul_status & (EEFC_FSR_FLOCKE | EEFC_FSR_FCMDE));
 }
 
 //@}

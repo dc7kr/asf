@@ -42,13 +42,13 @@ MCU = atxmega128a1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_drivers_wdt_example_xplain.elf
+TARGET = wdt_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        xmega/boards/xplain/init.c                         \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/wdt/example/wdt_example.c            \
        xmega/drivers/wdt/wdt.c
 
@@ -61,11 +61,11 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/utils                                       \
        xmega/boards                                       \
        xmega/boards/xplain                                \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/wdt                                  \
        xmega/drivers/wdt/example/atxmega128a1_xplain      \
        xmega/utils                                        \
@@ -113,7 +113,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=XPLAIN
+       -D BOARD=XPLAIN                                    \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

@@ -45,12 +45,14 @@ PART = sam3x8h
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam_services_flash_unit_tests_sam3x_ek_flash.elf
-TARGET_SRAM = sam_services_flash_unit_tests_sam3x_ek_sram.elf
+TARGET_FLASH = flash_unit_tests_flash.elf
+TARGET_SRAM = flash_unit_tests_sram.elf
 
 # List of C source files.
 CSRCS = \
        common/services/clock/sam3x/sysclk.c               \
+       common/services/serial/usart_serial.c              \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c                     \
@@ -76,6 +78,7 @@ INC_PATH = \
        common/services/clock                              \
        common/services/gpio                               \
        common/services/serial                             \
+       common/services/serial/sam_uart                    \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
        sam/boards                                         \
@@ -91,6 +94,7 @@ INC_PATH = \
        sam/utils/cmsis/sam3x/include                      \
        sam/utils/cmsis/sam3x/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include \
        ./sam/services/flash_efc/unit_tests/sam3x8h_sam3x_ek/gcc
 

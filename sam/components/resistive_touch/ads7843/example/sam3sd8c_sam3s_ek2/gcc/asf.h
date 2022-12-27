@@ -50,16 +50,20 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: 
-#include <exceptions.h>
-
-// From module: ADS7843 LCD Resistive Touch Controller example
+// From module: ADS7843 LCD Resistive Touch Controller Example
 #include <rtouch_calibrate.h>
 
-// From module: COMPONENT - Display - AAT31XX Controller
+// From module: Common SAM compiler driver
+#include <compiler.h>
+#include <status_codes.h>
+
+// From module: Display - AAT31XX Backlight Controller
 #include <aat31xx.h>
 
-// From module: COMPONENT - Display - ILI9325 Controller
+// From module: Display - Generic Resistive Touch Driver
+#include <rtouch.h>
+
+// From module: Display - ILI9325 LCD Controller
 #include <ili9325.h>
 
 // From module: GPIO - General purpose Input/Output
@@ -68,12 +72,19 @@
 // From module: Generic board support
 #include <board.h>
 
+// From module: Interrupt management - SAM3 implementation
+#include <interrupt.h>
+
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
 #include <pio_handler.h>
 
 // From module: PMC - Power Management Controller
 #include <pmc.h>
+#include <sleep.h>
+
+// From module: SAM3SD8 startup code
+#include <exceptions.h>
 
 // From module: SMC - Static Memory Controller
 #include <smc.h>
@@ -88,15 +99,7 @@
 // From module: System Clock Control - SAM3SD implementation
 #include <sysclk.h>
 
-// From module: TOUCH - Resistive Touch
-#include <rtouch.h>
-
-// From module: UART - Universal Asynchronous Receiver/Transmitter
+// From module: UART - Univ. Async Rec/Trans
 #include <uart.h>
-
-// From module: UTILITY - SAM3SD88 compiler driver
-#include <compiler.h>
-#include <parts.h>
-#include <status_codes.h>
 
 #endif // ASF_H

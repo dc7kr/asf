@@ -3,7 +3,7 @@
  *
  * \brief USB configuration file
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -74,7 +74,9 @@
  */
 //! To authorize the High speed
 #if (UC3A3||UC3A4)
-# define  USB_DEVICE_HS_SUPPORT
+#  define  USB_DEVICE_HS_SUPPORT
+#elif (SAM3XA||SAM3U)
+#  define  USB_DEVICE_HS_SUPPORT
 #endif
 //@}
 

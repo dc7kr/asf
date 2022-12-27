@@ -1,9 +1,14 @@
 /**
  * \file
  *
- * \brief Serial Standard I/O (stdio) Example
+ * \mainpage
  *
- * Copyright (c) 2010-2011 Atmel Corporation. All rights reserved.
+ * \section title Serial Standard I/O (stdio) Example
+ *
+ * \section file File(s)
+ * - \ref stdio_serial_example.c
+ *
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

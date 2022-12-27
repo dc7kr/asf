@@ -3,7 +3,7 @@
  *
  * \brief AVR XMEGA Analog to Digital Converter driver
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -38,6 +38,7 @@
  * \asf_license_stop
  *
  */
+
 #include <compiler.h>
 #include <adc.h>
 
@@ -46,9 +47,8 @@
  * @{
  */
 
-//! \name ADC interrupt callback function
-//@{
-
+/** \name ADC interrupt callback function */
+/** @{ */
 #ifdef ADCA
 
 /**
@@ -66,67 +66,16 @@ static uint8_t adca_enable_count;
  * \internal
  * \brief ADC A interrupt callback function pointer
  */
-static adc_callback_t adca_callback;
+adc_callback_t adca_callback;
 
-/**
- * \internal
- * \brief ISR for channel 0 on ADC A
- *
- * Calls the callback function that has been set for the ADC when the channel's
- * interrupt flag is set, if its interrupt has been enabled.
- */
-ISR(ADCA_CH0_vect)
-{
-	adca_callback(&ADCA, ADC_CH0, adc_get_result(&ADCA, ADC_CH0));
-}
-
-#    if XMEGA_A || XMEGA_AU
-
-/**
- * \internal
- * \brief ISR for channel 1 on ADC A
- *
- * Calls the callback function that has been set for the ADC when the channel's
- * interrupt flag is set, if its interrupt has been enabled.
- */
-ISR(ADCA_CH1_vect)
-{
-	adca_callback(&ADCA, ADC_CH1, adc_get_result(&ADCA, ADC_CH1));
-}
-
-/**
- * \internal
- * \brief ISR for channel 2 on ADC A
- *
- * Calls the callback function that has been set for the ADC when the channel's
- * interrupt flag is set, if its interrupt has been enabled.
- */
-ISR(ADCA_CH2_vect)
-{
-	adca_callback(&ADCA, ADC_CH2, adc_get_result(&ADCA, ADC_CH2));
-}
-
-/**
- * \internal
- * \brief ISR for channel 3 on ADC A
- *
- * Calls the callback function that has been set for the ADC when the channel's
- * interrupt flag is set, if its interrupt has been enabled.
- */
-ISR(ADCA_CH3_vect)
-{
-	adca_callback(&ADCA, ADC_CH3, adc_get_result(&ADCA, ADC_CH3));
-}
-
-#    endif /* XMEGA_A || XMEGA_AU */
-#  endif /* ADCA */
-#endif /* CONFIG_ADC_CALLBACK_ENABLE */
+#  endif
+#endif
 
 #ifdef ADCB
 
 /**
  * \internal
- * \brief ADC A enable counter
+ * \brief ADC B enable counter
  *
  * This is used to ensure that ADC B is not inadvertently disabled when its
  * module or channel configurations are updated.
@@ -137,67 +86,56 @@ static uint8_t adcb_enable_count;
 
 /**
  * \internal
- * \brief ADC A interrupt callback function pointer
+ * \brief ADC B interrupt callback function pointer
  */
-static adc_callback_t adcb_callback;
+adc_callback_t adcb_callback;
+
+#  endif
+#endif
+
+#if defined(CONFIG_ADC_CALLBACK_ENABLE) || defined(__DOXYGEN__)
 
 /**
- * \internal
- * \brief ISR for channel 0 on ADC B
+ * \brief Set ADC interrupt callback function
  *
- * Calls the callback function that has been set for the ADC when the channel's
- * interrupt flag is set, if its interrupt has been enabled.
+ * Sets a new callback function for interrupts on the specified ADC.
+ *
+ * \param adc Pointer to ADC module.
+ * \param callback Pointer to the callback function to set.
  */
-ISR(ADCB_CH0_vect)
+void adc_set_callback(ADC_t *adc, adc_callback_t callback)
 {
-	adcb_callback(&ADCB, ADC_CH0, adc_get_result(&ADCB, ADC_CH0));
+	irqflags_t flags;
+
+	Assert(callback);
+
+	flags = cpu_irq_save();
+
+#ifdef ADCA
+	if ((uintptr_t)adc == (uintptr_t)&ADCA) {
+		adca_callback = callback;
+	} else
+#endif
+
+#ifdef ADCB
+	if ((uintptr_t)adc == (uintptr_t)&ADCB) {
+		adcb_callback = callback;
+	} else
+#endif
+
+	{
+		Assert(0);
+	}
+
+	cpu_irq_restore(flags);
 }
 
-#    if XMEGA_A || XMEGA_AU
-
-/**
- * \internal
- * \brief ISR for channel 1 on ADC B
- *
- * Calls the callback function that has been set for the ADC when the channel's
- * interrupt flag is set, if its interrupt has been enabled.
- */
-ISR(ADCB_CH1_vect)
-{
-	adcb_callback(&ADCB, ADC_CH1, adc_get_result(&ADCB, ADC_CH1));
-}
-
-/**
- * \internal
- * \brief ISR for channel 2 on ADC B
- *
- * Calls the callback function that has been set for the ADC when the channel's
- * interrupt flag is set, if its interrupt has been enabled.
- */
-ISR(ADCB_CH2_vect)
-{
-	adcb_callback(&ADCB, ADC_CH2, adc_get_result(&ADCB, ADC_CH2));
-}
-
-/**
- * \internal
- * \brief ISR for channel 3 on ADC B
- *
- * Calls the callback function that has been set for the ADC when the channel's
- * interrupt flag is set, if its interrupt has been enabled.
- */
-ISR(ADCB_CH3_vect)
-{
-	adcb_callback(&ADCB, ADC_CH3, adc_get_result(&ADCB, ADC_CH3));
-}
-
-#    endif /* XMEGA_A || XMEGA_AU */
-#  endif /* ADCB */
 #endif /* CONFIG_ADC_CALLBACK_ENABLE */
 
-//@}
-
 /** @} */
+
+/** \name Internal functions for driver */
+/** @{ */
 
 /**
  * \internal
@@ -209,7 +147,9 @@ ISR(ADCB_CH3_vect)
  *
  * \param adc Pointer to ADC module.
  */
-static void adc_enable_clock(ADC_t *adc)
+void adc_enable_clock(ADC_t *adc);
+
+void adc_enable_clock(ADC_t *adc)
 {
 #ifdef ADCA
 	if ((uintptr_t)adc == (uintptr_t)(&ADCA)) {
@@ -244,7 +184,9 @@ static void adc_enable_clock(ADC_t *adc)
  *
  * \param adc Pointer to ADC module
  */
-static void adc_disable_clock(ADC_t *adc)
+void adc_disable_clock(ADC_t *adc);
+
+void adc_disable_clock(ADC_t *adc)
 {
 #ifdef ADCA
 	if ((uintptr_t)adc == (uintptr_t)(&ADCA)) {
@@ -269,6 +211,11 @@ static void adc_disable_clock(ADC_t *adc)
 	}
 }
 
+/** @} */
+
+/** \name ADC module management */
+/** @{ */
+
 /**
  * \brief Enable ADC
  *
@@ -276,8 +223,11 @@ static void adc_disable_clock(ADC_t *adc)
  *
  * \param adc Pointer to ADC module
  *
- * \note After enabling the ADC, one dummy conversion should be done to allow
- * for its common mode voltage to settle.
+ * \note To ensure accurate conversions, please wait for at least
+ * the specified start-up time between enabling the ADC module, and starting
+ * a conversion. For most XMEGA devices the start-up time is specified
+ * to be a maximum of 24 ADC clock cycles. Please verify the start-up time for
+ * the device in use.
  */
 void adc_enable(ADC_t *adc)
 {
@@ -339,232 +289,6 @@ bool adc_is_enabled(ADC_t *adc)
 	}
 }
 
-/**
- * \brief Write configuration to ADC module
- *
- * Disables the ADC and flushes its pipeline before writing the specified
- * configuration and factory calibration value to it. If the ADC was enabled
- * upon entry of the function, it is enabled upon function return.
- *
- * \param adc Pointer to ADC module.
- * \param conf Pointer to ADC module configuration.
- */
-void adc_write_configuration(ADC_t *adc, const struct adc_config *conf)
-{
-	uint16_t cal;
+/** @} */
 
-#if XMEGA_A || XMEGA_AU || XMEGA_D
-	uint8_t  enable;
-#endif
-
-	irqflags_t flags;
-
-#ifdef ADCA
-	if ((uintptr_t)adc == (uintptr_t)&ADCA) {
-		cal = adc_get_calibration_data(ADC_CAL_ADCA);
-	} else
-#endif
-
-#ifdef ADCB
-	if ((uintptr_t)adc == (uintptr_t)&ADCB) {
-		cal = adc_get_calibration_data(ADC_CAL_ADCB);
-	} else
-#endif
-
-	{
-		Assert(0);
-		return;
-	}
-
-	flags = cpu_irq_save();
-	adc_enable_clock(adc);
-
-#if XMEGA_A || XMEGA_AU || XMEGA_D
-	enable = adc->CTRLA & ADC_ENABLE_bm;
-#endif
-
-	adc->CTRLA = ADC_FLUSH_bm;
-	adc->CAL = cal;
-	adc->CMP = conf->cmp;
-	adc->REFCTRL = conf->refctrl;
-	adc->PRESCALER = conf->prescaler;
-	adc->EVCTRL = conf->evctrl;
-	adc->CTRLB = conf->ctrlb;
-
-#if XMEGA_A || XMEGA_AU
-	adc->CTRLA = enable | conf->ctrla;
-#elif XMEGA_D
-	adc->CTRLA = enable;
-#endif
-
-	adc_disable_clock(adc);
-
-	cpu_irq_restore(flags);
-}
-
-/**
- * \brief Read configuration from ADC module
- *
- * Reads out the current configuration of the ADC module to the specified
- * buffer.
- *
- * \param adc Pointer to ADC module.
- * \param conf Pointer to ADC module configuration.
- */
-void adc_read_configuration(ADC_t *adc, struct adc_config *conf)
-{
-	irqflags_t flags = cpu_irq_save();
-
-	adc_enable_clock(adc);
-
-#if XMEGA_A || XMEGA_AU
-	conf->ctrla = adc->CTRLA & ADC_DMASEL_gm;
-#endif
-
-	conf->cmp = adc->CMP;
-	conf->refctrl = adc->REFCTRL;
-	conf->prescaler = adc->PRESCALER;
-	conf->evctrl = adc->EVCTRL;
-	conf->ctrlb = adc->CTRLB;
-
-	adc_disable_clock(adc);
-
-	cpu_irq_restore(flags);
-}
-
-/**
- * \brief Write configuration to ADC channel
- *
- * Writes the specified configuration to the ADC channel.
- *
- * \param adc Pointer to ADC module.
- * \param ch_mask Mask of ADC channel(s):
- * \arg \c ADC_CHn , where \c n specifies the channel. (Only a single channel
- * can be given in mask)
- * \param ch_conf Pointer to ADC channel configuration.
- *
- * \note The specified ADC's callback function must be set before this function
- * is called if callbacks are enabled and interrupts are enabled in the
- * channel configuration.
- */
-void adcch_write_configuration(ADC_t *adc, uint8_t ch_mask,
-		const struct adc_channel_config *ch_conf)
-{
-	ADC_CH_t   *adc_ch;
-	irqflags_t flags;
-
-	adc_ch = adc_get_channel(adc, ch_mask);
-
-	flags = cpu_irq_save();
-
-#if defined(CONFIG_ADC_CALLBACK_ENABLE) && defined(_ASSERT_ENABLE_)
-	if ((adc_ch->INTCTRL & ADC_CH_INTLVL_gm) != ADC_CH_INTLVL_OFF_gc) {
-#ifdef ADCA
-		if ((uintptr_t)adc == (uintptr_t)&ADCA) {
-			Assert(adca_callback);
-		} else
-#endif /* ADCA */
-
-#ifdef ADCB
-		if ((uintptr_t)adc == (uintptr_t)&ADCB) {
-			Assert(adcb_callback);
-		} else
-#endif /* ADCB */
-
-		{
-			Assert(0);
-			return;
-		}
-	}
-#endif /* CONFIG_ADC_CALLBACK_ENABLE */
-
-	adc_enable_clock(adc);
-	adc_ch->CTRL = ch_conf->ctrl;
-	adc_ch->INTCTRL = ch_conf->intctrl;
-	adc_ch->MUXCTRL = ch_conf->muxctrl;
-#if XMEGA_AU
-	if (ch_mask & ADC_CH0) {
-		// USB devices has channel scan available on ADC channel 0
-		adc_ch->SCAN = ch_conf->scan;
-	}
-#endif
-	adc_disable_clock(adc);
-
-	cpu_irq_restore(flags);
-}
-
-/**
- * \brief Read configuration from ADC channel
- *
- * Reads out the current configuration from the ADC channel to the specified
- * buffer.
- *
- * \param adc Pointer to ADC module.
- * \param ch_mask Mask of ADC channel(s):
- * \arg \c ADC_CHn , where \c n specifies the channel. (Only a single channel
- * can be given in mask)
- * \param ch_conf Pointer to ADC channel configuration.
- */
-void adcch_read_configuration(ADC_t *adc, uint8_t ch_mask,
-		struct adc_channel_config *ch_conf)
-{
-	ADC_CH_t *adc_ch;
-	irqflags_t flags;
-
-	adc_ch = adc_get_channel(adc, ch_mask);
-
-	flags = cpu_irq_save();
-
-	adc_enable_clock(adc);
-	ch_conf->ctrl = adc_ch->CTRL;
-	ch_conf->intctrl = adc_ch->INTCTRL;
-	ch_conf->muxctrl = adc_ch->MUXCTRL;
-#if XMEGA_AU
-	if (ch_mask & ADC_CH0) {
-		// USB devices has channel scan available on ADC channel 0
-		ch_conf->scan = adc_ch->SCAN;
-	}
-#endif
-	adc_disable_clock(adc);
-
-	cpu_irq_restore(flags);
-}
-
-#if defined(CONFIG_ADC_CALLBACK_ENABLE) || defined(__DOXYGEN__)
-
-/**
- * \brief Set ADC interrupt callback function
- *
- * Sets a new callback function for interrupts on the specified ADC.
- *
- * \param adc Pointer to ADC module.
- * \param callback Pointer to the callback function to set.
- */
-void adc_set_callback(ADC_t *adc, adc_callback_t callback)
-{
-	irqflags_t flags;
-
-	Assert(callback);
-
-	flags = cpu_irq_save();
-
-#ifdef ADCA
-	if ((uintptr_t)adc == (uintptr_t)&ADCA) {
-		adca_callback = callback;
-	} else
-#endif
-
-#ifdef ADCB
-	if ((uintptr_t)adc == (uintptr_t)&ADCB) {
-		adcb_callback = callback;
-	} else
-#endif
-
-	{
-		Assert(0);
-	}
-
-	cpu_irq_restore(flags);
-}
-
-#endif /* CONFIG_ADC_CALLBACK_ENABLE */
+/** @} */

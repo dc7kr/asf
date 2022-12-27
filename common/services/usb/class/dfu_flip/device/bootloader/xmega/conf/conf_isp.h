@@ -3,7 +3,7 @@
  *
  * \brief ISP configuration file.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -55,7 +55,7 @@
 // Example: Version 0x00 give 1.0.0 on batchisp log
 // Example: Version 0x03 give 1.0.3 on batchisp log
 // Example: Version 0x25 give 1.2.5 on batchisp log
-#  define BOOTLOADER_VERSION   0x02
+#  define BOOTLOADER_VERSION   0x04
 
 #  if (FLASH_SIZE<=0x10000) // FLASH <= 64KB
 // If all memories (flash,eeprom,...) do not exced 64KB.

@@ -3,7 +3,7 @@
  *
  * \brief API driver for component aat31xx.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,7 +40,7 @@
  */
 
 /**
- * \defgroup aat31xx_display_group COMPONENT - Display - AAT31XX Controller
+ * \defgroup aat31xx_display_group Display - AAT31XX Controller
  *
  * Low-level driver for the AAT31XX LCD backlight controller. This driver provides access to the main
  * features of the AAT31XX controller.
@@ -51,6 +51,7 @@
 #include "board.h"
 #include "gpio.h"
 #include "aat31xx.h"
+#include "conf_aat31xx.h"
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -69,11 +70,11 @@ extern "C" {
  *
  * \param ul_level backlight level.
  *
- * \note pin BOARD_BACKLIGHT must be configured before calling aat31xx_set_backlight.
+ * \note pin AAT31XX_BACKLIGHT_PIN must be configured before calling aat31xx_set_backlight.
  */
 void aat31xx_set_backlight(uint32_t ul_level)
 {
-	uint32_t i, delay;
+	uint32_t i, ul_delay;
 
 #ifdef CONF_BOARD_AAT3155
 	ul_level = AAT31XX_MAX_BACKLIGHT_LEVEL - ul_level + 1;
@@ -89,18 +90,18 @@ void aat31xx_set_backlight(uint32_t ul_level)
 
 	/* Set new backlight level */
 	for (i = 0; i < ul_level; i++) {
-		gpio_set_pin_low(BOARD_BACKLIGHT);
-		delay = DELAY_PULSE;
-		while (delay--) {
+		gpio_set_pin_low(AAT31XX_BACKLIGHT_PIN);
+		ul_delay = DELAY_PULSE;
+		while (ul_delay--) {
 		}
-		gpio_set_pin_high(BOARD_BACKLIGHT);
-		delay = DELAY_PULSE;
-		while (delay--) {
+		gpio_set_pin_high(AAT31XX_BACKLIGHT_PIN);
+		ul_delay = DELAY_PULSE;
+		while (ul_delay--) {
 		}
 	}
 
-	delay = DELAY_ENABLE;
-	while (delay--) {
+	ul_delay = DELAY_ENABLE;
+	while (ul_delay--) {
 	}
 }
 
@@ -109,12 +110,12 @@ void aat31xx_set_backlight(uint32_t ul_level)
  */
 void aat31xx_disable_backlight(void)
 {
-	volatile uint32_t delay;
+	volatile uint32_t ul_delay;
 
-	gpio_set_pin_low(BOARD_BACKLIGHT);
+	gpio_set_pin_low(AAT31XX_BACKLIGHT_PIN);
 
-	delay = DELAY_DISABLE;
-	while (delay--) {
+	ul_delay = DELAY_DISABLE;
+	while (ul_delay--) {
 	}
 }
 

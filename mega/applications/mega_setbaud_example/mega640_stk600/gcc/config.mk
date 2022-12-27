@@ -42,7 +42,7 @@ MCU = atmega640
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = mega_applications_mega_setbaud_example_mega640_stk600.elf
+TARGET = mega_setbaud_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \

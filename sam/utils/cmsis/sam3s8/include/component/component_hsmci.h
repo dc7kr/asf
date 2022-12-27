@@ -41,9 +41,9 @@
 #define _SAM3S8_HSMCI_COMPONENT_
 
 /* ============================================================================= */
-/**  SOFTWARE API DEFINITION FOR High Speed MultiMediaCard Interface */
+/**  SOFTWARE API DEFINITION FOR High Speed MultiMedia Card Interface */
 /* ============================================================================= */
-/** \addtogroup SAM3S8_HSMCI High Speed MultiMediaCard Interface */
+/** \addtogroup SAM3S8_HSMCI High Speed MultiMedia Card Interface */
 /*@{*/
 
 #if !(defined(__ASSEMBLY__) || defined(__IAR_SYSTEMS_ASM__))

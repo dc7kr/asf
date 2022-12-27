@@ -3,7 +3,7 @@
  *
  * \brief USB Vendor class interface.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -81,6 +81,8 @@ UDC_DESC_STORAGE udi_api_t udi_api_vendor = {
 
 //@}
 
+//! USB descriptor alternate setting used
+static uint8_t udi_vendor_alternate_setting = 0;
 
 /**
  * \name Internal routines
@@ -88,10 +90,13 @@ UDC_DESC_STORAGE udi_api_t udi_api_vendor = {
 //@{
 bool udi_vendor_enable(void)
 {
-	// Call application callback
-	// to notify that interface is enabled
-	if (!UDI_VENDOR_ENABLE_EXT()) {
-		return false;
+	udi_vendor_alternate_setting = udc_get_interface_desc()->bAlternateSetting;
+	if (1 == udi_vendor_alternate_setting) {
+		// Call application callback
+		// to notify that interface is enabled
+		if (!UDI_VENDOR_ENABLE_EXT()) {
+			return false;
+		}
 	}
 	return true;
 }
@@ -99,7 +104,9 @@ bool udi_vendor_enable(void)
 
 void udi_vendor_disable(void)
 {
-	UDI_VENDOR_DISABLE_EXT();
+	if (1 == udi_vendor_alternate_setting) {
+		UDI_VENDOR_DISABLE_EXT();
+	}
 }
 
 
@@ -123,7 +130,7 @@ bool udi_vendor_setup(void)
 
 uint8_t udi_vendor_getsetting(void)
 {
-	return 0; //  don't have multiple alternate setting
+	return udi_vendor_alternate_setting;
 }
 //@}
 

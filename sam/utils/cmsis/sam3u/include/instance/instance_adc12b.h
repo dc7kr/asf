@@ -57,12 +57,8 @@
 #define REG_ADC12B_EMR             (0x400A8068U) /**< \brief (ADC12B) Extended Mode Register */
 #define REG_ADC12B_RPR             (0x400A8100U) /**< \brief (ADC12B) Receive Pointer Register */
 #define REG_ADC12B_RCR             (0x400A8104U) /**< \brief (ADC12B) Receive Counter Register */
-#define REG_ADC12B_TPR             (0x400A8108U) /**< \brief (ADC12B) Transmit Pointer Register */
-#define REG_ADC12B_TCR             (0x400A810CU) /**< \brief (ADC12B) Transmit Counter Register */
 #define REG_ADC12B_RNPR            (0x400A8110U) /**< \brief (ADC12B) Receive Next Pointer Register */
 #define REG_ADC12B_RNCR            (0x400A8114U) /**< \brief (ADC12B) Receive Next Counter Register */
-#define REG_ADC12B_TNPR            (0x400A8118U) /**< \brief (ADC12B) Transmit Next Pointer Register */
-#define REG_ADC12B_TNCR            (0x400A811CU) /**< \brief (ADC12B) Transmit Next Counter Register */
 #define REG_ADC12B_PTCR            (0x400A8120U) /**< \brief (ADC12B) Transfer Control Register */
 #define REG_ADC12B_PTSR            (0x400A8124U) /**< \brief (ADC12B) Transfer Status Register */
 #else
@@ -81,12 +77,8 @@
 #define REG_ADC12B_EMR    (*(RwReg*)0x400A8068U) /**< \brief (ADC12B) Extended Mode Register */
 #define REG_ADC12B_RPR    (*(RwReg*)0x400A8100U) /**< \brief (ADC12B) Receive Pointer Register */
 #define REG_ADC12B_RCR    (*(RwReg*)0x400A8104U) /**< \brief (ADC12B) Receive Counter Register */
-#define REG_ADC12B_TPR    (*(RwReg*)0x400A8108U) /**< \brief (ADC12B) Transmit Pointer Register */
-#define REG_ADC12B_TCR    (*(RwReg*)0x400A810CU) /**< \brief (ADC12B) Transmit Counter Register */
 #define REG_ADC12B_RNPR   (*(RwReg*)0x400A8110U) /**< \brief (ADC12B) Receive Next Pointer Register */
 #define REG_ADC12B_RNCR   (*(RwReg*)0x400A8114U) /**< \brief (ADC12B) Receive Next Counter Register */
-#define REG_ADC12B_TNPR   (*(RwReg*)0x400A8118U) /**< \brief (ADC12B) Transmit Next Pointer Register */
-#define REG_ADC12B_TNCR   (*(RwReg*)0x400A811CU) /**< \brief (ADC12B) Transmit Next Counter Register */
 #define REG_ADC12B_PTCR   (*(WoReg*)0x400A8120U) /**< \brief (ADC12B) Transfer Control Register */
 #define REG_ADC12B_PTSR   (*(RoReg*)0x400A8124U) /**< \brief (ADC12B) Transfer Status Register */
 #endif /* (defined(__ASSEMBLY__) || defined(__IAR_SYSTEMS_ASM__)) */

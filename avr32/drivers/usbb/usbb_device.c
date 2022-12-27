@@ -4,7 +4,7 @@
  * \brief USB Device driver
  * Compliance with common driver UDD
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -50,8 +50,10 @@
 
 // Fix the fact that, for some IAR header files, the AVR32_USBB_IRQ_GROUP define
 // has been defined as AVR32_USB_IRQ_GROUP instead.
-#if !defined(AVR32_USBB_IRQ_GROUP)
-#  define AVR32_USBB_IRQ_GROUP AVR32_USB_IRQ_GROUP
+#ifdef __ICCAVR32__
+#  if !defined(AVR32_USBB_IRQ_GROUP)
+#    define AVR32_USBB_IRQ_GROUP AVR32_USB_IRQ_GROUP
+#  endif
 #endif
 
 #ifndef UDD_NO_SLEEP_MGR
@@ -137,6 +139,9 @@
 #endif
 #ifndef USB_DEVICE_MAX_EP
 #  error USB_DEVICE_MAX_EP not defined
+#endif
+#if USB_DEVICE_MAX_EP >= AVR32_USBB_EPT_NUM
+#  error USB_DEVICE_MAX_EP is too high and not supported by this part
 #endif
 #if (UC3A0 || UC3A1 || UC3B)
 #  ifdef USB_DEVICE_HS_SUPPORT
@@ -402,7 +407,13 @@ static bool udd_ep_interrupt(void);
 void udd_interrupt(void);
 void udd_interrupt(void)
 #else
+#  ifdef FREERTOS_USED
+#  include "FreeRTOS.h"
+#  include "task.h"
+ISR_FREERTOS(udd_interrupt, AVR32_USBB_IRQ_GROUP, UDD_USB_INT_LEVEL)
+#  else
 ISR(udd_interrupt, AVR32_USBB_IRQ_GROUP, UDD_USB_INT_LEVEL)
+#  endif
 #endif
 {
 	if (Is_udd_sof()) {
@@ -797,9 +808,15 @@ bool udd_ep_alloc(udd_ep_id_t ep, uint8_t bmAttributes,
 
 void udd_ep_free(udd_ep_id_t ep)
 {
-	udd_disable_endpoint(ep & USB_EP_ADDR_MASK);
-	udd_unallocate_memory(ep & USB_EP_ADDR_MASK);
+	uint8_t index = ep & USB_EP_ADDR_MASK;
+
+	if (USB_DEVICE_MAX_EP < index) {
+		return;
+	}
+	udd_disable_endpoint(index);
+	udd_unallocate_memory(index);
 	udd_ep_abort_job(ep);
+	udd_ep_job[index - 1].stall_requested = false;
 }
 
 
@@ -819,28 +836,35 @@ bool udd_ep_set_halt(udd_ep_id_t ep)
 	}
 
 	ptr_job = &udd_ep_job[index - 1];
+
+	if (Is_udd_endpoint_stall_requested(index) // Endpoint stalled
+			|| ptr_job->stall_requested) { // Endpoint stall is requested
+		return true; // Already STALL
+	}
+
 	if (ptr_job->busy == true) {
 		return false; // Job on going, stall impossible
 	}
 
-	if (0 != udd_nb_busy_bank(index)) {
-		// Wait end of transfer on USB line before stall endpoint
-		// Flag a stall requested
-		ptr_job->stall_requested = true;
-		udd_enable_bank_interrupt(index);
-		udd_enable_endpoint_interrupt(index);
-	} else {
-		// Stall endpoint
-		udd_disable_endpoint_bank_autoswitch(index);
-		udd_enable_stall_handshake(index);
-		udd_reset_data_toggle(index);
+	if ((ep & USB_EP_DIR_IN) && (0 != udd_nb_busy_bank(index))) {
+			// Delay the stall after the end of IN transfer on USB line
+			ptr_job->stall_requested = true;
+			udd_enable_bank_interrupt(index);
+			udd_enable_endpoint_interrupt(index);
+			return true;
 	}
+	
+	// Stall endpoint immediately
+	udd_disable_endpoint_bank_autoswitch(index);
+	udd_ack_stall(index);
+	udd_enable_stall_handshake(index);
 	return true;
 }
 
 
 bool udd_ep_clear_halt(udd_ep_id_t ep)
 {
+	bool b_stall_cleared = false;
 	udd_ep_job_t *ptr_job;
 
 	ep &= USB_EP_ADDR_MASK;
@@ -848,15 +872,27 @@ bool udd_ep_clear_halt(udd_ep_id_t ep)
 		return false;
 	ptr_job = &udd_ep_job[ep - 1];
 
-	if (Is_udd_endpoint_stall_requested(ep) // Endpoint stalled
-			|| ptr_job->stall_requested) { // Endpoint stall is requested
-		// Remove request to stall
+	if (ptr_job->stall_requested) {
+		// Endpoint stall has been requested but not done
+		// Remove stall request
 		ptr_job->stall_requested = false;
-
-		// Remove stall
+		udd_disable_bank_interrupt(ep);
+		udd_disable_endpoint_interrupt(ep);
+		b_stall_cleared = true;
+	}
+	if (Is_udd_endpoint_stall_requested(ep)) { 
+		if (Is_udd_stall(ep)) {
+			udd_ack_stall(ep);
+			// A packet has been stalled
+			// then reset datatoggle
+			udd_reset_data_toggle(ep);
+		}
+		// Disable stall
 		udd_disable_stall_handshake(ep);
 		udd_enable_endpoint_bank_autoswitch(ep);
-
+		b_stall_cleared = true;
+	}
+	if (b_stall_cleared) {
 		// If a job is register on clear halt action
 		// then execute callback
 		if (ptr_job->busy == true) {
@@ -914,8 +950,17 @@ bool udd_ep_run(udd_ep_id_t ep, bool b_shortpacket,
 
 void udd_ep_abort(udd_ep_id_t ep)
 {
+	uint8_t index = ep & USB_EP_ADDR_MASK;
+
 	// Stop DMA transfer
-	udd_endpoint_dma_set_control((ep & USB_EP_ADDR_MASK), 0);
+	udd_disable_endpoint_dma_interrupt(index);
+	udd_endpoint_dma_set_control(index, 0);
+	// Kill banks
+	udd_disable_endpoint_interrupt(index);
+	while (udd_nb_busy_bank(index)) {
+		udd_kill_last_in_bank(index);
+		while(Is_udd_killing_last_in_bank(index));
+	}
 	udd_ep_abort_job(ep);
 }
 
@@ -1141,6 +1186,7 @@ static void udd_ctrl_setup_received(void)
 
 static void udd_ctrl_in_sent(void)
 {
+	static bool b_shortpacket = false;
 	uint16_t nb_remain;
 	uint8_t i;
 	uint8_t *ptr_dest, *ptr_src;
@@ -1165,7 +1211,7 @@ static void udd_ctrl_in_sent(void)
 		// Update number of total data sending by previous playlaod buffer
 		udd_ctrl_prev_payload_nb_trans += udd_ctrl_payload_nb_trans;
 		if ((udd_g_ctrlreq.req.wLength == udd_ctrl_prev_payload_nb_trans)
-				|| (udd_ctrl_payload_nb_trans%USB_DEVICE_EP_CTRL_SIZE)) {
+					|| b_shortpacket) {
 			// All data requested are transfered or a short packet has been sent
 			// then it is the end of data phase.
 			// Generate an OUT ZLP for handshake phase.
@@ -1184,8 +1230,11 @@ static void udd_ctrl_in_sent(void)
 		}
 	}
 	// Continue transfer and send next data
-	if (nb_remain > USB_DEVICE_EP_CTRL_SIZE) {
+	if (nb_remain >= USB_DEVICE_EP_CTRL_SIZE) {
 		nb_remain = USB_DEVICE_EP_CTRL_SIZE;
+		b_shortpacket = false;
+	} else {
+		b_shortpacket = true;
 	}
 	// Fill buffer of endpoint control
 	ptr_dest = (uint8_t *) & udd_get_endpoint_fifo_access(0, 8);
@@ -1623,7 +1672,7 @@ static bool udd_ep_interrupt(void)
 				udd_ep_finish_job(ptr_job, false);
 				return true;
 			}
-			if (Is_udd_bank_interrupt_enabled(ep) && (0==udd_nb_busy_bank(ep))) {
+			if (Is_udd_bank_interrupt_enabled(ep) && (0 == udd_nb_busy_bank(ep))) {
 				// End of background transfer on IN endpoint
 				udd_disable_bank_interrupt(ep);
 				udd_disable_endpoint_interrupt(ep);

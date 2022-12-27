@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_usb_class_cdc_device_unit_tests_stk600-rcuc3l4.elf
+TARGET = device_unit_tests.elf
 
 # List of C source files.
 CSRCS = \
@@ -69,6 +69,7 @@ CSRCS = \
        common/services/clock/uc3l/osc.c                   \
        common/services/clock/uc3l/pll.c                   \
        common/services/clock/uc3l/sysclk.c                \
+       common/services/serial/usart_serial.c              \
        common/services/sleepmgr/uc3/sleepmgr.c            \
        common/services/usb/class/cdc/device/udi_cdc.c     \
        common/services/usb/class/cdc/device/udi_cdc_desc.c \
@@ -100,6 +101,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/serial                             \
+       common/services/serial/uc3_usart                   \
        common/services/sleepmgr                           \
        common/services/usb                                \
        common/services/usb/class/cdc                      \

@@ -4,7 +4,7 @@
  *
  * \brief Bang & Olufsen MS3 driver file.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -252,7 +252,7 @@ static void ms3_write_reg(uint8_t reg, uint8_t data)
 	int twi_status;
 	twi_package_t twi_package = {
 		.chip         = MS3_TWI_ADDRESS,
-		.addr         = reg,
+		.addr[0]      = reg,
 		.addr_length  = 1,
 		.buffer       = &data,
 		.length       = sizeof(data)
@@ -269,7 +269,7 @@ static uint16_t ms3_read_reg(uint8_t reg)
 	uint8_t data;
 	twi_package_t twi_package = {
 		.chip         = MS3_TWI_ADDRESS,
-		.addr         = reg,
+		.addr[0]      = reg,
 		.addr_length  = 1,
 		.buffer       = &data,
 		.length       = sizeof(data)

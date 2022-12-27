@@ -1,7 +1,12 @@
 /**
  * \file
  *
- * \brief Delay service example
+ * \mainpage
+ *
+ * \section title Delay service example
+ *
+ * \section file File(s)
+ * - \ref delay_example.c
  *
  * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *

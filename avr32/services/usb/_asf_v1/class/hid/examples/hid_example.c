@@ -1,10 +1,13 @@
-/*****************************************************************************
- *
+/**
  * \file
  *
- * \brief Main file of the USB HID example.
+ * \mainpage
+ * \section title Main file of the USB HID example.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * \section file File(s)
+ * - \ref hid_example.c
+ *
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

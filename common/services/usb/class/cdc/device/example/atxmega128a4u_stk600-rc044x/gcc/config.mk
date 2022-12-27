@@ -42,11 +42,12 @@ MCU = atxmega128a4u
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_usb_class_cdc_device_example_stk600_atxmega128a4u.elf
+TARGET = device_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        common/services/usb/class/cdc/device/example/atxmega128a4u_stk600-rc044x/ui.c \
        common/services/usb/class/cdc/device/example/main.c \
@@ -55,7 +56,6 @@ CSRCS = \
        common/services/usb/class/cdc/device/udi_cdc_desc.c \
        common/services/usb/udc/udc.c                      \
        xmega/boards/stk600/rc044x/init.c                  \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/usart/usart.c                        \
        xmega/drivers/usb/usb_device.c
@@ -70,6 +70,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/sleepmgr                           \
        common/services/usb                                \
        common/services/usb/class/cdc                      \
@@ -81,7 +82,6 @@ INC_PATH = \
        xmega/boards                                       \
        xmega/boards/stk600/rc044x                         \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/pmic                                 \
        xmega/drivers/sleep                                \
@@ -132,7 +132,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=STK600_RC044X
+       -D BOARD=STK600_RC044X                             \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS = 

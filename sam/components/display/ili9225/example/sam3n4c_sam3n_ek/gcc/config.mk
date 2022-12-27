@@ -45,13 +45,14 @@ PART = sam3n4c
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam_components_display_ili9225_example_sam3n_ek_flash.elf
-TARGET_SRAM = sam_components_display_ili9225_example_sam3n_ek_sram.elf
+TARGET_FLASH = ili9225_example_flash.elf
+TARGET_SRAM = ili9225_example_sram.elf
 
 # List of C source files.
 CSRCS = \
        common/services/clock/sam3n/sysclk.c               \
        common/services/spi/sam_spi/spi_master.c           \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3n_ek/init.c                         \
        sam/components/display/aat31xx/aat31xx.c           \
        sam/components/display/ili9225/example/ili9225_example.c \
@@ -76,6 +77,7 @@ INC_PATH = \
        common/services/gpio                               \
        common/services/spi                                \
        common/services/spi/sam_spi                        \
+       common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3n_ek                                \
        sam/components/display/aat31xx                     \
@@ -89,6 +91,7 @@ INC_PATH = \
        sam/utils/cmsis/sam3n/include                      \
        sam/utils/cmsis/sam3n/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include \
        ./sam/components/display/ili9225/example/sam3n4c_sam3n_ek/gcc
 

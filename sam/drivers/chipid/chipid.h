@@ -3,7 +3,7 @@
  *
  * \brief Chip Identifier (CHIPID) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -56,23 +56,23 @@ extern "C" {
 typedef struct chipid_data {
 
 	//! Version of the device
-	uint32_t dw_version;
+	uint32_t ul_version;
 	//! Embedded processor
-	uint32_t dw_eproc;
+	uint32_t ul_eproc;
 	//! Non-volatile program memory size
-	uint32_t dw_nvpsiz;
+	uint32_t ul_nvpsiz;
 	//! Second non-volatile program memory size
-	uint32_t dw_nvpsiz2;
+	uint32_t ul_nvpsiz2;
 	//! Internal SRAM size
-	uint32_t dw_sramsiz;
+	uint32_t ul_sramsiz;
 	//! Architecture identifier
-	uint32_t dw_arch;
+	uint32_t ul_arch;
 	//! Non-volatile program memory type
-	uint32_t dw_nvptyp;
+	uint32_t ul_nvptyp;
 	//! Extension flag
-	uint32_t dw_extflag;
+	uint32_t ul_extflag;
 	//! Chip ID extension
-	uint32_t dw_extid;
+	uint32_t ul_extid;
 } chipid_data_t;
 
 uint32_t chipid_read(Chipid *p_chipid, chipid_data_t *p_chipid_data);

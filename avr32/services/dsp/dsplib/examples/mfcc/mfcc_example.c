@@ -1,10 +1,13 @@
-/*****************************************************************************
- *
+/**
  * \file
  *
- * \brief MFCC Sphinx-4 implementation.
+ * \mainpage
+ * \section title MFCC Sphinx-4 implementation.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * \section file File(s)
+ * - \ref mfcc_example.c
+ *
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

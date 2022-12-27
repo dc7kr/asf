@@ -23,6 +23,9 @@
 // Initialize IO pins for use with USART 0 on port D
 #define CONF_BOARD_ENABLE_USARTD0
 
+// Initialize IO pins for use with USART 0 on port E
+#define CONF_BOARD_ENABLE_USARTE0
+
 // Enable Sensors Xplained board interface
 //#define SENSORS_XPLAINED_BOARD
 

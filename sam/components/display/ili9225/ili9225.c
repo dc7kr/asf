@@ -3,7 +3,7 @@
  *
  * \brief API driver for ILI9225 TFT display component.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,7 +40,7 @@
  */
 
 /**
- * \defgroup ili9225_display_group COMPONENT - LCD - ILI9225 Controller
+ * \defgroup ili9225_display_group ILI9225 Controller
  *
  * Low-level driver for the ILI9225 LCD controller. This driver provides access to the main
  * features of the ILI9225 controller.
@@ -390,7 +390,7 @@ static void ili9225_delay(uint32_t ul_ms)
 static void ili9225_check_box_coordinates(uint32_t *p_ul_x1, uint32_t *p_ul_y1,
 		uint32_t *p_ul_x2, uint32_t *p_ul_y2)
 {
-	uint32_t dw;
+	uint32_t ul;
 
 	if (*p_ul_x1 >= ILI9225_LCD_WIDTH) {
 		*p_ul_x1 = ILI9225_LCD_WIDTH - 1;
@@ -409,15 +409,15 @@ static void ili9225_check_box_coordinates(uint32_t *p_ul_x1, uint32_t *p_ul_y1,
 	}
 
 	if (*p_ul_x1 > *p_ul_x2) {
-		dw = *p_ul_x1;
+		ul = *p_ul_x1;
 		*p_ul_x1 = *p_ul_x2;
-		*p_ul_x2 = dw;
+		*p_ul_x2 = ul;
 	}
 
 	if (*p_ul_y1 > *p_ul_y2) {
-		dw = *p_ul_y1;
+		ul = *p_ul_y1;
 		*p_ul_y1 = *p_ul_y2;
-		*p_ul_y2 = dw;
+		*p_ul_y2 = ul;
 	}
 }
 
@@ -547,7 +547,7 @@ uint32_t ili9225_init(struct ili9225_opt_t *p_opt)
 	ili9225_write_register(ILI9225_GAMMA_CTRL10, 0x0000);
 
 	/* Initialize display setting */
-	ili9225_set_window(0, 0, p_opt->dw_width, p_opt->dw_height);
+	ili9225_set_window(0, 0, p_opt->ul_width, p_opt->ul_height);
 	ili9225_set_foreground_color(p_opt->foreground_color);
 	ili9225_set_cursor_position(0, 0);
 	return 0;
@@ -559,11 +559,11 @@ uint32_t ili9225_init(struct ili9225_opt_t *p_opt)
  */
 void ili9225_spi_handler(void)
 {
-	uint32_t dw_spi_reg;
+	uint32_t ul_spi_reg;
 
 	/* Disable interrupts */
-	dw_spi_reg = spi_read_interrupt_mask(ILI9225_SPI_INTERFACE);
-	spi_disable_interrupt(ILI9225_SPI_INTERFACE, dw_spi_reg);
+	ul_spi_reg = spi_read_interrupt_mask(ILI9225_SPI_INTERFACE);
+	spi_disable_interrupt(ILI9225_SPI_INTERFACE, ul_spi_reg);
 
 	/* Set the flag to notify the end of transfer */
 	g_by_transfend_flag = 1;
@@ -617,12 +617,12 @@ void ili9225_set_foreground_color(uint32_t ul_rgb24bits)
  */
 void ili9225_fill(ili9225_color_t us_color)
 {
-	uint32_t dw;
+	uint32_t i;
 
 	ili9225_set_cursor_position(0, 0);
 	ili9225_write_ram_prepare();
 
-	for (dw = ILI9225_LCD_WIDTH * ILI9225_LCD_HEIGHT; dw > 0; dw--) {
+	for (i = ILI9225_LCD_WIDTH * ILI9225_LCD_HEIGHT; i > 0; i--) {
 		ili9225_write_ram(us_color);
 	}
 }

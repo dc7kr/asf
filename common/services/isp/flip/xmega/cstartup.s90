@@ -3,7 +3,7 @@
  *
  * \brief AVR XMEGA boot process for bootloaders compiled with IAR.
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -200,7 +200,7 @@ start_boot:
 #endif
 ?need_segment_init:
 	CALL __segment_init
-	RCALL main
+	CALL main
 
 ;----------------------------------------------------------------------------
 ;   Call Application

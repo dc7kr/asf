@@ -2,7 +2,7 @@
 /**
  * \page License
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,7 +40,7 @@
  *
  * \section intro Introduction
  *  This documentation has been automatically generated, and documents the source
- *  code found in the AVR Software Framework (ASF). <p>
+ *  code found in the Atmel Software Framework (ASF). <p>
  *  Use the above menu to navigate in the documentation, or use the links below: <br>
  *  <ul>
  *  <li> <a href="globals_func.html">Functions</a>

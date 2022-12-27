@@ -3,7 +3,7 @@
  *
  * \brief lcd controller HX8347A example.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -71,23 +71,16 @@
  *
  */
 
-#include "board.h"
-#include "sysclk.h"
-#include "hx8347a.h"
-#include "gpio.h"
-#include "pio.h"
-#include "pmc.h"
-#include "smc.h"
-#include "aat31xx.h"
+#include "asf.h"
 
-struct hx8347a_opt_t hx8347a_display_opt;
+struct hx8347a_opt_t g_hx8347a_display_opt;
 
 /* Convert 24-bits color to 16-bits color */
-static hx8347a_color_t rgb24_to_rgb16(uint32_t dw_color)
+static hx8347a_color_t rgb24_to_rgb16(uint32_t ul_color)
 {
 	hx8347a_color_t result_color;
-	result_color = (((dw_color >> 8) & 0xF800) |
-			((dw_color >> 5) & 0x7E0) | ((dw_color >> 3) & 0x1F));
+	result_color = (((ul_color >> 8) & 0xF800) |
+			((ul_color >> 5) & 0x7E0) | ((ul_color >> 3) & 0x1F));
 	return result_color;
 }
 
@@ -119,16 +112,16 @@ int main(void)
 			| SMC_MODE_WRITE_MODE | SMC_MODE_DBW_BIT_16);
 
 	/* Initialize display parameter */
-	hx8347a_display_opt.dw_width = HX8347A_LCD_WIDTH;
-	hx8347a_display_opt.dw_height = HX8347A_LCD_HEIGHT;
-	hx8347a_display_opt.foreground_color = rgb24_to_rgb16(COLOR_BLACK);
-	hx8347a_display_opt.background_color = rgb24_to_rgb16(COLOR_WHITE);
+	g_hx8347a_display_opt.ul_width = HX8347A_LCD_WIDTH;
+	g_hx8347a_display_opt.ul_height = HX8347A_LCD_HEIGHT;
+	g_hx8347a_display_opt.foreground_color = rgb24_to_rgb16(COLOR_BLACK);
+	g_hx8347a_display_opt.background_color = rgb24_to_rgb16(COLOR_WHITE);
 
 	/* Switch off backlight */
 	aat31xx_disable_backlight();
 
 	/* Initialize LCD */
-	if(hx8347a_init(&hx8347a_display_opt)){
+	if(hx8347a_init(&g_hx8347a_display_opt)){
 		puts("Read HX8347A chip ID error, please check the configuration.\r");
 	}
 

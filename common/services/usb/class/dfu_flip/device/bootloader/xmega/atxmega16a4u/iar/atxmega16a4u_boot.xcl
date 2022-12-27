@@ -55,9 +55,9 @@
 //////////////////////////////////////////////////////////////////////////////
 // Code (flash) segments
 -Z(CODE)INTVEC=41F4-41FF
--Z(CODE)BOOT=_..X_FLASH_BASE-41F3
--Z(CODE)CODE=41FC-_..X_CODE_END
--Z(CODE)FARCODE=41FC-_..X_CODE_END
+-P(CODE)BOOT=_..X_FLASH_BASE-_..X_CODE_END
+-P(CODE)CODE=_..X_FLASH_BASE-_..X_CODE_END
+-P(CODE)FARCODE=_..X_FLASH_BASE-_..X_CODE_END
 -Z(CODE)INITTAB=41FC-_..X_CODE_END
 -Z(CODE)NEAR_ID=41FC-_..X_CODE_END
 

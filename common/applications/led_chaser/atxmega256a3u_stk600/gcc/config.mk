@@ -42,14 +42,14 @@ MCU = atxmega256a3u
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_applications_led_chaser_stk600-xmega256a3u.elf
+TARGET = led_chaser.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/applications/led_chaser/led_example.c       \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        xmega/boards/stk600/rc064x/init.c                  \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c
 
 # Assembler source files located from the top-level source directory
@@ -63,11 +63,11 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/utils                                       \
        xmega/boards                                       \
        xmega/boards/stk600/rc064x                         \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
@@ -115,7 +115,8 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D BOARD=STK600_RC064X                             \
-       -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA
+       -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA       \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

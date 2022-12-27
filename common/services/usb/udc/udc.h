@@ -215,7 +215,7 @@ usb_iface_desc_t UDC_DESC_STORAGE *udc_get_interface_desc(void);
  * The stack is divided in three parts:
  * - USB Device Controller (UDC) provides USB chapter 9 compliance
  * - USB Device Interface (UDI) provides USB Class compliance
- * - USB Device Driver (UDD) provides USB Driver for each AVR product
+ * - USB Device Driver (UDD) provides USB Driver for each Atmel MCU
 
  * Many USB Device applications can be implemented on Atmel MCU.
  * Atmel provides many application notes for different applications:

@@ -23,7 +23,7 @@
 # rebuilddoc              Rebuild the documentation
 #
 #
-# Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+# Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
 #
 # \asf_license_start
 #
@@ -130,7 +130,7 @@ AS              := $(CROSS)as
 CC              := $(CROSS)gcc
 CPP             := $(CROSS)gcc -E
 CXX             := $(CROSS)g++
-LD              := $(CROSS)g++
+LD              := $(CROSS)gcc
 NM              := $(CROSS)nm
 OBJCOPY         := $(CROSS)objcopy
 OBJDUMP         := $(CROSS)objdump
@@ -316,8 +316,15 @@ ar_flags = $(arflags-gnu-y)
 # Source files list and part informations must already be included before
 # running this makefile
 
+# If a custom build directory is specified, use it -- force trailing / in directory name.
+ifdef BUILD_DIR
+	build-dir       := $(dir $(BUILD_DIR))$(if $(notdir $(BUILD_DIR)),$(notdir $(BUILD_DIR))/)
+else
+	build-dir        =
+endif
+
 # Create object files list from source files list.
-obj-y                   := $(addsuffix .o,$(basename $(CSRCS) $(ASSRCS)))
+obj-y                   := $(addprefix $(build-dir), $(addsuffix .o,$(basename $(CSRCS) $(ASSRCS))))
 # Create dependency files list from source files list.
 dep-files               := $(wildcard $(foreach f,$(obj-y),$(basename $(f)).d))
 
@@ -365,7 +372,7 @@ rebuild: clean all
 objfiles: $(obj-y)
 
 # Create object files from C source files.
-%.o: %.c $(PRJ_PATH)/avr32/utils/make/Makefile.in config.mk
+$(build-dir)%.o: %.c $(PRJ_PATH)/avr32/utils/make/Makefile.in config.mk
 	$(Q)test -d $(dir $@) || echo $(MSG_MKDIR)
 ifeq ($(os),Windows)
 	$(Q)test -d $(dir $@) || mkdir $(subst /,\,$(dir $@))
@@ -376,7 +383,7 @@ endif
 	$(Q)$(CC) $(c_flags) -c $< -o $@
 
 # Create object files from C++ source files.
-%.o: %.cpp $(PRJ_PATH)/avr32/utils/make/Makefile.in config.mk
+$(build-dir)%.o: %.cpp $(PRJ_PATH)/avr32/utils/make/Makefile.in config.mk
 	$(Q)test -d $(dir $@) || echo $(MSG_MKDIR)
 ifeq ($(os),Windows)
 	$(Q)test -d $(dir $@) || mkdir $(subst /,\,$(dir $@))
@@ -387,7 +394,7 @@ endif
 	$(Q)$(CXX) $(cxx_flags) -c $< -o $@
 
 # Preprocess and assemble: create object files from assembler source files.
-%.o: %.s $(PRJ_PATH)/avr32/utils/make/Makefile.in config.mk
+$(build-dir)%.o: %.s $(PRJ_PATH)/avr32/utils/make/Makefile.in config.mk
 	$(Q)test -d $(dir $@) || echo $(MSG_MKDIR)
 ifeq ($(os),Windows)
 	$(Q)test -d $(dir $@) || mkdir $(subst /,\,$(dir $@))
@@ -398,7 +405,7 @@ endif
 	$(Q)$(CC) $(a_flags) -c $< -o $@
 
 # Preprocess and assemble: create object files from assembler source files.
-%.o: %.S $(PRJ_PATH)/avr32/utils/make/Makefile.in config.mk
+$(build-dir)%.o: %.S $(PRJ_PATH)/avr32/utils/make/Makefile.in config.mk
 	$(Q)test -d $(dir $@) || echo $(MSG_MKDIR)
 ifeq ($(os),Windows)
 	$(Q)test -d $(dir $@) || mkdir $(subst /,\,$(dir $@))

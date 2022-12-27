@@ -1,16 +1,12 @@
-/* This source file is part of the ATMEL QTouch Library Release 4.3.1 */
-/*****************************************************************************
- *
+/**
  * \file
  *
- * \brief  This file is used by the QDebug component to initialize, read
+ * \brief This file is used by the QDebug component to initialize, read
  * and write data over the USART SPI mode.
- *
  * - Userguide:          QTouch Library User Guide - doc8207.pdf.
  * - Support email:      touch@atmel.com
  *
- *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -44,8 +40,7 @@
  *
  * \asf_license_stop
  *
- ******************************************************************************/
-
+ */
 
 #ifndef _SPI_MASTER_H_
 #define _SPI_MASTER_H_
@@ -55,25 +50,29 @@ extern "C"
 {
 #endif
 
+/*============================ INCLUDES ======================================*/
+#include <stdint.h>
+
 /*============================ PROTOTYPES ====================================*/
+
 /*! \brief Initialize the USART in SPI mode.
  */
-  void SPI_Master_Init (void);
+void SPI_Master_Init(void);
 
 /*! \brief Send and Read one byte using SPI Interface.
  * \param c: Data to send to slave.
  * \return uint8_t data: Data read from slave.
  * \note Called from SPI_Send_Message in this file.
  */
-  uint8_t SPI_Send_Byte (uint8_t c);
+uint8_t SPI_Send_Byte(uint8_t c);
 
 /*! \brief Send and Read one frame using SPI Interface..
  * \note Called from Send_Message in QDebugTransport.c
  */
-  void SPI_Send_Message (void);
+void SPI_Send_Message(void);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif				//_SPI_MASTER_H_
+#endif                          /* _SPI_MASTER_H_ */

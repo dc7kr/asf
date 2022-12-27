@@ -69,6 +69,9 @@
 // From module: DSP - Digital signal processing library
 #include <dsp.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: EBI Static Memory Controller (SMC)
 #include <smc.h>
 
@@ -105,9 +108,6 @@
 
 // From module: TC - Timer/Counter
 #include <tc.h>
-
-// From module: TIMING - Delay routines
-#include <delay.h>
 
 // From module: TWI - Two-Wire Master Interface
 #include <twim.h>

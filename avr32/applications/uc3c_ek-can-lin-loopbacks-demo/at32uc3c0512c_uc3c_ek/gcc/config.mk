@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_applications_can-lin-loopbacks-demo_uc3c_ek.elf
+TARGET = can-lin-loopbacks-demo.elf
 
 # List of C source files.
 CSRCS = \

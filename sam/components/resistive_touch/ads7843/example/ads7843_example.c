@@ -3,7 +3,7 @@
  *
  * \brief ads7843 touchscreen controller Example.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -90,21 +90,8 @@
  *
  */
 
-#include <stdio.h>
-#include <string.h>
-#include "rtouch.h"
-#include "board.h"
-#include "sysclk.h"
-#include "exceptions.h"
-#include "pio.h"
-#include "pio_handler.h"
-#include "uart.h"
-#include "pmc.h"
-#include "smc.h"
-#include "ili9325.h"
-#include "aat31xx.h"
+#include "asf.h"
 #include "conf_board.h"
-#include "rtouch_calibrate.h"
 
 /** IRQ priority for PIO (The lower the value, the greater the priority) */
 #define IRQ_PRIOR_PIO    0
@@ -115,20 +102,20 @@
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 
 /** Input parameters when initializing ili9325 driver. */
-struct ili9325_opt_t display_opt;
+struct ili9325_opt_t g_display_opt;
 
 /** Tick Counter united by ms */
-static volatile uint32_t _dwTickCount = 0;
+static volatile uint32_t g_ul_tick_count = 0;
 
 /**
  * \brief Handler for SysTick interrupt. Increments the timestamp counter.
  */
 void SysTick_Handler(void)
 {
-	_dwTickCount++;
+	g_ul_tick_count++;
 
 	/* Call TSD_TimerHandler per 10ms */
-	if ((_dwTickCount % 10) == 0) {
+	if ((g_ul_tick_count % 10) == 0) {
 		rtouch_process();
 	}
 }
@@ -191,7 +178,7 @@ static void configure_console(void)
  */
 int main(void)
 {
-	uint8_t bResult;
+	uint8_t uc_result;
 
 	sysclk_init();
 	board_init();
@@ -229,13 +216,13 @@ int main(void)
 	smc_set_mode(SMC, 1, SMC_MODE_READ_MODE
 			| SMC_MODE_WRITE_MODE | SMC_MODE_DBW_8_BIT);
 
-	display_opt.dw_width = ILI9325_LCD_WIDTH;
-	display_opt.dw_height = ILI9325_LCD_HEIGHT;
-	display_opt.foreground_color = COLOR_BLACK;
-	display_opt.background_color = COLOR_WHITE;
+	g_display_opt.ul_width = ILI9325_LCD_WIDTH;
+	g_display_opt.ul_height = ILI9325_LCD_HEIGHT;
+	g_display_opt.foreground_color = COLOR_BLACK;
+	g_display_opt.background_color = COLOR_WHITE;
 
 	/* Initialize LCD */
-	ili9325_init(&display_opt);
+	ili9325_init(&g_display_opt);
 
 	aat31xx_set_backlight(AAT31XX_MAX_BACKLIGHT_LEVEL);
 
@@ -256,8 +243,8 @@ int main(void)
 	rtouch_set_event_handler(event_handler);
 
 	while (1) {
-		bResult = rtouch_calibrate();
-		if (bResult == 0) {
+		uc_result = rtouch_calibrate();
+		if (uc_result == 0) {
 			puts("Calibration successful !\r");
 			break;
 		} else {

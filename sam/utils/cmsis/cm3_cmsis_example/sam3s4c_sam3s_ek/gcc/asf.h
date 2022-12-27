@@ -50,8 +50,9 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: 
-#include <exceptions.h>
+// From module: Common SAM compiler driver
+#include <compiler.h>
+#include <status_codes.h>
 
 // From module: GPIO - General purpose Input/Output
 #include <gpio.h>
@@ -59,13 +60,14 @@
 // From module: Generic board support
 #include <board.h>
 
+// From module: Interrupt management - SAM3 implementation
+#include <interrupt.h>
+
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
 #include <pio_handler.h>
 
-// From module: UTILITY - SAM3S compiler driver
-#include <compiler.h>
-#include <parts.h>
-#include <status_codes.h>
+// From module: SAM3S startup code
+#include <exceptions.h>
 
 #endif // ASF_H

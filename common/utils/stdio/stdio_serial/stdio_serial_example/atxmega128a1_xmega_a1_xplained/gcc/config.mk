@@ -42,17 +42,17 @@ MCU = atxmega128a1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_utils_stdio_stdio_serial_xmega-a1_stdio-demo.elf
+TARGET = stdio_serial_stdio_serial_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/serial/usart_serial.c              \
        common/utils/stdio/read.c                          \
        common/utils/stdio/stdio_serial/stdio_serial_example/stdio_serial_example.c \
        common/utils/stdio/write.c                         \
        xmega/boards/xmega_a1_xplained/init.c              \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/usart/usart.c
 
 # Assembler source files located from the top-level source directory
@@ -64,14 +64,15 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
+       common/services/serial/xmega_usart                 \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
        common/utils/stdio/stdio_serial/stdio_serial_example/atxmega128a1_xmega_a1_xplained \
        xmega/boards                                       \
        xmega/boards/xmega_a1_xplained                     \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/pmic                                 \
        xmega/drivers/usart                                \
        xmega/utils                                        \
@@ -119,7 +120,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=XMEGA_A1_XPLAINED
+       -D BOARD=XMEGA_A1_XPLAINED                         \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

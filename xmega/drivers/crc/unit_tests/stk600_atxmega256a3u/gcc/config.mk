@@ -42,12 +42,13 @@ MCU = atxmega256a3u
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_drivers_crc_unit_test_stk600_atxmegaa3u.elf
+TARGET = crc_unit_test.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
        common/services/hugemem/avr8/avr8_hugemem.c        \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/serial/usart_serial.c              \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        common/utils/stdio/read.c                          \
@@ -57,7 +58,6 @@ CSRCS = \
        xmega/drivers/crc/crc.c                            \
        xmega/drivers/crc/unit_tests/unit_tests.c          \
        xmega/drivers/dma/dma.c                            \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/usart/usart.c
 
@@ -72,7 +72,9 @@ INC_PATH = \
        common/services/clock                              \
        common/services/gpio                               \
        common/services/hugemem                            \
+       common/services/ioport                             \
        common/services/serial                             \
+       common/services/serial/xmega_usart                 \
        common/services/sleepmgr                           \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
@@ -83,7 +85,6 @@ INC_PATH = \
        xmega/drivers/crc/unit_tests                       \
        xmega/drivers/crc/unit_tests/stk600_atxmega256a3u  \
        xmega/drivers/dma                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/pmic                                 \
        xmega/drivers/sleep                                \
@@ -135,6 +136,7 @@ CFLAGS =
 CPPFLAGS = \
        -D BOARD=STK600_RC064X                             \
        -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA       \
+       -D IOPORT_XMEGA_COMPAT                             \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_
 

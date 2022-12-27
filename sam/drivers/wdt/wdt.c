@@ -3,7 +3,7 @@
  *
  * \brief Watchdog Timer (WDT) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -74,38 +74,38 @@ extern "C" {
  * \note The value returned by this function can be used by wdt_init() if it is 
  * not WDT_INVALID_ARGUMENT.
  *
- * \param dw_us The desired timeout period (in us).
- * \param dw_sclk The slow clock on board (in Hz).
+ * \param ul_us The desired timeout period (in us).
+ * \param ul_sclk The slow clock on board (in Hz).
  *
  * \return If the desired period is beyond the watchdog period, this function 
  * returns WDT_INVALID_ARGUMENT. Otherwise it returns valid value.
  */
-uint32_t wdt_get_timeout_value(uint32_t dw_us, uint32_t dw_sclk)
+uint32_t wdt_get_timeout_value(uint32_t ul_us, uint32_t ul_sclk)
 {
 	uint32_t max, min;
 
-	min = WDT_SLCK_DIV * 1000000 / dw_sclk;
+	min = WDT_SLCK_DIV * 1000000 / ul_sclk;
 	max = min * WDT_MAX_VALUE;
 
-	if ((dw_us < min) || (dw_us > max)) {
+	if ((ul_us < min) || (ul_us > max)) {
 		return WDT_INVALID_ARGUMENT;
 	}
 
-	return WDT_MR_WDV(dw_us / min);
+	return WDT_MR_WDV(ul_us / min);
 }
 
 /**
  * \brief Initialize watchdog timer with the given mode.
  *
  * \param p_wdt Pointer to a WDT instance.
- * \param dw_mode Bitmask of watchdog timer mode.
- * \param w_counter The value loaded in the 12-bit Watchdog Counter.
- * \param w_delta The permitted range for reloading the Watchdog Timer.
+ * \param ul_mode Bitmask of watchdog timer mode.
+ * \param us_counter The value loaded in the 12-bit Watchdog Counter.
+ * \param us_delta The permitted range for reloading the Watchdog Timer.
  */
-void wdt_init(Wdt *p_wdt, uint32_t dw_mode, uint16_t w_counter,
-		uint16_t w_delta)
+void wdt_init(Wdt *p_wdt, uint32_t ul_mode, uint16_t us_counter,
+		uint16_t us_delta)
 {
-	p_wdt->WDT_MR = dw_mode | WDT_MR_WDV(w_counter) | WDT_MR_WDD(w_delta);
+	p_wdt->WDT_MR = ul_mode | WDT_MR_WDV(us_counter) | WDT_MR_WDD(us_delta);
 }
 
 /**
@@ -138,13 +138,13 @@ uint32_t wdt_get_status(Wdt *p_wdt)
  * \brief Get the timeout period of the WatchDog Timer in microseconds.
  *
  * \param p_wdt Pointer to a WDT instance.
- * \param dw_sclk The slow clock frequency (in Hz).
+ * \param ul_sclk The slow clock frequency (in Hz).
  *
  * \return The timeout period in microseconds.
  */
-uint32_t wdt_get_us_timeout_period(Wdt *p_wdt, uint32_t dw_sclk)
+uint32_t wdt_get_us_timeout_period(Wdt *p_wdt, uint32_t ul_sclk)
 {
-	return WDT_MR_WDV(p_wdt->WDT_MR) * WDT_SLCK_DIV / dw_sclk * 1000000;
+	return WDT_MR_WDV(p_wdt->WDT_MR) * WDT_SLCK_DIV / ul_sclk * 1000000;
 }
 
 //@}

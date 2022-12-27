@@ -515,6 +515,43 @@ extern void *pvPortRealloc( void *pv, size_t xSize );
   pxCurrentTCB;                                                                             \
 }
 
+/**
+ * \brief Macro to declare an interrupt service routine when FreeRTOS is used.
+ *
+ * This macro defines the function as an interrupt service routine and causes
+ * the compiler to add initialization code for the interrupt controller(INTC)
+ * The interrupt group and level, as well as a valid function name are
+ * therefore required.\n
+ *
+ * Usage:
+ * \code
+ * ISR_FREERTOS(foo_irq_handler, AVR32_xxx_IRQ_GROUP, n)
+ * {
+ *      // Function definition
+ *      ...
+ * }
+ * \endcode
+ *
+ * \param func Name for the function, needed by \ref irq_register_handler.
+ * \param int_grp Interrupt group to define service routine for.
+ * \param int_lvl Priority level to set for the interrupt group, in the range
+ * \c 0 to \c 3.
+ *
+ * \note The interrupt groups can be found in the device header files for the
+ * IAR toolchain (avr32/io\<part\>.h).
+ *
+ * \todo Update to use IRQ numbers when these are made available in the
+ * device header files of IAR.
+ */
+#define ISR0_FREERTOS(...) _Pragma(#__VA_ARGS__)
+#define ISR_FREERTOS(func, int_grp, int_lvl)    \
+	static void func##_not_naked(void); \
+	ISR0_FREERTOS(shadow_registers = full) \
+	__interrupt static void func(void) { \
+	portENTER_SWITCHING_ISR(); \
+	func##_not_naked(); \
+	portEXIT_SWITCHING_ISR(); } \
+	static void func##_not_naked(void)
 
 /*
  * The ISR used depends on whether the cooperative or

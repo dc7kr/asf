@@ -3,7 +3,7 @@
  *
  * \brief Universal Synchronous Asynchronous Receiver Transmitter (USART) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -43,6 +43,17 @@
 #define USART_H_INCLUDED
 
 #include "compiler.h"
+
+/**
+ * \defgroup usart_group Universal Synchronous Asynchronous Receiver Transmitter (USART)
+ *
+ * See \ref sam_usart_quickstart.
+ *
+ * This is a low-level driver implementation for the SAM Universal
+ * Synchronous/Asynchronous Receiver/Transmitter.
+ *
+ * @{
+ */
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -191,8 +202,8 @@ void usart_enable_rx(Usart *p_usart);
 void usart_disable_rx(Usart *p_usart);
 void usart_reset_rx(Usart *p_usart);
 void usart_set_rx_timeout(Usart *p_usart, uint32_t timeout);
-void usart_enable_interrupt(Usart *p_usart,uint32_t dw_sources);
-void usart_disable_interrupt(Usart *p_usart,uint32_t dw_sources);
+void usart_enable_interrupt(Usart *p_usart,uint32_t ul_sources);
+void usart_disable_interrupt(Usart *p_usart,uint32_t ul_sources);
 uint32_t usart_get_interrupt_mask(Usart *p_usart);
 uint32_t usart_get_status(Usart *p_usart);
 void usart_reset_status(Usart *p_usart);
@@ -250,5 +261,373 @@ void usart_man_disable_drift_compensation(Usart *p_usart);
 #endif
 /**INDENT-ON**/
 /// @endcond
+
+//! @}
+
+/**
+ * \page sam_usart_quickstart Quick start guide for the SAM USART module
+ *
+ * This is the quick start guide for the \ref usart_group "USART module", with
+ * step-by-step instructions on how to configure and use the driver in a
+ * selection of use cases.
+ *
+ * The use cases contain several code fragments. The code fragments in the
+ * steps for setup can be copied into a custom initialization function, while
+ * the steps for usage can be copied into, e.g., the main application function.
+ *
+ * \note Some SAM devices contain both USART and UART modules, with the latter
+ *       being a subset in functionality of the former but physically seperate
+ *       peripherals. UART modules are compatible with the USART driver, but
+ *       only for the functions and modes suported by the base UART driver.
+ *
+ * \section usart_basic_use_case Basic use case
+ * \section usart_use_cases USART use cases
+ * - \ref usart_basic_use_case
+ * - \subpage usart_use_case_1
+ * - \subpage usart_use_case_2
+ *
+ * \section usart_basic_use_case Basic use case - transmit a character
+ * In this use case, the USART module is configured for:
+ * - Using USART0
+ * - Baudrate: 9600
+ * - Character length: 8 bit
+ * - Parity mode: Disabled
+ * - Stop bit: None
+ * - RS232 mode
+ *
+ * \section usart_basic_use_case_setup Setup steps
+ *
+ * \subsection usart_basic_use_case_setup_prereq Prerequisites
+ * -# \ref sysclk_group "System Clock Management (sysclock)"
+ * -# \ref pio_group "Parallel Input/Output Controller (pio)"
+ * -# \ref pmc_group "Power Management Controller (pmc)"
+ *
+ * \subsection usart_basic_use_case_setup_code Example code
+ * The following configuration must be added to the project (typically to a 
+ * conf_usart.h file, but it can also be added to your main application file.)
+ * \code
+ *    #define USART_SERIAL                 USART0
+ *    #define USART_SERIAL_ID              ID_USART0
+ *    #define USART_SERIAL_PIO             PINS_USART_PIO
+ *    #define USART_SERIAL_TYPE            PINS_USART_TYPE
+ *    #define USART_SERIAL_PINS            PINS_USART_PINS
+ *    #define USART_SERIAL_MASK            PINS_USART_MASK
+ *    #define USART_SERIAL_BAUDRATE        9600
+ *    #define USART_SERIAL_CHAR_LENGTH     US_MR_CHRL_8_BIT
+ *    #define USART_SERIAL_PARITY          US_MR_PAR_NO
+ *    #define USART_SERIAL_STOP_BIT        US_MR_NBSTOP_1_BIT
+ * \endcode
+ *
+ * Add to application initialization:
+ * \code
+ *    sysclk_init();
+ *
+ *    pio_configure(USART_SERIAL_PIO, USART_SERIAL_TYPE,
+ *                  USART_SERIAL_MASK, USART_SERIAL_ATTR);
+ *    
+ *    const sam_usart_opt_t usart_console_settings = {
+ *        USART_SERIAL_BAUDRATE,
+ *        USART_SERIAL_CHAR_LENGTH,
+ *        USART_SERIAL_PARITY,
+ *        USART_SERIAL_STOP_BIT,
+ *        US_MR_CHMODE_NORMAL
+ *    };
+ *    
+ *    pmc_enable_periph_clk(USART_SERIAL_ID);
+ *   
+ *    usart_init_rs232(USART_SERIAL, &usart_console_settings, sysclk_get_main_hz());
+ *    usart_enable_tx(USART_SERIAL);
+ *    usart_enable_rx(USART_SERIAL);
+ * \endcode
+ *
+ * \subsection usart_basic_use_case_setup_flow Workflow
+ * -# Initialize system clock:
+ *   \code
+ *   sysclk_init();
+ *   \endcode
+ * -# Configure the USART Tx and Rx pins as Outputs and Inputs respectively:
+ *   \code
+ *   pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
+ *                 PINS_UART_ATTR);
+ *   \endcode
+ * -# Create USART options struct:
+ *   \code
+ *   const sam_usart_opt_t usart_console_settings = {
+ *        USART_SERIAL_BAUDRATE,
+ *        USART_SERIAL_CHAR_LENGTH,
+ *        USART_SERIAL_PARITY,
+ *        USART_SERIAL_STOP_BIT,
+ *        US_MR_CHMODE_NORMAL
+ *   };
+ *   \endcode
+ * -# Enable the clock to the USART module:
+ *   \code
+ *   pmc_enable_periph_clk(USART_SERIAL_ID);
+ *   \endcode
+ * -# Initialize the USART module in RS232 mode:
+ *   \code
+ *   usart_init_rs232(USART_SERIAL, &usart_console_settings, sysclk_get_main_hz());
+ *   \endcode
+ * -# Enable the Rx and Tx modes of the USART module:
+ *   \code
+ *   usart_enable_tx(USART_SERIAL);
+ *   usart_enable_rx(USART_SERIAL);
+ *   \endcode
+ *
+ * \section usart_basic_use_case_usage Usage steps
+ *
+ * \subsection usart_basic_use_case_usage_code Example code
+ * Add to application C-file:
+ * \code
+ * usart_putchar(USART_SERIAL, 'a');
+ * \endcode
+ *
+ * \subsection usart_basic_use_case_usage_flow Workflow
+ * -# Send an 'a' character via USART
+ *   \code usart_putchar(USART_SERIAL, 'a'); \endcode
+ */
+
+/**
+ * \page usart_use_case_1 USART receive character and echo back
+ *
+ * In this use case, the USART module is configured for:
+ * - Using USART0
+ * - Baudrate: 9600
+ * - Character length: 8 bit
+ * - Parity mode: Disabled
+ * - Stop bit: None
+ * - RS232 mode
+ *
+ * The use case waits for a received character on the configured USART and
+ * echoes the character back to the same USART.
+ *
+ * \section usart_use_case_1_setup Setup steps
+ *
+ * \subsection usart_use_case_1_setup_prereq Prerequisites
+ * -# \ref sysclk_group "System Clock Management (sysclock)"
+ * -# \ref pio_group "Parallel Input/Output Controller (pio)"
+ * -# \ref pmc_group "Power Management Controller (pmc)"
+ *
+ * \subsection usart_use_case_1_setup_code Example code
+ * The following configuration must be added to the project (typically to a 
+ * conf_usart.h file, but it can also be added to your main application file.):
+ * \code
+ *    #define USART_SERIAL                 USART0
+ *    #define USART_SERIAL_ID              ID_USART0
+ *    #define USART_SERIAL_PIO             PINS_USART_PIO
+ *    #define USART_SERIAL_TYPE            PINS_USART_TYPE
+ *    #define USART_SERIAL_PINS            PINS_USART_PINS
+ *    #define USART_SERIAL_MASK            PINS_USART_MASK
+ *    #define USART_SERIAL_BAUDRATE        9600
+ *    #define USART_SERIAL_CHAR_LENGTH     US_MR_CHRL_8_BIT
+ *    #define USART_SERIAL_PARITY          US_MR_PAR_NO
+ *    #define USART_SERIAL_STOP_BIT        US_MR_NBSTOP_1_BIT
+ * \endcode
+ *
+ * A variable for the received byte must be added:
+ * \code
+ *    uint32_t received_byte;
+ * \endcode
+ *
+ * Add to application initialization:
+ * \code
+ *    sysclk_init();
+ *
+ *    pio_configure(USART_SERIAL_PIO, USART_SERIAL_TYPE,
+ *                  USART_SERIAL_MASK, USART_SERIAL_ATTR);
+ *    
+ *    const sam_usart_opt_t usart_console_settings = {
+ *        USART_SERIAL_BAUDRATE,
+ *        USART_SERIAL_CHAR_LENGTH,
+ *        USART_SERIAL_PARITY,
+ *        USART_SERIAL_STOP_BIT,
+ *        US_MR_CHMODE_NORMAL
+ *    };
+ *    
+ *    pmc_enable_periph_clk(USART_SERIAL_ID);
+ *   
+ *    usart_init_rs232(USART_SERIAL, &usart_console_settings, sysclk_get_main_hz());
+ *    usart_enable_tx(USART_SERIAL);
+ *    usart_enable_rx(USART_SERIAL);
+ * \endcode
+ *
+ * \subsection usart_use_case_1_setup_flow Workflow
+ * -# Initialize system clock:
+ *   \code
+ *   sysclk_init();
+ *   \endcode
+ * -# Configure the USART Tx and Rx pins as Outputs and Inputs respectively:
+ *   \code
+ *    pio_configure(USART_SERIAL_PIO, USART_SERIAL_TYPE,
+ *                  USART_SERIAL_MASK, USART_SERIAL_ATTR);
+ *   \endcode
+ * -# Create USART options struct:
+ *   \code
+ *   const sam_usart_opt_t usart_console_settings = {
+ *        USART_SERIAL_BAUDRATE,
+ *        USART_SERIAL_CHAR_LENGTH,
+ *        USART_SERIAL_PARITY,
+ *        USART_SERIAL_STOP_BIT,
+ *        US_MR_CHMODE_NORMAL
+ *   };
+ *   \endcode
+ * -# Enable the clock to the USART module:
+ *   \code pmc_enable_periph_clk(USART_SERIAL_ID); \endcode
+ * -# Initialize the USART module in RS232 mode:
+ *   \code usart_init_rs232(USART_SERIAL, &usart_console_settings, sysclk_get_main_hz()); \endcode
+ * -# Enable the Rx and Tx modes of the USART module:
+ *   \code
+ *   usart_enable_tx(USART_SERIAL);
+ *   usart_enable_rx(USART_SERIAL);
+ *   \endcode
+ *
+ * \section usart_use_case_1_usage Usage steps
+ *
+ * \subsection usart_use_case_1_usage_code Example code
+ * Add to, e.g., main loop in application C-file:
+ * \code
+ * received_byte = usart_getchar(USART_SERIAL);
+ * usart_putchar(USART_SERIAL, received_byte);
+ * \endcode
+ *
+ * \subsection usart_use_case_1_usage_flow Workflow
+ * -# Wait for reception of a character:
+ *   \code usart_getchar(USART_SERIAL, &received_byte); \endcode
+ * -# Echo the character back:
+ *   \code usart_putchar(USART_SERIAL, received_byte); \endcode
+ */
+
+/**
+ * \page usart_use_case_2 USART receive character and echo back via interrupts
+ *
+ * In this use case, the USART module is configured for:
+ * - Using USART0
+ * - Baudrate: 9600
+ * - Character length: 8 bit
+ * - Parity mode: Disabled
+ * - Stop bit: None
+ * - RS232 mode
+ *
+ * The use case waits for a received character on the configured USART and
+ * echoes the character back to the same USART. The character reception is
+ * performed via an interrupt handler, rather than the polling method used
+ * in \ref usart_use_case_1.
+ *
+ * \section usart_use_case_2_setup Setup steps
+ *
+ * \subsection usart_use_case_2_setup_prereq Prerequisites
+ * -# \ref sysclk_group "System Clock Management (sysclock)"
+ * -# \ref pio_group "Parallel Input/Output Controller (pio)"
+ * -# \ref pmc_group "Power Management Controller (pmc)"
+ *
+ * \subsection usart_use_case_2_setup_code Example code
+ * The following configuration must be added to the project (typically to a 
+ * conf_usart.h file, but it can also be added to your main application file.):
+ * \code
+ *    #define USART_SERIAL                 USART0
+ *    #define USART_SERIAL_ID              ID_USART0
+ *    #define USART_SERIAL_ISR_HANDLER     USART0_Handler
+ *    #define USART_SERIAL_PIO             PINS_USART_PIO
+ *    #define USART_SERIAL_TYPE            PINS_USART_TYPE
+ *    #define USART_SERIAL_PINS            PINS_USART_PINS
+ *    #define USART_SERIAL_MASK            PINS_USART_MASK
+ *    #define USART_SERIAL_BAUDRATE        9600
+ *    #define USART_SERIAL_CHAR_LENGTH     US_MR_CHRL_8_BIT
+ *    #define USART_SERIAL_PARITY          US_MR_PAR_NO
+ *    #define USART_SERIAL_STOP_BIT        US_MR_NBSTOP_1_BIT
+ * \endcode
+ *
+ * A variable for the received byte must be added:
+ * \code
+ *    uint32_t received_byte;
+ * \endcode
+ *
+ * Add to application initialization:
+ * \code
+ *    sysclk_init();
+ *
+ *    pio_configure(USART_SERIAL_PIO, USART_SERIAL_TYPE,
+ *                  USART_SERIAL_MASK, USART_SERIAL_ATTR);
+ *    
+ *    const sam_usart_opt_t usart_console_settings = {
+ *        USART_SERIAL_BAUDRATE,
+ *        USART_SERIAL_CHAR_LENGTH,
+ *        USART_SERIAL_PARITY,
+ *        USART_SERIAL_STOP_BIT,
+ *        US_MR_CHMODE_NORMAL
+ *    };
+ *    
+ *    pmc_enable_periph_clk(USART_SERIAL_ID);
+ *   
+ *    usart_init_rs232(USART_SERIAL, &usart_console_settings, sysclk_get_main_hz());
+ *    usart_enable_tx(USART_SERIAL);
+ *    usart_enable_rx(USART_SERIAL);
+ * 
+ *    usart_enable_interrupt(USART_SERIAL, US_IER_RXRDY);
+ *    NVIC_EnableIRQ(USART_SERIAL_IRQ);
+ * \endcode
+ *
+ * \subsection usart_use_case_2_setup_flow Workflow
+ * -# Initialize system clock:
+ *   \code
+ *   sysclk_init();
+ *   \endcode
+ * -# Configure the USART Tx and Rx pins as Outputs and Inputs respectively:
+ *   \code
+ *    pio_configure(USART_SERIAL_PIO, USART_SERIAL_TYPE,
+ *                  USART_SERIAL_MASK, USART_SERIAL_ATTR);
+ *   \endcode
+ * -# Create USART options struct:
+ *   \code
+ *   const sam_usart_opt_t usart_console_settings = {
+ *        USART_SERIAL_BAUDRATE,
+ *        USART_SERIAL_CHAR_LENGTH,
+ *        USART_SERIAL_PARITY,
+ *        USART_SERIAL_STOP_BIT,
+ *        US_MR_CHMODE_NORMAL
+ *   };
+ *   \endcode
+ * -# Enable the clock to the USART module:
+ *   \code pmc_enable_periph_clk(USART_SERIAL_ID); \endcode
+ * -# Initialize the USART module in RS232 mode:
+ *   \code usart_init_rs232(USART_SERIAL, &usart_console_settings, sysclk_get_main_hz()); \endcode
+ * -# Enable the Rx and Tx modes of the USART module:
+ *   \code
+ *   usart_enable_tx(USART_SERIAL);
+ *   usart_enable_rx(USART_SERIAL);
+ *   \endcode
+ * -# Enable the USART character reception interrupt, and general interrupts for the USART module.
+ *   \code
+ *   usart_enable_interrupt(USART_SERIAL, US_IER_RXRDY);
+ *   NVIC_EnableIRQ(USART_SERIAL_IRQ);
+ *   \endcode
+ * \section usart_use_case_2_usage Usage steps
+ *
+ * \subsection usart_use_case_2_usage_code Example code
+ * Add to your main application C-file the USART interrupt handler:
+ * \code
+ * void USART_SERIAL_ISR_HANDLER(void)
+ * {
+ *    uint32_t dw_status = usart_get_status(USART_SERIAL);
+ * 
+ *    if (dw_status & US_CSR_RXRDY) {
+ *        uint32_t received_byte;
+ * 
+ *        usart_read(USART_SERIAL, &received_byte);
+ *        usart_write(USART_SERIAL, received_byte);
+ *    }
+ * }
+ * \endcode
+ *
+ * \subsection usart_use_case_2_usage_flow Workflow
+ * -# When the USART ISR fires, retrieve the USART module interrupt flags:
+ *   \code uint32_t dw_status = usart_get_status(USART_SERIAL); \endcode
+ * -# Check if the USART Receive Character interrupt has fired:
+ *   \code if (dw_status & US_CSR_RXRDY) \endcode
+ * -# If a character has been received, fetch it into a temporary variable:
+ *   \code usart_read(USART_SERIAL, &received_byte); \endcode
+ * -# Echo the character back:
+ *   \code usart_write(USART_SERIAL, received_byte); \endcode
+ */
 
 #endif /* USART_H_INCLUDED */

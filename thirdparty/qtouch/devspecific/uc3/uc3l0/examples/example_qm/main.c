@@ -1,12 +1,11 @@
 /* This source file is part of the ATMEL QTouch Library Release 4.3.1 */
-/*****************************************************************************
- *
+/**
  * \file
  *
- * \defgroup group_avr32_services_qtouch_devspecific_uc3_uc3l0_examples_example_qm
+ * \mainpage
  * QMatrix Example for QT600 UC3L0 board.
  *
- * This file contains the AT32UC3L QTouch Library API Example application
+ * This file (\ref main.c) contains the AT32UC3L QTouch Library API Example application
  * for QMatrix method using the Capacitive Touch (CAT) module on the
  * QT600 UC3L board.
  *
@@ -14,7 +13,7 @@
  * - Support email:      touch@atmel.com
  *
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

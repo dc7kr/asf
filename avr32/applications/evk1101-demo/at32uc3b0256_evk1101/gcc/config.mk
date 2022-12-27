@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_applications_evk1101-demo_example.elf
+TARGET = evk1101-demo.elf
 
 # List of C source files.
 CSRCS = \

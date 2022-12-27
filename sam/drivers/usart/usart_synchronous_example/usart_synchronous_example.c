@@ -3,7 +3,7 @@
  *
  * \brief USART Synchronous example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -103,18 +103,8 @@
  *
  */
 
-#include <stdio.h>
 #include <string.h>
-#include "sysclk.h"
-#include "board.h"
-#include "exceptions.h"
-#include "usart.h"
-#include "uart.h"
-#include "pmc.h"
-#include "gpio.h"
-#include "pio.h"
-#include "tc.h"
-#include "pdc.h"
+#include "asf.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_example.h"
@@ -164,54 +154,54 @@ char tran_buff[BUFFER_SIZE] = "DESCRIPTION of this example: \r\n \
  ";
 
 /** Buffer for receiving. */
-char recv_buff[BUFFER_SIZE] = { 0 };
+int8_t g_c_recv_buff[BUFFER_SIZE] = { 0 };
 
 /** Reception is done. */
-volatile uint32_t recv_done = false;
+volatile uint32_t g_ul_recv_done = false;
 /** Sending is done. */
-volatile uint32_t sent_done = false;
+volatile uint32_t g_ul_sent_done = false;
 
 /** Mode for usart, 0 means usart as slave and 1 for
  master. */
-uint8_t transfer_mode = SYNC_MASTER;
+uint8_t g_uc_transfer_mode = SYNC_MASTER;
 
 /** State of reading or writing. */
-uint8_t state = STATE_WRITE;
+uint8_t g_uc_state = STATE_WRITE;
 
 /** Clock freq. */
-uint32_t freq[FREQ_OPTIONS_NUM] =
+uint32_t g_ul_freq[FREQ_OPTIONS_NUM] =
 		{ 1000000UL, 4000000UL, 10000000UL, 16000000UL };
 
-/** Present frequency index in list freq[]. */
-uint8_t freq_idx = 0;
+/** Present frequency index in list g_ul_freq[]. */
+uint8_t g_uc_freq_idx = 0;
 
 /** PDC data packet. */
-pdc_packet_t st_packet;
+pdc_packet_t g_st_packet;
 
 /** Pointer to PDC register base. */
-Pdc *p_pdc;
+Pdc *g_p_pdc;
 
 /**
  * \brief USART IRQ handler.
  *
- * Interrupt handler for USART. After reception is done, set recv_done to true,
- * and if transmission is done, set sent_done to true.
+ * Interrupt handler for USART. After reception is done, set g_ul_recv_done to true,
+ * and if transmission is done, set g_ul_sent_done to true.
  *
  */
 void USART_Handler(void)
 {
-	uint32_t dw_status;
+	uint32_t ul_status;
 
 	/* Read USART Status. */
-	dw_status = usart_get_status(BOARD_USART);
+	ul_status = usart_get_status(BOARD_USART);
 
 	/* Receive buffer is full. */
-	if ((dw_status & US_CSR_RXBUFF) && (state == STATE_READ)) {
-		recv_done = true;
+	if ((ul_status & US_CSR_RXBUFF) && (g_uc_state == STATE_READ)) {
+		g_ul_recv_done = true;
 		usart_disable_interrupt(BOARD_USART, US_IDR_RXBUFF);
 	}
-	if ((dw_status & US_CSR_TXBUFE) && (state == STATE_WRITE)) {
-		sent_done = true;
+	if ((ul_status & US_CSR_TXBUFE) && (g_uc_state == STATE_WRITE)) {
+		g_ul_sent_done = true;
 		usart_disable_interrupt(BOARD_USART, US_IDR_TXBUFE);
 	}
 }
@@ -222,7 +212,7 @@ void USART_Handler(void)
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_main_hz(), 115200, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
 
 	/* Configure PIO. */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
@@ -247,13 +237,12 @@ static void configure_console(void)
 /**
  * \brief Configure USART in synchronous mode.
  *
- * \param dw_ismaster  1 for master, 0 for slave.
- * \param dw_baudrate  Baudrate for synchronous communication.
+ * \param ul_ismaster  1 for master, 0 for slave.
+ * \param ul_baudrate  Baudrate for synchronous communication.
  *
  */
-static void configure_usart(uint32_t dw_ismaster, uint32_t dw_baudrate)
+static void configure_usart(uint32_t ul_ismaster, uint32_t ul_baudrate)
 {
-	static uint32_t dw_sysclk;
 	sam_usart_opt_t usart_console_settings = {
 		0,
 		US_MR_CHRL_8_BIT,
@@ -264,17 +253,14 @@ static void configure_usart(uint32_t dw_ismaster, uint32_t dw_baudrate)
 		0
 	};
 
-	usart_console_settings.baudrate = dw_baudrate;
-
-	/* Get system clock. */
-	dw_sysclk = sysclk_get_main_hz();
+	usart_console_settings.baudrate = ul_baudrate;
 
 	/* Enable the peripheral clock in the PMC. */
 	pmc_enable_periph_clk(BOARD_ID_USART);
 
 	/* Configure USART in SYNC. master or slave mode. */
-	if (dw_ismaster) {
-		usart_init_sync_master(BOARD_USART, &usart_console_settings, dw_sysclk);
+	if (ul_ismaster) {
+		usart_init_sync_master(BOARD_USART, &usart_console_settings, sysclk_get_cpu_hz());
 	} else {
 		usart_init_sync_slave(BOARD_USART, &usart_console_settings);
 	}
@@ -342,15 +328,15 @@ int main(void)
 	display_main_menu();
 
 	/* Configure USART. */
-	configure_usart(SYNC_MASTER, freq[freq_idx]);
+	configure_usart(SYNC_MASTER, g_ul_freq[g_uc_freq_idx]);
 
 	/* Get board USART PDC base address and enable receiver and transmitter. */
-	p_pdc = usart_get_pdc_base(BOARD_USART);
-	pdc_enable_transfer(p_pdc, PERIPH_PTCR_RXTEN | PERIPH_PTCR_TXTEN);
+	g_p_pdc = usart_get_pdc_base(BOARD_USART);
+	pdc_enable_transfer(g_p_pdc, PERIPH_PTCR_RXTEN | PERIPH_PTCR_TXTEN);
 
-	transfer_mode = SYNC_MASTER;
+	g_uc_transfer_mode = SYNC_MASTER;
 
-	state = STATE_WRITE;
+	g_uc_state = STATE_WRITE;
 
 	puts("-- USART in MASTER mode --\r");
 
@@ -362,71 +348,71 @@ int main(void)
 		case '1':
 		case '2':
 		case '3':
-			freq_idx = uc_char - '0';
-			printf("-- The clock freq is: %luHz.\r\n", freq[freq_idx]);
-			configure_usart(SYNC_MASTER, freq[freq_idx]);
+			g_uc_freq_idx = uc_char - '0';
+			printf("-- The clock freq is: %luHz.\r\n", g_ul_freq[g_uc_freq_idx]);
+			configure_usart(SYNC_MASTER, g_ul_freq[g_uc_freq_idx]);
 			break;
 		case 'i':
 		case 'I':
-			if (transfer_mode == SYNC_MASTER) {
-				printf("-- USART is MASTER at %luHz.\r\n", freq[freq_idx]);
+			if (g_uc_transfer_mode == SYNC_MASTER) {
+				printf("-- USART is MASTER at %luHz.\r\n", g_ul_freq[g_uc_freq_idx]);
 			} else {
 				puts("-- USART is SLAVE \r");
 			}
 			break;
 		case 's':
 		case 'S':
-			if (transfer_mode == SYNC_MASTER) {
-				transfer_mode = SYNC_SLAVE;
-				configure_usart(SYNC_SLAVE, freq[freq_idx]);
+			if (g_uc_transfer_mode == SYNC_MASTER) {
+				g_uc_transfer_mode = SYNC_SLAVE;
+				configure_usart(SYNC_SLAVE, g_ul_freq[g_uc_freq_idx]);
 				puts("-- USART in SLAVE mode --\r");
 			} else {
-				if (transfer_mode == SYNC_SLAVE) {
-					transfer_mode = SYNC_MASTER;
-					configure_usart(SYNC_MASTER, freq[freq_idx]);
+				if (g_uc_transfer_mode == SYNC_SLAVE) {
+					g_uc_transfer_mode = SYNC_MASTER;
+					configure_usart(SYNC_MASTER, g_ul_freq[g_uc_freq_idx]);
 					puts("-- USART in MASTER mode --\r");
 				}
 			}
 			break;
 		case 'w':
 		case 'W':
-			state = STATE_WRITE;
-			st_packet.dw_addr = (uint32_t)tran_buff;
-			st_packet.dw_size = BUFFER_SIZE;
-			pdc_tx_init(p_pdc, &st_packet, NULL);
+			g_uc_state = STATE_WRITE;
+			g_st_packet.ul_addr = (uint32_t)tran_buff;
+			g_st_packet.ul_size = BUFFER_SIZE;
+			pdc_tx_init(g_p_pdc, &g_st_packet, NULL);
 			usart_enable_interrupt(BOARD_USART, US_IER_TXBUFE);
-			while (!sent_done) {
+			while (!g_ul_sent_done) {
 			}
-			if (sent_done) {
+			if (g_ul_sent_done) {
 				printf("-- %s sent done --\r\n",
-						transfer_mode ? "MASTER" :
+						g_uc_transfer_mode ? "MASTER" :
 						"SLAVE");
 			}
 			break;
 		case 'r':
 		case 'R':
-			state = STATE_READ;
-			if (transfer_mode == SYNC_MASTER) {
+			g_uc_state = STATE_READ;
+			if (g_uc_transfer_mode == SYNC_MASTER) {
 				puts("----USART MASTER Read----\r");
 			} else {
 				puts("----USART SLAVE Read----\r");
 			}
-			st_packet.dw_addr = (uint32_t)recv_buff;
-			st_packet.dw_size = BUFFER_SIZE;
-			pdc_rx_init(p_pdc, &st_packet, NULL);
+			g_st_packet.ul_addr = (uint32_t)g_c_recv_buff;
+			g_st_packet.ul_size = BUFFER_SIZE;
+			pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
 			usart_enable_interrupt(BOARD_USART, US_IER_RXBUFF);
-			while (!recv_done) {
+			while (!g_ul_recv_done) {
 			}
-			if (recv_done) {
-				if (strncmp(recv_buff, tran_buff, BUFFER_SIZE)) {
+			if (g_ul_recv_done) {
+				if (strncmp(g_c_recv_buff, tran_buff, BUFFER_SIZE)) {
 					puts(" -F-: Failed!\r");
 				} else {
 					/* successfully received */
-					dump_info(recv_buff, BUFFER_SIZE);
+					dump_info(g_c_recv_buff, BUFFER_SIZE);
 				}
 				puts("----END of read----\r");
-				memset(recv_buff, 0, sizeof(recv_buff));
-				recv_done = false;
+				memset(g_c_recv_buff, 0, sizeof(g_c_recv_buff));
+				g_ul_recv_done = false;
 			}
 			break;
 		case 'm':

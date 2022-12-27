@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_applications_uc3_uart_bootloader_uc3l0128_256.elf
+TARGET = uc3_uart_bootloader.elf
 
 # List of C source files.
 CSRCS = \

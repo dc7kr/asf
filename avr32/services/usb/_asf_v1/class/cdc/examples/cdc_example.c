@@ -1,10 +1,14 @@
-/*****************************************************************************
- *
+/**
  * \file
  *
- * \brief Main file of the USB CDC example.
+ * \mainpage
+ * \section title Main file of the USB CDC example.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * \section file File(s)
+ * - \ref cdc_example.c
+ * - \ref device_cdc_task.c
+ *
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

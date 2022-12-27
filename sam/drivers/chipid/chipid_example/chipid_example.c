@@ -3,7 +3,7 @@
  *
  * \brief Chip Identifier (CHIPID) example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -96,21 +96,9 @@
  *
  */
 
-#include "compiler.h"
-#include "board.h"
-#include "sysclk.h"
-#include "gpio.h"
-#include "exceptions.h"
-#include "uart.h"
-#include "pio.h"
-#include "pmc.h"
-#include "chipid.h"
-#include "conf_board.h"
-
-#include <stdio.h>
-#include <stdint.h>
-#include <stdbool.h>
 #include <string.h>
+#include "asf.h"
+#include "conf_board.h"
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -282,22 +270,22 @@ const chipidtype_t chipid_nvptype[CHIPID_NVPTYPE_SIZE] = {
 chipid_data_t g_chipid_data;
 
 /**
- *  \brief The function finds chipid from specific list according to dw_id
+ *  \brief The function finds chipid from specific list according to ul_id
  *  
  *  \param p_cid_types  Poniter to the chipid list.
- *  \param dw_size      chipid list size
- *  \param dw_id        chipid number
+ *  \param ul_size      chipid list size
+ *  \param ul_id        chipid number
  *  \param p_cid_type   pointer to chipid type
  *  \return true if ID is found in list
  */
 static bool chipid_find(const chipidtype_t *p_cid_types,
-	uint32_t dw_size, uint32_t dw_id, chipidtype_t *p_cid_type)
+	uint32_t ul_size, uint32_t ul_id, chipidtype_t *p_cid_type)
 {
-	uint32_t dw_counter;
+	uint32_t ul_counter;
 
-	for (dw_counter = 0; dw_counter < dw_size; dw_counter++) {
-		if (p_cid_types[dw_counter].num == dw_id) {
-			memcpy(p_cid_type, &p_cid_types[dw_counter], sizeof(chipidtype_t));
+	for (ul_counter = 0; ul_counter < ul_size; ul_counter++) {
+		if (p_cid_types[ul_counter].num == ul_id) {
+			memcpy(p_cid_type, &p_cid_types[ul_counter], sizeof(chipidtype_t));
 			return true;
 		}
 	}
@@ -317,54 +305,54 @@ static void chipid_print(chipid_data_t *p_chipid_data)
 
 	// Version
 	printf("Version                                   0x%x.\r\n",
-		p_chipid_data->dw_version);
+		p_chipid_data->ul_version);
 
 	// Find Embedded Processor
 	b_found = chipid_find(chipid_eproc, CHIPID_EPROC_SIZE,
-			      p_chipid_data->dw_eproc, &cid_type);
+			      p_chipid_data->ul_eproc, &cid_type);
 	if (b_found) {
 		printf("Embedded Processor                        %s.\r\n",
 			cid_type.p_str);
 	}
 	// Find non-volatile program memory size
 	b_found = chipid_find(chipid_nvpsize, CHIPID_NVPSIZE_SIZE,
-			      p_chipid_data->dw_nvpsiz, &cid_type);
+			      p_chipid_data->ul_nvpsiz, &cid_type);
 	if (b_found) {
 		printf("Nonvolatile program memory size           %s.\r\n",
 			cid_type.p_str);
 	}
 	// Find the second non-volatile program memory size
 	b_found = chipid_find(chipid_nvpsize2, CHIPID_NVPSIZE2_SIZE,
-			      p_chipid_data->dw_nvpsiz2, &cid_type);
+			      p_chipid_data->ul_nvpsiz2, &cid_type);
 	if (b_found) {
 		printf("Second nonvolatile program memory size    %s.\r\n",
 			cid_type.p_str);
 	}
 	// Find internal SRAM size
 	b_found = chipid_find(chipid_sramsize, CHIPID_SRAMSIZE_SIZE,
-			      p_chipid_data->dw_sramsiz, &cid_type);
+			      p_chipid_data->ul_sramsiz, &cid_type);
 	if (b_found) {
 		printf("Internal SRAM size                        %s.\r\n",
 			cid_type.p_str);
 	}
 	// Find architecture identifier
 	b_found = chipid_find(chipid_archsize, CHIPID_ARCH_SIZE,
-			      p_chipid_data->dw_arch, &cid_type);
+			      p_chipid_data->ul_arch, &cid_type);
 	if (b_found) {
 		printf("Architecture identifier                   %s.\r\n",
 			cid_type.p_str);
 	}
 	// Find non-volatile program memory type
 	b_found = chipid_find(chipid_nvptype, CHIPID_NVPTYPE_SIZE,
-			      p_chipid_data->dw_nvptyp, &cid_type);
+			      p_chipid_data->ul_nvptyp, &cid_type);
 	if (b_found) {
 		printf("Nonvolatile program memory type           %s.\r\n",
 			cid_type.p_str);
 	}
 	// Find extension flag
-	if (p_chipid_data->dw_extflag) {
+	if (p_chipid_data->ul_extflag) {
 		printf("Extended chip ID is                       0x%x. \r\n",
-			p_chipid_data->dw_extid);
+			p_chipid_data->ul_extid);
 	} else {
 		puts("Extended chip ID does not exist. \r");
 	}
@@ -377,7 +365,7 @@ static void chipid_print(chipid_data_t *p_chipid_data)
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-		{ BOARD_MCK, 115200, UART_MR_PAR_NO };
+		{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
 
 	/* Configure PIO */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,

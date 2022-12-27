@@ -41,9 +41,9 @@
 #define _SAM3S8_EFC_COMPONENT_
 
 /* ============================================================================= */
-/**  SOFTWARE API DEFINITION FOR Enhanced Embedded Flash Controller */
+/**  SOFTWARE API DEFINITION FOR Embedded Flash Controller */
 /* ============================================================================= */
-/** \addtogroup SAM3S8_EFC Enhanced Embedded Flash Controller */
+/** \addtogroup SAM3S8_EFC Embedded Flash Controller */
 /*@{*/
 
 #if !(defined(__ASSEMBLY__) || defined(__IAR_SYSTEMS_ASM__))

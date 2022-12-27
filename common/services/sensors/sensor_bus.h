@@ -3,7 +3,7 @@
  *
  * \brief Sensor API Platform Bus Interfaces
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -93,7 +93,7 @@ typedef /* volatile */ SPI_t    spi_bus_t;
 typedef struct {                        // bus_desc_t
 
 	bus_type_t      type;               //!< bus type and protocol
-	volatile void   *id;                //!< bus interface address
+	twi_bus_t       *id;                //!< bus interface address
 	uint16_t        addr;               //!< device bus address
 	bus_status_t    status;             //!< bus transaction status
 	bool            no_wait;            //!< bus transaction non-wait option

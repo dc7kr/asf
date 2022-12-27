@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_drivers_pdca_example_uc3l_ek.elf
+TARGET = pdca_example.elf
 
 # List of C source files.
 CSRCS = \

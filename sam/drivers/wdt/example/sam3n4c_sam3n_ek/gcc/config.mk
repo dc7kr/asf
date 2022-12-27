@@ -45,11 +45,12 @@ PART = sam3n4c
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam_drivers_wdt_example_sam3n_ek_flash.elf
-TARGET_SRAM = sam_drivers_wdt_example_sam3n_ek_sram.elf
+TARGET_FLASH = wdt_example_flash.elf
+TARGET_SRAM = wdt_example_sram.elf
 
 # List of C source files.
 CSRCS = \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3n_ek/init.c                         \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
@@ -69,6 +70,7 @@ ASSRCS =
 INC_PATH = \
        common/boards                                      \
        common/services/gpio                               \
+       common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3n_ek                                \
        sam/drivers/pio                                    \
@@ -81,6 +83,7 @@ INC_PATH = \
        sam/utils/cmsis/sam3n/include                      \
        sam/utils/cmsis/sam3n/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include \
        ./sam/drivers/wdt/example/sam3n4c_sam3n_ek/gcc    
 

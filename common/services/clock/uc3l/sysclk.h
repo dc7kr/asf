@@ -3,7 +3,7 @@
  *
  * \brief Chip-specific system clock management functions
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -46,6 +46,75 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+/**
+ * \page sysclk_quickstart Quick Start Guide for the System Clock Management service (UC3L)
+ *
+ * This is the quick start guide for the \ref sysclk_group "System Clock Management"
+ * service, with step-by-step instructions on how to configure and use the service for
+ * specific use cases.
+ *
+ * \section sysclk_quickstart_usecases System Clock Management use cases
+ * - \ref sysclk_quickstart_basic
+ *
+ * \section sysclk_quickstart_basic Basic usage of the System Clock Management service
+ * This section will present a basic use case for the System Clock Management service.
+ * This use case will configure the main system clock to 48MHz, using an internal DFLL
+ * module to multiply the frequency of a crystal attached to the microcontroller. The
+ * peripheral bus clocks are scaled down from the speed of the main system clock.
+ *
+ * \subsection sysclk_quickstart_use_case_1_prereq Prerequisites
+ *  - None
+ *
+ * \subsection sysclk_quickstart_use_case_1_setup_steps Initialization code
+ * Add to the application initialization code:
+ * \code
+ *    sysclk_init();
+ * \endcode
+ *
+ * \subsection sysclk_quickstart_use_case_1_setup_steps_workflow Workflow
+ * -# Configure the system clocks according to the settings in conf_clock.h:
+ *    \code sysclk_init(); \endcode
+ *
+ * \subsection sysclk_quickstart_use_case_1_example_code Example code
+ *   Add or uncomment the following in your conf_clock.h header file, commenting out all other
+ *   definitions of the same symbol(s):
+ *   \code
+ *   #define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_DFLL0
+ *
+ *   // Fdfll = (Fclk * DFLL_mul) / DFLL_div
+ *   #define CONFIG_DFLL0_SOURCE         GENCLK_SRC_OSC0
+ *   #define CONFIG_DFLL0_MUL            (48000000UL / BOARD_OSC0_HZ)
+ *   #define CONFIG_DFLL0_DIV            1
+ *
+ *   // Fbus = Fsys / (2 ^ BUS_div)
+ *   #define CONFIG_SYSCLK_CPU_DIV       0
+ *   #define CONFIG_SYSCLK_PBA_DIV       1
+ *   #define CONFIG_SYSCLK_PBB_DIV       1
+ *   \endcode
+ *
+ * \subsection sysclk_quickstart_use_case_1_example_workflow Workflow
+ *  -# Configure the main system clock to use the output of the DFLL0 module as its source:
+ *   \code #define CONFIG_SYSCLK_SOURCE      SYSCLK_SRC_DFLL0 \endcode
+ *  -# Configure the DFLL0 module to use external crystal oscillator OSC0 as its source:
+ *   \code #define CONFIG_DFLL0_SOURCE       GENCLK_SRC_OSC0 \endcode
+ *  -# Configure the DFLL0 module to multiply the external oscillator OSC0 frequency up to 48MHz:
+ *   \code
+ *   #define CONFIG_DFLL0_MUL            (48000000UL / BOARD_OSC0_HZ)
+ *   #define CONFIG_DFLL0_DIV            1 
+ *   \endcode
+ *   \note For user boards, \c BOARD_OSC0_HZ should be defined in the board \c conf_board.h configuration
+ *         file as the frequency of the crystal attached to OSC0.
+ *  -# Configure the main clock to run at the full 48MHz, scale the peripheral busses to run at one
+ *     half (2 to the power of 1) of the system clock speed:
+ *    \code
+ *    #define CONFIG_SYSCLK_CPU_DIV       0
+ *    #define CONFIG_SYSCLK_PBA_DIV       1
+ *    #define CONFIG_SYSCLK_PBB_DIV       1
+ *    \endcode
+ *    \note Some dividers are powers of two, while others are integer division factors. Refer to the
+ *          formulas in the conf_clock.h template commented above each division define.
+ */
 
 // These defines are missing from or wrong in the toolchain header files.
 // #11800

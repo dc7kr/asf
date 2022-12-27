@@ -3,7 +3,7 @@
  *
  * \brief Embedded Flash Controller (EFC) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -107,20 +107,20 @@ typedef enum efc_rc {
 #define EFC_ACCESS_MODE_64     EEFC_FMR_FAM
 //! @}
 
-uint32_t efc_init(Efc *p_efc, uint32_t dw_access_mode, uint32_t dw_fws);
+uint32_t efc_init(Efc *p_efc, uint32_t ul_access_mode, uint32_t ul_fws);
 void efc_enable_frdy_interrupt(Efc *p_efc);
 void efc_disable_frdy_interrupt(Efc *p_efc);
-void efc_set_flash_access_mode(Efc *p_efc, uint32_t dw_mode);
+void efc_set_flash_access_mode(Efc *p_efc, uint32_t ul_mode);
 uint32_t efc_get_flash_access_mode(Efc *p_efc);
-void efc_set_wait_state(Efc *p_efc, uint32_t dw_fws);
+void efc_set_wait_state(Efc *p_efc, uint32_t ul_fws);
 uint32_t efc_get_wait_state(Efc *p_efc);
-uint32_t efc_perform_command(Efc *p_efc, uint32_t dw_command,
-		uint32_t dw_argument);
+uint32_t efc_perform_command(Efc *p_efc, uint32_t ul_command,
+		uint32_t ul_argument);
 uint32_t efc_get_status(Efc *p_efc);
 uint32_t efc_get_result(Efc *p_efc);
 uint32_t efc_perform_read_sequence(Efc *p_efc,
-		uint32_t dw_cmd_st, uint32_t dw_cmd_sp,
-		uint32_t *p_dw_buf, uint32_t dw_size);
+		uint32_t ul_cmd_st, uint32_t ul_cmd_sp,
+		uint32_t *p_ul_buf, uint32_t ul_size);
 
 /// @cond 0
 /**INDENT-OFF**/

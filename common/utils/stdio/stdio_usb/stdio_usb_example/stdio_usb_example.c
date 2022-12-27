@@ -3,7 +3,7 @@
  *
  * \brief USB Standard I/O (stdio) Example
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,7 +40,7 @@
  */
 
 /**
- * \defgroup group_common_utils_stdio_stdio_usb_example USB Standard I/O (stdio) Example
+ * \mainpage
  *
  * \section intro Introduction
  * This example demonstrates how to configure a C-library Standard I/O interface

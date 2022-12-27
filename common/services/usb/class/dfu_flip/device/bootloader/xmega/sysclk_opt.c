@@ -3,7 +3,7 @@
  *
  * \brief Chip-specific system clock management functions
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -51,13 +51,14 @@
 void sysclk_init_opt(void)
 {
 	sysclk_set_prescalers(CONFIG_SYSCLK_PSADIV,CONFIG_SYSCLK_PSBCDIV);
-	// Replace osc_user_calibration(OSC_ID_RC32MHZ,cal);
-	DFLLRC32M.CALA=0x40;
-	DFLLRC32M.CALB=0x23;
+	/* Loads 48MHz internal RC calibration value */
+	DFLLRC32M.CALA=nvm_read_production_signature_row(
+			nvm_get_production_signature_row_offset(USBRCOSCA));
+	DFLLRC32M.CALB=nvm_read_production_signature_row(
+			nvm_get_production_signature_row_offset(USBRCOSC));
 	osc_enable(OSC_ID_RC32MHZ);
 	osc_wait_ready(OSC_ID_RC32MHZ);
 	ccp_write_io((uint8_t *)&CLK.CTRL, CONFIG_SYSCLK_SOURCE);
-	//* Replace osc_enable_autocalibration(CONFIG_OSC_AUTOCAL,CONFIG_OSC_AUTOCAL_REF_OSC);
 	OSC.DFLLCTRL &= ~(OSC_RC32MCREF_gm);
 	// Calibrate 32MRC at 48MHz using USB SOF
 	// 48MHz/1kHz=0xBB80
@@ -80,6 +81,7 @@ void sysclk_init_opt(void)
 void sysclk_enable_usb_opt(uint8_t freq)
 {
 	Assert(freq == 48);
+	sysclk_enable_module(SYSCLK_PORT_GEN, SYSCLK_USB);
 	ccp_write_io((uint8_t *)&CLK.USBCTRL, 0
 		| CLK_USBSRC_RC32M_gc
 		| CLK_USBSEN_bm);

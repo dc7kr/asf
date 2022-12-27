@@ -3,7 +3,7 @@
  *
  * \brief API driver for component ads7843.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,7 +40,7 @@
  */
 
 /**
- * \defgroup sam_component_rtouch_ads7843_group COMPONENT - LCD Touch- ADS7843 Controller
+ * \defgroup sam_component_rtouch_ads7843_group LCD Touch- ADS7843 Controller
  *
  * Low-level driver for the ADS7843 LCD Touch controller. This driver provides access to the main
  * features of the ADS7843 controller.

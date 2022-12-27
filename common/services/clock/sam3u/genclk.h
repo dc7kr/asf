@@ -3,7 +3,7 @@
  *
  * \brief Chip-specific generic clock management.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -42,9 +42,8 @@
 #ifndef CHIP_GENCLK_H_INCLUDED
 #define CHIP_GENCLK_H_INCLUDED
 
-# include <osc.h>
-# include <pll.h>
-#include "system_sam3u.h"
+#include <osc.h>
+#include <pll.h>
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -104,22 +103,22 @@ struct genclk_config {
 };
 
 static inline void genclk_config_defaults(struct genclk_config *p_cfg,
-		unsigned int dw_id)
+		uint32_t ul_id)
 {
-	dw_id = dw_id;
+	ul_id = ul_id;
 	p_cfg->ctrl = 0;
 }
 
 static inline void genclk_config_read(struct genclk_config *p_cfg,
-		uint32_t dw_id)
+		uint32_t ul_id)
 {
-	p_cfg->ctrl = PMC->PMC_PCK[dw_id];
+	p_cfg->ctrl = PMC->PMC_PCK[ul_id];
 }
 
 static inline void genclk_config_write(const struct genclk_config *p_cfg,
-		uint32_t dw_id)
+		uint32_t ul_id)
 {
-	PMC->PMC_PCK[dw_id] = p_cfg->ctrl;
+	PMC->PMC_PCK[ul_id] = p_cfg->ctrl;
 }
 
 //! \name Programmable Clock Source and Prescaler configuration
@@ -164,15 +163,15 @@ static inline void genclk_config_set_divider(struct genclk_config *p_cfg,
 
 //@}
 
-static inline void genclk_enable(const struct genclk_config *p_cfg, uint32_t dw_id)
+static inline void genclk_enable(const struct genclk_config *p_cfg, uint32_t ul_id)
 {
-	PMC->PMC_PCK[dw_id] = p_cfg->ctrl;
-	pmc_enable_pck(dw_id);
+	PMC->PMC_PCK[ul_id] = p_cfg->ctrl;
+	pmc_enable_pck(ul_id);
 }
 
-static inline void genclk_disable(uint32_t dw_id)
+static inline void genclk_disable(uint32_t ul_id)
 {
-	pmc_disable_pck(dw_id);
+	pmc_disable_pck(ul_id);
 }
 
 static inline void genclk_enable_source(enum genclk_source e_src)

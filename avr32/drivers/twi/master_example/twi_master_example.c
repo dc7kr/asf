@@ -6,7 +6,7 @@
  *
  * This file provides an example for the TWI on AVR32 UC3 devices.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -206,7 +206,9 @@ int main(void)
   // TWI chip address to communicate with
   packet.chip = EEPROM_ADDRESS;
   // TWI address/commands to issue to the other chip (node)
-  packet.addr = VIRTUALMEM_ADDR_START;
+  packet.addr[0] = VIRTUALMEM_ADDR_START >> 16;
+  packet.addr[1] = VIRTUALMEM_ADDR_START >> 8;
+  packet.addr[2] = VIRTUALMEM_ADDR_START;
   // Length of the TWI data address segment (1-3 bytes)
   packet.addr_length = EEPROM_ADDR_LGT;
   // Where to find the data to be written
@@ -236,7 +238,9 @@ int main(void)
   // How many bytes do we want to write
   packet_received.length = PATTERN_TEST_LENGTH;
   // TWI address/commands to issue to the other chip (node)
-  packet_received.addr = VIRTUALMEM_ADDR_START;
+  packet_received.addr[0] = VIRTUALMEM_ADDR_START >> 16;
+  packet_received.addr[1] = VIRTUALMEM_ADDR_START >> 8;
+  packet_received.addr[2] = VIRTUALMEM_ADDR_START;
   // Where to find the data to be written
   packet_received.buffer = data_received;
 

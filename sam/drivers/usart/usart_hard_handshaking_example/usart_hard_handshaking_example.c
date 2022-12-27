@@ -3,7 +3,7 @@
  *
  * \brief USART hardware handshaking example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -105,18 +105,8 @@
  *
  */
 
-#include <stdio.h>
 #include <string.h>
-#include "sysclk.h"
-#include "board.h"
-#include "exceptions.h"
-#include "usart.h"
-#include "uart.h"
-#include "pmc.h"
-#include "gpio.h"
-#include "pio.h"
-#include "tc.h"
-#include "pdc.h"
+#include "asf.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_example.h"
@@ -139,19 +129,19 @@
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 
 /** Number of bytes received between two timer ticks. */
-volatile uint32_t bytes_received = 0;
+volatile uint32_t g_ul_bytes_received = 0;
 
 /** Receive buffer. */
-uint8_t uc_buffer;
+uint8_t g_uc_buffer;
 
 /** PDC data packet. */
-pdc_packet_t st_packet = { (uint32_t)&uc_buffer, 1 };
+pdc_packet_t g_st_packet = { (uint32_t)&g_uc_buffer, 1 };
 
 /** Pointer to PDC register base. */
-Pdc *p_pdc;
+Pdc *g_p_pdc;
 
-/** String uc_buffer. */
-uint8_t p_string[BUFFER_SIZE];
+/** String g_uc_buffer. */
+uint8_t g_puc_string[BUFFER_SIZE];
 
 /**
  *  \brief Interrupt handler for USART.
@@ -162,17 +152,17 @@ uint8_t p_string[BUFFER_SIZE];
  */
 void USART_Handler(void)
 {
-	uint32_t dw_status;
+	uint32_t ul_status;
 
 	/* Read USART status. */
-	dw_status = usart_get_status(BOARD_USART);
+	ul_status = usart_get_status(BOARD_USART);
 
 	/* Receive buffer is full. */
-	if (dw_status & US_CSR_RXBUFF) {
-		bytes_received += 1;
+	if (ul_status & US_CSR_RXBUFF) {
+		g_ul_bytes_received += 1;
 		/* Restart transfer if BPS is not high enough. */
-		if (bytes_received < MAX_BPS) {
-			pdc_rx_init(p_pdc, &st_packet, NULL);
+		if (g_ul_bytes_received < MAX_BPS) {
+			pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
 		}
 		/* Otherwise disable interrupt. */
 		else {
@@ -190,25 +180,25 @@ void USART_Handler(void)
  */
 void TC0_Handler(void)
 {
-	uint32_t dw_status;
+	uint32_t ul_status;
 	static uint32_t bytes_total = 0;
 
 	/* Read TC0 status. */
-	dw_status = tc_get_status(TC0, 0);
+	ul_status = tc_get_status(TC0, 0);
 
 	/* RC compare. */
-	if ((dw_status & TC_SR_CPCS) == TC_SR_CPCS) {
+	if ((ul_status & TC_SR_CPCS) == TC_SR_CPCS) {
 		/* Display info. */
-		bytes_total += bytes_received;
-		memset(p_string, 0, BUFFER_SIZE);
-		sprintf((char *)p_string, "Bps: %4lu; Tot: %6lu\r\n",
-				bytes_received, bytes_total);
-		usart_write_line(BOARD_USART, (char *)p_string);
-		bytes_received = 0;
+		bytes_total += g_ul_bytes_received;
+		memset(g_puc_string, 0, BUFFER_SIZE);
+		sprintf((char *)g_puc_string, "Bps: %4lu; Tot: %6lu\r\n",
+				g_ul_bytes_received, bytes_total);
+		usart_write_line(BOARD_USART, (char *)g_puc_string);
+		g_ul_bytes_received = 0;
 
 		/* Resume transfer if needed. */
-		if (pdc_read_rx_counter(p_pdc) == 0) {
-			pdc_rx_init(p_pdc, &st_packet, NULL);
+		if (pdc_read_rx_counter(g_p_pdc) == 0) {
+			pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
 			usart_enable_interrupt(BOARD_USART, US_IER_RXBUFF);
 		}
 	}
@@ -219,20 +209,20 @@ void TC0_Handler(void)
  */
 static void configure_tc(void)
 {
-	uint32_t dw_div;
-	uint32_t dw_tcclks;
-	uint32_t dw_sysclk;
+	uint32_t ul_div;
+	uint32_t ul_tcclks;
+	uint32_t ul_sysclk;
 
 	/* Get system clock. */
-	dw_sysclk = sysclk_get_main_hz();
+	ul_sysclk = sysclk_get_cpu_hz();
 
 	/* Configure PMC. */
 	pmc_enable_periph_clk(ID_TC0);
 
     /** Configure TC for a 4Hz frequency and trigger on RC compare. */
-	tc_find_mck_divisor(TC_FREQ, dw_sysclk, &dw_div, &dw_tcclks, dw_sysclk);
-	tc_init(TC0, 0, dw_tcclks | TC_CMR_CPCTRG);
-	tc_write_rc(TC0, 0, (dw_sysclk / dw_div) / TC_FREQ);
+	tc_find_mck_divisor(TC_FREQ, ul_sysclk, &ul_div, &ul_tcclks, ul_sysclk);
+	tc_init(TC0, 0, ul_tcclks | TC_CMR_CPCTRG);
+	tc_write_rc(TC0, 0, (ul_sysclk / ul_div) / TC_FREQ);
 
 	/* Configure and enable interrupt on RC compare. */
 	NVIC_EnableIRQ((IRQn_Type) ID_TC0);
@@ -244,7 +234,7 @@ static void configure_tc(void)
  */
 static void configure_usart(void)
 {
-	static uint32_t dw_sysclk;
+	static uint32_t ul_sysclk;
 	const sam_usart_opt_t usart_console_settings = {
 		BOARD_USART_BAUDRATE,
 		US_MR_CHRL_8_BIT,
@@ -256,13 +246,13 @@ static void configure_usart(void)
 	};
 
 	/* Get system clock. */
-	dw_sysclk = sysclk_get_main_hz();
+	ul_sysclk = sysclk_get_cpu_hz();
 
 	/* Configure PMC. */
 	pmc_enable_periph_clk(BOARD_ID_USART);
 
 	/* Configure USART. */
-	usart_init_hw_handshaking(BOARD_USART, &usart_console_settings, dw_sysclk);
+	usart_init_hw_handshaking(BOARD_USART, &usart_console_settings, ul_sysclk);
 
 	/* Disable all the interrupts. */
 	usart_disable_interrupt(BOARD_USART, ALL_INTERRUPT_MASK);
@@ -290,7 +280,7 @@ static void configure_usart(void)
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_main_hz(), 115200, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
 
 	/* Configure PIO. */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
@@ -336,9 +326,9 @@ int main(void)
 	configure_tc();
 
 	/* Get board USART PDC base address and enable receiver. */
-	p_pdc = usart_get_pdc_base(BOARD_USART);
-	pdc_rx_init(p_pdc, &st_packet, NULL);
-	pdc_enable_transfer(p_pdc, PERIPH_PTCR_RXTEN);
+	g_p_pdc = usart_get_pdc_base(BOARD_USART);
+	pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
+	pdc_enable_transfer(g_p_pdc, PERIPH_PTCR_RXTEN);
 
 	usart_enable_interrupt(BOARD_USART, US_IER_RXBUFF);
 

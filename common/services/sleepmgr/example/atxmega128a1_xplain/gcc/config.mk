@@ -42,15 +42,15 @@ MCU = atxmega128a1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_basic_sleepmgr_example_xplain.elf
+TARGET = sleepmgr_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/sleepmgr/example/sleepmgr_example_xmega.c \
        common/services/sleepmgr/xmega/sleepmgr.c          \
-       xmega/boards/xplain/init.c                         \
-       xmega/drivers/ioport/ioport.c
+       xmega/boards/xplain/init.c
 
 # Assembler source files located from the top-level source directory
 ASSRCS = \
@@ -61,13 +61,13 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/sleepmgr                           \
        common/services/sleepmgr/example/atxmega128a1_xplain \
        common/utils                                       \
        xmega/boards                                       \
        xmega/boards/xplain                                \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/sleep                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
@@ -114,7 +114,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=XPLAIN
+       -D BOARD=XPLAIN                                    \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

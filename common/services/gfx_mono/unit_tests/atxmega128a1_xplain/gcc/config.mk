@@ -42,7 +42,7 @@ MCU = atxmega128a1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_gfx_mono_unit_tests_xplain.elf
+TARGET = gfx_mono_unit_tests.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
@@ -51,12 +51,12 @@ CSRCS = \
        common/services/gfx_mono/gfx_mono_generic.c        \
        common/services/gfx_mono/gfx_mono_null.c           \
        common/services/gfx_mono/unit_tests/unit_tests.c   \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/serial/usart_serial.c              \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c                     \
        xmega/boards/xplain/init.c                         \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/usart/usart.c
 
 # Assembler source files located from the top-level source directory
@@ -71,13 +71,14 @@ INC_PATH = \
        common/services/gfx_mono/unit_tests                \
        common/services/gfx_mono/unit_tests/atxmega128a1_xplain \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
+       common/services/serial/xmega_usart                 \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
        xmega/boards                                       \
        xmega/boards/xplain                                \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/pmic                                 \
        xmega/drivers/usart                                \
        xmega/utils                                        \
@@ -126,6 +127,7 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D BOARD=XPLAIN                                    \
+       -D IOPORT_XMEGA_COMPAT                             \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_
 

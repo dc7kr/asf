@@ -3,7 +3,7 @@
  *
  * \brief Two-Wire Interface (TWI) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -88,7 +88,7 @@ typedef struct twi_options {
  */
 typedef struct twi_packet {
 	//! TWI address/commands to issue to the other chip (node).
-	uint32_t addr;
+	uint8_t addr[3];
 	//! Length of the TWI data address segment (1-3 bytes).
 	uint32_t addr_length;
 	//! Where to find the data to be transferred.
@@ -102,17 +102,17 @@ typedef struct twi_packet {
 void twi_enable_master_mode(Twi *p_twi);
 void twi_disable_master_mode(Twi *p_twi);
 uint32_t twi_master_init(Twi *p_twi, const twi_options_t *p_opt);
-uint32_t twi_set_speed(Twi *p_twi, uint32_t dw_speed, uint32_t dw_mck);
+uint32_t twi_set_speed(Twi *p_twi, uint32_t ul_speed, uint32_t ul_mck);
 uint32_t twi_probe(Twi *p_twi, uint8_t uc_slave_addr);
 uint32_t twi_master_read(Twi *p_twi, twi_packet_t *p_packet);
 uint32_t twi_master_write(Twi *p_twi, twi_packet_t *p_packet);
-void twi_enable_interrupt(Twi *p_twi, uint32_t dw_sources);
-void twi_disable_interrupt(Twi *p_twi, uint32_t dw_sources);
+void twi_enable_interrupt(Twi *p_twi, uint32_t ul_sources);
+void twi_disable_interrupt(Twi *p_twi, uint32_t ul_sources);
 uint32_t twi_get_interrupt_status(Twi *p_twi);
 uint32_t twi_get_interrupt_mask(Twi *p_twi);
 void twi_enable_slave_mode(Twi *p_twi);
 void twi_disable_slave_mode(Twi *p_twi);
-void twi_slave_init(Twi *p_twi, uint32_t dw_device_addr);
+void twi_slave_init(Twi *p_twi, uint32_t ul_device_addr);
 uint32_t twi_slave_read(Twi *p_twi, uint8_t *p_data);
 uint32_t twi_slave_write(Twi *p_twi, uint8_t *p_data);
 void twi_reset(Twi *p_twi);

@@ -3,7 +3,7 @@
  *
  * \brief USB Device Mass Storage Class (MSC) interface.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -50,6 +50,9 @@
 #include "ctrl_access.h"
 #include <string.h>
 
+#ifndef UDI_MSC_NOTIFY_TRANS_EXT
+#  define UDI_MSC_NOTIFY_TRANS_EXT()
+#endif
 
 /**
  * \addtogroup udi_msc_group
@@ -755,20 +758,24 @@ static void udi_msc_spc_inquiry(void)
 		// CMDT and EPVD bits are not at 0
 		// PAGE or OPERATION CODE fields are not empty
 		//  = No standard inquiry asked
-		udi_msc_sense_fail_cdb_invalid();	// Command is unsupported
+		udi_msc_sense_fail_cdb_invalid(); // Command is unsupported
 		udi_msc_csw_process();
 		return;
 	}
+
 	//* Fill product ID field
 	// Copy name in product id field
 	memcpy(udi_msc_inquiry_data.product_id,
-			mem_name(udi_msc_cbw.bCBWLUN),
+			mem_name(udi_msc_cbw.bCBWLUN)+1, // To remove first '"'
 			sizeof(udi_msc_inquiry_data.product_id));
-	// Search end of name '/0'
+
+	// Search end of name '/0' or '"'
 	i = 0;
 	while (sizeof(udi_msc_inquiry_data.product_id) != i) {
-		if (0 == udi_msc_inquiry_data.product_id[i])
+		if ((0 == udi_msc_inquiry_data.product_id[i])
+				|| ('"' == udi_msc_inquiry_data.product_id[i])) {
 			break;
+		}
 		i++;
 	}
 	// Padding with space char
@@ -954,9 +961,10 @@ static void udi_msc_sbc_trans(bool b_read)
 					USB_CBW_DIRECTION_OUT))
 		return;
 
-	// Record transfer request to do it in main loop and not under interrupt
+	// Record transfer request to do it in a task and not under interrupt
 	udi_msc_b_read = b_read;
 	udi_msc_b_trans_req = true;
+	UDI_MSC_NOTIFY_TRANS_EXT();
 }
 
 

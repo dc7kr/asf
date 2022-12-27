@@ -3,7 +3,7 @@
  *
  * \brief Universal Synchronous Asynchronous Receiver Transmitter (USART) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -307,12 +307,12 @@ void usart_reset(Usart *p_usart)
 uint32_t usart_init_rs232(Usart *p_usart,
 		const sam_usart_opt_t *p_usart_opt, uint32_t ul_mck)
 {
-	static uint32_t dw_reg_val;
+	static uint32_t ul_reg_val;
 
 	/* Reset the USART and shut down TX and RX. */
 	usart_reset(p_usart);
 
-	dw_reg_val = 0;
+	ul_reg_val = 0;
 	/* Check whether the input values are legal. */
 	if (!p_usart_opt ||
 		usart_set_async_baudrate(p_usart, p_usart_opt->baudrate, ul_mck)) {
@@ -320,13 +320,13 @@ uint32_t usart_init_rs232(Usart *p_usart,
 	}
 
 	/* Configure the character length, parity type, channel mode and stop bit length. */
-	dw_reg_val |= p_usart_opt->char_length | p_usart_opt->parity_type |
+	ul_reg_val |= p_usart_opt->char_length | p_usart_opt->parity_type |
 				p_usart_opt->channel_mode | p_usart_opt->stop_bits;
 	
 	/* Configure the USART mode as normal mode. */
-	dw_reg_val |= US_MR_USART_MODE_NORMAL;
+	ul_reg_val |= US_MR_USART_MODE_NORMAL;
 	
-	p_usart->US_MR |= dw_reg_val;
+	p_usart->US_MR |= ul_reg_val;
 	
 	return 0;
 }
@@ -414,12 +414,12 @@ uint32_t usart_init_modem(Usart *p_usart,
 uint32_t usart_init_sync_master(Usart *p_usart,
 		const sam_usart_opt_t *p_usart_opt, uint32_t ul_mck)
 {
-	static uint32_t dw_reg_val;
+	static uint32_t ul_reg_val;
 
 	/* Reset the USART and shut down TX and RX. */
 	usart_reset(p_usart);
 
-	dw_reg_val = 0;
+	ul_reg_val = 0;
 	/* Check whether the input values are legal. */
 	if (!p_usart_opt ||
 		usart_set_sync_master_baudrate(p_usart, p_usart_opt->baudrate, ul_mck)) {
@@ -427,12 +427,12 @@ uint32_t usart_init_sync_master(Usart *p_usart,
 	}
 
 	/* Configure the character length, parity type, channel mode and stop bit length. */
-	dw_reg_val |= p_usart_opt->char_length | p_usart_opt->parity_type |
+	ul_reg_val |= p_usart_opt->char_length | p_usart_opt->parity_type |
 				p_usart_opt->channel_mode | p_usart_opt->stop_bits;
 	
 	/* Set normal mode and output clock on the SCK pin as synchronous master. */
-	dw_reg_val |= US_MR_USART_MODE_NORMAL | US_MR_CLKO;
-	p_usart->US_MR |= dw_reg_val;
+	ul_reg_val |= US_MR_USART_MODE_NORMAL | US_MR_CLKO;
+	p_usart->US_MR |= ul_reg_val;
 
 	return 0;
 }
@@ -451,12 +451,12 @@ uint32_t usart_init_sync_master(Usart *p_usart,
 uint32_t usart_init_sync_slave(Usart *p_usart,
 		const sam_usart_opt_t *p_usart_opt)
 {
-	static uint32_t dw_reg_val;
+	static uint32_t ul_reg_val;
 	
 	/* Reset the USART and shut down TX and RX. */
 	usart_reset(p_usart);
 	
-	dw_reg_val = 0;
+	ul_reg_val = 0;
 	usart_set_sync_slave_baudrate(p_usart);
 	
 	/* Check whether the input values are legal. */
@@ -465,12 +465,12 @@ uint32_t usart_init_sync_slave(Usart *p_usart,
 	}
 
 	/* Configure the character length, parity type, channel mode and stop bit length. */
-	dw_reg_val |= p_usart_opt->char_length | p_usart_opt->parity_type |
+	ul_reg_val |= p_usart_opt->char_length | p_usart_opt->parity_type |
 			p_usart_opt->channel_mode | p_usart_opt->stop_bits;
 
 	/* Set normal mode. */
-	dw_reg_val |= US_MR_USART_MODE_NORMAL;
-	p_usart->US_MR |= dw_reg_val;	
+	ul_reg_val |= US_MR_USART_MODE_NORMAL;
+	p_usart->US_MR |= ul_reg_val;	
 
 	return 0;
 }
@@ -547,12 +547,12 @@ uint32_t usart_init_irda(Usart *p_usart,
 uint32_t usart_init_iso7816(Usart *p_usart,
 		const usart_iso7816_opt_t *p_usart_opt, uint32_t ul_mck)
 {
-	static uint32_t dw_reg_val;
+	static uint32_t ul_reg_val;
 	
 	/* Reset the USART and shut down TX and RX. */
 	usart_reset(p_usart);
 	
-	dw_reg_val = 0;
+	ul_reg_val = 0;
 	
 	/* Check whether the input values are legal. */
 	if (!p_usart_opt || ((p_usart_opt->parity_type != US_MR_PAR_EVEN) &&
@@ -561,11 +561,11 @@ uint32_t usart_init_iso7816(Usart *p_usart,
 	}
 	
 	if (p_usart_opt->protocol_type == ISO7816_T_0) {
-		dw_reg_val |= US_MR_USART_MODE_IS07816_T_0 | US_MR_NBSTOP_2_BIT |
+		ul_reg_val |= US_MR_USART_MODE_IS07816_T_0 | US_MR_NBSTOP_2_BIT |
 				(p_usart_opt->max_iterations << US_MR_MAX_ITERATION_Pos);
 
 		if (p_usart_opt->bit_order) {
-			dw_reg_val |= US_MR_MSBF;
+			ul_reg_val |= US_MR_MSBF;
 		}
 	} else if (p_usart_opt->protocol_type == ISO7816_T_1) {
 		/* Only LSBF is used in the T=1 protocol, and max_iterations field is only used in T=0 mode.*/
@@ -574,7 +574,7 @@ uint32_t usart_init_iso7816(Usart *p_usart,
 		}
 		
 		/* Set USART mode to ISO7816, T=1, and always uses 1 stop bit. */
-		dw_reg_val |= US_MR_USART_MODE_IS07816_T_1 | US_MR_NBSTOP_1_BIT;
+		ul_reg_val |= US_MR_USART_MODE_IS07816_T_1 | US_MR_NBSTOP_1_BIT;
 	} else {
 		return 1;
 	}
@@ -588,16 +588,16 @@ uint32_t usart_init_iso7816(Usart *p_usart,
 	p_usart->US_FIDI = p_usart_opt->fidi_ratio;
 
 	/* Set ISO7816 parity type in the MODE register. */
-	dw_reg_val |= p_usart_opt->parity_type;
+	ul_reg_val |= p_usart_opt->parity_type;
 	
 	if (p_usart_opt->inhibit_nack) {
-		dw_reg_val |= US_MR_INACK;
+		ul_reg_val |= US_MR_INACK;
 	}
 	if (p_usart_opt->dis_suc_nack) {
-		dw_reg_val |= US_MR_DSNACK;
+		ul_reg_val |= US_MR_DSNACK;
 	}
 	
-	p_usart->US_MR |= dw_reg_val;
+	p_usart->US_MR |= ul_reg_val;
 
 	return 0;
 }
@@ -617,12 +617,12 @@ uint32_t usart_init_iso7816(Usart *p_usart,
 uint32_t usart_init_spi_master(Usart *p_usart,
 		const usart_spi_opt_t *p_usart_opt, uint32_t ul_mck)
 {
-	static uint32_t dw_reg_val;
+	static uint32_t ul_reg_val;
 	
 	/* Reset the USART and shut down TX and RX. */
 	usart_reset(p_usart);
 	
-	dw_reg_val = 0;
+	ul_reg_val = 0;
 	/* Check whether the input values are legal. */
 	if (!p_usart_opt ||
 		(p_usart_opt->spi_mode > SPI_MODE_3) ||
@@ -631,34 +631,34 @@ uint32_t usart_init_spi_master(Usart *p_usart,
 	}
 
 	/* Configure the character length bit in MR register. */
-	dw_reg_val |= p_usart_opt->char_length;
+	ul_reg_val |= p_usart_opt->char_length;
 	
 	/* Set SPI master mode and channel mode. */
-	dw_reg_val |= US_MR_USART_MODE_SPI_MASTER | US_MR_CLKO |
+	ul_reg_val |= US_MR_USART_MODE_SPI_MASTER | US_MR_CLKO |
 				p_usart_opt->channel_mode;
 					
 	switch (p_usart_opt->spi_mode) {
 	case SPI_MODE_0:
-		dw_reg_val |= US_MR_CPHA;
-		dw_reg_val &= ~US_MR_CPOL;
+		ul_reg_val |= US_MR_CPHA;
+		ul_reg_val &= ~US_MR_CPOL;
 		break;
 	case SPI_MODE_1:
-		dw_reg_val &= ~US_MR_CPHA;
-		dw_reg_val &= ~US_MR_CPOL;
+		ul_reg_val &= ~US_MR_CPHA;
+		ul_reg_val &= ~US_MR_CPOL;
 		break;
 	case SPI_MODE_2:
-		dw_reg_val |= US_MR_CPHA;
-		dw_reg_val |= US_MR_CPOL;
+		ul_reg_val |= US_MR_CPHA;
+		ul_reg_val |= US_MR_CPOL;
 		break;
 	case SPI_MODE_3:
-		dw_reg_val |= US_MR_CPOL;
-		dw_reg_val &= ~US_MR_CPHA;
+		ul_reg_val |= US_MR_CPOL;
+		ul_reg_val &= ~US_MR_CPHA;
 		break;
 	default:
 		break;
 	}
 	
-	p_usart->US_MR |= dw_reg_val;
+	p_usart->US_MR |= ul_reg_val;
 
 	return 0;
 }
@@ -677,12 +677,12 @@ uint32_t usart_init_spi_master(Usart *p_usart,
 uint32_t usart_init_spi_slave(Usart *p_usart,
 		const usart_spi_opt_t *p_usart_opt)
 {
-	static uint32_t dw_reg_val;
+	static uint32_t ul_reg_val;
 
 	/* Reset the USART and shut down TX and RX. */
 	usart_reset(p_usart);
 	
-	dw_reg_val = 0;
+	ul_reg_val = 0;
 	usart_set_spi_slave_baudrate(p_usart);
 	
 	/* Check whether the input values are legal. */
@@ -692,33 +692,33 @@ uint32_t usart_init_spi_slave(Usart *p_usart,
 	}
 
 	/* Configure the character length bit in MR register. */
-	dw_reg_val |= p_usart_opt->char_length;
+	ul_reg_val |= p_usart_opt->char_length;
 	
 	/* Set SPI slave mode and channel mode. */
-	dw_reg_val |= US_MR_USART_MODE_SPI_SLAVE | p_usart_opt->channel_mode;
+	ul_reg_val |= US_MR_USART_MODE_SPI_SLAVE | p_usart_opt->channel_mode;
 					
 	switch (p_usart_opt->spi_mode) {
 	case SPI_MODE_0:
-		dw_reg_val |= US_MR_CPHA;
-		dw_reg_val &= ~US_MR_CPOL;
+		ul_reg_val |= US_MR_CPHA;
+		ul_reg_val &= ~US_MR_CPOL;
 		break;
 	case SPI_MODE_1:
-		dw_reg_val &= ~US_MR_CPHA;
-		dw_reg_val &= ~US_MR_CPOL;
+		ul_reg_val &= ~US_MR_CPHA;
+		ul_reg_val &= ~US_MR_CPOL;
 		break;
 	case SPI_MODE_2:
-		dw_reg_val |= US_MR_CPHA;
-		dw_reg_val |= US_MR_CPOL;
+		ul_reg_val |= US_MR_CPHA;
+		ul_reg_val |= US_MR_CPOL;
 		break;
 	case SPI_MODE_3:
-		dw_reg_val |= US_MR_CPOL;
-		dw_reg_val &= ~US_MR_CPHA;
+		ul_reg_val |= US_MR_CPOL;
+		ul_reg_val &= ~US_MR_CPHA;
 		break;
 	default:
 		break;
 	}
 
-	p_usart->US_MR |= dw_reg_val;
+	p_usart->US_MR |= ul_reg_val;
 
 	return 0;
 }
@@ -1063,22 +1063,22 @@ void usart_set_rx_timeout(Usart *p_usart, uint32_t timeout)
  * \brief Enable USART interrupts.
  *
  * \param p_usart Pointer to a USART peripheral.
- * \param dw_sources Interrupt sources bit map.
+ * \param ul_sources Interrupt sources bit map.
  */
-void usart_enable_interrupt(Usart *p_usart, uint32_t dw_sources)
+void usart_enable_interrupt(Usart *p_usart, uint32_t ul_sources)
 {
-	p_usart->US_IER = dw_sources;
+	p_usart->US_IER = ul_sources;
 }
 
 /**
  * \brief Disable USART interrupts.
  *
  * \param p_usart Pointer to a USART peripheral.
- * \param dw_sources Interrupt sources bit map.
+ * \param ul_sources Interrupt sources bit map.
  */
-void usart_disable_interrupt(Usart *p_usart, uint32_t dw_sources)
+void usart_disable_interrupt(Usart *p_usart, uint32_t ul_sources)
 {
-	p_usart->US_IDR = dw_sources;
+	p_usart->US_IDR = ul_sources;
 }
 
 /**

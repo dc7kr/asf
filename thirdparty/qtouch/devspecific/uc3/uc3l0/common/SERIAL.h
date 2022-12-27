@@ -1,16 +1,12 @@
-/* This source file is part of the ATMEL QTouch Library Release 4.3.1 */
-/*****************************************************************************
- *
+/**
  * \file
  *
- * \brief  This file contains the Serial interface API used by QDebug component
+ * \brief This file contains the Serial interface API used by QDebug component
  * to transfer data over USART Serial interface.
- *
  * - Userguide:          QTouch Library User Guide - doc8207.pdf.
  * - Support email:      touch@atmel.com
  *
- *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -44,8 +40,7 @@
  *
  * \asf_license_stop
  *
- ******************************************************************************/
-
+ */
 
 #ifndef _SERIAL_H_
 #define _SERIAL_H_
@@ -57,19 +52,18 @@ extern "C"
 
 /*! \brief Initialize the Serial interface.
  */
-  void SERIAL_Init (void);
+void SERIAL_Init(void);
 
 /*! \brief Send message to remote target over the Serial interface.
  */
-  void SERIAL_Send_Message (void);
+void SERIAL_Send_Message(void);
 
 /*! \brief Retrieve message from remote target over the Serial interface.
  */
-  void SERIAL_Retrieve_Message (void);
-
+void SERIAL_Retrieve_Message(void);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif				//_SERIAL_H_
+#endif                          /* _SERIAL_H_ */

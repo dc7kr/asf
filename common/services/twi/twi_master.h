@@ -3,7 +3,7 @@
  *
  * \brief TWI Master Mode management
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -83,6 +83,13 @@
  *   - twi_master_write()
  *
  * @{
+ */
+
+/**
+ * \typedef twi_master_t
+ * This type can be used independently to refer to TWI master module for the
+ * architecture used. It refers to the correct type definition for the
+ * architecture, ie. TWI_t* for XMEGA or avr32_twim_t* for UC3
  */
 
 //! @}

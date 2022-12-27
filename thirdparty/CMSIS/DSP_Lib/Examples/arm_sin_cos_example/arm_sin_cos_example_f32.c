@@ -21,7 +21,7 @@
 * Version 1.0.0 2010/09/20 KK
 *    Production release and review comments incorporated.
 * ------------------------------------------------------------------- */ 
- 
+
 /** 
  * @ingroup groupExamples 
  */ 
@@ -66,7 +66,8 @@
   */  
  
 #include <math.h>     
-#include "arm_math.h" 
+#include "arm_math.h"
+#include "asf.h"
  
 /* ---------------------------------------------------------------------- 
 * Defines each of the tests performed 

@@ -42,7 +42,7 @@ MCU = atmega329p
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = mega_applications_mega_gpio_example_mega329p_stk600.elf
+TARGET = mega_gpio_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \

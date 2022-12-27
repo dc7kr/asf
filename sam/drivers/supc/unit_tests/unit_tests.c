@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for SUPC driver.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -102,7 +102,7 @@ volatile void *volatile stdio_base;
 #define SLOW_CLK_TIMEOUT 0xFFFFFFFF
 
 /* Systick Counter */
-static volatile uint32_t dw_ms_ticks = 0U;
+static volatile uint32_t gs_ul_ms_ticks = 0U;
 
 /**
  * \brief SysTick handler.
@@ -110,18 +110,18 @@ static volatile uint32_t dw_ms_ticks = 0U;
 void SysTick_Handler(void)
 {
 	/* Increment counter necessary in delay(). */
-	dw_ms_ticks++;
+	gs_ul_ms_ticks++;
 }
 
 /**
  * \brief Delay number of tick Systicks (occurs every 1 ms).
  */
-static void delay_ms(uint32_t dw_dly_ticks)
+static void delay_ms(uint32_t ul_dly_ticks)
 {
-	uint32_t dw_cur_ticks;
+	uint32_t ul_cur_ticks;
 
-	dw_cur_ticks = dw_ms_ticks;
-	while ((dw_ms_ticks - dw_cur_ticks) < dw_dly_ticks) {
+	ul_cur_ticks = gs_ul_ms_ticks;
+	while ((gs_ul_ms_ticks - ul_cur_ticks) < ul_dly_ticks) {
 	}
 }
 

@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for PWM driver.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -108,34 +108,34 @@ volatile void *volatile stdio_base;
 #define PERIOD_VALUE   50
 
 /** PDC transfer packet */
-pdc_packet_t pdc_tx_packet;
+pdc_packet_t g_pdc_tx_packet;
 
 /* Changed when a PWM period interrupt happens */
-static volatile int pwm_period_int_flag = 0U;
+static volatile int32_t gs_l_pwm_period_int_flag = 0U;
 
 #if (SAM3U || SAM3S || SAM3XA || SAM4S)
 /* Changed when a PWM comparison interrupt happens */
-static volatile int pwm_comparison_int_flag = 0U;
+static volatile int32_t gs_l_pwm_comparison_int_flag = 0U;
 
 /* Changed when a PWM PDC transfer interrupt happens */
-static volatile int pwm_pdc_tx_int_flag = 0U;
+static volatile int32_t gs_l_pwm_pdc_tx_int_flag = 0U;
 #endif /* (SAM3N) */
 
 /* Systick Counter */
-static volatile uint32_t dw_ms_ticks = 0U;
+static volatile uint32_t gs_ul_ms_ticks = 0U;
 
 /**
  * \brief PWM interrupt handler.
  */
 void PWM_Handler(void)
 {
-	pwm_period_int_flag = pwm_channel_get_interrupt_status(PWM) &
+	gs_l_pwm_period_int_flag = pwm_channel_get_interrupt_status(PWM) &
 			PWM_UNIT_TEST_CH;
 
 #if (SAM3U || SAM3S || SAM3XA || SAM4S)
 	uint32_t status2 = pwm_get_interrupt_status(PWM);
-	pwm_comparison_int_flag = (status2 >> 8) & PWM_UNIT_TEST_CMP;
-	pwm_pdc_tx_int_flag = status2 & PWM_ISR2_ENDTX;
+	gs_l_pwm_comparison_int_flag = (status2 >> 8) & PWM_UNIT_TEST_CMP;
+	gs_l_pwm_pdc_tx_int_flag = status2 & PWM_ISR2_ENDTX;
 #endif
 }
 
@@ -145,18 +145,18 @@ void PWM_Handler(void)
 void SysTick_Handler(void)
 {
 	/* Increment counter necessary in delay(). */
-	dw_ms_ticks++;
+	gs_ul_ms_ticks++;
 }
 
 /**
  * \brief Delay number of tick Systicks (happens every 1 ms).
  */
-static void delay_ms(uint32_t dw_dly_ticks)
+static void delay_ms(uint32_t ul_dly_ticks)
 {
-	uint32_t dw_cur_ticks;
+	uint32_t ul_cur_ticks;
 
-	dw_cur_ticks = dw_ms_ticks;
-	while ((dw_ms_ticks - dw_cur_ticks) < dw_dly_ticks) {
+	ul_cur_ticks = gs_ul_ms_ticks;
+	while ((gs_ul_ms_ticks - ul_cur_ticks) < ul_dly_ticks) {
 	}
 }
 
@@ -183,17 +183,17 @@ static void run_pwm_test(const struct test_case *test)
 
 	/* Set PWM clock A as PWM_FREQUENCY * PERIOD_VALUE (clock B is not used) */
     pwm_clock_t test_clock = {
-        .dw_clka = PWM_FREQUENCY * PERIOD_VALUE,
-        .dw_clkb = 0,
-        .dw_mck = sysclk_get_main_hz()
+        .ul_clka = PWM_FREQUENCY * PERIOD_VALUE,
+        .ul_clkb = 0,
+        .ul_mck = sysclk_get_cpu_hz()
     };
 	pwm_init(PWM, &test_clock);
 
 	/* Test1 */
 	/* Configure PWM channel */
 	pwm_channel_t test_channel = {
-		.dw_prescaler = PWM_CMR_CPRE_CLKA, /* Use PWM clock A as source clock */
-		.dw_period = PERIOD_VALUE,         /* Period value */
+		.ul_prescaler = PWM_CMR_CPRE_CLKA, /* Use PWM clock A as source clock */
+		.ul_period = PERIOD_VALUE,         /* Period value */
 	};
 
 	/* Initialize PWM channel */
@@ -206,7 +206,7 @@ static void run_pwm_test(const struct test_case *test)
 	/* Enable PWM channel event interrupt and wait for PWM to trigger a period interrupt after PERIOD_VALUE */
 	pwm_channel_enable_interrupt(PWM, PWM_UNIT_TEST_CH, 0);
 	delay_ms(50);
-	test_assert_true(test, pwm_period_int_flag != 0, "Test1: No period interrupt triggered!");
+	test_assert_true(test, gs_l_pwm_period_int_flag != 0, "Test1: No period interrupt triggered!");
 
 #if (SAM3U || SAM3S || SAM3XA || SAM4S)
 	/* Test2 */
@@ -218,7 +218,7 @@ static void run_pwm_test(const struct test_case *test)
 	pwm_cmp_t comparison_unit = {
 		.unit = PWM_UNIT_TEST_CMP,     /* Use PWM_UNIT_TEST_CMP as comparison unit */
 		.b_enable = 1,                 /* Enable the comparison unit */
-		.dw_value = PERIOD_VALUE - 1   /* Comparison vaule = Period value - 1 */
+		.ul_value = PERIOD_VALUE - 1   /* Comparison vaule = Period value - 1 */
 	};
 
 	/* Initialize PWM comparison unit */
@@ -235,7 +235,7 @@ static void run_pwm_test(const struct test_case *test)
 
 	/* Wait for PWM to trigger a comparison match interrupt after PERIOD_VALUE - 1 */
 	delay_ms(50);
-	test_assert_true(test, pwm_comparison_int_flag != 0, "Test2: No comparison match interrupt triggered!");
+	test_assert_true(test, gs_l_pwm_comparison_int_flag != 0, "Test2: No comparison match interrupt triggered!");
 
 	/* Test3 */
 	/* Disable PWM channel */
@@ -259,9 +259,9 @@ static void run_pwm_test(const struct test_case *test)
 	pwm_pdc_set_request_mode(PWM, PWM_PDC_UPDATE_PERIOD_ELAPSED, PWM_UNIT_TEST_CMP);
 
 	/* Configure the PDC transfer packet and enable PDC transfer */
-	pdc_tx_packet.dw_addr = (uint32_t)(&dw_ms_ticks);
-	pdc_tx_packet.dw_size = 1;
-	pdc_tx_init(PDC_PWM, &pdc_tx_packet, 0);
+	g_pdc_tx_packet.ul_addr = (uint32_t)(&gs_ul_ms_ticks);
+	g_pdc_tx_packet.ul_size = 1;
+	pdc_tx_init(PDC_PWM, &g_pdc_tx_packet, 0);
     pwm_pdc_enable_interrupt(PWM, PWM_IER2_ENDTX);
 	pdc_enable_transfer(PDC_PWM, PERIPH_PTCR_TXTEN);
 
@@ -270,7 +270,7 @@ static void run_pwm_test(const struct test_case *test)
 
 	/* Wait for PWM to trigger a PDC transfer end interrupt */
 	delay_ms(100);
-	test_assert_true(test, pwm_pdc_tx_int_flag != 0, "Test3: No PDC transfer end interrupt triggered!");
+	test_assert_true(test, gs_l_pwm_pdc_tx_int_flag != 0, "Test3: No PDC transfer end interrupt triggered!");
 	/* Disable PWM channel */
 	pwm_channel_disable(PWM, PWM_UNIT_TEST_CH);
 #endif /* (SAM3N) */

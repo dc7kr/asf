@@ -42,13 +42,14 @@ MCU = atxmega256a3bu
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_applications_xmega-a3bu_avrsbpr1_demo.elf
+TARGET = sensors_pressure_demo.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/applications/sensors/pressure_demo/main.c   \
        common/boards/sensors_xplained/sensors_xplained.c  \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/sensors/physics/physics.c          \
        common/services/sensors/sensor.c                   \
        common/services/sensors/sensor_bus.c               \
@@ -62,7 +63,6 @@ CSRCS = \
        common/utils/stdio/stdio_usb/stdio_usb.c           \
        common/utils/stdio/write.c                         \
        xmega/boards/xmega_a3bu_xplained/init.c            \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/twi/twim.c                           \
        xmega/drivers/twi/twis.c                           \
@@ -80,6 +80,7 @@ INC_PATH = \
        common/services/clock                              \
        common/services/delay                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/sensors                            \
        common/services/sensors/module_config              \
        common/services/sleepmgr                           \
@@ -94,7 +95,6 @@ INC_PATH = \
        xmega/boards                                       \
        xmega/boards/xmega_a3bu_xplained                   \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/sleep                                \
        xmega/drivers/twi                                  \
@@ -150,7 +150,8 @@ CPPFLAGS = \
        -D BOARD=XMEGA_A3BU_XPLAINED                       \
        -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA       \
        -D CONF_STDIO_REDIRECT                             \
-       -D EXT_BOARD=SENSORS_XPLAINED_PRESSURE_1
+       -D EXT_BOARD=SENSORS_XPLAINED_PRESSURE_1           \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

@@ -45,12 +45,13 @@ PART = sam4s16c
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam_drivers_adc_adc_threshold_wakeup_example_sam4s_ek_flash.elf
-TARGET_SRAM = sam_drivers_adc_adc_threshold_wakeup_example_sam4s_ek_sram.elf
+TARGET_FLASH = adc_adc_threshold_wakeup_example_flash.elf
+TARGET_SRAM = adc_adc_threshold_wakeup_example_sram.elf
 
 # List of C source files.
 CSRCS = \
        common/services/clock/sam4s/sysclk.c               \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam4s_ek/init.c                         \
        sam/drivers/adc/adc.c                              \
        sam/drivers/adc/adc_sam3u.c                        \
@@ -73,6 +74,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/utils                                       \
        sam/boards                                         \
        sam/boards/sam4s_ek                                \
        sam/drivers/adc                                    \
@@ -86,6 +88,7 @@ INC_PATH = \
        sam/utils/cmsis/sam4s/include                      \
        sam/utils/cmsis/sam4s/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
        thirdparty/CMSIS/Lib/GCC \
        ./sam/drivers/adc/adc_threshold_wakeup_example/sam4s16c_sam4s_ek/gcc
@@ -96,7 +99,7 @@ LIB_PATH =  \
 
 # List of libraries to use during linking.
 LIBS =  \
-       arm_cortexM4lf_math                               
+       arm_cortexM4l_math                                
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam4s/sam4s16/gcc/flash.ld

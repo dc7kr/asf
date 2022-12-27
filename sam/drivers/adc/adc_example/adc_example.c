@@ -3,7 +3,7 @@
  *
  * \brief Analog-to-Digital Converter (ADC/ADC12B) example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -112,25 +112,9 @@
  *
  */
 
-#include "board.h"
-#include "sysclk.h"
-#include "gpio.h"
-#include "exceptions.h"
-#include "pio.h"
-#include "tc.h"
-#include "uart.h"
-#include "pmc.h"
-#if SAM3S || SAM3U || SAM3XA || SAM4S
-#include "pwm.h"
-#endif
-#include "adc.h"
-#include "conf_board.h"
-#include "pio_handler.h"
 #include <string.h>
-
-/*----------------------------------------------------------------------------
- *        Local definitions
- *----------------------------------------------------------------------------*/
+#include "asf.h"
+#include "conf_board.h"
 
 /*
  * We use two ADC channels for this example:
@@ -185,22 +169,18 @@
 		"Menu: press a key to change the configuration.\n\r" \
 		"---------------------------------------------------------\n\r"
 
-/*----------------------------------------------------------------------------
- *        Local types
- *----------------------------------------------------------------------------*/
-
 /** ADC test mode structure */
 struct {
-	uint8_t ucTriggerMode;
-	uint8_t ucPdcEn;
-	uint8_t ucSequenceEn;
-	uint8_t ucGainEn;
-	uint8_t ucOffsetEn;
-	uint8_t ucPowerSaveEn;
+	uint8_t uc_trigger_mode;
+	uint8_t uc_pdc_en;
+	uint8_t uc_sequence_en;
+	uint8_t uc_gain_en;
+	uint8_t uc_offset_en;
+	uint8_t uc_power_save_en;
 #if  SAM3S8 || SAM3SD8 || SAM4S
-	uint8_t ucAutoCalibEn;
+	uint8_t uc_auto_calib_en;
 #endif
-} gAdcTestMode;
+} g_adc_test_mode;
 
 /** ADC trigger modes */
 enum {
@@ -213,18 +193,14 @@ enum {
 #if SAM3S || SAM3N || SAM3XA || SAM4S
 	TRIGGER_MODE_FREERUN
 #endif
-} eTriggerMode;
+} e_trigger_mode;
 
 /** ADC sample data */
 struct {
-	uint8_t ucChNum[NUM_CHANNELS];
-	uint16_t wValue[NUM_CHANNELS];
-	uint16_t wDone;
-} gAdcSampleData;
-
-/*----------------------------------------------------------------------------
- *        Local variables
- *----------------------------------------------------------------------------*/
+	uint8_t uc_ch_num[NUM_CHANNELS];
+	uint16_t us_value[NUM_CHANNELS];
+	uint16_t us_done;
+} g_adc_sample_data;
 
 #if SAM3S || SAM3XA || SAM3N || SAM4S
 /**Channel list for sequence*/
@@ -234,54 +210,51 @@ enum adc_channel_num_t ch_list[2] = {
 };
 #endif
 /** Global timestamp in milliseconds since start of application */
-volatile uint32_t dw_ms_ticks = 0;
-/*----------------------------------------------------------------------------
- *        Local functions
- *----------------------------------------------------------------------------*/
+static volatile uint32_t gs_ul_ms_ticks = 0;
 
 /**
  * \brief Display ADC configuration menu.
  */
-static void _DisplayMenu(void)
+static void display_menu(void)
 {
-	uint8_t ucChar;
+	uint8_t uc_char;
 
 	puts(MENU_HEADER);
-	ucChar = (gAdcTestMode.ucTriggerMode ==
+	uc_char = (g_adc_test_mode.uc_trigger_mode ==
 			TRIGGER_MODE_SOFTWARE) ? 'X' : ' ';
-	printf("[%c] 0: Set ADC trigger mode: Software.\n\r", ucChar);
-	ucChar = (gAdcTestMode.ucTriggerMode == TRIGGER_MODE_ADTRG) ? 'X' : ' ';
-	printf("[%c] 1: Set ADC trigger mode: ADTRG.\n\r", ucChar);
-	ucChar = (gAdcTestMode.ucTriggerMode == TRIGGER_MODE_TIMER) ? 'X' : ' ';
-	printf("[%c] 2: Set ADC trigger mode: Timer TIOA.\n\r", ucChar);
+	printf("[%c] 0: Set ADC trigger mode: Software.\n\r", uc_char);
+	uc_char = (g_adc_test_mode.uc_trigger_mode == TRIGGER_MODE_ADTRG) ? 'X' : ' ';
+	printf("[%c] 1: Set ADC trigger mode: ADTRG.\n\r", uc_char);
+	uc_char = (g_adc_test_mode.uc_trigger_mode == TRIGGER_MODE_TIMER) ? 'X' : ' ';
+	printf("[%c] 2: Set ADC trigger mode: Timer TIOA.\n\r", uc_char);
 #if SAM3S || SAM3U || SAM3XA || SAM4S
-	ucChar = (gAdcTestMode.ucTriggerMode == TRIGGER_MODE_PWM) ? 'X' : ' ';
-	printf("[%c] 3: Set ADC trigger mode: PWM Event Line.\n\r", ucChar);
+	uc_char = (g_adc_test_mode.uc_trigger_mode == TRIGGER_MODE_PWM) ? 'X' : ' ';
+	printf("[%c] 3: Set ADC trigger mode: PWM Event Line.\n\r", uc_char);
 #endif
 #if SAM3S || SAM3N || SAM3XA || SAM4S
-	ucChar = (gAdcTestMode.ucTriggerMode ==
+	uc_char = (g_adc_test_mode.uc_trigger_mode ==
 			TRIGGER_MODE_FREERUN) ? 'X' : ' ';
-	printf("[%c] 4: Set ADC trigger mode: Free run mode.\n\r", ucChar);
+	printf("[%c] 4: Set ADC trigger mode: Free run mode.\n\r", uc_char);
 #endif
-	ucChar = (gAdcTestMode.ucPdcEn) ? 'E' : 'D';
-	printf("[%c] T: Enable/Disable to tranfer with PDC.\n\r", ucChar);
+	uc_char = (g_adc_test_mode.uc_pdc_en) ? 'E' : 'D';
+	printf("[%c] T: Enable/Disable to tranfer with PDC.\n\r", uc_char);
 #if SAM3S || SAM3N || SAM3XA || SAM4S
-	ucChar = (gAdcTestMode.ucSequenceEn) ? 'E' : 'D';
-	printf("[%c] S: Enable/Disable to use user sequence mode.\n\r", ucChar);
+	uc_char = (g_adc_test_mode.uc_sequence_en) ? 'E' : 'D';
+	printf("[%c] S: Enable/Disable to use user sequence mode.\n\r", uc_char);
 #endif
-	ucChar = (gAdcTestMode.ucPowerSaveEn) ? 'E' : 'D';
-	printf("[%c] P: Enable/Disable ADC power save mode.\n\r", ucChar);
+	uc_char = (g_adc_test_mode.uc_power_save_en) ? 'E' : 'D';
+	printf("[%c] P: Enable/Disable ADC power save mode.\n\r", uc_char);
 #if SAM3S || SAM3U || SAM3XA || SAM4S
-	ucChar = (gAdcTestMode.ucGainEn) ? 'E' : 'D';
+	uc_char = (g_adc_test_mode.uc_gain_en) ? 'E' : 'D';
 	printf("[%c] G: Enable/Disable to set gain=2 for potentiometer channel.\n\r",
-		ucChar);
-	ucChar = (gAdcTestMode.ucOffsetEn) ? 'E' : 'D';
+		uc_char);
+	uc_char = (g_adc_test_mode.uc_offset_en) ? 'E' : 'D';
 	printf("[%c] O: Enable/Disable offset for potentiometer channel.\n\r",
-			ucChar);
+			uc_char);
 #endif
 #if  SAM3S8 || SAM3SD8 || SAM4S
-	ucChar = (gAdcTestMode.ucAutoCalibEn) ? 'E' : 'D';
-	printf("[%c] C: Enable Auto Calibration Mode.\n\r", ucChar);
+	uc_char = (g_adc_test_mode.uc_auto_calib_en) ? 'E' : 'D';
+	printf("[%c] C: Enable Auto Calibration Mode.\n\r", uc_char);
 #endif
 	puts("    Q: Quit configuration and start ADC.\r");
 	puts("=========================================================\r");
@@ -290,168 +263,114 @@ static void _DisplayMenu(void)
 /**
  * \brief Set ADC test mode.
  */
-static void _SetAdcTestMode(void)
+static void set_adc_test_mode(void)
 {
-	uint8_t ucKey;
-	uint8_t ucDone = 0;
+	uint8_t uc_key;
+	uint8_t uc_done = 0;
 
-	while (!ucDone) {
-		while (uart_read(CONSOLE_UART, &ucKey));
+	while (!uc_done) {
+		while (uart_read(CONSOLE_UART, &uc_key));
 
-		switch (ucKey) {
+		switch (uc_key) {
 		case '0':
-			gAdcTestMode.ucTriggerMode = TRIGGER_MODE_SOFTWARE;
+			g_adc_test_mode.uc_trigger_mode = TRIGGER_MODE_SOFTWARE;
 			break;
 
 		case '1':
-			gAdcTestMode.ucTriggerMode = TRIGGER_MODE_ADTRG;
+			g_adc_test_mode.uc_trigger_mode = TRIGGER_MODE_ADTRG;
 			break;
 
 		case '2':
-			gAdcTestMode.ucTriggerMode = TRIGGER_MODE_TIMER;
+			g_adc_test_mode.uc_trigger_mode = TRIGGER_MODE_TIMER;
 			break;
 #if SAM3S || SAM3U || SAM3XA || SAM4S
 		case '3':
-			gAdcTestMode.ucTriggerMode = TRIGGER_MODE_PWM;
+			g_adc_test_mode.uc_trigger_mode = TRIGGER_MODE_PWM;
 			break;
 #endif
 #if SAM3S || SAM3N || SAM3XA || SAM4S
 		case '4':
-			gAdcTestMode.ucTriggerMode = TRIGGER_MODE_FREERUN;
+			g_adc_test_mode.uc_trigger_mode = TRIGGER_MODE_FREERUN;
 			break;
 #endif
 		case 't':
 		case 'T':
-			if (gAdcTestMode.ucPdcEn) {
-				gAdcTestMode.ucPdcEn = 0;
+			if (g_adc_test_mode.uc_pdc_en) {
+				g_adc_test_mode.uc_pdc_en = 0;
 			} else {
-				gAdcTestMode.ucPdcEn = 1;
+				g_adc_test_mode.uc_pdc_en = 1;
 			}
 			break;
 #if SAM3S || SAM3N || SAM3XA || SAM4S
 		case 's':
 		case 'S':
-			if (gAdcTestMode.ucSequenceEn) {
-				gAdcTestMode.ucSequenceEn = 0;
+			if (g_adc_test_mode.uc_sequence_en) {
+				g_adc_test_mode.uc_sequence_en = 0;
 			} else {
-				gAdcTestMode.ucSequenceEn = 1;
+				g_adc_test_mode.uc_sequence_en = 1;
 			}
 			break;
 #endif
 
 		case 'p':
 		case 'P':
-			if (gAdcTestMode.ucPowerSaveEn) {
-				gAdcTestMode.ucPowerSaveEn = 0;
+			if (g_adc_test_mode.uc_power_save_en) {
+				g_adc_test_mode.uc_power_save_en = 0;
 			} else {
-				gAdcTestMode.ucPowerSaveEn = 1;
+				g_adc_test_mode.uc_power_save_en = 1;
 			}
 			break;
 
 #if SAM3S || SAM3U || SAM3XA || SAM4S
 		case 'g':
 		case 'G':
-			if (gAdcTestMode.ucGainEn) {
-				gAdcTestMode.ucGainEn = 0;
+			if (g_adc_test_mode.uc_gain_en) {
+				g_adc_test_mode.uc_gain_en = 0;
 			} else {
-				gAdcTestMode.ucGainEn = 1;
+				g_adc_test_mode.uc_gain_en = 1;
 			}
 			break;
 
 		case 'o':
 		case 'O':
-			if (gAdcTestMode.ucOffsetEn) {
-				gAdcTestMode.ucOffsetEn = 0;
+			if (g_adc_test_mode.uc_offset_en) {
+				g_adc_test_mode.uc_offset_en = 0;
 			} else {
-				gAdcTestMode.ucOffsetEn = 1;
+				g_adc_test_mode.uc_offset_en = 1;
 			}
 			break;
 #endif
 #if  SAM3S8 || SAM3SD8 || SAM4S
 		case 'c':
 		case 'C':
-			if (gAdcTestMode.ucAutoCalibEn) {
-				gAdcTestMode.ucAutoCalibEn = 0;
+			if (g_adc_test_mode.uc_auto_calib_en) {
+				g_adc_test_mode.uc_auto_calib_en = 0;
 			} else {
-				gAdcTestMode.ucAutoCalibEn = 1;
+				g_adc_test_mode.uc_auto_calib_en = 1;
 			}
 			break;
 #endif
 		case 'q':
 		case 'Q':
-			ucDone = 1;
+			uc_done = 1;
 			break;
 
 		default:
 			break;
 		}
 
-		_DisplayMenu();
+		display_menu();
 	}
-}
-
-/**
- * \brief Find the best MCK divisor.
- *
- * Find the best MCK divisor given the timer frequency and MCK. The result
- * is guaranteed to satisfy the following equation:
- * \code
- *   (MCK / (DIV * 65536)) <= freq <= (MCK / DIV)
- * \endcode
- * with DIV being the highest possible value.
- *
- * \param dwFreq  Desired timer frequency.
- * \param dwMCk  Master clock frequency.
- * \param dwDiv  Divisor value.
- * \param dwTcClks  TCCLKS field value for divisor.
- * \param dwBoardMCK  Board clock frequency.
- *
- * \return 1 if a proper divisor has been found, otherwise 0.
- */
-static uint32_t TC_FindMckDivisor(uint32_t dwFreq, uint32_t dwMCk,
-		uint32_t * dwDiv, uint32_t * dwTcClks, uint32_t dwBoardMCK)
-{
-	const uint32_t adwDivisors[5] = { 2, 8, 32, 128, dwBoardMCK / 32768 };
-
-	uint32_t dwIndex = 0;
-
-	/*  Satisfy lower bound. */
-	while (dwFreq < ((dwMCk / adwDivisors[dwIndex]) / 65536)) {
-		dwIndex++;
-
-		/*  If no divisor can be found, return 0. */
-		if (dwIndex == (sizeof(adwDivisors) / sizeof(adwDivisors[0]))) {
-			return 0;
-		}
-	}
-
-	/*  Try to maximize DIV while satisfying upper bound. */
-	while (dwIndex < 4) {
-
-		if (dwFreq > (dwMCk / adwDivisors[dwIndex + 1])) {
-			break;
-		}
-		dwIndex++;
-	}
-
-	/*  Store results. */
-	if (dwDiv) {
-		*dwDiv = adwDivisors[dwIndex];
-	}
-	if (dwTcClks) {
-		*dwTcClks = dwIndex;
-	}
-
-	return 1;
 }
 
 /**
  * \brief Configure to trigger ADC by TIOA output of timer.
  */
-static void _ConfigureTimerTrigger(void)
+static void configure_time_trigger(void)
 {
-	uint32_t dwDiv = 0;
-	uint32_t dwTcClks = 0;
+	uint32_t ul_div = 0;
+	uint32_t ul_tc_clks = 0;
+	uint32_t ul_sysclk = sysclk_get_cpu_hz();
 
 	/* Enable peripheral clock. */
 	pmc_enable_periph_clk(ID_TC0);
@@ -460,11 +379,11 @@ static void _ConfigureTimerTrigger(void)
 	gpio_configure_pin(PIN_TC0_TIOA0, PIN_TC0_TIOA0_FLAGS);
 
 	/* Configure TC for a 1Hz frequency and trigger on RC compare. */
-	TC_FindMckDivisor(1, BOARD_MCK, &dwDiv, &dwTcClks, BOARD_MCK);
-	tc_init(TC0, 0, dwTcClks | TC_CMR_CPCTRG | TC_CMR_WAVE |
+	tc_find_mck_divisor(1, ul_sysclk, &ul_div, &ul_tc_clks, ul_sysclk);
+	tc_init(TC0, 0, ul_tc_clks | TC_CMR_CPCTRG | TC_CMR_WAVE |
 			TC_CMR_ACPA_CLEAR | TC_CMR_ACPC_SET);
-	TC0->TC_CHANNEL[0].TC_RA = (BOARD_MCK / dwDiv) / 2;
-	TC0->TC_CHANNEL[0].TC_RC = (BOARD_MCK / dwDiv) / 1;
+	TC0->TC_CHANNEL[0].TC_RA = (ul_sysclk / ul_div) / 2;
+	TC0->TC_CHANNEL[0].TC_RC = (ul_sysclk / ul_div) / 1;
 
 	/* Start the Timer. */
 	tc_start(TC0, 0);
@@ -484,7 +403,7 @@ static void _ConfigureTimerTrigger(void)
 /**
  * \brief Configure to trigger ADC by PWM Event Line.
  */
-static void _ConfigurePwmTrigger(void)
+static void configure_pwm_trigger(void)
 {
 	/* PWM frequency in Hz. */
 #define PWM_FREQUENCY               2
@@ -498,9 +417,9 @@ static void _ConfigurePwmTrigger(void)
 
 	/* Set clock A to run at PWM_FREQUENCY * MAX_DUTY_CYCLE (clock B is not used). */
 	pwm_clock_t pwm_clock_setting = {
-		.dw_clka = PWM_FREQUENCY * MAX_DUTY_CYCLE,
-		.dw_clkb = 0,
-		.dw_mck = sysclk_get_cpu_hz()
+		.ul_clka = PWM_FREQUENCY * MAX_DUTY_CYCLE,
+		.ul_clkb = 0,
+		.ul_mck = sysclk_get_cpu_hz()
 	};
 	pwm_init(PWM, &pwm_clock_setting);
 
@@ -509,16 +428,16 @@ static void _ConfigurePwmTrigger(void)
 			.channel = PWM_CHANNEL_0,
 			.alignment = PWM_ALIGN_LEFT,
 			.polarity = PWM_LOW,
-		.dw_prescaler = PWM_CMR_CPRE_CLKA,
-		.dw_period = MAX_DUTY_CYCLE,
-		.dw_duty = MAX_DUTY_CYCLE / 2
+		.ul_prescaler = PWM_CMR_CPRE_CLKA,
+		.ul_period = MAX_DUTY_CYCLE,
+		.ul_duty = MAX_DUTY_CYCLE / 2
 	};
 	pwm_channel_init(PWM, &pwm_trigger_channel);
 
 	pwm_cmp_t pwm_comparison_setting = {
 		.unit = PWM_CMP_UNIT_0,
 		.b_enable = true,
-		.dw_value = MAX_DUTY_CYCLE / 2,
+		.ul_value = MAX_DUTY_CYCLE / 2,
 		.b_pulse_on_line_0 = true
 	};
 	pwm_cmp_init(PWM, &pwm_comparison_setting);
@@ -541,24 +460,24 @@ static void _ConfigurePwmTrigger(void)
 /**
  * \brief Read converted data through PDC channel.
  *
- * \param pADC The pointer of adc peripheral.
- * \param pwBuffer The destination buffer.
- * \param dwSize The size of the buffer.
+ * \param p_adc The pointer of adc peripheral.
+ * \param p_s_buffer The destination buffer.
+ * \param ul_size The size of the buffer.
  */
 #if SAM3S || SAM3N || SAM3XA || SAM4S
-static uint32_t ADC_ReadBuffer(Adc * pADC, uint16_t * pwBuffer, uint32_t dwSize)
+static uint32_t adc_read_buffer(Adc * p_adc, uint16_t * p_s_buffer, uint32_t ul_size)
 {
 	/* Check if the first PDC bank is free. */
-	if ((pADC->ADC_RCR == 0) && (pADC->ADC_RNCR == 0)) {
-		pADC->ADC_RPR = (uint32_t) pwBuffer;
-		pADC->ADC_RCR = dwSize;
-		pADC->ADC_PTCR = ADC_PTCR_RXTEN;
+	if ((p_adc->ADC_RCR == 0) && (p_adc->ADC_RNCR == 0)) {
+		p_adc->ADC_RPR = (uint32_t) p_s_buffer;
+		p_adc->ADC_RCR = ul_size;
+		p_adc->ADC_PTCR = ADC_PTCR_RXTEN;
 
 		return 1;
 	} else {	/* Check if the second PDC bank is free. */
-		if (pADC->ADC_RNCR == 0) {
-			pADC->ADC_RNPR = (uint32_t) pwBuffer;
-			pADC->ADC_RNCR = dwSize;
+		if (p_adc->ADC_RNCR == 0) {
+			p_adc->ADC_RNPR = (uint32_t) p_s_buffer;
+			p_adc->ADC_RNCR = ul_size;
 
 			return 1;
 		} else {
@@ -568,20 +487,20 @@ static uint32_t ADC_ReadBuffer(Adc * pADC, uint16_t * pwBuffer, uint32_t dwSize)
 }
 #elif SAM3U
 #ifdef ADC_12B
-static uint32_t ADC12b_ReadBuffer(Adc12b * pADC, uint16_t * pwBuffer,
-		uint32_t dwSize)
+static uint32_t adc12_read_buffer(Adc12b * p_adc, uint16_t * p_s_buffer,
+		uint32_t ul_size)
 {
 	/* Check if the first PDC bank is free. */
-	if ((pADC->ADC12B_RCR == 0) && (pADC->ADC12B_RNCR == 0)) {
-		pADC->ADC12B_RPR = (uint32_t) pwBuffer;
-		pADC->ADC12B_RCR = dwSize;
-		pADC->ADC12B_PTCR = ADC12B_PTCR_RXTEN;
+	if ((p_adc->ADC12B_RCR == 0) && (p_adc->ADC12B_RNCR == 0)) {
+		p_adc->ADC12B_RPR = (uint32_t) p_s_buffer;
+		p_adc->ADC12B_RCR = ul_size;
+		p_adc->ADC12B_PTCR = ADC12B_PTCR_RXTEN;
 
 		return 1;
 	} else {	/* Check if the second PDC bank is free. */
-		if (pADC->ADC12B_RNCR == 0) {
-			pADC->ADC12B_RNPR = (uint32_t) pwBuffer;
-			pADC->ADC12B_RNCR = dwSize;
+		if (p_adc->ADC12B_RNCR == 0) {
+			p_adc->ADC12B_RNPR = (uint32_t) p_s_buffer;
+			p_adc->ADC12B_RNCR = ul_size;
 
 			return 1;
 		} else {
@@ -590,19 +509,19 @@ static uint32_t ADC12b_ReadBuffer(Adc12b * pADC, uint16_t * pwBuffer,
 	}
 }
 #else
-static uint32_t ADC_ReadBuffer(Adc * pADC, uint16_t * pwBuffer, uint32_t dwSize)
+static uint32_t adc_read_buffer(Adc * p_adc, uint16_t * p_s_buffer, uint32_t ul_size)
 {
 	/* Check if the first PDC bank is free. */
-	if ((pADC->ADC_RCR == 0) && (pADC->ADC_RNCR == 0)) {
-		pADC->ADC_RPR = (uint32_t) pwBuffer;
-		pADC->ADC_RCR = dwSize;
-		pADC->ADC_PTCR = ADC_PTCR_RXTEN;
+	if ((p_adc->ADC_RCR == 0) && (p_adc->ADC_RNCR == 0)) {
+		p_adc->ADC_RPR = (uint32_t) p_s_buffer;
+		p_adc->ADC_RCR = ul_size;
+		p_adc->ADC_PTCR = ADC_PTCR_RXTEN;
 
 		return 1;
 	} else {	/* Check if the second PDC bank is free. */
-		if (pADC->ADC_RNCR == 0) {
-			pADC->ADC_RNPR = (uint32_t) pwBuffer;
-			pADC->ADC_RNCR = dwSize;
+		if (p_adc->ADC_RNCR == 0) {
+			p_adc->ADC_RNPR = (uint32_t) p_s_buffer;
+			p_adc->ADC_RNCR = ul_size;
 
 			return 1;
 		} else {
@@ -616,9 +535,9 @@ static uint32_t ADC_ReadBuffer(Adc * pADC, uint16_t * pwBuffer, uint32_t dwSize)
  * \brief Start ADC sample.
  * Initialize ADC, set clock and timing, and set ADC to given mode.
  */
-static void _StartAdc(void)
+static void start_adc(void)
 {
-	uint32_t dw;
+	uint32_t i;
 	/* Enable peripheral clock. */
 #if SAM3S || SAM3N || SAM3XA || SAM4S
 	pmc_enable_periph_clk(ID_ADC);
@@ -632,16 +551,16 @@ static void _StartAdc(void)
 
 	/* Initialize ADC. */
 #if SAM3S || SAM3N || SAM3XA || SAM4S
-	adc_init(ADC, BOARD_MCK, 6400000, 8);
+	adc_init(ADC, sysclk_get_cpu_hz(), 6400000, 8);
 #elif SAM3U
 #ifdef ADC_12B
-	adc12b_init(ADC12B, BOARD_MCK, 6400000, 10, 10);
+	adc12b_init(ADC12B, sysclk_get_cpu_hz(), 6400000, 10, 10);
 #else
-	adc_init(ADC, BOARD_MCK, 6400000, 10);
+	adc_init(ADC, sysclk_get_cpu_hz(), 6400000, 10);
 #endif
 #endif
 
-	memset((void *)&gAdcSampleData, 0, sizeof(gAdcSampleData));
+	memset((void *)&g_adc_sample_data, 0, sizeof(g_adc_sample_data));
 
 	/*
 	 * Formula: ADCClock = MCK / ( (PRESCAL+1) * 2 )
@@ -677,7 +596,7 @@ static void _StartAdc(void)
 	/* Enable channel number tag. */
 	adc_enable_tag(ADC);
 	/* Enable/disable sequencer. */
-	if (gAdcTestMode.ucSequenceEn) {
+	if (g_adc_test_mode.uc_sequence_en) {
 		/* Set user defined channel sequence. */
 		adc_configure_sequence(ADC, ch_list, 2);
 
@@ -685,12 +604,12 @@ static void _StartAdc(void)
 		adc_start_sequencer(ADC);
 
 		/* Enable channels. */
-		for (dw = 0; dw < 2; dw++) {
-			adc_enable_channel(ADC, dw);
+		for (i = 0; i < 2; i++) {
+			adc_enable_channel(ADC, i);
 		}
 		/* Update channel number. */
-		gAdcSampleData.ucChNum[0] = ch_list[0];
-		gAdcSampleData.ucChNum[1] = ch_list[1];
+		g_adc_sample_data.uc_ch_num[0] = ch_list[0];
+		g_adc_sample_data.uc_ch_num[1] = ch_list[1];
 	} else {
 		/* Disable sequencer. */
 		adc_stop_sequencer(ADC);
@@ -701,11 +620,11 @@ static void _StartAdc(void)
 		adc_enable_channel(ADC, ADC_TEMPERATURE_SENSOR);
 #endif
 		/* Update channel number. */
-		gAdcSampleData.ucChNum[0] = ADC_CHANNEL_POTENTIOMETER;
+		g_adc_sample_data.uc_ch_num[0] = ADC_CHANNEL_POTENTIOMETER;
 #if SAM3S || SAM3XA || SAM4S
-		gAdcSampleData.ucChNum[1] = ADC_TEMPERATURE_SENSOR;
+		g_adc_sample_data.uc_ch_num[1] = ADC_TEMPERATURE_SENSOR;
 #else
-		gAdcSampleData.ucChNum[1] = ADC_CHANNEL_POTENTIOMETER;
+		g_adc_sample_data.uc_ch_num[1] = ADC_CHANNEL_POTENTIOMETER;
 #endif
 	}
 #elif SAM3U
@@ -714,8 +633,8 @@ static void _StartAdc(void)
 #else
 	adc_enable_channel(ADC, ADC_CHANNEL_POTENTIOMETER);
 #endif
-	gAdcSampleData.ucChNum[0] = ADC_CHANNEL_POTENTIOMETER;
-	gAdcSampleData.ucChNum[1] = ADC_CHANNEL_POTENTIOMETER;
+	g_adc_sample_data.uc_ch_num[0] = ADC_CHANNEL_POTENTIOMETER;
+	g_adc_sample_data.uc_ch_num[1] = ADC_CHANNEL_POTENTIOMETER;
 #endif
 
 #if SAM3S ||  SAM3XA || SAM4S
@@ -726,7 +645,7 @@ static void _StartAdc(void)
 #if SAM3S || SAM3XA || SAM4S
 	adc_disable_anch(ADC);	/* Disable analog change. */
 #endif
-	if (gAdcTestMode.ucGainEn) {
+	if (g_adc_test_mode.uc_gain_en) {
 #if SAM3S || SAM3XA || SAM4S
 		adc_enable_anch(ADC);
 		/* gain = 2 */
@@ -747,7 +666,7 @@ static void _StartAdc(void)
 #endif
 	}
 
-	if (gAdcTestMode.ucOffsetEn) {
+	if (g_adc_test_mode.uc_offset_en) {
 #if SAM3S || SAM3XA || SAM4S
 		adc_enable_anch(ADC);
 		adc_enable_channel_input_offset(ADC, ADC_CHANNEL_POTENTIOMETER);
@@ -767,7 +686,7 @@ static void _StartAdc(void)
 	}
 	/* Set Auto Calibration Mode. */
 #if  SAM3S8 || SAM3SD8 || SAM4S
-	if (gAdcTestMode.ucAutoCalibEn) {
+	if (g_adc_test_mode.uc_auto_calib_en) {
 		adc_set_calibmode(ADC);
 		while (1) {
 			if ((adc_get_status(ADC).isr_status & ADC_ISR_EOCAL) ==
@@ -779,15 +698,15 @@ static void _StartAdc(void)
 
 #if SAM3S || SAM3N || SAM3XA || SAM4S
 	/* Set power save. */
-	if (gAdcTestMode.ucPowerSaveEn) {
+	if (g_adc_test_mode.uc_power_save_en) {
 		adc_configure_power_save(ADC, 1, 0);
 	} else {
 		adc_configure_power_save(ADC, 0, 0);;
 	}
 
 	/* Transfer with/without PDC. */
-	if (gAdcTestMode.ucPdcEn) {
-		ADC_ReadBuffer(ADC, gAdcSampleData.wValue, BUFFER_SIZE);
+	if (g_adc_test_mode.uc_pdc_en) {
+		adc_read_buffer(ADC, g_adc_sample_data.us_value, BUFFER_SIZE);
 		/* Enable PDC channel interrupt. */
 		adc_enable_interrupt(ADC, ADC_IER_RXBUFF);
 	} else {
@@ -799,15 +718,15 @@ static void _StartAdc(void)
 #elif SAM3U
 #ifdef ADC_12B
 	/* Set power save. */
-	if (gAdcTestMode.ucPowerSaveEn) {
+	if (g_adc_test_mode.uc_power_save_en) {
 		adc12b_configure_power_save(ADC12B, 1, 0);
 	} else {
 		adc12b_configure_power_save(ADC12B, 0, 0);;
 	}
 
 	/* Transfer with/without PDC. */
-	if (gAdcTestMode.ucPdcEn) {
-		ADC12b_ReadBuffer(ADC12B, gAdcSampleData.wValue, BUFFER_SIZE);
+	if (g_adc_test_mode.uc_pdc_en) {
+		adc12_read_buffer(ADC12B, g_adc_sample_data.us_value, BUFFER_SIZE);
 		/* Enable PDC channel interrupt. */
 		adc12b_enable_interrupt(ADC12B, ADC12B_IER_RXBUFF);
 	} else {
@@ -819,15 +738,15 @@ static void _StartAdc(void)
 	NVIC_EnableIRQ(ADC12B_IRQn);
 #else
 	/* Set power save. */
-	if (gAdcTestMode.ucPowerSaveEn) {
+	if (g_adc_test_mode.uc_power_save_en) {
 		adc_configure_power_save(ADC, 1);
 	} else {
 		adc_configure_power_save(ADC, 0);;
 	}
 
 	/* Transfer with/without PDC. */
-	if (gAdcTestMode.ucPdcEn) {
-		ADC_ReadBuffer(ADC, gAdcSampleData.wValue, BUFFER_SIZE);
+	if (g_adc_test_mode.uc_pdc_en) {
+		adc_read_buffer(ADC, g_adc_sample_data.us_value, BUFFER_SIZE);
 		/* Enable PDC channel interrupt. */
 		adc_enable_interrupt(ADC, ADC_IER_RXBUFF);
 	} else {
@@ -840,7 +759,7 @@ static void _StartAdc(void)
 #endif
 #endif
 	/* Configure trigger mode and start convention. */
-	switch (gAdcTestMode.ucTriggerMode) {
+	switch (g_adc_test_mode.uc_trigger_mode) {
 	case TRIGGER_MODE_SOFTWARE:
 #if SAM3S || SAM3N || SAM3XA || SAM4S
 		adc_configure_trigger(ADC, ADC_TRIG_SW, 0);	/* Disable hardware trigger. */
@@ -869,11 +788,11 @@ static void _StartAdc(void)
 		break;
 
 	case TRIGGER_MODE_TIMER:
-		_ConfigureTimerTrigger();
+		configure_time_trigger();
 		break;
 #if SAM3S || SAM3U || SAM3XA || SAM4S
 	case TRIGGER_MODE_PWM:
-		_ConfigurePwmTrigger();
+		configure_pwm_trigger();
 		break;
 #endif
 #if SAM3S || SAM3N || SAM3XA || SAM4S
@@ -886,16 +805,12 @@ static void _StartAdc(void)
 	}
 }
 
-/*----------------------------------------------------------------------------
- *        Exported functions
- *----------------------------------------------------------------------------*/
-
 /**
  * \brief Systick handler.
  */
 void SysTick_Handler(void)
 {
-	dw_ms_ticks++;
+	gs_ul_ms_ticks++;
 }
 
 #if SAM3S || SAM3N || SAM3XA || SAM4S
@@ -905,32 +820,32 @@ void SysTick_Handler(void)
 void ADC_Handler(void)
 {
 	uint32_t i;
-	uint32_t dwTemp;
-	uint8_t ucChNum;
+	uint32_t ul_temp;
+	uint8_t uc_ch_num;
 
 	/* With PDC transfer */
-	if (gAdcTestMode.ucPdcEn) {
+	if (g_adc_test_mode.uc_pdc_en) {
 		if ((adc_get_status(ADC).isr_status & ADC_ISR_RXBUFF) ==
 				ADC_ISR_RXBUFF) {
-			gAdcSampleData.wDone = ADC_DONE_MASK;
-			ADC_ReadBuffer(ADC, gAdcSampleData.wValue, BUFFER_SIZE);
+			g_adc_sample_data.us_done = ADC_DONE_MASK;
+			adc_read_buffer(ADC, g_adc_sample_data.us_value, BUFFER_SIZE);
 			/* Only keep sample value, and discard channel number. */
 			for (i = 0; i < NUM_CHANNELS; i++) {
-				gAdcSampleData.wValue[i] &= ADC_LCDR_LDATA_Msk;
+				g_adc_sample_data.us_value[i] &= ADC_LCDR_LDATA_Msk;
 			}
 		}
 	} else {	/* Without PDC transfer */
 		if ((adc_get_status(ADC).isr_status & ADC_ISR_DRDY) ==
 				ADC_ISR_DRDY) {
-			dwTemp = adc_get_latest_value(ADC);
+			ul_temp = adc_get_latest_value(ADC);
 			for (i = 0; i < NUM_CHANNELS; i++) {
-				ucChNum = (dwTemp & ADC_LCDR_CHNB_Msk) >>
+				uc_ch_num = (ul_temp & ADC_LCDR_CHNB_Msk) >>
 						ADC_LCDR_CHNB_Pos;
-				if (gAdcSampleData.ucChNum[i] == ucChNum) {
-					gAdcSampleData.wValue[i] =
-							dwTemp &
+				if (g_adc_sample_data.uc_ch_num[i] == uc_ch_num) {
+					g_adc_sample_data.us_value[i] =
+							ul_temp &
 							ADC_LCDR_LDATA_Msk;
-					gAdcSampleData.wDone |= 1 << i;
+					g_adc_sample_data.us_done |= 1 << i;
 				}
 			}
 		}
@@ -941,30 +856,30 @@ void ADC_Handler(void)
 void ADC12B_Handler(void)
 {
 	uint32_t i;
-	uint32_t dwTemp;
+	uint32_t ul_temp;
 
 	/* With PDC transfer */
-	if (gAdcTestMode.ucPdcEn) {
+	if (g_adc_test_mode.uc_pdc_en) {
 		if ((adc12b_get_status(ADC12B).all_status & ADC12B_SR_RXBUFF) ==
 				ADC12B_SR_RXBUFF) {
-			gAdcSampleData.wDone = ADC_DONE_MASK;
-			ADC12b_ReadBuffer(ADC12B, gAdcSampleData.wValue,
+			g_adc_sample_data.us_done = ADC_DONE_MASK;
+			adc12_read_buffer(ADC12B, g_adc_sample_data.us_value,
 					BUFFER_SIZE);
 
 			/* Only keep sample value, and discard channel number. */
 			for (i = 0; i < NUM_CHANNELS; i++) {
-				gAdcSampleData.wValue[i] &=
+				g_adc_sample_data.us_value[i] &=
 						ADC12B_LCDR_LDATA_Msk;
 			}
 		}
 	} else {	/* Without PDC transfer */
 		if ((adc12b_get_status(ADC12B).all_status & ADC12B_SR_DRDY) ==
 				ADC12B_SR_DRDY) {
-			dwTemp = adc12b_get_latest_value(ADC12B);
+			ul_temp = adc12b_get_latest_value(ADC12B);
 			for (i = 0; i < NUM_CHANNELS; i++) {
-				gAdcSampleData.wValue[i] =
-						dwTemp & ADC12B_LCDR_LDATA_Msk;
-				gAdcSampleData.wDone |= 1 << i;
+				g_adc_sample_data.us_value[i] =
+						ul_temp & ADC12B_LCDR_LDATA_Msk;
+				g_adc_sample_data.us_done |= 1 << i;
 			}
 		}
 	}
@@ -973,28 +888,28 @@ void ADC12B_Handler(void)
 void ADC_Handler(void)
 {
 	uint32_t i;
-	uint32_t dwTemp;
+	uint32_t ul_temp;
 
 	/* With PDC transfer */
-	if (gAdcTestMode.ucPdcEn) {
+	if (g_adc_test_mode.uc_pdc_en) {
 		if ((adc_get_status(ADC).all_status & ADC_SR_RXBUFF) ==
 				ADC_SR_RXBUFF) {
-			gAdcSampleData.wDone = ADC_DONE_MASK;
-			ADC_ReadBuffer(ADC, gAdcSampleData.wValue, BUFFER_SIZE);
+			g_adc_sample_data.us_done = ADC_DONE_MASK;
+			adc_read_buffer(ADC, g_adc_sample_data.us_value, BUFFER_SIZE);
 
 			/* Only keep sample value, and discard channel number. */
 			for (i = 0; i < NUM_CHANNELS; i++) {
-				gAdcSampleData.wValue[i] &= ADC_LCDR_LDATA_Msk;
+				g_adc_sample_data.us_value[i] &= ADC_LCDR_LDATA_Msk;
 			}
 		}
 	} else {
 		if ((adc_get_status(ADC).all_status & ADC_SR_DRDY) ==
 				ADC_SR_DRDY) {
-			dwTemp = adc_get_latest_value(ADC);
+			ul_temp = adc_get_latest_value(ADC);
 			for (i = 0; i < NUM_CHANNELS; i++) {
-				gAdcSampleData.wValue[i] =
-						dwTemp & ADC_LCDR_LDATA_Msk;
-				gAdcSampleData.wDone |= 1 << i;
+				g_adc_sample_data.us_value[i] =
+						ul_temp & ADC_LCDR_LDATA_Msk;
+				g_adc_sample_data.us_done |= 1 << i;
 			}
 		}
 	}
@@ -1007,7 +922,7 @@ void ADC_Handler(void)
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ BOARD_MCK, 115200, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
 
 	/* Configure PIO. */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
@@ -1032,14 +947,14 @@ static void configure_console(void)
 /**
  *  Wait for the given number of milliseconds (using the dwTimeStamp generated
  *  by the SAM3 microcontrollers' system tick).
- *  \param dw_dly_ticks  Delay to wait for, in milliseconds.
+ *  \param ul_dly_ticks  Delay to wait for, in milliseconds.
  */
-static void mdelay(uint32_t dw_dly_ticks)
+static void mdelay(uint32_t ul_dly_ticks)
 {
-	uint32_t dw_cur_ticks;
+	uint32_t ul_cur_ticks;
 
-	dw_cur_ticks = dw_ms_ticks;
-	while ((dw_ms_ticks - dw_cur_ticks) < dw_dly_ticks);
+	ul_cur_ticks = gs_ul_ms_ticks;
+	while ((gs_ul_ms_ticks - ul_cur_ticks) < ul_dly_ticks);
 }
 
 /**
@@ -1049,8 +964,8 @@ static void mdelay(uint32_t dw_dly_ticks)
  */
 int main(void)
 {
-	uint32_t dw;
-	uint8_t key;
+	uint32_t i;
+	uint8_t uc_key;
 	/* Initialize the SAM3 system. */
 	sysclk_init();
 	board_init();
@@ -1069,20 +984,20 @@ int main(void)
 	}
 
 	/* Set default ADC test mode. */
-	memset((void *)&gAdcTestMode, 0, sizeof(gAdcTestMode));
-	gAdcTestMode.ucTriggerMode = TRIGGER_MODE_SOFTWARE;
-	gAdcTestMode.ucPdcEn = 1;
-	gAdcTestMode.ucSequenceEn = 0;
-	gAdcTestMode.ucGainEn = 0;
-	gAdcTestMode.ucOffsetEn = 0;
+	memset((void *)&g_adc_test_mode, 0, sizeof(g_adc_test_mode));
+	g_adc_test_mode.uc_trigger_mode = TRIGGER_MODE_SOFTWARE;
+	g_adc_test_mode.uc_pdc_en = 1;
+	g_adc_test_mode.uc_sequence_en = 0;
+	g_adc_test_mode.uc_gain_en = 0;
+	g_adc_test_mode.uc_offset_en = 0;
 
-	_DisplayMenu();
-	_StartAdc();
+	display_menu();
+	start_adc();
 
 	puts("Press any key to display configuration menu.\r");
 	while (1) {
 		/* ADC software trigger per 1s */
-		if (gAdcTestMode.ucTriggerMode == TRIGGER_MODE_SOFTWARE) {
+		if (g_adc_test_mode.uc_trigger_mode == TRIGGER_MODE_SOFTWARE) {
 			mdelay(1000);
 #if SAM3S || SAM3N || SAM3XA || SAM4S
 			adc_start(ADC);
@@ -1096,7 +1011,7 @@ int main(void)
 		}
 
 		/* Check if the user enters a key. */
-		if (!uart_read(CONSOLE_UART, &key)) {
+		if (!uart_read(CONSOLE_UART, &uc_key)) {
 #if SAM3S || SAM3N || SAM3XA || SAM4S
 			adc_disable_interrupt(ADC, 0xFFFFFFFF);	/* Disable all adc interrupt. */
 #elif SAM3U
@@ -1110,24 +1025,24 @@ int main(void)
 #if SAM3S || SAM3U || SAM3XA || SAM4S
 			pwm_channel_disable(PWM, 0);
 #endif
-			_DisplayMenu();
-			_SetAdcTestMode();
-			_StartAdc();
+			display_menu();
+			set_adc_test_mode();
+			start_adc();
 			puts("Press any key to display configuration menu.\r");
 		}
 
 		/* Check if ADC sample is done. */
-		if (gAdcSampleData.wDone == ADC_DONE_MASK) {
-			for (dw = 0; dw < NUM_CHANNELS; dw++) {
+		if (g_adc_sample_data.us_done == ADC_DONE_MASK) {
+			for (i = 0; i < NUM_CHANNELS; i++) {
 				printf("CH%02d: %04d mv.    ",
-						(int)gAdcSampleData.ucChNum[dw],
-						(int)(gAdcSampleData.
-								wValue[dw] *
+						(int)g_adc_sample_data.uc_ch_num[i],
+						(int)(g_adc_sample_data.
+								us_value[i] *
 								VOLT_REF /
 								MAX_DIGITAL));
 			}
 			puts("\r");
-			gAdcSampleData.wDone = 0;
+			g_adc_sample_data.us_done = 0;
 		}
 	}
 }

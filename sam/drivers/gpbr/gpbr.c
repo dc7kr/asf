@@ -3,7 +3,7 @@
  *
  * \brief General Purpose Backup Registers (GPBR) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -61,24 +61,24 @@ extern "C" {
 /**
  * \brief Read the specified backup register.
  *
- * \param dw_reg_num General purpose backup register number.
+ * \param ul_reg_num General purpose backup register number.
  * 
  * \return Value of the specified backup register.
  */
-uint32_t gpbr_read(gpbr_num_t dw_reg_num)
+uint32_t gpbr_read(gpbr_num_t ul_reg_num)
 {
-	return GPBR->SYS_GPBR[dw_reg_num];
+	return GPBR->SYS_GPBR[ul_reg_num];
 }
 
 /**
  * \brief Write a value to the specified backup register.
  *
- * \param dw_reg_num General purpose backup register number.
- * \param dw_value Value to be written.
+ * \param ul_reg_num General purpose backup register number.
+ * \param ul_value Value to be written.
  */
-void gpbr_write(gpbr_num_t dw_reg_num, uint32_t dw_value)
+void gpbr_write(gpbr_num_t ul_reg_num, uint32_t ul_value)
 {
-	GPBR->SYS_GPBR[dw_reg_num] = dw_value;
+	GPBR->SYS_GPBR[ul_reg_num] = ul_value;
 }
 
 //@}

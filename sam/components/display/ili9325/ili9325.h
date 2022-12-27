@@ -3,7 +3,7 @@
  *
  * \brief API driver for ILI9325 TFT display component.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -525,8 +525,8 @@ typedef uint32_t ili9325_color_t;
  * Input parameters when initializing ili9325 driver.
  */
 struct ili9325_opt_t{
-	uint32_t dw_width;          //!< lcd width in pixel
-	uint32_t dw_height;         //!< lcd height in pixel
+	uint32_t ul_width;          //!< lcd width in pixel
+	uint32_t ul_height;         //!< lcd height in pixel
 	uint32_t foreground_color;  //!< lcd foreground color
 	uint32_t background_color;  //!< lcd background color
 };

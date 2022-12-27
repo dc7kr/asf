@@ -1,13 +1,13 @@
-/*****************************************************************************
+/**
  *
  * \file
  *
  * \brief Usart Serial driver for AVR UC3.
  *
- * This file defines a useful set of functions for the Serial interface on AVR UC3
- * devices.
+ * This file defines a useful set of functions for the Serial interface on AVR
+ * UC3 devices.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -41,9 +41,7 @@
  *
  * \asf_license_stop
  *
- ******************************************************************************/
-
-
+ */
 #ifndef _USART_SERIAL_H_
 #define _USART_SERIAL_H_
 
@@ -66,13 +64,18 @@
 
 typedef usart_options_t usart_serial_options_t;
 
+typedef volatile avr32_usart_t *usart_if;
+
 /*! \brief Initializes the Usart in master mode.
  *
  * \param usart       Base address of the USART instance.
- * \param opt         Options needed to set up RS232 communication (see \ref usart_options_t).
- *
+ * \param opt         Options needed to set up RS232 communication (see
+ *                    \ref usart_options_t).
+ * \retval true if the inititialization was successfull
+ * \retval false if initialization failed (error in baud rate calculation)
  */
-static inline void usart_serial_init(volatile avr32_usart_t *usart, usart_serial_options_t *opt)
+static inline bool usart_serial_init(volatile avr32_usart_t *usart,
+		usart_serial_options_t *opt)
 {
 	// USART options.
 	opt->channelmode = CONFIG_USART_SERIAL_MODE;
@@ -104,7 +107,12 @@ static inline void usart_serial_init(volatile avr32_usart_t *usart, usart_serial
 		sysclk_enable_pba_module(SYSCLK_USART3);
 	}
 #endif
-	usart_init_rs232(usart, opt, sysclk_get_pba_hz());
+	if (usart_init_rs232(usart, opt, sysclk_get_pba_hz())) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 /*! \brief Sends a character with the USART.
@@ -114,24 +122,25 @@ static inline void usart_serial_init(volatile avr32_usart_t *usart, usart_serial
  *
  * \return Status.
  *   \retval 1  The character was written.
- *   \retval 0  The function timed out before the USART transmitter became ready to send.
+ *   \retval 0  The function timed out before the USART transmitter became
+ *              ready to send.
  */
-static inline int usart_serial_putchar(volatile avr32_usart_t *usart, int32_t c)
+static inline int usart_serial_putchar(usart_if usart, uint8_t c)
 {
 	while (usart_write_char(usart, c)!=USART_SUCCESS);
 	return 1;
 }
+
 /*! \brief Waits until a character is received, and returns it.
  *
  * \param usart   Base address of the USART instance.
  * \param data   Data to read
  *
  */
-static inline void usart_serial_getchar(volatile avr32_usart_t *usart, int32_t *data)
+static inline void usart_serial_getchar(usart_if usart, uint8_t *data)
 {
 	*data = usart_getchar(usart);
 }
-
 
 /**
  * \brief Send a sequence of bytes to a USART device
@@ -141,7 +150,8 @@ static inline void usart_serial_getchar(volatile avr32_usart_t *usart, int32_t *
  * \param len    Length of data
  *
  */
-extern status_code_t usart_serial_write_packet(volatile avr32_usart_t *usart,const uint8_t *data, size_t len);
+status_code_t usart_serial_write_packet(usart_if usart, const uint8_t *data,
+		size_t len);
 
 /**
  * \brief Reveive a sequence of bytes to a USART device
@@ -151,7 +161,7 @@ extern status_code_t usart_serial_write_packet(volatile avr32_usart_t *usart,con
  * \param len    Length of data
  *
  */
-extern status_code_t usart_serial_read_packet(volatile avr32_usart_t *usart,const uint8_t *data, size_t len);
-
+status_code_t usart_serial_read_packet(usart_if usart, uint8_t *data,
+		size_t len);
 
 #endif  // _USART_SERIAL_H_

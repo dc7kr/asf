@@ -42,9 +42,41 @@
  * - Navigation, playback and configuration views.
  */
 
+/*! \mainpage Audio Player over USB for 32-bit AVR Microcontrollers
+ *
+ * \image html audio_player.jpg
+ *
+ * \htmlonly <hr /> \endhtmlonly
+ *
+ * \section license License
+ * Use of this program is subject to Atmel's End User License Agreement.
+ *
+ * Please read the \ref license at the bottom of this page.
+ *
+ * \section intro Introduction
+ * This is the documentation for the data structures, functions, variables, defines, enums, and
+ * typedefs for the 32-bit AVRs Audio Player Software.
+ * Audio solutions: www.atmel.com/audio
+ * Please refer to the corresponding application note for more information.
+ *
+ * \section plan Covered in this document
+ * - \ref group_features
+ * - \ref group_getting_started
+ * - \ref group_compilation
+ * - \ref group_main_files
+ * - \ref group_release_note
+ * - \ref group_device_supported
+ *
+ * \section contactinfo Contact Information
+ * For further information, visit
+ * <A href="http://www.atmel.com/products/AVR32/">Atmel 32-bit AVR Microcontrollers</A>.\n
+ * Support and FAQ: http://support.atmel.no/
+ *
+ */
+
 /**
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

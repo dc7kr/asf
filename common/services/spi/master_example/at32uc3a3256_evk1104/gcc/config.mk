@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_basic_spi_master_example_evk1104.elf
+TARGET = spi_master_example.elf
 
 # List of C source files.
 CSRCS = \

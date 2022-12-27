@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_usb_class_hid_device_mouse_unit_tests_evk1100.elf
+TARGET = mouse_unit_tests.elf
 
 # List of C source files.
 CSRCS = \
@@ -67,6 +67,7 @@ CSRCS = \
        avr32/drivers/usart/usart.c                        \
        avr32/drivers/usbb/usbb_device.c                   \
        common/services/clock/uc3a0_a1/sysclk.c            \
+       common/services/serial/usart_serial.c              \
        common/services/sleepmgr/uc3/sleepmgr.c            \
        common/services/usb/class/hid/device/mouse/udi_hid_mouse.c \
        common/services/usb/class/hid/device/mouse/udi_hid_mouse_desc.c \
@@ -98,6 +99,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/serial                             \
+       common/services/serial/uc3_usart                   \
        common/services/sleepmgr                           \
        common/services/usb                                \
        common/services/usb/class/hid                      \

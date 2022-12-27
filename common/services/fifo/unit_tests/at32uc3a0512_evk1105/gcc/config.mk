@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_basic_fifo_unit_tests_evk1105.elf
+TARGET = fifo_unit_tests.elf
 
 # List of C source files.
 CSRCS = \
@@ -64,6 +64,7 @@ CSRCS = \
        common/services/clock/uc3a0_a1/sysclk.c            \
        common/services/fifo/fifo.c                        \
        common/services/fifo/unit_tests/unit_tests.c       \
+       common/services/serial/usart_serial.c              \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c
@@ -90,6 +91,7 @@ INC_PATH = \
        common/services/fifo/unit_tests                    \
        common/services/fifo/unit_tests/at32uc3a0512_evk1105 \
        common/services/serial                             \
+       common/services/serial/uc3_usart                   \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
        ./common/services/fifo/unit_tests/at32uc3a0512_evk1105/gcc

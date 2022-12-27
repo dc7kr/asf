@@ -42,15 +42,15 @@ MCU = atxmega128a1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_basic_spi_master_example_xplain.elf
+TARGET = spi_master_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/spi/master_example/spi_master_example.c \
        common/services/spi/xmega_spi/spi_master.c         \
        xmega/boards/xplain/init.c                         \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/spi/spi.c
 
 # Assembler source files located from the top-level source directory
@@ -62,6 +62,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/spi                                \
        common/services/spi/master_example/atxmega128a1_xplain \
        common/services/spi/xmega_spi                      \
@@ -69,7 +70,6 @@ INC_PATH = \
        xmega/boards                                       \
        xmega/boards/xplain                                \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/spi                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
@@ -116,7 +116,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=XPLAIN
+       -D BOARD=XPLAIN                                    \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

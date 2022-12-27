@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_utils_stdio_stdio_usb_uc3-a3_stdio-demo.elf
+TARGET = stdio_stdio_usb_example.elf
 
 # List of C source files.
 CSRCS = \

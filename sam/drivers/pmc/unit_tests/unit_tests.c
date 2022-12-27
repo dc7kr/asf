@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for PMC driver.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -113,7 +113,7 @@ volatile void *volatile stdio_base;
 #endif
 
 /* Flag for wake-up from sleep mode */
-volatile uint32_t sleep_wake_up = 0;
+volatile uint32_t g_ul_sleep_wake_up = 0;
 
 /**
  * \brief Enable and disable peripheral clock test.
@@ -389,10 +389,10 @@ static void run_sleep_mode_test(const struct test_case *test)
 		}
 	}
 
-	sleep_wake_up = 0;
+	g_ul_sleep_wake_up = 0;
 	/* Enter sleep mode and wait for interrupt of systick to wake up */
 	pmc_enable_sleepmode(0);
-	test_assert_true(test, sleep_wake_up == 1,
+	test_assert_true(test, g_ul_sleep_wake_up == 1,
 			"Failed to wake up from sleep mode");
 
 }
@@ -402,7 +402,7 @@ static void run_sleep_mode_test(const struct test_case *test)
  */
 void SysTick_Handler(void)
 {
-	sleep_wake_up = 1;
+	g_ul_sleep_wake_up = 1;
 }
 
 

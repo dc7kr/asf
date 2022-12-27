@@ -57,6 +57,9 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: EBI Static Memory Controller (SMC)
 #include <smc.h>
 
@@ -84,9 +87,6 @@
 
 // From module: System Clock Control - UC3 C implementation
 #include <sysclk.h>
-
-// From module: TIMING - Delay routines
-#include <delay.h>
 
 // From module: UC3C-EK board support
 #include <led.h>

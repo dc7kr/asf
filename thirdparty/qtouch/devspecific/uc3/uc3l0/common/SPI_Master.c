@@ -1,16 +1,12 @@
-/* This source file is part of the ATMEL QTouch Library Release 4.3.1 */
-/*****************************************************************************
- *
+/**
  * \file
  *
- * \brief  This file is used by the QDebug component to initialize, read
+ * \brief This file is used by the QDebug component to initialize, read
  * and write data over the USART SPI mode.
- *
  * - Userguide:          QTouch Library User Guide - doc8207.pdf.
  * - Support email:      touch@atmel.com
  *
- *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -44,64 +40,48 @@
  *
  * \asf_license_stop
  *
- ******************************************************************************/
-
+ */
 
 #include "compiler.h"
-#include "SPI_Master.h"
-#include "QDebugTransport.h"
 #include "usart.h"
 #include "gpio.h"
 
+#include "SPI_Master.h"
 
-//! \name The channel instance for the USART, PDCA channel 0 for RX (highest priority).
-//! @{
+#include "QDebugSettings.h"
+#include "QDebugTransport.h"
 
-#define PBA_HZ                            48000000UL	//! 48 MHZ PBA Clock Frequency.
-#define EXAMPLE_USART_SPI                 &AVR32_USART2
-#define EXAMPLE_USART_SPI_SCK_PIN         AVR32_USART2_CLK_0_1_PIN
-#define EXAMPLE_USART_SPI_SCK_FUNCTION    AVR32_USART2_CLK_0_1_FUNCTION
-#define EXAMPLE_USART_SPI_MISO_PIN        AVR32_USART2_RXD_0_0_PIN
-#define EXAMPLE_USART_SPI_MISO_FUNCTION   AVR32_USART2_RXD_0_0_FUNCTION
-#define EXAMPLE_USART_SPI_MOSI_PIN        AVR32_USART2_TXD_0_0_PIN
-#define EXAMPLE_USART_SPI_MOSI_FUNCTION   AVR32_USART2_TXD_0_0_FUNCTION
-#define EXAMPLE_USART_SPI_NSS_PIN         AVR32_USART2_RTS_0_PIN
-#define EXAMPLE_USART_SPI_NSS_FUNCTION    AVR32_USART2_RTS_0_FUNCTION
+/*! compile file only when QDebug is enabled. */
+#if DEF_TOUCH_QDEBUG_ENABLE == 1
 
-//! @}
-
-//! USART SPI GPIO options.
+/*! USART SPI GPIO options. */
 static gpio_map_t USART_SPI_GPIO_MAP = {
-  {EXAMPLE_USART_SPI_SCK_PIN, EXAMPLE_USART_SPI_SCK_FUNCTION},
-  {EXAMPLE_USART_SPI_MISO_PIN, EXAMPLE_USART_SPI_MISO_FUNCTION},
-  {EXAMPLE_USART_SPI_MOSI_PIN, EXAMPLE_USART_SPI_MOSI_FUNCTION},
-  {EXAMPLE_USART_SPI_NSS_PIN, EXAMPLE_USART_SPI_NSS_FUNCTION}
+	{QDEBUG_SPI_SCK_PIN, QDEBUG_SPI_SCK_FUNCTION},
+	{QDEBUG_SPI_MISO_PIN, QDEBUG_SPI_MISO_FUNCTION},
+	{QDEBUG_SPI_MOSI_PIN, QDEBUG_SPI_MOSI_FUNCTION},
+	{QDEBUG_SPI_NSS_PIN, QDEBUG_SPI_NSS_FUNCTION}
 };
 
-//! USART SPI options.
+/*! USART SPI options. */
 static usart_spi_options_t USART_SPI_OPTIONS = {
-#if DEF_TOUCH_QDEBUG_ENABLE_AT == 1
-  .baudrate = 48000,
-#else
-  .baudrate = 192000,
-#endif
-  .charlength = 8,
-  .spimode = 0,
-  .channelmode = USART_NORMAL_CHMODE
+	.baudrate = QDEBUG_SPI_BAUD_RATE,
+	.charlength = 8,
+	.spimode = 0,
+	.channelmode = USART_NORMAL_CHMODE
 };
 
 /*! \brief Initialize the USART in SPI mode.
  */
-void
-SPI_Master_Init ()
+void SPI_Master_Init()
 {
-  // Assign GPIO to SPI.
-  gpio_enable_module (USART_SPI_GPIO_MAP,
-		      sizeof (USART_SPI_GPIO_MAP) /
-		      sizeof (USART_SPI_GPIO_MAP[0]));
+	/* Assign GPIO to SPI. */
+	gpio_enable_module(USART_SPI_GPIO_MAP,
+			sizeof(USART_SPI_GPIO_MAP) /
+			sizeof(USART_SPI_GPIO_MAP[0]));
 
-  // Initialize USART in SPI Master Mode.
-  usart_init_spi_master (EXAMPLE_USART_SPI, &USART_SPI_OPTIONS, PBA_HZ);
+	/* Initialize USART in SPI Master Mode. */
+	usart_init_spi_master(QDEBUG_SPI_USART, &USART_SPI_OPTIONS,
+			QDEBUG_PBA_FREQ_HZ);
 }
 
 /*! \brief Send and Read one byte using SPI Interface.
@@ -109,45 +89,42 @@ SPI_Master_Init ()
  * \return uint8_t data: Data read from slave.
  * \note Called from SPI_Send_Message in this file.
  */
-uint8_t
-SPI_Send_Byte (uint8_t c)
+uint8_t SPI_Send_Byte(uint8_t c)
 {
-  uint8_t data;
+	uint8_t data;
 
-  if (usart_write_char (&AVR32_USART2, c) == USART_SUCCESS)
-    {
-      data = usart_getchar (&AVR32_USART2);
-    }
-  else
-    {
-      return (uint8_t) USART_FAILURE;
-    }
+	if (usart_write_char(&AVR32_USART2, c) == USART_SUCCESS) {
+		data = usart_getchar(&AVR32_USART2);
+	} else {
+		return (uint8_t)USART_FAILURE;
+	}
 
-  return data;
+	return data;
 }
 
 /*! \brief Send and Read one frame using SPI Interface..
  * \note Called from Send_Message in QDebugTransport.c
  */
-void
-SPI_Send_Message (void)
+void SPI_Send_Message(void)
 {
-  unsigned int i;
-  uint8_t FrameInProgress;
+	unsigned int i;
+	uint8_t FrameInProgress;
 
-  /* Disable interrupts. */
-  Disable_global_interrupt ();
+	/* Disable interrupts. */
+	cpu_irq_disable();
 
-  // Send our message upstream
-  for (i = 0; i <= TX_index; i++)
-    {
-      FrameInProgress = RxHandler (SPI_Send_Byte (TX_Buffer[i]));
-    }
+	/* Send our message upstream */
+	for (i = 0; i <= TX_index; i++) {
+		FrameInProgress = RxHandler(SPI_Send_Byte(TX_Buffer[i]));
+	}
 
-  // Do we need to receive even more bytes?
-  while (FrameInProgress)
-    FrameInProgress = RxHandler (SPI_Send_Byte (0));
+	/* Do we need to receive even more bytes? */
+	while (FrameInProgress) {
+		FrameInProgress = RxHandler(SPI_Send_Byte(0));
+	}
 
-  /* Enable interrupts. */
-  Enable_global_interrupt ();
+	/* Enable interrupts. */
+	cpu_irq_enable();
 }
+
+#endif  /* DEF_TOUCH_QDEBUG_ENABLE == 1 */

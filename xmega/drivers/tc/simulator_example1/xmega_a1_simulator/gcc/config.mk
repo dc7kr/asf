@@ -42,14 +42,14 @@ MCU = atxmega128a1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_drivers_tc_example1_simulator_example1_xmega_a1_simulator.elf
+TARGET = tc_simulator_example1.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        xmega/boards/simulator/xmega_a1/init.c             \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/tc/simulator_example1/tc_example1.c  \
        xmega/drivers/tc/tc.c
 
@@ -62,13 +62,13 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/sleepmgr                           \
        common/utils                                       \
        xmega/boards                                       \
        xmega/boards/simulator                             \
        xmega/boards/simulator/xmega_a1                    \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/pmic                                 \
        xmega/drivers/sleep                                \
        xmega/drivers/tc                                   \
@@ -118,7 +118,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=SIMULATOR_XMEGA_A1
+       -D BOARD=SIMULATOR_XMEGA_A1                        \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

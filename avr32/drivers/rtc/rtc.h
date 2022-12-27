@@ -6,7 +6,7 @@
  *
  * AVR32 Real Time Counter driver module.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -47,7 +47,7 @@
 #define _RTC_H_
 
 /**
- * \defgroup group_avr32_drivers_rtc TIMING - RTC - Real Time Counter
+ * \defgroup group_avr32_drivers_rtc RTC - Real Time Counter
  *
  * Driver for the RTC (32-bit Real Time Counter).
  * The RTC enables periodic interrupts at long intervals,

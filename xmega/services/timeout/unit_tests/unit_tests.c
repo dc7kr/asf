@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for XMEGA timeout service
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -113,7 +113,7 @@
 //@}
 
 //! Accuracy of timeout clock source (due to 32kHz ULP oscillator)
-const float TIMEOUT_ACCURACY = 1.1;
+const float TIMEOUT_ACCURACY = 1.3;
 
 //! Enum with index ID for all timeout channels
 enum {
@@ -173,10 +173,10 @@ static void test_singleshot_timeout
 {
 	success = true;
 
-	// Start three timeouts (100ms, 200ms, 300ms - 10ms pr tick)
+	// Start three timeouts (100ms, 200ms, 400ms - 10ms pr tick)
 	timeout_start_singleshot(TEST_TIMEOUT_0, 10);
 	timeout_start_singleshot(TEST_TIMEOUT_1, 20);
-	timeout_start_singleshot(TEST_TIMEOUT_2, 30);
+	timeout_start_singleshot(TEST_TIMEOUT_2, 40);
 
 	// Verify all timeouts are running
 	for (uint8_t i = 0; i < TIMEOUT_COUNT; i++ ) {
@@ -203,8 +203,8 @@ static void test_singleshot_timeout
 		success = false;
 	}
 
-	// Delay 100ms
-	mdelay((int)(100 * TIMEOUT_ACCURACY));
+	// Delay 200ms
+	mdelay((int)(200 * TIMEOUT_ACCURACY));
 
 	// Verify that timeout_2 has expired
 	if (!timeout_test_and_clear_expired(TEST_TIMEOUT_2))
@@ -225,8 +225,8 @@ static void test_periodic_timeout(const struct test_case *test)
 {
 	success = true;
 
-	//Start a timeout with 10Hz period
-	timeout_start_periodic(TEST_TIMEOUT_0, 10);
+	//Start a timeout with 20Hz period
+	timeout_start_periodic(TEST_TIMEOUT_0, 5);
 
 	// Test 10 timeout periods
 	for (uint8_t i = 0; i < 10; i++ ) {
@@ -235,8 +235,8 @@ static void test_periodic_timeout(const struct test_case *test)
 		if(timeout_test_and_clear_expired(TEST_TIMEOUT_0))
 			success = false;
 
-		// Delay 100ms
-		mdelay((int)(100 * TIMEOUT_ACCURACY));
+		// Delay 50ms
+		mdelay((int)(50 * TIMEOUT_ACCURACY));
 
 		// Verify that timeout has expired
 		if(!timeout_test_and_clear_expired(TEST_TIMEOUT_0))

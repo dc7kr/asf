@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for SPI driver.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -194,9 +194,9 @@
 #define OFFSET_CSR       0x30
 
 /** TX interrupt occurred */
-volatile bool b_spi_interrupt_tx_ready = false;
+volatile bool g_b_spi_interrupt_tx_ready = false;
 /** RX interrupt occurred */
-volatile bool b_spi_interrupt_rx_ready = false;
+volatile bool g_b_spi_interrupt_rx_ready = false;
 
 /* Pointer to the module instance to use for stdio. */
 #if defined(__GNUC__)
@@ -213,12 +213,12 @@ void CONF_TEST_SPI_HANDLER(void)
 	uint32_t status = spi_read_status(CONF_TEST_SPI);
 	
 	if (status & SPI_SR_TDRE) {
-		b_spi_interrupt_tx_ready = true;
+		g_b_spi_interrupt_tx_ready = true;
 		spi_disable_interrupt(CONF_TEST_SPI, SPI_IDR_TDRE);
 	}
 
 	if (status & SPI_SR_RDRF) {
-		b_spi_interrupt_rx_ready = true;
+		g_b_spi_interrupt_rx_ready = true;
 		spi_disable_interrupt(CONF_TEST_SPI, SPI_IDR_RDRF);
 	}
 }
@@ -278,7 +278,7 @@ static void run_spi_trans_test(const struct test_case *test)
 		CONF_TEST_SPI_NPCS, SPI_CSR_BITS_8_BIT);
 	spi_set_baudrate_div(CONF_TEST_SPI,
 		CONF_TEST_SPI_NPCS,
-		(sysclk_get_main_hz() / TEST_CLOCK));
+		(sysclk_get_cpu_hz() / TEST_CLOCK));
 	spi_set_transfer_delay(CONF_TEST_SPI,
 		CONF_TEST_SPI_NPCS, SPI_DLYBS, SPI_DLYBCT);
 	spi_set_variable_peripheral_select(CONF_TEST_SPI);
@@ -314,9 +314,9 @@ static void run_spi_trans_test(const struct test_case *test)
 		spi_pcs, TEST_PCS);
 				 
 	/* Check interrupts. */
-	test_assert_true(test, b_spi_interrupt_tx_ready,
+	test_assert_true(test, g_b_spi_interrupt_tx_ready,
 		"Test SPI TX interrupt not detected");
-	test_assert_true(test, b_spi_interrupt_rx_ready,
+	test_assert_true(test, g_b_spi_interrupt_rx_ready,
 		"Test SPI RX interrupt not detected");
 				 
 	/* Done, disable SPI and all interrupts. */
@@ -759,7 +759,7 @@ static void run_spi_dataflash_test(const struct test_case *test)
 		CONF_TEST_DF_NPCS, SPI_CSR_BITS_8_BIT);
 	spi_set_baudrate_div(CONF_TEST_SPI,
 		CONF_TEST_DF_NPCS,
-		(sysclk_get_main_hz() / TEST_CLOCK));
+		(sysclk_get_cpu_hz() / TEST_CLOCK));
 	spi_set_transfer_delay(CONF_TEST_SPI,
 		CONF_TEST_DF_NPCS,
 		TEST_DF_DLYBS, TEST_DF_DLYBCT);
@@ -833,15 +833,16 @@ static void run_spi_writeprotect_test(const struct test_case *test)
 	uint32_t wp_vsrc;
 	uint32_t reg_backup;
 
+	/* Enable write protect */
 	spi_set_writeprotect(CONF_TEST_SPI, 1);
 	
 	/* Access _MR to generate violation */
 	reg_backup = CONF_TEST_SPI->SPI_MR;
 	CONF_TEST_SPI->SPI_MR = 0xFF;
 	wp_status = spi_get_writeprotect_status(CONF_TEST_SPI);
-	wp_vsrc = (wp_status&SPI_WPSR_SPIWPVSRC_Msk) >> SPI_WPSR_SPIWPVSRC_Pos;
+	wp_vsrc = (wp_status&SPI_WPSR_WPVSRC_Msk) >> SPI_WPSR_WPVSRC_Pos;
 
-	test_assert_true(test, (wp_status & SPI_WPSR_SPIWPVS_Msk),
+	test_assert_true(test, (wp_status & SPI_WPSR_WPVS_Msk),
 		"WriteProtection on _MR not detected");
 
 	test_assert_true(test, wp_vsrc == OFFSET_MR,
@@ -856,9 +857,9 @@ static void run_spi_writeprotect_test(const struct test_case *test)
 	reg_backup = CONF_TEST_SPI->SPI_CSR[CONF_TEST_SPI_NPCS];
 	CONF_TEST_SPI->SPI_CSR[CONF_TEST_SPI_NPCS] = 0;
 	wp_status = spi_get_writeprotect_status(CONF_TEST_SPI);
-	wp_vsrc = (wp_status&SPI_WPSR_SPIWPVSRC_Msk) >> SPI_WPSR_SPIWPVSRC_Pos;
+	wp_vsrc = (wp_status&SPI_WPSR_WPVSRC_Msk) >> SPI_WPSR_WPVSRC_Pos;
 	
-	test_assert_true(test, (wp_status & SPI_WPSR_SPIWPVS_Msk),
+	test_assert_true(test, (wp_status & SPI_WPSR_WPVS_Msk),
 		"WriteProtection on _CS not detected");
 
 	test_assert_true(test, wp_vsrc == (OFFSET_CSR + 4 * CONF_TEST_SPI_NPCS),
@@ -870,12 +871,8 @@ static void run_spi_writeprotect_test(const struct test_case *test)
 		CONF_TEST_SPI->SPI_CSR[CONF_TEST_SPI_NPCS],
 		"_CSR write not blocked");
 
-	/* Reset to generate violation */
-	spi_reset(CONF_TEST_SPI);
-	wp_status = spi_get_writeprotect_status(CONF_TEST_SPI);
-
-	test_assert_true(test, (wp_status & SPI_WPSR_SPIWPVS_Msk) == 0x2,
-		"WriteProtection on 'RESET' not detected");
+	/* Disable write protect */
+	spi_set_writeprotect(CONF_TEST_SPI, 0);
 }
 
 /**

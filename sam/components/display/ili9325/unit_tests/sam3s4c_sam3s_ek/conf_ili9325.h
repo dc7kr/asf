@@ -3,7 +3,7 @@
  *
  * \brief ILI9325 configuration.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -62,6 +62,16 @@
 	#define ILI9325_LCD_RS       (BOARD_LCD_RS)
 
 #elif BOARD == SAM3S_EK2
+
+	/*! \brief address used to write to the index register
+	 */
+	#define ILI9325_LCD_BASE     (BOARD_LCD_BASE)
+
+	/*! \brief address used to read/write from/to registers or RAM
+	 */
+	#define ILI9325_LCD_RS       (BOARD_LCD_RS)
+
+#elif BOARD == SAM4S_EK
 
 	/*! \brief address used to write to the index register
 	 */

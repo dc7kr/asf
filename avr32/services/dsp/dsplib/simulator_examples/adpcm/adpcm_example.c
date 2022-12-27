@@ -3,7 +3,7 @@
  *
  * \brief IMA/DVI ADPCM functions usage
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,7 +40,7 @@
  */
 
 /**
- * \defgroup group_avr32_services_dsplib_simulator_example_adpcm DSPLIB - ADPCM example
+ * \mainpage
  * \section intro Introduction
  * This example demonstrates how to use IMA/DVI ADPCM coding and decoding functions.\n
  * To visualize the result, you may set a breakpoint and check the string variable output through Watch Window in AVR Studio 5.

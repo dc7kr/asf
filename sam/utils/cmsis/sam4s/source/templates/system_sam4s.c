@@ -4,7 +4,7 @@
  * \brief Provides the low-level initialization functions that called 
  * on chip startup.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -54,10 +54,10 @@ extern "C" {
 /* Clock Settings (120MHz) */
 #define SYS_BOARD_OSCOUNT   (CKGR_MOR_MOSCXTST(0x8U))
 #define SYS_BOARD_PLLAR     (CKGR_PLLAR_ONE \
-							| CKGR_PLLAR_MULA(0x1dU) \
+							| CKGR_PLLAR_MULA(0x13U) \
 							| CKGR_PLLAR_PLLACOUNT(0x3fU) \
-							| CKGR_PLLAR_DIVA(0x3U))
-#define SYS_BOARD_MCKR      (PMC_MCKR_PRES_CLK_1 | PMC_MCKR_CSS_PLLA_CLK)
+							| CKGR_PLLAR_DIVA(0x1U))
+#define SYS_BOARD_MCKR      (PMC_MCKR_PRES_CLK_2 | PMC_MCKR_CSS_PLLA_CLK)
 
 #define SYS_CKGR_MOR_KEY_VALUE	CKGR_MOR_KEY(0x37) /* Key to unlock MOR register */
 
@@ -71,7 +71,7 @@ uint32_t SystemCoreClock = CHIP_FREQ_MAINCK_RC_4MHZ;
 void SystemInit(void)
 {
 	/* Set FWS according to SYS_BOARD_MCKR configuration */
-	EFC->EEFC_FMR = EEFC_FMR_FWS(6);
+	EFC->EEFC_FMR = EEFC_FMR_FWS(4);
 
 	/* Initialize main oscillator */
 	if (!(PMC->CKGR_MOR & CKGR_MOR_MOSCSEL)) {
@@ -185,19 +185,21 @@ void SystemCoreClockUpdate(void)
 }
 
 /** 
- * Initialize flash and watchdog.
+ * Initialize flash.
  */
-void system_init_flash_and_watchdog(uint32_t dw_clk)
+void system_init_flash(uint32_t ul_clk)
 {
 	/* Set FWS for embedded Flash access according to operating frequency */
-	if (dw_clk < CHIP_FREQ_FWS_0) {
+	if (ul_clk < CHIP_FREQ_FWS_0) {
 		EFC->EEFC_FMR = EEFC_FMR_FWS(0);
-	} else if (dw_clk < CHIP_FREQ_FWS_1) {
+	} else if (ul_clk < CHIP_FREQ_FWS_1) {
 		EFC->EEFC_FMR = EEFC_FMR_FWS(1);
-	} else if (dw_clk < CHIP_FREQ_FWS_2) {
+	} else if (ul_clk < CHIP_FREQ_FWS_2) {
 		EFC->EEFC_FMR = EEFC_FMR_FWS(2);
+	} else if (ul_clk < CHIP_FREQ_FWS_3) {
+		EFC->EEFC_FMR = EEFC_FMR_FWS(3);
 	} else {
-		EFC->EEFC_FMR = EEFC_FMR_FWS(6);
+		EFC->EEFC_FMR = EEFC_FMR_FWS(4);
 	}
 }
 

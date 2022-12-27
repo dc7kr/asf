@@ -3,7 +3,7 @@
  *
  * \brief NVIC Example.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -139,16 +139,11 @@
  *
  */
 
-#include "board.h"
+#include "asf.h"
 #include "conf_board.h"
-#include "gpio.h"
-#include "pio.h"
-#include "pio_handler.h"
-#include "uart.h"
-#include "pmc.h"
 
 /* Systick Counter. */
-volatile uint32_t dw_ms_ticks = 0;
+volatile uint32_t g_ul_ms_ticks = 0;
 
 /**
  * Define interrupt priority (0-15). A higher level corresponds to a lower
@@ -176,11 +171,11 @@ extern "C" {
  * Note: As the systick has the lowest priority, lower than the PIO, the systick 
  * is not used here.
  */
-__INLINE static void delay_ticks(uint32_t dw_dly_ticks)
+__INLINE static void delay_ticks(uint32_t ul_dly_ticks)
 {
-	volatile uint32_t dw_delay_tick = (dw_dly_ticks * (BOARD_MCK / 18000));
+	volatile uint32_t ul_delay_tick = (ul_dly_ticks * (BOARD_MCK / 18000));
 
-	while (dw_delay_tick--);
+	while (ul_delay_tick--);
 
 }
 
@@ -197,9 +192,9 @@ __INLINE static void led_config(void)
  * \brief Handler for INT1, rising edge interrupt. In INT1, it will trigger
  *        INT2.
  */
-static void Int1Handler(uint32_t dw_id, uint32_t dw_mask)
+static void Int1Handler(uint32_t ul_id, uint32_t ul_mask)
 {
-	if (PIN_PUSHBUTTON_1_ID != dw_id || PIN_PUSHBUTTON_1_MASK != dw_mask)
+	if (PIN_PUSHBUTTON_1_ID != ul_id || PIN_PUSHBUTTON_1_MASK != ul_mask)
 		return;
 
 	pio_disable_interrupt(PIN_PUSHBUTTON_1_PIO, PIN_PUSHBUTTON_1_MASK);
@@ -224,9 +219,9 @@ static void Int1Handler(uint32_t dw_id, uint32_t dw_mask)
 /**
  * \brief Handler for INT2, rising edge interrupt.
  */
-static void Int2Handler(uint32_t dw_id, uint32_t dw_mask)
+static void Int2Handler(uint32_t ul_id, uint32_t ul_mask)
 {
-	if (PIN_PUSHBUTTON_2_ID != dw_id || PIN_PUSHBUTTON_2_MASK != dw_mask)
+	if (PIN_PUSHBUTTON_2_ID != ul_id || PIN_PUSHBUTTON_2_MASK != ul_mask)
 		return;
 
 	pio_disable_interrupt(PIN_PUSHBUTTON_2_PIO, PIN_PUSHBUTTON_2_MASK);

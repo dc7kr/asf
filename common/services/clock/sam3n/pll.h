@@ -3,7 +3,7 @@
  *
  * \brief Chip-specific PLL definitions.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -91,23 +91,23 @@ struct pll_config {
  * is hidden in this implementation. Use mul as mul effective value.
  */
 static inline void pll_config_init(struct pll_config *p_cfg,
-		enum pll_source e_src, uint32_t dw_div, uint32_t dw_mul)
+		enum pll_source e_src, uint32_t ul_div, uint32_t ul_mul)
 {
 	uint32_t vco_hz;
 
 	Assert(e_src < PLL_NR_SOURCES);
 
 	/* Calculate internal VCO frequency */
-	vco_hz = osc_get_rate(e_src) / dw_div;
+	vco_hz = osc_get_rate(e_src) / ul_div;
 	Assert(vco_hz >= PLL_INPUT_MIN_HZ);
 	Assert(vco_hz <= PLL_INPUT_MAX_HZ);
 	
-	vco_hz *= dw_mul;
+	vco_hz *= ul_mul;
 	Assert(vco_hz >= PLL_OUTPUT_MIN_HZ);
 	Assert(vco_hz <= PLL_OUTPUT_MAX_HZ);
 
 	/* PMC hardware will automatically make it mul+1 */
-	p_cfg->ctrl = CKGR_PLLAR_MULA(dw_mul - 1) | CKGR_PLLAR_DIVA(dw_div) | CKGR_PLLAR_PLLACOUNT(PLL_COUNT);
+	p_cfg->ctrl = CKGR_PLLAR_MULA(ul_mul - 1) | CKGR_PLLAR_DIVA(ul_div) | CKGR_PLLAR_PLLACOUNT(PLL_COUNT);
 }
 
 #define pll_config_defaults(cfg, pll_id)                                   \
@@ -116,29 +116,29 @@ static inline void pll_config_init(struct pll_config *p_cfg,
 			CONFIG_PLL##pll_id##_DIV,                                      \
 			CONFIG_PLL##pll_id##_MUL)
 
-static inline void pll_config_read(struct pll_config *p_cfg, uint32_t dw_pll_id)
+static inline void pll_config_read(struct pll_config *p_cfg, uint32_t ul_pll_id)
 {
-	Assert(dw_pll_id < NR_PLLS);
+	Assert(ul_pll_id < NR_PLLS);
 
-	if (dw_pll_id == PLLA_ID)
+	if (ul_pll_id == PLLA_ID)
 		p_cfg->ctrl = PMC->CKGR_PLLAR;
 }
 
-static inline void pll_config_write(const struct pll_config *p_cfg, uint32_t dw_pll_id)
+static inline void pll_config_write(const struct pll_config *p_cfg, uint32_t ul_pll_id)
 {
-	Assert(dw_pll_id < NR_PLLS);
+	Assert(ul_pll_id < NR_PLLS);
 	
-	if (dw_pll_id == PLLA_ID) {
+	if (ul_pll_id == PLLA_ID) {
 		pmc_disable_pllack(); // Always stop PLL first!
 		PMC->CKGR_PLLAR = CKGR_PLLAR_ONE | p_cfg->ctrl;
 	}
 }
 
-static inline void pll_enable(const struct pll_config *p_cfg, uint32_t dw_pll_id)
+static inline void pll_enable(const struct pll_config *p_cfg, uint32_t ul_pll_id)
 {
-	Assert(dw_pll_id < NR_PLLS);
+	Assert(ul_pll_id < NR_PLLS);
 	
-	if (dw_pll_id == PLLA_ID) {
+	if (ul_pll_id == PLLA_ID) {
 		pmc_disable_pllack(); // Always stop PLL first!
 		PMC->CKGR_PLLAR = CKGR_PLLAR_ONE | p_cfg->ctrl;
 	}
@@ -147,19 +147,19 @@ static inline void pll_enable(const struct pll_config *p_cfg, uint32_t dw_pll_id
 /** 
  * \note This will only disable the selected PLL, not the underlying oscillator (mainck).
  */
-static inline void pll_disable(uint32_t dw_pll_id)
+static inline void pll_disable(uint32_t ul_pll_id)
 {
-	Assert(dw_pll_id < NR_PLLS);
+	Assert(ul_pll_id < NR_PLLS);
 	
-	if (dw_pll_id == PLLA_ID)
+	if (ul_pll_id == PLLA_ID)
 		pmc_disable_pllack();
 }
 
-static inline uint32_t pll_is_locked(uint32_t dw_pll_id)
+static inline uint32_t pll_is_locked(uint32_t ul_pll_id)
 {
-	Assert(dw_pll_id < NR_PLLS);
+	Assert(ul_pll_id < NR_PLLS);
 	
-	if (dw_pll_id == PLLA_ID)
+	if (ul_pll_id == PLLA_ID)
 		return pmc_is_locked_pllack();
 	else
 	  return 0;
@@ -183,14 +183,14 @@ static inline void pll_enable_source(enum pll_source e_src)
 	}
 }
 
-static inline void pll_enable_config_defaults(unsigned int dw_pll_id)
+static inline void pll_enable_config_defaults(unsigned int ul_pll_id)
 {
 	struct pll_config pllcfg;
 
-	if (pll_is_locked(dw_pll_id)) {
+	if (pll_is_locked(ul_pll_id)) {
 		return; // Pll already running
 	}
-	switch (dw_pll_id) {
+	switch (ul_pll_id) {
 #ifdef CONFIG_PLL0_SOURCE
 	case 0:
 		pll_enable_source(CONFIG_PLL0_SOURCE);
@@ -204,8 +204,8 @@ static inline void pll_enable_config_defaults(unsigned int dw_pll_id)
 		Assert(false);
 		break;
 	}
-	pll_enable(&pllcfg, dw_pll_id);
-	while (!pll_is_locked(dw_pll_id));
+	pll_enable(&pllcfg, ul_pll_id);
+	while (!pll_is_locked(ul_pll_id));
 }
 
 //! @}

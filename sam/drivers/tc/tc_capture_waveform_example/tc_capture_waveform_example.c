@@ -3,7 +3,7 @@
  *
  * \brief TC Capture Waveform Example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -113,16 +113,7 @@
  *
  */
 
-#include <stdio.h>
-#include "board.h"
-#include "sysclk.h"
-#include "gpio.h"
-#include "exceptions.h"
-#include "pio.h"
-#include "pio_handler.h"
-#include "tc.h"
-#include "uart.h"
-#include "pmc.h"
+#include "asf.h"
 #include "conf_board.h"
 
 /// @cond 0
@@ -151,7 +142,7 @@ struct waveconfig_t {
 };
 
 /** TC waveform configurations */
-static const struct waveconfig_t waveconfig[] = {
+static const struct waveconfig_t gc_waveconfig[] = {
 #ifndef SAM4S
 	{TC_CMR_TCCLKS_TIMER_CLOCK4, 178, 30},
 #endif	
@@ -162,16 +153,16 @@ static const struct waveconfig_t waveconfig[] = {
 };
 
 /** Current wave configuration*/
-static uint8_t g_uc_configuration = 0;
+static uint8_t gs_uc_configuration = 0;
 
 /** Number of available wave configurations */
-const uint8_t g_uc_nbconfig = sizeof(waveconfig)
+const uint8_t gc_uc_nbconfig = sizeof(gc_waveconfig)
 		/ sizeof(struct waveconfig_t);
 
 /** Capture status*/
-static uint32_t g_ul_captured_pulses;
-static uint32_t g_ul_captured_ra;
-static uint32_t g_ul_captured_rb;
+static uint32_t gs_ul_captured_pulses;
+static uint32_t gs_ul_captured_ra;
+static uint32_t gs_ul_captured_rb;
 
 /**
  * \brief Display the user menu on the UART.
@@ -182,12 +173,12 @@ static void display_menu(void)
 	puts("\n\rMenu :\n\r"
 			"------\n\r"
 			"  Output waveform property:\r");
-	for (i = 0; i < g_uc_nbconfig; i++) {
+	for (i = 0; i < gc_uc_nbconfig; i++) {
 		printf("  %d: Set Frequency = %4u Hz, Duty Cycle = %2u%%\n\r",
 				i,
-				(unsigned int)waveconfig[i].
+				(unsigned int)gc_waveconfig[i].
 				us_frequency,
-				(unsigned int)waveconfig[i].
+				(unsigned int)gc_waveconfig[i].
 				us_dutycycle);
 	}
 	puts("  -------------------------------------------\n\r"
@@ -209,7 +200,7 @@ static void tc_waveform_initialize(void)
 	pmc_enable_periph_clk(ID_TC1);
 	
 	/* Init TC clock. */
-	tc_init(TC0, TC_CHANNEL_1, waveconfig[g_uc_configuration].ul_intclock /* Waveform Clock Selection */
+	tc_init(TC0, TC_CHANNEL_1, gc_waveconfig[gs_uc_configuration].ul_intclock /* Waveform Clock Selection */
 			| TC_CMR_WAVE       /* Waveform mode is enabled */
 			| TC_CMR_ACPA_SET	/* RA Compare Effect: set */
 			| TC_CMR_ACPC_CLEAR /* RC Compare Effect: clear */
@@ -217,17 +208,17 @@ static void tc_waveform_initialize(void)
 	);
 	
 	/* Configure waveform frequency and duty cycle. */
-    rc = (BOARD_MCK / divisors[waveconfig[g_uc_configuration].ul_intclock]) / 
-		waveconfig[g_uc_configuration].us_frequency;
+    rc = (sysclk_get_cpu_hz() / divisors[gc_waveconfig[gs_uc_configuration].ul_intclock]) / 
+		gc_waveconfig[gs_uc_configuration].us_frequency;
     tc_write_rc(TC0, TC_CHANNEL_1, rc);
-    ra = (100 - waveconfig[g_uc_configuration].us_dutycycle) * rc / 100;
+    ra = (100 - gc_waveconfig[gs_uc_configuration].us_dutycycle) * rc / 100;
     tc_write_ra(TC0, TC_CHANNEL_1, ra);
 
 	/* Enable TC0 channel 1. */
 	tc_start(TC0, TC_CHANNEL_1);
 	printf("Start waveform: Frequency = %d Hz,Duty Cycle = %2d%%\n\r",
-			waveconfig[g_uc_configuration].us_frequency,
-			waveconfig[g_uc_configuration].us_dutycycle);
+			gc_waveconfig[gs_uc_configuration].us_frequency,
+			gc_waveconfig[gs_uc_configuration].us_dutycycle);
 }
 
 /**
@@ -253,7 +244,7 @@ static void tc_capture_initialize(void)
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ BOARD_MCK, 115200, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
 
 	/* Configure PIO */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK, PINS_UART_ATTR);
@@ -271,9 +262,9 @@ static void configure_console(void)
 void TC2_Handler(void)
 {
 	if ((tc_get_status(TC0, TC_CHANNEL_2) & TC_SR_LDRBS) == TC_SR_LDRBS) {
-		g_ul_captured_pulses++;
-		g_ul_captured_ra = tc_read_ra(TC0, TC_CHANNEL_2);
-		g_ul_captured_rb = tc_read_rb(TC0, TC_CHANNEL_2);
+		gs_ul_captured_pulses++;
+		gs_ul_captured_ra = tc_read_ra(TC0, TC_CHANNEL_2);
+		gs_ul_captured_rb = tc_read_rb(TC0, TC_CHANNEL_2);
 	}
 }
 
@@ -326,17 +317,17 @@ int main(void)
 			break;
 
 		case 's':
-			if (g_ul_captured_pulses) {
+			if (gs_ul_captured_pulses) {
 				tc_disable_interrupt(TC0, TC_CHANNEL_2, TC_IDR_LDRBS);
-				printf("Captured %u pulses from TC0 channel 2, RA = %u, RB = %u \n\r", (unsigned int)g_ul_captured_pulses, (unsigned int)g_ul_captured_ra, (unsigned int)g_ul_captured_rb);
+				printf("Captured %u pulses from TC0 channel 2, RA = %u, RB = %u \n\r", (unsigned int)gs_ul_captured_pulses, (unsigned int)gs_ul_captured_ra, (unsigned int)gs_ul_captured_rb);
 
-				frequence = (BOARD_MCK / 8) / g_ul_captured_rb;
-				dutycycle = (g_ul_captured_rb - g_ul_captured_ra) * 100 / g_ul_captured_rb;
+				frequence = (sysclk_get_cpu_hz() / 8) / gs_ul_captured_rb;
+				dutycycle = (gs_ul_captured_rb - gs_ul_captured_ra) * 100 / gs_ul_captured_rb;
 				printf("Captured wave frequency = %d Hz, Duty cycle = %d%% \n\r", frequence, dutycycle);
 
-				g_ul_captured_pulses = 0;
-				g_ul_captured_ra = 0;
-				g_ul_captured_rb = 0;
+				gs_ul_captured_pulses = 0;
+				gs_ul_captured_ra = 0;
+				gs_ul_captured_rb = 0;
 			} else {
 				puts("No waveform has been captured\r");
 			}
@@ -351,9 +342,9 @@ int main(void)
 			break;
 		default:
 			/* Set waveform configuration #n */
-			if ((key >= '0') && (key <= ('0' + g_uc_nbconfig - 1))) {
-				if (!g_ul_captured_pulses) {
-					g_uc_configuration = key - '0';
+			if ((key >= '0') && (key <= ('0' + gc_uc_nbconfig - 1))) {
+				if (!gs_ul_captured_pulses) {
+					gs_uc_configuration = key - '0';
 					tc_waveform_initialize();
 				} else {
 					puts("Capturing ... , press 's' to stop capture first \r");

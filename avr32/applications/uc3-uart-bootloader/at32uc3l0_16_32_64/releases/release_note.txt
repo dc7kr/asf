@@ -11,7 +11,7 @@ Related deliverables:
   program them to UC3L (program_at32uc3l-uart-isp-x.y.z.cmd to use on a DOS
   command line and program_at32uc3l-uart-isp-x.y.z.sh to use on a unix-like
   command line).
-- the AVR Software Framework: bootloader source code and helper files to be
+- the ASF: bootloader source code and helper files to be
   used by applications destined to be programmed through the bootloader.
 
 1. Release History

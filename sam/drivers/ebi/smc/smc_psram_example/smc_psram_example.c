@@ -3,7 +3,7 @@
  *
  * \brief SMC PSRAM Example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -49,7 +49,7 @@
  *
  * \section Requirements
  *
- * This package can be used with SAM3S evaluation kits.
+ * This package can be used with SAM3U evaluation kits.
  *
  * \section Description
  *
@@ -89,28 +89,16 @@
  *     -- xxxxxx-xx
  *     -- Compiled: xxx xx xxxx xx:xx:xx --
  *
- *     -I- Configure EBI I/O for PSRAM connection.
  *     -I- Configure PMC to enable the SMC clock.
  *     -I- Configure SMC timing and mode.
- *     -I- SMC Setup Register 0xxxxxxxxx.
- *     -I- SMC Pulse Register 0xxxxxxxxx.
- *     -I- SMC Cycle Register 0xxxxxxxxx.
- *     -I- SMC MODE  Register 0xxxxxxxxx.
- *     -I- CTest external PSRAM access.
+ *     -I- Test external PSRAM access.
+ *     -I- Psram access successful.
  *    \endcode
  * 
  */
 
-#include "board.h"
-#include "sysclk.h"
-#include "gpio.h"
-#include "exceptions.h"
-#include "pio.h"
-#include "uart.h"
-#include "pmc.h"
-#include "smc.h"
+#include "asf.h"
 #include "conf_board.h"
-#include <stdio.h>
 
 /** Base address of chip select */
 #define PSRAM_BASE_ADDRESS         (0x60000000)
@@ -131,18 +119,18 @@ static uint8_t access_psram_test(void)
 
 	for (i = 0; i < 10 * 1024; ++i) {
 		if (i & 1) {
-			ptr[i] = 0x55AA55AA | (1 << i);
+			ptr[i] = i;
 		} else {
-			ptr[i] = 0xAA55AA55 | (1 << i);
+			ptr[i] = 0xEFBEADDE;
 		}
 	}
 	for (i = 0; i < 10 * 1024; ++i) {
 		if (i & 1) {
-			if (ptr[i] != (0x55AA55AA | (1 << i))) {
+			if (ptr[i] != i) {
 				return 0;
 			}
 		} else {
-			if (ptr[i] != (0xAA55AA55 | (1 << i))) {
+			if (ptr[i] != 0xEFBEADDE) {
 				return 0;
 			}
 		}
@@ -194,31 +182,26 @@ int main(void)
 	/* Output example information */
 	puts(STRING_HEADER);
 
-	/* Configure EBI I/O for PSRAM connection */
-	puts("Configure EBI I/O for PSRAM connection.\r");
-
+	/* Enable PMC clock for SMC module */
+	puts("Configure PMC to enable the SMC clock.\r");
 	pmc_enable_periph_clk(ID_SMC);
+	
+	/* Configure EBI I/O for PSRAM connection */
+	puts("Configure SMC timing and mode.\r");
+	
 	/* complete SMC configuration between PSRAM and SMC waveforms. */
-	smc_set_setup_timing(SMC, 0, SMC_SETUP_NWE_SETUP(1)
-			| SMC_SETUP_NCS_WR_SETUP(0)
+	smc_set_setup_timing(SMC, 0, SMC_SETUP_NWE_SETUP(0)
+			| SMC_SETUP_NCS_WR_SETUP(2)
 			| SMC_SETUP_NRD_SETUP(2)
-			| SMC_SETUP_NCS_RD_SETUP(0));
-	smc_set_pulse_timing(SMC, 0, SMC_PULSE_NWE_PULSE(3)
-			| SMC_PULSE_NCS_WR_PULSE(4)
-			| SMC_PULSE_NRD_PULSE(3)
-			| SMC_PULSE_NCS_RD_PULSE(5));
-	smc_set_cycle_timing(SMC, 0, SMC_CYCLE_NWE_CYCLE(4)
-			| SMC_CYCLE_NRD_CYCLE(5));
+			| SMC_SETUP_NCS_RD_SETUP(2));
+	smc_set_pulse_timing(SMC, 0, SMC_PULSE_NWE_PULSE(6)
+			| SMC_PULSE_NCS_WR_PULSE(6)
+			| SMC_PULSE_NRD_PULSE(6)
+			| SMC_PULSE_NCS_RD_PULSE(6));
+	smc_set_cycle_timing(SMC, 0, SMC_CYCLE_NWE_CYCLE(8)
+			| SMC_CYCLE_NRD_CYCLE(8));
 	smc_set_mode(SMC, 0, SMC_MODE_READ_MODE | SMC_MODE_WRITE_MODE
-
-#if SAM3S || SAM4S
-			| SMC_MODE_DBW_8_BIT
-#elif SAM3U
-			| SMC_MODE_DBW_BIT_16 
-#elif SAM3XA 
-			| SMC_MODE_DBW_BIT_8
-#endif
-			);
+			| SMC_MODE_DBW_BIT_16);
 
 	/* Test external PSRAM access */
 	puts("Test external PSRAM access. \r");
@@ -231,5 +214,8 @@ int main(void)
 		puts("Psram access successful.\r");
 	} else {
 		puts("Psram access failed.\r");
+	}
+	
+	while (1) {
 	}
 }

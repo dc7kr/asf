@@ -3,7 +3,7 @@
  *
  * \brief USB configuration file
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -51,7 +51,7 @@
 
 //! Device definition (mandatory)
 #define  USB_DEVICE_VENDOR_ID             USB_VID_ATMEL
-#define  USB_DEVICE_PRODUCT_ID            USB_PID_ATMEL_AVR_MSC_CDC
+#define  USB_DEVICE_PRODUCT_ID            USB_PID_ATMEL_ASF_MSC_CDC
 #define  USB_DEVICE_MAJOR_VERSION         1
 #define  USB_DEVICE_MINOR_VERSION         0
 #define  USB_DEVICE_POWER                 100 // Consumption on Vbus line (mA)
@@ -62,7 +62,7 @@
 //	(USB_CONFIG_ATTR_REMOTE_WAKEUP|USB_CONFIG_ATTR_BUS_POWERED)
 
 //! USB Device string definitions (Optional)
-#define  USB_DEVICE_MANUFACTURE_NAME      "ATMEL AVR"
+#define  USB_DEVICE_MANUFACTURE_NAME      "ATMEL ASF"
 #define  USB_DEVICE_PRODUCT_NAME          "CDC and MSC"
 #define  USB_DEVICE_SERIAL_NAME           "123123123123" // Disk SN for MSC
 
@@ -77,7 +77,9 @@
 
 //! To authorize the High speed
 #if (UC3A3||UC3A4)
-#define  USB_DEVICE_HS_SUPPORT
+#  define  USB_DEVICE_HS_SUPPORT
+#elif (SAM3XA)
+#  define  USB_DEVICE_HS_SUPPORT
 #endif
 //@}
 
@@ -111,11 +113,11 @@
 #define  USB_DEVICE_NB_INTERFACE       3
 
 //! 5 endpoints used by CDC and MSC interfaces
-// (1 | USB_EP_DIR_IN)  // CDC Notify endpoint
-// (2 | USB_EP_DIR_IN)  // CDC TX
-// (3 | USB_EP_DIR_OUT) // CDC RX
-// (4 | USB_EP_DIR_IN)  // MSC IN
-// (5 | USB_EP_DIR_OUT) // MSC OUT
+// (3 | USB_EP_DIR_IN)  // CDC Notify endpoint
+// (4 | USB_EP_DIR_IN)  // CDC TX
+// (5 | USB_EP_DIR_OUT) // CDC RX
+// (1 | USB_EP_DIR_IN)  // MSC IN
+// (2 | USB_EP_DIR_OUT) // MSC OUT
 #define  USB_DEVICE_MAX_EP             5
 //@}
 
@@ -158,9 +160,9 @@
  * @{
  */
 //! Endpoint numbers definition
-#define  UDI_CDC_COMM_EP               (1 | USB_EP_DIR_IN)	// Notify endpoint
-#define  UDI_CDC_DATA_EP_IN            (2 | USB_EP_DIR_IN)	// TX
-#define  UDI_CDC_DATA_EP_OUT           (3 | USB_EP_DIR_OUT)	// RX
+#define  UDI_CDC_COMM_EP               (3 | USB_EP_DIR_IN)	// Notify endpoint
+#define  UDI_CDC_DATA_EP_IN            (4 | USB_EP_DIR_IN)	// TX
+#define  UDI_CDC_DATA_EP_OUT           (5 | USB_EP_DIR_OUT)	// RX
 
 //! Interface numbers
 #define  UDI_CDC_COMM_IFACE_NUMBER     0
@@ -193,8 +195,8 @@
  * @{
  */
 //! Endpoint numbers definition
-#define  UDI_MSC_EP_IN                 (4 | USB_EP_DIR_IN)
-#define  UDI_MSC_EP_OUT                (5 | USB_EP_DIR_OUT)
+#define  UDI_MSC_EP_IN                 (1 | USB_EP_DIR_IN)
+#define  UDI_MSC_EP_OUT                (2 | USB_EP_DIR_OUT)
 
 //! Interface number
 #define  UDI_MSC_IFACE_NUMBER          2
@@ -219,14 +221,14 @@
 #define UDI_COMPOSITE_DESC_FS \
 	.udi_cdc_iad   = UDI_CDC_IAD_DESC, \
 	.udi_cdc_comm  = UDI_CDC_COMM_DESC, \
-	.udi_cdc_data  = UDI_CDC_DATA_DESC, \
+	.udi_cdc_data  = UDI_CDC_DATA_DESC_FS, \
 	.udi_msc       = UDI_MSC_DESC_FS
 
 //! USB Interfaces descriptor value for High Speed
 #define UDI_COMPOSITE_DESC_HS \
 	.udi_cdc_iad   = UDI_CDC_IAD_DESC,  \
 	.udi_cdc_comm  = UDI_CDC_COMM_DESC, \
-	.udi_cdc_data  = UDI_CDC_DATA_DESC, \
+	.udi_cdc_data  = UDI_CDC_DATA_DESC_HS, \
 	.udi_msc       = UDI_MSC_DESC_HS
 
 //! USB Interface APIs

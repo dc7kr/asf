@@ -42,12 +42,13 @@ MCU = atxmega128a1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_drivers_ebi_unit_tests_sram_stk600-rc100x.elf
+TARGET = unit_tests_sram.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
        common/services/hugemem/avr8/avr8_hugemem.c        \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/serial/usart_serial.c              \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        common/utils/stdio/read.c                          \
@@ -57,7 +58,6 @@ CSRCS = \
        xmega/drivers/ebi/ebi.c                            \
        xmega/drivers/ebi/unit_tests/common_tests.c        \
        xmega/drivers/ebi/unit_tests/sram/unit_tests.c     \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/usart/usart.c
 
 # Assembler source files located from the top-level source directory
@@ -70,7 +70,9 @@ INC_PATH = \
        common/services/clock                              \
        common/services/gpio                               \
        common/services/hugemem                            \
+       common/services/ioport                             \
        common/services/serial                             \
+       common/services/serial/xmega_usart                 \
        common/services/sleepmgr                           \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
@@ -81,7 +83,6 @@ INC_PATH = \
        xmega/drivers/ebi/unit_tests                       \
        xmega/drivers/ebi/unit_tests/sram                  \
        xmega/drivers/ebi/unit_tests/sram/atxmega128a1_stk600-rc100x \
-       xmega/drivers/ioport                               \
        xmega/drivers/pmic                                 \
        xmega/drivers/sleep                                \
        xmega/drivers/usart                                \
@@ -131,6 +132,7 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D BOARD=STK600_RC100X                             \
+       -D IOPORT_XMEGA_COMPAT                             \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_
 

@@ -3,7 +3,7 @@
  *
  * \brief USB configuration file
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -51,20 +51,20 @@
 
 //! Device definition (mandatory)
 #define  USB_DEVICE_VENDOR_ID             USB_VID_ATMEL
-#define  USB_DEVICE_PRODUCT_ID            USB_PID_ATMEL_AVR_MSC_HIDS_CDC
+#define  USB_DEVICE_PRODUCT_ID            USB_PID_ATMEL_ASF_MSC_HIDS_CDC
 #define  USB_DEVICE_MAJOR_VERSION         1
 #define  USB_DEVICE_MINOR_VERSION         0
 #define  USB_DEVICE_POWER                 100 // Consumption on Vbus line (mA)
 #define  USB_DEVICE_ATTR                  \
 	(USB_CONFIG_ATTR_REMOTE_WAKEUP|USB_CONFIG_ATTR_SELF_POWERED)
-//	(USB_CONFIG_ATTR_REMOTE_WAKEUP|USB_CONFIG_ATTR_BUS_POWERED)
-//	(USB_CONFIG_ATTR_SELF_POWERED)
+// (USB_CONFIG_ATTR_REMOTE_WAKEUP|USB_CONFIG_ATTR_BUS_POWERED)
+// (USB_CONFIG_ATTR_SELF_POWERED)
 // (USB_CONFIG_ATTR_BUS_POWERED)
 
 //! USB Device string definitions (Optional)
-#define  USB_DEVICE_MANUFACTURE_NAME      "ATMEL AVR"
+#define  USB_DEVICE_MANUFACTURE_NAME      "ATMEL ASF"
 #define  USB_DEVICE_PRODUCT_NAME          "HID Mouse, keyboard, CDC and MSC"
-#define  USB_DEVICE_SERIAL_NAME           "123123123123"	// Disk SN for MSC
+#define  USB_DEVICE_SERIAL_NAME           "123123123123" // Disk SN for MSC
 
 /**
  * Device speeds support
@@ -76,7 +76,9 @@
 
 //! To authorize the High speed
 #if (UC3A3||UC3A4)
-#define  USB_DEVICE_HS_SUPPORT
+#  define  USB_DEVICE_HS_SUPPORT
+#elif (SAM3XA||SAM3U)
+#  define  USB_DEVICE_HS_SUPPORT
 #endif
 //@}
 
@@ -110,14 +112,14 @@
 
 //! 7 endpoints used by HID mouse, HID keyboard, CDC and MSC interfaces
 //! but an IN and OUT endpoints can be defined with the same number on xmega, thus 5
-// (1 | USB_EP_DIR_IN)	// CDC Notify endpoint
-// (2 | USB_EP_DIR_IN)	// CDC TX
-// (2 | USB_EP_DIR_OUT)	// CDC RX
-// (3 | USB_EP_DIR_IN)  // MSC IN
-// (3 | USB_EP_DIR_OUT) // MSC OUT
-// (4 | USB_EP_DIR_IN)  // HID mouse report
-// (5 | USB_EP_DIR_IN)  // HID keyboard report
-#define  USB_DEVICE_MAX_EP             5
+// (7 | USB_EP_DIR_IN)  // CDC Notify endpoint
+// (6 | USB_EP_DIR_IN)  // CDC TX
+// (5 | USB_EP_DIR_OUT) // CDC RX
+// (1 | USB_EP_DIR_IN)  // MSC IN
+// (2 | USB_EP_DIR_OUT) // MSC OUT
+// (3 | USB_EP_DIR_IN)  // HID mouse report
+// (4 | USB_EP_DIR_IN)  // HID keyboard report
+#define  USB_DEVICE_MAX_EP             7
 //@}
 
 //@}
@@ -135,9 +137,14 @@
 //! Interface callback definition
 #define  UDI_CDC_ENABLE_EXT()             main_cdc_enable()
 #define  UDI_CDC_DISABLE_EXT()            main_cdc_disable()
-#define  UDI_CDC_SET_CODING_EXT(cfg)      main_cdc_config_uart(cfg)
+#define  UDI_CDC_RX_NOTIFY()              uart_rx_notify()
+#define  UDI_CDC_SET_CODING_EXT(cfg)      uart_config(cfg)
 #define  UDI_CDC_SET_DTR_EXT(set)         main_cdc_set_dtr(set)
 #define  UDI_CDC_SET_RTS_EXT(set)
+
+//! Define it when the transfer CDC Device to Host is a low rate (<512000 bauds)
+//! to reduce CDC buffers size
+//#define  UDI_CDC_LOW_RATE
 
 //! Default configuration of communication port
 #define  UDI_CDC_DEFAULT_RATE             115200
@@ -155,9 +162,9 @@
  * @{
  */
 //! Endpoint numbers definition
-#define  UDI_CDC_COMM_EP               (1 | USB_EP_DIR_IN)	// Notify endpoint
-#define  UDI_CDC_DATA_EP_IN            (2 | USB_EP_DIR_IN)	// TX
-#define  UDI_CDC_DATA_EP_OUT           (2 | USB_EP_DIR_OUT)	// RX
+#define  UDI_CDC_COMM_EP               (7 | USB_EP_DIR_IN)  // Notify endpoint
+#define  UDI_CDC_DATA_EP_IN            (6 | USB_EP_DIR_IN)  // TX
+#define  UDI_CDC_DATA_EP_OUT           (5 | USB_EP_DIR_OUT) // RX
 
 //! Interface numbers
 #define  UDI_CDC_COMM_IFACE_NUMBER     0
@@ -190,8 +197,8 @@
  * @{
  */
 //! Endpoint numbers definition
-#define  UDI_MSC_EP_IN                 (3 | USB_EP_DIR_IN)
-#define  UDI_MSC_EP_OUT                (3 | USB_EP_DIR_OUT)
+#define  UDI_MSC_EP_IN                 (1 | USB_EP_DIR_IN)
+#define  UDI_MSC_EP_OUT                (2 | USB_EP_DIR_OUT)
 
 //! Interface number
 #define  UDI_MSC_IFACE_NUMBER          2
@@ -217,7 +224,7 @@
  * @{
  */
 //! Endpoint numbers definition
-#define  UDI_HID_MOUSE_EP_IN           (4 | USB_EP_DIR_IN)
+#define  UDI_HID_MOUSE_EP_IN           (3 | USB_EP_DIR_IN)
 
 //! Interface number
 #define  UDI_HID_MOUSE_IFACE_NUMBER    3
@@ -229,8 +236,8 @@
  * @{
  */
 //! Interface callback definition
-#define  UDI_HID_KBD_ENABLE_EXT()       main_kbd_enable()
-#define  UDI_HID_KBD_DISABLE_EXT()      main_kbd_disable()
+#define  UDI_HID_KBD_ENABLE_EXT()       main_keyboard_enable()
+#define  UDI_HID_KBD_DISABLE_EXT()      main_keyboard_disable()
 #define  UDI_HID_KBD_CHANGE_LED(value)  ui_kbd_led(value)
 
 //! Enable id string of interface to add an extra USB string
@@ -243,7 +250,7 @@
  * @{
  */
 //! Endpoint numbers definition
-#define  UDI_HID_KBD_EP_IN           (5 | USB_EP_DIR_IN)
+#define  UDI_HID_KBD_EP_IN           (4 | USB_EP_DIR_IN)
 
 //! Interface number
 #define  UDI_HID_KBD_IFACE_NUMBER    4
@@ -267,21 +274,21 @@
 	udi_hid_kbd_desc_t   udi_hid_kbd
 
 //! USB Interfaces descriptor value for Full Speed
-#define	UDI_COMPOSITE_DESC_FS         \
-	.udi_cdc_iad   = UDI_CDC_IAD_DESC,  \
-	.udi_cdc_comm  = UDI_CDC_COMM_DESC, \
-	.udi_cdc_data  = UDI_CDC_DATA_DESC, \
-	.udi_msc       = UDI_MSC_DESC_FS,   \
-	.udi_hid_mouse = UDI_HID_MOUSE_DESC,\
+#define UDI_COMPOSITE_DESC_FS             \
+	.udi_cdc_iad   = UDI_CDC_IAD_DESC,     \
+	.udi_cdc_comm  = UDI_CDC_COMM_DESC,    \
+	.udi_cdc_data  = UDI_CDC_DATA_DESC_FS, \
+	.udi_msc       = UDI_MSC_DESC_FS,      \
+	.udi_hid_mouse = UDI_HID_MOUSE_DESC,   \
 	.udi_hid_kbd   = UDI_HID_KBD_DESC
 
 //! USB Interfaces descriptor value for High Speed
-#define	UDI_COMPOSITE_DESC_HS         \
-	.udi_cdc_iad   = UDI_CDC_IAD_DESC,  \
-	.udi_cdc_comm  = UDI_CDC_COMM_DESC, \
-	.udi_cdc_data  = UDI_CDC_DATA_DESC, \
-	.udi_msc       = UDI_MSC_DESC_HS,   \
-	.udi_hid_mouse = UDI_HID_MOUSE_DESC,\
+#define UDI_COMPOSITE_DESC_HS             \
+	.udi_cdc_iad   = UDI_CDC_IAD_DESC,     \
+	.udi_cdc_comm  = UDI_CDC_COMM_DESC,    \
+	.udi_cdc_data  = UDI_CDC_DATA_DESC_HS, \
+	.udi_msc       = UDI_MSC_DESC_HS,      \
+	.udi_hid_mouse = UDI_HID_MOUSE_DESC,   \
 	.udi_hid_kbd   = UDI_HID_KBD_DESC
 
 //! USB Interface APIs
@@ -305,6 +312,7 @@
 #include "udi_msc.h"
 #include "udi_hid_mouse.h"
 #include "udi_hid_kbd.h"
+#include "uart.h"
 #include "main.h"
 #include "ui.h"
 

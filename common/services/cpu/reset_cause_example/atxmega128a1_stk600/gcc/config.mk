@@ -42,13 +42,13 @@ MCU = atxmega128a1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_basic_cpu_example_stk600-rc100x_atxmega128a1.elf
+TARGET = cpu_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/cpu/reset_cause_example/reset_cause_example.c \
-       xmega/boards/stk600/rc100x/init.c                  \
-       xmega/drivers/ioport/ioport.c
+       common/services/ioport/xmega/ioport_compat.c       \
+       xmega/boards/stk600/rc100x/init.c
 
 # Assembler source files located from the top-level source directory
 ASSRCS = \
@@ -60,11 +60,11 @@ INC_PATH = \
        common/services/cpu                                \
        common/services/cpu/reset_cause_example/atxmega128a1_stk600 \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/utils                                       \
        xmega/boards                                       \
        xmega/boards/stk600/rc100x                         \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/utils                                        \
        xmega/utils/preprocessor \
        ./common/services/cpu/reset_cause_example/atxmega128a1_stk600/gcc
@@ -110,7 +110,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=STK600_RC100X
+       -D BOARD=STK600_RC100X                             \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

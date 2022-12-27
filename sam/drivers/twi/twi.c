@@ -3,7 +3,7 @@
  *
  * \brief Two-Wire Interface (TWI) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -144,22 +144,22 @@ uint32_t twi_master_init(Twi *p_twi, const twi_options_t *p_opt)
  * \brief Set the I2C bus speed in conjunction with the clock frequency.
  *
  * \param p_twi Pointer to a TWI instance.
- * \param dw_speed The desired I2C bus speed (in Hz).
- * \param dw_mck Main clock of the device (in Hz).
+ * \param ul_speed The desired I2C bus speed (in Hz).
+ * \param ul_mck Main clock of the device (in Hz).
  *
  * \retval PASS New speed setting is accepted.
  * \retval FAIL New speed setting is rejected.
  */
-uint32_t twi_set_speed(Twi *p_twi, uint32_t dw_speed, uint32_t dw_mck)
+uint32_t twi_set_speed(Twi *p_twi, uint32_t ul_speed, uint32_t ul_mck)
 {
 	uint32_t ckdiv = 0;
 	uint32_t c_lh_div;
 
-	if (dw_speed > I2C_FAST_MODE_SPEED) {
+	if (ul_speed > I2C_FAST_MODE_SPEED) {
 		return FAIL;
 	}
 
-	c_lh_div = dw_mck / (dw_speed * TWI_CLK_DIVIDER) - TWI_CLK_CALC_ARGU;
+	c_lh_div = ul_mck / (ul_speed * TWI_CLK_DIVIDER) - TWI_CLK_CALC_ARGU;
 
 	/* cldiv must fit in 8 bits, ckdiv must fit in 3 bits */
 	while ((c_lh_div > TWI_CLK_DIV_MAX) && (ckdiv < TWI_CLK_DIV_MIN)) {
@@ -197,12 +197,41 @@ uint32_t twi_probe(Twi *p_twi, uint8_t uc_slave_addr)
 	/* Slave chip address */
 	packet.chip = (uint32_t) uc_slave_addr;
 	/* Internal chip address */
-	packet.addr = 0;
+	packet.addr[0] = 0;
 	/* Address length */
 	packet.addr_length = 0;
 
 	/* Perform a master write access */
 	return (twi_master_write(p_twi, &packet));
+}
+
+
+/**
+ * \internal
+ * \brief Construct the TWI module address register field
+ *
+ * The TWI module address register is sent out MSB first. And the size controls
+ * which byte is the MSB to start with.
+ *
+ * Please see the device datasheet for details on this.
+ */
+static uint32_t twi_mk_addr(const uint8_t *addr, int len)
+{
+	uint32_t val;
+
+	if (len == 0)
+		return 0;
+
+	val = addr[0];
+	if (len > 1) {
+		val <<= 8;
+		val |= addr[1];
+	}
+	if (len > 2) {
+		val <<= 8;
+		val |= addr[2];
+	}
+	return val;
 }
 
 /**
@@ -232,7 +261,7 @@ uint32_t twi_master_read(Twi *p_twi, twi_packet_t *p_packet)
 
 	/* Set internal address for remote chip */
 	p_twi->TWI_IADR = 0;
-	p_twi->TWI_IADR = p_packet->addr;
+	p_twi->TWI_IADR = twi_mk_addr(p_packet->addr, p_packet->addr_length);
 
 	/* Send a START Condition */
 	p_twi->TWI_CR = TWI_CR_START;
@@ -291,7 +320,7 @@ uint32_t twi_master_write(Twi *p_twi, twi_packet_t *p_packet)
 
 	/* Set internal address for remote chip */
 	p_twi->TWI_IADR = 0;
-	p_twi->TWI_IADR = p_packet->addr;
+	p_twi->TWI_IADR = twi_mk_addr(p_packet->addr, p_packet->addr_length);
 
 	/* Send all bytes */
 	while (cnt > 0) {
@@ -322,24 +351,24 @@ uint32_t twi_master_write(Twi *p_twi, twi_packet_t *p_packet)
  * \brief Enable TWI interrupts.
  *
  * \param p_twi Pointer to a TWI instance.
- * \param dw_sources Interrupts to be enabled.
+ * \param ul_sources Interrupts to be enabled.
  */
-void twi_enable_interrupt(Twi *p_twi, uint32_t dw_sources)
+void twi_enable_interrupt(Twi *p_twi, uint32_t ul_sources)
 {
 	/* Enable the specified interrupts */
-	p_twi->TWI_IER = dw_sources;
+	p_twi->TWI_IER = ul_sources;
 }
 
 /**
  * \brief Disable TWI interrupts.
  *
  * \param p_twi Pointer to a TWI instance.
- * \param dw_sources Interrupts to be disabled.
+ * \param ul_sources Interrupts to be disabled.
  */
-void twi_disable_interrupt(Twi *p_twi, uint32_t dw_sources)
+void twi_disable_interrupt(Twi *p_twi, uint32_t ul_sources)
 {
 	/* Disable the specified interrupts */
-	p_twi->TWI_IDR = dw_sources;
+	p_twi->TWI_IDR = ul_sources;
 	/* Dummy read */
 	p_twi->TWI_SR;
 }
@@ -398,9 +427,9 @@ void twi_disable_slave_mode(Twi *p_twi)
  * \brief Initialize TWI slave mode.
  *
  * \param p_twi Pointer to a TWI instance.
- * \param dw_device_addr Device address of the SAM slave device on the I2C bus.
+ * \param ul_device_addr Device address of the SAM slave device on the I2C bus.
  */
-void twi_slave_init(Twi *p_twi, uint32_t dw_device_addr)
+void twi_slave_init(Twi *p_twi, uint32_t ul_device_addr)
 {
 	/* Disable TWI interrupts */
 	p_twi->TWI_IDR = ~0UL;
@@ -410,7 +439,7 @@ void twi_slave_init(Twi *p_twi, uint32_t dw_device_addr)
 	twi_reset(p_twi);
 
 	/* Set slave address in slave mode */
-	p_twi->TWI_SMR = TWI_SMR_SADR(dw_device_addr);
+	p_twi->TWI_SMR = TWI_SMR_SADR(ul_device_addr);
 
 	/* Enable slave mode */
 	twi_enable_slave_mode(p_twi);

@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_components_memory_data_flash_at45dbx_unit_tests_uc3c_ek.elf
+TARGET = at45dbx_unit_tests.elf
 
 # List of C source files.
 CSRCS = \
@@ -67,6 +67,7 @@ CSRCS = \
        common/services/clock/uc3c/osc.c                   \
        common/services/clock/uc3c/pll.c                   \
        common/services/clock/uc3c/sysclk.c                \
+       common/services/serial/usart_serial.c              \
        common/services/spi/uc3_spi/spi_master.c           \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
@@ -94,6 +95,7 @@ INC_PATH = \
        common/components/memory/data_flash/at45dbx/unit_tests/at32uc3c0512c_uc3c_ek \
        common/services/clock                              \
        common/services/serial                             \
+       common/services/serial/uc3_usart                   \
        common/services/spi                                \
        common/services/spi/uc3_spi                        \
        common/utils                                       \

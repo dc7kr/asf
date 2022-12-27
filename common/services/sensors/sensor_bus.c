@@ -3,7 +3,7 @@
  *
  * \brief Sensor API Platform Bus Interfaces
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -258,7 +258,7 @@ size_t twi_bus_read
 {
 	twi_package_t const pkg = {
 		.chip        = bus->addr,
-		.addr        = addr,
+		.addr[0]     = addr,
 		.addr_length = sizeof(addr),
 		.buffer      = data,
 		.length      = count,
@@ -288,7 +288,7 @@ size_t twi_bus_write (bus_desc_t *bus, uint8_t addr, const void *data,
 {
 	twi_package_t const pkg = {
 		.chip        = bus->addr,
-		.addr        = addr,
+		.addr[0]     = addr,
 		.addr_length = sizeof(addr),
 		.buffer      = (void *) data,
 		.length      = count,

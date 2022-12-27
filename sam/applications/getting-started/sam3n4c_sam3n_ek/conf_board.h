@@ -3,7 +3,7 @@
  *
  * \brief Board configuration.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -42,7 +42,53 @@
 #ifndef CONF_BOARD_H_INCLUDED
 #define CONF_BOARD_H_INCLUDED
 
-/** Usart Hw ID used by the console (UART0). */
+/* Usart Hw ID used by the console (UART0) */
 #define CONSOLE_UART_ID          ID_UART0
+
+/* Configure UART pins */
+#define CONF_BOARD_UART_CONSOLE
+
+/* Configure ADC example pins */
+//#define CONF_BOARD_ADC
+
+/* Configure PWM LED0 pin */
+//#define CONF_BOARD_PWM_LED0
+
+/* Configure PWM LED1 pin */
+//#define CONF_BOARD_PWM_LED1
+
+/* Configure SPI pins */
+//#define CONF_BOARD_SPI
+//#define CONF_BOARD_SPI_NPCS0
+//#define CONF_BOARD_SPI_NPCS1
+//#define CONF_BOARD_SPI_NPCS2
+//#define CONF_BOARD_SPI_NPCS3
+
+/* Configure USART RXD pin */
+//#define CONF_BOARD_USART_RXD
+
+/* Configure USART TXD pin */
+//#define CONF_BOARD_USART_TXD
+
+/* Configure USART CTS pin */
+//#define CONF_BOARD_USART_CTS
+
+/* Configure USART RTS pin */
+//#define CONF_BOARD_USART_RTS
+
+/* Configure USART synchronous communication SCK pin */
+//#define CONF_BOARD_USART_SCK
+
+/* Configure IrDA transceiver shutdown pin */
+//#define CONF_BOARD_TFDU4300_SD
+
+/* Configure RS485 transceiver RE pin */
+//#define CONF_BOARD_ADM3485_RE
+
+/* Configure SPI LCD control pin */
+//#define CONF_BOARD_ILI9225
+
+/* Configure Backlight control pin */
+//#define CONF_BOARD_AAT3193
 
 #endif /* CONF_BOARD_H_INCLUDED */

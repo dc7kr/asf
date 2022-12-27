@@ -3,7 +3,7 @@
  *
  * \brief 32-bit LMS filtering
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,7 +40,7 @@
  */
 
 /**
- * \defgroup group_avr32_services_dsplib_simulator_example_dsp32_lms DSPLIB - 32-bit fixed-point LMS filter example
+ * \mainpage
  * \section intro Introduction
  * This example demonstrates a way to use the 32-bit LMS Filter function.\n
  * This is an adaptive filter, therefore the output of the function will be

@@ -3,7 +3,7 @@
  *
  * \brief Analog-to-Digital Converter (ADC/ADC12B) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -70,7 +70,7 @@ extern "C" {
  *
  * \return 0 on success.
  */
-uint32_t adc_init(Adc * p_adc, const uint32_t ul_mck,
+uint32_t adc_init(Adc *p_adc, const uint32_t ul_mck,
 		const uint32_t ul_adc_clock, const uint8_t uc_startup)
 {
 	uint32_t ul_prescal;
@@ -85,8 +85,6 @@ uint32_t adc_init(Adc * p_adc, const uint32_t ul_mck,
 	p_adc->ADC_PTCR = (ADC_PTCR_RXTDIS | ADC_PTCR_TXTDIS);
 	p_adc->ADC_RCR = 0;
 	p_adc->ADC_RNCR = 0;
-	p_adc->ADC_TCR = 0;
-	p_adc->ADC_TNCR = 0;
 
 	ul_prescal = ul_mck / (2 * ul_adc_clock) - 1;
 	p_adc->ADC_MR |= ADC_MR_PRESCAL(ul_prescal) |
@@ -108,7 +106,7 @@ uint32_t adc_init(Adc * p_adc, const uint32_t ul_mck,
  *   
  * \return 0 on success.
  */
-uint32_t adc_init(Adc * p_adc, const uint32_t ul_mck, const uint32_t ul_adc_clock,
+uint32_t adc_init(Adc *p_adc, const uint32_t ul_mck, const uint32_t ul_adc_clock,
 		const uint32_t ul_startuptime)
 {
 	uint32_t ul_prescal, ul_startup;
@@ -121,8 +119,6 @@ uint32_t adc_init(Adc * p_adc, const uint32_t ul_mck, const uint32_t ul_adc_cloc
 	p_adc->ADC_PTCR = (ADC_PTCR_RXTDIS | ADC_PTCR_TXTDIS);
 	p_adc->ADC_RCR = 0;
 	p_adc->ADC_RNCR = 0;
-	p_adc->ADC_TCR = 0;
-	p_adc->ADC_TNCR = 0;
 	ul_prescal = ul_mck / (2 * ul_adc_clock) - 1;
 	ul_startup = ((ul_adc_clock / 1000000) * ul_startuptime / 8) - 1;
 	p_adc->ADC_MR |= ADC_MR_PRESCAL(ul_prescal) |
@@ -140,7 +136,7 @@ uint32_t adc_init(Adc * p_adc, const uint32_t ul_mck, const uint32_t ul_adc_cloc
  * \param resolution ADC resolution.
  *
  */
-void adc_set_resolution(Adc * p_adc,const enum adc_resolution_t resolution)
+void adc_set_resolution(Adc *p_adc,const enum adc_resolution_t resolution)
 {
 	p_adc->ADC_MR |= (resolution << 4) & ADC_MR_LOWRES;
 }
@@ -156,7 +152,7 @@ void adc_set_resolution(Adc * p_adc,const enum adc_resolution_t resolution)
  * ADC_MR_FREERUN_OFF disables freerun mode.
  *
  */
-void adc_configure_trigger(Adc * p_adc, const enum adc_trigger_t trigger,
+void adc_configure_trigger(Adc *p_adc, const enum adc_trigger_t trigger,
 		uint8_t uc_freerun)
 {
 	p_adc->ADC_MR |= trigger | ((uc_freerun << 7) & ADC_MR_FREERUN);
@@ -168,7 +164,7 @@ void adc_configure_trigger(Adc * p_adc, const enum adc_trigger_t trigger,
  * \param p_adc Pointer to an ADC instance.
  * \param trigger Conversion trigger.
  */
-void adc_configure_trigger(Adc * p_adc, const enum adc_trigger_t trigger)
+void adc_configure_trigger(Adc *p_adc, const enum adc_trigger_t trigger)
 {
 	p_adc->ADC_MR |= trigger;
 }
@@ -186,7 +182,7 @@ void adc_configure_trigger(Adc * p_adc, const enum adc_trigger_t trigger)
  * \param uc_fwup ADC_MR_FWUP_OFF configures sleep mode as uc_sleep setting, 
  * ADC_MR_FWUP_ON keeps voltage reference ON and ADC Core OFF between conversions.
  */
-void adc_configure_power_save(Adc * p_adc, const uint8_t uc_sleep, const uint8_t uc_fwup)
+void adc_configure_power_save(Adc *p_adc, const uint8_t uc_sleep, const uint8_t uc_fwup)
 {
 	p_adc->ADC_MR |= (((uc_sleep << 5) & ADC_MR_SLEEP) |
 			((uc_fwup << 6) & ADC_MR_FWUP));
@@ -202,7 +198,7 @@ void adc_configure_power_save(Adc * p_adc, const uint8_t uc_sleep, const uint8_t
  * OFF between conversions.
  * \param uc_offmode 0 for Standby Mode (if Sleep Bit = 1), 1 for Off Mode.
  */
-void adc_configure_power_save(Adc * p_adc, const uint8_t uc_sleep)
+void adc_configure_power_save(Adc *p_adc, const uint8_t uc_sleep)
 {
 	p_adc->ADC_MR |= ((uc_sleep << 5) & ADC_MR_SLEEP);
 }
@@ -216,7 +212,7 @@ void adc_configure_power_save(Adc * p_adc, const uint8_t uc_sleep)
  * \param ch_list Channel sequence list.
  * \param number Number of channels in the list.
  */
-void adc_configure_sequence(Adc * p_adc, const enum adc_channel_num_t ch_list[],
+void adc_configure_sequence(Adc *p_adc, const enum adc_channel_num_t ch_list[],
 		uint8_t uc_num)
 {
 	uint8_t uc_counter;
@@ -260,7 +256,7 @@ void adc_configure_timing(Adc *p_adc, const uint8_t uc_tracking,
  * \param p_adc Pointer to an ADC instance.
  * \param uc_tracking ADC tracking time = uc_tracking / ADC clock.
  */
-void adc_configure_timing(Adc * p_adc, const uint8_t uc_tracking)
+void adc_configure_timing(Adc *p_adc, const uint8_t uc_tracking)
 {
 	p_adc->ADC_MR |= ADC_MR_TRACKTIM(uc_tracking);
 }
@@ -271,7 +267,7 @@ void adc_configure_timing(Adc * p_adc, const uint8_t uc_tracking)
  * \param p_adc Pointer to an ADC instance.
  * \param ul_sh ADC sample and hold time = uc_sh / ADC clock.
  */
-void adc_configure_timing(Adc * p_adc, const uint32_t ul_sh)
+void adc_configure_timing(Adc *p_adc, const uint32_t ul_sh)
 {
 	p_adc->ADC_MR |= ADC_MR_SHTIM(ul_sh);
 }
@@ -285,7 +281,7 @@ void adc_configure_timing(Adc * p_adc, const uint32_t ul_sh)
  *
  * \param p_Adc Pointer to an ADC instance.
  */
-void adc_enable_anch(Adc * p_adc)
+void adc_enable_anch(Adc *p_adc)
 {
 	p_adc->ADC_MR |= ADC_MR_ANACH;
 }
@@ -299,7 +295,7 @@ void adc_enable_anch(Adc * p_adc)
  *
  * \param p_Adc Pointer to an ADC instance.
  */
-void adc_disable_anch(Adc * p_adc)
+void adc_disable_anch(Adc *p_adc)
 {
 	p_adc->ADC_MR &= ~ADC_MR_ANACH;
 }
@@ -314,7 +310,7 @@ void adc_disable_anch(Adc * p_adc)
  * \param p_adc Pointer to an ADC instance.
  */
 
-void adc_start(Adc * p_adc)
+void adc_start(Adc *p_adc)
 {
 	p_adc->ADC_CR = ADC_CR_START;
 }
@@ -324,7 +320,7 @@ void adc_start(Adc * p_adc)
  *
  * \param p_adc Pointer to an ADC instance.
  */
-void adc_stop(Adc * p_adc)
+void adc_stop(Adc *p_adc)
 {
 	p_adc->ADC_CR = ADC_CR_SWRST;
 }
@@ -335,7 +331,7 @@ void adc_stop(Adc * p_adc)
  * \param p_adc Pointer to an ADC instance.
  * \param adc_ch ADC channel number.
  */
-void adc_enable_channel(Adc * p_adc, const enum adc_channel_num_t adc_ch)
+void adc_enable_channel(Adc *p_adc, const enum adc_channel_num_t adc_ch)
 {
 	p_adc->ADC_CHER = 1 << adc_ch;
 }
@@ -346,7 +342,7 @@ void adc_enable_channel(Adc * p_adc, const enum adc_channel_num_t adc_ch)
  * \param p_adc Pointer to an ADC instance.
  * \param adc_ch ADC channel number.
  */
-void adc_disable_channel(Adc * p_adc, const enum adc_channel_num_t adc_ch)
+void adc_disable_channel(Adc *p_adc, const enum adc_channel_num_t adc_ch)
 {
 	p_adc->ADC_CHDR = 1 << adc_ch;
 }
@@ -360,7 +356,7 @@ void adc_disable_channel(Adc * p_adc, const enum adc_channel_num_t adc_ch)
  * \retval 1 if channel is enabled.
  * \retval 0 if channel is disabled.
  */
-uint32_t adc_get_channel_status(const Adc * p_adc, const enum adc_channel_num_t adc_ch)
+uint32_t adc_get_channel_status(const Adc *p_adc, const enum adc_channel_num_t adc_ch)
 {
 	return p_adc->ADC_CHSR & (1 << adc_ch);
 }
@@ -373,15 +369,15 @@ uint32_t adc_get_channel_status(const Adc * p_adc, const enum adc_channel_num_t 
  *
  * \return ADC value of the specified channel.
  */
-uint32_t adc_get_channel_value(const Adc * p_adc, const enum adc_channel_num_t adc_ch)
+uint32_t adc_get_channel_value(const Adc *p_adc, const enum adc_channel_num_t adc_ch)
 {
-	uint32_t dwData = 0;
+	uint32_t ul_data = 0;
 
 	if (15 >= adc_ch) {
-		dwData = *(p_adc->ADC_CDR + adc_ch);
+		ul_data = *(p_adc->ADC_CDR + adc_ch);
 	}
 
-	return dwData;
+	return ul_data;
 }
 
 /**
@@ -391,7 +387,7 @@ uint32_t adc_get_channel_value(const Adc * p_adc, const enum adc_channel_num_t a
  *
  * \return ADC latest value.
  */
-uint32_t adc_get_latest_value(const Adc * p_adc)
+uint32_t adc_get_latest_value(const Adc *p_adc)
 {
 	return p_adc->ADC_LCDR;
 }
@@ -403,7 +399,7 @@ uint32_t adc_get_latest_value(const Adc * p_adc)
  *
  * \param p_adc Pointer to an ADC instance.
  */
-void adc_enable_tag(Adc * p_adc)
+void adc_enable_tag(Adc *p_adc)
 {
 	p_adc->ADC_EMR |= ADC_EMR_TAG;
 }
@@ -415,7 +411,7 @@ void adc_enable_tag(Adc * p_adc)
  *
  * \param p_adc Pointer to an ADC instance.
  */
-void adc_disable_tag(Adc * p_adc)
+void adc_disable_tag(Adc *p_adc)
 {
 	p_adc->ADC_EMR &= ~ADC_EMR_TAG;
 }
@@ -432,7 +428,7 @@ void adc_disable_tag(Adc * p_adc)
  *
  * \return The last converted channel number.
  */
-enum adc_channel_num_t adc_get_tag(const Adc * p_adc)
+enum adc_channel_num_t adc_get_tag(const Adc *p_adc)
 {
 	return (p_adc->ADC_LCDR & ADC_LCDR_CHNB_Msk) >> ADC_LCDR_CHNB_Pos;
 }
@@ -444,7 +440,7 @@ enum adc_channel_num_t adc_get_tag(const Adc * p_adc)
  *
  * \param p_adc Pointer to an ADC instance.
  */
-void adc_start_sequencer(Adc * p_adc)
+void adc_start_sequencer(Adc *p_adc)
 {
 	p_adc->ADC_MR |= ADC_MR_USEQ;
 }
@@ -456,7 +452,7 @@ void adc_start_sequencer(Adc * p_adc)
  *
  * \param p_adc Pointer to an ADC instance.
  */
-void adc_stop_sequencer(Adc * p_adc)
+void adc_stop_sequencer(Adc *p_adc)
 {
 	p_adc->ADC_MR &= ~ADC_MR_USEQ;
 }
@@ -469,7 +465,7 @@ void adc_stop_sequencer(Adc * p_adc)
  * \param p_adc Pointer to an ADC instance.
  * \param uc_mode ADC comparison mode.
  */
-void adc_set_comparison_mode(Adc * p_adc, const uint8_t uc_mode)
+void adc_set_comparison_mode(Adc *p_adc, const uint8_t uc_mode)
 {
 	p_adc->ADC_EMR &= (uint32_t) ~ (ADC_EMR_CMPMODE_Msk);
 	p_adc->ADC_EMR |= (uc_mode & ADC_EMR_CMPMODE_Msk);
@@ -484,7 +480,7 @@ void adc_set_comparison_mode(Adc * p_adc, const uint8_t uc_mode)
  *
  * \retval Compare mode value.
  */
-uint32_t adc_get_comparison_mode(const Adc * p_adc)
+uint32_t adc_get_comparison_mode(const Adc *p_adc)
 {
 	return p_adc->ADC_EMR & ADC_EMR_CMPMODE_Msk;
 }
@@ -498,7 +494,7 @@ uint32_t adc_get_comparison_mode(const Adc * p_adc)
  * \param w_low_threshold Low threshold of compare window.
  * \param w_high_threshold High threshold of compare window.
  */
-void adc_set_comparison_window(Adc * p_adc, const uint16_t us_low_threshold,
+void adc_set_comparison_window(Adc *p_adc, const uint16_t us_low_threshold,
 		const uint16_t us_high_threshold)
 {
 	p_adc->ADC_CWR = ADC_CWR_LOWTHRES(us_low_threshold) |
@@ -513,7 +509,7 @@ void adc_set_comparison_window(Adc * p_adc, const uint16_t us_low_threshold,
  * \param p_adc Pointer to an ADC instance.
  * \param channel ADC channel number.
  */
-void adc_set_comparison_channel(Adc * p_adc, const enum adc_channel_num_t channel)
+void adc_set_comparison_channel(Adc *p_adc, const enum adc_channel_num_t channel)
 {
 	if (channel < 16) {
 		p_adc->ADC_EMR &= (uint32_t) ~ (ADC_EMR_CMPALL);
@@ -532,7 +528,7 @@ void adc_set_comparison_channel(Adc * p_adc, const enum adc_channel_num_t channe
  * \param p_adc Pointer to an ADC instance.
  * \param channel ADC channel number.
  */
-void adc_enable_channel_differential_input(Adc * p_adc, const enum adc_channel_num_t channel)
+void adc_enable_channel_differential_input(Adc *p_adc, const enum adc_channel_num_t channel)
 {
 	p_adc->ADC_COR |= 0x01u << (16 + channel);
 }
@@ -545,7 +541,7 @@ void adc_enable_channel_differential_input(Adc * p_adc, const enum adc_channel_n
  * \param p_adc Pointer to an ADC instance.
  * \param channel ADC channel number.
  */
-void adc_disable_channel_differential_input(Adc * p_adc, const enum adc_channel_num_t channel)
+void adc_disable_channel_differential_input(Adc *p_adc, const enum adc_channel_num_t channel)
 {
 	uint32_t ul_temp;
 	ul_temp = p_adc->ADC_COR;
@@ -561,7 +557,7 @@ void adc_disable_channel_differential_input(Adc * p_adc, const enum adc_channel_
  * \param p_adc Pointer to an ADC instance.
  * \param channel ADC channel number.
  */
-void adc_enable_channel_input_offset(Adc * p_adc, const enum adc_channel_num_t channel)
+void adc_enable_channel_input_offset(Adc *p_adc, const enum adc_channel_num_t channel)
 {
 	p_adc->ADC_COR |= 0x01u << channel;
 }
@@ -574,7 +570,7 @@ void adc_enable_channel_input_offset(Adc * p_adc, const enum adc_channel_num_t c
  * \param p_adc Pointer to an ADC instance.
  * \param channel ADC channel number.
  */
-void adc_disable_channel_input_offset(Adc * p_adc, const enum adc_channel_num_t channel)
+void adc_disable_channel_input_offset(Adc *p_adc, const enum adc_channel_num_t channel)
 {
 	uint32_t ul_temp;
 	ul_temp = p_adc->ADC_COR;
@@ -591,7 +587,7 @@ void adc_disable_channel_input_offset(Adc * p_adc, const enum adc_channel_num_t 
  * \param channel ADC channel number.
  * \param gain Gain value for the input.
  */
-void adc_set_channel_input_gain(Adc * p_adc, const enum adc_channel_num_t channel,
+void adc_set_channel_input_gain(Adc *p_adc, const enum adc_channel_num_t channel,
 		const enum adc_gainvalue_t gain)
 {
 	p_adc->ADC_CGR |= (0x03u << (2 * channel)) & (gain << (2 * channel));
@@ -618,7 +614,7 @@ void adc_set_calibmode(Adc * p_adc)
  *
  * \return The actual ADC clock (in Hz).
  */
-uint32_t adc_get_actual_adc_clock(const Adc * p_adc, const uint32_t ul_mck)
+uint32_t adc_get_actual_adc_clock(const Adc *p_adc, const uint32_t ul_mck)
 {
 	uint32_t ul_adcfreq;
 	uint32_t ul_prescal;
@@ -635,7 +631,7 @@ uint32_t adc_get_actual_adc_clock(const Adc * p_adc, const uint32_t ul_mck)
  * \param p_adc Pointer to an ADC instance.
  * \param ul_source Interrupts to be enabled.
  */
-void adc_enable_interrupt(Adc * p_adc, const uint32_t ul_source)
+void adc_enable_interrupt(Adc *p_adc, const uint32_t ul_source)
 {
 	p_adc->ADC_IER = ul_source;
 }
@@ -646,7 +642,7 @@ void adc_enable_interrupt(Adc * p_adc, const uint32_t ul_source)
  * \param p_adc Pointer to an ADC instance.
  * \param ul_source Interrupts to be disabled.
  */
-void adc_disable_interrupt(Adc * p_adc, const uint32_t ul_source)
+void adc_disable_interrupt(Adc *p_adc, const uint32_t ul_source)
 {
 	p_adc->ADC_IDR = ul_source;
 }
@@ -659,7 +655,7 @@ void adc_disable_interrupt(Adc * p_adc, const uint32_t ul_source)
  *
  * \return ADC status structure.
  */
-struct adc_status_t adc_get_status(const Adc * p_adc)
+struct adc_status_t adc_get_status(const Adc *p_adc)
 {
 	struct adc_status_t adc_status;
 	adc_status.isr_status = p_adc->ADC_ISR ;
@@ -674,7 +670,7 @@ struct adc_status_t adc_get_status(const Adc * p_adc)
  *
  * \retval ADC status structure.
  */
-struct adc_status_t adc_get_status(const Adc * p_adc)
+struct adc_status_t adc_get_status(const Adc *p_adc)
 {
 	struct adc_status_t adc_status;
 	adc_status.all_status = p_adc->ADC_SR;
@@ -689,7 +685,7 @@ struct adc_status_t adc_get_status(const Adc * p_adc)
  *
  * \return The interrupt mask value.
  */
-uint32_t adc_get_interrupt_mask(const Adc * p_adc)
+uint32_t adc_get_interrupt_mask(const Adc *p_adc)
 {
 	return p_adc->ADC_IMR;
 }
@@ -704,7 +700,7 @@ uint32_t adc_get_interrupt_mask(const Adc * p_adc)
  * \param p_adc Pointer to an ADC instance.
  * \param ibctl ADC Bias current control.
  */
-void adc_set_bias_current(Adc * p_adc, const uint8_t uc_ibctl)
+void adc_set_bias_current(Adc *p_adc, const uint8_t uc_ibctl)
 {
 	p_adc->ADC_ACR |= ADC_ACR_IBCTL(uc_ibctl);
 }
@@ -716,7 +712,7 @@ void adc_set_bias_current(Adc * p_adc, const uint8_t uc_ibctl)
  *
  * \param p_adc Pointer to an ADC instance.
  */
-void adc_enable_ts(Adc * p_adc)
+void adc_enable_ts(Adc *p_adc)
 {
 	p_adc->ADC_ACR |= ADC_ACR_TSON;
 }
@@ -728,7 +724,7 @@ void adc_enable_ts(Adc * p_adc)
  *
  * \param p_adc Pointer to an ADC instance.
  */
-void adc_disable_ts(Adc * p_adc)
+void adc_disable_ts(Adc *p_adc)
 {
 	p_adc->ADC_ACR &= ~ADC_ACR_TSON;
 }
@@ -741,7 +737,7 @@ void adc_disable_ts(Adc * p_adc)
  * \param p_adc Pointer to an ADC instance.
  * \param ul_enable 1 to enable, 0 to disable.
  */
-void adc_set_writeprotect(Adc * p_adc, const uint32_t ul_enable)
+void adc_set_writeprotect(Adc *p_adc, const uint32_t ul_enable)
 {
 	p_adc->ADC_WPMR |= ADC_WPMR_WPKEY(ul_enable);
 }
@@ -756,7 +752,7 @@ void adc_set_writeprotect(Adc * p_adc, const uint32_t ul_enable)
  * \return 0 if the peripheral is not protected, or 16-bit write protect 
  * violation Status.
  */
-uint32_t adc_get_writeprotect_status(const Adc * p_adc)
+uint32_t adc_get_writeprotect_status(const Adc *p_adc)
 {
 	return p_adc->ADC_WPSR & ADC_WPSR_WPVS;
 }
@@ -812,7 +808,7 @@ static uint32_t calcul_startup(const uint32_t ul_startup)
  * \param p_adc Pointer to an ADC instance.
  * \param ul_mck Main clock of the device (in Hz).
  */
-void adc_check(Adc * p_adc, const uint32_t ul_mck)
+void adc_check(Adc *p_adc, const uint32_t ul_mck)
 {
 	uint32_t ul_adcfreq;
 	uint32_t ul_prescal;
@@ -878,7 +874,7 @@ void adc_check(Adc * p_adc, const uint32_t ul_mck)
  *
  * \return ADC PDC register base address.
  */
-Pdc *adc_get_pdc_base(const Adc * p_adc)
+Pdc *adc_get_pdc_base(const Adc *p_adc)
 {
 	return PDC_ADC;
 }

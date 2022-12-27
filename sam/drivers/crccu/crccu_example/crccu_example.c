@@ -3,7 +3,7 @@
  *
  * \brief Cyclic Redundancy Check Calculation Unit (CRCCU) example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -97,22 +97,10 @@
  *
  */
 
-#include "compiler.h"
-#include "board.h"
-#include "sysclk.h"
-#include "gpio.h"
-#include "exceptions.h"
-#include "uart.h"
-#include "pio.h"
-#include "pmc.h"
-#include "crccu.h"
-#include "flash_efc.h"
+#include <string.h>
+#include "asf.h"
 #include "conf_board.h"
 #include "conf_crccu_example.h"
-#include <stdio.h>
-#include <stdint.h>
-#include <stdbool.h>
-#include <string.h>
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -157,87 +145,87 @@ uint8_t g_uc_data_buf[BUFFER_LENGTH];
  * \brief Compute CRC of a buffer.
  *
  * \param p_buffer         The buffer holding the data.
- * \param dw_length          The buffer length.
- * \param dw_polynomial_type The polynomial type(CRCCU_MR_PTYPE_XXX).
+ * \param ul_length          The buffer length.
+ * \param ul_polynomial_type The polynomial type(CRCCU_MR_PTYPE_XXX).
  *
  * \return CRC of the buffer.
  */
-static uint32_t compute_crc(uint8_t *p_buffer, uint32_t dw_length,
-		uint32_t dw_polynomial_type)
+static uint32_t compute_crc(uint8_t *p_buffer, uint32_t ul_length,
+		uint32_t ul_polynomial_type)
 {
-	uint32_t dw_crc;
-	uint32_t dw_timeout = 0;
+	uint32_t ul_crc;
+	uint32_t ul_timeout = 0;
 
 	/* Reset the CRCCU */
 	crccu_reset(CRCCU);
 
 	memset((void *)&crc_dscr, 0, sizeof(crccu_dscr_type_t));
 
-	crc_dscr.dw_tr_addr = (uint32_t) p_buffer;
+	crc_dscr.ul_tr_addr = (uint32_t) p_buffer;
 
 	/* Transfer width: byte, interrupt enable */
-	crc_dscr.dw_tr_ctrl =
-			CRCCU_TR_CTRL_TRWIDTH_BYTE | dw_length |
+	crc_dscr.ul_tr_ctrl =
+			CRCCU_TR_CTRL_TRWIDTH_BYTE | ul_length |
 			CRCCU_TR_CTRL_IEN_ENABLE;
 
 	/* Configure the CRCCU descriptor */
 	crccu_configure_descriptor(CRCCU, (uint32_t) &crc_dscr);
 
 	/* Configure CRCCU mode */
-	crccu_configure_mode(CRCCU, CRCCU_MR_ENABLE | dw_polynomial_type);
+	crccu_configure_mode(CRCCU, CRCCU_MR_ENABLE | ul_polynomial_type);
 
 	/* Start the CRC calculation */
 	crccu_enable(CRCCU);
 
 	/* Wait for calculation ready */
 	while ((crccu_get_dma_status(CRCCU) == CRCCU_DMA_SR_DMASR) &&
-			(dw_timeout++ < CRCCU_TIMEOUT)) {
+			(ul_timeout++ < CRCCU_TIMEOUT)) {
 	}
 
 	/* Get CRC value */
-	dw_crc = crccu_read_crc_value(CRCCU);
+	ul_crc = crccu_read_crc_value(CRCCU);
 
 	/* Display CRC */
-	if (dw_polynomial_type == CRCCU_MR_PTYPE_CCITT16) {
+	if (ul_polynomial_type == CRCCU_MR_PTYPE_CCITT16) {
 		/* 16-bits CRC */
-		dw_crc &= 0xFFFF;
+		ul_crc &= 0xFFFF;
 		printf("  CRC of the buffer is 0x%04lu\n\r",
-				(uint32_t)dw_crc);
+				(uint32_t)ul_crc);
 	} else {
 		/* 32-bits CRC */
 		printf("  CRC of the buffer is 0x%08lu\n\r",
-				(uint32_t)dw_crc);
+				(uint32_t)ul_crc);
 	}
 
-	return dw_crc;
+	return ul_crc;
 }
 
 /**
  * \brief Compute CRC of a buffer and compare it with the reference CRC.
  *
  * \param p_Buffer         The buffer holding the data.
- * \param dw_length          The buffer length.
- * \param dw_type  The polynomial type(CRCCU_MR_PTYPE_XXX).
- * \param dw_ref_crc          Reference CRC for the buffer.
+ * \param ul_length          The buffer length.
+ * \param ul_type  The polynomial type(CRCCU_MR_PTYPE_XXX).
+ * \param ul_ref_crc          Reference CRC for the buffer.
  *
  * \return CRC of the buffer.
  */
-static uint32_t compute_crc_and_compare(uint8_t *p_buffer, uint32_t dw_length,
-		uint32_t dw_type, uint32_t dw_ref_crc)
+static uint32_t compute_crc_and_compare(uint8_t *p_buffer, uint32_t ul_length,
+		uint32_t ul_type, uint32_t ul_ref_crc)
 {
-	uint32_t dw_crc;
+	uint32_t ul_crc;
 
 	/* Compute CRC */
-	dw_crc = compute_crc(p_buffer, dw_length, dw_type);
+	ul_crc = compute_crc(p_buffer, ul_length, ul_type);
 
 	/* Compare CRC */
-	if (dw_crc == dw_ref_crc) {
+	if (ul_crc == ul_ref_crc) {
 		puts("  CRC matches the reference value.\r");
 	} else {
 		puts("  CRC does NOT match the reference value.\r");
 	}
 
-	return dw_crc;
+	return ul_crc;
 }
 
 /**
@@ -275,8 +263,8 @@ static void configure_console(void)
  */
 int main(void)
 {
-	uint32_t dw_counter;
-	uint32_t dw_crc;
+	uint32_t ul_counter;
+	uint32_t ul_crc;
 
 	/* Initialize the system */
 	sysclk_init();
@@ -298,8 +286,8 @@ int main(void)
 			FLASH_BUFFER_ADDRESS + IFLASH_PAGE_SIZE - 1, NULL, NULL);
 
 	/* Fill data buffer in SRAM (The data may be random data) */
-	for (dw_counter = 0; dw_counter < BUFFER_LENGTH; dw_counter++) {
-		g_uc_data_buf[dw_counter] = dw_counter;
+	for (ul_counter = 0; ul_counter < BUFFER_LENGTH; ul_counter++) {
+		g_uc_data_buf[ul_counter] = ul_counter;
 	}
 
 #if SAM4S
@@ -321,37 +309,37 @@ int main(void)
 
 	/* Compute CRC in SRAM */
 	puts("Test CRC in SRAM buffer\r");
-	dw_crc = compute_crc(g_uc_data_buf, BUFFER_LENGTH,
+	ul_crc = compute_crc(g_uc_data_buf, BUFFER_LENGTH,
 			CRCCU_MR_PTYPE_CCITT16);
 
 	/* Compute CRC in Flash and compare it with the result in SRAM */
 	puts("Test CRC in Flash buffer\r");
 	compute_crc_and_compare((uint8_t *) FLASH_BUFFER_ADDRESS, BUFFER_LENGTH,
-			CRCCU_MR_PTYPE_CCITT16, dw_crc);
+			CRCCU_MR_PTYPE_CCITT16, ul_crc);
 
 	/* Test CRC with CASTAGNOLI polynomial */
 	puts("\n\r====Test CRC with CASTAGNOLI (0x1EDC6F41) ====\r");
 
 	/* Compute CRC in SRAM */
 	puts("Test CRC in SRAM buffer\r");
-	dw_crc = compute_crc(g_uc_data_buf, BUFFER_LENGTH,
+	ul_crc = compute_crc(g_uc_data_buf, BUFFER_LENGTH,
 			CRCCU_MR_PTYPE_CASTAGNOLI);
 	/* Compute CRC in Flash and compare it with the result in SRAM */
 	puts("Test CRC in Flash buffer\r");
 	compute_crc_and_compare((uint8_t *) FLASH_BUFFER_ADDRESS, BUFFER_LENGTH,
-			CRCCU_MR_PTYPE_CASTAGNOLI, dw_crc);
+			CRCCU_MR_PTYPE_CASTAGNOLI, ul_crc);
 
 	/* Test CRC with CCITT 802.3 polynomial */
 	puts("\n\r====Test CRC with CCITT 802.3 (0x04C11DB7) ====\r");
 
 	/* Compute CRC in SRAM */
 	puts("Test CRC in SRAM buffer\r");
-	dw_crc = compute_crc(g_uc_data_buf, BUFFER_LENGTH,
+	ul_crc = compute_crc(g_uc_data_buf, BUFFER_LENGTH,
 			CRCCU_MR_PTYPE_CCITT8023);
 	/* Compute CRC in Flash and compare it with the result in SRAM */
 	puts("Test CRC in Flash buffer\r");
 	compute_crc_and_compare((uint8_t *) FLASH_BUFFER_ADDRESS, BUFFER_LENGTH,
-			CRCCU_MR_PTYPE_CCITT8023, dw_crc);
+			CRCCU_MR_PTYPE_CCITT8023, ul_crc);
 
 	while (1) {
 	}

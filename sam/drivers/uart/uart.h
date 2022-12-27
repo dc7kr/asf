@@ -3,7 +3,7 @@
  *
  * \brief Universal Asynchronous Receiver Transceiver (UART) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -55,13 +55,13 @@ extern "C" {
 /*! \brief Option list for UART peripheral initialization */
 typedef struct sam_uart_opt {
 	//! MCK for UART
-	uint32_t dw_mck;
+	uint32_t ul_mck;
 	//! Expected baud rate
-	uint32_t dw_baudrate;
+	uint32_t ul_baudrate;
 	//! Initialize value for UART mode register
-	uint32_t dw_mode;
+	uint32_t ul_mode;
 	//! Configure channel mode (Normal, Automatic, Local_loopback or Remote_loopback)
-	uint32_t dw_chmode;
+	uint32_t ul_chmode;
 } sam_uart_opt_t;
 
 uint32_t uart_init(Uart *p_uart, const sam_uart_opt_t *p_uart_opt);
@@ -74,8 +74,8 @@ void uart_reset_rx(Uart *p_uart);
 void uart_enable(Uart *p_uart);
 void uart_disable(Uart *p_uart);
 void uart_reset(Uart *p_uart);
-void uart_enable_interrupt(Uart *p_uart, uint32_t dw_sources);
-void uart_disable_interrupt(Uart *p_uart, uint32_t dw_sources);
+void uart_enable_interrupt(Uart *p_uart, uint32_t ul_sources);
+void uart_disable_interrupt(Uart *p_uart, uint32_t ul_sources);
 uint32_t uart_get_interrupt_mask(Uart *p_uart);
 uint32_t uart_get_status(Uart *p_uart);
 uint32_t uart_is_tx_ready(Uart *p_uart);

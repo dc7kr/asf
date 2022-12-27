@@ -3,7 +3,7 @@
  *
  * \brief API driver for ILI9325 TFT display component.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,7 +40,7 @@
  */
 
 /**
- * \defgroup ili9325_display_group COMPONENT - Display - ILI9325 Controller
+ * \defgroup ili9325_display_group Display - ILI9325 Controller
  *
  * Low-level driver for the ILI9325 LCD controller. This driver provides access to the main
  * features of the ILI9325 controller.
@@ -274,12 +274,12 @@ const uint8_t p_uc_charset10x14[] = {
  */
 static uint16_t ili9325_lcd_get_16(void)
 {
-	uint16_t value;
+	uint16_t us_value;
 
-	value = LCD_RD();
-	value = (value << 8) | LCD_RD();
+	us_value = LCD_RD();
+	us_value = (us_value << 8) | LCD_RD();
 
-	return value;
+	return us_value;
 }
 
 /**
@@ -311,20 +311,20 @@ static void ili9325_write_ram(ili9325_color_t ul_color)
  */
 static void ili9325_write_ram_buffer(const ili9325_color_t *p_ul_buf, uint32_t ul_size)
 {
-	uint32_t addr;
+	uint32_t ul_addr;
 
-	for (addr = 0; addr < (ul_size - ul_size % 8); addr += 8) {
-		ili9325_write_ram(p_ul_buf[addr]);
-		ili9325_write_ram(p_ul_buf[addr + 1]);
-		ili9325_write_ram(p_ul_buf[addr + 2]);
-		ili9325_write_ram(p_ul_buf[addr + 3]);
-		ili9325_write_ram(p_ul_buf[addr + 4]);
-		ili9325_write_ram(p_ul_buf[addr + 5]);
-		ili9325_write_ram(p_ul_buf[addr + 6]);
-		ili9325_write_ram(p_ul_buf[addr + 7]);
+	for (ul_addr = 0; ul_addr < (ul_size - ul_size % 8); ul_addr += 8) {
+		ili9325_write_ram(p_ul_buf[ul_addr]);
+		ili9325_write_ram(p_ul_buf[ul_addr + 1]);
+		ili9325_write_ram(p_ul_buf[ul_addr + 2]);
+		ili9325_write_ram(p_ul_buf[ul_addr + 3]);
+		ili9325_write_ram(p_ul_buf[ul_addr + 4]);
+		ili9325_write_ram(p_ul_buf[ul_addr + 5]);
+		ili9325_write_ram(p_ul_buf[ul_addr + 6]);
+		ili9325_write_ram(p_ul_buf[ul_addr + 7]);
 	}
-	for (; addr < ul_size; addr++) {
-		ili9325_write_ram(p_ul_buf[addr]);
+	for (; ul_addr < ul_size; ul_addr++) {
+		ili9325_write_ram(p_ul_buf[ul_addr]);
 	}
 }
 
@@ -583,7 +583,7 @@ uint32_t ili9325_init(struct ili9325_opt_t *p_opt)
 			ILI9325_PANEL_INTERFACE_CTRL4_DIVE(0x01) |
 			ILI9325_PANEL_INTERFACE_CTRL4_RTNE(0x10));
 
-	ili9325_set_window(0, 0,p_opt->dw_width,p_opt->dw_height);
+	ili9325_set_window(0, 0,p_opt->ul_width,p_opt->ul_height);
 	ili9325_set_foreground_color(p_opt->foreground_color);
 	ili9325_set_cursor_position(0, 0);
 	return 0;
@@ -654,7 +654,6 @@ void ili9325_set_window(uint32_t ul_x, uint32_t ul_y, uint32_t ul_width,
 {
 	assert(ul_x <= 0xEF);
 	assert(ul_y <= 0x13f);
-	assert(0x04 <= ul_width);
 	assert(ul_width <= (0xF0 - ul_x));
 	assert(ul_height <= (0x140 - ul_y));
 

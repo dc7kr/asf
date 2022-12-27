@@ -3,7 +3,7 @@
  *
  * \brief Resistive Touch driver.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -48,7 +48,7 @@
 #define POINTS_SIZE         4
 
 /** Calibration points. */
-static rtouch_calibration_point_t calibration_points[] = {
+static rtouch_calibration_point_t gs_calibration_points[] = {
 	/* Top-left corner calibration point */
 	{
 		{ILI9325_LCD_WIDTH / 10, ILI9325_LCD_HEIGHT / 10},
@@ -123,19 +123,19 @@ uint32_t rtouch_calibrate(void)
 
 	/* Calibration points */
 	for (i = 0; i < 5; i++) {
-		draw_calibration_point(&calibration_points[i].panel);
+		draw_calibration_point(&gs_calibration_points[i].panel);
 
 		/* Wait for touch & end of conversion */
 		rtouch_wait_pressed();
 		
-		rtouch_get_raw_point(&calibration_points[i].raw);
-		clear_calibration_point(&calibration_points[i].panel);
+		rtouch_get_raw_point(&gs_calibration_points[i].raw);
+		clear_calibration_point(&gs_calibration_points[i].panel);
 
 		/* Wait for contact loss */
 		rtouch_wait_released();
 	}
 	
-	if (rtouch_compute_calibration((rtouch_calibration_point_t *) &calibration_points) == 0) {
+	if (rtouch_compute_calibration((rtouch_calibration_point_t *) &gs_calibration_points) == 0) {
 		ili9325_fill(COLOR_WHITE);
 		ili9325_set_foreground_color(COLOR_BLACK);
 		ili9325_draw_string(20, 130, (uint8_t *)"Calibration done.");

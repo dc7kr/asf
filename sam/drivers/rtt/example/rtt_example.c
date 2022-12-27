@@ -3,7 +3,7 @@
  *
  * \brief Real-time Timer (RTT) example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -88,13 +88,7 @@
  *    \endcode
  */
 
-#include "board.h"
-#include "sysclk.h"
-#include "gpio.h"
-#include "uart.h"
-#include "pmc.h"
-#include "rtt.h"
-#include "pio.h"
+#include "asf.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 
@@ -114,13 +108,13 @@
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 
 /** Current device state. */
-volatile uint8_t uc_state;
+volatile uint8_t g_uc_state;
 
 /** New alarm time being currently entered. */
-volatile uint32_t dw_new_alarm;
+volatile uint32_t g_ul_new_alarm;
 
 /** Indicate that an alarm has occured but has not been cleared. */
-volatile uint8_t uc_alarmed;
+volatile uint8_t g_uc_alarmed;
 
 /**
  * \brief Refresh display on terminal.
@@ -134,24 +128,24 @@ static void refresh_display(void)
 	printf("Time: %u\n\r", (unsigned int)rtt_read_timer_value(RTT));
 
 	/* Display alarm */
-	if (uc_alarmed) {
+	if (g_uc_alarmed) {
 		puts("!!! ALARM !!!\r");
 	}
 
 	/* Main menu */
-	if (uc_state == STATE_MAIN_MENU) {
+	if (g_uc_state == STATE_MAIN_MENU) {
 		puts("Menu:\n\r"
 				" r - Reset timer\n\r"
 				" s - Set alarm\r");
-		if (uc_alarmed) {
+		if (g_uc_alarmed) {
 			puts(" c - Clear alarm notification\r");
 		}
 		puts("\n\rChoice? ");
 	} else {
-		if (uc_state == STATE_SET_ALARM) {
+		if (g_uc_state == STATE_SET_ALARM) {
 			puts("Enter alarm time: ");
-			if (dw_new_alarm != 0) {
-				printf("%u", dw_new_alarm);
+			if (g_ul_new_alarm != 0) {
+				printf("%u", g_ul_new_alarm);
 			}
 		}
 	}
@@ -165,12 +159,12 @@ static void refresh_display(void)
  */
 static void configure_rtt(void)
 {
-	uint32_t previous_time;
+	uint32_t ul_previous_time;
 
 	/* Configure RTT for a 1 second tick interrupt */
 	rtt_init(RTT, 32768);
-	previous_time = rtt_read_timer_value(RTT);
-	while (previous_time == rtt_read_timer_value(RTT));
+	ul_previous_time = rtt_read_timer_value(RTT);
+	while (ul_previous_time == rtt_read_timer_value(RTT));
 
 	/* Enable RTT interrupt */
 	NVIC_DisableIRQ(RTT_IRQn);
@@ -186,7 +180,7 @@ static void configure_rtt(void)
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ SystemCoreClock, 115200, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
 
 	/* Configure PIO */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
@@ -215,19 +209,19 @@ static void configure_console(void)
  */
 void RTT_Handler(void)
 {
-	uint32_t status;
+	uint32_t ul_status;
 
 	/* Get RTT status */
-	status = rtt_get_status(RTT);
+	ul_status = rtt_get_status(RTT);
 
 	/* Time has changed, refresh display */
-	if ((status & RTT_SR_RTTINC) == RTT_SR_RTTINC) {
+	if ((ul_status & RTT_SR_RTTINC) == RTT_SR_RTTINC) {
 		refresh_display();
 	}
 
 	/* Alarm */
-	if ((status & RTT_SR_ALMS) == RTT_SR_ALMS) {
-		uc_alarmed = 1;
+	if ((ul_status & RTT_SR_ALMS) == RTT_SR_ALMS) {
+		g_uc_alarmed = 1;
 		refresh_display();
 	}
 }
@@ -258,8 +252,8 @@ int main(void)
 	configure_rtt();
 
 	/* Initialize state machine */
-	uc_state = STATE_MAIN_MENU;
-	uc_alarmed = 0;
+	g_uc_state = STATE_MAIN_MENU;
+	g_uc_alarmed = 0;
 	refresh_display();
 
 	/* User input loop */
@@ -268,37 +262,37 @@ int main(void)
 		while (uart_read(CONSOLE_UART, &c));
 
 		/* Main menu mode */
-		if (uc_state == STATE_MAIN_MENU) {
+		if (g_uc_state == STATE_MAIN_MENU) {
 			/* Reset timer */
 			if (c == 'r') {
 				configure_rtt();
 				refresh_display();
 			} else if (c == 's') { /* Set alarm */
-				uc_state = STATE_SET_ALARM;
-				dw_new_alarm = 0;
+				g_uc_state = STATE_SET_ALARM;
+				g_ul_new_alarm = 0;
 				refresh_display();
 			} else { /* Clear alarm */
-				if ((c == 'c') && uc_alarmed) {
-					uc_alarmed = 0;
+				if ((c == 'c') && g_uc_alarmed) {
+					g_uc_alarmed = 0;
 					refresh_display();
 				}
 			}
-		} else if (uc_state == STATE_SET_ALARM) { /* Set alarm mode */
+		} else if (g_uc_state == STATE_SET_ALARM) { /* Set alarm mode */
 			/* Number */
 			if ((c >= '0') && (c <= '9')) {
-				dw_new_alarm = dw_new_alarm * 10 + c - '0';
+				g_ul_new_alarm = g_ul_new_alarm * 10 + c - '0';
 				refresh_display();
 			} else if (c == ASCII_BS) {
 				uart_write(CONSOLE_UART, c);
-				dw_new_alarm /= 10;
+				g_ul_new_alarm /= 10;
 				refresh_display();
 			} else if (c == ASCII_CR) {
 				/* Avoid newAlarm = 0 case */
-				if (dw_new_alarm != 0) {
-					rtt_write_alarm_time(RTT, dw_new_alarm);
+				if (g_ul_new_alarm != 0) {
+					rtt_write_alarm_time(RTT, g_ul_new_alarm);
 				}
 
-				uc_state = STATE_MAIN_MENU;
+				g_uc_state = STATE_MAIN_MENU;
 				refresh_display();
 			}
 		}

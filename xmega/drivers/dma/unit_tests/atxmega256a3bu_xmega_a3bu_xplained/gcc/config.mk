@@ -42,12 +42,13 @@ MCU = atxmega256a3bu
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_drivers_dma_unit_tests_xmega_a3bu_xplained.elf
+TARGET = dma_unit_tests.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
        common/services/hugemem/avr8/avr8_hugemem.c        \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/serial/usart_serial.c              \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        common/utils/stdio/read.c                          \
@@ -56,7 +57,6 @@ CSRCS = \
        xmega/boards/xmega_a3bu_xplained/init.c            \
        xmega/drivers/dma/dma.c                            \
        xmega/drivers/dma/unit_tests/unit_tests.c          \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/tc/tc.c                              \
        xmega/drivers/usart/usart.c
@@ -72,7 +72,9 @@ INC_PATH = \
        common/services/clock                              \
        common/services/gpio                               \
        common/services/hugemem                            \
+       common/services/ioport                             \
        common/services/serial                             \
+       common/services/serial/xmega_usart                 \
        common/services/sleepmgr                           \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
@@ -81,7 +83,6 @@ INC_PATH = \
        xmega/drivers/cpu                                  \
        xmega/drivers/dma                                  \
        xmega/drivers/dma/unit_tests/atxmega256a3bu_xmega_a3bu_xplained \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/pmic                                 \
        xmega/drivers/sleep                                \
@@ -134,6 +135,7 @@ CFLAGS =
 CPPFLAGS = \
        -D BOARD=XMEGA_A3BU_XPLAINED                       \
        -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA       \
+       -D IOPORT_XMEGA_COMPAT                             \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_
 

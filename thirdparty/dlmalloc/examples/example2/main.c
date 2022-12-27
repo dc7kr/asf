@@ -1,10 +1,13 @@
-/**************************************************************************
- *
+/**
  * \file
  *
- * \brief Memory manager example.
+ * \mainpage
+ * \section title Memory manager example.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * \section file File(s)
+ * - \ref main.c
+ *
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

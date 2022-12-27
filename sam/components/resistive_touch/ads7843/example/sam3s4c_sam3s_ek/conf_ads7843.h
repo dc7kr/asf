@@ -3,7 +3,7 @@
  *
  * \brief Configuration for the ADS7843 component.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -52,6 +52,12 @@
  * Currently only EBI mode supported
  */
 #if BOARD == SAM3S_EK
+
+	/*! \brief pointer to the SPI instance connected to the ADS7843 controller
+	 */
+	#define ADS7843_SPI_INTERFACE     (SPI)
+
+#elif BOARD == SAM3S_EK2
 
 	/*! \brief pointer to the SPI instance connected to the ADS7843 controller
 	 */

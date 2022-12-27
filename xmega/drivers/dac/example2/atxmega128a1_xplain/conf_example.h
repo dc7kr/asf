@@ -38,8 +38,8 @@
  * \asf_license_stop
  *
  */
-#ifndef CONF_BOARD_H
-#define CONF_BOARD_H
+#ifndef CONF_EXAMPLE_H
+#define CONF_EXAMPLE_H
 
 #include <compiler.h>
 #include <dac.h>
@@ -49,4 +49,4 @@
 //! \note This DAC is connected to PA2 and PA3 on Xplain's port A header.
 #define OUTPUT_DAC    DACA
 
-#endif /* CONF_BOARD_H */
+#endif /* CONF_EXAMPLE_H */

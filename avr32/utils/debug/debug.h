@@ -4,7 +4,7 @@
  *
  * \brief Macros and functions dedicated to debug purposes.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -45,7 +45,7 @@
 #define _DEBUG_H_
 
 /**
- * \defgroup group_avr32_utils_debug UTILITY - Debug macros and functions
+ * \defgroup group_avr32_utils_debug Debug macros and functions
  *
  * Debug macros and functions for tracing memory usage for the malloc() and free() functions. Can also be used to get
  * information about both size and placement of the heap memory.

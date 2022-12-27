@@ -3,7 +3,7 @@
  *
  * \brief TWIS driver for AVR32 UC3.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -218,4 +218,37 @@ status_code_t twis_slave_init(volatile avr32_twis_t *twis, const twis_options_t 
 	twis->ier = AVR32_TWIS_IER_SAM_MASK;
 
 	return STATUS_OK;
+}
+
+
+/**
+ * \brief Enable NACK transfer in Slave Receive Mode
+ *
+ * \param twis           Base address of the TWI (i.e. &AVR32_TWIS).
+ * \param stop_callback  Set true to use Stop condition Callback function
+ */
+void twis_send_data_nack(volatile avr32_twis_t *twis, bool stop_callback) {
+	// Send NACK
+	twis->cr |= AVR32_TWIS_CR_ACK_MASK;
+	// Disable all interrupts
+	twis_inst_slave->idr = ~0UL;
+	// Clear all status
+	twis_inst_slave->scr = ~0UL;
+	// Enable Slave Address Match Interrupt
+	twis_inst_slave->ier = AVR32_TWIS_IER_SAM_MASK;
+	// If callback is desired, go to the stop condition callback function
+	if (stop_callback) {
+		twis_slave_fct.stop();
+	}
+}
+
+
+/**
+ * \brief Enable ACK transfer in Slave Receiver Mode
+ *
+ * \param twis   Base address of the TWI (i.e. &AVR32_TWIS).
+ */
+void twis_send_data_ack(volatile avr32_twis_t *twis) {
+	// Send ACK on data transfer
+	twis->cr &= (~AVR32_TWIS_CR_ACK_MASK);
 }

@@ -1,4 +1,4 @@
-/* This source file is part of the ATMEL QTouch Library Release 4.3.1 */
+/* This source file is part of the ATMEL QTouch Library Release 4.4 */
 /*****************************************************************************
  *
  * \file
@@ -6,11 +6,14 @@
  * \brief  This file contains the QDebug Transport API that is used by the
  * QDebug component.
  *
+ * - Compiler:           IAR EWAVR32 and GNU GCC for AVR32
+ * - Supported devices:  AT32UC3A0/A1 Series, AT32UC3B0/B1 Series,
+ *                       AT32UC3C0/C1 Series AND AT32UC3L0 series
  * - Userguide:          QTouch Library User Guide - doc8207.pdf.
  * - Support email:      touch@atmel.com
  *
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -48,11 +51,22 @@
 
 
 /*============================ INCLUDES ======================================*/
-#if (defined __AVR32_UC3L016__) || (defined __AVR32_UC3L032__) || (defined __AVR32_UC3L064__) || (defined __AVR32_UC3L064REVB__)
-  #include "touch_api_at32uc3l.h"
-  #include "QDebug_at32uc3l.h"
+#include <parts.h>
+
+#if UC3L0
+#include "touch_api_at32uc3l.h"
+#else
+#include "touch_api.h"
 #endif
 
+/*! compile qdebug files only when QDebug is enabled. */
+#ifdef _DEBUG_INTERFACE_
+
+#if UC3L0
+#  include "QDebug_at32uc3l.h"
+#else
+#  include "QDebug.h"
+#endif
 #include "QDebugTransport.h"
 #include "QDebugSettings.h"
 
@@ -60,6 +74,8 @@
 #include "SPI_Master.h"
 #elif (defined QDEBUG_SERIAL)
 #include "SERIAL.h"
+#elif defined(QDEBUG_SPI_BB)
+#include "BitBangSPI_Master.h"
 #else
 #warning "No Debug Interface is selected in QDebugSettings.h"
 #endif
@@ -156,6 +172,8 @@ Send_Message (void)
   SPI_Send_Message ();
 #elif (defined QDEBUG_SERIAL)
   SERIAL_Send_Message ();
+#elif defined(QDEBUG_SPI_BB)
+  BitBangSPI_Send_Message ();
 #endif
 
   // Ready for next message
@@ -265,3 +283,5 @@ RxHandler (uint8_t c)
 
   return state;
 }
+
+#endif  /* _DEBUG_INTERFACE_ */

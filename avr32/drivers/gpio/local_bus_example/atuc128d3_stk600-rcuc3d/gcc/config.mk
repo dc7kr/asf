@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_drivers_gpio_local_bus_example_stk600-rcuc3d.elf
+TARGET = gpio_local_bus_example.elf
 
 # List of C source files.
 CSRCS = \

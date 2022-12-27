@@ -3,7 +3,7 @@
  *
  * \brief USART RS485 example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -116,17 +116,8 @@
  *
  */
 
-#include <stdio.h>
 #include <string.h>
-#include "sysclk.h"
-#include "board.h"
-#include "exceptions.h"
-#include "usart.h"
-#include "uart.h"
-#include "pmc.h"
-#include "gpio.h"
-#include "pio.h"
-#include "pdc.h"
+#include "asf.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_example.h"
@@ -167,13 +158,13 @@ typedef enum st_usart_state {
 } usart_state_t;
 
 /** Global usart state. */
-volatile usart_state_t state = INITIALIZED;
+volatile usart_state_t g_state = INITIALIZED;
 
 /** Tick Counter in unit of ms. */
-volatile uint32_t dw_tick_count;
+volatile uint32_t g_ul_tick_count;
 
 /** Transmit buffer. Pure ASCII text. */
-uint8_t transmit_buffer[BUFFER_SIZE] = "DESCRIPTION of this example: \r\n \
+uint8_t g_uc_transmit_buffer[BUFFER_SIZE] = "DESCRIPTION of this example: \r\n \
  **************************************************************************\r\n\
  *  This application gives an example of how to use USART in RS485 mode.\r\n\
  *  RS-485 is a standard defining the electrical characteristics of drivers \r\n\
@@ -193,23 +184,23 @@ uint8_t transmit_buffer[BUFFER_SIZE] = "DESCRIPTION of this example: \r\n \
  ";
 
 /** Receive buffer. */
-uint8_t receive_buffer[BUFFER_SIZE];
+uint8_t g_uc_receive_buffer[BUFFER_SIZE];
 
 /** PDC data packet. */
-pdc_packet_t st_packet;
+pdc_packet_t g_st_packet;
 
 /** Pointer to PDC register base. */
-Pdc *p_pdc;
+Pdc *g_p_pdc;
 
 /**
  *  \brief Handler for System Tick interrupt.
  *
  *  Process System Tick Event.
- *  Increment the dw_ms_ticks counter.
+ *  Increment the ul_ms_ticks counter.
  */
 void SysTick_Handler(void)
 {
-	dw_tick_count++;
+	g_ul_tick_count++;
 }
 
 /**
@@ -218,22 +209,22 @@ void SysTick_Handler(void)
  */
 static uint32_t get_tick_count(void)
 {
-	return dw_tick_count;
+	return g_ul_tick_count;
 }
 
 /**
  *  \brief Wait for some time in ms.
  *
  */
-static void wait(volatile uint32_t dw_ms)
+static void wait(volatile uint32_t ul_ms)
 {
-	uint32_t dw_start;
-	uint32_t dw_current;
+	uint32_t ul_start;
+	uint32_t ul_current;
 
-	dw_start = dw_tick_count;
+	ul_start = g_ul_tick_count;
 	do {
-		dw_current = dw_tick_count;
-	} while (dw_current - dw_start < dw_ms);
+		ul_current = g_ul_tick_count;
+	} while (ul_current - ul_start < ul_ms);
 }
 
 /**
@@ -242,21 +233,21 @@ static void wait(volatile uint32_t dw_ms)
  */
 void USART_Handler(void)
 {
-	uint32_t dw_status;
+	uint32_t ul_status;
 
 	/* Read USART status. */
-	dw_status = usart_get_status(BOARD_USART);
+	ul_status = usart_get_status(BOARD_USART);
 
 	/* Receiving interrupt. */
-	if ((dw_status & US_CSR_ENDRX) && (state == RECEIVING)) {
+	if ((ul_status & US_CSR_ENDRX) && (g_state == RECEIVING)) {
 		/* Indicate receiving finished. */
-		state = RECEIVED;
+		g_state = RECEIVED;
 		usart_disable_interrupt(BOARD_USART, US_IDR_ENDRX);
 	}
 	/* Transmitting interrupt. */
-	else if ((dw_status & US_CSR_ENDTX) && state == TRANSMITTING) {
+	else if ((ul_status & US_CSR_ENDTX) && g_state == TRANSMITTING) {
 		/* Transmit continuously. */
-		state = TRANSMITTED;
+		g_state = TRANSMITTED;
 		usart_disable_interrupt(BOARD_USART, US_IDR_ENDTX);
 	}
 }
@@ -269,7 +260,6 @@ void USART_Handler(void)
  */
 static void configure_usart(void)
 {
-	static uint32_t dw_sysclk;
 	const sam_usart_opt_t usart_console_settings = {
 		BOARD_USART_BAUDRATE,
 		US_MR_CHRL_8_BIT,
@@ -280,14 +270,11 @@ static void configure_usart(void)
 		0
 	};
 
-	/* Get system clock. */
-	dw_sysclk = sysclk_get_main_hz();
-
 	/* Enable the peripheral clock in the PMC. */
 	pmc_enable_periph_clk(BOARD_ID_USART);
 
 	/* Configure USART in RS485 mode. */
-	usart_init_rs485(BOARD_USART, &usart_console_settings, dw_sysclk);
+	usart_init_rs485(BOARD_USART, &usart_console_settings, sysclk_get_cpu_hz());
 
 	/* Disable all the interrupts. */
 	usart_disable_interrupt(BOARD_USART, ALL_INTERRUPT_MASK);
@@ -321,7 +308,7 @@ static void configure_systick(void)
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_main_hz(), 115200, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
 
 	/* Configure PIO */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
@@ -371,14 +358,14 @@ int main(void)
 	configure_usart();
 
 	/* Get board USART PDC base address and enable receiver and transmitter. */
-	p_pdc = usart_get_pdc_base(BOARD_USART);
-	pdc_enable_transfer(p_pdc, PERIPH_PTCR_RXTEN | PERIPH_PTCR_TXTEN);
+	g_p_pdc = usart_get_pdc_base(BOARD_USART);
+	pdc_enable_transfer(g_p_pdc, PERIPH_PTCR_RXTEN | PERIPH_PTCR_TXTEN);
 
 	/* 1ms tick. */
 	configure_systick();
 
 	/* Initialize receiving buffer to distinguish with the sent frame. */
-	memset(receive_buffer, 0x0, BUFFER_SIZE);
+	memset(g_uc_receive_buffer, 0x0, BUFFER_SIZE);
 
 	/* Enable transmitter here, and disable receiver first, to avoid receiving
 	   characters sent by itself. It's necessary for half duplex RS485. */
@@ -386,17 +373,17 @@ int main(void)
 	usart_disable_rx(BOARD_USART);
 
 	/* Send a sync character XON (0x11). */
-	st_packet.dw_addr = (uint32_t)&uc_sync;
-	st_packet.dw_size = 1;
-	pdc_tx_init(p_pdc, &st_packet, NULL);
+	g_st_packet.ul_addr = (uint32_t)&uc_sync;
+	g_st_packet.ul_size = 1;
+	pdc_tx_init(g_p_pdc, &g_st_packet, NULL);
 
 	/* Delay until the line is cleared, an estimated time used. */
 	wait(50);
 
 	/* Read the acknowledgement. */
-	st_packet.dw_addr = (uint32_t)&uc_sync;
-	st_packet.dw_size = 1;
-	pdc_rx_init(p_pdc, &st_packet, NULL);
+	g_st_packet.ul_addr = (uint32_t)&uc_sync;
+	g_st_packet.ul_size = 1;
+	pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
 
 	/* Then enable receiver. */
 	usart_enable_rx(BOARD_USART);
@@ -414,20 +401,20 @@ int main(void)
 		/* Acknowledgement. */
 		if (uc_sync == ACK_CHAR) {
 			/* Act as transmitter, start transmitting. */
-			state = TRANSMITTING;
+			g_state = TRANSMITTING;
 			puts("-I- Start transmitting!\r");
-			st_packet.dw_addr = (uint32_t)transmit_buffer;
-			st_packet.dw_size = PDC_BUF_SIZE;
-			pdc_tx_init(p_pdc, &st_packet, NULL);
+			g_st_packet.ul_addr = (uint32_t)g_uc_transmit_buffer;
+			g_st_packet.ul_size = PDC_BUF_SIZE;
+			pdc_tx_init(g_p_pdc, &g_st_packet, NULL);
 
 			/* Enable transmitting interrupt. */
 			usart_enable_interrupt(BOARD_USART, US_IER_ENDTX);
 		}
 	} else {
 		/* Start receiving, act as receiver. */
-		st_packet.dw_addr = (uint32_t)&uc_sync;
-		st_packet.dw_size = 1;
-		pdc_rx_init(p_pdc, &st_packet, NULL);
+		g_st_packet.ul_addr = (uint32_t)&uc_sync;
+		g_st_packet.ul_size = 1;
+		pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
 		puts("-I- Receiving sync character.\r");
 		while (!usart_is_rx_buf_end(BOARD_USART)) {
 		}
@@ -441,27 +428,27 @@ int main(void)
 			   transmitter due to responding too soon. */
 			wait(100);
 			pio_set_pin_high(PIN_RE_IDX);
-			st_packet.dw_addr = (uint32_t)&uc_sync;
-			st_packet.dw_size = 1;
-			pdc_tx_init(p_pdc, &st_packet, NULL);
+			g_st_packet.ul_addr = (uint32_t)&uc_sync;
+			g_st_packet.ul_size = 1;
+			pdc_tx_init(g_p_pdc, &g_st_packet, NULL);
 
-			state = RECEIVING;
+			g_state = RECEIVING;
 			puts("-I- Start receiving!\r");
-			st_packet.dw_addr = (uint32_t)receive_buffer;
-			st_packet.dw_size = PDC_BUF_SIZE;
-			pdc_rx_init(p_pdc, &st_packet, NULL);
+			g_st_packet.ul_addr = (uint32_t)g_uc_receive_buffer;
+			g_st_packet.ul_size = PDC_BUF_SIZE;
+			pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
 			pio_set_pin_low(PIN_RE_IDX);
 			/* Enable receiving interrupt. */
 			usart_enable_interrupt(BOARD_USART, US_IER_ENDRX);
 		}
 	}
-	while (state != RECEIVED) {
+	while (g_state != RECEIVED) {
 	}
 
 	ul_i = 0;
 	/* Print received frame out. */
-	while ((ul_i < BUFFER_SIZE) && (receive_buffer[ul_i] != '\0')) {
-		if (transmit_buffer[ul_i] != receive_buffer[ul_i]) {
+	while ((ul_i < BUFFER_SIZE) && (g_uc_receive_buffer[ul_i] != '\0')) {
+		if (g_uc_transmit_buffer[ul_i] != g_uc_receive_buffer[ul_i]) {
 			puts("-E- Error occurred while receiving!\r");
 			/* Infinite loop here. */
 			while (1) {

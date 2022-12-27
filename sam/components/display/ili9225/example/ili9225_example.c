@@ -3,7 +3,7 @@
  *
  * \brief lcd controller ili9225 example.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -71,12 +71,9 @@
  *
  */
 
-#include "board.h"
-#include "sysclk.h"
-#include "ili9225.h"
-#include "aat31xx.h"
+#include "asf.h"
 
-struct ili9225_opt_t ili9225_display_opt;
+struct ili9225_opt_t g_ili9225_display_opt;
 
 /**
  * \brief Override SPI handler.
@@ -97,16 +94,16 @@ int main(void)
 	board_init();
 
 	/* Initialize display parameter */
-	ili9225_display_opt.dw_width = BOARD_LCD_WIDTH;
-	ili9225_display_opt.dw_height = BOARD_LCD_HEIGHT;
-	ili9225_display_opt.foreground_color = COLOR_BLACK;
-	ili9225_display_opt.background_color = COLOR_WHITE;
+	g_ili9225_display_opt.ul_width = BOARD_LCD_WIDTH;
+	g_ili9225_display_opt.ul_height = BOARD_LCD_HEIGHT;
+	g_ili9225_display_opt.foreground_color = COLOR_BLACK;
+	g_ili9225_display_opt.background_color = COLOR_WHITE;
 
 	/* Switch off backlight */
 	aat31xx_disable_backlight();
 
 	/* Initialize LCD */
-	ili9225_init(&ili9225_display_opt);
+	ili9225_init(&g_ili9225_display_opt);
 
 	/* Set backlight level */
 	aat31xx_set_backlight(AAT31XX_AVG_BACKLIGHT_LEVEL);

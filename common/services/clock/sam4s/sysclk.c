@@ -3,7 +3,7 @@
  *
  * \brief Chip-specific system clock management functions.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -71,9 +71,9 @@ uint32_t sysclk_initialized = 0;
  *
  * \param cpu_shift The CPU clock will be divided by \f$2^{mck\_pres}\f$
  */
-void sysclk_set_prescalers(uint32_t dw_pres)
+void sysclk_set_prescalers(uint32_t ul_pres)
 {
-	pmc_mck_set_prescaler(dw_pres);
+	pmc_mck_set_prescaler(ul_pres);
 	SystemCoreClockUpdate();
 }
 
@@ -83,9 +83,9 @@ void sysclk_set_prescalers(uint32_t dw_pres)
  * \param src The new system clock source. Must be one of the constants
  * from the <em>System Clock Sources</em> section.
  */
-void sysclk_set_source(uint32_t dw_src)
+void sysclk_set_source(uint32_t ul_src)
 {
-	switch (dw_src) {
+	switch (ul_src) {
 	case SYSCLK_SRC_SLCK_RC:
 	case SYSCLK_SRC_SLCK_XTAL:
 	case SYSCLK_SRC_SLCK_BYPASS:
@@ -124,6 +124,8 @@ void sysclk_set_source(uint32_t dw_src)
  */
 void sysclk_enable_usb(void)
 {
+	Assert(CONFIG_USBCLK_DIV > 0);
+
 	switch (CONFIG_USBCLK_SOURCE) {
 #ifdef CONFIG_PLL0_SOURCE
 	case USBCLK_SRC_PLL0: {
@@ -133,7 +135,7 @@ void sysclk_enable_usb(void)
 		pll_config_defaults(&pllcfg, 0);
 		pll_enable(&pllcfg, 0);
 		pll_wait_for_lock(0);
-		pmc_switch_udpck_to_pllack(CONFIG_USBCLK_DIV);
+		pmc_switch_udpck_to_pllack(CONFIG_USBCLK_DIV - 1);
 		pmc_enable_udpck();
 		break;
 	}
@@ -147,7 +149,7 @@ void sysclk_enable_usb(void)
 		pll_config_defaults(&pllcfg, 1);
 		pll_enable(&pllcfg, 1);
 		pll_wait_for_lock(1);
-		pmc_switch_udpck_to_pllbck(CONFIG_USBCLK_DIV);
+		pmc_switch_udpck_to_pllbck(CONFIG_USBCLK_DIV - 1);
 		pmc_enable_udpck();
 		break;
 	}
@@ -171,7 +173,7 @@ void sysclk_init(void)
 	struct pll_config pllcfg;
 
 	/* Set a flash wait state depending on the new cpu frequency */
-	system_init_flash_and_watchdog(sysclk_get_cpu_hz());
+	system_init_flash(sysclk_get_cpu_hz());
 
 	/* Config system clock setting */
 	switch (CONFIG_SYSCLK_SOURCE) {

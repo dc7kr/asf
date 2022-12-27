@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_applications_evk1104-usb-msc-sd-demo_example.elf
+TARGET = evk1104-usb-msc-sd-demo.elf
 
 # List of C source files.
 CSRCS = \
@@ -91,6 +91,7 @@ CSRCS = \
        common/components/memory/data_flash/at45dbx/_asf_v1/at45dbx.c \
        common/components/memory/data_flash/at45dbx/_asf_v1/at45dbx_mem.c \
        common/services/clock/uc3a3_a4/sysclk.c            \
+       common/services/serial/usart_serial.c              \
        common/services/storage/ctrl_access/ctrl_access.c  \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c
@@ -133,6 +134,7 @@ INC_PATH = \
        common/components/memory/data_flash/at45dbx/_asf_v1 \
        common/services/clock                              \
        common/services/serial                             \
+       common/services/serial/uc3_usart                   \
        common/services/storage/ctrl_access                \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \

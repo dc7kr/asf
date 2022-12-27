@@ -3,7 +3,7 @@
  *
  * \brief CPU reset cause functions
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -55,6 +55,8 @@
 /**
  * \defgroup reset_cause_group CPU reset cause
  *
+ * See \ref reset_cause_quickstart
+ *
  * This is a generic interface for getting and clearing the chip reset causes.
  *
  * \section dependencies Dependencies
@@ -66,6 +68,9 @@
  * to enable the clock to the debug system, for devices doing software reset
  * through the on-chip debug system. This applies only to the 32-bit AVR
  * devices.
+ * 
+ * \section Quick start guide
+ * See \ref reset_cause_quickstart
  *
  * @{
  */
@@ -313,5 +318,59 @@ static inline bool reset_cause_is_watchdog(void)
 //@}
 
 //! @}
+
+/**
+ * \page reset_cause_quickstart Quick start guide for reset cause service
+ *
+ * This is the quick start guide for the \ref reset_cause_group
+ * "Reset Cause service", with step-by-step instructions on how to configure
+ * and use the driver in a selection of use cases.
+ *
+ * The use cases contain several code fragments. The code fragments in the
+ * steps for setup can be copied into a custom initialization function, while
+ * the steps for usage can be copied into, e.g., the main application function.
+ *
+ * \section reset_cause_basic_use_case Basic use case
+ * In this basic use case, the reset cause service is used for checking if the
+ * last reset was a watchdog reset.
+ *
+ * \section reset_cause_basic_use_case_setup Setup steps
+ *
+ * \subsection reset_cause_basic_use_case_setup_code Example code
+ * Add to application C-file:
+ * \code
+ * if (reset_cause_is_watchdog()) {
+ *	// Do action due to last reset being a watchdog reset
+ *	reset_cause_clear_causes(RESET_CAUSE_WDT);
+ * }
+ * \endcode
+ *
+ * \subsection reset_cause_basic_use_case_setup_flow Workflow
+ * -# Check for watchdog reset flag:
+ *   - \code if (reset_cause_is_watchdog()) { \endcode
+ *   - \attention Please consult the specific device datasheet on which reset
+ *   causes that are supported.
+ * -# Insert your own code taking action here. E.g.: Increase a watchdog reset
+ * counter.
+ * -# Reset flag if the flag was set to make sure it's not falsely
+ * detected in another reset:
+ *   - \code reset_cause_clear_causes(RESET_CAUSE_WDT); \endcode
+ *
+ * \section reset_cause_use_cases Advanced use cases
+ * For more advanced use of the Reset Cause service, see the following use cases:
+ * - \subpage reset_cause_use_case_1 : Software controlled reset
+ */
+
+/**
+ * \page reset_cause_use_case_1 Use case #1
+ * In this use case, the reset cause service is used to perform a software
+ * controlled reset.
+ *
+ * \section reset_cause_use_case_1_setup Setup steps
+ *
+ * \subsection reset_cause_use_case_1_setup_flow Workflow
+ * -# Call soft reset. This call will not return.
+ *   - \code reset_do_soft_reset(); \endcode
+ */
 
 #endif /* COMMON_DRIVERS_CPU_RESET_CAUSE_H */

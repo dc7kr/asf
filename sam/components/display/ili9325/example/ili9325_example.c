@@ -3,7 +3,7 @@
  *
  * \brief lcd controller ili9325 example.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -71,19 +71,12 @@
  *
  */
 
-#include "board.h"
-#include "sysclk.h"
-#include "ili9325.h"
-#include "gpio.h"
-#include "pio.h"
-#include "pmc.h"
-#include "smc.h"
-#include "aat31xx.h"
+#include "asf.h"
 
 /* Chip select number to be set */
 #define ILI9325_LCD_CS      1
 
-struct ili9325_opt_t ili9325_display_opt;
+struct ili9325_opt_t g_ili9325_display_opt;
 
 /**
  * \brief Application entry point for smc_lcd example.
@@ -114,16 +107,16 @@ int main(void)
 			| SMC_MODE_DBW_8_BIT);
 
 	/* Initialize display parameter */
-	ili9325_display_opt.dw_width= ILI9325_LCD_WIDTH;
-	ili9325_display_opt.dw_height = ILI9325_LCD_HEIGHT;
-	ili9325_display_opt.foreground_color= COLOR_BLACK;
-	ili9325_display_opt.background_color = COLOR_WHITE;
+	g_ili9325_display_opt.ul_width= ILI9325_LCD_WIDTH;
+	g_ili9325_display_opt.ul_height = ILI9325_LCD_HEIGHT;
+	g_ili9325_display_opt.foreground_color= COLOR_BLACK;
+	g_ili9325_display_opt.background_color = COLOR_WHITE;
 
 	/* Switch off backlight */
 	aat31xx_disable_backlight();
 
 	/* Initialize LCD */
-	ili9325_init(&ili9325_display_opt);
+	ili9325_init(&g_ili9325_display_opt);
 
 	/* Set backlight level */
 	aat31xx_set_backlight(AAT31XX_AVG_BACKLIGHT_LEVEL);

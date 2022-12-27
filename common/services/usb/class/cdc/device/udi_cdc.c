@@ -3,7 +3,7 @@
  *
  * \brief USB Device Communication Device Class (CDC) interface.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -48,15 +48,20 @@
 #include <string.h>
 
 #ifdef UDI_CDC_LOW_RATE
-#  define UDI_CDC_TX_BUFFERS     (1*UDI_CDC_DATA_EPS_SIZE)
-#  define UDI_CDC_RX_BUFFERS     (1*UDI_CDC_DATA_EPS_SIZE)
+#  ifdef USB_DEVICE_HS_SUPPORT
+#    define UDI_CDC_TX_BUFFERS     (UDI_CDC_DATA_EPS_HS_SIZE)
+#    define UDI_CDC_RX_BUFFERS     (UDI_CDC_DATA_EPS_HS_SIZE)
+#  else
+#    define UDI_CDC_TX_BUFFERS     (UDI_CDC_DATA_EPS_FS_SIZE)
+#    define UDI_CDC_RX_BUFFERS     (UDI_CDC_DATA_EPS_FS_SIZE)
+#  endif
 #else
 #  ifdef USB_DEVICE_HS_SUPPORT
-#    define UDI_CDC_TX_BUFFERS     (8*UDI_CDC_DATA_EPS_SIZE)
-#    define UDI_CDC_RX_BUFFERS     (8*UDI_CDC_DATA_EPS_SIZE)
+#    define UDI_CDC_TX_BUFFERS     (UDI_CDC_DATA_EPS_HS_SIZE)
+#    define UDI_CDC_RX_BUFFERS     (UDI_CDC_DATA_EPS_HS_SIZE)
 #  else
-#    define UDI_CDC_TX_BUFFERS     (5*UDI_CDC_DATA_EPS_SIZE)
-#    define UDI_CDC_RX_BUFFERS     (5*UDI_CDC_DATA_EPS_SIZE)
+#    define UDI_CDC_TX_BUFFERS     (5*UDI_CDC_DATA_EPS_FS_SIZE)
+#    define UDI_CDC_RX_BUFFERS     (5*UDI_CDC_DATA_EPS_FS_SIZE)
 #  endif
 #endif
 
@@ -610,7 +615,7 @@ static bool udi_cdc_comm_setup_common(uint8_t port)
 						(uint8_t *) &
 						udi_cdc_line_coding[PORT];
 				udd_g_ctrlreq.payload_size =
-						sizeof(udi_cdc_line_coding);
+						sizeof(usb_cdc_line_coding_t);
 				return true;
 			}
 		}
@@ -631,7 +636,7 @@ static bool udi_cdc_comm_setup_common(uint8_t port)
 						(uint8_t *) &
 						udi_cdc_line_coding[PORT];
 				udd_g_ctrlreq.payload_size =
-						sizeof(udi_cdc_line_coding);
+						sizeof(usb_cdc_line_coding_t);
 				return true;
 			case USB_REQ_CDC_SET_CONTROL_LINE_STATE:
 				// According cdc spec 1.1 chapter 6.2.14
@@ -949,7 +954,7 @@ static void udi_cdc_tx_send(uint8_t port)
 	}
 	udi_cdc_tx_trans_ongoing[PORT] = true;
 	cpu_irq_restore(flags);
-
+	
 	b_short_packet = (udi_cdc_tx_buf_nb[PORT][buf_sel_trans] != UDI_CDC_TX_BUFFERS);
 	if (b_short_packet) {
 		if (udd_is_high_speed()) {

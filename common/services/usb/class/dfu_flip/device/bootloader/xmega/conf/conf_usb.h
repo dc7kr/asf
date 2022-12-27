@@ -3,7 +3,7 @@
  *
  * \brief USB configuration file
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -85,10 +85,10 @@
 #define  USB_DEVICE_VENDOR_ID             USB_VID_ATMEL
 #if part_is_defined(ATxmega16A4U)
 #define  USB_DEVICE_PRODUCT_ID            USB_PID_ATMEL_DFU_ATXMEGA16A4U
-//#define  USB_DEVICE_PRODUCT_NAME   "DFU ATXMEGA16A4U" // Removed to save CODE
+//#define  USB_DEVICE_PRODUCT_NAME        "DFU ATXMEGA16A4U" // Removed to save CODE
 #elif part_is_defined(ATxmega32A4U)
 #define  USB_DEVICE_PRODUCT_ID            USB_PID_ATMEL_DFU_ATXMEGA32A4U
-#define  USB_DEVICE_PRODUCT_NAME          "DFU ATXMEGA32A4U"
+//#define  USB_DEVICE_PRODUCT_NAME        "DFU ATXMEGA32A4U" // Removed to save CODE
 #elif part_is_defined(ATxmega64A4U)
 #define  USB_DEVICE_PRODUCT_ID            USB_PID_ATMEL_DFU_ATXMEGA64A4U
 #define  USB_DEVICE_PRODUCT_NAME          "DFU ATXMEGA64A4U"
@@ -136,10 +136,10 @@
 #define  USB_DEVICE_PRODUCT_NAME          "DFU ATXMEGA256C3"
 #elif part_is_defined(ATxmega32C4)
 #define  USB_DEVICE_PRODUCT_ID            USB_PID_ATMEL_DFU_ATXMEGA32C4
-#define  USB_DEVICE_PRODUCT_NAME          "DFU ATXMEGA32C4"
+//#define  USB_DEVICE_PRODUCT_NAME        "DFU ATXMEGA32C4" // Removed to save CODE
 #elif part_is_defined(ATxmega16C4)
 #define  USB_DEVICE_PRODUCT_ID            USB_PID_ATMEL_DFU_ATXMEGA16C4
-#define  USB_DEVICE_PRODUCT_NAME          "DFU ATXMEGA16C4"
+//#define  USB_DEVICE_PRODUCT_NAME        "DFU ATXMEGA16C4" // Removed to save CODE
 #else
 #error Unknow DFU PID for this AVR part
 #endif

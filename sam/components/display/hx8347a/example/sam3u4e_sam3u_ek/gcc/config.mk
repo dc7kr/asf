@@ -45,12 +45,13 @@ PART = sam3u4e
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam_components_display_hx8347a_example_sam3u_ek_flash.elf
-TARGET_SRAM = sam_components_display_hx8347a_example_sam3u_ek_sram.elf
+TARGET_FLASH = hx8347a_example_flash.elf
+TARGET_SRAM = hx8347a_example_sram.elf
 
 # List of C source files.
 CSRCS = \
        common/services/clock/sam3u/sysclk.c               \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3u_ek/init.c                         \
        sam/components/display/aat31xx/aat31xx.c           \
        sam/components/display/hx8347a/example/hx8347a_example.c \
@@ -73,6 +74,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3u_ek                                \
        sam/components/display/aat31xx                     \
@@ -87,6 +89,7 @@ INC_PATH = \
        sam/utils/cmsis/sam3u/include                      \
        sam/utils/cmsis/sam3u/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include \
        ./sam/components/display/hx8347a/example/sam3u4e_sam3u_ek/gcc
 

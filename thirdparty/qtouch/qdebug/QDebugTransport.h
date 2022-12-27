@@ -5,12 +5,14 @@
  *
  * \brief  This file contains the QDebug Transport API that is used by the
  * QDebug component.
- *
+ * - Compiler:           IAR EWAVR32 and GNU GCC for AVR32
+ * - Supported devices:  AT32UC3A0/A1 Series, AT32UC3B0/B1 Series,
+ *                       AT32UC3C0/C1 Series AND AT32UC3L0 series
  * - Userguide:          QTouch Library User Guide - doc8207.pdf.
  * - Support email:      touch@atmel.com
  *
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -57,9 +59,16 @@ extern "C"
 
 
 /*============================ INCLUDES ======================================*/
+#include <parts.h>
+#if UC3L0
 #include "touch_api_at32uc3l.h"
+#else
+#include "touch_api.h"
+#endif
 
 /*============================ MACROS ========================================*/
+
+#ifdef _DEBUG_INTERFACE_
 
 #define MESSAGE_START	0x1B
 
@@ -78,6 +87,15 @@ extern "C"
 #else
 #endif
 
+#if !(UC3L0)
+#ifdef _ROTOR_SLIDER_
+#define TX_BUFFER_SIZE (QT_NUM_CHANNELS*4)+10
+#define RX_BUFFER_SIZE (QT_NUM_CHANNELS*4)+10
+#else
+#define TX_BUFFER_SIZE (QT_NUM_CHANNELS*3)+10
+#define RX_BUFFER_SIZE (QT_NUM_CHANNELS*3)+10
+#endif
+#endif
 #define STATE_IDLE	    0
 #define STATE_LENGTH1	1
 #define STATE_LENGTH2	2
@@ -144,6 +162,7 @@ extern "C"
  * \note Used by SPI and TWI receive handlers.
  */
   uint8_t RxHandler (uint8_t c);
+#endif  /* _DEBUG_INTERFACE_ */
 
 #ifdef __cplusplus
 }

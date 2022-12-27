@@ -3,7 +3,7 @@
  *
  * \brief Serial Peripheral Interface (SPI) example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -100,17 +100,7 @@
  *
  */
 
-
-#include <compiler.h>
-#include "board.h"
-#include <stdint.h>
-#include <stdio.h>
-#include "sysclk.h"
-#include <gpio.h>
-#include <pio.h>
-#include <uart.h>
-#include <pmc.h>
-#include <spi.h>
+#include "asf.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_spi_example.h"
@@ -205,33 +195,33 @@ struct status_block_t {
 };
 
 /* SPI clock setting (Hz). */
-static uint32_t ul_spi_clock = 500000;
+static uint32_t gs_ul_spi_clock = 500000;
 
 /* Current SPI return code. */
-static uint32_t ul_spi_cmd = RC_SYN;
+static uint32_t gs_ul_spi_cmd = RC_SYN;
 
 /* Current SPI state. */
-static uint32_t ul_spi_state = 0;
+static uint32_t gs_ul_spi_state = 0;
 
 /* 64 bytes data buffer for SPI transfer and receive. */
-static uint8_t uc_spi_buffer[COMM_BUFFER_SIZE];
+static uint8_t gs_uc_spi_buffer[COMM_BUFFER_SIZE];
 
 /* Pointer to transfer buffer. */
-static uint8_t *p_transfer_buffer;
+static uint8_t *gs_puc_transfer_buffer;
 
 /* Transfer buffer index. */
-static uint32_t ul_transfer_index;
+static uint32_t gs_ul_transfer_index;
 
 /* Transfer buffer length. */
-static uint32_t ul_transfer_length;
+static uint32_t gs_ul_transfer_length;
 
 /* SPI Status. */
-static struct status_block_t spi_status;
+static struct status_block_t gs_spi_status;
 
-static uint32_t ul_test_block_number;
+static uint32_t gs_ul_test_block_number;
 
 /* SPI clock configuration. */
-static const uint32_t ul_clock_configurations[] =
+static const uint32_t gs_ul_clock_configurations[] =
 		{ 500000, 1000000, 2000000, 5000000 };
 
 
@@ -246,7 +236,7 @@ static void display_menu(void)
 			"------\r");
 
 	for (i = 0; i < NUM_SPCK_CONFIGURATIONS; i++) {
-		printf("  %u: Set SPCK = %7u Hz\n\r", i, ul_clock_configurations[i]);
+		printf("  %u: Set SPCK = %7u Hz\n\r", i, gs_ul_clock_configurations[i]);
 	}
 	puts("  t: Perform SPI master\n\r"
 			"  h: Display this menu again\n\r\r");
@@ -260,10 +250,10 @@ static void display_menu(void)
  */
 static void spi_slave_transfer(void *p_buf, uint32_t size)
 {
-	p_transfer_buffer = p_buf;
-	ul_transfer_length = size;
-	ul_transfer_index = 0;
-	spi_write(SPI_SLAVE_BASE, p_transfer_buffer[ul_transfer_index], 0, 0);
+	gs_puc_transfer_buffer = p_buf;
+	gs_ul_transfer_length = size;
+	gs_ul_transfer_index = 0;
+	spi_write(SPI_SLAVE_BASE, gs_puc_transfer_buffer[gs_ul_transfer_index], 0, 0);
 }
 
 /**
@@ -271,37 +261,37 @@ static void spi_slave_transfer(void *p_buf, uint32_t size)
  */
 static void spi_slave_command_process(void)
 {
-	if (ul_spi_cmd == CMD_END) {
-		ul_spi_state = SLAVE_STATE_IDLE;
-		spi_status.ul_total_block_number = 0;
-		spi_status.ul_total_command_number = 0;
+	if (gs_ul_spi_cmd == CMD_END) {
+		gs_ul_spi_state = SLAVE_STATE_IDLE;
+		gs_spi_status.ul_total_block_number = 0;
+		gs_spi_status.ul_total_command_number = 0;
 	} else {
-		switch (ul_spi_state) {
+		switch (gs_ul_spi_state) {
 		case SLAVE_STATE_IDLE:
 			/* Only CMD_TEST accepted. */
-			if (ul_spi_cmd == CMD_TEST) {
-				ul_spi_state = SLAVE_STATE_TEST;
+			if (gs_ul_spi_cmd == CMD_TEST) {
+				gs_ul_spi_state = SLAVE_STATE_TEST;
 			}
 			break;
 
 		case SLAVE_STATE_TEST:
 			/* Only CMD_DATA accepted. */
-			if ((ul_spi_cmd & CMD_DATA_MSK) == CMD_DATA) {
-				ul_spi_state = SLAVE_STATE_DATA;
+			if ((gs_ul_spi_cmd & CMD_DATA_MSK) == CMD_DATA) {
+				gs_ul_spi_state = SLAVE_STATE_DATA;
 			}
-			ul_test_block_number = ul_spi_cmd & DATA_BLOCK_MSK;
+			gs_ul_test_block_number = gs_ul_spi_cmd & DATA_BLOCK_MSK;
 			break;
 
 		case SLAVE_STATE_DATA:
-			spi_status.ul_total_block_number++;
+			gs_spi_status.ul_total_block_number++;
 
-			if (spi_status.ul_total_block_number == ul_test_block_number) {
-				ul_spi_state = SLAVE_STATE_STATUS_ENTRY;
+			if (gs_spi_status.ul_total_block_number == gs_ul_test_block_number) {
+				gs_ul_spi_state = SLAVE_STATE_STATUS_ENTRY;
 			}
 			break;
 
 		case SLAVE_STATE_STATUS_ENTRY:
-			ul_spi_state = SLAVE_STATE_STATUS;
+			gs_ul_spi_state = SLAVE_STATE_STATUS;
 			break;
 
 		case SLAVE_STATE_END:
@@ -315,34 +305,34 @@ static void spi_slave_command_process(void)
  */
 static void spi_slave_new_command(void)
 {
-	switch (ul_spi_state) {
+	switch (gs_ul_spi_state) {
 	case SLAVE_STATE_IDLE:
 	case SLAVE_STATE_END:
-		ul_spi_cmd = RC_SYN;
-		spi_slave_transfer(&ul_spi_cmd, sizeof(ul_spi_cmd));
+		gs_ul_spi_cmd = RC_SYN;
+		spi_slave_transfer(&gs_ul_spi_cmd, sizeof(gs_ul_spi_cmd));
 		break;
 
 	case SLAVE_STATE_TEST:
-		ul_spi_cmd = RC_RDY;
-		spi_slave_transfer(&ul_spi_cmd, sizeof(ul_spi_cmd));
+		gs_ul_spi_cmd = RC_RDY;
+		spi_slave_transfer(&gs_ul_spi_cmd, sizeof(gs_ul_spi_cmd));
 		break;
 
 	case SLAVE_STATE_DATA:
-		if (spi_status.ul_total_block_number < ul_test_block_number) {
-			spi_slave_transfer(uc_spi_buffer, COMM_BUFFER_SIZE);
+		if (gs_spi_status.ul_total_block_number < gs_ul_test_block_number) {
+			spi_slave_transfer(gs_uc_spi_buffer, COMM_BUFFER_SIZE);
 		}
 		break;
 
 	case SLAVE_STATE_STATUS_ENTRY:
-		ul_spi_cmd = RC_RDY;
-		spi_slave_transfer(&ul_spi_cmd, sizeof(ul_spi_cmd));
-		ul_spi_state = SLAVE_STATE_STATUS;
+		gs_ul_spi_cmd = RC_RDY;
+		spi_slave_transfer(&gs_ul_spi_cmd, sizeof(gs_ul_spi_cmd));
+		gs_ul_spi_state = SLAVE_STATE_STATUS;
 		break;
 
 	case SLAVE_STATE_STATUS:
-		ul_spi_cmd = RC_SYN;
-		spi_slave_transfer(&spi_status, sizeof(struct status_block_t));
-		ul_spi_state = SLAVE_STATE_END;
+		gs_ul_spi_cmd = RC_SYN;
+		spi_slave_transfer(&gs_spi_status, sizeof(struct status_block_t));
+		gs_ul_spi_state = SLAVE_STATE_END;
 		break;
 	}
 }
@@ -358,24 +348,24 @@ void SPI_Handler(void)
 
 	if (spi_read_status(SPI_SLAVE_BASE) & SPI_SR_RDRF) {
 		spi_read(SPI_SLAVE_BASE, &data, &uc_pcs);
-		p_transfer_buffer[ul_transfer_index] = data;
-		ul_transfer_index++;
-		ul_transfer_length--;
-		if (ul_transfer_length) {
+		gs_puc_transfer_buffer[gs_ul_transfer_index] = data;
+		gs_ul_transfer_index++;
+		gs_ul_transfer_length--;
+		if (gs_ul_transfer_length) {
 			spi_write(SPI_SLAVE_BASE,
-					p_transfer_buffer[ul_transfer_index], 0, 0);
+					gs_puc_transfer_buffer[gs_ul_transfer_index], 0, 0);
 		}
 		
-		if (!ul_transfer_length) {
+		if (!gs_ul_transfer_length) {
 			spi_slave_command_process();
 			new_cmd = 1;
 		}
 
 		if (new_cmd) {
-			if (ul_spi_cmd != CMD_END) {
-				spi_status.ul_cmd_list[spi_status.ul_total_command_number] =
-						ul_spi_cmd;
-				spi_status.ul_total_command_number++;
+			if (gs_ul_spi_cmd != CMD_END) {
+				gs_spi_status.ul_cmd_list[gs_spi_status.ul_total_command_number] =
+						gs_ul_spi_cmd;
+				gs_spi_status.ul_total_command_number++;
 			}
 			spi_slave_new_command();
 		}
@@ -390,13 +380,13 @@ static void spi_slave_initialize(void)
 	uint32_t i;
 
 	/* Reset status */
-	spi_status.ul_total_block_number = 0;
-	spi_status.ul_total_command_number = 0;
+	gs_spi_status.ul_total_block_number = 0;
+	gs_spi_status.ul_total_command_number = 0;
 	for (i = 0; i < NB_STATUS_CMD; i++) {
-		spi_status.ul_cmd_list[i] = 0;
+		gs_spi_status.ul_cmd_list[i] = 0;
 	}
-	ul_spi_state = SLAVE_STATE_IDLE;
-	ul_spi_cmd = RC_SYN;
+	gs_ul_spi_state = SLAVE_STATE_IDLE;
+	gs_ul_spi_cmd = RC_SYN;
 
 	puts("-I- Initialize SPI as slave \r");
 	/* Configure an SPI peripheral. */
@@ -413,7 +403,7 @@ static void spi_slave_initialize(void)
 	spi_enable(SPI_SLAVE_BASE);
 
 	/* Start waiting command. */
-	spi_slave_transfer(&ul_spi_cmd, sizeof(ul_spi_cmd));
+	spi_slave_transfer(&gs_ul_spi_cmd, sizeof(gs_ul_spi_cmd));
 }
 
 /**
@@ -421,8 +411,6 @@ static void spi_slave_initialize(void)
  */
 static void spi_master_initialize(void)
 {
-	static uint32_t sysclk;
-	
 	puts("-I- Initialize SPI as master\r");
 
 	/* Configure an SPI peripheral. */
@@ -436,8 +424,7 @@ static void spi_master_initialize(void)
 	spi_set_clock_polarity(SPI_MASTER_BASE, SPI_CHIP_SEL, SPI_CLK_POLARITY);
 	spi_set_clock_phase(SPI_MASTER_BASE, SPI_CHIP_SEL, SPI_CLK_PHASE);
 	spi_set_bits_per_transfer(SPI_MASTER_BASE, SPI_CHIP_SEL, SPI_CSR_BITS_8_BIT);
-	sysclk = sysclk_get_main_hz();
-	spi_set_baudrate_div(SPI_MASTER_BASE, SPI_CHIP_SEL, (sysclk / ul_spi_clock));
+	spi_set_baudrate_div(SPI_MASTER_BASE, SPI_CHIP_SEL, (sysclk_get_cpu_hz() / gs_ul_spi_clock));
 	spi_set_transfer_delay(SPI_MASTER_BASE, SPI_CHIP_SEL, SPI_DLYBS, SPI_DLYBCT);
 	spi_enable(SPI_MASTER_BASE);
 }
@@ -449,8 +436,8 @@ static void spi_master_initialize(void)
  */
 static void spi_set_clock_configuration(uint8_t configuration)
 {
-	ul_spi_clock = ul_clock_configurations[configuration];
-	printf("Setting SPI clock #%u ... \n\r", ul_spi_clock);
+	gs_ul_spi_clock = gs_ul_clock_configurations[configuration];
+	printf("Setting SPI clock #%u ... \n\r", gs_ul_spi_clock);
 	spi_master_initialize();
 }
 
@@ -512,13 +499,13 @@ static void spi_master_go(void)
 	puts("                                <---- Slave response RC_RDY \r");
 	for (block = 0; block < MAX_DATA_BLOCK_NUMBER; block++) {
 		for (i = 0; i < COMM_BUFFER_SIZE; i++) {
-			uc_spi_buffer[i] = block;
+			gs_uc_spi_buffer[i] = block;
 		}
 		printf("-> Master sending block %u ... \n\r", block);
-		spi_master_transfer(uc_spi_buffer, COMM_BUFFER_SIZE);
+		spi_master_transfer(gs_uc_spi_buffer, COMM_BUFFER_SIZE);
 		if (block) {
 			for (i = 0; i < COMM_BUFFER_SIZE; i++) {
-				if (uc_spi_buffer[i] != (block - 1)) {
+				if (gs_uc_spi_buffer[i] != (block - 1)) {
 					break;
 				}
 			}
@@ -545,16 +532,16 @@ static void spi_master_go(void)
 	}
 
 	puts("-> Master request slave status... \r");
-	spi_master_transfer(&spi_status, sizeof(struct status_block_t));
+	spi_master_transfer(&gs_spi_status, sizeof(struct status_block_t));
 
 	puts("   <- Slave reports status...\r");
-	printf("-I- Received  %u commands:", spi_status.ul_total_command_number);
+	printf("-I- Received  %u commands:", gs_spi_status.ul_total_command_number);
 
-	for (i = 0; i < spi_status.ul_total_command_number; i++) {
-		printf(" 0x%08x", spi_status.ul_cmd_list[i]);
+	for (i = 0; i < gs_spi_status.ul_total_command_number; i++) {
+		printf(" 0x%08x", gs_spi_status.ul_cmd_list[i]);
 	}
 	printf(" \n\r-I- Received  %u data blocks \n\r",
-			spi_status.ul_total_block_number);
+			gs_spi_status.ul_total_block_number);
 
 	for (i = 0; i < MAX_RETRY; i++) {
 		puts("-> Master sending CMD_END... \r");
@@ -581,7 +568,7 @@ static void spi_master_go(void)
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_main_hz(), UART_BAUDRATE, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), UART_BAUDRATE, UART_MR_PAR_NO };
 
 	/* Configure PIO. */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,

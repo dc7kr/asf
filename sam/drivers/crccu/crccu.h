@@ -3,7 +3,7 @@
  *
  * \brief Cyclic Redundancy Check Calculation Unit (CRCCU) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -70,18 +70,18 @@ extern "C" {
 
 /** CRCCU descriptor type */
 typedef struct crccu_dscr_type {
-	uint32_t dw_tr_addr;	/* TR_ADDR */
-	uint32_t dw_tr_ctrl;	/* TR_CTRL */
+	uint32_t ul_tr_addr;	/* TR_ADDR */
+	uint32_t ul_tr_ctrl;	/* TR_CTRL */
 #if (SAM3SD8	|| SAM4S)
-	uint32_t dw_reserved[2];	/* Reserved register */
+	uint32_t ul_reserved[2];	/* Reserved register */
 #elif SAM3S
-	uint32_t dw_reserved[52];	/* TR_CRC begins at offset 0xE0 */
+	uint32_t ul_reserved[52];	/* TR_CRC begins at offset 0xE0 */
 #endif
-	uint32_t dw_tr_crc;	/* TR_CRC */
+	uint32_t ul_tr_crc;	/* TR_CRC */
 } crccu_dscr_type_t;
 
-void crccu_configure_descriptor(Crccu *p_crccu, uint32_t dw_crc_dscr_addr);
-void crccu_configure_mode(Crccu *p_crccu, uint32_t dw_mode);
+void crccu_configure_descriptor(Crccu *p_crccu, uint32_t ul_crc_dscr_addr);
+void crccu_configure_mode(Crccu *p_crccu, uint32_t ul_mode);
 void crccu_enable(Crccu *p_crccu);
 void crccu_disable(Crccu *p_crccu);
 void crccu_reset(Crccu *p_crccu);

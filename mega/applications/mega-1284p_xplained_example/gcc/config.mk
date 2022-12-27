@@ -42,7 +42,7 @@ MCU = atmega1284p
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = mega_applications_mega_1284p_xplained_example.elf
+TARGET = mega_1284p_xplained.elf
 
 # C source files located from the top-level source directory
 CSRCS = \

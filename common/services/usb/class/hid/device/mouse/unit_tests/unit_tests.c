@@ -154,7 +154,8 @@ int main(void)
 
 	board_init();
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-#if defined(__GNUC__) && defined(__AVR32__)
+#if (defined(__GNUC__) && defined(__AVR32__)) ||\
+		(defined(__GNUC__) && SAM)
 	// This unit test will be launched on a test-server, using avr32program.
 	// The reset is done through the OCD. The 'setbuf' command allows to make the
 	// application starts correctly: it will not execute the 'breakpoint'
@@ -193,7 +194,11 @@ int main(void)
 			"Common usb HID mouse service with test suite");
 
 	// The unit test prints message via UART which does not support deep sleep mode.
+#if SAM
+	sleepmgr_lock_mode(SLEEPMGR_ACTIVE);
+#else
 	sleepmgr_lock_mode(SLEEPMGR_IDLE);
+#endif
 
 	// Run all tests in the suite
 	test_suite_run(&usb_mouse_suite);

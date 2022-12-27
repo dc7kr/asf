@@ -3,7 +3,7 @@
  *
  * \brief Analog Comparator Controller (ACC) example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -102,16 +102,7 @@
  *
  */
 
-#include "board.h"
-#include "sysclk.h"
-#include "gpio.h"
-#include "exceptions.h"
-#include "pio.h"
-#include "acc.h"
-#include "uart.h"
-#include "pmc.h"
-#include "dacc.h"
-#include "adc.h"
+#include "asf.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 
@@ -157,12 +148,12 @@
  */
 void ACC_Handler(void)
 {
-	uint32_t status;
+	uint32_t ul_status;
 
-	status = acc_get_interrupt_status(ACC);
+	ul_status = acc_get_interrupt_status(ACC);
 
 	/* Compare Output Interrupt */
-	if ((status & ACC_ISR_CE) == ACC_ISR_CE) {
+	if ((ul_status & ACC_ISR_CE) == ACC_ISR_CE) {
 
 		if (acc_get_comparison_result(ACC)) {
 			puts("-ISR- Voltage Comparison Result: AD5 > DAC0\r");
@@ -178,7 +169,7 @@ void ACC_Handler(void)
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ BOARD_MCK, 115200, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
 
 	/* Configure PIO */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
@@ -218,9 +209,9 @@ static void dsplay_menu(void)
 static int16_t get_input_voltage(void)
 {
 	uint8_t i = 0, uc_key;
-	int16_t value = 0;
-	int8_t length = 0;
-	int8_t str_temp[5] = { 0 };
+	int16_t us_value = 0;
+	int8_t c_length = 0;
+	int8_t ac_str_temp[5] = { 0 };
 
 	while (1) {
 		while (uart_read(CONSOLE_UART, &uc_key)) {
@@ -232,43 +223,43 @@ static int16_t get_input_voltage(void)
 
 		if ('0' <= uc_key && '9' >= uc_key) {
 			printf("%c", uc_key);
-			str_temp[i++] = uc_key;
+			ac_str_temp[i++] = uc_key;
 
 			if (i >= 4)
 				break;
 		}
 	}
 
-	str_temp[i] = '\0';
+	ac_str_temp[i] = '\0';
 	/* Input string length */
-	length = i;
-	value = 0;
+	c_length = i;
+	us_value = 0;
 
 	/* Convert string to integer */
 	for (i = 0; i < 4; i++) {
-		if (str_temp[i] != '0') {
-			switch (length - i - 1) {
+		if (ac_str_temp[i] != '0') {
+			switch (c_length - i - 1) {
 			case 0:
-				value += (str_temp[i] - '0');
+				us_value += (ac_str_temp[i] - '0');
 				break;
 			case 1:
-				value += (str_temp[i] - '0') * 10;
+				us_value += (ac_str_temp[i] - '0') * 10;
 				break;
 			case 2:
-				value += (str_temp[i] - '0') * 100;
+				us_value += (ac_str_temp[i] - '0') * 100;
 				break;
 			case 3:
-				value += (str_temp[i] - '0') * 1000;
+				us_value += (ac_str_temp[i] - '0') * 1000;
 				break;
 			}
 		}
 	}
 
-	if (value > (5 * VOLT_REF / 6) || value < (1 * VOLT_REF / 6)) {
+	if (us_value > (5 * VOLT_REF / 6) || us_value < (1 * VOLT_REF / 6)) {
 		return -1;
 	}
 
-	return value;
+	return us_value;
 }
 
 /**
@@ -279,10 +270,10 @@ static int16_t get_input_voltage(void)
 int main(void)
 {
 	uint8_t uc_key;
-	int16_t volt = 0;
-	uint32_t value = 0;
-	volatile uint32_t status = 0x0;
-	int32_t volt_dac0 = 0;
+	int16_t s_volt = 0;
+	uint32_t ul_value = 0;
+	volatile uint32_t ul_status = 0x0;
+	int32_t l_volt_dac0 = 0;
 
 	/* Initilize the system */
 	sysclk_init();
@@ -330,7 +321,7 @@ int main(void)
 	 * Here, digit = MAX_DIGITAL/2
 	 */
 	dacc_write_conversion_data(DACC, MAX_DIGITAL / 2);
-	volt_dac0 = (MAX_DIGITAL / 2) * (2 * VOLT_REF / 3) / MAX_DIGITAL +
+	l_volt_dac0 = (MAX_DIGITAL / 2) * (2 * VOLT_REF / 3) / MAX_DIGITAL +
 			VOLT_REF / 6;
 
 	/* Initialize ADC */
@@ -341,7 +332,7 @@ int main(void)
 	 * For example, MCK = 64MHZ, PRESCAL = 4, then:
 	 *     ADCClock = 64 / ((4+1) * 2) = 6.4MHz;
 	 */
-	adc_init(ADC, BOARD_MCK, ADC_CLOCK, ADC_STARTUP_TIME_SETTING);
+	adc_init(ADC, sysclk_get_cpu_hz(), ADC_CLOCK, ADC_STARTUP_TIME_SETTING);
 
 	/* Formula:
 	 *     Startup  Time = startup value / ADCClock
@@ -386,11 +377,11 @@ int main(void)
 		case 'S':
 			printf("Input DAC0 output voltage (%d~%d mv): ",
 					(VOLT_REF / 6), (VOLT_REF * 5 / 6));
-			volt = get_input_voltage();
+			s_volt = get_input_voltage();
 			puts("\r");
 
-			if (volt > 0) {
-				volt_dac0 = volt;
+			if (s_volt > 0) {
+				l_volt_dac0 = s_volt;
 				/* The DAC formula is:
 				 *
 				 * (5/6 * VOLT_REF) - (1/6 * VOLT_REF)     volt - (1/6 * VOLT_REF)
@@ -398,9 +389,9 @@ int main(void)
 				 *              MAX_DIGITAL                       digit
 				 *
 				 */
-				value = ((volt - (VOLT_REF / 6)) 
+				ul_value = ((s_volt - (VOLT_REF / 6)) 
 					* (MAX_DIGITAL * 6) / 4) / VOLT_REF;
-				dacc_write_conversion_data(DACC, value);
+				dacc_write_conversion_data(DACC, ul_value);
 				puts("-I- Set ok\r");
 			} else {
 				puts("-I- Input voltage is invalid\r");
@@ -410,20 +401,20 @@ int main(void)
 		case 'V':
 			/* Start conversion */
 			adc_start(ADC);
-			status = adc_get_status(ADC).isr_status;
-			while ((status & ADC_ISR_EOC5) != ADC_ISR_EOC5) {
-				status = adc_get_status(ADC).isr_status;
+			ul_status = adc_get_status(ADC).isr_status;
+			while ((ul_status & ADC_ISR_EOC5) != ADC_ISR_EOC5) {
+				ul_status = adc_get_status(ADC).isr_status;
 			}
 			/* Conversion is done */
-			value = adc_get_channel_value(ADC, ADC_CHANNEL_5);
+			ul_value = adc_get_channel_value(ADC, ADC_CHANNEL_5);
 
 			/*
 			 * Convert ADC sample data to voltage value:
 			 * voltage value = (sample data / max. resolution) * reference voltage
 			 */
-			volt = (value * VOLT_REF) / MAX_DIGITAL;
-			printf("-I- Voltage on potentiometer(AD5) is %d mv\n\r", volt);
-			printf("-I- Voltage on DAC0 is %d mv \n\r", volt_dac0);
+			s_volt = (ul_value * VOLT_REF) / MAX_DIGITAL;
+			printf("-I- Voltage on potentiometer(AD5) is %d mv\n\r", s_volt);
+			printf("-I- Voltage on DAC0 is %d mv \n\r", l_volt_dac0);
 			break;
 			
 		case 'm':

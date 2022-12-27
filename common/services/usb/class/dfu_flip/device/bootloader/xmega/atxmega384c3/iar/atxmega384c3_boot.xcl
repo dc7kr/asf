@@ -3,7 +3,7 @@
  *
  * \brief Linker script for ATxmega384C3 USB DFU FLIP bootloader
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -55,9 +55,9 @@
 //////////////////////////////////////////////////////////////////////////////
 // Code (flash) segments
 -Z(CODE)INTVEC=601F4-_..X_INTVEC_END
--Z(CODE)BOOT=_..X_FLASH_BASE-601F3
--Z(CODE)CODE=601FC-_..X_CODE_END
--Z(CODE)FARCODE=601FC-_..X_CODE_END
+-P(CODE)BOOT=_..X_FLASH_BASE-_..X_CODE_END
+-P(CODE)CODE=_..X_FLASH_BASE-_..X_CODE_END
+-P(CODE)FARCODE=_..X_FLASH_BASE-_..X_CODE_END
 -Z(CODE)INITTAB=601FC-_..X_CODE_END
 -Z(CODE)NEAR_ID=601FC-_..X_CODE_END
 

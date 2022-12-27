@@ -3,7 +3,7 @@
  *
  * \brief Chip Identifier (CHIPID) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -91,32 +91,32 @@ uint32_t chipid_read(Chipid *p_chipid, chipid_data_t *p_chipid_data)
 		return 0xFFFFFFFF;
 	}
 	
-	p_chipid_data->dw_version =
+	p_chipid_data->ul_version =
 		(p_chipid->CHIPID_CIDR & CHIPID_CIDR_VERSION_Msk) >>
 			CHIPID_CIDR_VERSION_Pos;
-	p_chipid_data->dw_eproc =
+	p_chipid_data->ul_eproc =
 		(p_chipid->CHIPID_CIDR & CHIPID_CIDR_EPROC_Msk) >>
 			CHIPID_CIDR_EPROC_Pos;
-	p_chipid_data->dw_nvpsiz =
+	p_chipid_data->ul_nvpsiz =
 		(p_chipid->CHIPID_CIDR & CHIPID_CIDR_NVPSIZ_Msk) >>
 			CHIPID_CIDR_NVPSIZ_Pos;
-	p_chipid_data->dw_nvpsiz2 =
+	p_chipid_data->ul_nvpsiz2 =
 		(p_chipid->CHIPID_CIDR & CHIPID_CIDR_NVPSIZ2_Pos) >>
 			CHIPID_CIDR_NVPSIZ2_Pos;
-	p_chipid_data->dw_sramsiz =
+	p_chipid_data->ul_sramsiz =
 		(p_chipid->CHIPID_CIDR & CHIPID_CIDR_SRAMSIZ_Msk) >>
 			CHIPID_CIDR_SRAMSIZ_Pos;
-	p_chipid_data->dw_arch =
+	p_chipid_data->ul_arch =
 		(p_chipid->CHIPID_CIDR & CHIPID_CIDR_ARCH_Msk) >>
 			CHIPID_CIDR_ARCH_Pos;
-	p_chipid_data->dw_nvptyp =
+	p_chipid_data->ul_nvptyp =
 		(p_chipid->CHIPID_CIDR & CHIPID_CIDR_NVPTYP_Msk) >>
 			CHIPID_CIDR_NVPTYP_Pos;
-	p_chipid_data->dw_extflag =
+	p_chipid_data->ul_extflag =
 		(p_chipid->CHIPID_CIDR & CHIPID_CIDR_EXT) >> 31;
 		
-	if (p_chipid_data->dw_extflag) {
-		p_chipid_data->dw_extid =
+	if (p_chipid_data->ul_extflag) {
+		p_chipid_data->ul_extid =
 			p_chipid->CHIPID_EXID & CHIPID_EXID_EXID_Msk;
 	}
 	return 0;

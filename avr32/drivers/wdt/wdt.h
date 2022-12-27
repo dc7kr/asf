@@ -3,7 +3,7 @@
  *
  * \brief WDT driver for WDT module from revision 4.0.0 for AVR32 UC3.
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -42,7 +42,7 @@
 #define _WDT_H_
 
 /**
- * \defgroup group_avr32_drivers_wdt TIMING - WDT - Watchdog Timer
+ * \defgroup group_avr32_drivers_wdt WDT - Watchdog Timer
  *
  * Driver for the Watchdog Timer. Provides functions for selecting the mode, setting the time-out period, and enabling/disabling the Watchdog Timer.
  *

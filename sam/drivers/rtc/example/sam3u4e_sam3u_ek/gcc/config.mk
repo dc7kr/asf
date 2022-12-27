@@ -45,12 +45,13 @@ PART = sam3u4e
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam_drivers_rtc_example_sam3u_ek_flash.elf
-TARGET_SRAM = sam_drivers_rtc_example_sam3u_ek_sram.elf
+TARGET_FLASH = rtc_example_flash.elf
+TARGET_SRAM = rtc_example_sram.elf
 
 # List of C source files.
 CSRCS = \
        common/services/clock/sam3u/sysclk.c               \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3u_ek/init.c                         \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
@@ -71,6 +72,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3u_ek                                \
        sam/drivers/pio                                    \
@@ -82,6 +84,7 @@ INC_PATH = \
        sam/utils/cmsis/sam3u/include                      \
        sam/utils/cmsis/sam3u/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include \
        ./sam/drivers/rtc/example/sam3u4e_sam3u_ek/gcc    
 

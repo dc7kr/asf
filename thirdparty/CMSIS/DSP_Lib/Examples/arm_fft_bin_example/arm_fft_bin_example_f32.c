@@ -22,7 +22,7 @@
 * Version 1.0.0 2010/09/20 KK
 *    Production release and review comments incorporated.
 * ------------------------------------------------------------------- */ 
- 
+
 /** 
  * @ingroup groupExamples 
  */ 
@@ -78,8 +78,8 @@
 /** \example arm_fft_bin_example_f32.c 
   */  
 
-     
 #include "arm_math.h" 
+#include "asf.h"
  
 #define TEST_LENGTH_SAMPLES 2048 
  

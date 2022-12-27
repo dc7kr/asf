@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_usb_class_composite_host_example1_evk1101.elf
+TARGET = host_example1.elf
 
 # List of C source files.
 CSRCS = \

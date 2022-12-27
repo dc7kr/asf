@@ -3,7 +3,7 @@
  *
  * \brief Chip-specific system clock management functions.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -42,9 +42,71 @@
 #ifndef CHIP_SYSCLK_H_INCLUDED
 #define CHIP_SYSCLK_H_INCLUDED
 
-# include <osc.h>
-# include <pll.h>
-#include "system_sam3u.h"
+#include <osc.h>
+#include <pll.h>
+
+/**
+ * \page sysclk_quickstart Quick Start Guide for the System Clock Management service (SAM3U)
+ *
+ * This is the quick start guide for the \ref sysclk_group "System Clock Management"
+ * service, with step-by-step instructions on how to configure and use the service for
+ * specific use cases.
+ *
+ * \section sysclk_quickstart_usecases System Clock Management use cases
+ * - \ref sysclk_quickstart_basic
+ *
+ * \section sysclk_quickstart_basic Basic usage of the System Clock Management service
+ * This section will present a basic use case for the System Clock Management service.
+ * This use case will configure the main system clock to 96MHz, using an internal PLL
+ * module to multiply the frequency of a crystal attached to the microcontroller.
+ *
+ * \subsection sysclk_quickstart_use_case_1_prereq Prerequisites
+ *  - None
+ *
+ * \subsection sysclk_quickstart_use_case_1_setup_steps Initialization code
+ * Add to the application initialization code:
+ * \code
+ *    sysclk_init();
+ * \endcode
+ *
+ * \subsection sysclk_quickstart_use_case_1_setup_steps_workflow Workflow
+ * -# Configure the system clocks according to the settings in conf_clock.h:
+ *    \code sysclk_init(); \endcode
+ *
+ * \subsection sysclk_quickstart_use_case_1_example_code Example code
+ *   Add or uncomment the following in your conf_clock.h header file, commenting out all other
+ *   definitions of the same symbol(s):
+ *   \code
+ *   #define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_PLLACK
+ *
+ *   // Fpll0 = (Fclk * PLL_mul) / PLL_div
+ *   #define CONFIG_PLL0_SOURCE          PLL_SRC_MAINCK_XTAL
+ *   #define CONFIG_PLL0_MUL             (96000000UL / BOARD_FREQ_MAINCK_XTAL)
+ *   #define CONFIG_PLL0_DIV             1
+ *
+ *   // Fbus = Fsys / BUS_div
+ *   #define CONFIG_SYSCLK_PRES          SYSCLK_PRES_1
+ *   \endcode
+ *
+ * \subsection sysclk_quickstart_use_case_1_example_workflow Workflow
+ *  -# Configure the main system clock to use the output of the PLL module as its source:
+ *   \code #define CONFIG_SYSCLK_SOURCE          SYSCLK_SRC_PLLACK \endcode
+ *  -# Configure the PLL module to use the fast external fast crystal oscillator as its source:
+ *   \code #define CONFIG_PLL0_SOURCE            PLL_SRC_MAINCK_XTAL \endcode
+ *  -# Configure the PLL module to multiply the external fast crystal oscillator frequency up to 96MHz:
+ *   \code
+ *   #define CONFIG_PLL0_MUL             (96000000UL / BOARD_FREQ_MAINCK_XTAL)
+ *   #define CONFIG_PLL0_DIV             1 
+ *   \endcode
+ *   \note For user boards, \c BOARD_FREQ_MAINCK_XTAL should be defined in the board \c conf_board.h configuration
+ *         file as the frequency of the fast crystal attached to the microcontroller.
+ *  -# Configure the main clock to run at the full 96MHz, disable scaling of the main system clock speed:
+ *    \code
+ *    #define CONFIG_SYSCLK_PRES         SYSCLK_PRES_1
+ *    \endcode
+ *    \note Some dividers are powers of two, while others are integer division factors. Refer to the
+ *          formulas in the conf_clock.h template commented above each division define.
+ */
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -253,21 +315,21 @@ static inline uint32_t sysclk_get_peripheral_hz(void)
 /**
  * \brief Enable a peripheral's clock.
  *
- * \param dw_id Id (number) of the peripheral clock.
+ * \param ul_id Id (number) of the peripheral clock.
  */
-static inline void sysclk_enable_peripheral_clock(uint32_t dw_id)
+static inline void sysclk_enable_peripheral_clock(uint32_t ul_id)
 {
-	pmc_enable_periph_clk(dw_id);
+	pmc_enable_periph_clk(ul_id);
 }
 
 /**
  * \brief Disable a peripheral's clock.
  *
- * \param dw_id Id (number) of the peripheral clock.
+ * \param ul_id Id (number) of the peripheral clock.
  */
-static inline void sysclk_disable_peripheral_clock(uint32_t dw_id)
+static inline void sysclk_disable_peripheral_clock(uint32_t ul_id)
 {
-	pmc_disable_periph_clk(dw_id);
+	pmc_disable_periph_clk(ul_id);
 }
 
 //@}
@@ -275,8 +337,8 @@ static inline void sysclk_disable_peripheral_clock(uint32_t dw_id)
 //! \name System Clock Source and Prescaler configuration
 //@{
 
-extern void sysclk_set_prescalers(uint32_t dw_pres);
-extern void sysclk_set_source(uint32_t dw_src);
+extern void sysclk_set_prescalers(uint32_t ul_pres);
+extern void sysclk_set_source(uint32_t ul_src);
 
 //@}
 

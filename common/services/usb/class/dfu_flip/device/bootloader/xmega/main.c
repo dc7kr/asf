@@ -3,7 +3,7 @@
  *
  * \brief Main functions
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -50,7 +50,7 @@
 
 /*! \brief Main function. Execution starts here.
  */
-int main(void) @ "BOOT"
+int main(void)
 {
 	// Map interrupt vectors table in bootloader section
 	ccp_write_io((uint8_t*)&PMIC.CTRL, PMIC_IVSEL_bm | PMIC_LOLVLEN_bm

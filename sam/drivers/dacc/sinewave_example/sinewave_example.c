@@ -3,7 +3,7 @@
  *
  * \brief DAC Sinewave Example.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -100,21 +100,10 @@
  *
  */
 
+#include "asf.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_dacc_sinewave_example.h"
-
-#include "compiler.h"
-#include "board.h"
-#include "uart.h"
-#include "gpio.h"
-#include "pmc.h"
-#include "dacc.h"
-#include "sysclk.h"
-
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
 
 //! Analog control value
 #define DACC_ANALOG_CONTROL (DACC_ACR_IBCTLCH0(0x02) \
@@ -156,18 +145,18 @@
 #define wave_to_dacc(wave, amplitude, max_digital, max_amplitude) \
 	(((int)(wave)*(amplitude)/(max_digital)) + (max_amplitude/2))
 
-/** Current index_sample */
-uint32_t index_sample = 0;
+/** Current g_ul_index_sample */
+uint32_t g_ul_index_sample = 0;
 /** Frequency */
-uint32_t ul_frequency = 0;
+uint32_t g_ul_frequency = 0;
 /** Amplitude */
-int32_t sl_amplitude = 0;
+int32_t g_l_amplitude = 0;
 
 /** Waveform selector */
-uint8_t uc_wave_sel = 0;
+uint8_t g_uc_wave_sel = 0;
 
 /** 100 points of sinewave samples, amplitude is MAX_DIGITAL*2 */
-const int16_t sine_data[SAMPLES] = {
+const int16_t gc_us_sine_data[SAMPLES] = {
 	0x0,   0x080, 0x100, 0x17f, 0x1fd, 0x278, 0x2f1, 0x367, 0x3da, 0x449,
 	0x4b3, 0x519, 0x579, 0x5d4, 0x629, 0x678, 0x6c0, 0x702, 0x73c, 0x76f,
 	0x79b, 0x7bf, 0x7db, 0x7ef, 0x7fb, 0x7ff, 0x7fb, 0x7ef, 0x7db, 0x7bf,
@@ -282,9 +271,9 @@ static void display_menu(void)
 			"-- m: Display this menu.\n\r"
 			"------------ Current configuration ------------\r");
 	printf("-- DACC channel:\t%d\n\r", DACC_CHANNEL);
-	printf("-- Amplitude   :\t%d\n\r", sl_amplitude);
-	printf("-- Frequency   :\t%u\n\r", ul_frequency);
-	printf("-- Wave        :\t%s\n\r", uc_wave_sel ? "SQUARE" : "SINE");
+	printf("-- Amplitude   :\t%d\n\r", g_l_amplitude);
+	printf("-- Frequency   :\t%u\n\r", g_ul_frequency);
+	printf("-- Wave        :\t%s\n\r", g_uc_wave_sel ? "SQUARE" : "SINE");
 	puts("===============================================\r");
 }
 
@@ -300,14 +289,14 @@ void SysTick_Handler(void)
 
 	/* If ready for new data */
 	if ((status & DACC_ISR_TXRDY) == DACC_ISR_TXRDY) {
-		index_sample++;
-		if (index_sample >= SAMPLES) {
-			index_sample = 0;
+		g_ul_index_sample++;
+		if (g_ul_index_sample >= SAMPLES) {
+			g_ul_index_sample = 0;
 		}
-		dac_val = uc_wave_sel ?
-				((index_sample > SAMPLES / 2) ? 0 : MAX_AMPLITUDE)
-				: wave_to_dacc(sine_data[index_sample],
-					 sl_amplitude,
+		dac_val = g_uc_wave_sel ?
+				((g_ul_index_sample > SAMPLES / 2) ? 0 : MAX_AMPLITUDE)
+				: wave_to_dacc(gc_us_sine_data[g_ul_index_sample],
+					 g_l_amplitude,
 					 MAX_DIGITAL * 2, MAX_AMPLITUDE);
 
 		dacc_write_conversion_data(DACC_BASE, dac_val);
@@ -370,10 +359,10 @@ int main(void)
 	dacc_set_analog_control(DACC_BASE, DACC_ANALOG_CONTROL);
 #endif /* (SAM3N) */
 
-	sl_amplitude = MAX_AMPLITUDE / 2;
-	ul_frequency = DEFAULT_FREQUENCY;
+	g_l_amplitude = MAX_AMPLITUDE / 2;
+	g_ul_frequency = DEFAULT_FREQUENCY;
 
-	SysTick_Config(sysclk_get_cpu_hz() / (ul_frequency * SAMPLES));
+	SysTick_Config(sysclk_get_cpu_hz() / (g_ul_frequency * SAMPLES));
 
 	/* Main menu */
 	display_menu();
@@ -391,7 +380,7 @@ int main(void)
 			if (ul_freq != VAL_INVALID) {
 				printf("Set frequency to:%uHz\n\r", ul_freq);
 				SysTick_Config(sysclk_get_cpu_hz() / (ul_freq*SAMPLES));
-				ul_frequency = ul_freq;
+				g_ul_frequency = ul_freq;
 			}
 			break;
 
@@ -401,21 +390,21 @@ int main(void)
 			puts("\r");
 			if (ul_amp != VAL_INVALID) {
 				printf("Set amplitude to %u \n\r", ul_amp);
-				sl_amplitude = ul_amp;
+				g_l_amplitude = ul_amp;
 			}
 			break;
 
 		case 'i':
 		case 'I':
 			printf("-I- Frequency:%u Hz Amplitude:%d\n\r",
-				ul_frequency, sl_amplitude);
+				g_ul_frequency, g_l_amplitude);
 			break;
 
 		case 'w':
 		case 'W':
-			printf("-I- Switch wave to : %s\n\r", uc_wave_sel ?
+			printf("-I- Switch wave to : %s\n\r", g_uc_wave_sel ?
 				"SINE" : "Full Amplitude SQUAQE");
-			uc_wave_sel = (uc_wave_sel + 1) & 1;
+			g_uc_wave_sel = (g_uc_wave_sel + 1) & 1;
 			break;
 
 		case 'm':

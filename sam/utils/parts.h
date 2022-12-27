@@ -5,7 +5,7 @@
  *
  * This file defines common SAM series.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -46,7 +46,6 @@
 
 /* Convenience macro for checking GCC and IAR part definitions */
 #define part_is_defined(part) (defined(__ ## part ## __))
-
 
 /* SAM3 family */
 

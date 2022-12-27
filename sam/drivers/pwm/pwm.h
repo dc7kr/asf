@@ -3,7 +3,7 @@
  *
  * \brief Pulse Width Modulation (PWM) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -83,11 +83,11 @@ typedef enum {
 /** Input parameters when initializing PWM */
 typedef struct {
 	/** Frequency of clock A in Hz (set 0 to turn it off) */
-	uint32_t dw_clka;
+	uint32_t ul_clka;
 	/** Frequency of clock B in Hz (set 0 to turn it off) */
-	uint32_t dw_clkb;
+	uint32_t ul_clkb;
 	/** Frequency of master clock in Hz */
-	uint32_t dw_mck;
+	uint32_t ul_mck;
 } pwm_clock_t;
 
 #if (SAM3U || SAM3S || SAM3XA || SAM4S)
@@ -203,15 +203,15 @@ typedef struct {
 	/** Boolean of comparison enable */
 	bool b_enable;
 	/** Comparison value */
-	uint32_t dw_value;
+	uint32_t ul_value;
 	/** Comparison mode */
 	bool b_is_decrementing;
 	/** Comparison trigger value */
-	uint32_t dw_trigger;
+	uint32_t ul_trigger;
 	/** Comparison period value */
-	uint32_t dw_period;
+	uint32_t ul_period;
 	/** Comparison update period value */
-	uint32_t dw_update_period;
+	uint32_t ul_update_period;
 	/** Boolean of generating a match pulse on PWM event line 0 */
 	bool b_pulse_on_line_0;
 	/** Boolean of generating a match pulse on PWM event line 1 */
@@ -233,11 +233,11 @@ typedef struct {
 /** Structure of PWM write-protect information */
 typedef struct {
 	/** Bitmask of PWM register group for write protect hardware status */
-	uint32_t dw_hw_status;
+	uint32_t ul_hw_status;
 	/** Bitmask of PWM register group for write protect software status */
-	uint32_t dw_sw_status;
+	uint32_t ul_sw_status;
 	/** Offset address of PWM register in which a write access has been attempted */
-	uint32_t dw_offset;
+	uint32_t ul_offset;
 } pwm_protect_t;
 #endif /* (SAM3U || SAM3S || SAM3XA) */
 
@@ -246,15 +246,15 @@ typedef struct {
 	/** Channel number */
 	pwm_ch_t channel;
 	/** Channel prescaler */
-	uint32_t dw_prescaler;
+	uint32_t ul_prescaler;
     /** Channel alignment */
 	pwm_align_t alignment;
     /** Channel initial polarity */
 	pwm_level_t polarity;
 	/** Duty Cycle Value */
-	uint32_t dw_duty;
+	uint32_t ul_duty;
 	/** Period Cycle Value */
-	uint32_t dw_period;
+	uint32_t ul_period;
 
 #if (SAM3U || SAM3S || SAM3XA || SAM4S)
     /** Channel counter event */
@@ -266,9 +266,9 @@ typedef struct {
     /** Boolean of channel dead-time PWML output inverted */
 	bool b_pwml_output_inverted;
 	/** Dead-time Value for PWMH Output */
-	uint16_t w_deadtime_pwmh;
+	uint16_t us_deadtime_pwmh;
 	/** Dead-time Value for PWML Output */
-	uint16_t w_deadtime_pwml;
+	uint16_t us_deadtime_pwml;
 	/** Channel output */
 	pwm_output_t output_selection;
 	/** Boolean of Synchronous Channel */
@@ -276,9 +276,9 @@ typedef struct {
 	/** Fault ID of the channel */
 	pwm_fault_id_t fault_id;
 	/** Channel PWMH output level in fault protection */
-	pwm_level_t dw_fault_output_pwmh;
+	pwm_level_t ul_fault_output_pwmh;
 	/** Channel PWML output level in fault protection */
-	pwm_level_t dw_fault_output_pwml;
+	pwm_level_t ul_fault_output_pwml;
 #endif /* (SAM3U || SAM3S || SAM3XA) */
 } pwm_channel_t;
 
@@ -286,25 +286,25 @@ typedef struct {
 uint32_t pwm_init(Pwm *p_pwm, pwm_clock_t *clock_config);
 uint32_t pwm_channel_init(Pwm *p_pwm, pwm_channel_t *p_channel);
 uint32_t pwm_channel_update_period(Pwm *p_pwm, pwm_channel_t *p_channel,
-		uint32_t dw_period);
+		uint32_t ul_period);
 uint32_t pwm_channel_update_duty(Pwm *p_pwm, pwm_channel_t *p_channel,
-		uint32_t dw_duty);
+		uint32_t ul_duty);
 uint32_t pwm_channel_get_counter(Pwm *p_pwm, pwm_channel_t *p_channel);
-void pwm_channel_enable(Pwm *p_pwm, uint32_t dw_channel);
-void pwm_channel_disable(Pwm *p_pwm, uint32_t dw_channel);
+void pwm_channel_enable(Pwm *p_pwm, uint32_t ul_channel);
+void pwm_channel_disable(Pwm *p_pwm, uint32_t ul_channel);
 uint32_t pwm_channel_get_status(Pwm *p_pwm);
 uint32_t pwm_channel_get_interrupt_status(Pwm *p_pwm);
 uint32_t pwm_channel_get_interrupt_mask(Pwm *p_pwm);
-void pwm_channel_enable_interrupt(Pwm *p_pwm, uint32_t dw_event,
-		uint32_t dw_fault);
-void pwm_channel_disable_interrupt(Pwm *p_pwm, uint32_t dw_event,
-		uint32_t dw_fault);
+void pwm_channel_enable_interrupt(Pwm *p_pwm, uint32_t ul_event,
+		uint32_t ul_fault);
+void pwm_channel_disable_interrupt(Pwm *p_pwm, uint32_t ul_event,
+		uint32_t ul_fault);
 
 #if (SAM3U || SAM3S || SAM3XA || SAM4S)
 void pwm_channel_update_output(Pwm *p_pwm, pwm_channel_t *p_channel,
 		pwm_output_t *p_output, bool b_sync);
 void pwm_channel_update_dead_time(Pwm *p_pwm, pwm_channel_t *p_channel,
-		uint16_t w_deadtime_pwmh, uint16_t w_deadtime_pwml);
+		uint16_t us_deadtime_pwmh, uint16_t us_deadtime_pwml);
 
 uint32_t pwm_fault_init(Pwm *p_pwm, pwm_fault_t *p_fault);
 uint32_t pwm_fault_get_status(Pwm *p_pwm);
@@ -315,26 +315,26 @@ uint32_t pwm_cmp_init(Pwm *p_pwm, pwm_cmp_t *p_cmp);
 uint32_t pwm_cmp_change_setting(Pwm *p_pwm, pwm_cmp_t *p_cmp);
 uint32_t pwm_cmp_get_period_counter(Pwm *p_pwm, pmc_cmp_unit_t unit);
 uint32_t pwm_cmp_get_update_counter(Pwm *p_pwm, pmc_cmp_unit_t unit);
-void pwm_cmp_enable_interrupt(Pwm *p_pwm, uint32_t dw_sources,
+void pwm_cmp_enable_interrupt(Pwm *p_pwm, uint32_t ul_sources,
 		pwm_cmp_interrupt_t type);
-void pwm_cmp_disable_interrupt(Pwm *p_pwm, uint32_t dw_sources,
+void pwm_cmp_disable_interrupt(Pwm *p_pwm, uint32_t ul_sources,
 		pwm_cmp_interrupt_t type);
 void pwm_pdc_set_request_mode(Pwm *p_pwm, pwm_pdc_request_mode_t request_mode,
 		pmc_cmp_unit_t cmp_unit);
 
-void pwm_pdc_enable_interrupt(Pwm *p_pwm, uint32_t dw_sources);
-void pwm_pdc_disable_interrupt(Pwm *p_pwm, uint32_t dw_sources);
+void pwm_pdc_enable_interrupt(Pwm *p_pwm, uint32_t ul_sources);
+void pwm_pdc_disable_interrupt(Pwm *p_pwm, uint32_t ul_sources);
 
 uint32_t pwm_sync_init(Pwm *p_pwm, pwm_sync_update_mode_t mode,
-		uint32_t dw_update_period);
+		uint32_t ul_update_period);
 void pwm_sync_unlock_update(Pwm *p_pwm);
-void pwm_sync_change_period(Pwm *p_pwm, uint32_t dw_update_period);
+void pwm_sync_change_period(Pwm *p_pwm, uint32_t ul_update_period);
 uint32_t pwm_sync_get_period_counter(Pwm * p_pwm);
-void pwm_sync_enable_interrupt(Pwm *p_pwm, uint32_t dw_sources);
-void pwm_sync_disable_interrupt(Pwm *p_pwm, uint32_t dw_sources);
+void pwm_sync_enable_interrupt(Pwm *p_pwm, uint32_t ul_sources);
+void pwm_sync_disable_interrupt(Pwm *p_pwm, uint32_t ul_sources);
 
-void pwm_enable_protect(Pwm *p_pwm, uint32_t dw_group, bool b_sw);
-void pwm_disable_protect(Pwm *p_pwm, uint32_t dw_group);
+void pwm_enable_protect(Pwm *p_pwm, uint32_t ul_group, bool b_sw);
+void pwm_disable_protect(Pwm *p_pwm, uint32_t ul_group);
 bool pwm_get_protect_status(Pwm *p_pwm, pwm_protect_t * p_protect);
 
 uint32_t pwm_get_interrupt_status(Pwm *p_pwm);
@@ -353,5 +353,255 @@ void pwm_stepper_motor_init(Pwm *p_pwm, pwm_stepper_motor_pair_t pair,
 #endif
 /**INDENT-ON**/
 /// @endcond
+
+/**
+ * \page sam_pwm_quickstart Quickstart guide for SAM PWM module
+ *
+ * This is the quickstart guide for the \ref sam_drivers_pwm_group "PWM module",
+ * with step-by-step instructions on how to configure and use the drivers in a
+ * selection of use cases.
+ *
+ * The use cases contain several code fragments. The code fragments in the
+ * steps for setup can be copied into a custom initialization function, while
+ * the steps for usage can be copied into, e.g., the main application function.
+ *
+ * \section pwm_basic_use_case Basic use case
+ * In this basic use case, the PWM module is configured to:
+ * - Output a square wave on PWM channel 0
+ * - The frequency of the square wave is 1KHz, 50% duty cycle
+ * - Clock A as the source clock
+ * - The output wave can be checked on the selected output pin
+ *
+ * \section pwm_basic_use_case_setup Setup steps
+ *
+ * \subsection pwm_basic_use_case_setup_prereq Prerequisites
+ *  - \ref group_pmc "Power Management Controller driver"
+ *  - \ref gpio_group "General Purpose I/O Management (gpio)"
+ *
+ * \subsection pwm_basic_use_case_setup_code Example code
+ * Add this PWM initialization code at the beginning of the main function:
+ * \code
+ *    pwm_channel_t pwm_channel_instance;
+ *
+ *    pmc_enable_periph_clk(ID_PWM);
+ *
+ *    pwm_channel_disable(PWM, PWM_CHANNEL_0);
+ *
+ *    pwm_clock_t clock_setting = {
+ *        .ul_clka = 1000 * 100,
+ *        .ul_clkb = 0,
+ *        .ul_mck = 48000000
+ *    };
+ *    pwm_init(PWM, &clock_setting);
+ *
+ *    pwm_channel_instance.ul_prescaler = PWM_CMR_CPRE_CLKA;
+ *    pwm_channel_instance.ul_period = 100;
+ *    pwm_channel_instance.ul_duty = 50;
+ *    pwm_channel_instance.channel = PWM_CHANNEL_0;
+ *    pwm_channel_init(PWM, &pwm_channel_instance);
+ * \endcode
+ *
+ * \subsection pwm_basic_use_case_setup_flow Workflow
+ * -# Define the PWM channel instance in order to configure channel 0:
+ *   - \code pwm_channel_t pwm_channel_instance; \endcode
+ * -# Enable the module clock for the PWM peripheral:
+ *   - \code pmc_enable_periph_clk(ID_PWM); \endcode
+ * -# Disable PWM channel 0:
+ *   - \code pwm_channel_disable(PWM, PWM_CHANNEL_0); \endcode
+ * -# Setup clock for PWM module:
+ *   - \code 
+ *    pwm_clock_t clock_setting = {
+ *        .ul_clka = 1000 * 100,
+ *        .ul_clkb = 0,
+ *        .ul_mck = 48000000
+ *    };
+ *    pwm_init(PWM, &clock_setting);
+ *   \endcode
+ *   - \note 1. Only Clock A is configured (clock B is not used).
+ * 2. The expected frequency is 1KHz, system main clock is assumed to be 48MHz.
+ * -# Initialize channel instance and configure PWM channel 0, selecting clock A
+ * as its source clock and setting the duty cycle at 50%:
+ *   - \code
+ *    pwm_channel_instance.ul_prescaler = PWM_CMR_CPRE_CLKA;
+ *    pwm_channel_instance.ul_period = 100;
+ *    pwm_channel_instance.ul_duty = 50;
+ *    pwm_channel_instance.channel = PWM_CHANNEL_0;
+ *    pwm_channel_init(PWM, &pwm_channel_instance);
+ *   \endcode
+ *   - \note 1. Period is left-aligned and output waveform starts at a low level.
+ * 2. The pwm_channel_instance can be re-used to configure other PWM channels
+ * after setting the required parameters.
+ *
+ * \section pwm_basic_use_case_usage Usage steps
+ *
+ * \subsection pwm_basic_use_case_usage_code Example code
+ * Add to, e.g., main loop in application C-file:
+ * \code
+ *    pwm_channel_enable(PWM, PWM_CHANNEL_0);
+ * \endcode
+ *
+ * \subsection pwm_basic_use_case_usage_flow Workflow
+ * -# Enable PWM channel 0 and output square wave on this channel:
+ *   - \code pwm_channel_enable(PWM, PWM_CHANNEL_0); \endcode
+ *
+ * \section pwm_use_cases Advanced use cases
+ * For more advanced use of the pwm driver, see the following use cases:
+ * - \subpage pwm_use_case_1 : PWM channel 0 outputs square wave and duty cycle
+ *  is updated in the PWM ISR.
+ */
+ 
+/**
+ * \page pwm_use_case_1 Use case #1
+ *
+ * In this use case, the PWM module is configured to:
+ * - Output a square wave on PWM channel 0
+ * - The frequency of the square wave is 1KHz
+ * - The duty cycle is changed in the PWM ISR
+ * - Clock A as the source clock
+ * - The output wave can be checked on the selected output pin
+ *
+ * \section pwm_use_case_1_setup Setup steps
+ *
+ * \subsection pwm_use_case_1_setup_prereq Prerequisites
+ *  - \ref group_pmc "Power Management Controller driver"
+ *  - \ref gpio_group "General Purpose I/O Management (gpio)"
+ *
+ * \subsection pwm_use_case_1_setup_code Example code
+ * Add to application C-file:
+ * \code
+ *    pwm_channel_t pwm_channel_instance;
+ * \endcode
+ *
+ * \code
+ *    void PWM_Handler(void)
+ *    {
+ *        static uint32_t ul_duty = 0;
+ *        uint32_t ul_status;
+ *        static uint8_t uc_countn = 0;
+ *        static uint8_t uc_flag = 1;
+ *
+ *        ul_status = pwm_channel_get_interrupt_status(PWM);
+ *        if ((ul_status & PWM_CHANNEL_0) == PWM_CHANNEL_0) {
+ *            uc_count++;
+ *            if (uc_count == 10) {
+ *                if (uc_flag) {
+ *                    ul_duty++;
+ *                    if (ul_duty == 100) {
+ *                        uc_flag = 0;
+ *                    }
+ *                } else {
+ *                    ul_duty--;
+ *                    if (ul_duty == 0) {
+ *                        uc_flag = 1;
+ *                    }
+ *                }
+ *                uc_count = 0;
+ *                pwm_channel_instance.channel = PWM_CHANNEL_0;
+ *                pwm_channel_update_duty(PWM, &pwm_channel_instance, ul_duty);
+ *            }
+ *        }
+ *    }
+ * \endcode
+ *
+ * \code
+ *    pmc_enable_periph_clk(ID_PWM);
+ *
+ *    pwm_channel_disable(PWM, PWM_CHANNEL_0);
+ *
+ *    pwm_clock_t clock_setting = {
+ *        .ul_clka = 1000 * 100,
+ *        .ul_clkb = 0,
+ *        .ul_mck = 48000000
+ *    };
+ *    pwm_init(PWM, &clock_setting);
+ *
+ *    pwm_channel_instance.ul_prescaler = PWM_CMR_CPRE_CLKA;
+ *    pwm_channel_instance.ul_period = 100;
+ *    pwm_channel_instance.ul_duty = 0;
+ *    pwm_channel_instance.channel = PWM_CHANNEL_0;
+ *    pwm_channel_init(PWM, &pwm_channel_instance);
+ *
+ *    pwm_channel_enable_interrupt(PWM, PWM_CHANNEL_0, 0);
+ * \endcode
+ *
+ * \subsection pwm_use_case_1_setup_flow Workflow
+ * -# Define the PWM channel instance in order to configure channel 0:
+ *   - \code pwm_channel_t pwm_channel_instance; \endcode
+ * -# Define the PWM interrupt handler in the application:
+ *   - \code void PWM_Handler(void); \endcode
+ * -# In PWM_Handler(), get PWM interrupt status:
+ *   - \code ul_status = pwm_channel_get_interrupt_status(PWM); \endcode
+ * -# In PWM_Handler(), check whether the PWM channel 0 interrupt has occured:
+ *   - \code
+ *    if ((ul_status & PWM_CHANNEL_0) == PWM_CHANNEL_0) {
+ *    }
+ *   \endcode
+ * -# In PWM_Handler(), if the PWM channel 0 interrupt has occured, update the ul_duty value:
+ *   - \code
+ *    uc_count++;
+ *    if (uc_count == 10) {
+ *        if (uc_flag) {
+ *            ul_duty++;
+ *            if (ul_duty >= 100) {
+ *                uc_flag = 0;
+ *            }
+ *        } else {
+ *            ul_duty--;
+ *            if (ul_duty == 0) {
+ *                uc_flag = 1;
+ *            }
+ *        }
+ *    }
+ *   \endcode
+ * -# In PWM_Handler(), if the ul_duty value has been updated, change the square wave duty:
+ *   - \code
+ *    pwm_channel_instance.channel = PWM_CHANNEL_0;
+ *    pwm_channel_update_duty(PWM, &pwm_channel_instance, ul_duty);
+ *   \endcode
+ * -# Enable the PWM clock:
+ *   - \code pmc_enable_periph_clk(ID_PWM); \endcode
+ * -# Disable PWM channel 0:
+ *   - \code pwm_channel_disable(PWM, PWM_CHANNEL_0); \endcode
+ * -# Setup clock for PWM module:
+ *   - \code 
+ *    pwm_clock_t clock_setting = {
+ *        .ul_clka = 1000 * 100,
+ *        .ul_clkb = 0,
+ *        .ul_mck = 48000000
+ *    };
+ *    pwm_init(PWM, &clock_setting);
+ *   \endcode
+ *   - \note 1. Only Clock A is configured (clock B is not used).
+ * 2. The expected frequency is 1KHz, system main clock is assumed to be 48Mhz.
+ * -# Initialize channel instance and configure PWM channel 0, selecting clock A
+ * as its source clock and setting the initial ducy as 0%:
+ *   - \code
+ *    pwm_channel_instance.ul_prescaler = PWM_CMR_CPRE_CLKA;
+ *    pwm_channel_instance.ul_period = 100;
+ *    pwm_channel_instance.ul_duty = 0;
+ *    pwm_channel_instance.channel = PWM_CHANNEL_0;
+ *    pwm_channel_init(PWM, &pwm_channel_instance);
+ *   \endcode
+ *   - \note 1. Period is left-aligned and output waveform starts at a low level.
+ * 2. The pwm_channel_instance can be re-used to configure other PWM channels
+ * after setting the required parameters.
+ * -# Enable channel 0 interrupt:
+ *   - \code pwm_channel_enable_interrupt(PWM, PWM_CHANNEL_0, 0); \endcode
+ *   - \note 1.In order to enable the PWM interrupt, the NVIC must be configured
+ * to enable the PWM interrupt. 2. When the channel 0 counter reaches the channel
+ * period, the interrupt (counter event) will occur.
+ *
+ * \section pwm_use_case_1_usage Usage steps
+ *
+ * \subsection pwm_use_case_1_usage_code Example code
+ * \code
+ *    pwm_channel_enable(PWM, PWM_CHANNEL_0);
+ * \endcode
+ *
+ * \subsection pwn_use_case_1_usage_flow Workflow
+ * -# Enable PWM channel 0 and output square wave on this channel:
+ *   - \code pwm_channel_enable(PWM, PWM_CHANNEL_0); \endcode
+ *
+ */
 
 #endif /* PWM_H_INCLUDED */

@@ -3,7 +3,7 @@
  *
  * \brief USB configuration file for CDC application
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -61,7 +61,7 @@
 // (USB_CONFIG_ATTR_REMOTE_WAKEUP|USB_CONFIG_ATTR_BUS_POWERED)
 
 //! USB Device string definitions (Optional)
-#define  USB_DEVICE_MANUFACTURE_NAME        "ATMEL AVR"
+#define  USB_DEVICE_MANUFACTURE_NAME        "ATMEL ASF"
 #define  USB_DEVICE_PRODUCT_NAME            "CDC Virtual Com"
 #define  USB_DEVICE_GET_SERIAL_NAME_POINTER cdc_serial_number
 #define  USB_DEVICE_GET_SERIAL_NAME_LENGTH  12

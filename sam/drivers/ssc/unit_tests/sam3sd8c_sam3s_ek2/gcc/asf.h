@@ -50,8 +50,9 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: 
-#include <exceptions.h>
+// From module: Common SAM compiler driver
+#include <compiler.h>
+#include <status_codes.h>
 
 // From module: GPIO - General purpose Input/Output
 #include <gpio.h>
@@ -62,31 +63,33 @@
 // From module: Generic components of unit test framework
 #include <unit_test/suite.h>
 
+// From module: Interrupt management - SAM3 implementation
+#include <interrupt.h>
+
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
 #include <pio_handler.h>
 
 // From module: PMC - Power Management Controller
 #include <pmc.h>
+#include <sleep.h>
+
+// From module: SAM3SD8 startup code
+#include <exceptions.h>
 
 // From module: SSC - Synchronous Serial Controller
 #include <ssc.h>
 
+// From module: Standard serial I/O (stdio) - SAM implementation
+#include <stdio_serial.h>
+
 // From module: System Clock Control - SAM3SD implementation
 #include <sysclk.h>
 
-// From module: UART - Universal Asynchronous Receiver/Transmitter
+// From module: UART - Univ. Async Rec/Trans
 #include <uart.h>
 
 // From module: USART - Serial interface
 #include <serial.h>
-
-// From module: UTILITY - SAM3SD88 compiler driver
-#include <compiler.h>
-#include <parts.h>
-#include <status_codes.h>
-
-// From module: UTILITY - Standard serial I/O (stdio) - SAM implementation
-#include <stdio_serial.h>
 
 #endif // ASF_H

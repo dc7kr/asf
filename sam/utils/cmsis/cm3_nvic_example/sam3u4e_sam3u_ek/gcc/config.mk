@@ -45,11 +45,12 @@ PART = sam3u4e
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam_utils_cmsis_cm3_nvic_example_sam3u_ek_flash.elf
-TARGET_SRAM = sam_utils_cmsis_cm3_nvic_example_sam3u_ek_sram.elf
+TARGET_FLASH = cmsis_cm3_nvic_example_flash.elf
+TARGET_SRAM = cmsis_cm3_nvic_example_sram.elf
 
 # List of C source files.
 CSRCS = \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3u_ek/init.c                         \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
@@ -68,6 +69,7 @@ ASSRCS =
 INC_PATH = \
        common/boards                                      \
        common/services/gpio                               \
+       common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3u_ek                                \
        sam/drivers/pio                                    \
@@ -79,6 +81,7 @@ INC_PATH = \
        sam/utils/cmsis/sam3u/include                      \
        sam/utils/cmsis/sam3u/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include \
        ./sam/utils/cmsis/cm3_nvic_example/sam3u4e_sam3u_ek/gcc
 

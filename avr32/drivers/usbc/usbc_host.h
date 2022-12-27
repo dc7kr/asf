@@ -3,7 +3,7 @@
  *
  * \brief USBC Host Driver header file.
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -261,14 +261,6 @@
 		(Clr_bits(AVR32_USBC.uprst, AVR32_USBC_UPRST_PEN0_MASK << (p)))
 #define Is_uhd_pipe_enabled(p) \
 		(Tst_bits(AVR32_USBC.uprst, AVR32_USBC_UPRST_PEN0_MASK << (p)))
-
-__inline__ void uhd_reset_pipe( uint8_t pipe ) {
-	unsigned long config;
-	config = USBC_ARRAY(upcfg0,pipe);
-	uhd_disable_pipe(pipe);
-	uhd_enable_pipe(pipe);
-	USBC_ARRAY(upcfg0,pipe) = config;
-}
 
 #define uhd_freeze_pipe(p)                       USBC_P_REG_SET(UPCON,PFREEZE,p)
 #define uhd_unfreeze_pipe(p)                     USBC_P_REG_CLR(UPCON,PFREEZE,p)

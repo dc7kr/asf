@@ -3,7 +3,7 @@
  *
  * \brief Board configuration.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -58,30 +58,5 @@
 #define SPI_MASTER_BASE      SPI
 /** SPI base address for SPI slave mode, (on different board) */
 #define SPI_SLAVE_BASE       SPI
-
-/** Board SPI chip select0 pin definition. */
-#define BOARD_SPI_NPCS0_GPIO         SPI_NPCS0_GPIO
-#define BOARD_SPI_NPCS0_GPIO_FLAGS   SPI_NPCS0_GPIO_FLAGS
-
-/** Board SPI chip select1 pin definition, as there are sevral pins which 
- *  can be used as SPI chip select1, so this needs to be modified according 
- *  to actual board.
- */
-//#define BOARD_SPI_NPCS1_GPIO         SPI_NPCS1_GPIO_PA0
-//#define BOARD_SPI_NPCS1_GPIO_FLAGS   SPI_NPCS1_GPIO_PA0_FLAGS
-
-/** Board SPI chip select2 pin definition, as there are sevral pins which 
- *  can be used as SPI chip select2, so this needs to be modified according 
- *  to actual board.
- */
-//#define BOARD_SPI_NPCS2_GPIO         SPI_NPCS2_GPIO_PA1
-//#define BOARD_SPI_NPCS2_GPIO_FLAGS   SPI_NPCS2_GPIO_PA1_FLAGS
-
-/** Board SPI chip select3 pin definition, as there are sevral pins which 
- *  can be used as SPI chip select3, so this needs to be modified according 
- *  to actual board.
- */
-//#define BOARD_SPI_NPCS3_GPIO         SPI_NPCS3_GPIO_PA19
-//#define BOARD_SPI_NPCS3_GPIO_FLAGS   SPI_NPCS3_GPIO_PA19_FLAGS
 
 #endif /* CONF_BOARD_H_INCLUDED */

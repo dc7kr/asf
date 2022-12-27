@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for Advanced Encryption Standard crypto module
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -58,6 +58,7 @@
  * This is the unit test application for the \ref aes_group.
  * It consists of test cases for the following functionality:
  * - Get and set functions
+ * - Status functions
  * - Encryption
  * - Decryption
  * - Auto/manual start with XOR
@@ -140,6 +141,12 @@ t_data pre_encrypted_data = {
 	0x24, 0x4E, 0x81, 0xBA, 0x1E, 0xF6, 0x24, 0xB5
 };
 
+//! \brief Dummy data used to fill AES state memory
+t_data dummy_data = {
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+};
+
 /**
  * \brief Last subkey used in decryption of above encrypted data, generated
  * from above encryption key.
@@ -192,8 +199,7 @@ static bool compare_data_block(t_data block_1, t_data block_2)
  */
 static bool aes_lastsubkey_generate(t_key key, t_key last_sub_key)
 {
-	bool    keygen_ok;
-	uint8_t i;
+	bool keygen_ok;
 
 	aes_software_reset();
 
@@ -203,29 +209,25 @@ static bool aes_lastsubkey_generate(t_key key, t_key last_sub_key)
 	/* Load key into AES key memory. */
 	aes_set_key(key);
 
-	/* Load dummy data into AES state memory. */
-	for (i = 0; i < AES_KEY_SIZE; i++) {
-		AES.STATE = 0x00;
-	}
+	/* Load dummy data into AES state memory. It isn't important what is
+	 * written, just that a write cycle occurs. */
+	aes_write_inputdata(dummy_data);
 
 	/* Start encryption. */
 	aes_start();
 
 	do {
 		/* Wait until AES is finished or an error occurs. */
-	} while ((AES.STATUS & (AES_SRIF_bm | AES_ERROR_bm) ) == 0);
+	} while (aes_is_busy());
 
 	/* If not error. */
-	if ((AES.STATUS & AES_ERROR_bm) == 0) {
+	if (!aes_is_error()) {
 		/* Store the last subkey. */
-		uint8_t * temp_last_sub_key = last_sub_key;
-		for (i = 0; i < AES_KEY_SIZE; i++) {
-			*(temp_last_sub_key++) = AES.KEY;
-		}
-		AES.STATUS = AES_SRIF_bm;
+		aes_get_key(last_sub_key);
+		aes_clear_interrupt_flag();
 		keygen_ok = true;
 	} else {
-		AES.STATUS = AES_ERROR_bm;
+		aes_clear_error_flag();
 		keygen_ok = false;
 	}
 	return keygen_ok;
@@ -249,17 +251,77 @@ static void run_aes_set_and_get_key_test(const struct test_case *test)
 
 	set_buffer(read_key, 0x00);
 
-	// Reset the module
+	/* Reset the module */
 	aes_software_reset();
 
 	aes_set_key(encryption_key);
 	aes_get_key(read_key);
 
-	// Check if read_key is the same as what was set
+	/* Check if read_key is the same as what was set */
 	success = compare_data_block(encryption_key, read_key);
 
 	test_assert_true(test, success,
 			"Key read from AES module is not as set");
+}
+
+/**
+ * \brief Test AES state interface functions
+ *
+ * This test verifies that the functions used to check the state of the module
+ * are working, and that the clear functions work correctly.
+ *
+ * \param test Current test case
+ */
+static void run_aes_state_interface_test(const struct test_case *test)
+{
+	/* We first reset the module */
+	aes_software_reset();
+
+	/* The module should not be busy or in error */
+	test_assert_true(test, aes_is_busy(), "Module should not be busy!");
+	test_assert_true(test, !aes_is_error(), "Module should not be in error!");
+
+	/* Get the module into error by trying to start the module before loading
+	 * values into state memory */
+	aes_start();
+
+	/* Module should now be in error */
+	test_assert_true(test, aes_is_error(), "Module should be in error!");
+
+	/* Clear the flag and check that it has been cleared */
+	aes_clear_error_flag();
+
+	test_assert_true(test, !aes_is_error(),
+			"Module error flag should have been cleared!");
+
+	/* Load up dummy data into the module and do a cycle, then check that
+	 * the aes_is_busy() function actually works */
+	aes_software_reset();
+
+	aes_configure(AES_ENCRYPT, AES_MANUAL, AES_XOR_OFF);
+	aes_set_key(encryption_key);
+	aes_write_inputdata(dummy_data);
+
+	aes_start();
+
+	/* Check that the module is busy, the module uses more CPU cycles to
+	 * complete than it takes to see if it is busy */
+	test_assert_true(test, aes_is_busy(), "AES module should be busy!");
+
+	do {
+		/* Wait until the module is finished */
+	} while(aes_is_busy());
+
+	/* The module now has data in the status register. We want to clear the
+	 * flag without reading the data. First verify that the flag is set */
+	test_assert_true(test, AES.STATUS & AES_SRIF_bm,
+			"State ready interrupt flag is not set!");
+
+	aes_clear_interrupt_flag();
+
+	/* Now, check that we have cleared the flag */
+	test_assert_true(test, !(AES.STATUS & AES_SRIF_bm),
+			"State ready interrupt flag should not be set!");
 }
 
 /**
@@ -275,10 +337,10 @@ static void run_aes_encryption_test(const struct test_case *test)
 	t_data encrypted_data;
 	bool   success;
 
-	// Zero out the output data storage
+	/* Zero out the output data storage */
 	set_buffer(encrypted_data, 0x00);
 
-	// Reset the module
+	/* Reset the module */
 	aes_software_reset();
 
 	/*
@@ -293,7 +355,7 @@ static void run_aes_encryption_test(const struct test_case *test)
 
 	do {
 		/* Wait until AES is finished or an error occurs. */
-	} while ((AES.STATUS & (AES_SRIF_bm | AES_ERROR_bm) ) == 0);
+	} while (aes_is_busy());
 
 	aes_read_outputdata(encrypted_data);
 
@@ -323,13 +385,13 @@ static void run_aes_decryption_test(const struct test_case *test)
 	set_buffer(decrypted_data, 0x00);
 	set_buffer(lastsubkey, 0x00);
 
-	// Call helper function to generate a last subkey for decryption
+	/* Call helper function to generate a last subkey for decryption */
 	if (!aes_lastsubkey_generate(encryption_key, lastsubkey)) {
 		success = false;
 		test_assert_true(test, !success,
 				"Could not generate last subkey");
 	} else {
-		// Configure module for manual decryption
+		/* Configure module for manual decryption */
 		aes_software_reset();
 		aes_set_key(lastsubkey);
 		aes_configure(AES_DECRYPT, AES_MANUAL, AES_XOR_OFF);
@@ -339,11 +401,11 @@ static void run_aes_decryption_test(const struct test_case *test)
 
 		do {
 			/* Wait until AES is finished or an error occurs. */
-		} while ((AES.STATUS & (AES_SRIF_bm | AES_ERROR_bm) ) == 0);
+		} while (aes_is_busy());
 
 		aes_read_outputdata(decrypted_data);
 
-		// Verify that the decrypted data is correct
+		/* Verify that the decrypted data is correct */
 		success = compare_data_block(decrypted_data, encryption_data);
 
 		test_assert_true(test, success,
@@ -379,7 +441,7 @@ static void run_aes_encrypt_and_decrypt_test(const struct test_case *test)
 
 	aes_software_reset();
 
-	// Configure AES for automatic mode, with XOR, and interrupt.
+	/* Configure AES for automatic mode, with XOR, and interrupt. */
 	aes_configure(AES_ENCRYPT, AES_AUTO, AES_XOR_ON);
 	aes_isr_configure(AES_INTLVL_LO);
 	aes_set_key(encryption_key);
@@ -390,10 +452,10 @@ static void run_aes_encrypt_and_decrypt_test(const struct test_case *test)
 	 * anything better to do
 	 */
 	while (!aes_is_finished) {
-		// Intentionally left empty
+		/* Intentionally left empty */
 	}
 
-	// output_data should now contain encrypted data
+	/* output_data should now contain encrypted data */
 
 	/* Configure AES for automatic mode, XOR off. Last subkey
 	 * is already in the module, so we don't need to load it
@@ -403,7 +465,7 @@ static void run_aes_encrypt_and_decrypt_test(const struct test_case *test)
 	aes_write_inputdata(output_data);
 
 	while (!aes_is_finished) {
-		// Intentionally left empty
+		/* Intentionally left empty */
 	}
 
 	/* The AES module should be finished now, and output_data
@@ -418,7 +480,7 @@ static void run_aes_encrypt_and_decrypt_test(const struct test_case *test)
 //! \brief Set up and run test suite
 int main(void)
 {
-	// USART init values
+	/* USART init values */
 	const usart_serial_options_t usart_serial_options =
 	{
 		.baudrate     = CONF_TEST_BAUDRATE,
@@ -427,25 +489,27 @@ int main(void)
 		.stopbits     = CONF_TEST_STOPBITS,
 	};
 
-	// Start services
+	/* Start services */
 	pmic_init();
 	sysclk_init();
 	board_init();
 	sleepmgr_init();
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
 
-	// Enable the clock for the AES module
+	/* Enable the clock for the AES module */
 	sysclk_enable_module(SYSCLK_PORT_GEN, SYSCLK_AES);
 
-	// Enable global interrupts
+	/* Enable global interrupts */
 	cpu_irq_enable();
 
 	// Set callback for AES module
 	aes_set_callback(&int_callback_aes);
 
-	// Define test cases
+	/* Define test cases */
 	DEFINE_TEST_CASE(aes_get_set_test, NULL, run_aes_set_and_get_key_test,
 			NULL, "Get and set functions");
+	DEFINE_TEST_CASE(aes_state_interface_test, NULL,
+			run_aes_state_interface_test, NULL, "Test of AES state functions");
 	DEFINE_TEST_CASE(aes_encryption_test, NULL, run_aes_encryption_test,
 			NULL, "Encryption with known result");
 	DEFINE_TEST_CASE(aes_decryption_test, NULL, run_aes_decryption_test,
@@ -456,6 +520,7 @@ int main(void)
 
 	DEFINE_TEST_ARRAY(aes_tests) = {
 		&aes_get_set_test,
+		&aes_state_interface_test,
 		&aes_encryption_test,
 		&aes_decryption_test,
 		&aes_enc_dec_test
@@ -463,10 +528,10 @@ int main(void)
 
 	DEFINE_TEST_SUITE(aes_suite, aes_tests, "XMEGA AES driver test suite");
 
-	// Run all test in the suite
+	/* Run all test in the suite */
 	test_suite_run(&aes_suite);
 
 	while (1) {
-		// Intentionally left blank
+		/* Intentionally left blank */
 	}
 }

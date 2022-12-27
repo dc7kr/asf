@@ -3,7 +3,7 @@
  *
  * \brief TWI Master driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -45,12 +45,14 @@
 #include "twi.h"
 #include "sysclk.h"
 
+typedef Twi *twi_master_t;
 typedef twi_options_t twi_master_options_t;
 typedef twi_packet_t twi_package_t;
 
-static uint32_t twi_master_setup(Twi *p_twi, twi_master_options_t *p_opt)
+static uint32_t twi_master_setup(twi_master_t p_twi,
+		twi_master_options_t *p_opt)
 {
-	p_opt->master_clk = sysclk_get_main_hz();
+	p_opt->master_clk = sysclk_get_cpu_hz();
 	p_opt->smbus      = 0;
 
 	if (p_twi == TWI0) {

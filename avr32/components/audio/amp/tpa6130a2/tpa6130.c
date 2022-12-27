@@ -4,7 +4,7 @@
  *
  * \brief TPA6130 amplifier driver.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -308,7 +308,7 @@ static uint8_t tpa6130_read_data(uint8_t reg, bool shadow)
     {
       .chip = TPA6130_TWI_ADDRESS,
       .addr_length = 1,//AVR32_TWI_MMR_IADRSZ_ONE_BYTE,
-      .addr = reg,
+      .addr[0] = reg,
       .buffer = &data,
       .length = sizeof(data)
     };

@@ -3,7 +3,7 @@
  *
  * \brief AVR XMEGA Advanced Encryption Standard (AES) example
  *
- * Copyright (C) 2010 - 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2010 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -253,10 +253,10 @@ int main( void )
 
 	do {
 		/* Wait until AES is finished or an error occurs. */
-	} while ((AES.STATUS & (AES_SRIF_bm | AES_ERROR_bm) ) == 0);
+	} while (aes_is_busy());
 
 	/* Store the result if not error. */
-	if ((AES.STATUS & AES_ERROR_bm) == 0){
+	if (!aes_is_error()){
 		/* Read STATE using DMA channel 0. */
 		aes_dma_output();
 	} else {

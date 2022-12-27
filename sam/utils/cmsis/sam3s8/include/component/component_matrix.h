@@ -41,9 +41,9 @@
 #define _SAM3S8_MATRIX_COMPONENT_
 
 /* ============================================================================= */
-/**  SOFTWARE API DEFINITION FOR Bus Matrix */
+/**  SOFTWARE API DEFINITION FOR AHB Bus Matrix */
 /* ============================================================================= */
-/** \addtogroup SAM3S8_MATRIX Bus Matrix */
+/** \addtogroup SAM3S8_MATRIX AHB Bus Matrix */
 /*@{*/
 
 #if !(defined(__ASSEMBLY__) || defined(__IAR_SYSTEMS_ASM__))

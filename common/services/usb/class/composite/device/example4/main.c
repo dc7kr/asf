@@ -3,7 +3,7 @@
  *
  * \brief Main functions for USB composite example
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -287,6 +287,8 @@ void main_cdc_set_dtr(bool b_enable)
  *      <br>implementation of RS232 bridge for AVR32 parts
  *    - uart_xmega.c,
  *      <br>implementation of RS232 bridge for XMEGA parts
+ *    - uart_sam.c,
+ *      <br>implementation of RS232 bridge for SAM parts
  *    - specific implementation for each target "./examples/product_board/":
  *       - conf_foo.h   configuration of each module
  *       - ui.c        implement of user's interface (buttons, leds)

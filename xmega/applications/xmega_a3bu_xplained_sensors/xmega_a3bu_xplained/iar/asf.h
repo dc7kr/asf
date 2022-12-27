@@ -54,6 +54,9 @@
 #include <ccp.h>
 #include <xmega_reset_cause.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: GFX Monochrome - Monochrome Graphic Library
 #include <gfx_mono.h>
 
@@ -66,7 +69,7 @@
 // From module: Generic board support
 #include <board.h>
 
-// From module: IOPORT - Input/Output Port Controller
+// From module: IOPORT - General purpose I/O service
 #include <ioport.h>
 
 // From module: Interrupt management - XMEGA implementation
@@ -97,9 +100,6 @@
 
 // From module: System Clock Control - XMEGA A1U/A3U/A3BU/A4U implementation
 #include <sysclk.h>
-
-// From module: TIMING - Delay routines
-#include <delay.h>
 
 // From module: TWI - Two-Wire Interface - XMEGA implementation
 #include <twi_master.h>

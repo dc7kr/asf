@@ -42,11 +42,12 @@ MCU = atxmega384c3
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = xmega_drivers_aes_unit_tests_stk600-rc064x_atxmega384c3.elf
+TARGET = aes_unit_tests.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/serial/usart_serial.c              \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        common/utils/stdio/read.c                          \
@@ -55,7 +56,6 @@ CSRCS = \
        xmega/boards/stk600/rc064x/init.c                  \
        xmega/drivers/aes/aes.c                            \
        xmega/drivers/aes/unit_tests/unit_tests.c          \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/usart/usart.c
 
@@ -69,7 +69,9 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
+       common/services/serial/xmega_usart                 \
        common/services/sleepmgr                           \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
@@ -79,7 +81,6 @@ INC_PATH = \
        xmega/drivers/aes/unit_tests                       \
        xmega/drivers/aes/unit_tests/atxmega384c3_stk600-rc064x \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/pmic                                 \
        xmega/drivers/sleep                                \
@@ -130,6 +131,7 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D BOARD=STK600_RC064X                             \
+       -D IOPORT_XMEGA_COMPAT                             \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_
 

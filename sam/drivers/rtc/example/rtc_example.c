@@ -3,7 +3,7 @@
  *
  * \brief Real-Time Clock (RTC) example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -125,13 +125,7 @@
  * 
  */
 
-#include "board.h"
-#include "sysclk.h"
-#include "uart.h"
-#include "pmc.h"
-#include "pio.h"
-#include "gpio.h"
-#include "rtc.h"
+#include "asf.h"
 #include "conf_clock.h"
 #include "conf_board.h"
 
@@ -168,39 +162,39 @@ extern "C" {
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 
 /* Current state of application. */
-static uint32_t state = STATE_MENU;
+static uint32_t gs_ul_state = STATE_MENU;
 
 /* Edited hour. */
-static uint32_t ul_new_hour;
+static uint32_t gs_ul_new_hour;
 /* Edited minute. */
-static uint32_t ul_new_minute;
+static uint32_t gs_ul_new_minute;
 /* Edited second. */
-static uint32_t ul_new_second;
+static uint32_t gs_ul_new_second;
 
 /* Edited year. */
-static uint32_t ul_new_year;
+static uint32_t gs_ul_new_year;
 /* Edited month. */
-static uint32_t ul_new_month;
+static uint32_t gs_ul_new_month;
 /* Edited day. */
-static uint32_t ul_new_day;
+static uint32_t gs_ul_new_day;
 /* Edited day-of-the-week. */
-static uint32_t ul_new_week;
+static uint32_t gs_ul_new_week;
 
 /* Indicate if alarm has been triggered and not yet cleared */
-static uint32_t alarm_triggered = 0;
+static uint32_t gs_ul_alarm_triggered = 0;
 
 /* Time string */
-static uint8_t uc_rtc_time[8 + 1] =
+static uint8_t gs_uc_rtc_time[8 + 1] =
 		{ '0', '0', ':', '0', '0', ':', '0', '0', '\0' };
 /* Date string */
-static uint8_t date[10 + 1] =
+static uint8_t gs_uc_date[10 + 1] =
 		{ '0', '0', '/', '0', '0', '/', '0', '0', '0', '0', '\0' };
 /* Week string */
-static uint8_t pDayNames[7][4] =
+static uint8_t gs_uc_day_names[7][4] =
 		{ "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
 
 /* Flag for refreshing menu */
-static uint32_t menu_shown = 0;
+static uint32_t gs_ul_menu_shown = 0;
 
 /**
  *  Configure UART console.
@@ -231,7 +225,7 @@ static void configure_console(void)
 }
 
 /**
- * \brief Get new time. Successful value is put in ul_new_hour, ul_new_minute, ul_new_second.
+ * \brief Get new time. Successful value is put in gs_ul_new_hour, gs_ul_new_minute, gs_ul_new_second.
  */
 static uint32_t get_new_time(void)
 {
@@ -239,11 +233,11 @@ static uint32_t get_new_time(void)
 	uint32_t i = 0;
 
 	/* Clear setting variable. */
-	ul_new_hour = 0xFFFFFFFF;
-	ul_new_minute = 0xFFFFFFFF;
-	ul_new_second = 0xFFFFFFFF;
+	gs_ul_new_hour = 0xFFFFFFFF;
+	gs_ul_new_minute = 0xFFFFFFFF;
+	gs_ul_new_second = 0xFFFFFFFF;
 
-	/* Use uc_rtc_time[] as a format template. */
+	/* Use gs_uc_rtc_time[] as a format template. */
 	while (1) {
 
 		while (uart_read(CONSOLE_UART, &uc_key));
@@ -257,8 +251,8 @@ static uint32_t get_new_time(void)
 		/* DEL or BACKSPACE */
 		if (uc_key == 0x7f || uc_key == 0x08) {
 			if (i > 0) {
-				/* End of uc_rtc_time[], then one more back of index */
-				if (!uc_rtc_time[i]) {
+				/* End of gs_uc_rtc_time[], then one more back of index */
+				if (!gs_uc_rtc_time[i]) {
 					--i;
 				}
 
@@ -266,15 +260,15 @@ static uint32_t get_new_time(void)
 				--i;
 
 				/* Delimitor ':' for time is uneditable */
-				if (!((uc_rtc_time[i]) >= '0' && (uc_rtc_time[i]) <= '9') && i > 0) {
+				if (!((gs_uc_rtc_time[i]) >= '0' && (gs_uc_rtc_time[i]) <= '9') && i > 0) {
 					puts("\b \b");
 					--i;
 				}
 			}
 		}
 
-		/* End of uc_rtc_time[], no more input except the above DEL/BS, or enter to end. */
-		if (!uc_rtc_time[i]) {
+		/* End of gs_uc_rtc_time[], no more input except the above DEL/BS, or enter to end. */
+		if (!gs_uc_rtc_time[i]) {
 			continue;
 		}
 
@@ -283,11 +277,11 @@ static uint32_t get_new_time(void)
 		}
 
 		while (uart_write(CONSOLE_UART, uc_key));
-		uc_rtc_time[i++] = uc_key;
+		gs_uc_rtc_time[i++] = uc_key;
 
 		/* Ignore non-digit position if not the end */
-		if (!((uc_rtc_time[i]) >= '0' && (uc_rtc_time[i]) <='9') && i < 8) {
-			while (uart_write(CONSOLE_UART, uc_rtc_time[i]));
+		if (!((gs_uc_rtc_time[i]) >= '0' && (gs_uc_rtc_time[i]) <='9') && i < 8) {
+			while (uart_write(CONSOLE_UART, gs_uc_rtc_time[i]));
 			++i;
 		}
 	}
@@ -296,17 +290,17 @@ static uint32_t get_new_time(void)
 		return 0;
 	}
 
-	if (i != 0 && uc_rtc_time[i] != '\0') {
+	if (i != 0 && gs_uc_rtc_time[i] != '\0') {
 		/* Failure input */
 		return 1;
 	}
 
-	ul_new_hour = char_to_digit(uc_rtc_time[0]) * 10 +
-			char_to_digit(uc_rtc_time[1]);
-	ul_new_minute = char_to_digit(uc_rtc_time[3]) * 10 +
-			char_to_digit(uc_rtc_time[4]);
-	ul_new_second = char_to_digit(uc_rtc_time[6]) * 10 +
-			char_to_digit(uc_rtc_time[7]);
+	gs_ul_new_hour = char_to_digit(gs_uc_rtc_time[0]) * 10 +
+			char_to_digit(gs_uc_rtc_time[1]);
+	gs_ul_new_minute = char_to_digit(gs_uc_rtc_time[3]) * 10 +
+			char_to_digit(gs_uc_rtc_time[4]);
+	gs_ul_new_second = char_to_digit(gs_uc_rtc_time[6]) * 10 +
+			char_to_digit(gs_uc_rtc_time[7]);
 
 	/* Success input. Verification of data is left to RTC internal Error Checking. */
 	return 0;
@@ -334,7 +328,7 @@ static uint32_t calculate_week(uint32_t ul_year, uint32_t ul_month,
 }
 
 /**
- * \brief Get new time. Successful value is put in ul_new_year, ul_new_month, ul_new_day, ul_new_week.
+ * \brief Get new time. Successful value is put in gs_ul_new_year, gs_ul_new_month, gs_ul_new_day, gs_ul_new_week.
  */
 static uint32_t get_new_date(void)
 {
@@ -342,12 +336,12 @@ static uint32_t get_new_date(void)
 	uint32_t i = 0;
 
 	/* Clear setting variable */
-	ul_new_year = 0xFFFFFFFF;
-	ul_new_month = 0xFFFFFFFF;
-	ul_new_day = 0xFFFFFFFF;
-	ul_new_week = 0xFFFFFFFF;
+	gs_ul_new_year = 0xFFFFFFFF;
+	gs_ul_new_month = 0xFFFFFFFF;
+	gs_ul_new_day = 0xFFFFFFFF;
+	gs_ul_new_week = 0xFFFFFFFF;
 
-	/* Use uc_rtc_time[] as a format template */
+	/* Use gs_uc_rtc_time[] as a format template */
 	while (1) {
 
 		while (uart_read(CONSOLE_UART, &uc_key));
@@ -362,7 +356,7 @@ static uint32_t get_new_date(void)
 		if (uc_key == 0x7f || uc_key == 0x08) {
 			if (i > 0) {
 				/* End of date[], then one more back of index */
-				if (!date[i]) {
+				if (!gs_uc_date[i]) {
 					--i;
 				}
 
@@ -370,15 +364,15 @@ static uint32_t get_new_date(void)
 				--i;
 
 				/* Delimitor '/' for date is uneditable */
-				if (!((date[i]) >= '0' && (date[i]) <='9') && i > 0) {
+				if (!((gs_uc_date[i]) >= '0' && (gs_uc_date[i]) <='9') && i > 0) {
 					puts("\b \b");
 					--i;
 				}
 			}
 		}
 
-		/* End of uc_rtc_time[], no more input except the above DEL/BS, or enter to end. */
-		if (!date[i]) {
+		/* End of gs_uc_rtc_time[], no more input except the above DEL/BS, or enter to end. */
+		if (!gs_uc_date[i]) {
 			continue;
 		}
 
@@ -387,11 +381,11 @@ static uint32_t get_new_date(void)
 		}
 
 		while (uart_write(CONSOLE_UART, uc_key));
-		date[i++] = uc_key;
+		gs_uc_date[i++] = uc_key;
 
 		/* Ignore non-digit position */
-		if (!((date[i]) >= '0' && (date[i]) <= '9') && i < 10) {
-			while (uart_write(CONSOLE_UART, date[i]));
+		if (!((gs_uc_date[i]) >= '0' && (gs_uc_date[i]) <= '9') && i < 10) {
+			while (uart_write(CONSOLE_UART, gs_uc_date[i]));
 			++i;
 		}
 	}
@@ -400,21 +394,21 @@ static uint32_t get_new_date(void)
 		return 0;
 	}
 
-	if (i != 0 && date[i] != '\0' && i != 6) {
+	if (i != 0 && gs_uc_date[i] != '\0' && i != 6) {
 		/* Failure input */
 		return 1;
 	}
 
 	/* MM-DD-YY */
-	ul_new_month = char_to_digit(date[0]) * 10 + char_to_digit(date[1]);
-	ul_new_day = char_to_digit(date[3]) * 10 + char_to_digit(date[4]);
+	gs_ul_new_month = char_to_digit(gs_uc_date[0]) * 10 + char_to_digit(gs_uc_date[1]);
+	gs_ul_new_day = char_to_digit(gs_uc_date[3]) * 10 + char_to_digit(gs_uc_date[4]);
 	if (i != 6) {
 		/* For 'Set Date' option, get the input new year and new week. */
-		ul_new_year = char_to_digit(date[6]) * 1000 +
-				char_to_digit(date[7]) * 100 +
-				char_to_digit(date[8]) * 10 +
-				char_to_digit(date[9]);
-		ul_new_week = calculate_week(ul_new_year, ul_new_month, ul_new_day);
+		gs_ul_new_year = char_to_digit(gs_uc_date[6]) * 1000 +
+				char_to_digit(gs_uc_date[7]) * 100 +
+				char_to_digit(gs_uc_date[8]) * 10 +
+				char_to_digit(gs_uc_date[9]);
+		gs_ul_new_week = calculate_week(gs_ul_new_year, gs_ul_new_month, gs_ul_new_day);
 	}
 
 	/* Success input. Verification of data is left to RTC internal Error Checking. */
@@ -430,7 +424,7 @@ static void refresh_display(void)
 	uint32_t ul_hour, ul_minute, ul_second;
 	uint32_t ul_year, ul_month, ul_day, ul_week;
 
-	if (state != STATE_MENU) {
+	if (gs_ul_state != STATE_MENU) {
 		/* Not in menu display mode, in set mode. */
 	} else {
 		/* Retrieve date and time */
@@ -438,7 +432,7 @@ static void refresh_display(void)
 		rtc_get_date(RTC, &ul_year, &ul_month, &ul_day, &ul_week);
 
 		/* Display */
-		if (!menu_shown) {
+		if (!gs_ul_menu_shown) {
 			puts("\n\rMenu:\n\r"
 					"  t - Set time\n\r"
 					"  d - Set date\n\r"
@@ -447,20 +441,20 @@ static void refresh_display(void)
 #if ((SAM3S8) || (SAM3SD8) || (SAM4S))
 			puts("  w - Generate Waveform\r");
 #endif
-			if (alarm_triggered) {
+			if (gs_ul_alarm_triggered) {
 				puts("  c - Clear alarm notification\r");
 			}
 
 			printf("\n\r");
 
-			menu_shown = 1;
+			gs_ul_menu_shown = 1;
 		}
 
 		/* Update current date and time */
 		puts("\r");
 		printf(" [Time/Date: %02u:%02u:%02u, %02u/%02u/%04u %s ][Alarm status:%s]", 
 			ul_hour, ul_minute, ul_second, ul_month, ul_day, ul_year,
-			pDayNames[ul_week-1], alarm_triggered?"Triggered!":"");
+			gs_uc_day_names[ul_week-1], gs_ul_alarm_triggered?"Triggered!":"");
 	}
 }
 
@@ -487,10 +481,10 @@ void RTC_Handler(void)
 			/* Disable RTC interrupt */
 			rtc_disable_interrupt(RTC, RTC_IDR_ALRDIS);
 
-			alarm_triggered = 1;
+			gs_ul_alarm_triggered = 1;
 			refresh_display();
 			/* Show additional menu item for clear notification */
-			menu_shown = 0;
+			gs_ul_menu_shown = 0;
 			rtc_clear_status(RTC, RTC_SCCR_ALRCLR);
 			rtc_enable_interrupt(RTC, RTC_IER_ALREN);
 		}
@@ -537,54 +531,54 @@ int main(void)
 
 		/* Set time */
 		if (uc_key == 't') {
-			state = STATE_SET_TIME;
+			gs_ul_state = STATE_SET_TIME;
 
 			do {
 				puts("\n\r\n\r Set time(hh:mm:ss): ");
 			} while (get_new_time());
 
 			/* If valid input, none of the variables for time is 0xff. */
-			if (ul_new_hour != 0xFFFFFFFF) {
-				if (rtc_set_time(RTC, ul_new_hour, ul_new_minute,
-						ul_new_second)) {
+			if (gs_ul_new_hour != 0xFFFFFFFF) {
+				if (rtc_set_time(RTC, gs_ul_new_hour, gs_ul_new_minute,
+						gs_ul_new_second)) {
 					puts("\n\r Time not set, invalid input!\r");
 				}
 			}
 
-			state = STATE_MENU;
-			menu_shown = 0;
+			gs_ul_state = STATE_MENU;
+			gs_ul_menu_shown = 0;
 			refresh_display();
 		}
 
 		/* Set date */
 		if (uc_key == 'd') {
-			state = STATE_SET_DATE;
+			gs_ul_state = STATE_SET_DATE;
 
 			do {
 				puts("\n\r\n\r Set date(mm/dd/yyyy): ");
 			} while (get_new_date());
 
 			/* If valid input, none of the variables for date is 0xff(ff). */
-			if (ul_new_year != 0xFFFFFFFF) {
-				if (rtc_set_date(RTC, ul_new_year, ul_new_month,
-						ul_new_day, ul_new_week)) {
+			if (gs_ul_new_year != 0xFFFFFFFF) {
+				if (rtc_set_date(RTC, gs_ul_new_year, gs_ul_new_month,
+						gs_ul_new_day, gs_ul_new_week)) {
 					puts("\n\r Date not set, invalid input!\r");
 				}
 			}
 
 			/* Only 'mm/dd' is input. */
-			if (ul_new_month != 0xFFFFFFFF && ul_new_year == 0xFFFFFFFF) {
+			if (gs_ul_new_month != 0xFFFFFFFF && gs_ul_new_year == 0xFFFFFFFF) {
 				puts("\n\r Not Set for no year field!\r");
 			}
 
-			state = STATE_MENU;
-			menu_shown = 0;
+			gs_ul_state = STATE_MENU;
+			gs_ul_menu_shown = 0;
 			refresh_display();
 		}
 
 		/* Set time alarm */
 		if (uc_key == 'i') {
-			state = STATE_SET_TIME_ALARM;
+			gs_ul_state = STATE_SET_TIME_ALARM;
 
 			rtc_clear_data_alarm(RTC);
 
@@ -592,24 +586,24 @@ int main(void)
 				puts("\n\r\n\r Set time alarm(hh:mm:ss): ");
 			} while (get_new_time());
 
-			if (ul_new_hour != 0xFFFFFFFF) {
-				if (rtc_set_time_alarm(RTC, 1, ul_new_hour,
-						1, ul_new_minute, 1, ul_new_second)) {
+			if (gs_ul_new_hour != 0xFFFFFFFF) {
+				if (rtc_set_time_alarm(RTC, 1, gs_ul_new_hour,
+						1, gs_ul_new_minute, 1, gs_ul_new_second)) {
 					puts("\n\r Time alarm not set, invalid input!\r");
 				} else {
 					printf("\n\r Time alarm is set at %02u:%02u:%02u!",
-						ul_new_hour, ul_new_minute, ul_new_second);
+						gs_ul_new_hour, gs_ul_new_minute, gs_ul_new_second);
 				}
 			}
-			state = STATE_MENU;
-			menu_shown = 0;
-			alarm_triggered = 0;
+			gs_ul_state = STATE_MENU;
+			gs_ul_menu_shown = 0;
+			gs_ul_alarm_triggered = 0;
 			refresh_display();
 		}
 
 		/* Set date alarm */
 		if (uc_key == 'm') {
-			state = STATE_SET_DATE_ALARM;
+			gs_ul_state = STATE_SET_DATE_ALARM;
 
 			rtc_clear_time_alarm(RTC);
 
@@ -617,24 +611,24 @@ int main(void)
 				puts("\n\r\n\r Set date alarm(mm/dd/): ");
 			} while (get_new_date());
 
-			if (ul_new_year == 0xFFFFFFFF && ul_new_month != 0xFFFFFFFF) {
-				if (rtc_set_date_alarm(RTC, 1, ul_new_month, 1, ul_new_day)) {
+			if (gs_ul_new_year == 0xFFFFFFFF && gs_ul_new_month != 0xFFFFFFFF) {
+				if (rtc_set_date_alarm(RTC, 1, gs_ul_new_month, 1, gs_ul_new_day)) {
 					puts("\n\r Date alarm not set, invalid input!\r");
 				} else {
 					printf("\n\r Date alarm is set on %02u/%02u!",
-							ul_new_month, ul_new_day);
+							gs_ul_new_month, gs_ul_new_day);
 				}
 			}
-			state = STATE_MENU;
-			menu_shown = 0;
-			alarm_triggered = 0;
+			gs_ul_state = STATE_MENU;
+			gs_ul_menu_shown = 0;
+			gs_ul_alarm_triggered = 0;
 			refresh_display();
 		}
 
 #if ((SAM3S8) || (SAM3SD8) || (SAM4S))
 		/* Generate Waveform */
 		if (uc_key == 'w') {
-			state = STATE_WAVEFORM;
+			gs_ul_state = STATE_WAVEFORM;
 			puts("\n\rMenu:\n\r"
 					"  0 - No Waveform\n\r"
 					"  1 - 1 Hz square wave\n\r"
@@ -654,8 +648,8 @@ int main(void)
 				}
 
 				if (uc_key == '8') {
-					state = STATE_MENU;
-					menu_shown = 0;
+					gs_ul_state = STATE_MENU;
+					gs_ul_menu_shown = 0;
 					refresh_display();
 					break;
 				}
@@ -664,8 +658,8 @@ int main(void)
 #endif
 		/* Clear trigger flag */
 		if (uc_key == 'c') {
-			alarm_triggered = 0;
-			menu_shown = 0;
+			gs_ul_alarm_triggered = 0;
+			gs_ul_menu_shown = 0;
 			refresh_display();
 		}
 

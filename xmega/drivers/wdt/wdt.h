@@ -3,7 +3,7 @@
  *
  * \brief AVR XMEGA WatchDog Timer driver.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -53,6 +53,8 @@ extern "C" {
 
 /**
  * \defgroup wdt_group Watchdog Timer (WDT)
+ *
+ * See \ref wdt_quickstart.
  *
  * This is a driver for configuring, enablig, disabling and use of the on-chip
  * WDT.
@@ -300,4 +302,117 @@ void wdt_reset_mcu(void);
 #endif
 /**INDENT-ON**/
 /// @endcond
+
+/**
+ * \page wdt_quickstart Quick start guide for WDT driver
+ *
+ * This is the quick start guide for the \ref wdt_group, with
+ * step-by-step instructions on how to configure and use the driver in a
+ * selection of use cases.
+ *
+ * The use cases contain several code fragments. The code fragments in the
+ * steps for setup can be copied into a custom initialization function, while
+ * the steps for usage can be copied into, e.g., the main application function.
+ *
+ * \section wdt_basic_use_case Basic use case
+ * \section wdt_use_cases WDT use cases
+ * - \ref wdt_basic_use_case
+ * - \subpage wdt_use_case_1
+ *
+ * \section wdt_basic_use_case Basic use case - Reset WDT in standard mode
+ * In this use case, the WDT is configured for:
+ * - Standard mode
+ * - Timeout period of 8 ms
+ *
+ * The use case enables the WDT, and resets it after 5 ms to prevent system
+ * reset after time out period of 8 ms.
+ *
+ * \section wdt_basic_use_case_setup Setup steps
+ *
+ * \subsection wdt_basic_use_case_setup_prereq Prerequisites
+ * For the setup code of this use case to work, the following must
+ * be added to the project:
+ * -# \ref group_common_services_delay "Busy-Wait Delay Routines"
+ *
+ * \subsection wdt_basic_use_case_setup_code Example code
+ * Add to application initialization:
+ * \code
+ *    wdt_set_timeout_period(WDT_TIMEOUT_PERIOD_8CLK);
+ *    wdt_enable();
+ * \endcode
+ *
+ * \subsection wdt_basic_use_case_setup_flow Workflow
+ * -# Set timeout period to 8 cycles or 8 ms:
+ *   - \code wdt_set_timeout_period(WDT_TIMEOUT_PERIOD_8CLK); \endcode
+ * -# Enable WDT:
+ *   - \code wdt_enable(); \endcode
+ * \section wdt_basic_use_case_usage Usage steps
+ *
+ * \subsection wdt_basic_use_case_usage_code Example code
+ * Add to, e.g., main loop in application C-file:
+ * \code
+ *    delay_ms(5);
+ *    wdt_reset();
+ * \endcode
+ *
+ * \subsection wdt_basic_use_case_usage_flow Workflow
+ * -# Wait for 5 ms:
+ *   - \code delay_ms(5); \endcode
+ * -# Reset the WDT before the timeout period is over to prevent system reset:
+ *   - \code wdt_reset(); \endcode
+ */
+
+/**
+ * \page wdt_use_case_1 Reset WDT in window mode
+ *
+ * In this use case, the WDT is configured for:
+ * - Window mode
+ * - Timeout period of 16 ms
+ *
+ * The use case enables the WDT in window mode, and resets it after 10 ms to
+ * prevent system reset before window timeout after 8 ms and after time out
+ * period of 16 ms.
+ *
+ * \section wdt_use_case_1_setup Setup steps
+ *
+ * \subsection usart_use_case_1_setup_prereq Prerequisites
+ * For the setup code of this use case to work, the following must
+ * be added to the project:
+ * -# \ref group_common_services_delay "Busy-Wait Delay Routines"
+ *
+ * \subsection wdt_use_case_1_setup_code Example code
+ * Add to application initialization:
+ * \code
+ *    wdt_set_timeout_period(WDT_TIMEOUT_PERIOD_16CLK);
+ *    wdt_enable();
+ *    wdt_set_window_period(WDT_TIMEOUT_PERIOD_8CLK);
+ *    wdt_enable_window_mode();
+ * \endcode
+ *
+ * \subsection wdt_use_case_1_setup_flow Workflow
+ * -# Set timeout period to 16 cycles or 16 ms:
+ *   - \code wdt_set_timeout_period(WDT_TIMEOUT_PERIOD_16CLK); \endcode
+ * -# Enable WDT:
+ *   - \code wdt_enable(); \endcode
+ * -# Set window period to 8 cycles or 8 ms:
+ *   - \code wdt_set_window_period(WDT_TIMEOUT_PERIOD_8CLK); \endcode
+ * -# Enable window mode:
+ *   - \code wdt_enable_window_mode(); \endcode
+ *
+ * \section wdt_use_case_1_usage Usage steps
+ *
+ * \subsection wdt_use_case_1_usage_code Example code
+ * Add to, e.g., main loop in application C-file:
+ * \code
+ *    delay_ms(10);
+ *    wdt_reset();
+ * \endcode
+ *
+ * \subsection wdt_use_case_1_usage_flow Workflow
+ * -# Wait for 10 ms to not reset the WDT before window timeout:
+ *   - \code delay_ms(10); \endcode
+ * -# Reset the WDT before the timeout period is over to prevent system reset:
+ *   - \code wdt_reset(); \endcode
+ */
+
 #endif // _WDT_H_

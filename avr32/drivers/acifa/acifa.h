@@ -6,7 +6,7 @@
  *
  * This file defines a useful set of functions for ACIFA on AVR UC3 devices.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -46,7 +46,7 @@
 #define _ACIFA_H_
 
 /**
- * \defgroup group_avr32_drivers_acifa ANALOG - ACIFA - Analog Comparator Interface
+ * \defgroup group_avr32_drivers_acifa ACIFA - Analog Comparator Interface
  *
  * Analog Comparator Interface is able to control two Analog Comparators (AC) with identical behavior.
  *

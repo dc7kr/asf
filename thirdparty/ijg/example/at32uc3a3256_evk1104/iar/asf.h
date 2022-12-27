@@ -57,6 +57,9 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: EBI SDRAM Controller
 #include <sdramc.h>
 
@@ -87,9 +90,6 @@
 
 // From module: System Clock Control - UC3 A3/A4 implementation
 #include <sysclk.h>
-
-// From module: TIMING - Delay routines
-#include <delay.h>
 
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter
 #include <usart.h>

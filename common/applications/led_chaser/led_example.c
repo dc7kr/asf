@@ -1,9 +1,14 @@
 /**
  * \file
  *
- * \brief Led Chaser example
+ * \mainpage
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * \section title Led Chaser example
+ *
+ * \section file File(s)
+ * - \ref led_example.c
+ *
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

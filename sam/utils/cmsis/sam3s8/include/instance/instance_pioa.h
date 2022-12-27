@@ -97,12 +97,8 @@
 #define REG_PIOA_PCRHR              (0x400E0F64U) /**< \brief (PIOA) Parallel Capture Reception Holding Register */
 #define REG_PIOA_RPR                (0x400E0F68U) /**< \brief (PIOA) Receive Pointer Register */
 #define REG_PIOA_RCR                (0x400E0F6CU) /**< \brief (PIOA) Receive Counter Register */
-#define REG_PIOA_TPR                (0x400E0F70U) /**< \brief (PIOA) Transmit Pointer Register */
-#define REG_PIOA_TCR                (0x400E0F74U) /**< \brief (PIOA) Transmit Counter Register */
 #define REG_PIOA_RNPR               (0x400E0F78U) /**< \brief (PIOA) Receive Next Pointer Register */
 #define REG_PIOA_RNCR               (0x400E0F7CU) /**< \brief (PIOA) Receive Next Counter Register */
-#define REG_PIOA_TNPR               (0x400E0F80U) /**< \brief (PIOA) Transmit Next Pointer Register */
-#define REG_PIOA_TNCR               (0x400E0F84U) /**< \brief (PIOA) Transmit Next Counter Register */
 #define REG_PIOA_PTCR               (0x400E0F88U) /**< \brief (PIOA) Transfer Control Register */
 #define REG_PIOA_PTSR               (0x400E0F8CU) /**< \brief (PIOA) Transfer Status Register */
 #else
@@ -161,12 +157,8 @@
 #define REG_PIOA_PCRHR     (*(RoReg*)0x400E0F64U) /**< \brief (PIOA) Parallel Capture Reception Holding Register */
 #define REG_PIOA_RPR       (*(RwReg*)0x400E0F68U) /**< \brief (PIOA) Receive Pointer Register */
 #define REG_PIOA_RCR       (*(RwReg*)0x400E0F6CU) /**< \brief (PIOA) Receive Counter Register */
-#define REG_PIOA_TPR       (*(RwReg*)0x400E0F70U) /**< \brief (PIOA) Transmit Pointer Register */
-#define REG_PIOA_TCR       (*(RwReg*)0x400E0F74U) /**< \brief (PIOA) Transmit Counter Register */
 #define REG_PIOA_RNPR      (*(RwReg*)0x400E0F78U) /**< \brief (PIOA) Receive Next Pointer Register */
 #define REG_PIOA_RNCR      (*(RwReg*)0x400E0F7CU) /**< \brief (PIOA) Receive Next Counter Register */
-#define REG_PIOA_TNPR      (*(RwReg*)0x400E0F80U) /**< \brief (PIOA) Transmit Next Pointer Register */
-#define REG_PIOA_TNCR      (*(RwReg*)0x400E0F84U) /**< \brief (PIOA) Transmit Next Counter Register */
 #define REG_PIOA_PTCR      (*(WoReg*)0x400E0F88U) /**< \brief (PIOA) Transfer Control Register */
 #define REG_PIOA_PTSR      (*(RoReg*)0x400E0F8CU) /**< \brief (PIOA) Transfer Status Register */
 #endif /* (defined(__ASSEMBLY__) || defined(__IAR_SYSTEMS_ASM__)) */

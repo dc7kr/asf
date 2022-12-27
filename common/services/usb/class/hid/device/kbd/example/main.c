@@ -3,7 +3,7 @@
  *
  * \brief Main functions for Keyboard example
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -84,8 +84,9 @@ int main(void)
 		// No USB "Keep a live" interrupt available in low speed
 		// to scan keyboard interface then use main loop
 		if (main_b_kbd_enable) {
-			static uint16_t virtual_sof_sub = 0;
-			if (700 == virtual_sof_sub++) {
+			static volatile uint16_t virtual_sof_sub = 0;
+			if (sysclk_get_cpu_hz()/50000 ==
+				virtual_sof_sub++) {
 				virtual_sof_sub = 0;
 				static uint16_t virtual_sof = 0;
 				ui_process(virtual_sof++);

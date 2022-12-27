@@ -66,7 +66,7 @@
 // From module: Huge Memory Interface
 #include <hugemem.h>
 
-// From module: IOPORT - Input/Output Port Controller
+// From module: IOPORT - General purpose I/O service
 #include <ioport.h>
 
 // From module: Interrupt management - XMEGA implementation

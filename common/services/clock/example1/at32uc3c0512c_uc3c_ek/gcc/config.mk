@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_basic_clock_example1_uc3c_ek.elf
+TARGET = clock_example1.elf
 
 # List of C source files.
 CSRCS = \

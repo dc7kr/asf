@@ -1,13 +1,16 @@
-/*****************************************************************************
- *
+/**
  * \file
  *
- * \brief 16-bit signal resampling program example.
+ * \mainpage
+ * \section title 16-bit signal resampling program example.
+ *
+ * \section file File(s)
+ * - \ref resampling_example.c
  *
  * This file is a complete example showing how to use the resampling function
  * from the DSPLib.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

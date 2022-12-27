@@ -3,7 +3,7 @@
  *
  * \brief Management of the virtual memory.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -72,12 +72,21 @@
 
 //_____ D E F I N I T I O N S ______________________________________________
 
-#if (defined __GNUC__) && (defined __AVR32__)
+#ifdef VMEM_ADDRESS
+// Virtual disk memory start address is defined in conf_virtual_mem.h
+# if (0 != (VMEM_ADDRESS & 0x3))
+#   error VMEM_ADDRESS defined in conf_virtual_mem.h must be a WORD address
+# endif
+static uint8_t* vmem_data = (uint8_t*)VMEM_ADDRESS;
+#else
+# if (defined __GNUC__) && (defined __AVR32__) ||\
+	(defined __GNUC__) && (defined SAM)
 	__attribute__((__aligned__(4)))
-#elif (defined __ICCAVR32__)
+# elif (defined __ICCAVR32__) || (defined __ICCARM__)
 	#pragma data_alignment = 4
-#endif
+# endif
 static uint8_t vmem_data[VMEM_NB_SECTOR * VMEM_SECTOR_SIZE];
+#endif
 
 //_____ D E C L A R A T I O N S ____________________________________________
 

@@ -3,7 +3,7 @@
  *
  * \brief Synchronous Serial Controller (SSC) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -68,17 +68,17 @@ extern "C" {
  * \brief Set up clock.
  *
  * \param p_ssc Pointer to an SSC instance.
- * \param dw_bitrate Desired bit clock.
- * \param dw_mck MCK clock.
+ * \param ul_bitrate Desired bit clock.
+ * \param ul_mck MCK clock.
  *
  * \retval SSC_RC_YES Success.
  * \retval SSC_RC_NO Invalid input value.
  */
-uint32_t ssc_set_clock_divider(Ssc *p_ssc, uint32_t dw_bitrate,
-		uint32_t dw_mck)
+uint32_t ssc_set_clock_divider(Ssc *p_ssc, uint32_t ul_bitrate,
+		uint32_t ul_mck)
 {
-	if (dw_mck && dw_bitrate) {
-		p_ssc->SSC_CMR = SSC_CMR_DIV(((dw_mck + dw_bitrate) / dw_bitrate) >> 1);
+	if (ul_mck && ul_bitrate) {
+		p_ssc->SSC_CMR = SSC_CMR_DIV(((ul_mck + ul_bitrate) / ul_bitrate) >> 1);
 		return SSC_RC_YES;
 	} else {
 		return SSC_RC_NO;
@@ -89,16 +89,16 @@ uint32_t ssc_set_clock_divider(Ssc *p_ssc, uint32_t dw_bitrate,
  * \brief Setup for I2S transmitter.
  *
  * \note If working in master mode, the divided clock needs to be configured before
- * calling this function according to the sample rate and dw_datlen field.
+ * calling this function according to the sample rate and ul_datlen field.
  *
  * \param p_ssc Pointer to an SSC instance.
- * \param dw_mode Working mode, SSC_I2S_MASTER_OUT or SSC_I2S_SLAVE_OUT.
- * \param dw_cks Source clock selection while working in SSC_I2S_SLAVE_OUT mode.
- * \param dw_ch_mode Channel mode, stero or mono.
- * \param dw_datlen Data length for one channel.
+ * \param ul_mode Working mode, SSC_I2S_MASTER_OUT or SSC_I2S_SLAVE_OUT.
+ * \param ul_cks Source clock selection while working in SSC_I2S_SLAVE_OUT mode.
+ * \param ul_ch_mode Channel mode, stero or mono.
+ * \param ul_datlen Data length for one channel.
  */
-void ssc_i2s_set_transmitter(Ssc *p_ssc, uint32_t dw_mode,
-		uint32_t dw_cks, uint32_t dw_ch_mode, uint32_t dw_datlen)
+void ssc_i2s_set_transmitter(Ssc *p_ssc, uint32_t ul_mode,
+		uint32_t ul_cks, uint32_t ul_ch_mode, uint32_t ul_datlen)
 {
 	clock_opt_t tx_clk_option;
 	data_frame_opt_t tx_data_frame_option;
@@ -108,55 +108,55 @@ void ssc_i2s_set_transmitter(Ssc *p_ssc, uint32_t dw_mode,
 	memset((uint8_t *)&tx_data_frame_option, 0, sizeof(data_frame_opt_t));
 
 	/* Data start: MonoLeft-Falling, MonoRight-Rising, Stero-Edge. */
-	switch (dw_ch_mode) {
+	switch (ul_ch_mode) {
 	case SSC_AUDIO_MONO_RIGHT:
-		tx_clk_option.dw_start_sel = SSC_TCMR_START_RF_RISING;
+		tx_clk_option.ul_start_sel = SSC_TCMR_START_RF_RISING;
 		break;
 	case SSC_AUDIO_MONO_LEFT:
-		tx_clk_option.dw_start_sel = SSC_TCMR_START_RF_FALLING;
+		tx_clk_option.ul_start_sel = SSC_TCMR_START_RF_FALLING;
 		break;
 	case SSC_AUDIO_STERO:
-		tx_clk_option.dw_start_sel = SSC_TCMR_START_RF_EDGE;
+		tx_clk_option.ul_start_sel = SSC_TCMR_START_RF_EDGE;
 		break;
 	}
-	if (dw_mode & SSC_I2S_MASTER_OUT) {
+	if (ul_mode & SSC_I2S_MASTER_OUT) {
 		/* Stero has 2 data words, and mono has only one data word. */
-		if (SSC_AUDIO_STERO == dw_ch_mode) {
-			tx_data_frame_option.dw_datnb = 1;
+		if (SSC_AUDIO_STERO == ul_ch_mode) {
+			tx_data_frame_option.ul_datnb = 1;
 		} else {
-			tx_data_frame_option.dw_datnb = 0;
+			tx_data_frame_option.ul_datnb = 0;
 		}
 
 		/* Configure TCMR Settings. */
-		tx_clk_option.dw_cks = SSC_TCMR_CKS_MCK;
-		tx_clk_option.dw_cko = SSC_TCMR_CKO_CONTINUOUS;
-		tx_clk_option.dw_cki = 0;
-		tx_clk_option.dw_ckg = SSC_RCMR_CKG_NONE;
+		tx_clk_option.ul_cks = SSC_TCMR_CKS_MCK;
+		tx_clk_option.ul_cko = SSC_TCMR_CKO_CONTINUOUS;
+		tx_clk_option.ul_cki = 0;
+		tx_clk_option.ul_ckg = SSC_RCMR_CKG_NONE;
 		/* The delay is defined by I2S protocol. */
-		tx_clk_option.dw_sttdly = 1;
-		tx_clk_option.dw_period = dw_datlen - 1;
+		tx_clk_option.ul_sttdly = 1;
+		tx_clk_option.ul_period = ul_datlen - 1;
 
 		/* Configure TFMR Settings. */
-		tx_data_frame_option.dw_datlen = dw_datlen - 1;
-		tx_data_frame_option.dw_msbf = SSC_TFMR_MSBF;
-		tx_data_frame_option.dw_fslen = dw_datlen - 1;
-		tx_data_frame_option.dw_fsos = SSC_TFMR_FSOS_NEGATIVE;
-		tx_data_frame_option.dw_fsedge = SSC_TFMR_FSEDGE_POSITIVE;
-	} else if (dw_mode & SSC_I2S_SLAVE_OUT) {
+		tx_data_frame_option.ul_datlen = ul_datlen - 1;
+		tx_data_frame_option.ul_msbf = SSC_TFMR_MSBF;
+		tx_data_frame_option.ul_fslen = ul_datlen - 1;
+		tx_data_frame_option.ul_fsos = SSC_TFMR_FSOS_NEGATIVE;
+		tx_data_frame_option.ul_fsedge = SSC_TFMR_FSEDGE_POSITIVE;
+	} else if (ul_mode & SSC_I2S_SLAVE_OUT) {
 		/* Configure TCMR Settings. */
-		tx_clk_option.dw_cks = dw_cks;
-		tx_clk_option.dw_cko = SSC_TCMR_CKO_NONE;
-		tx_clk_option.dw_cki = 0;
-		tx_clk_option.dw_ckg = SSC_RCMR_CKG_NONE;
-		tx_clk_option.dw_sttdly = 1;
-		tx_clk_option.dw_period = 0;
+		tx_clk_option.ul_cks = ul_cks;
+		tx_clk_option.ul_cko = SSC_TCMR_CKO_NONE;
+		tx_clk_option.ul_cki = 0;
+		tx_clk_option.ul_ckg = SSC_RCMR_CKG_NONE;
+		tx_clk_option.ul_sttdly = 1;
+		tx_clk_option.ul_period = 0;
 
 		/* Configure TFMR Settings. */
-		tx_data_frame_option.dw_datlen = dw_datlen - 1;
-		tx_data_frame_option.dw_msbf = SSC_TFMR_MSBF;
-		tx_data_frame_option.dw_fslen = 0;
-		tx_data_frame_option.dw_fsos = SSC_TFMR_FSOS_NONE;
-		tx_data_frame_option.dw_fsedge = SSC_TFMR_FSEDGE_POSITIVE;
+		tx_data_frame_option.ul_datlen = ul_datlen - 1;
+		tx_data_frame_option.ul_msbf = SSC_TFMR_MSBF;
+		tx_data_frame_option.ul_fslen = 0;
+		tx_data_frame_option.ul_fsos = SSC_TFMR_FSOS_NONE;
+		tx_data_frame_option.ul_fsedge = SSC_TFMR_FSEDGE_POSITIVE;
 	}
 	/* Configure the default level on TD pin. */
 	ssc_set_td_default_level(p_ssc, 0);
@@ -169,16 +169,16 @@ void ssc_i2s_set_transmitter(Ssc *p_ssc, uint32_t dw_mode,
  * \brief Setup for I2S receiver.
  *
  * \note If working in master mode, the divided clock needs to be configured before
- * calling this function according to the sample rate and dw_datlen field.
+ * calling this function according to the sample rate and ul_datlen field.
  *
  * \param p_ssc Pointer to an SSC instance.
- * \param dw_mode Working mode, SSC_I2S_MASTER_IN or SSC_I2S_SLAVE_IN.
- * \param dw_cks Source clock selection while working in SSC_I2S_SLAVE_IN mode.
- * \param dw_ch_mode Channel mode, stero or mono.
- * \param dw_datlen Data length for one channel.
+ * \param ul_mode Working mode, SSC_I2S_MASTER_IN or SSC_I2S_SLAVE_IN.
+ * \param ul_cks Source clock selection while working in SSC_I2S_SLAVE_IN mode.
+ * \param ul_ch_mode Channel mode, stero or mono.
+ * \param ul_datlen Data length for one channel.
  */
-void ssc_i2s_set_receiver(Ssc *p_ssc, uint32_t dw_mode,
-		uint32_t dw_cks, uint32_t dw_ch_mode, uint32_t dw_datlen)
+void ssc_i2s_set_receiver(Ssc *p_ssc, uint32_t ul_mode,
+		uint32_t ul_cks, uint32_t ul_ch_mode, uint32_t ul_datlen)
 {
 	clock_opt_t rx_clk_option;
 	data_frame_opt_t rx_data_frame_option;
@@ -188,54 +188,54 @@ void ssc_i2s_set_receiver(Ssc *p_ssc, uint32_t dw_mode,
 	memset((uint8_t *)&rx_data_frame_option, 0, sizeof(data_frame_opt_t));
 
 	/* Data start: MonoLeft-Falling, MonoRight-Rising, Stero-Edge. */
-	switch (dw_ch_mode) {
+	switch (ul_ch_mode) {
 	case SSC_AUDIO_MONO_RIGHT:
-		rx_clk_option.dw_start_sel = SSC_RCMR_START_RF_RISING;
+		rx_clk_option.ul_start_sel = SSC_RCMR_START_RF_RISING;
 		break;
 	case SSC_AUDIO_MONO_LEFT:
-		rx_clk_option.dw_start_sel = SSC_RCMR_START_RF_FALLING;
+		rx_clk_option.ul_start_sel = SSC_RCMR_START_RF_FALLING;
 		break;
 	case SSC_AUDIO_STERO:
-		rx_clk_option.dw_start_sel = SSC_RCMR_START_RF_EDGE;
+		rx_clk_option.ul_start_sel = SSC_RCMR_START_RF_EDGE;
 		break;
 	}
-	if (dw_mode & SSC_I2S_MASTER_IN) {
+	if (ul_mode & SSC_I2S_MASTER_IN) {
 		/* Stero has 2 data words, and mono has only one data word. */
-		if (SSC_AUDIO_STERO == dw_ch_mode) {
-			rx_data_frame_option.dw_datnb = 1;
+		if (SSC_AUDIO_STERO == ul_ch_mode) {
+			rx_data_frame_option.ul_datnb = 1;
 		} else {
-			rx_data_frame_option.dw_datnb = 0;
+			rx_data_frame_option.ul_datnb = 0;
 		}
 
 		/* Configure RCMR Settings. */
-		rx_clk_option.dw_cks = SSC_TCMR_CKS_MCK;
-		rx_clk_option.dw_cko = SSC_TCMR_CKO_CONTINUOUS;
-		rx_clk_option.dw_cki = 0;
-		rx_clk_option.dw_ckg = SSC_RCMR_CKG_NONE;
-		rx_clk_option.dw_sttdly = 1;
-		rx_clk_option.dw_period = dw_datlen - 1;
+		rx_clk_option.ul_cks = SSC_TCMR_CKS_MCK;
+		rx_clk_option.ul_cko = SSC_TCMR_CKO_CONTINUOUS;
+		rx_clk_option.ul_cki = 0;
+		rx_clk_option.ul_ckg = SSC_RCMR_CKG_NONE;
+		rx_clk_option.ul_sttdly = 1;
+		rx_clk_option.ul_period = ul_datlen - 1;
 
 		/* Configure RFMR Settings. */
-		rx_data_frame_option.dw_datlen = dw_datlen - 1;
-		rx_data_frame_option.dw_msbf = SSC_TFMR_MSBF;
-		rx_data_frame_option.dw_fslen = dw_datlen - 1;
-		rx_data_frame_option.dw_fsos = SSC_TFMR_FSOS_NEGATIVE;
-		rx_data_frame_option.dw_fsedge = SSC_TFMR_FSEDGE_POSITIVE;
-	} else if (dw_mode & SSC_I2S_SLAVE_IN) {
+		rx_data_frame_option.ul_datlen = ul_datlen - 1;
+		rx_data_frame_option.ul_msbf = SSC_TFMR_MSBF;
+		rx_data_frame_option.ul_fslen = ul_datlen - 1;
+		rx_data_frame_option.ul_fsos = SSC_TFMR_FSOS_NEGATIVE;
+		rx_data_frame_option.ul_fsedge = SSC_TFMR_FSEDGE_POSITIVE;
+	} else if (ul_mode & SSC_I2S_SLAVE_IN) {
 		/* Configure TCMR Settings. */
-		rx_clk_option.dw_cks = dw_cks;
-		rx_clk_option.dw_cko = SSC_TCMR_CKO_NONE;
-		rx_clk_option.dw_cki = 0;
-		rx_clk_option.dw_ckg = SSC_RCMR_CKG_NONE;
-		rx_clk_option.dw_sttdly = 1;
-		rx_clk_option.dw_period = 0;
+		rx_clk_option.ul_cks = ul_cks;
+		rx_clk_option.ul_cko = SSC_TCMR_CKO_NONE;
+		rx_clk_option.ul_cki = 0;
+		rx_clk_option.ul_ckg = SSC_RCMR_CKG_NONE;
+		rx_clk_option.ul_sttdly = 1;
+		rx_clk_option.ul_period = 0;
 
 		/* Configure TFMR Settings. */
-		rx_data_frame_option.dw_datlen = dw_datlen - 1;
-		rx_data_frame_option.dw_msbf = SSC_TFMR_MSBF;
-		rx_data_frame_option.dw_fslen = 0;
-		rx_data_frame_option.dw_fsos = SSC_TFMR_FSOS_NONE;
-		rx_data_frame_option.dw_fsedge = SSC_TFMR_FSEDGE_POSITIVE;
+		rx_data_frame_option.ul_datlen = ul_datlen - 1;
+		rx_data_frame_option.ul_msbf = SSC_TFMR_MSBF;
+		rx_data_frame_option.ul_fslen = 0;
+		rx_data_frame_option.ul_fsos = SSC_TFMR_FSOS_NONE;
+		rx_data_frame_option.ul_fsedge = SSC_TFMR_FSEDGE_POSITIVE;
 	}
 	
 	/* Configure the SSC receiver. */
@@ -321,13 +321,13 @@ void ssc_set_loop_mode(Ssc *p_ssc)
  * \brief Configure SSC receive stop selection.
  *
  * \param p_ssc Pointer to an SSC instance.
- * \param dw_sel Compare 0 used or Compare both 0 & 1 used.
+ * \param ul_sel Compare 0 used or Compare both 0 & 1 used.
  */
-void ssc_set_rx_stop_selection(Ssc *p_ssc, uint32_t dw_sel)
+void ssc_set_rx_stop_selection(Ssc *p_ssc, uint32_t ul_sel)
 {
-	if (SSC_RX_STOP_COMPARE_0_1 == dw_sel) {
+	if (SSC_RX_STOP_COMPARE_0_1 == ul_sel) {
 		p_ssc->SSC_RCMR |= SSC_RCMR_STOP;
-	} else if (SSC_RX_STOP_COMPARE_0 == dw_sel) {
+	} else if (SSC_RX_STOP_COMPARE_0 == ul_sel) {
 		p_ssc->SSC_RCMR &= ~SSC_RCMR_STOP;
 	}
 }
@@ -337,11 +337,11 @@ void ssc_set_rx_stop_selection(Ssc *p_ssc, uint32_t dw_sel)
  * out of transmission.
  *
  * \param p_ssc Pointer to an SSC instance.
- * \param dw_level The default driven level of TD pin.
+ * \param ul_level The default driven level of TD pin.
  */
-void ssc_set_td_default_level(Ssc *p_ssc, uint32_t dw_level)
+void ssc_set_td_default_level(Ssc *p_ssc, uint32_t ul_level)
 {
-	if (dw_level) {
+	if (ul_level) {
 		p_ssc->SSC_TFMR |= SSC_TFMR_DATDEF;
 	} else {
 		p_ssc->SSC_TFMR &= ~SSC_TFMR_DATDEF;
@@ -383,24 +383,24 @@ void ssc_set_receiver(Ssc *p_ssc, clock_opt_t *p_rx_clk_opt,
 	if (p_rx_clk_opt == NULL) {
 		p_ssc->SSC_RCMR = 0;
 	} else {
-		p_ssc->SSC_RCMR |= p_rx_clk_opt->dw_cks |
-				p_rx_clk_opt->dw_cko | p_rx_clk_opt->dw_cki |
-				p_rx_clk_opt->dw_ckg |
-				p_rx_clk_opt->dw_start_sel |
-				SSC_RCMR_PERIOD(p_rx_clk_opt->dw_period) |
-				SSC_RCMR_STTDLY(p_rx_clk_opt->dw_sttdly);
+		p_ssc->SSC_RCMR |= p_rx_clk_opt->ul_cks |
+				p_rx_clk_opt->ul_cko | p_rx_clk_opt->ul_cki |
+				p_rx_clk_opt->ul_ckg |
+				p_rx_clk_opt->ul_start_sel |
+				SSC_RCMR_PERIOD(p_rx_clk_opt->ul_period) |
+				SSC_RCMR_STTDLY(p_rx_clk_opt->ul_sttdly);
 	}
 
 	if (p_rx_data_frame == NULL) {
 		p_ssc->SSC_RFMR = 0;
 	} else {
-		p_ssc->SSC_RFMR |= SSC_RFMR_DATLEN(p_rx_data_frame->dw_datlen) |
-				p_rx_data_frame->dw_msbf |
-				SSC_RFMR_DATNB(p_rx_data_frame->dw_datnb) |
-				SSC_RFMR_FSLEN(p_rx_data_frame->dw_fslen) |
-				SSC_RFMR_FSLEN_EXT(p_rx_data_frame->dw_fslen_ext) |
-				p_rx_data_frame->dw_fsos |
-				p_rx_data_frame->dw_fsedge;
+		p_ssc->SSC_RFMR |= SSC_RFMR_DATLEN(p_rx_data_frame->ul_datlen) |
+				p_rx_data_frame->ul_msbf |
+				SSC_RFMR_DATNB(p_rx_data_frame->ul_datnb) |
+				SSC_RFMR_FSLEN(p_rx_data_frame->ul_fslen) |
+				SSC_RFMR_FSLEN_EXT(p_rx_data_frame->ul_fslen_ext) |
+				p_rx_data_frame->ul_fsos |
+				p_rx_data_frame->ul_fsedge;
 	}
 }
 
@@ -417,24 +417,24 @@ void ssc_set_transmitter(Ssc *p_ssc, clock_opt_t *p_tx_clk_opt,
 	if (p_tx_clk_opt == NULL) {
 		p_ssc->SSC_TCMR = 0;
 	} else {
-		p_ssc->SSC_TCMR |= p_tx_clk_opt->dw_cks |
-				p_tx_clk_opt->dw_cko | p_tx_clk_opt->dw_cki |
-				p_tx_clk_opt->dw_ckg |
-				p_tx_clk_opt->dw_start_sel |
-				SSC_RCMR_PERIOD(p_tx_clk_opt->dw_period) |
-				SSC_RCMR_STTDLY(p_tx_clk_opt->dw_sttdly);
+		p_ssc->SSC_TCMR |= p_tx_clk_opt->ul_cks |
+				p_tx_clk_opt->ul_cko | p_tx_clk_opt->ul_cki |
+				p_tx_clk_opt->ul_ckg |
+				p_tx_clk_opt->ul_start_sel |
+				SSC_RCMR_PERIOD(p_tx_clk_opt->ul_period) |
+				SSC_RCMR_STTDLY(p_tx_clk_opt->ul_sttdly);
 	}
 					
 	if (p_tx_data_frame == NULL) {
 		p_ssc->SSC_TFMR = 0;
 	} else {
-		p_ssc->SSC_TFMR |= SSC_RFMR_DATLEN(p_tx_data_frame->dw_datlen) |
-				p_tx_data_frame->dw_msbf |
-				SSC_RFMR_DATNB(p_tx_data_frame->dw_datnb) |
-				SSC_RFMR_FSLEN(p_tx_data_frame->dw_fslen) |
-				SSC_RFMR_FSLEN_EXT(p_tx_data_frame->dw_fslen_ext) |
-				p_tx_data_frame->dw_fsos |
-				p_tx_data_frame->dw_fsedge;
+		p_ssc->SSC_TFMR |= SSC_RFMR_DATLEN(p_tx_data_frame->ul_datlen) |
+				p_tx_data_frame->ul_msbf |
+				SSC_RFMR_DATNB(p_tx_data_frame->ul_datnb) |
+				SSC_RFMR_FSLEN(p_tx_data_frame->ul_fslen) |
+				SSC_RFMR_FSLEN_EXT(p_tx_data_frame->ul_fslen_ext) |
+				p_tx_data_frame->ul_fsos |
+				p_tx_data_frame->ul_fsedge;
 	}
 }
 
@@ -442,17 +442,17 @@ void ssc_set_transmitter(Ssc *p_ssc, clock_opt_t *p_tx_clk_opt,
  * \brief Configure SSC Receive Compare Register.
  *
  * \param p_ssc Pointer to an SSC instance.
- * \param dw_id Compare register ID.
- * \param dw_value Value to configure.
+ * \param ul_id Compare register ID.
+ * \param ul_value Value to configure.
  */
-void ssc_set_rx_compare(Ssc *p_ssc, uint32_t dw_id, uint32_t dw_value)
+void ssc_set_rx_compare(Ssc *p_ssc, uint32_t ul_id, uint32_t ul_value)
 {
-	switch (dw_id) {
+	switch (ul_id) {
 	case COMPARE_ID0:
-		p_ssc->SSC_RC0R = dw_value;
+		p_ssc->SSC_RC0R = ul_value;
 		break;
 	case COMPARE_ID1:
-		p_ssc->SSC_RC1R = dw_value;
+		p_ssc->SSC_RC1R = ul_value;
 		break;
 	}
 }
@@ -461,13 +461,13 @@ void ssc_set_rx_compare(Ssc *p_ssc, uint32_t dw_id, uint32_t dw_value)
  * \brief Get SSC Receive Compare Register.
  *
  * \param p_ssc Pointer to an SSC instance.
- * \param dw_id Compare register ID.
+ * \param ul_id Compare register ID.
  *
- * \return Receive Compare Register value for the specified dw_id, otherwise SSC_RC_INVALID.
+ * \return Receive Compare Register value for the specified ul_id, otherwise SSC_RC_INVALID.
  */
-uint32_t ssc_get_rx_compare(Ssc *p_ssc, uint32_t dw_id)
+uint32_t ssc_get_rx_compare(Ssc *p_ssc, uint32_t ul_id)
 {
-	switch (dw_id) {
+	switch (ul_id) {
 	case COMPARE_ID0:
 		return p_ssc->SSC_RC0R;
 	case COMPARE_ID1:
@@ -481,22 +481,22 @@ uint32_t ssc_get_rx_compare(Ssc *p_ssc, uint32_t dw_id)
  * \brief Enable SSC interrupts.
  *
  * \param p_ssc Pointer to an SSC instance.
- * \param dw_sources Interrupts to be enabled.
+ * \param ul_sources Interrupts to be enabled.
  */
-void ssc_enable_interrupt(Ssc *p_ssc, uint32_t dw_sources)
+void ssc_enable_interrupt(Ssc *p_ssc, uint32_t ul_sources)
 {
-	p_ssc->SSC_IER = dw_sources;
+	p_ssc->SSC_IER = ul_sources;
 }
 
 /**
  * \brief Disable SSC interrupts.
  *
  * \param p_ssc Pointer to an SSC instance.
- * \param dw_sources Interrupts to be enabled.
+ * \param ul_sources Interrupts to be enabled.
  */
-void ssc_disable_interrupt(Ssc *p_ssc, uint32_t dw_sources)
+void ssc_disable_interrupt(Ssc *p_ssc, uint32_t ul_sources)
 {
-	p_ssc->SSC_IDR = dw_sources;
+	p_ssc->SSC_IDR = ul_sources;
 }
 
 /**
@@ -689,23 +689,23 @@ Pdc *ssc_get_pdc_base(Ssc *p_ssc)
  * Send data through SSC Data frame.
  *
  * \param p_ssc Pointer to an SSC instance.
- * \param dw_frame Frame data to be transmitted.
+ * \param ul_frame Frame data to be transmitted.
  *
  * \retval SSC_RC_ERROR Time-out.
  * \retval SSC_RC_OK Success.
  *
  */
-uint32_t ssc_write(Ssc *p_ssc, uint32_t dw_frame)
+uint32_t ssc_write(Ssc *p_ssc, uint32_t ul_frame)
 {	
-	uint32_t dw_timeout = SSC_DEFAULT_TIMEOUT;
+	uint32_t ul_timeout = SSC_DEFAULT_TIMEOUT;
 
 	while (!(p_ssc->SSC_SR & SSC_SR_TXEMPTY)) {
-		if (!dw_timeout--) {
+		if (!ul_timeout--) {
 			return SSC_RC_ERROR;
 		} 
 	}
 
-	p_ssc->SSC_THR = dw_frame;
+	p_ssc->SSC_THR = ul_frame;
 	return SSC_RC_OK;
 }
 
@@ -714,22 +714,22 @@ uint32_t ssc_write(Ssc *p_ssc, uint32_t dw_frame)
  * Read data that is received in SSC Data frame.
  *
  * \param p_ssc Pointer to an SSC instance.
- * \param dw_data Pointer to the location where to store the received data.
+ * \param ul_data Pointer to the location where to store the received data.
  *
  * \retval SSC_RC_ERROR Time-out.
  * \retval SSC_RC_OK Success.
  */
-uint32_t ssc_read(Ssc *p_ssc, uint32_t *dw_data)
+uint32_t ssc_read(Ssc *p_ssc, uint32_t *ul_data)
 {
-	uint32_t dw_timeout = SSC_DEFAULT_TIMEOUT;
+	uint32_t ul_timeout = SSC_DEFAULT_TIMEOUT;
 
 	while (!(p_ssc->SSC_SR & SSC_SR_RXRDY)) {
-		if (!dw_timeout--) {
+		if (!ul_timeout--) {
 			return SSC_RC_ERROR;
 		} 
 	}
 
-	*dw_data = p_ssc->SSC_RHR;
+	*ul_data = p_ssc->SSC_RHR;
 	return SSC_RC_OK;
 }
 
@@ -740,11 +740,11 @@ uint32_t ssc_read(Ssc *p_ssc, uint32_t *dw_data)
  * ssc_write() function to send out application data.
  *
  * \param p_ssc Pointer to an SSC instance.
- * \param dw_frame Frame Synchronization data.
+ * \param ul_frame Frame Synchronization data.
  */
-void ssc_write_sync_data(Ssc *p_ssc, uint32_t dw_frame)
+void ssc_write_sync_data(Ssc *p_ssc, uint32_t ul_frame)
 {
-	p_ssc->SSC_TSHR = dw_frame;
+	p_ssc->SSC_TSHR = ul_frame;
 }
 
 /**
@@ -792,11 +792,11 @@ void *ssc_get_rx_access(Ssc *p_ssc)
  * \brief Enable or disable write protection of SSC registers.
  *
  * \param p_ssc Pointer to an SSC instance.
- * \param dw_enable 1 to enable, 0 to disable.
+ * \param ul_enable 1 to enable, 0 to disable.
  */
-void ssc_set_writeprotect(Ssc *p_ssc, uint32_t dw_enable)
+void ssc_set_writeprotect(Ssc *p_ssc, uint32_t ul_enable)
 {
-	if (dw_enable) {
+	if (ul_enable) {
 		p_ssc->SSC_WPMR = SSC_WPKEY | SSC_WPMR_WPEN;
 	} else {
 		p_ssc->SSC_WPMR = SSC_WPKEY;
@@ -812,11 +812,11 @@ void ssc_set_writeprotect(Ssc *p_ssc, uint32_t dw_enable)
  */
 uint32_t ssc_get_writeprotect_status(Ssc *p_ssc)
 {
-	uint32_t dw_reg_val;
+	uint32_t ul_reg_val;
 	
-	dw_reg_val = p_ssc->SSC_WPMR;
-	if (dw_reg_val & SSC_WPMR_WPEN) {
-		return (dw_reg_val & SSC_WPSR_WPVSRC_Msk) >> SSC_WPSR_WPVSRC_Pos;
+	ul_reg_val = p_ssc->SSC_WPMR;
+	if (ul_reg_val & SSC_WPMR_WPEN) {
+		return (ul_reg_val & SSC_WPSR_WPVSRC_Msk) >> SSC_WPSR_WPVSRC_Pos;
 	} else {
 		return 0;
 	}

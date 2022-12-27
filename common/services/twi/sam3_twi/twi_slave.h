@@ -3,7 +3,7 @@
  *
  * \brief TWI Slave driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -45,7 +45,9 @@
 #include "twi.h"
 #include "sysclk.h"
 
-static void twi_slave_setup(Twi *p_twi, uint32_t dw_device_addr)
+typedef Twi *twi_slave_t;
+
+static void twi_slave_setup(twi_slave_t p_twi, uint32_t ul_device_addr)
 {
 	if (p_twi == TWI0) {
 		sysclk_enable_peripheral_clock(ID_TWI0);
@@ -54,7 +56,7 @@ static void twi_slave_setup(Twi *p_twi, uint32_t dw_device_addr)
 	} else {
 		// Do Nothing
 	}
-	twi_slave_init(p_twi, dw_device_addr);
+	twi_slave_init(p_twi, ul_device_addr);
 }
 
 #define twi_slave_enable(p_twi)  twi_enable_slave_mode(p_twi)

@@ -9,10 +9,11 @@ The Atmel® Software Framework (ASF) is a collection of embedded software for Atm
 
 ASF online documentation can be found here: http://asf.atmel.com
 
-AVR UC3(Trade Mark) (http://www.atmel.com/products/AVR/uc3.asp?family_id=607), AVR XMEGA(Trade Mark)
-(http://www.atmel.com/dyn/products/devices.asp?category_id=163&family_id=607&subfamily_id=1965) and
- megaAVR(Trade Mark) (http://www.atmel.com/dyn/products/devices.asp?category_id=163&family_id=607&subfamily_id=760) and SAM (http://www.atmel.com/products/microcontrollers/arm/default.aspx)
-devices are supported.
+Supported devices:
+» AVR UC3(Trade Mark) (http://www.atmel.com/products/AVR/uc3.asp?family_id=607)
+» AVR XMEGA(Trade Mark) (http://www.atmel.com/dyn/products/devices.asp?category_id=163&family_id=607&subfamily_id=1965) 
+» megaAVR(Trade Mark) (http://www.atmel.com/dyn/products/devices.asp?category_id=163&family_id=607&subfamily_id=760) 
+» SAM (http://www.atmel.com/products/microcontrollers/arm/default.aspx)
 
 Each software module is provided with full source code, example of usage and
 ready-to-use projects for the IAR EW and GNU GCC compilers.
@@ -47,7 +48,7 @@ interface to interact with the component (eg memories like SDRAM, SD card, or di
 2 - Documentation
 --------------------------
 
-ASF release notes can be found on http://www.atmel.com/asf.
+ASF release notes, reference manual and getting started documents can be found on http://www.atmel.com/asf.
 The ASF documentation can be found onlin on http://asf.atmel.com/docs/latest/.
 
 

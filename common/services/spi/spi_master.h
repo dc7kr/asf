@@ -3,7 +3,7 @@
  *
  * \brief SPI Master Mode management
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -88,15 +88,15 @@
  *   - spi_disable()
  *   - spi_is_enabled()
  *
- * \section spi_master_qucikstart_section Quick Start Guide
- * See \ref spi_master_quickstart
+ * \section spi_master_quickstart_section Quick Start Guide
+ * See \ref common_spi_master_quickstart
  * @{
  */
 
 //! @}
 
 /**
- * \page spi_master_quickstart Quick Start Guide for the SPI Master Driver
+ * \page common_spi_master_quickstart Quick Start Guide for the SPI Master Driver
  *
  * This is the quick start guide for the \ref spi_group "SPI Driver", with
  * step-by-step instructions on how to configure and use the driver for a

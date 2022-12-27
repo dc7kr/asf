@@ -57,6 +57,9 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: FLASH Controller Double-Word
 #include <flashcdw.h>
 
@@ -87,9 +90,6 @@
 
 // From module: TC - Timer/Counter
 #include <tc.h>
-
-// From module: TIMING - Delay routines
-#include <delay.h>
 
 // From module: UC3L-EK board support
 #include <led.h>

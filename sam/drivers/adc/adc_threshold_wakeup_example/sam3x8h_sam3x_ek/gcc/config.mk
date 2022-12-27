@@ -45,12 +45,13 @@ PART = sam3x8h
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam_drivers_adc_adc_threshold_wakeup_example_sam3x_ek_flash.elf
-TARGET_SRAM = sam_drivers_adc_adc_threshold_wakeup_example_sam3x_ek_sram.elf
+TARGET_FLASH = adc_adc_threshold_wakeup_example_flash.elf
+TARGET_SRAM = adc_adc_threshold_wakeup_example_sram.elf
 
 # List of C source files.
 CSRCS = \
        common/services/clock/sam3x/sysclk.c               \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3x_ek/init.c                         \
        sam/drivers/adc/adc.c                              \
        sam/drivers/adc/adc_sam3u.c                        \
@@ -73,6 +74,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3x_ek                                \
        sam/drivers/adc                                    \
@@ -86,6 +88,7 @@ INC_PATH = \
        sam/utils/cmsis/sam3x/include                      \
        sam/utils/cmsis/sam3x/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include \
        ./sam/drivers/adc/adc_threshold_wakeup_example/sam3x8h_sam3x_ek/gcc
 

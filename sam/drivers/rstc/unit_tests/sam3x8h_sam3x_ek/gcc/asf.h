@@ -50,14 +50,12 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: 
-#include <exceptions.h>
+// From module: Common SAM compiler driver
+#include <compiler.h>
+#include <status_codes.h>
 
-// From module: EEFC - Enhanced Embedded Flash Controller
-#include <efc.h>
-
-// From module: Flash - SAM Flash Service API
-#include <flash_efc.h>
+// From module: GPBR - General Purpose Backup Register
+#include <gpbr.h>
 
 // From module: GPIO - General purpose Input/Output
 #include <gpio.h>
@@ -68,34 +66,36 @@
 // From module: Generic components of unit test framework
 #include <unit_test/suite.h>
 
+// From module: Interrupt management - SAM3 implementation
+#include <interrupt.h>
+
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
 #include <pio_handler.h>
 
 // From module: PMC - Power Management Controller
 #include <pmc.h>
+#include <sleep.h>
 
 // From module: RSTC - Reset Controller
 #include <rstc.h>
 
-// From module: System Clock Control - SAM3X implementation
+// From module: SAM3X startup code
+#include <exceptions.h>
+
+// From module: Standard serial I/O (stdio) - SAM implementation
+#include <stdio_serial.h>
+
+// From module: System Clock Control - SAM3X/A implementation
 #include <sysclk.h>
 
-// From module: UART - Universal Asynchronous Receiver/Transmitter
+// From module: UART - Univ. Async Rec/Trans
 #include <uart.h>
 
 // From module: USART - Serial interface
 #include <serial.h>
 
-// From module: UTILITY - SAM3X compiler driver
-#include <compiler.h>
-#include <parts.h>
-#include <status_codes.h>
-
-// From module: UTILITY - Standard serial I/O (stdio) - SAM implementation
-#include <stdio_serial.h>
-
-// From module: Watchdog Timer
+// From module: WDT - Watchdog Timer
 #include <wdt.h>
 
 #endif // ASF_H

@@ -42,11 +42,12 @@ MCU = atxmega384c3
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_usb_class_hid_device_keyboard_example_stk600_atxmega384c3.elf
+TARGET = keyboard_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/clock/xmega/sysclk.c               \
+       common/services/ioport/xmega/ioport_compat.c       \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        common/services/usb/class/hid/device/kbd/example/atxmega384c3_stk600-rc064x/ui.c \
        common/services/usb/class/hid/device/kbd/example/main.c \
@@ -55,7 +56,6 @@ CSRCS = \
        common/services/usb/class/hid/device/udi_hid.c     \
        common/services/usb/udc/udc.c                      \
        xmega/boards/stk600/rc064x/init.c                  \
-       xmega/drivers/ioport/ioport.c                      \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/usb/usb_device.c
 
@@ -69,6 +69,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/sleepmgr                           \
        common/services/usb                                \
        common/services/usb/class/hid                      \
@@ -81,7 +82,6 @@ INC_PATH = \
        xmega/boards                                       \
        xmega/boards/stk600/rc064x                         \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/drivers/nvm                                  \
        xmega/drivers/sleep                                \
        xmega/drivers/usb                                  \
@@ -130,7 +130,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=STK600_RC064X
+       -D BOARD=STK600_RC064X                             \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

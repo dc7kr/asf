@@ -3,7 +3,7 @@
  *
  * \brief USART Irda example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -98,17 +98,8 @@
  *
  */
 
-#include <stdio.h>
 #include <string.h>
-#include "sysclk.h"
-#include "board.h"
-#include "exceptions.h"
-#include "usart.h"
-#include "uart.h"
-#include "pmc.h"
-#include "gpio.h"
-#include "pio.h"
-#include "pdc.h"
+#include "asf.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_example.h"
@@ -131,46 +122,46 @@
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 
 /** State of BOARD_USART_BASE. */
-uint8_t state = STATE_IDLE;
+uint8_t g_uc_state = STATE_IDLE;
 
 /** Receiving Done status. */
-volatile uint32_t recv_done = false;
+volatile uint32_t g_ul_recv_done = false;
 
 /** Transmitting Done status. */
-volatile uint32_t sent_done = false;
+volatile uint32_t g_ul_sent_done = false;
 
 /** Data buffer for receiving. */
-uint8_t recv_data[BUFFER_SIZE] = { 0x0 };
+uint8_t g_uc_recv_data[BUFFER_SIZE] = { 0x0 };
 
 /** Data buffer for transmitting. */
-uint8_t send_data[BUFFER_SIZE] =
+uint8_t g_uc_send_data[BUFFER_SIZE] =
 		{ 0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89 };
 
 /** Pointer to PDC register base. */
-Pdc *p_pdc;
+Pdc *g_p_pdc;
 
 /** PDC data packet. */
-pdc_packet_t st_packet;
+pdc_packet_t g_st_packet;
 
 /**
   * \brief USART IRQ Handler, handling RXBUFF and TXBUFE status.
   */
 void USART_Handler(void)
 {
-	uint32_t dw_status;
+	uint32_t ul_status;
 
 	/* Read USART Status. */
-	dw_status = usart_get_status(BOARD_USART);
+	ul_status = usart_get_status(BOARD_USART);
 
 	/* Receiving is done. */
-	if ((dw_status & US_CSR_RXBUFF) && (state == STATE_RECEIVE)) {
-		recv_done = true;
+	if ((ul_status & US_CSR_RXBUFF) && (g_uc_state == STATE_RECEIVE)) {
+		g_ul_recv_done = true;
 		usart_disable_interrupt(BOARD_USART, US_IDR_RXBUFF);
 	}
 
 	/* Transmitting is done. */
-	if ((dw_status & US_CSR_TXBUFE) && (state == STATE_TRANSMIT)) {
-		sent_done = true;
+	if ((ul_status & US_CSR_TXBUFE) && (g_uc_state == STATE_TRANSMIT)) {
+		g_ul_sent_done = true;
 		usart_disable_interrupt(BOARD_USART, US_IDR_TXBUFE);
 	}
 }
@@ -234,7 +225,6 @@ static void dump_recv_buf(uint8_t *p_buf, uint8_t uc_size)
  */
 static void configure_usart(void)
 {
-	static uint32_t dw_sysclk;
 	const sam_usart_opt_t usart_console_settings = {
 		BOARD_USART_BAUDRATE,
 		US_MR_CHRL_8_BIT,
@@ -244,14 +234,11 @@ static void configure_usart(void)
 		BOARD_USART_IRDA_FILTER
 	};
 
-	/* Get system clock. */
-	dw_sysclk = sysclk_get_main_hz();
-
 	/* Enable peripheral. */
 	pmc_enable_periph_clk(BOARD_ID_USART);
 
 	/* Configure USART in IrDA mode. */
-	usart_init_irda(BOARD_USART, &usart_console_settings, dw_sysclk);
+	usart_init_irda(BOARD_USART, &usart_console_settings, sysclk_get_cpu_hz());
 
 	/* Disable all the interrupts. */
 	usart_disable_interrupt(BOARD_USART, ALL_INTERRUPT_MASK);
@@ -270,7 +257,7 @@ static void configure_usart(void)
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_main_hz(), 115200, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
 
 	/* Configure PIO. */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
@@ -317,8 +304,8 @@ int main(void)
 	configure_usart();
 
 	/* Get board USART PDC base address and enable receiver and transmitter. */
-	p_pdc = usart_get_pdc_base(BOARD_USART);
-	pdc_enable_transfer(p_pdc, PERIPH_PTCR_RXTEN | PERIPH_PTCR_TXTEN);
+	g_p_pdc = usart_get_pdc_base(BOARD_USART);
+	pdc_enable_transfer(g_p_pdc, PERIPH_PTCR_RXTEN | PERIPH_PTCR_TXTEN);
 
 	puts("-I- Press t to transmit, press r to receive...\r");
 
@@ -330,42 +317,42 @@ int main(void)
 		switch (uc_char) {
 		case 't':
 		case 'T':
-			state = STATE_TRANSMIT;
+			g_uc_state = STATE_TRANSMIT;
 			/* Enable transmitter. */
 			func_transmitter();
-			st_packet.dw_addr = (uint32_t)send_data;
-			st_packet.dw_size = BUFFER_SIZE;
-			pdc_tx_init(p_pdc, &st_packet, NULL);
+			g_st_packet.ul_addr = (uint32_t)g_uc_send_data;
+			g_st_packet.ul_size = BUFFER_SIZE;
+			pdc_tx_init(g_p_pdc, &g_st_packet, NULL);
 			usart_enable_interrupt(BOARD_USART, US_IER_TXBUFE);
-			while (!sent_done) {
+			while (!g_ul_sent_done) {
 			}
 
 			puts("-I- Sent Done!\r");
-			sent_done = false;
-			state = STATE_IDLE;
+			g_ul_sent_done = false;
+			g_uc_state = STATE_IDLE;
 			puts("-I- Press t to transmit, press r to receive...\r");
 			break;
 
 		case 'r':
 		case 'R':
-			state = STATE_RECEIVE;
+			g_uc_state = STATE_RECEIVE;
 
 			/* Enable receiver. */
 			puts("-I- IrDA receive mode\r");
 			func_receiver();
-			st_packet.dw_addr = (uint32_t)recv_data;
-			st_packet.dw_size = BUFFER_SIZE;
-			pdc_rx_init(p_pdc, &st_packet, NULL);
+			g_st_packet.ul_addr = (uint32_t)g_uc_recv_data;
+			g_st_packet.ul_size = BUFFER_SIZE;
+			pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
 			usart_enable_interrupt(BOARD_USART, US_IER_RXBUFF);
 
-			while (!recv_done) {
+			while (!g_ul_recv_done) {
 			}
 
 			puts("-I- Received Done! \r");
-			dump_recv_buf(recv_data, BUFFER_SIZE);
-			memset(recv_data, 0, BUFFER_SIZE);
-			state = STATE_IDLE;
-			recv_done = false;
+			dump_recv_buf(g_uc_recv_data, BUFFER_SIZE);
+			memset(g_uc_recv_data, 0, BUFFER_SIZE);
+			g_uc_state = STATE_IDLE;
+			g_ul_recv_done = false;
 			puts("-I- Press t to transmit, press r to receive...\r");
 			break;
 

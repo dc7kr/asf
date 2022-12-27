@@ -3,7 +3,7 @@
  *
  * \brief PMC Clock Switching example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -89,19 +89,11 @@
  *
  */
 
-#include <stdio.h>
-#include "board.h"
-#include "sysclk.h"
-#include "gpio.h"
-#include "exceptions.h"
-#include "stdbool.h"
-#include "uart.h"
-#include "pmc.h"
+#include "asf.h"
 #include "conf_board.h"
-#include "pio_handler.h"
 
 /** User push button activated flag */
-static volatile uint8_t uc_wait_button = 0;
+static volatile uint8_t gs_uc_wait_button = 0;
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -127,10 +119,10 @@ extern "C" {
  *
  *  Handle process led1 status change.
  */
-static void button1_handler(uint32_t dw_id, uint32_t dw_mask)
+static void button1_handler(uint32_t ul_id, uint32_t ul_mask)
 {
-	if (PIN_PUSHBUTTON_1_ID == dw_id && PIN_PUSHBUTTON_1_MASK == dw_mask)
-		uc_wait_button = 0;
+	if (PIN_PUSHBUTTON_1_ID == ul_id && PIN_PUSHBUTTON_1_MASK == ul_mask)
+		gs_uc_wait_button = 0;
 }
 
 /**
@@ -160,7 +152,7 @@ static void configure_buttons(void)
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ BOARD_MCK, PMC_CLOCK_SWITCHING_EXAMPLE_BAUDRATE, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), PMC_CLOCK_SWITCHING_EXAMPLE_BAUDRATE, UART_MR_PAR_NO };
 
 	/* Configure PIO */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK, PINS_UART_ATTR);
@@ -177,16 +169,16 @@ static void configure_console(void)
  * \brief Configure UART with the given master clock, and Configure PCK with the given
  *  divider source of master clock and prescaler.
  *
- * \param dw_clock_source  The master clock divider source.
- * \param dw_prescaler Master Clock prescaler.
- * \param dw_master_clock Frequency of the master clock (in Hz).
+ * \param ul_clock_source  The master clock divider source.
+ * \param ul_prescaler Master Clock prescaler.
+ * \param ul_master_clock Frequency of the master clock (in Hz).
  */
-static void config_uart_and_pck(uint32_t dw_clock_source, uint32_t dw_prescaler,
-		uint32_t dw_master_clock)
+static void config_uart_and_pck(uint32_t ul_clock_source, uint32_t ul_prescaler,
+		uint32_t ul_master_clock)
 {
-	if (dw_master_clock > BOARD_FREQ_SLCK_XTAL) {
+	if (ul_master_clock > BOARD_FREQ_SLCK_XTAL) {
 		const sam_uart_opt_t uart_console_settings =
-				{ dw_master_clock, PMC_CLOCK_SWITCHING_EXAMPLE_BAUDRATE, UART_MR_PAR_NO };
+				{ ul_master_clock, PMC_CLOCK_SWITCHING_EXAMPLE_BAUDRATE, UART_MR_PAR_NO };
 
 		/* Configure PMC */
 		pmc_enable_periph_clk(CONSOLE_UART_ID);
@@ -199,27 +191,27 @@ static void config_uart_and_pck(uint32_t dw_clock_source, uint32_t dw_prescaler,
 	pmc_disable_pck(PMC_PCK_0);
 
 	/* Configure PMC Programmable Clock */
-	switch (dw_clock_source) {
+	switch (ul_clock_source) {
 	case PMC_PCK_CSS_MAIN_CLK:
-		pmc_switch_pck_to_mainck(PMC_PCK_0, dw_prescaler);
+		pmc_switch_pck_to_mainck(PMC_PCK_0, ul_prescaler);
 		break;
 
 	case PMC_PCK_CSS_SLOW_CLK:
-		pmc_switch_pck_to_sclk(PMC_PCK_0, dw_prescaler);
+		pmc_switch_pck_to_sclk(PMC_PCK_0, ul_prescaler);
 		break;
 
 	case PMC_PCK_CSS_PLLA_CLK:
-		pmc_switch_pck_to_pllack(PMC_PCK_0, dw_prescaler);
+		pmc_switch_pck_to_pllack(PMC_PCK_0, ul_prescaler);
 		break;
 
 #if SAM3S
 	case PMC_PCK_CSS_PLLB_CLK:
-		pmc_switch_pck_to_pllbck(PMC_PCK_0, dw_prescaler);
+		pmc_switch_pck_to_pllbck(PMC_PCK_0, ul_prescaler);
 		break;
 #endif
 
 	default:
-		pmc_switch_pck_to_mainck(PMC_PCK_0, dw_prescaler);
+		pmc_switch_pck_to_mainck(PMC_PCK_0, ul_prescaler);
 	}
 
     /* Enable the PCK again */
@@ -235,17 +227,17 @@ static void config_uart_and_pck(uint32_t dw_clock_source, uint32_t dw_prescaler,
  * \note The system tick is not used here because the system tick interrupt might
  * introduce unstability to the system during clock switching.
  *
- *  \param dw_dly_ticks  Delay to wait for, in milliseconds.
+ *  \param ul_dly_ticks  Delay to wait for, in milliseconds.
  */
-static void delay_ticks(uint32_t dw_dly_ticks)
+static void delay_ticks(uint32_t ul_dly_ticks)
 {
 	/* SAM3U has a faster speed, needs more time to make the clock stable */
 #if SAM3U
-	dw_dly_ticks *= 2;
+	ul_dly_ticks *= 2;
 #endif
 
 	/* the systick is not used for it is an output of the mck */
-	while (dw_dly_ticks--) {
+	while (ul_dly_ticks--) {
 	}
 }
 
@@ -282,7 +274,7 @@ int main(void)
 	/* ========================================================================= */
 	puts("-I- Press User Push Button 1 to continue.\r");
 	delay_ticks(5000);
-	for (uc_wait_button = 1; uc_wait_button;) {
+	for (gs_uc_wait_button = 1; gs_uc_wait_button;) {
 	}
 	
 	puts("\n\r-I- Switch 8Mhz fast RC oscillator to be the source of the main clock \n\r"
@@ -309,7 +301,7 @@ int main(void)
 			(CHIP_FREQ_MAINCK_RC_8MHZ / 2));
 
 	/* ========================================================================= */
-	for (uc_wait_button = 1; uc_wait_button;) {
+	for (gs_uc_wait_button = 1; gs_uc_wait_button;) {
 	}
 	
 	puts("\n\r-I- Switch the XTAL 32K crystal oscillator to be the source of the slow clock\n\r"
@@ -327,7 +319,7 @@ int main(void)
 	config_uart_and_pck(PMC_PCK_CSS_SLOW_CLK, PMC_PCK_PRES_CLK_1, BOARD_FREQ_SLCK_XTAL);
 
 	/* ========================================================================= */
-	for (uc_wait_button = 1; uc_wait_button;) {
+	for (gs_uc_wait_button = 1; gs_uc_wait_button;) {
 	}
 
     /* Switch the mainck to the Fast RC, parameter '2' stands for 12Mhz */
@@ -344,7 +336,7 @@ int main(void)
 			"-I- Press User Push Button 1 to switch next clock configuration after it has been measured.\r");
 
 	/* ========================================================================= */
-	for (uc_wait_button = 1; uc_wait_button;) {
+	for (gs_uc_wait_button = 1; gs_uc_wait_button;) {
 	}
 
 	puts("-I- Switch to 128Mhz PLLA clock as the source of the master clock \n\r"
@@ -368,7 +360,7 @@ int main(void)
 	config_uart_and_pck(PMC_PCK_CSS_PLLA_CLK, PMC_PCK_PRES_CLK_2, PMC_CLOCK_SWITCHING_EXAMPLE_FIXED_PLLA/2);
 
 	/* ========================================================================= */
-	for (uc_wait_button = 1; uc_wait_button;) {
+	for (gs_uc_wait_button = 1; gs_uc_wait_button;) {
 	}
 	
 	puts("\n\r-I- Switch the XTAL 32K crystal oscillator to be the source of the slow clock\n\r"
@@ -395,7 +387,7 @@ int main(void)
 	config_uart_and_pck(PMC_PCK_CSS_SLOW_CLK, PMC_PCK_PRES_CLK_1, BOARD_FREQ_SLCK_XTAL);
 
 	/* ========================================================================= */
-	for (uc_wait_button = 1; uc_wait_button;) {
+	for (gs_uc_wait_button = 1; gs_uc_wait_button;) {
 	}
 
     /* Switch mainck to external xtal */
@@ -414,7 +406,7 @@ int main(void)
 
 #if SAM3S
 	/* ========================================================================= */
-	for (uc_wait_button = 1; uc_wait_button;) {
+	for (gs_uc_wait_button = 1; gs_uc_wait_button;) {
 	}
 	
 	puts("-I- Switch to 96Mhz PLLB clock as the source of the master clock\n\r"
@@ -437,7 +429,7 @@ int main(void)
 #endif
 
 	/* ========================================================================= */
-	for (uc_wait_button = 1; uc_wait_button;) {
+	for (gs_uc_wait_button = 1; gs_uc_wait_button;) {
 	}
 	
 	puts("-I- Switch 8Mhz fast RC oscillator to be the source of the main clock\n\r"
@@ -460,7 +452,7 @@ int main(void)
     /* The clock source for the UART is the PCK, so the uart needs re-configuration */
 	config_uart_and_pck(PMC_PCK_CSS_MAIN_CLK, PMC_PCK_PRES_CLK_1,
 			CHIP_FREQ_MAINCK_RC_8MHZ);
-	for (uc_wait_button = 1; uc_wait_button;) {
+	for (gs_uc_wait_button = 1; gs_uc_wait_button;) {
 	}
 
 	puts("\r\n\n\r-I- Done.\r");

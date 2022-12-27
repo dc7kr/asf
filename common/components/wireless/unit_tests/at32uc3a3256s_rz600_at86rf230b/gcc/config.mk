@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_components_wireless_unit_tests_rz600_at86rf230b.elf
+TARGET = wireless_unit_tests.elf
 
 # List of C source files.
 CSRCS = \

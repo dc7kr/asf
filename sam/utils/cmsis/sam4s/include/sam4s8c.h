@@ -490,13 +490,13 @@ void WDT_Handler        ( void );
 /* ************************************************************************** */
 
 /* Device characteristics */
-#define CHIP_FREQ_SLCK_RC_MIN           (20000U)
-#define CHIP_FREQ_SLCK_RC               (32000U)
-#define CHIP_FREQ_SLCK_RC_MAX           (44000U)
-#define CHIP_FREQ_MAINCK_RC_4MHZ        (4000000U)
-#define CHIP_FREQ_MAINCK_RC_8MHZ        (8000000U)
-#define CHIP_FREQ_MAINCK_RC_12MHZ       (12000000U)
-#define CHIP_FREQ_CPU_MAX               (100000000U)
+#define CHIP_FREQ_SLCK_RC_MIN           (20000UL)
+#define CHIP_FREQ_SLCK_RC               (32000UL)
+#define CHIP_FREQ_SLCK_RC_MAX           (44000UL)
+#define CHIP_FREQ_MAINCK_RC_4MHZ        (4000000UL)
+#define CHIP_FREQ_MAINCK_RC_8MHZ        (8000000UL)
+#define CHIP_FREQ_MAINCK_RC_12MHZ       (12000000UL)
+#define CHIP_FREQ_CPU_MAX               (120000000UL)
 #define CHIP_FREQ_XTAL_32K              (32768UL)
 #define CHIP_FREQ_XTAL_12M              (12000000UL)
 
@@ -504,11 +504,11 @@ void WDT_Handler        ( void );
 #define CHIP_FLASH_WRITE_WAIT_STATE     (6U)
 
 /* Embedded Flash Read Wait State (VDDCORE set at 1.65V) */
-#define CHIP_FREQ_FWS_0                 (18000000UL) /**< \brief Maximum operating frequency when FWS is 0 */
-#define CHIP_FREQ_FWS_1                 (27000000UL) /**< \brief Maximum operating frequency when FWS is 1 */
-#define CHIP_FREQ_FWS_2                 (36000000UL) /**< \brief Maximum operating frequency when FWS is 2 */
-#define CHIP_FREQ_FWS_3                 (48000000UL) /**< \brief Maximum operating frequency when FWS is 3 */
-#define CHIP_FREQ_FWS_4                 (64000000UL) /**< \brief Maximum operating frequency when FWS is 4 */
+#define CHIP_FREQ_FWS_0                 (20000000UL) /**< \brief Maximum operating frequency when FWS is 0 */
+#define CHIP_FREQ_FWS_1                 (40000000UL) /**< \brief Maximum operating frequency when FWS is 1 */
+#define CHIP_FREQ_FWS_2                 (60000000UL) /**< \brief Maximum operating frequency when FWS is 2 */
+#define CHIP_FREQ_FWS_3                 (80000000UL) /**< \brief Maximum operating frequency when FWS is 3 */
+#define CHIP_FREQ_FWS_4                 (100000000UL) /**< \brief Maximum operating frequency when FWS is 4 */
 
 #ifdef __cplusplus
 }

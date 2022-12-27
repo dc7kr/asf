@@ -4,7 +4,7 @@
  * \brief Default Vendor class configuration for a USB Device
  * with a single interface
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -56,7 +56,31 @@
 //! Control endpoint size
 #define  USB_DEVICE_EP_CTRL_SIZE       64
 
-//! Endpoint numbers used by vendor interface
+//! Endpoint numbers used by vendor interface.
+//! Note: The order of endpoint can depend on USB hardware capability
+//! when a specific mapping is used on USB DPRAM.
+#if SAM3S || SAM3SD || SAM4S
+#  define  UDI_VENDOR_EP_INTERRUPT_IN  (3 | USB_EP_DIR_IN)
+#  define  UDI_VENDOR_EP_INTERRUPT_OUT (6 | USB_EP_DIR_OUT)
+#  define  UDI_VENDOR_EP_BULK_IN       (1 | USB_EP_DIR_IN)
+#  define  UDI_VENDOR_EP_BULK_OUT      (2 | USB_EP_DIR_OUT)
+#  define  UDI_VENDOR_EP_ISO_IN        (4 | USB_EP_DIR_IN)
+#  define  UDI_VENDOR_EP_ISO_OUT       (5 | USB_EP_DIR_OUT)
+#elif SAM3U
+#  define  UDI_VENDOR_EP_INTERRUPT_IN  (3 | USB_EP_DIR_IN)
+#  define  UDI_VENDOR_EP_INTERRUPT_OUT (4 | USB_EP_DIR_OUT)
+#  define  UDI_VENDOR_EP_BULK_IN       (1 | USB_EP_DIR_IN)
+#  define  UDI_VENDOR_EP_BULK_OUT      (2 | USB_EP_DIR_OUT)
+#  define  UDI_VENDOR_EP_ISO_IN        (5 | USB_EP_DIR_IN)
+#  define  UDI_VENDOR_EP_ISO_OUT       (6 | USB_EP_DIR_OUT)
+#elif SAM3X || SAM3A
+#  define  UDI_VENDOR_EP_INTERRUPT_IN  (3 | USB_EP_DIR_IN)
+#  define  UDI_VENDOR_EP_INTERRUPT_OUT (4 | USB_EP_DIR_OUT)
+#  define  UDI_VENDOR_EP_BULK_IN       (5 | USB_EP_DIR_IN)
+#  define  UDI_VENDOR_EP_BULK_OUT      (6 | USB_EP_DIR_OUT)
+#  define  UDI_VENDOR_EP_ISO_IN        (1 | USB_EP_DIR_IN)
+#  define  UDI_VENDOR_EP_ISO_OUT       (2 | USB_EP_DIR_OUT)
+#else
 #define  UDI_VENDOR_EP_INTERRUPT_IN  (1 | USB_EP_DIR_IN)
 #define  UDI_VENDOR_EP_INTERRUPT_OUT (2 | USB_EP_DIR_OUT)
 #define  UDI_VENDOR_EP_BULK_IN       ((((UDI_VENDOR_EPS_SIZE_INT_FS)?2:0)+1)\
@@ -69,6 +93,7 @@
 #define  UDI_VENDOR_EP_ISO_OUT       ((((UDI_VENDOR_EPS_SIZE_INT_FS)?2:0)+ \
 	((UDI_VENDOR_EPS_SIZE_BULK_FS)?2:0)+2)\
 		| USB_EP_DIR_OUT)
+#endif
 
 //! Interface number is 0 because it is the unique interface
 #define  UDI_VENDOR_IFACE_NUMBER 0

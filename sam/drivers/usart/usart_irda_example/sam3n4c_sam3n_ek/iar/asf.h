@@ -50,8 +50,9 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: 
-#include <exceptions.h>
+// From module: Common SAM compiler driver
+#include <compiler.h>
+#include <status_codes.h>
 
 // From module: GPIO - General purpose Input/Output
 #include <gpio.h>
@@ -59,7 +60,10 @@
 // From module: Generic board support
 #include <board.h>
 
-// From module: PDC - Peripheral DMA Controller (PDC)
+// From module: Interrupt management - SAM3 implementation
+#include <interrupt.h>
+
+// From module: PDC - Peripheral DMA Controller
 #include <pdc.h>
 
 // From module: PIO - Parallel Input/Output Controller
@@ -68,19 +72,18 @@
 
 // From module: PMC - Power Management Controller
 #include <pmc.h>
+#include <sleep.h>
+
+// From module: SAM3N startup code
+#include <exceptions.h>
 
 // From module: System Clock Control - SAM3N implementation
 #include <sysclk.h>
 
-// From module: UART - Universal Asynchronous Receiver/Transmitter
+// From module: UART - Univ. Async Rec/Trans
 #include <uart.h>
 
 // From module: USART - Univ. Syn Async Rec/Trans
 #include <usart.h>
-
-// From module: UTILITY - SAM3N compiler driver
-#include <compiler.h>
-#include <parts.h>
-#include <status_codes.h>
 
 #endif // ASF_H

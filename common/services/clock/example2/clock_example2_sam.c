@@ -3,7 +3,7 @@
  *
  * \brief Clock system example 2.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -75,12 +75,10 @@
  *
  */
 
-#include <board.h>
-#include <gpio.h>
-#include <genclk.h>
-#include <sysclk.h>
+#include "asf.h"
+#include "genclk.h"
 #include "conf_board.h"
-#include <conf_example2.h>
+#include "conf_example2.h"
 
 /// @cond 0
 /**INDENT-OFF**/

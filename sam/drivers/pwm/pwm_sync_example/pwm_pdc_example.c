@@ -3,7 +3,7 @@
  *
  * \brief PWM PDC example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -62,17 +62,8 @@
  *
  */
 
-#include <stdio.h>
-#include "board.h"
-#include "gpio.h"
-#include "exceptions.h"
-#include "uart.h"
-#include "pmc.h"
+#include "asf.h"
 #include "conf_board.h"
-#include "pdc.h"
-#include "pwm.h"
-#include "sysclk.h"
-
 
 /** Baud rate of console UART */
 #define CONSOLE_BAUD_RATE  115200
@@ -97,10 +88,10 @@
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 
 /** Duty cycle buffer for PDC transfer */
-uint16_t dutyBuffer[DUTY_BUFFER_LENGTH];
+uint16_t g_us_duty_buffer[DUTY_BUFFER_LENGTH];
 
 /** PDC transfer packet */
-pdc_packet_t pdc_tx_packet;
+pdc_packet_t g_pdc_tx_packet;
 
 /**
  * \brief Display menu.
@@ -124,7 +115,7 @@ static void display_menu(void)
  */
 static uint8_t get_num_key_2_digit(void)
 {
-	uint32_t dw_numkey;
+	uint32_t ul_numkey;
 	uint8_t uc_key1, uc_key2;
 
 	puts("\n\rEnter 2 digits : ");
@@ -137,9 +128,9 @@ static uint8_t get_num_key_2_digit(void)
 	printf("%c", uc_key2);
 	puts("\r");
 
-	dw_numkey = (uc_key1 - '0') * 10 + (uc_key2 - '0');
+	ul_numkey = (uc_key1 - '0') * 10 + (uc_key2 - '0');
 
-	return (uint8_t) dw_numkey;
+	return (uint8_t) ul_numkey;
 }
 
 /**
@@ -151,11 +142,11 @@ void PWM_Handler(void)
 
 	if ((pdc_status & PWM_PDC_TX_END) == PWM_PDC_TX_END) {
 		/* Set up the PDC controller */
-		pdc_tx_packet.dw_addr = (uint32_t) (&dutyBuffer[0]);
-		pdc_tx_packet.dw_size = DUTY_BUFFER_LENGTH;
+		g_pdc_tx_packet.ul_addr = (uint32_t) (&g_us_duty_buffer[0]);
+		g_pdc_tx_packet.ul_size = DUTY_BUFFER_LENGTH;
 
 		/* Initialize the PDC transfer */
-		pdc_tx_init(PDC_PWM, &pdc_tx_packet, 0);
+		pdc_tx_init(PDC_PWM, &g_pdc_tx_packet, 0);
 
 		/* Send the PWM value */
 		pdc_enable_transfer(PDC_PWM, PERIPH_PTCR_TXTEN);
@@ -168,7 +159,7 @@ void PWM_Handler(void)
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_main_hz(), CONSOLE_BAUD_RATE, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), CONSOLE_BAUD_RATE, UART_MR_PAR_NO };
 
 	/* Configure PIO */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
@@ -219,9 +210,9 @@ int main(void)
 
 	/* Set PWM clock A as PWM_FREQUENCY * PERIOD_VALUE (clock B is not used) */
 	pwm_clock_t clock_setting = {
-		.dw_clka = PWM_FREQUENCY * PERIOD_VALUE,
-		.dw_clkb = 0,
-		.dw_mck = sysclk_get_main_hz()
+		.ul_clka = PWM_FREQUENCY * PERIOD_VALUE,
+		.ul_clkb = 0,
+		.ul_mck = sysclk_get_cpu_hz()
 	};
 	pwm_init(PWM, &clock_setting);
 
@@ -235,13 +226,13 @@ int main(void)
 
 	/* Initialize PWM synchronous channels */
 	pwm_channel_t sync_channel = {
-		.dw_prescaler = PWM_CMR_CPRE_CLKA, /* Use PWM clock A as source clock */
-		.dw_period = PERIOD_VALUE,         /* Period value of output waveform */
-		.dw_duty = INIT_DUTY_VALUE,        /* Duty cycle value of output waveform */
+		.ul_prescaler = PWM_CMR_CPRE_CLKA, /* Use PWM clock A as source clock */
+		.ul_period = PERIOD_VALUE,         /* Period value of output waveform */
+		.ul_duty = INIT_DUTY_VALUE,        /* Duty cycle value of output waveform */
 		.b_sync_ch = true,                 /* Set it as a synchronous channel */
 		.b_deadtime_generator = true,      /* Enable dead-time generator */
-		.w_deadtime_pwmh = INIT_DEAD_TIME, /* Dead-time value for PWMH output */
-		.w_deadtime_pwml = INIT_DEAD_TIME, /* Dead-time value for PWML output */
+		.us_deadtime_pwmh = INIT_DEAD_TIME, /* Dead-time value for PWMH output */
+		.us_deadtime_pwml = INIT_DEAD_TIME, /* Dead-time value for PWML output */
 		.output_selection.b_override_pwmh = false, /* Disable override PWMH outputs */
 		.output_selection.b_override_pwml = false  /* Disable override PWML outputs */
 	};
@@ -277,15 +268,15 @@ int main(void)
 	/* Fill duty cycle buffer for channel #0 and #1 */
 	/* For PWM channel 0 and 1, duty cycle ranges from MIN_DUTY_CYCLE to MAX_DUTY_CYCLE */
 	for (i = 0; i < (DUTY_BUFFER_LENGTH / 3); i++) {
-		dutyBuffer[i * 3] = (i + INIT_DUTY_VALUE);
-		dutyBuffer[i * 3 + 1] = (i + INIT_DUTY_VALUE);
-		dutyBuffer[i * 3 + 2] = (i + INIT_DUTY_VALUE);
+		g_us_duty_buffer[i * 3] = (i + INIT_DUTY_VALUE);
+		g_us_duty_buffer[i * 3 + 1] = (i + INIT_DUTY_VALUE);
+		g_us_duty_buffer[i * 3 + 2] = (i + INIT_DUTY_VALUE);
 	}
 
 	/* Configure the PDC transfer packet and enable PDC transfer */
-	pdc_tx_packet.dw_addr = (uint32_t) (&(dutyBuffer[0]));
-	pdc_tx_packet.dw_size = DUTY_BUFFER_LENGTH;
-	pdc_tx_init(PDC_PWM, &pdc_tx_packet, 0);
+	g_pdc_tx_packet.ul_addr = (uint32_t) (&(g_us_duty_buffer[0]));
+	g_pdc_tx_packet.ul_size = DUTY_BUFFER_LENGTH;
+	pdc_tx_init(PDC_PWM, &g_pdc_tx_packet, 0);
 	pdc_enable_transfer(PDC_PWM, PERIPH_PTCR_TXTEN);
 
 	/* Enable all synchronous channels by enabling channel 0 */

@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_components_memory_nand_flash_nand_flash_ebi_example_evk1104.elf
+TARGET = nand_flash_ebi_example.elf
 
 # List of C source files.
 CSRCS = \
@@ -69,6 +69,7 @@ CSRCS = \
        avr32/drivers/usart/usart.c                        \
        avr32/utils/debug/print_funcs.c                    \
        common/services/clock/uc3a3_a4/sysclk.c            \
+       common/services/serial/usart_serial.c              \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c
 
@@ -99,6 +100,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/serial                             \
+       common/services/serial/uc3_usart                   \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
        ./avr32/components/memory/nand_flash/nand_flash_ebi/example/at32uc3a3256_evk1104/gcc

@@ -3,7 +3,7 @@
  *
  * \brief Digital-to-Analog Converter Controller (DACC) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -274,7 +274,8 @@ uint32_t dacc_get_writeprotect_status(Dacc *p_dacc)
  */
 Pdc *dacc_get_pdc_base(Dacc *p_dacc)
 {
-	return (Pdc *) & (p_dacc->DACC_RPR);
+	p_dacc = p_dacc;
+	return PDC_DACC;
 }
 
 #if (SAM3N) || defined(__DOXYGEN__)

@@ -239,6 +239,18 @@ static inline void backlight_toggle(void)
 #define AT45DBX_SPI_CLK_MASK  SYSCLK_PORT_C
 //! @}
 
+//! \name MXT143E Xplained top module
+//@{
+#define MXT143E_XPLAINED_USART_SPI     &USARTC0
+#define MXT143E_XPLAINED_CS            IOPORT_CREATE_PIN(PORTC, 4)
+#define MXT143E_XPLAINED_SCK           IOPORT_CREATE_PIN(PORTC, 7)
+#define MXT143E_XPLAINED_MOSI          IOPORT_CREATE_PIN(PORTC, 5)
+#define MXT143E_XPLAINED_MISO          IOPORT_CREATE_PIN(PORTC, 6)
+#define MXT143E_XPLAINED_DC            IOPORT_CREATE_PIN(PORTC, 3)
+#define MXT143E_XPLAINED_BACKLIGHT     IOPORT_CREATE_PIN(PORTA, 4)
+#define MXT143E_XPLAINED_LCD_RESET     IOPORT_CREATE_PIN(PORTA, 6)
+//@}
+
 /*! \name Power ON LED management
  *
  */

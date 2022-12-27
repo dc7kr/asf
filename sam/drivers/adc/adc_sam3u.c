@@ -3,7 +3,7 @@
  *
  * \brief Analog-to-Digital Converter (ADC/ADC12B) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -73,7 +73,7 @@ extern "C" {
  *
  * \return 0 on success.
  */
-uint32_t adc12b_init(Adc12b * p_adc, const uint32_t ul_mck, const uint32_t ul_adc_clock,
+uint32_t adc12b_init(Adc12b *p_adc, const uint32_t ul_mck, const uint32_t ul_adc_clock,
 		const uint32_t ul_startuptime, const uint32_t ul_offmode_startuptime)
 {
 	uint32_t ul_prescal, ul_startup, ul_offmode;
@@ -86,8 +86,6 @@ uint32_t adc12b_init(Adc12b * p_adc, const uint32_t ul_mck, const uint32_t ul_ad
 	p_adc->ADC12B_PTCR = (ADC12B_PTCR_RXTDIS | ADC12B_PTCR_TXTDIS);
 	p_adc->ADC12B_RCR = 0;
 	p_adc->ADC12B_RNCR = 0;
-	p_adc->ADC12B_TCR = 0;
-	p_adc->ADC12B_TNCR = 0;
 	ul_prescal = ul_mck / (2 * ul_adc_clock) - 1;
 	ul_startup = ((ul_adc_clock / 1000000) * ul_startuptime / 8) - 1;
 	ul_offmode = ((ul_adc_clock / 1000000) * ul_offmode_startuptime / 8) -
@@ -106,7 +104,7 @@ uint32_t adc12b_init(Adc12b * p_adc, const uint32_t ul_mck, const uint32_t ul_ad
  * \param p_adc Pointer to an ADC instance.
  * \param resolution ADC resolution.
  */
-void adc12b_set_resolution(Adc12b * p_adc, const enum adc_resolution_t resolution)
+void adc12b_set_resolution(Adc12b *p_adc, const enum adc_resolution_t resolution)
 {
 	p_adc->ADC12B_MR |= (resolution << 4) & ADC12B_MR_LOWRES;
 }
@@ -117,7 +115,7 @@ void adc12b_set_resolution(Adc12b * p_adc, const enum adc_resolution_t resolutio
  * \param p_adc Pointer to an ADC instance.
  * \param trigger Conversion trigger.
  */
-void adc12b_configure_trigger(Adc12b * p_adc, const enum adc_trigger_t trigger)
+void adc12b_configure_trigger(Adc12b *p_adc, const enum adc_trigger_t trigger)
 {
 	p_adc->ADC12B_MR |= trigger;
 }
@@ -132,7 +130,7 @@ void adc12b_configure_trigger(Adc12b * p_adc, const enum adc_trigger_t trigger)
  * OFF between conversions.
  * \param uc_offmode 0 Standby Mode (if Sleep Bit = 1), 1 Off Mode.
  */
-void adc12b_configure_power_save(Adc12b * p_adc, const uint8_t uc_sleep,
+void adc12b_configure_power_save(Adc12b *p_adc, const uint8_t uc_sleep,
 		uint8_t uc_offmode)
 {
 	p_adc->ADC12B_MR |= ((uc_sleep << 5) & ADC12B_MR_SLEEP);
@@ -145,7 +143,7 @@ void adc12b_configure_power_save(Adc12b * p_adc, const uint8_t uc_sleep,
  * \param p_adc Pointer to an ADC instance.
  * \param ul_sh ADC sample and hold time = uc_sh / ADC clock.
  */
-void adc12b_configure_timing(Adc12b * p_adc, const uint32_t ul_sh)
+void adc12b_configure_timing(Adc12b *p_adc, const uint32_t ul_sh)
 {
 	p_adc->ADC12B_MR |= ADC12B_MR_SHTIM(ul_sh);
 }
@@ -158,7 +156,7 @@ void adc12b_configure_timing(Adc12b * p_adc, const uint32_t ul_sh)
  *
  * \param p_adc Pointer to an ADC instance.
  */
-void adc12b_start(Adc12b * p_adc)
+void adc12b_start(Adc12b *p_adc)
 {
 	p_adc->ADC12B_CR = ADC12B_CR_START;
 }
@@ -167,7 +165,7 @@ void adc12b_start(Adc12b * p_adc)
  * \brief Stop ADC conversion.
  * \param p_adc Pointer to an ADC instance.
  */
-void adc12b_stop(Adc12b * p_adc)
+void adc12b_stop(Adc12b *p_adc)
 {
 	p_adc->ADC12B_CR = ADC12B_CR_SWRST;
 }
@@ -178,7 +176,7 @@ void adc12b_stop(Adc12b * p_adc)
  * \param p_adc Pointer to an ADC instance.
  * \param adc_ch ADC channel number.
  */
-void adc12b_enable_channel(Adc12b * p_adc, const enum adc_channel_num_t adc_ch)
+void adc12b_enable_channel(Adc12b *p_adc, const enum adc_channel_num_t adc_ch)
 {
 	p_adc->ADC12B_CHER = 1 << adc_ch;
 }
@@ -189,7 +187,7 @@ void adc12b_enable_channel(Adc12b * p_adc, const enum adc_channel_num_t adc_ch)
  * \param p_adc Pointer to an ADC instance.
  * \param adc_ch ADC channel number.
  */
-void adc12b_disable_channel(Adc12b * p_adc, const enum adc_channel_num_t adc_ch)
+void adc12b_disable_channel(Adc12b *p_adc, const enum adc_channel_num_t adc_ch)
 {
 	p_adc->ADC12B_CHDR = 1 << adc_ch;
 }
@@ -203,7 +201,7 @@ void adc12b_disable_channel(Adc12b * p_adc, const enum adc_channel_num_t adc_ch)
  * \retval 1 if channel is enabled.
  * \retval 0 if channel is disabled.
  */
-uint32_t adc12b_get_channel_status(const Adc12b * p_adc, const enum adc_channel_num_t adc_ch)
+uint32_t adc12b_get_channel_status(const Adc12b *p_adc, const enum adc_channel_num_t adc_ch)
 {
 	return p_adc->ADC12B_CHSR & (1 << adc_ch);
 }
@@ -216,7 +214,7 @@ uint32_t adc12b_get_channel_status(const Adc12b * p_adc, const enum adc_channel_
  *
  * \return ADC value of the specified channel.
  */
-uint32_t adc12b_get_channel_value(const Adc12b * p_adc,const enum adc_channel_num_t adc_ch)
+uint32_t adc12b_get_channel_value(const Adc12b *p_adc,const enum adc_channel_num_t adc_ch)
 {
 	uint32_t dwData = 0;
 
@@ -234,7 +232,7 @@ uint32_t adc12b_get_channel_value(const Adc12b * p_adc,const enum adc_channel_nu
  *
  * \return ADC latest value.
  */
-uint32_t adc12b_get_latest_value(const Adc12b * p_adc)
+uint32_t adc12b_get_latest_value(const Adc12b *p_adc)
 {
 	return p_adc->ADC12B_LCDR;
 }
@@ -244,7 +242,7 @@ uint32_t adc12b_get_latest_value(const Adc12b * p_adc)
  *
  * \param p_adc Pointer to an ADC instance.
  */
-void adc12b_enable_differential_input(Adc12b * p_adc)
+void adc12b_enable_differential_input(Adc12b *p_adc)
 {
 	p_adc->ADC12B_ACR |= (0x01u << 16);
 }
@@ -254,7 +252,7 @@ void adc12b_enable_differential_input(Adc12b * p_adc)
  *
  * \param p_adc Pointer to an ADC instance.
  */
-void adc12b_disable_differential_input(Adc12b * p_adc)
+void adc12b_disable_differential_input(Adc12b *p_adc)
 {
 	p_adc->ADC12B_ACR &= (0x01u << 16);
 }
@@ -264,7 +262,7 @@ void adc12b_disable_differential_input(Adc12b * p_adc)
  *
  * \param p_adc Pointer to an ADC instance.
  */
-void adc12b_enable_input_offset(Adc12b * p_adc)
+void adc12b_enable_input_offset(Adc12b *p_adc)
 {
 	p_adc->ADC12B_ACR |= (0x01u << 17);
 }
@@ -274,7 +272,7 @@ void adc12b_enable_input_offset(Adc12b * p_adc)
  *
  * \param p_adc Pointer to an ADC instance.
  */
-void adc12b_disable_input_offset(Adc12b * p_adc)
+void adc12b_disable_input_offset(Adc12b *p_adc)
 {
 	p_adc->ADC12B_ACR &= (0x01u << 17);
 }
@@ -285,7 +283,7 @@ void adc12b_disable_input_offset(Adc12b * p_adc)
  * \param p_adc Pointer to an ADC instance.
  * \param gain Gain value for the input.
  */
-void adc12b_set_input_gain(Adc12b * p_adc, const enum adc_gainvalue_t gain)
+void adc12b_set_input_gain(Adc12b *p_adc, const enum adc_gainvalue_t gain)
 {
 	p_adc->ADC12B_ACR |= (0x03u & gain);
 }
@@ -298,7 +296,7 @@ void adc12b_set_input_gain(Adc12b * p_adc, const enum adc_gainvalue_t gain)
  *
  * \retval 0 The actual ADC clock (in Hz).
  */
-uint32_t adc12b_get_actual_adc_clock(const Adc12b * p_adc, const uint32_t ul_mck)
+uint32_t adc12b_get_actual_adc_clock(const Adc12b *p_adc, const uint32_t ul_mck)
 {
 	uint32_t ul_adcfreq;
 	uint32_t ul_prescal;
@@ -316,7 +314,7 @@ uint32_t adc12b_get_actual_adc_clock(const Adc12b * p_adc, const uint32_t ul_mck
  * \param p_adc Pointer to an ADC instance.
  * \param ul_source Interrupts to be enabled.
  */
-void adc12b_enable_interrupt(Adc12b * p_adc, const uint32_t ul_source)
+void adc12b_enable_interrupt(Adc12b *p_adc, const uint32_t ul_source)
 {
 	p_adc->ADC12B_IER = ul_source;
 }
@@ -327,7 +325,7 @@ void adc12b_enable_interrupt(Adc12b * p_adc, const uint32_t ul_source)
  * \param p_adc Pointer to an ADC instance.
  * \param ul_source Interrupts to be disabled.
  */
-void adc12b_disable_interrupt(Adc12b * p_adc, const uint32_t ul_source)
+void adc12b_disable_interrupt(Adc12b *p_adc, const uint32_t ul_source)
 {
 	p_adc->ADC12B_IDR = ul_source;
 }
@@ -338,7 +336,7 @@ void adc12b_disable_interrupt(Adc12b * p_adc, const uint32_t ul_source)
  *
  * \return The interrupt mask value.
  */
-uint32_t adc12b_get_interrupt_mask(const Adc12b * p_adc)
+uint32_t adc12b_get_interrupt_mask(const Adc12b *p_adc)
 {
 	return p_adc->ADC12B_IMR;
 }
@@ -350,7 +348,7 @@ uint32_t adc12b_get_interrupt_mask(const Adc12b * p_adc)
  *
  * \retval ADC interrupt status.
  */
-struct adc_status_t adc12b_get_status(const Adc12b * p_adc)
+struct adc_status_t adc12b_get_status(const Adc12b *p_adc)
 {
 	struct adc_status_t adc_status;
 	adc_status.all_status = p_adc->ADC12B_SR;
@@ -366,7 +364,7 @@ struct adc_status_t adc12b_get_status(const Adc12b * p_adc)
  * \param p_adc Pointer to an ADC instance.
  * \param uc_ibctl ADC Bias current control.
  */
-void adc12b_set_bias_current(Adc12b * p_adc, const uint8_t uc_ibctl)
+void adc12b_set_bias_current(Adc12b *p_adc, const uint8_t uc_ibctl)
 {
 	p_adc->ADC12B_ACR |= ADC12B_ACR_IBCTL(uc_ibctl);
 }
@@ -378,7 +376,7 @@ void adc12b_set_bias_current(Adc12b * p_adc, const uint8_t uc_ibctl)
  *
  * \return ADC PDC register base address.
  */
-Pdc *adc12b_get_pdc_base(const Adc12b * p_adc)
+Pdc *adc12b_get_pdc_base(const Adc12b *p_adc)
 {
 	return PDC_ADC12B;
 }

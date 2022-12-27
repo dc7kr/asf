@@ -1,10 +1,13 @@
-/*****************************************************************************
- *
+/**
  * \file
  *
- * \brief Main file of the USB enumeration example.
+ * \mainpage
+ * \section title Main file of the USB enumeration example.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * \section file File(s)
+ * - \ref enum_example.c
+ *
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

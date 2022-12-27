@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_applications_audio-player_wav_evk1105.elf
+TARGET = uc3-audio-player_common_base.elf
 
 # List of C source files.
 CSRCS = \

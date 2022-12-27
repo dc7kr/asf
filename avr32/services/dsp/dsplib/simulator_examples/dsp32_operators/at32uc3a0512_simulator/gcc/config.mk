@@ -52,7 +52,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = avr32_services_dsplib_simulator_example_dsp32_operators_at32uc3a0512.elf
+TARGET = simulator_example_dsp32_operators.elf
 
 # List of C source files.
 CSRCS = \

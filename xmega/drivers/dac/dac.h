@@ -3,7 +3,7 @@
  *
  * \brief AVR XMEGA Digital to Analog Converter driver
  *
- * Copyright (c) 2010-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -52,6 +52,8 @@ extern "C" {
 /**
  * \defgroup dac_group Digital to Analog Converter (DAC)
  *
+ * See \ref dac_quickstart.
+ * 
  * This is a driver for versions 1 and 2, introduced with the XMEGA AU family,
  * of the AVR XMEGA DAC. It provides functions for enabling, disabling and
  * configuring the DAC and its channels.
@@ -538,6 +540,293 @@ __always_inline static void dac_set_conversion_trigger(struct dac_config *conf,
 //@}
 
 //! @}
+
+/**
+ * \page dac_quickstart Quick start guide for XMEGA DAC
+ *
+ * This is the quick start guide for the \ref dac_group, with
+ * step-by-step instructions on how to configure and use the driver in a
+ * selection of use cases.
+ *
+ * The use cases contain several code fragments. The code fragments in the
+ * steps for setup can be copied into a custom initialization function, while
+ * the steps for usage can be copied into, e.g., the main application function.
+ *
+ * \section dac_use_cases DAC use cases
+ * - \ref dac_basic_use_case
+ * - \subpage dac_use_case_1
+ *
+ * \section dac_basic_use_case Basic use case - DA conversion on one channel
+ * In this use case, the DAC is configured for:
+ * - Using DAC on port B, channel 0
+ * - 1V from bandgap as reference, left adjusted channel value
+ * - one active DAC channel, no internal output
+ * - conversions triggered by event channel 0
+ * - 1 us conversion intervals
+ *
+ * This use case sets up the DAC to perform DA conversions on one channel,
+ * with output to a pin, every time it receives events in event channel 0.
+ * The output pin may, e.g., be connected to an oscilloscope or an amplifier
+ * and speaker.
+ *
+ * \section dac_basic_use_case_setup Setup steps
+ *
+ * \subsection dac_basic_use_case_setup_prereq Prerequisites
+ * -# \ref sysclk_group "System Clock Management"
+ *
+ * \subsection dac_basic_use_case_setup_code Example code
+ * The following configuration must be added to the project (typically to a
+ * conf_dac.h file, but it can also be added to your main application file.):
+ * \code
+ * #define SPEAKER_DAC              DACB
+ * #define SPEAKER_DAC_CHANNEL      DAC_CH0
+ * #define CONF_BOARD_ENABLE_SPEAKER
+ * #define CONFIG_SYSCLK_SOURCE     SYSCLK_SRC_RC32MHZ
+ * #define CONFIG_SYSCLK_PSADIV     SYSCLK_PSADIV_1
+ * #define CONFIG_SYSCLK_PSBCDIV    SYSCLK_PSBCDIV_1_1
+ * #define CONFIG_USBCLK_SOURCE     USBCLK_SRC_RCOSC
+ * #define CONFIG_SLEEPMGR_ENABLE
+ * #define RATE_OF_CONVERSION       22050
+ * #define NR_OF_SAMPLES            32
+ * \endcode
+ *
+ * A static const sample buffer with one period of a sine wave must be added:
+ * \code static const uint16_t sine[NR_OF_SAMPLES] = {
+ *     32768, 35325, 37784, 40050, 42036, 43666, 44877, 45623,
+ *     45875, 45623, 44877, 43666, 42036, 40050, 37784, 35325,
+ *     32768, 30211, 27752, 25486, 23500, 21870, 20659, 19913,
+ *     19661, 19913, 20659, 21870, 23500, 25486, 27752, 30211,
+ * };
+ * \endcode
+ *
+ * Add to application initialization:
+ * \code
+ * struct dac_config conf;
+ *
+ * sysclk_init();
+ *
+ * dac_read_configuration(&SPEAKER_DAC, &conf);
+ * dac_set_conversion_parameters(&conf, DAC_REF_BANDGAP, DAC_ADJ_LEFT);
+ * dac_set_active_channel(&conf, SPEAKER_DAC_CHANNEL, 0);
+ * dac_set_conversion_trigger(&conf, SPEAKER_DAC_CHANNEL, 0);
+ * #ifdef XMEGA_DAC_VERSION_1
+ * dac_set_conversion_interval(&conf, 1);
+ * #endif
+ * dac_write_configuration(&SPEAKER_DAC, &conf);
+ * dac_enable(&SPEAKER_DAC);
+ *
+ * sysclk_enable_module(SYSCLK_PORT_C, SYSCLK_TC0);
+ * TCC0.PER = (sysclk_get_per_hz() / RATE_OF_CONVERSION) - 1;
+ * sysclk_enable_module(SYSCLK_PORT_GEN, SYSCLK_EVSYS);
+ * EVSYS.CH0MUX = EVSYS_CHMUX_TCC0_OVF_gc;
+ * TCC0.CTRLA = TC_CLKSEL_DIV1_gc;
+ * \endcode
+ *
+ * \subsection dac_basic_use_case_setup_flow Workflow
+ * -# Config struct for the DAC:
+ *   - \code struct dac_config conf; \endcode
+ * -# Initialize system clock:
+ *   - \code sysclk_init(); \endcode
+ * -# Initialize the dac configuration by reading back the configuaration from the peripheral:
+ *   - \code dac_read_configuration(&SPEAKER_DAC, &conf); \endcode
+ * -# Create and set configuration:
+ *   - \code
+ * dac_set_conversion_parameters(&conf, DAC_REF_BANDGAP, DAC_ADJ_LEFT);
+ * dac_set_active_channel(&conf, SPEAKER_DAC_CHANNEL, 0);
+ * dac_set_conversion_trigger(&conf, SPEAKER_DAC_CHANNEL, 0);
+ * #ifdef XMEGA_DAC_VERSION_1
+ * dac_set_conversion_interval(&conf, 1);
+ * #endif
+ * dac_write_configuration(&SPEAKER_DAC, &conf);
+ *     \endcode
+ * -# Enable DAC:
+ *   - \code dac_enable(&SPEAKER_DAC); \endcode
+ * -# Configure timer/counter to generate events at sample rate:
+ *   - \code
+ * sysclk_enable_module(SYSCLK_PORT_C, SYSCLK_TC0);
+ * TCC0.PER = (sysclk_get_per_hz() / RATE_OF_CONVERSION) - 1;
+ *     \endcode
+ * -# Configure event channel 0 to generate events upon T/C overflow:
+ *   - \code
+ * sysclk_enable_module(SYSCLK_PORT_GEN, SYSCLK_EVSYS);
+ * EVSYS.CH0MUX = EVSYS_CHMUX_TCC0_OVF_gc;
+ *     \endcode
+ * -# Start the timer/counter:
+ *   - \code TCC0.CTRLA = TC_CLKSEL_DIV1_gc; \endcode
+ *
+ * \section dac_basic_use_case_usage Usage steps
+ *
+ * \subsection dac_basic_use_case_usage_code Example code
+ * Add to application C-file:
+ * \code
+ * uint8_t i = 0;
+ * while (1) {
+ *     dac_wait_for_channel_ready(&SPEAKER_DAC, SPEAKER_DAC_CHANNEL);
+ *     dac_set_channel_value(&SPEAKER_DAC, SPEAKER_DAC_CHANNEL, sine[i]);
+ *     i++;
+ *     i %= NR_OF_SAMPLES;
+ * }
+ * \endcode
+ *
+ * \subsection dac_basic_use_case_usage_flow Workflow
+ * -# Index used for the sinus lookup table:
+ *   - \code uint8_t i = 0; \endcode
+ * -# Wait for DAC channel to be ready for new data:
+ *   - \code
+ * dac_wait_for_channel_ready(&SPEAKER_DAC, SPEAKER_DAC_CHANNEL);
+ *     \endcode
+ * -# Set the current sinus table element as new channel value:
+ *   - \code
+ * dac_set_channel_value(&SPEAKER_DAC, SPEAKER_DAC_CHANNEL, sine[i]);
+ *     \endcode
+ * \note Conversion is triggered by the timer/counter
+ * -# Get next index in sine wave array to convert, wrapping around at NR_OF_SAMPLES:
+ *   - \code
+ * i++;
+ * i %= NR_OF_SAMPLES;
+ *     \endcode
+ */
+
+/**
+ * \page dac_use_case_1 DA conversion on two channels
+ *
+ * In this use case, the DAC module is configured for:
+ * - AVCC as reference, right adjusted channel value
+ * - Both DAC channels active, no internal output
+ * - Manually triggered conversions on both channels
+ * - 2 us conversion intervals
+ * - 10 us refresh intervals
+ *
+ * This use case configure the DAC to perform DA conversions on both channels,
+ * with output to their respective pins every time it receives an event on event
+ * channel 0.
+ * \section dac_use_case_1_setup Setup steps
+ *
+ * \subsection dac_use_case_1_setup_prereq Prerequisites
+ * -# \ref sysclk_group "System Clock Management"
+ *
+ * \subsection dac_use_case_1_setup_code Example code
+ * -# The following configuration must be added to the project (typically to a
+ * conf_dac.h file, but it can also be added to your main application file.):
+ * \code
+ * #define RATE_OF_CONVERSION       500
+ * #define OUTPUT_DAC               DACA
+ * #define CONFIG_SLEEPMGR_ENABLE
+ * #define CONFIG_SYSCLK_SOURCE     SYSCLK_SRC_RC32MHZ
+ * #define CONFIG_SYSCLK_PSADIV     SYSCLK_PSADIV_1
+ * #define CONFIG_SYSCLK_PSBCDIV    SYSCLK_PSBCDIV_1_1
+ * #define CONFIG_USBCLK_SOURCE     USBCLK_SRC_RCOSC
+ * \endcode
+ *
+ * -# A function to wait for the timer to overflow must be provided:
+ * \code
+ * static void wait_for_timer(void)
+ * {
+ *     do { } while (!(TCC0.INTFLAGS & TC0_OVFIF_bm));
+ *     TCC0.INTFLAGS = TC0_OVFIF_bm;
+ * }
+ * \endcode
+ *
+ * -# Add to application initialization:
+ * \code
+ * struct dac_config conf;
+ *
+ * sysclk_init();
+ *
+ * dac_read_configuration(&OUTPUT_DAC, &conf);
+ * dac_set_conversion_parameters(&conf, DAC_REF_AVCC, DAC_ADJ_RIGHT);
+ * dac_set_active_channel(&conf, DAC_CH0 | DAC_CH1, 0);
+ * dac_set_conversion_trigger(&conf, 0, 0);
+ * #ifdef XMEGA_DAC_VERSION_1
+ * dac_set_conversion_interval(&conf, 10);
+ * dac_set_refresh_interval(&conf, 20);
+ * #endif
+ * dac_write_configuration(&OUTPUT_DAC, &conf);
+ * dac_enable(&OUTPUT_DAC);
+ *
+ * dac_wait_for_channel_ready(&OUTPUT_DAC, DAC_CH0 | DAC_CH1);
+ * dac_set_channel_value(&OUTPUT_DAC, DAC_CH0, 0);
+ * dac_set_channel_value(&OUTPUT_DAC, DAC_CH1, 0);
+ * dac_wait_for_channel_ready(&OUTPUT_DAC, DAC_CH0 | DAC_CH1);
+ *
+ * sysclk_enable_module(SYSCLK_PORT_C, SYSCLK_TC0);
+ * TCC0.PER = (sysclk_get_per_hz() / RATE_OF_CONVERSION) - 1;
+ * sysclk_enable_module(SYSCLK_PORT_GEN, SYSCLK_EVSYS);
+ * EVSYS.CH0MUX = EVSYS_CHMUX_TCC0_OVF_gc;
+ * TCC0.CTRLA = TC_CLKSEL_DIV1_gc;
+ * \endcode
+ *
+ * \subsection dac_use_case_1_setup_flow Workflow
+ * -# Config struct for the DAC:
+ *   - \code struct dac_config conf; \endcode
+ * -# Initialize system clock:
+ *   - \code sysclk_init(); \endcode
+ * -# Initialize the DAC configuration by reading the current configuration from the peripheral:
+ *   - \code dac_read_configuration(&OUTPUT_DAC, &conf); \endcode
+ * -# Create and set configuration:
+ *   - \code
+ * dac_set_conversion_parameters(&conf, DAC_REF_AVCC, DAC_ADJ_RIGHT);
+ * dac_set_active_channel(&conf, DAC_CH0 | DAC_CH1, 0);
+ * dac_set_conversion_trigger(&conf, 0, 0);
+ * #ifdef XMEGA_DAC_VERSION_1
+ * dac_set_conversion_interval(&conf, 10);
+ * dac_set_refresh_interval(&conf, 20);
+ * #endif
+ * dac_write_configuration(&OUTPUT_DAC, &conf);
+ *     \endcode
+ * -# Enable DAC:
+ *   - \code dac_enable(&OUTPUT_DAC); \endcode
+ * -# Wait for both channels to be ready, set initial channel values and
+ *    wait for channels to be ready again:
+ *   - \code
+ * dac_wait_for_channel_ready(&OUTPUT_DAC, DAC_CH0 | DAC_CH1);
+ * dac_set_channel_value(&OUTPUT_DAC, DAC_CH0, 0);
+ * dac_set_channel_value(&OUTPUT_DAC, DAC_CH1, 0);
+ * dac_wait_for_channel_ready(&OUTPUT_DAC, DAC_CH0 | DAC_CH1);
+ *     \endcode
+ * -# Configure timer/counter to generate events at conversion rate.
+ *   - \code
+ * sysclk_enable_module(SYSCLK_PORT_C, SYSCLK_TC0);
+ * TCC0.PER = (sysclk_get_per_hz() / RATE_OF_CONVERSION) - 1;
+ *     \endcode
+ * -# Configure event channel 0 to generate events upon T/C overflow:
+ *   - \code
+ * sysclk_enable_module(SYSCLK_PORT_GEN, SYSCLK_EVSYS);
+ * EVSYS.CH0MUX = EVSYS_CHMUX_TCC0_OVF_gc;
+ *     \endcode
+ * -# Start the timer/counter:
+ *   - \code TCC0.CTRLA = TC_CLKSEL_DIV1_gc; \endcode
+ *
+ * \section dac_use_case_1_usage Usage steps
+ *
+ * \subsection dac_use_case_1_usage_code Example code
+ * Add to, e.g., main loop in application C-file:
+ * \code
+ * wait_for_timer();
+ * dac_set_channel_value(&OUTPUT_DAC, DAC_CH0, 410);
+ * dac_set_channel_value(&OUTPUT_DAC, DAC_CH1, 3686);
+ * wait_for_timer();
+ * dac_set_channel_value(&OUTPUT_DAC, DAC_CH0, 3686);
+ * dac_set_channel_value(&OUTPUT_DAC, DAC_CH1, 410);
+ * \endcode
+ *
+ * \subsection dac_use_case_1_usage_flow Workflow
+ * -# Wait for channels to get ready for new values, then set the
+ *    value of channel 0 to 10% and the other to 90% of maximum.:
+ *   - \code
+ * wait_for_timer();
+ * dac_set_channel_value(&OUTPUT_DAC, DAC_CH0, 410);
+ * dac_set_channel_value(&OUTPUT_DAC, DAC_CH1, 3686);
+ *     \endcode
+ * -# Wait for channels to get ready again, then set value of channel 0 to
+ *    90% and the other to 10% of maximum:
+ *    - \code
+ * wait_for_timer();
+ * dac_set_channel_value(&OUTPUT_DAC, DAC_CH0, 3686);
+ * dac_set_channel_value(&OUTPUT_DAC, DAC_CH1, 410);
+ *      \endcode
+ * \note Conversions are triggered by the timer/counter
+ */
 
 #ifdef __cplusplus
 }

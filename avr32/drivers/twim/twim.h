@@ -9,7 +9,7 @@
  *****************************************************************************/
 
 /**
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -144,7 +144,7 @@ typedef struct
 	//! TWI chip address to communicate with.
 	uint32_t chip;
 	//! TWI address/commands to issue to the other chip (node).
-	uint32_t addr;
+	uint8_t addr[3];
 	//! Length of the TWI data address segment (1-3 bytes).
 	uint8_t addr_length;
 	//! Where to find the data to be written.

@@ -3,7 +3,7 @@
  *
  * \brief Board configuration.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -47,30 +47,5 @@
 
 /** SPI slave select MACRO definition */
 #define CONF_BOARD_SPI_NPCS3
-
-/** Board SPI chip select0 pin definition */
-//#define BOARD_SPI_NPCS0_GPIO         SPI_NPCS0_GPIO
-//#define BOARD_SPI_NPCS0_GPIO_FLAGS   SPI_NPCS0_GPIO_FLAGS
-
-/** Board SPI chip select1 pin definition. As there are several pins which 
- *  can be used as SPI chip select1, this needs to be modified according 
- *  to actual board.
- */
-//#define BOARD_SPI_NPCS1_GPIO         SPI_NPCS1_GPIO_PA9
-//#define BOARD_SPI_NPCS1_GPIO_FLAGS   SPI_NPCS1_GPIO_PA9_FLAGS
-
-/** Board SPI chip select2 pin definition. As there are several pins which 
- *  can be used as SPI chip select2, this needs to be modified according 
- *  to actual board.
- */
-//#define BOARD_SPI_NPCS2_GPIO         SPI_NPCS2_GPIO_PA10
-//#define BOARD_SPI_NPCS2_GPIO_FLAGS   SPI_NPCS2_GPIO_PA10_FLAGS
-
-/** Board SPI chip select3 pin definition. As there are several pins which 
- *  can be used as SPI chip select3, this needs to be modified according 
- *  to actual board.
- */
-#define BOARD_SPI_NPCS3_GPIO         SPI_NPCS3_GPIO_PA22
-#define BOARD_SPI_NPCS3_GPIO_FLAGS   SPI_NPCS3_GPIO_PA22_FLAGS
 
 #endif /* CONF_BOARD_H_INCLUDED */

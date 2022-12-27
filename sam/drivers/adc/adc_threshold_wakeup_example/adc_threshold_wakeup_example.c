@@ -3,7 +3,7 @@
  *
  * \brief ADC12 threshold wakeup example for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -124,25 +124,9 @@
  *
  */
 
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <assert.h>
-#include "board.h"
-#include "sysclk.h"
-#include "gpio.h"
-#include "exceptions.h"
-#include "pio.h"
-#include "uart.h"
-#include "pmc.h"
-#include "adc.h"
-#include "tc.h"
+#include "asf.h"
 #include "conf_board.h"
-#include "pio_handler.h"
 
-/*----------------------------------------------------------------------------
- *        Local definitions
- *----------------------------------------------------------------------------*/
 /** ADC channel for potentiometer */
 #if SAM3S || SAM3N || SAM4S
 #define ADC_CHANNEL_POTENTIOMETER  ADC_CHANNEL_5
@@ -177,25 +161,11 @@
 		"-- m: Display this main menu.--\n\r" \
 		"-- s: Enter sleep mode.--\n\r"
 
-/*----------------------------------------------------------------------------
- *        Local variables
- *----------------------------------------------------------------------------*/
 /** Low threshold*/
-uint16_t us_low_threshold = 0;
+static uint16_t gs_us_low_threshold = 0;
 /** High threshold*/
-uint16_t us_high_threshold = 0;
+static uint16_t gs_us_high_threshold = 0;
 
-/*----------------------------------------------------------------------------
- *        Local functions
- *----------------------------------------------------------------------------*/
-
-/*----------------------------------------------------------------------------
- *        Exported functions
- *----------------------------------------------------------------------------*/
-
-/**------------------------------------------------------------------------------
- * Interrupt handler for the ADC.
- *------------------------------------------------------------------------------*/
 void ADC_Handler(void)
 {
 	uint32_t ul_mode;
@@ -212,25 +182,25 @@ void ADC_Handler(void)
 		case 0:
 			printf("-ISR-:Potentiometer voltage %d mv is below the low " 
 				"threshold:%d mv!\n\r", us_adc * VOLT_REF / MAX_DIGITAL, 
-				us_low_threshold * VOLT_REF / MAX_DIGITAL);
+				gs_us_low_threshold * VOLT_REF / MAX_DIGITAL);
 			break;
 
 		case 1:
 			printf("-ISR-:Potentiometer voltage %d mv is above the high " 
 				"threshold:%d mv!\n\r", us_adc * VOLT_REF / MAX_DIGITAL, 
-				us_high_threshold * VOLT_REF / MAX_DIGITAL);
+				gs_us_high_threshold * VOLT_REF / MAX_DIGITAL);
 			break;
 
 		case 2:
 			printf("-ISR-:Potentiometer voltage %d mv is in the comparison " 
 				"window:%d mv-%d mv!\n\r", us_adc * VOLT_REF / MAX_DIGITAL, 
-				us_low_threshold * VOLT_REF / MAX_DIGITAL, us_high_threshold * VOLT_REF / MAX_DIGITAL);
+				gs_us_low_threshold * VOLT_REF / MAX_DIGITAL, gs_us_high_threshold * VOLT_REF / MAX_DIGITAL);
 			break;
 
 		case 3:
 			printf("-ISR-:Potentiometer voltage %d mv is out of the comparison" 
 				" window:%d mv-%d mv!\n\r", us_adc * VOLT_REF / MAX_DIGITAL, 
-				us_low_threshold * VOLT_REF / MAX_DIGITAL, us_high_threshold * VOLT_REF / MAX_DIGITAL);
+				gs_us_low_threshold * VOLT_REF / MAX_DIGITAL, gs_us_high_threshold * VOLT_REF / MAX_DIGITAL);
 			break;
 		}
 	}
@@ -242,8 +212,7 @@ void ADC_Handler(void)
  * Configure Timer Counter 0 (TC0) to generate an interrupt every second. This
  * interrupt will be used to display the number of bytes received on the USART.
  */
-
-static void _ConfigureTc0(void)
+static void configure_tc0(void)
 {
 	/* Enable TC0 peripheral clock. */
 	pmc_enable_periph_clk(ID_TC0);
@@ -257,7 +226,7 @@ static void _ConfigureTc0(void)
 }
 
 /** Display main menu. */
-static void _DisplayMenuChoices(void)
+static void display_menu(void)
 {
 	puts(MENU_HEADER);
 }
@@ -265,13 +234,13 @@ static void _DisplayMenuChoices(void)
 /** Display current information,including
  * voltage on potentiometer, thresholds and comparison mode.
  */
-static void _DisplayInfo(void)
+static void display_info(void)
 {
 	uint32_t ul_adc_value = adc_get_channel_value(ADC, ADC_CHANNEL_POTENTIOMETER);
 
 	printf("-I- Thresholds: %d mv - %d mv.\n\r",
-			us_low_threshold * VOLT_REF / MAX_DIGITAL,
-			us_high_threshold * VOLT_REF / MAX_DIGITAL);
+			gs_us_low_threshold * VOLT_REF / MAX_DIGITAL,
+			gs_us_high_threshold * VOLT_REF / MAX_DIGITAL);
 	printf("-I- Voltage on potentiometer: %u mv.\n\r",
 			(unsigned int)(ul_adc_value * VOLT_REF / MAX_DIGITAL));
 	printf("-I- Comparison mode is %u\n\r.",
@@ -281,7 +250,7 @@ static void _DisplayInfo(void)
 /** Fall asleep by __WFI.
  * Enable interrupt first, and disable it after wake up.
  */
-static void _Fallasleep(void)
+static void enter_asleep(void)
 {
 	while (1) {
 		puts("The device is going to fall in sleep!\r");
@@ -301,7 +270,7 @@ static void _Fallasleep(void)
 /**
  * Get comparison mode.
  */
-static uint8_t GetComparisonMode(void)
+static uint8_t get_comparison_mode(void)
 {
 	uint8_t uc_mode = adc_get_comparison_mode(ADC);
 	uint8_t uc_char;
@@ -339,7 +308,7 @@ static uint8_t GetComparisonMode(void)
  * \brief Get voltage from user input (the range
  * is 0~3300 (mv)).
  */
-static int16_t GetVoltage(void)
+static int16_t get_voltage(void)
 {
 	uint8_t c_counter = 0, c_char;
 	int16_t s_value = 0;
@@ -406,7 +375,7 @@ static int16_t GetVoltage(void)
 static void configure_console(void)
 {
 	const sam_uart_opt_t uart_console_settings =
-			{ BOARD_MCK, 115200, UART_MR_PAR_NO };
+			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
 
 	/* Configure PIO. */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
@@ -453,8 +422,8 @@ int main(void)
 	puts(STRING_HEADER);
 
 	/* Initialize threshold. */
-	us_low_threshold = 0x0;
-	us_high_threshold = MAX_DIGITAL;
+	gs_us_low_threshold = 0x0;
+	gs_us_high_threshold = MAX_DIGITAL;
 
 	/* Enable peripheral clock. */
 	pmc_enable_periph_clk(ID_ADC);
@@ -464,13 +433,13 @@ int main(void)
 	 *     prescal: ADCClock = MCK / ( (PRESCAL+1) * 2 ) => 64MHz / ((4+1)*2) = 6.4MHz
 	 *     ADC clock = 6.4 MHz
 	 */
-	adc_init(ADC, BOARD_MCK, 6400000, 10);
+	adc_init(ADC, sysclk_get_cpu_hz(), 6400000, 10);
 #if SAM3S ||  SAM3XA || SAM4S
 	adc_configure_timing(ADC, 0, ADC_SETTLING_TIME_3, 1);
 #elif SAM3N
 	adc_configure_timing(ADC, 0);
 #endif
-	adc_check(ADC, BOARD_MCK);
+	adc_check(ADC, sysclk_get_cpu_hz());
 
 	/* Hardware trigger TIOA0. */
 	adc_configure_trigger(ADC, ADC_TRIG_TIO_CH_0, 0);
@@ -478,7 +447,7 @@ int main(void)
 	adc_enable_channel(ADC, ADC_CHANNEL_POTENTIOMETER);
 
 	/* Configure TC. */
-	_ConfigureTc0();
+	configure_tc0();
 
 	/*Channel 5 has to be compared. */
 	adc_set_comparison_channel(ADC, ADC_CHANNEL_POTENTIOMETER);
@@ -486,7 +455,7 @@ int main(void)
 	adc_set_comparison_mode(ADC, ADC_EMR_CMPMODE_IN);
 
 	/* Set up Threshold. */
-	adc_set_comparison_window(ADC, us_high_threshold, us_low_threshold);
+	adc_set_comparison_window(ADC, gs_us_high_threshold, gs_us_low_threshold);
 
 	/* Enable adc interrupt. */
 	NVIC_EnableIRQ(ADC_IRQn);
@@ -498,7 +467,7 @@ int main(void)
 	tc_start(TC0, 0);
 
 	/*Display main menu. */
-	_DisplayMenuChoices();
+	display_menu();
 
 	while (1) {
 		while (uart_read(CONSOLE_UART, &c_choice));
@@ -513,45 +482,45 @@ int main(void)
 			break;
 
 		case '1':
-			printf("-I- Thresholds are 0x%x(%d%%) and 0x%x(%d%%).\n\r", us_low_threshold, 
-				us_low_threshold * 100 / MAX_DIGITAL, us_high_threshold, 
-				us_high_threshold * 100 / MAX_DIGITAL);
+			printf("-I- Thresholds are 0x%x(%d%%) and 0x%x(%d%%).\n\r", gs_us_low_threshold, 
+				gs_us_low_threshold * 100 / MAX_DIGITAL, gs_us_high_threshold, 
+				gs_us_high_threshold * 100 / MAX_DIGITAL);
 			break;
 
 		case '2':
 			puts("Low threshold is set to(mv):");
-			s_threshold = GetVoltage();
+			s_threshold = get_voltage();
 			puts("\r");
 
 			if (s_threshold >= 0) {
 				s_adc_value = s_threshold * MAX_DIGITAL /
 						VOLT_REF;
 				adc_set_comparison_window(ADC, s_adc_value,
-						us_high_threshold);
+						gs_us_high_threshold);
 				/* Renew low threshold. */
-				us_low_threshold = s_adc_value;
+				gs_us_low_threshold = s_adc_value;
 				printf("Low threshold is set to 0x%x(%d%%)\n\r",
-						us_low_threshold,
-						us_low_threshold * 100 /
+						gs_us_low_threshold,
+						gs_us_low_threshold * 100 /
 						MAX_DIGITAL);
 			}
 			break;
 
 		case '3':
 			puts("High threshold is set to(mv):");
-			s_threshold = GetVoltage();
+			s_threshold = get_voltage();
 			puts("\r");
 
 			if (s_threshold >= 0) {
 				s_adc_value = s_threshold * MAX_DIGITAL /
 						VOLT_REF;
-				adc_set_comparison_window(ADC, us_low_threshold,
+				adc_set_comparison_window(ADC, gs_us_low_threshold,
 						s_adc_value);
 
 				/* Renew high threshold. */
-				us_high_threshold = s_adc_value;
-				printf("High threshold is set to 0x%x(%d%%)\n\r", us_high_threshold, 
-				us_high_threshold * 100 / MAX_DIGITAL);
+				gs_us_high_threshold = s_adc_value;
+				printf("High threshold is set to 0x%x(%d%%)\n\r", gs_us_high_threshold, 
+				gs_us_high_threshold * 100 / MAX_DIGITAL);
 			}
 			break;
 		case '4':
@@ -560,24 +529,24 @@ int main(void)
 					"-c. In the comparison window.\n\r"
 					"-d. Out of the comparison window.\n\r"
 					"-q. Quit the setting.\r");
-			c_choice = GetComparisonMode();
+			c_choice = get_comparison_mode();
 			adc_set_comparison_mode(ADC, c_choice);
 			printf("Comparison mode is %c.\n\r", 'a' + c_choice);
 			break;
 
 		case 'm':
 		case 'M':
-			_DisplayMenuChoices();
+			display_menu();
 			break;
 
 		case 'i':
 		case 'I':
-			_DisplayInfo();
+			display_info();
 			break;
 
 		case 's':
 		case 'S':
-			_Fallasleep();
+			enter_asleep();
 			break;
 		}
 		puts("Press \'m\' or \'M\' to display the main menu again!!\r");

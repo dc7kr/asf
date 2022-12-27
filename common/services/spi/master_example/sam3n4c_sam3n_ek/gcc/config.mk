@@ -45,14 +45,15 @@ PART = sam3n4c
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = common_services_basic_spi_master_example_sam3n_ek_flash.elf
-TARGET_SRAM = common_services_basic_spi_master_example_sam3n_ek_sram.elf
+TARGET_FLASH = spi_master_example_flash.elf
+TARGET_SRAM = spi_master_example_sram.elf
 
 # List of C source files.
 CSRCS = \
        common/services/clock/sam3n/sysclk.c               \
        common/services/spi/master_example/spi_master_example_sam3.c \
        common/services/spi/sam_spi/spi_master.c           \
+       common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3n_ek/init.c                         \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
@@ -73,6 +74,7 @@ INC_PATH = \
        common/services/spi                                \
        common/services/spi/master_example/sam3n4c_sam3n_ek \
        common/services/spi/sam_spi                        \
+       common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3n_ek                                \
        sam/drivers/pio                                    \
@@ -82,6 +84,7 @@ INC_PATH = \
        sam/utils/cmsis/sam3n/include                      \
        sam/utils/cmsis/sam3n/source/templates             \
        sam/utils/header_files                             \
+       sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include \
        ./common/services/spi/master_example/sam3n4c_sam3n_ek/gcc
 

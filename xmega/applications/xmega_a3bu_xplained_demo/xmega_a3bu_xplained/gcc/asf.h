@@ -50,7 +50,7 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: ADC - Analog Digital Converter 
+// From module: ADC - XMEGA Common Implementation
 #include <adc.h>
 
 // From module: CPU specific features
@@ -78,7 +78,7 @@
 // From module: Generic board support
 #include <board.h>
 
-// From module: IOPORT - Input/Output Port Controller
+// From module: IOPORT - General purpose I/O service
 #include <ioport.h>
 
 // From module: Interrupt management - XMEGA implementation

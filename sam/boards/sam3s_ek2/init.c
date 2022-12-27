@@ -3,7 +3,7 @@
  *
  * \brief SAM3S-EK2 board init.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -52,8 +52,8 @@ void board_init(void)
 #endif
 
 	/* Configure LED pins */
-	gpio_configure_pin(LED0_GPIO, LED0_GPIO_FLAGS);
-	gpio_configure_pin(LED1_GPIO, LED1_GPIO_FLAGS);
+	gpio_configure_pin(LED0_GPIO, LED0_FLAGS);
+	gpio_configure_pin(LED1_GPIO, LED1_FLAGS);
 	
 	/* Configure Push Button pins */
 	gpio_configure_pin(GPIO_PUSH_BUTTON_1, GPIO_PUSH_BUTTON_1_FLAGS);
@@ -93,24 +93,43 @@ void board_init(void)
 
 	/* Configure SPI pins */
 #ifdef CONF_BOARD_SPI
-	gpio_configure_pin(SPI_MISO_GPIO, SPI_MISO_GPIO_FLAGS);
-	gpio_configure_pin(SPI_MOSI_GPIO, SPI_MOSI_GPIO_FLAGS);
-	gpio_configure_pin(SPI_SPCK_GPIO, SPI_SPCK_GPIO_FLAGS);
-
+	gpio_configure_pin(SPI_MISO_GPIO, SPI_MISO_FLAGS);
+	gpio_configure_pin(SPI_MOSI_GPIO, SPI_MOSI_FLAGS);
+	gpio_configure_pin(SPI_SPCK_GPIO, SPI_SPCK_FLAGS);
+	
+	/**
+	 * For NPCS 1, 2, and 3, different PINs can be used to access the same NPCS line.
+	 * Depending on the application requirements, the default PIN may not be available. 
+	 * Hence a different PIN should be selected using the CONF_BOARD_SPI_NPCS_GPIO and 
+	 * CONF_BOARD_SPI_NPCS_FLAGS macros.
+	 */
+	
 	#ifdef CONF_BOARD_SPI_NPCS0
-		gpio_configure_pin(BOARD_SPI_NPCS0_GPIO, BOARD_SPI_NPCS0_GPIO_FLAGS);
+		gpio_configure_pin(SPI_NPCS0_GPIO, SPI_NPCS0_FLAGS);
 	#endif
 
 	#ifdef CONF_BOARD_SPI_NPCS1
-		gpio_configure_pin(BOARD_SPI_NPCS1_GPIO, BOARD_SPI_NPCS1_GPIO_FLAGS);
+		#if defined(CONF_BOARD_SPI_NPCS1_GPIO) && defined(CONF_BOARD_SPI_NPCS1_FLAGS)
+			gpio_configure_pin(CONF_BOARD_SPI_NPCS1_GPIO, CONF_BOARD_SPI_NPCS1_FLAGS);
+		#else
+			gpio_configure_pin(SPI_NPCS1_PA31_GPIO, SPI_NPCS1_PA31_FLAGS);
+		#endif
 	#endif
 
 	#ifdef CONF_BOARD_SPI_NPCS2
-		gpio_configure_pin(BOARD_SPI_NPCS2_GPIO, BOARD_SPI_NPCS2_GPIO_FLAGS);
+		#if defined(CONF_BOARD_SPI_NPCS2_GPIO) && defined(CONF_BOARD_SPI_NPCS2_FLAGS)
+			gpio_configure_pin(CONF_BOARD_SPI_NPCS2_GPIO, CONF_BOARD_SPI_NPCS2_FLAGS);
+		#else
+			gpio_configure_pin(SPI_NPCS2_PA30_GPIO, SPI_NPCS2_PA30_FLAGS);
+		#endif
 	#endif
 
 	#ifdef CONF_BOARD_SPI_NPCS3
-		gpio_configure_pin(BOARD_SPI_NPCS3_GPIO, BOARD_SPI_NPCS3_GPIO_FLAGS);
+		#if defined(CONF_BOARD_SPI_NPCS3_GPIO) && defined(CONF_BOARD_SPI_NPCS3_FLAGS)
+			gpio_configure_pin(CONF_BOARD_SPI_NPCS3_GPIO, CONF_BOARD_SPI_NPCS3_FLAGS);
+		#else
+			gpio_configure_pin(SPI_NPCS3_PA22_GPIO, SPI_NPCS3_PA22_FLAGS);
+		#endif
 	#endif
 #endif
 
@@ -157,41 +176,6 @@ void board_init(void)
 	gpio_set_pin_low(PIN_RE_IDX);
 #endif
 
-#ifdef CONF_BOARD_SMC_PSRAM
-	gpio_configure_pin(PIN_EBI_DATA_BUS_D0, PIN_EBI_DATA_BUS_FLAGS);
-	gpio_configure_pin(PIN_EBI_DATA_BUS_D1, PIN_EBI_DATA_BUS_FLAGS);
-	gpio_configure_pin(PIN_EBI_DATA_BUS_D2, PIN_EBI_DATA_BUS_FLAGS);
-	gpio_configure_pin(PIN_EBI_DATA_BUS_D3, PIN_EBI_DATA_BUS_FLAGS);
-	gpio_configure_pin(PIN_EBI_DATA_BUS_D4, PIN_EBI_DATA_BUS_FLAGS);
-	gpio_configure_pin(PIN_EBI_DATA_BUS_D5, PIN_EBI_DATA_BUS_FLAGS);
-	gpio_configure_pin(PIN_EBI_DATA_BUS_D6, PIN_EBI_DATA_BUS_FLAGS);
-	gpio_configure_pin(PIN_EBI_DATA_BUS_D7, PIN_EBI_DATA_BUS_FLAGS);
-	gpio_configure_pin(PIN_EBI_NRD, PIN_EBI_NRD_FLAGS);
-	gpio_configure_pin(PIN_EBI_NWE, PIN_EBI_NWE_FLAGS);
-	gpio_configure_pin(PIN_EBI_NCS0, PIN_EBI_NCS0_FLAGS);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A0, PIN_EBI_ADDR_BUS_FLAG1);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A1, PIN_EBI_ADDR_BUS_FLAG1);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A2, PIN_EBI_ADDR_BUS_FLAG1);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A3, PIN_EBI_ADDR_BUS_FLAG1);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A4, PIN_EBI_ADDR_BUS_FLAG1);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A5, PIN_EBI_ADDR_BUS_FLAG1);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A6, PIN_EBI_ADDR_BUS_FLAG1);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A7, PIN_EBI_ADDR_BUS_FLAG1);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A8, PIN_EBI_ADDR_BUS_FLAG1);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A9, PIN_EBI_ADDR_BUS_FLAG1);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A10, PIN_EBI_ADDR_BUS_FLAG1);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A11, PIN_EBI_ADDR_BUS_FLAG1);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A12, PIN_EBI_ADDR_BUS_FLAG1);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A13, PIN_EBI_ADDR_BUS_FLAG1);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A14, PIN_EBI_ADDR_BUS_FLAG2);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A15, PIN_EBI_ADDR_BUS_FLAG2);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A16, PIN_EBI_ADDR_BUS_FLAG2);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A17, PIN_EBI_ADDR_BUS_FLAG2);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A18, PIN_EBI_ADDR_BUS_FLAG2);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A19, PIN_EBI_ADDR_BUS_FLAG2);
-	gpio_configure_pin(PIN_EBI_ADDR_BUS_A20, PIN_EBI_ADDR_BUS_FLAG2);
-#endif
-
 #ifdef CONF_BOARD_ILI9325
 	/* Configure LCD EBI pins */
 	gpio_configure_pin(PIN_EBI_DATA_BUS_D0, PIN_EBI_DATA_BUS_FLAGS);
@@ -216,10 +200,10 @@ void board_init(void)
 #ifdef CONF_BOARD_ADS7843
 	/* Configure Touchscreen SPI pins */
 	gpio_configure_pin(PIN_TSC_IRQ_IDX,PIN_TSC_IRQ_FLAG);
-	gpio_configure_pin(SPI_MISO_GPIO, SPI_MISO_GPIO_FLAGS);
-	gpio_configure_pin(SPI_MOSI_GPIO, SPI_MOSI_GPIO_FLAGS);
-	gpio_configure_pin(SPI_SPCK_GPIO, SPI_SPCK_GPIO_FLAGS);
-	gpio_configure_pin(SPI_NPCS0_GPIO, SPI_NPCS0_GPIO_FLAGS);
+	gpio_configure_pin(SPI_MISO_GPIO, SPI_MISO_FLAGS);
+	gpio_configure_pin(SPI_MOSI_GPIO, SPI_MOSI_FLAGS);
+	gpio_configure_pin(SPI_SPCK_GPIO, SPI_SPCK_FLAGS);
+	gpio_configure_pin(SPI_NPCS0_GPIO, SPI_NPCS0_FLAGS);
 	gpio_configure_pin(PIN_TSC_BUSY_IDX, PIN_TSC_BUSY_FLAG);
 #endif
 }

@@ -42,13 +42,13 @@ MCU = atxmega128a1
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = common_services_basic_cpu_example_xplain.elf
+TARGET = cpu_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
        common/services/cpu/reset_cause_example/reset_cause_example.c \
-       xmega/boards/xplain/init.c                         \
-       xmega/drivers/ioport/ioport.c
+       common/services/ioport/xmega/ioport_compat.c       \
+       xmega/boards/xplain/init.c
 
 # Assembler source files located from the top-level source directory
 ASSRCS = \
@@ -60,11 +60,11 @@ INC_PATH = \
        common/services/cpu                                \
        common/services/cpu/reset_cause_example/atxmega128a1_xplain \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/utils                                       \
        xmega/boards                                       \
        xmega/boards/xplain                                \
        xmega/drivers/cpu                                  \
-       xmega/drivers/ioport                               \
        xmega/utils                                        \
        xmega/utils/preprocessor \
        ./common/services/cpu/reset_cause_example/atxmega128a1_xplain/gcc
@@ -110,7 +110,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=XPLAIN
+       -D BOARD=XPLAIN                                    \
+       -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
 LDFLAGS =  \

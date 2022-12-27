@@ -42,7 +42,7 @@ MCU = atmega88a
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = mega_drivers_adc_example1_mega88a_stk600.elf
+TARGET = adc_example1.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
