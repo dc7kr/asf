@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../../../../boards/stk600/rc128x_rfx/init.c ../../adc_example1.c  ../../../../../boards/stk600/rc128x_rfx/led.h ../../../../../../common/services/ioport/ioport.h ../../../adc_megarf.h ../../../../../utils/compiler.h ../../../../../../common/utils/parts.h ../../../../../utils/status_codes.h ../../../adc.h ../../../../../../common/boards/board.h ../../../../../../common/utils/interrupt/interrupt_avr8.h ../../../../../../common/services/ioport/mega/ioport.h ../../../../../boards/stk600/rc128x_rfx/stk600.h ../../../../../utils/assembler.h ../../../../../../common/utils/interrupt.h ../../../../../utils/progmem.h ../conf_board.h ../../../../../../common/services/gpio/mega_gpio/mega_gpio.h ../../../../../../common/services/gpio/gpio.h
+INPUT                  =  ../../../../../boards/stk600/rc128x_rfx/init.c ../../adc_example1.c  ../../../../../utils/preprocessor/mrepeat.h ../../../../../boards/stk600/rc128x_rfx/led.h ../../../../../utils/preprocessor/tpaste.h ../../../../../../common/services/ioport/ioport.h ../../../../../utils/preprocessor/preprocessor.h ../../../adc_megarf.h ../../../../../utils/compiler.h ../../../../../../common/utils/parts.h ../../../../../utils/status_codes.h ../../../adc.h ../../../../../../common/boards/board.h ../../../../../../common/utils/interrupt/interrupt_avr8.h ../../../../../../common/services/ioport/mega/ioport.h ../../../../../boards/stk600/rc128x_rfx/stk600.h ../../../../../utils/assembler.h ../../../../../../common/utils/interrupt.h ../../../../../utils/progmem.h ../conf_board.h ../../../../../utils/preprocessor/stringz.h ../../../../../../common/services/gpio/mega_gpio/mega_gpio.h ../../../../../../common/services/gpio/gpio.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -642,7 +642,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ./
+EXAMPLE_PATH           = ./ 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../boards/stk600 ../../.. ../../../../../utils ../../../../../../common/boards .. ../../../../../../common/services/ioport ../../../../../../common/utils ../../../../../boards/stk600/rc128x_rfx ../../../../../../common/services/gpio
+INCLUDE_PATH           =  ../../../../../boards/stk600 ../../../../../utils/preprocessor ../../../../../utils ../../../../../../common/boards .. ../../../../../../common/services/ioport ../../../../../../common/utils ../../../../../boards/stk600/rc128x_rfx ../../../../../../common/services/gpio ../../..
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

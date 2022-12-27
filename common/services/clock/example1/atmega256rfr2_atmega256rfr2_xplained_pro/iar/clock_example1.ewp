@@ -404,6 +404,7 @@
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../mega/boards/atmega256rfr2_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../mega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -678,6 +679,7 @@
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../mega/boards/atmega256rfr2_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../mega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1417,6 +1419,7 @@
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../mega/boards/atmega256rfr2_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../mega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1691,6 +1694,7 @@
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../mega/boards/atmega256rfr2_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../mega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -2035,7 +2039,58 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../mega/boards/atmega256rfr2_xplained_pro/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../mega/boards/atmega256rfr2_xplained_pro/atmega256rfr2_xplained_pro.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../mega/boards/atmega256rfr2_xplained_pro/led.h</name>
+				</file>
 			</group>
+		</group>
+		<group>
+			<name>drivers</name>
+			<group>
+				<name>cpu</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../mega/drivers/cpu/mega_reset_cause.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../mega/utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../mega/utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../mega/utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../mega/utils/preprocessor/stringz.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../mega/utils/status_codes.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../mega/utils/assembler.h</name>
+			</file>
+			<group>
+				<name>assembler</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../mega/utils/assembler/iar.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../mega/utils/progmem.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../mega/utils/compiler.h</name>
+			</file>
 		</group>
 	</group>
 	<group>
@@ -2049,14 +2104,92 @@
 					<file>
 						<name>$PROJ_DIR$/../../clock_example1.c</name>
 					</file>
+					<group>
+						<name>atmega256rfr2_atmega256rfr2_xplained_pro</name>
+						<file>
+							<name>$PROJ_DIR$/../conf_clock.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../conf_board.h</name>
+						</file>
+						<group>
+							<name>iar</name>
+							<file>
+								<name>$PROJ_DIR$/asf.h</name>
+							</file>
+						</group>
+					</group>
 				</group>
 				<group>
 					<name>mega</name>
 					<file>
 						<name>$PROJ_DIR$/../../../mega/sysclk.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../mega/sysclk.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../sysclk.h</name>
+				</file>
+			</group>
+			<group>
+				<name>ioport</name>
+				<group>
+					<name>mega</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../ioport/mega/ioport.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../ioport/ioport.h</name>
+				</file>
+			</group>
+			<group>
+				<name>delay</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../delay/delay.h</name>
+				</file>
+				<group>
+					<name>mega</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../delay/mega/cycle_counter.h</name>
+					</file>
 				</group>
 			</group>
+			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../gpio/gpio.h</name>
+				</file>
+				<group>
+					<name>mega_gpio</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../gpio/mega_gpio/mega_gpio.h</name>
+					</file>
+				</group>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../utils/interrupt.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../utils/parts.h</name>
+			</file>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/interrupt/interrupt_avr8.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../boards/board.h</name>
+			</file>
 		</group>
 	</group>
 </project>

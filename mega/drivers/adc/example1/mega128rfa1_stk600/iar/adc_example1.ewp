@@ -412,7 +412,7 @@
 					<name>newCCIncludePaths</name>
 					<state></state>
 					<state>$PROJ_DIR$/../../../../../boards/stk600</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/..</state>
@@ -420,6 +420,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/stk600/rc128x_rfx</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -660,7 +661,7 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$PROJ_DIR$/../../../../../boards/stk600</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/..</state>
@@ -668,6 +669,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/stk600/rc128x_rfx</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1413,7 +1415,7 @@
 					<name>newCCIncludePaths</name>
 					<state></state>
 					<state>$PROJ_DIR$/../../../../../boards/stk600</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/..</state>
@@ -1421,6 +1423,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/stk600/rc128x_rfx</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1661,7 +1664,7 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$PROJ_DIR$/../../../../../boards/stk600</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/..</state>
@@ -1669,6 +1672,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/stk600/rc128x_rfx</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -2013,6 +2017,12 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../boards/stk600/rc128x_rfx/init.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../boards/stk600/rc128x_rfx/led.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../boards/stk600/rc128x_rfx/stk600.h</name>
+					</file>
 				</group>
 			</group>
 		</group>
@@ -2025,8 +2035,113 @@
 					<file>
 						<name>$PROJ_DIR$/../../adc_example1.c</name>
 					</file>
+					<group>
+						<name>mega128rfa1_stk600</name>
+						<file>
+							<name>$PROJ_DIR$/../conf_board.h</name>
+						</file>
+						<group>
+							<name>iar</name>
+							<file>
+								<name>$PROJ_DIR$/asf.h</name>
+							</file>
+						</group>
+					</group>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../adc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../adc_megarf.h</name>
+				</file>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../utils/status_codes.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../utils/assembler.h</name>
+			</file>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/preprocessor/stringz.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/preprocessor/tpaste.h</name>
+				</file>
+			</group>
+			<group>
+				<name>assembler</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/assembler/iar.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../utils/progmem.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../utils/compiler.h</name>
+			</file>
+		</group>
+	</group>
+	<group>
+		<name>common</name>
+		<group>
+			<name>utils</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../common/utils/interrupt.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../common/utils/parts.h</name>
+			</file>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_avr8.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>services</name>
+			<group>
+				<name>ioport</name>
+				<group>
+					<name>mega</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/ioport/mega/ioport.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/ioport/ioport.h</name>
+				</file>
+			</group>
+			<group>
+				<name>gpio</name>
+				<group>
+					<name>mega_gpio</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/gpio/mega_gpio/mega_gpio.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/gpio/gpio.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../common/boards/board.h</name>
+			</file>
 		</group>
 	</group>
 </project>

@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../../../../../mega/boards/stk600/rc128x_rfx/init.c ../../ioport_example3.c ../../../../clock/mega/sysclk.c  ../../../../../../mega/boards/stk600/rc128x_rfx/led.h ../../../ioport.h ../../../../clock/sysclk.h ../../../../../../mega/utils/assembler.h ../../../../../utils/parts.h ../../../../../../mega/utils/status_codes.h ../../../../../boards/board.h ../../../../../../mega/utils/compiler.h ../conf_example.h ../../../../../utils/interrupt/interrupt_avr8.h ../conf_clock.h ../../../mega/ioport.h ../../../../../../mega/drivers/cpu/mega_reset_cause.h ../../../../../../mega/boards/stk600/rc128x_rfx/stk600.h ../../../../clock/mega/sysclk.h ../../../../../utils/interrupt.h ../../../../../../mega/utils/progmem.h ../../../../gpio/mega_gpio/mega_gpio.h ../conf_board.h ../../../../gpio/gpio.h
+INPUT                  =  ../../../../../../mega/boards/stk600/rc128x_rfx/init.c ../../ioport_example3.c ../../../../clock/mega/sysclk.c  ../../../mega/ioport.h ../../../../../utils/parts.h ../../../../../utils/interrupt.h ../../../../../../mega/utils/preprocessor/stringz.h ../../../../../../mega/utils/preprocessor/tpaste.h ../../../../../../mega/utils/compiler.h ../conf_example.h ../../../../../../mega/utils/progmem.h ../../../../gpio/gpio.h ../../../../clock/sysclk.h ../../../../../../mega/utils/assembler.h ../../../../../utils/interrupt/interrupt_avr8.h ../../../../../../mega/boards/stk600/rc128x_rfx/led.h ../../../../../../mega/boards/stk600/rc128x_rfx/stk600.h ../conf_board.h ../../../../../../mega/utils/preprocessor/mrepeat.h ../../../../../../mega/utils/preprocessor/preprocessor.h ../../../../../../mega/utils/status_codes.h ../../../../../boards/board.h ../conf_clock.h ../../../../../../mega/drivers/cpu/mega_reset_cause.h ../../../../clock/mega/sysclk.h ../../../ioport.h ../../../../gpio/mega_gpio/mega_gpio.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -642,7 +642,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ./
+EXAMPLE_PATH           = ./ 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../../mega/boards/stk600 ../../../../../../mega/drivers/cpu ../../../../../../mega/utils ../../../../clock ../../../../../boards ../../.. ../.. .. ../../../../../utils ../../../../../../mega/boards/stk600/rc128x_rfx ../../../../gpio
+INCLUDE_PATH           =  ../../../../../../mega/boards/stk600 ../../../../../../mega/drivers/cpu ../../../../../../mega/utils ../../../../clock ../../../../../boards ../../.. ../.. .. ../../../../../utils ../../../../../../mega/boards/stk600/rc128x_rfx ../../../../gpio ../../../../../../mega/utils/preprocessor
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

@@ -642,7 +642,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ./
+EXAMPLE_PATH           = ./ 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../common/services/serial/sam_uart ../../../../../sam/utils/preprocessor ../../../../../sam/utils/cmsis/sam4e/include ../../../../../sam/drivers/pio ../../../fatfs-r0.09/src ../../../fatfs-port-r0.09/sam ../../../../../sam/drivers/ebi/smc ../../../../../sam/utils/fpu ../../../../../common/services/serial ../../../../../common/services/ioport ../../../../../common/services/storage/ecc_hamming ../../../../../sam/utils/cmsis/sam4e/source/templates ../../../../../sam/boards ../../../../../common/utils ../../../../../common/services/clock ../../../../../sam/drivers/matrix ../../../../../common/utils/stdio/stdio_serial ../../../../../common/components/memory/nand_flash/nand_flash_ebi ../../../../../common/components/memory/nand_flash/nand_flash_ebi/ftl_lib ../.. ../../../../../common/services/gpio .. ../../../../../common/services/delay ../../../../../sam/drivers/uart ../../../../../sam/utils ../../../../../sam/drivers/usart ../../../../../sam/utils/header_files ../../../../../common/boards ../../../../../sam/drivers/rtc ../../../../../sam/drivers/pmc ../../../../../sam/boards/sam4e_ek ../../../../../common/services/storage/ctrl_access
+INCLUDE_PATH           =  ../../../../../common/services/serial/sam_uart ../../../../../sam/utils/preprocessor ../../../../../sam/utils/cmsis/sam4e/include ../../../../../sam/drivers/pmc ../../../fatfs-r0.09/src ../../../fatfs-port-r0.09/sam ../../../../../sam/drivers/ebi/smc ../../../../../sam/utils/fpu ../../../../../common/services/serial ../../../../../common/services/ioport ../../../../../common/services/storage/ecc_hamming ../../../../../sam/utils/cmsis/sam4e/source/templates ../../../../../sam/boards ../../../../../common/utils ../../../../../common/services/clock ../../../../../sam/drivers/matrix ../../../../../common/utils/stdio/stdio_serial ../../../../../common/components/memory/nand_flash/nand_flash_ebi ../../../../../common/components/memory/nand_flash/nand_flash_ebi/ftl_lib ../.. ../../../../../common/services/gpio .. ../../../../../common/services/delay ../../../../../sam/drivers/uart ../../../../../sam/utils ../../../../../sam/drivers/usart ../../../../../sam/utils/header_files ../../../../../common/boards ../../../../../sam/drivers/rtc ../../../../../sam/drivers/pio ../../../../../sam/boards/sam4e_ek ../../../../../common/services/storage/ctrl_access
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

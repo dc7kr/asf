@@ -2107,6 +2107,12 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../boards/xmega_a3bu_xplained/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../boards/xmega_a3bu_xplained/led.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../boards/xmega_a3bu_xplained/xmega_a3bu_xplained.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -2119,6 +2125,15 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/twi/twis.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/twi/twis.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/twi/twi_common.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/twi/twim.h</name>
+				</file>
 			</group>
 			<group>
 				<name>nvm</name>
@@ -2128,17 +2143,41 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/nvm/nvm_asm.s</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/nvm/nvm.h</name>
+				</file>
 			</group>
 			<group>
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/usart/usart.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/usart/usart.h</name>
+				</file>
 			</group>
 			<group>
 				<name>cpu</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/cpu/ccp.s</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/cpu/ccp.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/cpu/xmega_reset_cause.h</name>
+				</file>
+			</group>
+			<group>
+				<name>sleep</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/sleep/sleep.h</name>
+				</file>
+			</group>
+			<group>
+				<name>pmic</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/pmic/pmic.h</name>
 				</file>
 			</group>
 		</group>
@@ -2149,7 +2188,82 @@
 				<file>
 					<name>$PROJ_DIR$/../../inertial_sensor.c</name>
 				</file>
+				<group>
+					<name>conf</name>
+					<file>
+						<name>$PROJ_DIR$/../../conf/conf_twim.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../conf/conf_sleepmgr.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../conf/conf_usart_spi.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../conf/conf_board.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../conf/conf_sysfont.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../conf/conf_st7565r.h</name>
+					</file>
+				</group>
+				<group>
+					<name>atxmega256a3bu_xmega_a3bu_xplained</name>
+					<group>
+						<name>iar</name>
+						<file>
+							<name>$PROJ_DIR$/asf.h</name>
+						</file>
+					</group>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../sensor_demo.h</name>
+				</file>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>assembler</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/assembler/iar.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../utils/compiler.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../utils/status_codes.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../utils/assembler.h</name>
+			</file>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/preprocessor/stringz.h</name>
+				</file>
+			</group>
+			<group>
+				<name>bit_handling</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/bit_handling/clz_ctz.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../utils/progmem.h</name>
+			</file>
 		</group>
 	</group>
 	<group>
@@ -2173,6 +2287,24 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/services/gfx_mono/gfx_mono_c12832_a1z.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx_mono/sysfont.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx_mono/gfx_mono_generic.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx_mono/gfx_mono_c12832_a1z.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx_mono/gfx_mono_text.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx_mono/gfx_mono.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx_mono/gfx_mono_framebuffer.h</name>
+				</file>
 			</group>
 			<group>
 				<name>sensors</name>
@@ -2182,6 +2314,9 @@
 						<name>honeywell</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/honeywell/hmc5883l.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/honeywell/hmc5883l.h</name>
 						</file>
 					</group>
 					<group>
@@ -2210,11 +2345,38 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma250.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma220.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma180.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma222.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bmp.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma020.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma_axis.inc.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma150.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma250.h</name>
+						</file>
 					</group>
 					<group>
 						<name>kionix</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/kionix/kxtf9.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/kionix/kxtf9.h</name>
 						</file>
 					</group>
 					<group>
@@ -2225,6 +2387,12 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/invensense/itg3200.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/invensense/imu3000.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/invensense/itg3200.h</name>
+						</file>
 					</group>
 					<group>
 						<name>osram</name>
@@ -2234,11 +2402,20 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/osram/sfh5712.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/osram/sfh5712.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/osram/sfh7770.h</name>
+						</file>
 					</group>
 					<group>
 						<name>akm</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/akm/ak8975.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/akm/ak8975.h</name>
 						</file>
 					</group>
 				</group>
@@ -2250,6 +2427,12 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/services/sensors/physics/physics.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/sensors/physics/constants.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/sensors/physics/physics.h</name>
+					</file>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/services/sensors/sensor.c</name>
@@ -2260,6 +2443,42 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/services/sensors/sensor_nvram.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/sensors/sensor_bus.h</name>
+				</file>
+				<group>
+					<name>module_config</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/sensors/module_config/conf_clock.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/sensors/module_config/conf_platform.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/sensors/module_config/conf_sensors.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/sensors/sensor_dev.h</name>
+				</file>
+				<group>
+					<name>math</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/sensors/math/fixed_t.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/sensors/math/precision.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/sensors/math/fixed.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/sensors/sensor_nvram.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/sensors/sensor.h</name>
+				</file>
 			</group>
 			<group>
 				<name>sleepmgr</name>
@@ -2268,7 +2487,13 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/services/sleepmgr/xmega/sleepmgr.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/sleepmgr/xmega/sleepmgr.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/sleepmgr/sleepmgr.h</name>
+				</file>
 			</group>
 			<group>
 				<name>clock</name>
@@ -2277,7 +2502,28 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/services/clock/xmega/sysclk.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/clock/xmega/osc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/clock/xmega/pll.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/clock/xmega/sysclk.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/clock/sysclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/clock/osc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/clock/genclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/clock/pll.h</name>
+				</file>
 			</group>
 			<group>
 				<name>spi</name>
@@ -2286,7 +2532,13 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/services/spi/xmega_usart_spi/usart_spi.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/spi/xmega_usart_spi/usart_spi.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/spi/usart_spi.h</name>
+				</file>
 			</group>
 			<group>
 				<name>ioport</name>
@@ -2294,6 +2546,57 @@
 					<name>xmega</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/services/ioport/xmega/ioport_compat.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/ioport/xmega/ioport.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/ioport/xmega/ioport_compat.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/ioport/ioport.h</name>
+				</file>
+			</group>
+			<group>
+				<name>delay</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/delay/delay.h</name>
+				</file>
+				<group>
+					<name>xmega</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/delay/xmega/cycle_counter.h</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>twi</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/twi/twi_master.h</name>
+				</file>
+				<group>
+					<name>xmega_twi</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/twi/xmega_twi/twi_slave.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/twi/xmega_twi/twi_master.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/twi/twi_slave.h</name>
+				</file>
+			</group>
+			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gpio/gpio.h</name>
+				</file>
+				<group>
+					<name>xmega_gpio</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/gpio/xmega_gpio/xmega_gpio.h</name>
 					</file>
 				</group>
 			</group>
@@ -2305,7 +2608,16 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/boards/sensors_xplained/sensors_xplained.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/boards/sensors_xplained/xplained_headers.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/boards/sensors_xplained/sensors_xplained.h</name>
+				</file>
 			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../common/boards/board.h</name>
+			</file>
 		</group>
 		<group>
 			<name>components</name>
@@ -2316,8 +2628,26 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/components/display/st7565r/st7565r.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/components/display/st7565r/st7565r.h</name>
+					</file>
 				</group>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/utils/interrupt/interrupt_avr8.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../common/utils/parts.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../common/utils/interrupt.h</name>
+			</file>
 		</group>
 	</group>
 </project>

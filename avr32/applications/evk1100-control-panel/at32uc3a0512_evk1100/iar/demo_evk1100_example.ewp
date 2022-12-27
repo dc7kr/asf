@@ -1986,7 +1986,16 @@
 								<file>
 									<name>$PROJ_DIR$/../../usb/appli/enum/device/usb_descriptors.c</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../usb/appli/enum/device/usb_specific_request.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../usb/appli/enum/device/usb_descriptors.h</name>
+								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../usb/appli/enum/conf_usb.h</name>
+							</file>
 						</group>
 						<group>
 							<name>mass_storage</name>
@@ -1996,9 +2005,18 @@
 							<file>
 								<name>$PROJ_DIR$/../../usb/appli/mass_storage/host_mass_storage_task.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../usb/appli/mass_storage/device_mass_storage_task.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../usb/appli/mass_storage/host_mass_storage_task.h</name>
+							</file>
 						</group>
 						<file>
 							<name>$PROJ_DIR$/../../usb/appli/usbsys.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../usb/appli/usbsys.h</name>
 						</file>
 					</group>
 				</group>
@@ -2006,6 +2024,9 @@
 					<name>serial</name>
 					<file>
 						<name>$PROJ_DIR$/../../serial/serial.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../serial/serial.h</name>
 					</file>
 				</group>
 				<group>
@@ -2019,6 +2040,15 @@
 					<file>
 						<name>$PROJ_DIR$/../../actuators/cpled.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../actuators/actuator.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../actuators/lcd.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../actuators/cpled.h</name>
+					</file>
 				</group>
 				<group>
 					<name>utils</name>
@@ -2027,6 +2057,9 @@
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../utils/tracedump.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../utils/tracedump.h</name>
 					</file>
 				</group>
 				<group>
@@ -2049,6 +2082,24 @@
 					<file>
 						<name>$PROJ_DIR$/../../sensors/joystick.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../sensors/light.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../sensors/pushb.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../sensors/potentiometer.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../sensors/sensor.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../sensors/joystick.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../sensors/temperature.h</name>
+					</file>
 				</group>
 				<group>
 					<name>shell</name>
@@ -2061,6 +2112,15 @@
 					<file>
 						<name>$PROJ_DIR$/../../shell/shell.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../shell/com1shell.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../shell/shell.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../shell/fscmds.h</name>
+					</file>
 				</group>
 				<group>
 					<name>network</name>
@@ -2069,11 +2129,20 @@
 						<file>
 							<name>$PROJ_DIR$/../../network/tftpserver/BasicTFTP.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../network/tftpserver/BasicTFTP.h</name>
+						</file>
 					</group>
 					<group>
 						<name>webserver</name>
 						<file>
 							<name>$PROJ_DIR$/../../network/webserver/BasicWEB.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../network/webserver/defaultpage.htm.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../network/webserver/BasicWEB.h</name>
 						</file>
 					</group>
 					<group>
@@ -2081,15 +2150,24 @@
 						<file>
 							<name>$PROJ_DIR$/../../network/smtpclient/BasicSMTP.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../network/smtpclient/BasicSMTP.h</name>
+						</file>
 					</group>
 					<file>
 						<name>$PROJ_DIR$/../../network/ethernet.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../network/ethernet.h</name>
 					</file>
 				</group>
 				<group>
 					<name>config</name>
 					<file>
 						<name>$PROJ_DIR$/../../config/config_file.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../config/config_file.h</name>
 					</file>
 				</group>
 				<group>
@@ -2106,15 +2184,105 @@
 					<file>
 						<name>$PROJ_DIR$/../../localctrl/cptime.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../localctrl/syscmds.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../localctrl/cptime.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../localctrl/supervisor.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../localctrl/datalog.h</name>
+					</file>
 				</group>
 				<group>
 					<name>mmi</name>
 					<file>
 						<name>$PROJ_DIR$/../../mmi/mmi.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../mmi/mmi.h</name>
+					</file>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../main.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../conf_sd_mmc_spi.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../FreeRTOSConfig.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../conf_at45dbx.h</name>
+				</file>
+				<group>
+					<name>docsrc</name>
+					<file>
+						<name>$PROJ_DIR$/../../docsrc/doc_defaultmenu.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../docsrc/doc_usbcpmsh.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../docsrc/doc_ethSMTPclient.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../docsrc/documentation.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../docsrc/doc_updwebserver.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../docsrc/doc_smtpsrvcygwin.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../docsrc/doc_ethwebserver.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../docsrc/doc_troubleshoot.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../docsrc/doc_shellusage.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../docsrc/doc_usbcpmsd.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../conf_clock.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../conf_lwip_threads.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../conf_dip204.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../conf_access.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../conf_ctrlpanel.h</name>
+				</file>
+				<group>
+					<name>at32uc3a0512_evk1100</name>
+					<group>
+						<name>iar</name>
+						<file>
+							<name>$PROJ_DIR$/asf.h</name>
+						</file>
+					</group>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../conf_eth.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../lwipopts.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../conf_explorer.h</name>
 				</file>
 			</group>
 		</group>
@@ -2139,6 +2307,21 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../services/fs/fat/fat.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/fs/fat/navigation.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/fs/fat/fs_com.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/fs/fat/fsaccess.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/fs/fat/file.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/fs/fat/fat.h</name>
+					</file>
 				</group>
 			</group>
 			<group>
@@ -2154,15 +2337,24 @@
 								<file>
 									<name>$PROJ_DIR$/../../../../services/usb/_asf_v1/class/mass_storage/host_mem/host_mem.c</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../services/usb/_asf_v1/class/mass_storage/host_mem/host_mem.h</name>
+								</file>
 							</group>
 							<group>
 								<name>scsi_decoder</name>
 								<file>
 									<name>$PROJ_DIR$/../../../../services/usb/_asf_v1/class/mass_storage/scsi_decoder/scsi_decoder.c</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../services/usb/_asf_v1/class/mass_storage/scsi_decoder/scsi_decoder.h</name>
+								</file>
 							</group>
 						</group>
 					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/usb/_asf_v1/usb_ids.h</name>
+					</file>
 				</group>
 			</group>
 		</group>
@@ -2172,6 +2364,12 @@
 				<name>evk1100</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../boards/evk1100/led.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../boards/evk1100/led.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../boards/evk1100/evk1100.h</name>
 				</file>
 			</group>
 		</group>
@@ -2183,6 +2381,9 @@
 					<name>dip204</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../components/display/dip204/dip204.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../components/display/dip204/dip204.h</name>
 					</file>
 				</group>
 			</group>
@@ -2198,7 +2399,43 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../components/memory/sd_mmc/sd_mmc_spi/sd_mmc_spi.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../components/memory/sd_mmc/sd_mmc_spi/sd_mmc_spi_mem.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../components/memory/sd_mmc/sd_mmc_spi/sd_mmc_spi.h</name>
+						</file>
 					</group>
+				</group>
+				<group>
+					<name>sdram</name>
+					<group>
+						<name>mt48lc16m16a2tg7e</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../components/memory/sdram/mt48lc16m16a2tg7e/mt48lc16m16a2tg7e.h</name>
+						</file>
+					</group>
+				</group>
+			</group>
+			<group>
+				<name>joystick</name>
+				<group>
+					<name>skrhabe010</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../components/joystick/skrhabe010/joystick.h</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>ethernet_phy</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../components/ethernet_phy/documentation.h</name>
+				</file>
+				<group>
+					<name>dp83848</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../components/ethernet_phy/dp83848/ethernet_phy.h</name>
+					</file>
 				</group>
 			</group>
 		</group>
@@ -2209,11 +2446,47 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../utils/debug/print_funcs.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/debug/print_funcs.h</name>
+				</file>
 			</group>
 			<group>
 				<name>startup</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../utils/startup/trampoline_uc3.s82</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/startup/trampoline_uc3.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../utils/compiler.h</name>
+			</file>
+			<group>
+				<name>header_files</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/header_files/uc3d_defines_fix.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/header_files/uc3l3_l4_defines_fix.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../utils/status_codes.h</name>
+			</file>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/preprocessor/stringz.h</name>
 				</file>
 			</group>
 		</group>
@@ -2233,6 +2506,12 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/enum/device/usb_standard_request.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/enum/device/usb_device_task.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/enum/device/usb_standard_request.h</name>
+							</file>
 						</group>
 						<group>
 							<name>host</name>
@@ -2242,13 +2521,28 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/enum/host/usb_host_task.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/enum/host/usb_host_enum.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/enum/host/usb_host_task.h</name>
+							</file>
 						</group>
 						<file>
 							<name>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/enum/usb_task.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/enum/usb_task.h</name>
+						</file>
 					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/usb_drv.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/usbb.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/usb_drv.h</name>
 					</file>
 				</group>
 			</group>
@@ -2256,6 +2550,9 @@
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/usart/usart.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/usart/usart.h</name>
 				</file>
 			</group>
 			<group>
@@ -2269,11 +2566,23 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/pm/pm.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/pm/power_clocks_lib.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/pm/sleep.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/pm/pm.h</name>
+				</file>
 			</group>
 			<group>
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/flashc/flashc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/flashc/flashc.h</name>
 				</file>
 			</group>
 			<group>
@@ -2281,11 +2590,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/tc/tc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/tc/tc.h</name>
+				</file>
 			</group>
 			<group>
 				<name>adc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/adc/adc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/adc/adc.h</name>
 				</file>
 			</group>
 			<group>
@@ -2293,11 +2608,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/macb/macb.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/macb/macb.h</name>
+				</file>
 			</group>
 			<group>
 				<name>gpio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/gpio/gpio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/gpio/gpio.h</name>
 				</file>
 			</group>
 			<group>
@@ -2307,6 +2628,9 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../drivers/ebi/sdramc/sdramc.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/ebi/sdramc/sdramc.h</name>
+					</file>
 				</group>
 			</group>
 			<group>
@@ -2314,11 +2638,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/pwm/pwm.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/pwm/pwm.h</name>
+				</file>
 			</group>
 			<group>
 				<name>intc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/intc/intc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/intc/intc.h</name>
 				</file>
 			</group>
 			<group>
@@ -2326,6 +2656,18 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/spi/spi.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/spi/spi.h</name>
+				</file>
+			</group>
+			<group>
+				<name>cpu</name>
+				<group>
+					<name>cycle_counter</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/cpu/cycle_counter/cycle_counter.h</name>
+					</file>
+				</group>
 			</group>
 		</group>
 	</group>
@@ -2448,6 +2790,147 @@
 							<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/netif/etharp.c</name>
 						</file>
 					</group>
+					<group>
+						<name>include</name>
+						<group>
+							<name>lwip</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/snmp_asn1.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/arch.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/sys.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/netif.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/timers.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/snmp_msg.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/api_msg.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/dhcp.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/memp.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/sio.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/tcp_impl.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/pbuf.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/debug.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/def.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/raw.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/netbuf.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/snmp_structs.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/netdb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/err.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/udp.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/tcp.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/stats.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/dns.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/memp_std.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/netifapi.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/tcpip.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/mem.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/opt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/api.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/sockets.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/init.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip/snmp.h</name>
+							</file>
+						</group>
+						<group>
+							<name>netif</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/netif/ppp_oe.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/netif/etharp.h</name>
+							</file>
+						</group>
+						<group>
+							<name>ipv4</name>
+							<group>
+								<name>lwip</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/ipv4/lwip/icmp.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/ipv4/lwip/inet.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/ipv4/lwip/igmp.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/ipv4/lwip/inet_chksum.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/ipv4/lwip/autoip.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/ipv4/lwip/ip_frag.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/ipv4/lwip/ip_addr.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/ipv4/lwip/ip.h</name>
+								</file>
+							</group>
+						</group>
+					</group>
 				</group>
 			</group>
 			<group>
@@ -2462,6 +2945,27 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-port-1.4.0/at32uc3/netif/ethernetif.c</name>
 						</file>
+					</group>
+					<group>
+						<name>include</name>
+						<group>
+							<name>arch</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-port-1.4.0/at32uc3/include/arch/sys_arch.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-port-1.4.0/at32uc3/include/arch/perf.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-port-1.4.0/at32uc3/include/arch/cc.h</name>
+							</file>
+						</group>
+						<group>
+							<name>netif</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-port-1.4.0/at32uc3/include/netif/ethernetif.h</name>
+							</file>
+						</group>
 					</group>
 				</group>
 			</group>
@@ -2496,6 +3000,9 @@
 								<file>
 									<name>$PROJ_DIR$/../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3/exception.s82</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3/portmacro.h</name>
+								</file>
 							</group>
 						</group>
 						<group>
@@ -2514,6 +3021,42 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../thirdparty/freertos/freertos-7.0.0/source/timers.c</name>
 					</file>
+					<group>
+						<name>include</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../thirdparty/freertos/freertos-7.0.0/source/include/FreeRTOS.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../thirdparty/freertos/freertos-7.0.0/source/include/projdefs.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../thirdparty/freertos/freertos-7.0.0/source/include/mpu_wrappers.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../thirdparty/freertos/freertos-7.0.0/source/include/timers.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../thirdparty/freertos/freertos-7.0.0/source/include/queue.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../thirdparty/freertos/freertos-7.0.0/source/include/StackMacros.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../thirdparty/freertos/freertos-7.0.0/source/include/list.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../thirdparty/freertos/freertos-7.0.0/source/include/croutine.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../thirdparty/freertos/freertos-7.0.0/source/include/semphr.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../thirdparty/freertos/freertos-7.0.0/source/include/portable.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../thirdparty/freertos/freertos-7.0.0/source/include/task.h</name>
+						</file>
+					</group>
 				</group>
 			</group>
 		</group>
@@ -2529,7 +3072,31 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/services/clock/uc3a0_a1/sysclk.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/clock/uc3a0_a1/sysclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/clock/uc3a0_a1/pll.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/clock/uc3a0_a1/osc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/clock/uc3a0_a1/genclk.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/clock/sysclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/clock/osc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/clock/genclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/clock/pll.h</name>
+				</file>
 			</group>
 			<group>
 				<name>storage</name>
@@ -2538,7 +3105,16 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access/ctrl_access.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access/ctrl_access.h</name>
+					</file>
 				</group>
+			</group>
+			<group>
+				<name>delay</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/delay/delay.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -2557,10 +3133,37 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx/_asf_v1/at45dbx.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx/_asf_v1/at45dbx_mem.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx/_asf_v1/at45dbx.h</name>
+							</file>
 						</group>
 					</group>
 				</group>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/utils/interrupt/interrupt_avr32.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../common/utils/parts.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../common/utils/interrupt.h</name>
+			</file>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../common/boards/board.h</name>
+			</file>
 		</group>
 	</group>
 </project>

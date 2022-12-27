@@ -2071,6 +2071,18 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../udc/udc_dfu_small.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../udc/udc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../udc/udi.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../udc/udd.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../udc/udc_desc.h</name>
+					</file>
 				</group>
 				<group>
 					<name>class</name>
@@ -2088,6 +2100,33 @@
 									<file>
 										<name>$PROJ_DIR$/../../main.c</name>
 									</file>
+									<group>
+										<name>conf</name>
+										<file>
+											<name>$PROJ_DIR$/../../conf/conf_usb.h</name>
+										</file>
+										<file>
+											<name>$PROJ_DIR$/../../conf/conf_clock.h</name>
+										</file>
+										<file>
+											<name>$PROJ_DIR$/../../conf/conf_isp.h</name>
+										</file>
+										<file>
+											<name>$PROJ_DIR$/../../conf/conf_board.h</name>
+										</file>
+									</group>
+									<group>
+										<name>atxmega64a3u</name>
+										<group>
+											<name>iar</name>
+											<file>
+												<name>$PROJ_DIR$/asf.h</name>
+											</file>
+										</group>
+									</group>
+									<file>
+										<name>$PROJ_DIR$/../../main.h</name>
+									</file>
 								</group>
 							</group>
 							<file>
@@ -2096,9 +2135,24 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../udi_dfu_atmel.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../udi_dfu_atmel.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../udi_dfu_atmel_conf.h</name>
+							</file>
 						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../usb_protocol_dfu.h</name>
+						</file>
 					</group>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../usb_protocol.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../usb_atmel.h</name>
+				</file>
 			</group>
 			<group>
 				<name>clock</name>
@@ -2107,7 +2161,28 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../clock/xmega/sysclk.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../clock/xmega/sysclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../clock/xmega/osc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../clock/xmega/pll.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../clock/genclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../clock/sysclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../clock/osc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../clock/pll.h</name>
+				</file>
 			</group>
 			<group>
 				<name>isp</name>
@@ -2122,8 +2197,35 @@
 							<name>$PROJ_DIR$/../../../../../../../../isp/flip/xmega/cstartup.s90</name>
 						</file>
 					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../isp/flip/flip_protocol.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../isp/flip/isp.h</name>
+					</file>
 				</group>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../utils/interrupt.h</name>
+			</file>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/interrupt/interrupt_avr8.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../utils/parts.h</name>
+			</file>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../boards/board.h</name>
+			</file>
 		</group>
 	</group>
 	<group>
@@ -2135,6 +2237,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usb/usb_device.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usb/usb_device.h</name>
+				</file>
 			</group>
 			<group>
 				<name>nvm</name>
@@ -2144,13 +2249,73 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/nvm/nvm_asm.s</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/nvm/nvm.h</name>
+				</file>
 			</group>
 			<group>
 				<name>cpu</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/cpu/ccp.s</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/cpu/ccp.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/cpu/xmega_reset_cause.h</name>
+				</file>
 			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>dummy</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../xmega/boards/dummy/dummy_board.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>bit_handling</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../xmega/utils/bit_handling/clz_ctz.h</name>
+				</file>
+			</group>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor/stringz.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../../xmega/utils/assembler.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../../xmega/utils/compiler.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../../xmega/utils/progmem.h</name>
+			</file>
+			<group>
+				<name>assembler</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../xmega/utils/assembler/iar.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../../xmega/utils/status_codes.h</name>
+			</file>
 		</group>
 	</group>
 	<mfc_discard>

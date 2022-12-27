@@ -60,7 +60,8 @@ INC_PATH = \
        common/utils                                       \
        mega/applications/mega_uart_interrupt_example      \
        mega/applications/mega_uart_interrupt_example/mega324pa_stk600 \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        mega/applications/mega_uart_interrupt_example/mega324pa_stk600/gcc
 
 # Library paths from the top-level source directory

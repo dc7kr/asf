@@ -108,10 +108,14 @@ INC_PATH = \
        thirdparty/hd/example/spbfw_download/at32uc3a3256_evk1104/gcc
 
 # Additional search paths for libraries.
-LIB_PATH = 
+LIB_PATH =  \
+       thirdparty/hd/v2.6/ucr2/gcc                        \
+       thirdparty/hd/v2.6/ucr2/gcc                       
 
 # List of libraries to use during linking.
-LIBS = 
+LIBS =  \
+       _ucr2_hd_spi_standalone_v2.6                       \
+       _ucr2_hd_wl_standalone_v2.6                       
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT = avr32/utils/linker_scripts/at32uc3a3/256/gcc/link_uc3a3256.lds

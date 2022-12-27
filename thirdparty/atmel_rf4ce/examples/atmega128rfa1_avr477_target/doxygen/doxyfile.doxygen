@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../main.c ../../../../../common/boards/user_board/init.c ../twi_master.c ../vendor_data.c ../qdebug_transport.c  ../../../lib/inc/mac_user_build_config.h ../../../lib/inc/pal.h ../../../../../common/utils/parts.h ../../../lib/inc/pal_boot_flash.h ../../../lib/inc/tal.h ../pal_config.h ../../../../../common/utils/interrupt.h ../qdebug_transport.h ../../../lib/inc/nwk_msg_code.h ../../../lib/inc/pal_mcu_generic.h ../../../lib/inc/pal_boardtypes.h ../../../lib/inc/return_val.h ../../../lib/inc/atmega128rfa1.h ../../../lib/inc/avrtypes.h ../../../../../mega/utils/compiler.h ../../../../../common/boards/user_board/user_board.h ../../../lib/inc/bmm.h ../../../lib/inc/pal_types.h ../../../../../mega/utils/progmem.h ../../../lib/inc/mcu_types.h ../../../lib/zrc.h ../../../lib/inc/tfa.h ../../../../../mega/utils/assembler.h ../../../lib/inc/mac_build_config.h ../../../lib/inc/nwk_build_config.h ../../../../../common/utils/interrupt/interrupt_avr8.h ../../../lib/inc/vendor_data.h ../../../lib/inc/ieee_const.h ../app_config.h ../../../lib/inc/stack_config.h ../twi_master.h ../../../lib/inc/pb_pairing.h ../../../lib/rf4ce.h ../../../../../mega/utils/status_codes.h ../../../lib/inc/nwk_config.h ../../../../../common/boards/board.h ../../../lib/inc/mac_config.h ../../../lib/inc/tal_types.h ../conf_board.h ../../../lib/inc/pal_flash.h ../../../lib/inc/tal_config.h ../qdebug_settings.h
+INPUT                  =  ../main.c ../../../../../common/boards/user_board/init.c ../twi_master.c ../vendor_data.c ../qdebug_transport.c  ../../../lib/inc/mac_user_build_config.h ../../../../../mega/utils/compiler.h ../../../../../common/utils/parts.h ../../../lib/inc/pal_boot_flash.h ../../../lib/inc/tal.h ../pal_config.h ../../../../../common/utils/interrupt.h ../qdebug_transport.h ../../../lib/inc/nwk_msg_code.h ../../../lib/inc/pal_mcu_generic.h ../../../../../mega/utils/preprocessor/stringz.h ../../../../../mega/utils/preprocessor/tpaste.h ../../../lib/inc/return_val.h ../../../lib/inc/atmega128rfa1.h ../../../lib/inc/avrtypes.h ../../../lib/inc/pal.h ../../../../../common/boards/user_board/user_board.h ../../../lib/inc/bmm.h ../../../lib/inc/pal_types.h ../../../../../mega/utils/progmem.h ../../../lib/inc/mcu_types.h ../../../lib/zrc.h ../../../lib/inc/pb_pairing.h ../../../lib/inc/tfa.h ../../../../../mega/utils/assembler.h ../../../lib/inc/mac_build_config.h ../../../lib/inc/nwk_build_config.h ../../../lib/inc/pal_boardtypes.h ../../../../../common/utils/interrupt/interrupt_avr8.h ../../../lib/inc/vendor_data.h ../../../lib/inc/ieee_const.h ../app_config.h ../../../lib/inc/stack_config.h ../twi_master.h ../../../../../mega/utils/preprocessor/mrepeat.h ../../../lib/rf4ce.h ../../../../../mega/utils/preprocessor/preprocessor.h ../../../../../mega/utils/status_codes.h ../../../lib/inc/nwk_config.h ../../../../../common/boards/board.h ../../../lib/inc/mac_config.h ../../../lib/inc/tal_types.h ../conf_board.h ../../../lib/inc/pal_flash.h ../../../lib/inc/tal_config.h ../qdebug_settings.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -642,7 +642,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ./
+EXAMPLE_PATH           = ./ 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../common/boards/user_board ../../../lib ../../../../../mega/utils ../../../../../common/boards .. ../../../lib/inc ../../../../../common/utils
+INCLUDE_PATH           =  ../../../../../common/boards/user_board ../../../lib ../../../../../mega/utils/preprocessor ../../../../../mega/utils ../../../../../common/boards .. ../../../lib/inc ../../../../../common/utils
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

@@ -2161,7 +2161,13 @@
 								<file>
 									<name>$PROJ_DIR$/../../../../../source/pal/common_hw_timer/xmega/hw_timer.c</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/pal/common_hw_timer/xmega/hw_timer.h</name>
+								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/pal/common_hw_timer/common_hw_timer.h</name>
+							</file>
 						</group>
 						<file>
 							<name>$PROJ_DIR$/../../../../../source/pal/pal.c</name>
@@ -2171,9 +2177,21 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/pal/common_sw_timer/common_sw_timer.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/pal/common_sw_timer/common_sw_timer.h</name>
+							</file>
 						</group>
 						<file>
 							<name>$PROJ_DIR$/../../../../../source/pal/pal_ext_trx.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../source/pal/pal.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../source/pal/pal_generic.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../source/pal/pal_ext_trx.h</name>
 						</file>
 					</group>
 					<group>
@@ -2250,6 +2268,36 @@
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_rx_enable.c</name>
 							</file>
 						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_msg_type_data_ind.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_data_structures.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_msg_const.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_internal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_api.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_config.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_security.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_msg_types.h</name>
+							</file>
+						</group>
 					</group>
 					<group>
 						<name>tal</name>
@@ -2288,11 +2336,59 @@
 									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_pwr_mgmt.c</name>
 								</file>
 							</group>
+							<group>
+								<name>inc</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/inc/tal_pib.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/inc/tal_irq_handler.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/inc/tal_constants.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/inc/tal_internal.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/inc/tal_rx.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/inc/tal_slotted_csma.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/inc/tal_config.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/inc/at86rf233.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/inc/tal_tx.h</name>
+								</file>
+							</group>
 						</group>
 						<group>
 							<name>src</name>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/tal/src/tal_helper.c</name>
+							</file>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/tal/inc/tal_types.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/tal/inc/tal_timer_config.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/tal/inc/tal_generic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/tal/inc/tal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/tal/inc/tal_helper.h</name>
 							</file>
 						</group>
 					</group>
@@ -2306,6 +2402,12 @@
 									<name>$PROJ_DIR$/../../../../../source/resources/queue/src/qmm.c</name>
 								</file>
 							</group>
+							<group>
+								<name>inc</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/resources/queue/inc/qmm.h</name>
+								</file>
+							</group>
 						</group>
 						<group>
 							<name>buffer</name>
@@ -2313,6 +2415,12 @@
 								<name>src</name>
 								<file>
 									<name>$PROJ_DIR$/../../../../../source/resources/buffer/src/bmm.c</name>
+								</file>
+							</group>
+							<group>
+								<name>inc</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/resources/buffer/inc/bmm.h</name>
 								</file>
 							</group>
 						</group>
@@ -2327,8 +2435,62 @@
 							<file>
 								<name>$PROJ_DIR$/../../main.c</name>
 							</file>
+							<group>
+								<name>atxmega256a3u_rf233_zigbit_usb</name>
+								<file>
+									<name>$PROJ_DIR$/../conf_clock.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_board.h</name>
+								</file>
+								<group>
+									<name>iar</name>
+									<file>
+										<name>$PROJ_DIR$/asf.h</name>
+									</file>
+								</group>
+								<file>
+									<name>$PROJ_DIR$/../conf_spi_master.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_hw_timer.h</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../app_config.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../conf_pal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../conf_common_sw_timer.h</name>
+							</file>
 						</group>
 					</group>
+				</group>
+				<group>
+					<name>include</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/avr2025_mac.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/mac_build_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/return_val.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/stack_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/ieee_const.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/tal_build_config.h</name>
+					</file>
 				</group>
 			</group>
 		</group>
@@ -2344,7 +2506,16 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../common/services/ioport/xmega/ioport_compat.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/ioport/xmega/ioport_compat.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/ioport/xmega/ioport.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/services/ioport/ioport.h</name>
+				</file>
 			</group>
 			<group>
 				<name>clock</name>
@@ -2353,7 +2524,28 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../common/services/clock/xmega/sysclk.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/clock/xmega/sysclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/clock/xmega/pll.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/clock/xmega/osc.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/services/clock/pll.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/services/clock/osc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/services/clock/genclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/services/clock/sysclk.h</name>
+				</file>
 			</group>
 			<group>
 				<name>sleepmgr</name>
@@ -2362,7 +2554,13 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr/xmega/sleepmgr.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr/xmega/sleepmgr.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr/sleepmgr.h</name>
+				</file>
 			</group>
 			<group>
 				<name>spi</name>
@@ -2371,8 +2569,59 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../common/services/spi/xmega_spi/spi_master.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/spi/xmega_spi/spi_master.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/services/spi/spi_master.h</name>
+				</file>
+			</group>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>xmega</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/delay/xmega/cycle_counter.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/services/delay/delay.h</name>
+				</file>
+			</group>
+			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/services/gpio/gpio.h</name>
+				</file>
+				<group>
+					<name>xmega_gpio</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/gpio/xmega_gpio/xmega_gpio.h</name>
+					</file>
 				</group>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../common/utils/parts.h</name>
+			</file>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt/interrupt_avr8.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt.h</name>
+			</file>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../common/boards/board.h</name>
+			</file>
 		</group>
 	</group>
 	<group>
@@ -2384,11 +2633,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/spi/spi.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/spi/spi.h</name>
+				</file>
 			</group>
 			<group>
 				<name>tc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/tc/tc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/tc/tc.h</name>
 				</file>
 			</group>
 			<group>
@@ -2399,11 +2654,32 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/nvm/nvm_asm.s</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/nvm/nvm.h</name>
+				</file>
 			</group>
 			<group>
 				<name>cpu</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/cpu/ccp.s</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/cpu/xmega_reset_cause.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/cpu/ccp.h</name>
+				</file>
+			</group>
+			<group>
+				<name>sleep</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/sleep/sleep.h</name>
+				</file>
+			</group>
+			<group>
+				<name>pmic</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/pmic/pmic.h</name>
 				</file>
 			</group>
 		</group>
@@ -2414,7 +2690,55 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../xmega/boards/xmega_rf233_zigbit/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/boards/xmega_rf233_zigbit/led.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/boards/xmega_rf233_zigbit/xmega_rf233_zigbit.h</name>
+				</file>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>assembler</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/utils/assembler/iar.h</name>
+				</file>
+			</group>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor/stringz.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../xmega/utils/assembler.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../xmega/utils/status_codes.h</name>
+			</file>
+			<group>
+				<name>bit_handling</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/utils/bit_handling/clz_ctz.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../xmega/utils/progmem.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../xmega/utils/compiler.h</name>
+			</file>
 		</group>
 	</group>
 </project>

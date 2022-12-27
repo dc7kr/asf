@@ -76,7 +76,8 @@ INC_PATH = \
        mega/drivers/usart                                 \
        mega/drivers/usart/unit_tests                      \
        mega/drivers/usart/unit_tests/atmega128rfa1_stk600-rc128x_rfx \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        mega/drivers/usart/unit_tests/atmega128rfa1_stk600-rc128x_rfx/gcc
 
 # Library paths from the top-level source directory

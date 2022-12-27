@@ -69,6 +69,7 @@ CSRCS = \
        sam/drivers/twim/master_example/twim_example.c     \
        sam/drivers/twim/twim.c                            \
        sam/drivers/usart/usart.c                          \
+       sam/drivers/wdt/wdt_sam4l.c                        \
        sam/utils/cmsis/sam4l/source/templates/exceptions.c \
        sam/utils/cmsis/sam4l/source/templates/gcc/startup_sam4l.c \
        sam/utils/cmsis/sam4l/source/templates/system_sam4l.c \
@@ -96,6 +97,7 @@ INC_PATH = \
        sam/drivers/twim/master_example                    \
        sam/drivers/twim/master_example/sam4lc4c_sam4l_ek  \
        sam/drivers/usart                                  \
+       sam/drivers/wdt                                    \
        sam/utils                                          \
        sam/utils/cmsis/sam4l/include                      \
        sam/utils/cmsis/sam4l/source/templates             \

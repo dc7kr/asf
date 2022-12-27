@@ -1807,7 +1807,31 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../clock/uc3c/osc.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../clock/uc3c/sysclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../clock/uc3c/pll.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../clock/uc3c/osc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../clock/uc3c/genclk.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../clock/pll.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../clock/genclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../clock/osc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../clock/sysclk.h</name>
+				</file>
 			</group>
 			<group>
 				<name>usb</name>
@@ -1822,8 +1846,14 @@
 								<file>
 									<name>$PROJ_DIR$/../../../../../hid/host/mouse/uhi_hid_mouse.c</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../hid/host/mouse/uhi_hid_mouse.h</name>
+								</file>
 							</group>
 						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../hid/usb_protocol_hid.h</name>
+						</file>
 					</group>
 					<group>
 						<name>msc</name>
@@ -1835,7 +1865,22 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../msc/host/uhi_msc_mem.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../msc/host/uhi_msc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../msc/host/uhi_msc_mem.h</name>
+							</file>
 						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../msc/usb_protocol_msc.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../msc/spc_protocol.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../msc/sbc_protocol.h</name>
+						</file>
 					</group>
 					<group>
 						<name>composite</name>
@@ -1848,9 +1893,39 @@
 									<file>
 										<name>$PROJ_DIR$/../ui.c</name>
 									</file>
+									<file>
+										<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
+									</file>
+									<group>
+										<name>iar</name>
+										<file>
+											<name>$PROJ_DIR$/asf.h</name>
+										</file>
+									</group>
+									<file>
+										<name>$PROJ_DIR$/../conf_board.h</name>
+									</file>
+									<file>
+										<name>$PROJ_DIR$/../conf_clock.h</name>
+									</file>
 								</group>
 								<file>
 									<name>$PROJ_DIR$/../../main.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../conf_access.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../conf_explorer.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../ui.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../conf_usb_host.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../main.h</name>
 								</file>
 							</group>
 						</group>
@@ -1861,7 +1936,22 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../uhc/uhc.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../uhc/uhc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../uhc/uhd.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../uhc/uhi.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../usb_protocol.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../usb_atmel.h</name>
+				</file>
 			</group>
 			<group>
 				<name>storage</name>
@@ -1869,6 +1959,9 @@
 					<name>ctrl_access</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../storage/ctrl_access/ctrl_access.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../storage/ctrl_access/ctrl_access.h</name>
 					</file>
 				</group>
 			</group>
@@ -1879,8 +1972,35 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../sleepmgr/uc3/sleepmgr.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../sleepmgr/uc3/sleepmgr.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sleepmgr/sleepmgr.h</name>
+				</file>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../utils/interrupt/interrupt_avr32.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../utils/interrupt.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../utils/parts.h</name>
+			</file>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../boards/board.h</name>
+			</file>
 		</group>
 	</group>
 	<group>
@@ -1903,6 +2023,18 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../avr32/services/fs/fat/fat.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../avr32/services/fs/fat/navigation.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../avr32/services/fs/fat/file.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../avr32/services/fs/fat/fat.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../avr32/services/fs/fat/fs_com.h</name>
+					</file>
 				</group>
 			</group>
 		</group>
@@ -1913,11 +2045,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/eic/eic.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/eic/eic.h</name>
+				</file>
 			</group>
 			<group>
 				<name>gpio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/gpio/gpio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/gpio/gpio.h</name>
 				</file>
 			</group>
 			<group>
@@ -1928,11 +2066,26 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/pm/pm_uc3c.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/pm/sleep.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/pm/power_clocks_lib.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/pm/pm_uc3c.h</name>
+				</file>
 			</group>
 			<group>
 				<name>usbc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/usbc/usbc_host.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/usbc/usbc_host.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/usbc/usbc_otg.h</name>
 				</file>
 			</group>
 			<group>
@@ -1940,11 +2093,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/flashc/flashc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/flashc/flashc.h</name>
+				</file>
 			</group>
 			<group>
 				<name>scif</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/scif/scif_uc3c.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/scif/scif_uc3c.h</name>
 				</file>
 			</group>
 		</group>
@@ -1958,6 +2117,12 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../avr32/boards/uc3c_ek/led.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/boards/uc3c_ek/led.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/boards/uc3c_ek/uc3c_ek.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1967,7 +2132,40 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../avr32/utils/startup/trampoline_uc3.s82</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/utils/startup/trampoline_uc3.h</name>
+				</file>
 			</group>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/utils/preprocessor/stringz.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/utils/preprocessor/mrepeat.h</name>
+				</file>
+			</group>
+			<group>
+				<name>header_files</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/utils/header_files/uc3l3_l4_defines_fix.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/utils/header_files/uc3d_defines_fix.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../avr32/utils/status_codes.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../avr32/utils/compiler.h</name>
+			</file>
 		</group>
 	</group>
 </project>

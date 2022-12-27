@@ -64,7 +64,8 @@ INC_PATH = \
        mega/boards/stk600/rc128x_rfx                      \
        mega/drivers/adc                                   \
        mega/drivers/adc/example3/mega128rfa1_stk600       \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        mega/drivers/adc/example3/mega128rfa1_stk600/gcc  
 
 # Library paths from the top-level source directory

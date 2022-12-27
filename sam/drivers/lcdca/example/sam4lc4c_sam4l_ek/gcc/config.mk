@@ -70,6 +70,7 @@ CSRCS = \
        sam/drivers/lcdca/lcdca.c                          \
        sam/drivers/pdca/pdca.c                            \
        sam/drivers/usart/usart.c                          \
+       sam/drivers/wdt/wdt_sam4l.c                        \
        sam/utils/cmsis/sam4l/source/templates/exceptions.c \
        sam/utils/cmsis/sam4l/source/templates/gcc/startup_sam4l.c \
        sam/utils/cmsis/sam4l/source/templates/system_sam4l.c \
@@ -97,6 +98,7 @@ INC_PATH = \
        sam/drivers/lcdca/example/sam4lc4c_sam4l_ek        \
        sam/drivers/pdca                                   \
        sam/drivers/usart                                  \
+       sam/drivers/wdt                                    \
        sam/utils                                          \
        sam/utils/cmsis/sam4l/include                      \
        sam/utils/cmsis/sam4l/source/templates             \

@@ -642,7 +642,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ./
+EXAMPLE_PATH           = ./ 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../../common/services/serial/sam_uart ../../../../../utils/preprocessor ../../../../pmc ../../../../../boards/sam4s_ek ../../../../../utils/cmsis/sam4s/include ../../../../../../common/services/serial ../../../../../../common/utils ../../.. .. ../../../../../../common/services/clock ../../../../../boards ../../../../../../common/utils/stdio/stdio_serial ../../../../../../common/services/gpio ../.. ../../../../../utils/cmsis/sam4s/source/templates ../../../../uart ../../../../../utils ../../../../usart ../../../../../utils/header_files ../../../../../../common/boards ../../../../../../common/services/ioport ../../../../pio
+INCLUDE_PATH           =  ../../../../../../common/services/serial/sam_uart ../../../../../utils/preprocessor ../../../../pio ../../../../../boards/sam4s_ek ../../../../../utils/cmsis/sam4s/include ../../../../../../common/services/serial ../../../../../../common/utils ../../.. .. ../../../../../../common/services/clock ../../../../../boards ../../../../../../common/utils/stdio/stdio_serial ../../../../../../common/services/gpio ../.. ../../../../../utils/cmsis/sam4s/source/templates ../../../../uart ../../../../../utils ../../../../usart ../../../../../utils/header_files ../../../../../../common/boards ../../../../../../common/services/ioport ../../../../pmc
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

@@ -62,7 +62,8 @@ INC_PATH = \
        common/boards                                      \
        common/utils                                       \
        mega/applications/mega-1284p_xplained_example      \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        mega/applications/mega-1284p_xplained_example/gcc 
 
 # Library paths from the top-level source directory

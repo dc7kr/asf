@@ -67,7 +67,8 @@ INC_PATH = \
        mega/boards                                        \
        mega/boards/atmega256rfr2_xplained_pro             \
        mega/drivers/cpu                                   \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        common/services/clock/example1/atmega256rfr2_atmega256rfr2_xplained_pro/gcc
 
 # Library paths from the top-level source directory

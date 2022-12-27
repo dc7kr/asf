@@ -121,6 +121,7 @@ INC_PATH = \
        mega/drivers/cpu                                   \
        mega/drivers/usart                                 \
        mega/utils                                         \
+       mega/utils/preprocessor                            \
        thirdparty/wireless/addons/sio2host/uart           \
        thirdparty/wireless/avr2025_mac/include            \
        thirdparty/wireless/avr2025_mac/source/mac/inc     \
@@ -152,7 +153,7 @@ LIB_PATH =  \
 
 # Libraries to link with the project
 LIBS =  \
-       mega_lib_hw_timer                                  \
+       megarfr2_lib_hw_timer                              \
        rf4ce-zrc-target                                  
 
 # Additional options for debugging. By default the common Makefile.in will

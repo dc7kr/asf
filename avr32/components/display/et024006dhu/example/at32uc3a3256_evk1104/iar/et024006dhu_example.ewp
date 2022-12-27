@@ -1766,9 +1766,39 @@
 						<file>
 							<name>$PROJ_DIR$/../../et024006dhu_example.c</name>
 						</file>
+						<group>
+							<name>conf</name>
+							<file>
+								<name>$PROJ_DIR$/../../conf/conf_ebi.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../conf/conf_et024006dhu.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../conf/conf_clock.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../avr32_logo.h</name>
+						</file>
+						<group>
+							<name>at32uc3a3256_evk1104</name>
+							<group>
+								<name>iar</name>
+								<file>
+									<name>$PROJ_DIR$/asf.h</name>
+								</file>
+							</group>
+						</group>
 					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../et024006dhu.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../et024006dhu.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../smc_et024006dhu.h</name>
 					</file>
 				</group>
 			</group>
@@ -1780,6 +1810,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/gpio/gpio.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/gpio/gpio.h</name>
+				</file>
 			</group>
 			<group>
 				<name>intc</name>
@@ -1788,6 +1821,9 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/intc/exception.s82</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/intc/intc.h</name>
 				</file>
 			</group>
 			<group>
@@ -1801,6 +1837,15 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/pm/power_clocks_lib.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pm/sleep.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pm/pm.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pm/power_clocks_lib.h</name>
+				</file>
 			</group>
 			<group>
 				<name>ebi</name>
@@ -1809,6 +1854,9 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../drivers/ebi/smc/smc.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../drivers/ebi/smc/smc.h</name>
+					</file>
 				</group>
 			</group>
 			<group>
@@ -1816,6 +1864,18 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/flashc/flashc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/flashc/flashc.h</name>
+				</file>
+			</group>
+			<group>
+				<name>cpu</name>
+				<group>
+					<name>cycle_counter</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../drivers/cpu/cycle_counter/cycle_counter.h</name>
+					</file>
+				</group>
 			</group>
 		</group>
 		<group>
@@ -1824,6 +1884,12 @@
 				<name>evk1104</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../boards/evk1104/led.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../boards/evk1104/led.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../boards/evk1104/evk1104.h</name>
 				</file>
 			</group>
 		</group>
@@ -1834,7 +1900,40 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../utils/startup/trampoline_uc3.s82</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/startup/trampoline_uc3.h</name>
+				</file>
 			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../utils/status_codes.h</name>
+			</file>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/preprocessor/stringz.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/preprocessor/preprocessor.h</name>
+				</file>
+			</group>
+			<group>
+				<name>header_files</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/header_files/uc3d_defines_fix.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/header_files/uc3l3_l4_defines_fix.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../utils/compiler.h</name>
+			</file>
 		</group>
 	</group>
 	<group>
@@ -1848,8 +1947,59 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../common/services/clock/uc3a3_a4/sysclk.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../common/services/clock/uc3a3_a4/osc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../common/services/clock/uc3a3_a4/genclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../common/services/clock/uc3a3_a4/pll.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../common/services/clock/uc3a3_a4/sysclk.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/services/clock/sysclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/services/clock/genclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/services/clock/pll.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/services/clock/osc.h</name>
+				</file>
 			</group>
+			<group>
+				<name>delay</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/services/delay/delay.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/utils/interrupt/interrupt_avr32.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../common/utils/parts.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../common/utils/interrupt.h</name>
+			</file>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../common/boards/board.h</name>
+			</file>
 		</group>
 	</group>
 </project>

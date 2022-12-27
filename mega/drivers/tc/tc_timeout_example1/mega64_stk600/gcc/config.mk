@@ -61,7 +61,8 @@ INC_PATH = \
        common/utils                                       \
        mega/drivers/tc                                    \
        mega/drivers/tc/tc_timeout_example1/mega64_stk600  \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        mega/drivers/tc/tc_timeout_example1/mega64_stk600/gcc
 
 # Library paths from the top-level source directory

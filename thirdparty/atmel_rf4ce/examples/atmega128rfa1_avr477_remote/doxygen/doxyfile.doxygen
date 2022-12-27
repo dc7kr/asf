@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../memorymap.c ../qdebug_remote/qdebug.c ../t10_prox.c ../vendor_data.c ../twi_master.c ../kxtf9_driver.c ../../../../../common/boards/user_board/init.c ../qdebug_remote/qdebug_transport.c ../main.c  ../memorymap.h ../../../lib/inc/mac_user_build_config.h ../../../../qtouch/generic/avr8/qmatrix/common/qm_asm_avr.h ../../../lib/inc/pal.h ../../../lib/inc/bmm.h ../../../lib/inc/pal_boot_flash.h ../../../lib/inc/tal.h ../../../lib/inc/tfa.h ../qdebug_remote/qdebug_transport.h ../../../../../common/utils/interrupt.h ../../../lib/inc/nwk_msg_code.h ../../../lib/inc/pal_mcu_generic.h ../../../lib/inc/pal_boardtypes.h ../qdebug_settings.h ../touch_config.h ../t10_prox.h ../../../lib/inc/atmega128rfa1.h ../../../lib/inc/avrtypes.h ../../../lib/rf4ce.h ../../../../../common/boards/user_board/user_board.h ../pal_config.h ../qdebug_remote/qdebug.h ../../../../../common/utils/parts.h ../../../../qtouch/generic/include/touch_api.h ../twi_master.h ../../../lib/inc/pal_types.h ../../../../../mega/utils/progmem.h ../../../lib/inc/mcu_types.h ../../../lib/zrc.h ../../../lib/inc/tal_types.h ../../../../../mega/utils/assembler.h ../../../lib/inc/mac_build_config.h ../../../lib/inc/nwk_build_config.h ../../../../../common/utils/interrupt/interrupt_avr8.h ../../../lib/inc/vendor_data.h ../../../lib/inc/ieee_const.h ../../../lib/inc/stack_config.h ../../../lib/inc/return_val.h ../../../lib/inc/pb_pairing.h ../../../../../mega/utils/status_codes.h ../../../lib/inc/nwk_config.h ../../../../../common/boards/board.h ../../../../../mega/utils/compiler.h ../app_config.h ../../../lib/inc/mac_config.h ../kxtf9_driver.h ../../../lib/inc/pal_flash.h ../../../lib/inc/tal_config.h ../conf_board.h
+INPUT                  =  ../memorymap.c ../qdebug_remote/qdebug.c ../t10_prox.c ../vendor_data.c ../twi_master.c ../kxtf9_driver.c ../../../../../common/boards/user_board/init.c ../qdebug_remote/qdebug_transport.c ../main.c  ../memorymap.h ../../../lib/inc/mac_user_build_config.h ../../../../qtouch/generic/avr8/qmatrix/common/qm_asm_avr.h ../../../lib/inc/pal.h ../../../lib/inc/bmm.h ../../../lib/inc/pal_boot_flash.h ../../../lib/inc/tal.h ../../../lib/inc/tfa.h ../qdebug_remote/qdebug_transport.h ../../../../../common/utils/interrupt.h ../../../lib/inc/nwk_msg_code.h ../../../lib/inc/pal_mcu_generic.h ../../../../../mega/utils/preprocessor/stringz.h ../../../lib/inc/pal_boardtypes.h ../qdebug_settings.h ../touch_config.h ../t10_prox.h ../../../lib/inc/atmega128rfa1.h ../../../lib/inc/avrtypes.h ../../../lib/rf4ce.h ../../../../../common/boards/user_board/user_board.h ../pal_config.h ../qdebug_remote/qdebug.h ../../../../../common/utils/parts.h ../../../../qtouch/generic/include/touch_api.h ../twi_master.h ../../../lib/inc/pal_types.h ../../../../../mega/utils/progmem.h ../../../lib/inc/mcu_types.h ../../../lib/zrc.h ../../../../../mega/utils/preprocessor/mrepeat.h ../../../lib/inc/tal_types.h ../../../../../mega/utils/assembler.h ../../../lib/inc/mac_build_config.h ../../../lib/inc/nwk_build_config.h ../../../../../mega/utils/preprocessor/tpaste.h ../../../../../common/utils/interrupt/interrupt_avr8.h ../../../lib/inc/vendor_data.h ../../../lib/inc/ieee_const.h ../../../lib/inc/stack_config.h ../../../lib/inc/return_val.h ../../../lib/inc/pb_pairing.h ../../../../../mega/utils/preprocessor/preprocessor.h ../../../../../mega/utils/status_codes.h ../../../lib/inc/nwk_config.h ../../../../../common/boards/board.h ../../../../../mega/utils/compiler.h ../app_config.h ../../../lib/inc/mac_config.h ../kxtf9_driver.h ../../../lib/inc/pal_flash.h ../../../lib/inc/tal_config.h ../conf_board.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -642,7 +642,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ./
+EXAMPLE_PATH           = ./ 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../qtouch/generic/avr8/qmatrix/common ../../../../../common/boards/user_board ../qdebug_remote ../../../lib ../../../../../mega/utils .. ../../../../qtouch/generic/include ../../../../../common/boards ../../../../../common/utils ../../../lib/inc ../../../../qtouch/generic/avr8
+INCLUDE_PATH           =  ../../../../qtouch/generic/avr8/qmatrix/common ../../../../../common/boards/user_board ../qdebug_remote ../../../lib ../../../../../mega/utils/preprocessor ../../../../../mega/utils .. ../../../../qtouch/generic/include ../../../../../common/boards ../../../../../common/utils ../../../lib/inc ../../../../qtouch/generic/avr8
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

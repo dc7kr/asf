@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../mega_gpio_example.c ../../../../boards/stk600/rcx_x/init.c  ../conf_board.h ../conf_example.h ../../../../utils/compiler.h ../../../../../common/utils/parts.h ../../../../utils/status_codes.h ../../../../../common/boards/board.h ../../../../../common/utils/interrupt/interrupt_avr8.h ../../../../utils/assembler.h ../../../../../common/utils/interrupt.h ../../../../utils/progmem.h
+INPUT                  =  ../../mega_gpio_example.c ../../../../boards/stk600/rcx_x/init.c  ../../../../utils/preprocessor/mrepeat.h ../conf_board.h ../../../../utils/preprocessor/tpaste.h ../../../../utils/preprocessor/preprocessor.h ../conf_example.h ../../../../utils/compiler.h ../../../../../common/utils/parts.h ../../../../utils/status_codes.h ../../../../../common/boards/board.h ../../../../../common/utils/interrupt/interrupt_avr8.h ../../../../utils/assembler.h ../../../../../common/utils/interrupt.h ../../../../utils/progmem.h ../../../../utils/preprocessor/stringz.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -642,7 +642,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ./
+EXAMPLE_PATH           = ./ 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../common/utils ../../../../../common/boards ../../../../utils .. ../..
+INCLUDE_PATH           =  ../../../../utils/preprocessor ../../../../utils ../../../../../common/boards ../.. .. ../../../../../common/utils
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

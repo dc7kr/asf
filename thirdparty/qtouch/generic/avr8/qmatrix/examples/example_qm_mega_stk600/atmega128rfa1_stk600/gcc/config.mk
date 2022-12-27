@@ -68,6 +68,7 @@ INC_PATH = \
        mega/boards/stk600                                 \
        mega/boards/stk600/rc128x_rfx                      \
        mega/utils                                         \
+       mega/utils/preprocessor                            \
        thirdparty/qtouch/generic/avr8                     \
        thirdparty/qtouch/generic/avr8/qmatrix/common      \
        thirdparty/qtouch/generic/avr8/qmatrix/examples/example_qm_mega_stk600 \

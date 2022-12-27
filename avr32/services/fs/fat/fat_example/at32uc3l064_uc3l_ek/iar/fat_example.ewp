@@ -1771,6 +1771,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/scif/scif_uc3l.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/scif/scif_uc3l.h</name>
+				</file>
 			</group>
 			<group>
 				<name>pm</name>
@@ -1780,11 +1783,23 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/pm/pm_uc3l.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pm/pm_uc3l.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pm/sleep.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pm/power_clocks_lib.h</name>
+				</file>
 			</group>
 			<group>
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/usart/usart.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/usart/usart.h</name>
 				</file>
 			</group>
 			<group>
@@ -1792,17 +1807,26 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/gpio/gpio.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/gpio/gpio.h</name>
+				</file>
 			</group>
 			<group>
 				<name>spi</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/spi/spi.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/spi/spi.h</name>
+				</file>
 			</group>
 			<group>
 				<name>flashcdw</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/flashcdw/flashcdw.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/flashcdw/flashcdw.h</name>
 				</file>
 			</group>
 		</group>
@@ -1823,12 +1847,42 @@
 						<file>
 							<name>$PROJ_DIR$/../../fat_example.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../conf_access.h</name>
+						</file>
+						<group>
+							<name>at32uc3l064_uc3l_ek</name>
+							<group>
+								<name>iar</name>
+								<file>
+									<name>$PROJ_DIR$/asf.h</name>
+								</file>
+							</group>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../conf_explorer.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../conf_at45dbx.h</name>
+						</file>
 					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../file.c</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../navigation.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../navigation.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../file.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../fs_com.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../fat.h</name>
 					</file>
 				</group>
 			</group>
@@ -1840,6 +1894,12 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../boards/uc3l_ek/led.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../boards/uc3l_ek/uc3l_ek.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../boards/uc3l_ek/led.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1849,11 +1909,47 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../utils/debug/print_funcs.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/debug/print_funcs.h</name>
+				</file>
 			</group>
 			<group>
 				<name>startup</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../utils/startup/trampoline_uc3.s82</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/startup/trampoline_uc3.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../utils/status_codes.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../utils/compiler.h</name>
+			</file>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/preprocessor/stringz.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/preprocessor/preprocessor.h</name>
+				</file>
+			</group>
+			<group>
+				<name>header_files</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/header_files/uc3d_defines_fix.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/header_files/uc3l3_l4_defines_fix.h</name>
 				</file>
 			</group>
 		</group>
@@ -1868,6 +1964,9 @@
 					<name>ctrl_access</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../common/services/storage/ctrl_access/ctrl_access.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../common/services/storage/ctrl_access/ctrl_access.h</name>
 					</file>
 				</group>
 			</group>
@@ -1888,10 +1987,37 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../common/components/memory/data_flash/at45dbx/_asf_v1/at45dbx_mem.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../common/components/memory/data_flash/at45dbx/_asf_v1/at45dbx.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../common/components/memory/data_flash/at45dbx/_asf_v1/at45dbx_mem.h</name>
+							</file>
 						</group>
 					</group>
 				</group>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/utils/interrupt/interrupt_avr32.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../common/utils/parts.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../common/utils/interrupt.h</name>
+			</file>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../common/boards/board.h</name>
+			</file>
 		</group>
 	</group>
 </project>

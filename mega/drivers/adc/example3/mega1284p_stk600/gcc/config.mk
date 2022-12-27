@@ -60,7 +60,8 @@ INC_PATH = \
        common/utils                                       \
        mega/drivers/adc                                   \
        mega/drivers/adc/example3/mega1284p_stk600         \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        mega/drivers/adc/example3/mega1284p_stk600/gcc    
 
 # Library paths from the top-level source directory

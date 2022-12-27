@@ -68,7 +68,8 @@ INC_PATH = \
        mega/drivers/cpu                                   \
        mega/drivers/ext_int                               \
        mega/drivers/ext_int/example1/atmega256rfr2_atmega256rfr2_xplained_pro \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        mega/drivers/ext_int/example1/atmega256rfr2_atmega256rfr2_xplained_pro/gcc
 
 # Library paths from the top-level source directory

@@ -79,7 +79,8 @@ INC_PATH = \
        mega/drivers/macsc/unit_tests                      \
        mega/drivers/macsc/unit_tests/atmega128rfa1_stk600-rc128x_rfx \
        mega/drivers/usart                                 \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        mega/drivers/macsc/unit_tests/atmega128rfa1_stk600-rc128x_rfx/gcc
 
 # Library paths from the top-level source directory

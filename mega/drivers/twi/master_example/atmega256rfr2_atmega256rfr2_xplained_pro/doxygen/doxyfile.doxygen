@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../twi_master_example.c ../../../../../boards/atmega256rfr2_xplained_pro/init.c ../../../twi_megarf.c ../../../../../../common/services/clock/mega/sysclk.c  ../../../../../utils/compiler.h ../../../../../../common/utils/parts.h ../../../../../boards/atmega256rfr2_xplained_pro/atmega256rfr2_xplained_pro.h ../../../../../../common/utils/interrupt.h ../../../twi_megarf.h ../../../../../../common/services/delay/delay.h ../../../../../../common/services/ioport/mega/ioport.h ../../../../../utils/progmem.h ../../../../../../common/services/gpio/gpio.h ../conf_board.h ../../../../../../common/services/clock/sysclk.h ../../../../../utils/assembler.h ../../../../../../common/services/delay/mega/cycle_counter.h ../conf_clock.h ../../../../../../common/utils/interrupt/interrupt_avr8.h ../../../../../utils/status_codes.h ../conf_twi.h ../../../../../../common/boards/board.h ../../../../cpu/mega_reset_cause.h ../../../../../../common/services/clock/mega/sysclk.h ../../../../../../common/services/ioport/ioport.h ../../../../../../common/services/gpio/mega_gpio/mega_gpio.h ../../../../../boards/atmega256rfr2_xplained_pro/led.h
+INPUT                  =  ../../twi_master_example.c ../../../../../boards/atmega256rfr2_xplained_pro/init.c ../../../twi_megarf.c ../../../../../../common/services/clock/mega/sysclk.c  ../../../../../utils/compiler.h ../../../../../../common/utils/parts.h ../../../../../boards/atmega256rfr2_xplained_pro/atmega256rfr2_xplained_pro.h ../../../../../../common/utils/interrupt.h ../../../twi_megarf.h ../../../../../../common/services/delay/delay.h ../../../../../utils/preprocessor/stringz.h ../../../../../utils/preprocessor/tpaste.h ../../../../../../common/services/ioport/mega/ioport.h ../../../../../utils/progmem.h ../../../../../../common/services/gpio/gpio.h ../conf_board.h ../../../../../../common/services/clock/sysclk.h ../../../../../utils/assembler.h ../../../../../../common/services/delay/mega/cycle_counter.h ../conf_clock.h ../../../../../../common/utils/interrupt/interrupt_avr8.h ../../../../../utils/preprocessor/mrepeat.h ../../../../../utils/preprocessor/preprocessor.h ../../../../../utils/status_codes.h ../conf_twi.h ../../../../../../common/boards/board.h ../../../../cpu/mega_reset_cause.h ../../../../../../common/services/clock/mega/sysclk.h ../../../../../../common/services/ioport/ioport.h ../../../../../../common/services/gpio/mega_gpio/mega_gpio.h ../../../../../boards/atmega256rfr2_xplained_pro/led.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -642,7 +642,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ./
+EXAMPLE_PATH           = ./ 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../../common/services/delay ../../../../cpu ../../../../../utils ../../../../../../common/services/clock ../../../../../boards ../../../../../../common/boards .. ../../../../../../common/services/ioport ../../../../../../common/utils ../../../../../boards/atmega256rfr2_xplained_pro ../../../../../../common/services/gpio ../../..
+INCLUDE_PATH           =  ../../../../../../common/services/delay ../../../../cpu ../../../../../utils ../../../../../../common/services/clock ../../../../../boards ../../../../../utils/preprocessor ../../../../../../common/boards .. ../../../../../../common/services/ioport ../../../../../../common/utils ../../../../../boards/atmega256rfr2_xplained_pro ../../../../../../common/services/gpio ../../..
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

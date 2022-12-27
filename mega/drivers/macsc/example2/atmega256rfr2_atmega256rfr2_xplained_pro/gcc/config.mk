@@ -72,7 +72,8 @@ INC_PATH = \
        mega/drivers/macsc/example2/atmega256rfr2_atmega256rfr2_xplained_pro \
        mega/drivers/sleep                                 \
        mega/drivers/usart                                 \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        mega/drivers/macsc/example2/atmega256rfr2_atmega256rfr2_xplained_pro/gcc
 
 # Library paths from the top-level source directory

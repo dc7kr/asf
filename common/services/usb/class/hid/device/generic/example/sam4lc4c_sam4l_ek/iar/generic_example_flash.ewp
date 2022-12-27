@@ -97,7 +97,7 @@
 				</option>
 				<option>
 					<name>OGChipSelectEditMenu</name>
-					<state>SAM4LC4C	Atmel SAM4LC4C</state>
+					<state>ATSAM4LC4C	Atmel ATSAM4LC4C</state>
 				</option>
 				<option>
 					<name>GenLowLevelInterface</name>
@@ -308,6 +308,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4l_ek</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../udc</state>
@@ -582,6 +583,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4l_ek</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../udc</state>
@@ -1071,7 +1073,7 @@
 				</option>
 				<option>
 					<name>OGChipSelectEditMenu</name>
-					<state>SAM4LC4C	Atmel SAM4LC4C</state>
+					<state>ATSAM4LC4C	Atmel ATSAM4LC4C</state>
 				</option>
 				<option>
 					<name>GenLowLevelInterface</name>
@@ -1282,6 +1284,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4l_ek</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../udc</state>
@@ -1556,6 +1559,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4l_ek</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../udc</state>
@@ -1957,7 +1961,16 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/interrupt/interrupt_sam_nvic.h</name>
+				</file>
 			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../utils/interrupt.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../utils/parts.h</name>
+			</file>
 		</group>
 		<group>
 			<name>services</name>
@@ -1967,6 +1980,18 @@
 					<name>udc</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../udc/udc.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../udc/udd.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../udc/udc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../udc/udc_desc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../udc/udi.h</name>
 					</file>
 				</group>
 				<group>
@@ -1993,15 +2018,57 @@
 										<file>
 											<name>$PROJ_DIR$/../ui.c</name>
 										</file>
+										<file>
+											<name>$PROJ_DIR$/../conf_clock.h</name>
+										</file>
+										<file>
+											<name>$PROJ_DIR$/../conf_board.h</name>
+										</file>
+										<group>
+											<name>iar</name>
+											<file>
+												<name>$PROJ_DIR$/asf.h</name>
+											</file>
+										</group>
+										<file>
+											<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
+										</file>
 									</group>
+									<file>
+										<name>$PROJ_DIR$/../../main.h</name>
+									</file>
+									<file>
+										<name>$PROJ_DIR$/../../conf_usb.h</name>
+									</file>
+									<file>
+										<name>$PROJ_DIR$/../../ui.h</name>
+									</file>
 								</group>
+								<file>
+									<name>$PROJ_DIR$/../../../udi_hid_generic.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../udi_hid_generic_conf.h</name>
+								</file>
 							</group>
 							<file>
 								<name>$PROJ_DIR$/../../../../udi_hid.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../udi_hid.h</name>
+							</file>
 						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../usb_protocol_hid.h</name>
+						</file>
 					</group>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../usb_protocol.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../usb_atmel.h</name>
+				</file>
 			</group>
 			<group>
 				<name>clock</name>
@@ -2019,7 +2086,37 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../clock/sam4l/dfll.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../clock/sam4l/pll.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../clock/sam4l/sysclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../clock/sam4l/genclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../clock/sam4l/osc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../clock/sam4l/dfll.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../clock/dfll.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../clock/pll.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../clock/sysclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../clock/genclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../clock/osc.h</name>
+				</file>
 			</group>
 			<group>
 				<name>delay</name>
@@ -2028,7 +2125,13 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../delay/sam/cycle_counter.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../delay/sam/cycle_counter.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../delay/delay.h</name>
+				</file>
 			</group>
 			<group>
 				<name>sleepmgr</name>
@@ -2037,8 +2140,32 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../sleepmgr/sam4l/sleepmgr.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../sleepmgr/sam4l/sleepmgr.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sleepmgr/sleepmgr.h</name>
+				</file>
+			</group>
+			<group>
+				<name>ioport</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../ioport/ioport.h</name>
+				</file>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../ioport/sam/ioport_gpio.h</name>
+					</file>
 				</group>
 			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../boards/board.h</name>
+			</file>
 		</group>
 	</group>
 	<group>
@@ -2050,11 +2177,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/gpio/gpio.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/gpio/gpio.h</name>
+				</file>
 			</group>
 			<group>
 				<name>flashcalw</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/flashcalw/flashcalw.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/flashcalw/flashcalw.h</name>
 				</file>
 			</group>
 			<group>
@@ -2062,11 +2195,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/eic/eic.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/eic/eic.h</name>
+				</file>
 			</group>
 			<group>
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/usart/usart.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/usart/usart.h</name>
 				</file>
 			</group>
 			<group>
@@ -2074,11 +2213,29 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/usbc/usbc_device.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/usbc/usbc_otg.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/usbc/usbc_device.h</name>
+				</file>
+			</group>
+			<group>
+				<name>wdt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/wdt/wdt_sam4l.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/wdt/wdt_sam4l.h</name>
+				</file>
 			</group>
 			<group>
 				<name>bpm</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/bpm/bpm.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/bpm/bpm.h</name>
 				</file>
 			</group>
 		</group>
@@ -2104,10 +2261,400 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates/system_sam4l.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates/system_sam4l.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates/exceptions.h</name>
+							</file>
 						</group>
+					</group>
+					<group>
+						<name>include</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4lc8a.h</name>
+						</file>
+						<group>
+							<name>instance</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_usart3.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_catb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_tc0.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_smap.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_acifc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_hcache.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_pm.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_scif.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_parc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_tc1.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_freqm.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_pevc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_adcife.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_gloc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_wdt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_twim2.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_twis0.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_bpm.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_aesa.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_gpio.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_trng.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_dacc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_chipid.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_twis1.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_iisc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_twim0.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_eic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_crccu.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_usbc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_twim3.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_hmatrix.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_ast.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_picouart.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_usart0.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_twim1.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_usart2.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_abdacb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_lcdca.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_bscif.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_spi.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_pdca.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_hflashc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_usart1.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4lc4a.h</name>
+						</file>
+						<group>
+							<name>component</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_eic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_trng.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_abdacb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_freqm.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_hcache.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_pdca.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_bscif.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_pm.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_twis.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_catb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_picouart.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_hmatrixb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_smap.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_scif.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_gloc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_lcdca.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_spi.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_crccu.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_twim.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_aesa.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_dacc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_adcife.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_pevc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_flashcalw.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_iisc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_usart.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_usbc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_gpio.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_parc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_wdt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_bpm.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_ast.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_tc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_acifc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_chipid.h</name>
+							</file>
+						</group>
+						<group>
+							<name>pio</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls2b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls8b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc2b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls8c.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc4b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc8c.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc8a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls8a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls4c.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls4a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc8b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls4b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls2a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc4a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls2c.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc4c.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc2a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc2c.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4ls4b.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4lc8c.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4l.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4ls4a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4lc2c.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4lc2a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4lc8b.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4ls2a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4ls2c.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4ls8c.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4ls8a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4lc2b.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4lc4c.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4ls2b.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4ls8b.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4ls4c.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4lc4b.h</name>
+						</file>
 					</group>
 				</group>
 			</group>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor/stringz.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor/preprocessor.h</name>
+				</file>
+			</group>
+			<group>
+				<name>header_files</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/header_files/io.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/compiler.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/status_codes.h</name>
+			</file>
 		</group>
 		<group>
 			<name>boards</name>
@@ -2118,6 +2665,15 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4l_ek/init.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4l_ek/sam4l_ek.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4l_ek/board_monitor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4l_ek/led.h</name>
 				</file>
 			</group>
 		</group>

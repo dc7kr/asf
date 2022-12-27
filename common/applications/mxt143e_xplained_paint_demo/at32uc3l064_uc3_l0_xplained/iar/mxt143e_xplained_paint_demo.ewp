@@ -1800,6 +1800,21 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../services/gfx/sysfont.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../services/gfx/gfx_generic.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../services/gfx/gfx_ili9341_sdt028atft.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../services/gfx/sysfont.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../services/gfx/gfx_text.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../services/gfx/gfx.h</name>
+				</file>
 			</group>
 			<group>
 				<name>clock</name>
@@ -1814,7 +1829,31 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../services/clock/uc3l/sysclk.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/clock/uc3l/dfll.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/clock/uc3l/osc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/clock/uc3l/genclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/clock/uc3l/sysclk.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../services/clock/dfll.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../services/clock/sysclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../services/clock/osc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../services/clock/genclk.h</name>
+				</file>
 			</group>
 			<group>
 				<name>spi</name>
@@ -1823,7 +1862,43 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../services/spi/uc3_spi/spi_master.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/spi/uc3_spi/spi_master.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../services/spi/spi_master.h</name>
+				</file>
+			</group>
+			<group>
+				<name>ioport</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../services/ioport/ioport.h</name>
+				</file>
+				<group>
+					<name>uc3</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/ioport/uc3/ioport.h</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>twi</name>
+				<group>
+					<name>uc3_twim</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/twi/uc3_twim/twi_master.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../services/twi/twi_master.h</name>
+				</file>
+			</group>
+			<group>
+				<name>delay</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../services/delay/delay.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1835,6 +1910,12 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../components/display/ili9341/ili9341.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../components/display/ili9341/ili9341_regs.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../components/display/ili9341/ili9341.h</name>
+					</file>
 				</group>
 			</group>
 			<group>
@@ -1843,6 +1924,9 @@
 					<name>mxt</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../components/touch/mxt/mxt_device.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../components/touch/mxt/mxt_device.h</name>
 					</file>
 				</group>
 			</group>
@@ -1854,7 +1938,58 @@
 				<file>
 					<name>$PROJ_DIR$/../../paint_demo.c</name>
 				</file>
+				<group>
+					<name>at32uc3l064_uc3_l0_xplained</name>
+					<file>
+						<name>$PROJ_DIR$/../conf_mxt.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf_spi_master.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf_clock.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf_ili9341.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf_board.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf_twim.h</name>
+					</file>
+					<group>
+						<name>iar</name>
+						<file>
+							<name>$PROJ_DIR$/asf.h</name>
+						</file>
+					</group>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../conf_sysfont.h</name>
+				</file>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../utils/parts.h</name>
+			</file>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/interrupt/interrupt_avr32.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../utils/interrupt.h</name>
+			</file>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../boards/board.h</name>
+			</file>
 		</group>
 	</group>
 	<group>
@@ -1866,11 +2001,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../avr32/drivers/pdca/pdca.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/drivers/pdca/pdca.h</name>
+				</file>
 			</group>
 			<group>
 				<name>twim</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../avr32/drivers/twim/twim.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/drivers/twim/twim.h</name>
 				</file>
 			</group>
 			<group>
@@ -1878,11 +2019,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../avr32/drivers/flashcdw/flashcdw.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/drivers/flashcdw/flashcdw.h</name>
+				</file>
 			</group>
 			<group>
 				<name>gpio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../avr32/drivers/gpio/gpio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/drivers/gpio/gpio.h</name>
 				</file>
 			</group>
 			<group>
@@ -1890,6 +2037,18 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../avr32/drivers/spi/spi.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/drivers/spi/spi.h</name>
+				</file>
+			</group>
+			<group>
+				<name>cpu</name>
+				<group>
+					<name>cycle_counter</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../avr32/drivers/cpu/cycle_counter/cycle_counter.h</name>
+					</file>
+				</group>
 			</group>
 		</group>
 		<group>
@@ -1902,6 +2061,12 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../avr32/boards/uc3_l0_xplained/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/boards/uc3_l0_xplained/uc3_l0_xplained.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/boards/uc3_l0_xplained/led.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1911,7 +2076,40 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../avr32/utils/startup/trampoline_uc3.s82</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/utils/startup/trampoline_uc3.h</name>
+				</file>
 			</group>
+			<group>
+				<name>header_files</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/utils/header_files/uc3l3_l4_defines_fix.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/utils/header_files/uc3d_defines_fix.h</name>
+				</file>
+			</group>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/utils/preprocessor/stringz.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../avr32/utils/status_codes.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../avr32/utils/compiler.h</name>
+			</file>
 		</group>
 	</group>
 </project>

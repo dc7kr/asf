@@ -74,7 +74,8 @@ INC_PATH = \
        mega/boards/stk600/rc128x_rfx                      \
        mega/drivers/cpu                                   \
        mega/drivers/usart                                 \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        common/utils/stdio/stdio_serial/stdio_serial_example/atmega128rfa1_stk600/gcc
 
 # Library paths from the top-level source directory

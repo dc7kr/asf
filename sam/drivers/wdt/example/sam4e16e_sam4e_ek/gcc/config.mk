@@ -78,7 +78,6 @@ ASSRCS =
 INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
-       common/services/gpio                               \
        common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \

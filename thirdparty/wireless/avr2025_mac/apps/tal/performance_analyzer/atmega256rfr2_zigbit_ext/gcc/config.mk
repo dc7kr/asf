@@ -104,6 +104,7 @@ INC_PATH = \
        mega/drivers/cpu                                   \
        mega/drivers/usart                                 \
        mega/utils                                         \
+       mega/utils/preprocessor                            \
        thirdparty/wireless/addons/sio2host/uart           \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/atmega256rfr2_zigbit_ext \
@@ -128,7 +129,7 @@ LIB_PATH =  \
 
 # Libraries to link with the project
 LIBS =  \
-       mega_lib_hw_timer                                 
+       megarfr2_lib_hw_timer                             
 
 # Additional options for debugging. By default the common Makefile.in will
 # add -gdwarf-2.

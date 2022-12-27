@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../../../../../mega/boards/atmega256rfr2_xplained_pro/init.c ../../clock_example1.c ../../../mega/sysclk.c  ../../../../../../mega/boards/atmega256rfr2_xplained_pro/atmega256rfr2_xplained_pro.h ../../../../../boards/board.h ../../../../../../mega/utils/status_codes.h ../../../sysclk.h ../../../../delay/mega/cycle_counter.h ../../../../../../mega/utils/compiler.h ../../../../../utils/parts.h ../conf_board.h ../conf_clock.h ../../../../../utils/interrupt.h ../../../../../utils/interrupt/interrupt_avr8.h ../../../../../../mega/boards/atmega256rfr2_xplained_pro/led.h ../../../../ioport/mega/ioport.h ../../../../../../mega/drivers/cpu/mega_reset_cause.h ../../../mega/sysclk.h ../../../../../../mega/utils/assembler.h ../../../../ioport/ioport.h ../../../../../../mega/utils/progmem.h ../../../../gpio/mega_gpio/mega_gpio.h ../../../../delay/delay.h ../../../../gpio/gpio.h
+INPUT                  =  ../../../../../../mega/boards/atmega256rfr2_xplained_pro/init.c ../../clock_example1.c ../../../mega/sysclk.c  ../../../../../../mega/utils/compiler.h ../../../../../utils/parts.h ../conf_board.h ../../../../../utils/interrupt.h ../../../../delay/delay.h ../../../../../../mega/utils/preprocessor/stringz.h ../../../../../../mega/utils/preprocessor/tpaste.h ../../../../ioport/mega/ioport.h ../../../../../../mega/boards/atmega256rfr2_xplained_pro/atmega256rfr2_xplained_pro.h ../../../../../../mega/utils/progmem.h ../../../../gpio/gpio.h ../../../sysclk.h ../../../../../../mega/utils/assembler.h ../../../../delay/mega/cycle_counter.h ../../../../ioport/ioport.h ../../../../../utils/interrupt/interrupt_avr8.h ../../../../../../mega/utils/preprocessor/mrepeat.h ../../../../../../mega/utils/preprocessor/preprocessor.h ../../../../../../mega/utils/status_codes.h ../../../../../boards/board.h ../../../../../../mega/drivers/cpu/mega_reset_cause.h ../../../mega/sysclk.h ../conf_clock.h ../../../../gpio/mega_gpio/mega_gpio.h ../../../../../../mega/boards/atmega256rfr2_xplained_pro/led.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -642,7 +642,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ./
+EXAMPLE_PATH           = ./ 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../delay ../../../../../../mega/drivers/cpu ../../../../../../mega/utils ../../.. ../../../../../../mega/boards .. ../../../../../boards ../../../../ioport ../../../../../utils ../../../../../../mega/boards/atmega256rfr2_xplained_pro ../../../../gpio
+INCLUDE_PATH           =  ../../../../delay ../../../../../../mega/drivers/cpu ../../../../../../mega/utils ../../.. ../../../../../../mega/boards .. ../../../../../boards ../../../../ioport ../../../../../utils ../../../../../../mega/boards/atmega256rfr2_xplained_pro ../../../../gpio ../../../../../../mega/utils/preprocessor
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

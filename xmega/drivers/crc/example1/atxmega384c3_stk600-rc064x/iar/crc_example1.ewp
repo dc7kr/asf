@@ -2053,7 +2053,16 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../common/services/ioport/xmega/ioport_compat.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/ioport/xmega/ioport_compat.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/ioport/xmega/ioport.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/ioport/ioport.h</name>
+				</file>
 			</group>
 			<group>
 				<name>clock</name>
@@ -2062,7 +2071,61 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../common/services/clock/xmega/sysclk.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/xmega/pll.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/xmega/sysclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/xmega/osc.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/clock/osc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/clock/sysclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/clock/pll.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/clock/genclk.h</name>
+				</file>
+			</group>
+			<group>
+				<name>gpio</name>
+				<group>
+					<name>xmega_gpio</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/gpio/xmega_gpio/xmega_gpio.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/gpio/gpio.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../common/boards/board.h</name>
+			</file>
+		</group>
+		<group>
+			<name>utils</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../common/utils/interrupt.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../common/utils/parts.h</name>
+			</file>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_avr8.h</name>
+				</file>
 			</group>
 		</group>
 	</group>
@@ -2077,6 +2140,12 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../boards/stk600/rc064x/init.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../boards/stk600/rc064x/led.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../boards/stk600/rc064x/stk600_rc064x.h</name>
+					</file>
 				</group>
 			</group>
 		</group>
@@ -2090,6 +2159,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../nvm/nvm_asm.s</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../nvm/nvm.h</name>
+				</file>
 			</group>
 			<group>
 				<name>crc</name>
@@ -2098,9 +2170,27 @@
 					<file>
 						<name>$PROJ_DIR$/../../example1.c</name>
 					</file>
+					<group>
+						<name>atxmega384c3_stk600-rc064x</name>
+						<file>
+							<name>$PROJ_DIR$/../conf_clock.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../conf_board.h</name>
+						</file>
+						<group>
+							<name>iar</name>
+							<file>
+								<name>$PROJ_DIR$/asf.h</name>
+							</file>
+						</group>
+					</group>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../crc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../crc.h</name>
 				</file>
 			</group>
 			<group>
@@ -2108,7 +2198,55 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../cpu/ccp.s</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../cpu/ccp.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../cpu/xmega_reset_cause.h</name>
+				</file>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../utils/status_codes.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../utils/assembler.h</name>
+			</file>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/preprocessor/stringz.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/preprocessor/tpaste.h</name>
+				</file>
+			</group>
+			<group>
+				<name>bit_handling</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/bit_handling/clz_ctz.h</name>
+				</file>
+			</group>
+			<group>
+				<name>assembler</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/assembler/iar.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../utils/compiler.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../utils/progmem.h</name>
+			</file>
 		</group>
 	</group>
 </project>

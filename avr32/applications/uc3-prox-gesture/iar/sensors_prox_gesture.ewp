@@ -1803,11 +1803,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../drivers/eic/eic.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/eic/eic.h</name>
+				</file>
 			</group>
 			<group>
 				<name>flashcdw</name>
 				<file>
 					<name>$PROJ_DIR$/../../../drivers/flashcdw/flashcdw.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/flashcdw/flashcdw.h</name>
 				</file>
 			</group>
 			<group>
@@ -1818,6 +1824,15 @@
 				<file>
 					<name>$PROJ_DIR$/../../../drivers/pm/power_clocks_lib.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/pm/pm_uc3l.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/pm/power_clocks_lib.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/pm/sleep.h</name>
+				</file>
 			</group>
 			<group>
 				<name>intc</name>
@@ -1827,11 +1842,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../drivers/intc/exception.s82</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/intc/intc.h</name>
+				</file>
 			</group>
 			<group>
 				<name>gpio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../drivers/gpio/gpio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/gpio/gpio.h</name>
 				</file>
 			</group>
 			<group>
@@ -1839,11 +1860,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../drivers/twim/twim.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/twim/twim.h</name>
+				</file>
 			</group>
 			<group>
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../drivers/usart/usart.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/usart/usart.h</name>
 				</file>
 			</group>
 			<group>
@@ -1851,6 +1878,18 @@
 				<file>
 					<name>$PROJ_DIR$/../../../drivers/scif/scif_uc3l.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/scif/scif_uc3l.h</name>
+				</file>
+			</group>
+			<group>
+				<name>cpu</name>
+				<group>
+					<name>cycle_counter</name>
+					<file>
+						<name>$PROJ_DIR$/../../../drivers/cpu/cycle_counter/cycle_counter.h</name>
+					</file>
+				</group>
 			</group>
 		</group>
 		<group>
@@ -1863,6 +1902,12 @@
 				<file>
 					<name>$PROJ_DIR$/../../../boards/uc3_l0_xplained/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../boards/uc3_l0_xplained/led.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../boards/uc3_l0_xplained/uc3_l0_xplained.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1872,6 +1917,66 @@
 				<file>
 					<name>$PROJ_DIR$/../../../utils/startup/trampoline_uc3.s82</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../utils/startup/trampoline_uc3.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../utils/status_codes.h</name>
+			</file>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../utils/preprocessor/stringz.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../utils/preprocessor/mrepeat.h</name>
+				</file>
+			</group>
+			<group>
+				<name>header_files</name>
+				<file>
+					<name>$PROJ_DIR$/../../../utils/header_files/uc3d_defines_fix.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../utils/header_files/uc3l3_l4_defines_fix.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../utils/compiler.h</name>
+			</file>
+		</group>
+		<group>
+			<name>applications</name>
+			<group>
+				<name>uc3-prox-gesture</name>
+				<group>
+					<name>conf</name>
+					<file>
+						<name>$PROJ_DIR$/../conf/conf_usart_serial.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf/conf_board.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf/conf_sleepmgr.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf/conf_twim.h</name>
+					</file>
+				</group>
+				<group>
+					<name>iar</name>
+					<file>
+						<name>$PROJ_DIR$/asf.h</name>
+					</file>
+				</group>
 			</group>
 		</group>
 	</group>
@@ -1912,6 +2017,30 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bmp.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bmp.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma150.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma_axis.inc.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma020.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma180.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma222.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma220.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma250.h</name>
+						</file>
 					</group>
 					<group>
 						<name>invensense</name>
@@ -1921,11 +2050,20 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/invensense/imu3000.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/invensense/itg3200.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/invensense/imu3000.h</name>
+						</file>
 					</group>
 					<group>
 						<name>akm</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/akm/ak8975.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/akm/ak8975.h</name>
 						</file>
 					</group>
 					<group>
@@ -1936,11 +2074,20 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/osram/sfh7770.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/osram/sfh7770.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/osram/sfh5712.h</name>
+						</file>
 					</group>
 					<group>
 						<name>kionix</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/kionix/kxtf9.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/kionix/kxtf9.h</name>
 						</file>
 					</group>
 					<group>
@@ -1948,12 +2095,21 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/honeywell/hmc5883l.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/honeywell/hmc5883l.h</name>
+						</file>
 					</group>
 				</group>
 				<group>
 					<name>physics</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../common/services/sensors/physics/physics.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/physics/constants.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/physics/physics.h</name>
 					</file>
 				</group>
 				<file>
@@ -1964,6 +2120,42 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_bus.c</name>
+				</file>
+				<group>
+					<name>math</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/math/fixed_t.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/math/precision.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/math/fixed.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_dev.h</name>
+				</file>
+				<group>
+					<name>module_config</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/module_config/conf_platform.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/module_config/conf_clock.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/module_config/conf_sensors.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_bus.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_nvram.h</name>
 				</file>
 			</group>
 			<group>
@@ -1979,7 +2171,31 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../common/services/clock/uc3l/osc.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/clock/uc3l/dfll.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/clock/uc3l/genclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/clock/uc3l/sysclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/clock/uc3l/osc.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/clock/genclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/clock/osc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/clock/dfll.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/clock/sysclk.h</name>
+				</file>
 			</group>
 			<group>
 				<name>sleepmgr</name>
@@ -1988,12 +2204,45 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../common/services/sleepmgr/uc3/sleepmgr.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sleepmgr/uc3/sleepmgr.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sleepmgr/sleepmgr.h</name>
+				</file>
 			</group>
 			<group>
 				<name>serial</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../common/services/serial/usart_serial.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/serial/serial.h</name>
+				</file>
+				<group>
+					<name>uc3_usart</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/serial/uc3_usart/usart_serial.h</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>delay</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/delay/delay.h</name>
+				</file>
+			</group>
+			<group>
+				<name>twi</name>
+				<group>
+					<name>uc3_twim</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/twi/uc3_twim/twi_master.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/twi/twi_master.h</name>
 				</file>
 			</group>
 		</group>
@@ -2007,6 +2256,24 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../common/utils/stdio/write.c</name>
 				</file>
+				<group>
+					<name>stdio_serial</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/utils/stdio/stdio_serial/stdio_serial.h</name>
+					</file>
+				</group>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../common/utils/parts.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../common/utils/interrupt.h</name>
+			</file>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/utils/interrupt/interrupt_avr32.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -2016,7 +2283,16 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../common/boards/sensors_xplained/sensors_xplained.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/boards/sensors_xplained/xplained_headers.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/boards/sensors_xplained/sensors_xplained.h</name>
+				</file>
 			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../common/boards/board.h</name>
+			</file>
 		</group>
 		<group>
 			<name>applications</name>

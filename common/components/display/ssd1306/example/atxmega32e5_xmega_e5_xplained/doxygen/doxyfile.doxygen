@@ -642,7 +642,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ./
+EXAMPLE_PATH           = ./ 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../../services/delay ../../../../../../../xmega/drivers/pmic ../../../../../../services/clock ../../../../../../../xmega/drivers/cpu ../../../../../../services/spi ../../../../../../boards ../../../../../../../xmega/utils/preprocessor ../../../../../../../xmega/utils ../../../../../../../xmega/boards/xmega_e5_xplained ../../../../../../services/ioport ../../../../../../../xmega/drivers/usart ../../.. ../../../../../../../xmega/boards .. ../../../../../../utils ../../../../../../services/gpio
+INCLUDE_PATH           =  ../../../../../../services/delay ../../../../../../../xmega/drivers/pmic ../../../../../../services/clock ../../../../../../services/gpio ../../../../../../services/spi ../../../../../../boards ../../../../../../../xmega/utils/preprocessor ../../../../../../../xmega/utils ../../../../../../../xmega/boards/xmega_e5_xplained ../../../../../../services/ioport ../../../../../../../xmega/drivers/usart ../../.. ../../../../../../../xmega/boards .. ../../../../../../utils ../../../../../../../xmega/drivers/cpu
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

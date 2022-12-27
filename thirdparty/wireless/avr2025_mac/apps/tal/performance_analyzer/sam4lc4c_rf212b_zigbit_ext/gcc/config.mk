@@ -200,6 +200,7 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
+       -D ANTENNA_DIVERSITY=0                             \
        -D ARM_MATH_CM4=true                               \
        -D BOARD=SAM4L_XPLAINED_PRO                        \
        -D DISABLE_TSTAMP_IRQ=1                            \

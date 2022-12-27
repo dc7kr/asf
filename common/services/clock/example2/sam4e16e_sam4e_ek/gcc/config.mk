@@ -56,8 +56,6 @@ CSRCS = \
        common/services/clock/sam4e/sysclk.c               \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam4e_ek/init.c                         \
-       sam/drivers/pio/pio.c                              \
-       sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/pmc/sleep.c                            \
        sam/utils/cmsis/sam4e/source/templates/exceptions.c \
@@ -73,12 +71,10 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/clock/example2/sam4e16e_sam4e_ek   \
-       common/services/gpio                               \
        common/services/ioport                             \
        common/utils                                       \
        sam/boards                                         \
        sam/boards/sam4e_ek                                \
-       sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/utils                                          \
        sam/utils/cmsis/sam4e/include                      \

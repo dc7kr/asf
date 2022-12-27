@@ -69,7 +69,8 @@ INC_PATH = \
        mega/drivers/cpu                                   \
        mega/drivers/wdt                                   \
        mega/drivers/wdt/example/atmega128rfa1_stk600-rc128x_rfx \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        mega/drivers/wdt/example/atmega128rfa1_stk600-rc128x_rfx/gcc
 
 # Library paths from the top-level source directory

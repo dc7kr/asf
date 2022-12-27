@@ -70,6 +70,7 @@ CSRCS = \
        sam/drivers/tc/tc.c                                \
        sam/drivers/usart/usart.c                          \
        sam/drivers/usart/usart_serial_example/usart_serial_example_pdca.c \
+       sam/drivers/wdt/wdt_sam4l.c                        \
        sam/utils/cmsis/sam4l/source/templates/exceptions.c \
        sam/utils/cmsis/sam4l/source/templates/gcc/startup_sam4l.c \
        sam/utils/cmsis/sam4l/source/templates/system_sam4l.c \
@@ -98,6 +99,7 @@ INC_PATH = \
        sam/drivers/usart                                  \
        sam/drivers/usart/usart_serial_example             \
        sam/drivers/usart/usart_serial_example/sam4lc4c_sam4l_ek \
+       sam/drivers/wdt                                    \
        sam/utils                                          \
        sam/utils/cmsis/sam4l/include                      \
        sam/utils/cmsis/sam4l/source/templates             \

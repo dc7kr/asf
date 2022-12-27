@@ -1828,10 +1828,43 @@
 										<file>
 											<name>$PROJ_DIR$/../../../enum/device/usb_specific_request.c</name>
 										</file>
+										<file>
+											<name>$PROJ_DIR$/../../../enum/device/usb_descriptors.h</name>
+										</file>
+										<file>
+											<name>$PROJ_DIR$/../../../enum/device/usb_specific_request.h</name>
+										</file>
 									</group>
 								</group>
 								<file>
 									<name>$PROJ_DIR$/../../../device_mouse_hid_task.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../hid_example.h</name>
+								</file>
+								<group>
+									<name>conf</name>
+									<file>
+										<name>$PROJ_DIR$/../../../conf/conf_usb.h</name>
+									</file>
+								</group>
+								<group>
+									<name>prj_standalone</name>
+									<group>
+										<name>at32uc3b0256_evk1101</name>
+										<group>
+											<name>iar</name>
+											<file>
+												<name>$PROJ_DIR$/asf.h</name>
+											</file>
+										</group>
+									</group>
+								</group>
+								<file>
+									<name>$PROJ_DIR$/../../../device_mouse_hid_task.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../host_mouse_hid_task.h</name>
 								</file>
 							</group>
 							<group>
@@ -1839,9 +1872,18 @@
 								<file>
 									<name>$PROJ_DIR$/../../../../host_hid/host_hid.c</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../host_hid/host_hid.h</name>
+								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../hid.h</name>
+							</file>
 						</group>
 					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../usb_ids.h</name>
+					</file>
 				</group>
 			</group>
 		</group>
@@ -1853,6 +1895,18 @@
 					<name>lis3l06al</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../components/accelerometer/lis3l06al/lis3l06al.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../components/accelerometer/lis3l06al/lis3l06al.h</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>joystick</name>
+				<group>
+					<name>skrhabe010</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../components/joystick/skrhabe010/joystick.h</name>
 					</file>
 				</group>
 			</group>
@@ -1867,13 +1921,52 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../utils/debug/debug.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/debug/print_funcs.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/debug/debug.h</name>
+				</file>
 			</group>
 			<group>
 				<name>startup</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../utils/startup/trampoline_uc3.s82</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/startup/trampoline_uc3.h</name>
+				</file>
 			</group>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/preprocessor/stringz.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../utils/compiler.h</name>
+			</file>
+			<group>
+				<name>header_files</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/header_files/uc3d_defines_fix.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/header_files/uc3l3_l4_defines_fix.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../utils/status_codes.h</name>
+			</file>
 		</group>
 		<group>
 			<name>drivers</name>
@@ -1881,6 +1974,9 @@
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../drivers/flashc/flashc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../drivers/flashc/flashc.h</name>
 				</file>
 			</group>
 			<group>
@@ -1900,6 +1996,12 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../drivers/usbb/_asf_v1/enum/device/usb_standard_request.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../drivers/usbb/_asf_v1/enum/device/usb_device_task.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../drivers/usbb/_asf_v1/enum/device/usb_standard_request.h</name>
+							</file>
 						</group>
 						<group>
 							<name>host</name>
@@ -1909,10 +2011,25 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../drivers/usbb/_asf_v1/enum/host/usb_host_enum.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../drivers/usbb/_asf_v1/enum/host/usb_host_task.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../drivers/usbb/_asf_v1/enum/host/usb_host_enum.h</name>
+							</file>
 						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../drivers/usbb/_asf_v1/enum/usb_task.h</name>
+						</file>
 					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../drivers/usbb/_asf_v1/usb_drv.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../drivers/usbb/_asf_v1/usbb.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../drivers/usbb/_asf_v1/usb_drv.h</name>
 					</file>
 				</group>
 			</group>
@@ -1920,6 +2037,9 @@
 				<name>adc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../drivers/adc/adc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../drivers/adc/adc.h</name>
 				</file>
 			</group>
 			<group>
@@ -1929,6 +2049,9 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../drivers/intc/exception.s82</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../drivers/intc/intc.h</name>
 				</file>
 			</group>
 			<group>
@@ -1942,11 +2065,23 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../drivers/pm/pm.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../drivers/pm/power_clocks_lib.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../drivers/pm/sleep.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../drivers/pm/pm.h</name>
+				</file>
 			</group>
 			<group>
 				<name>gpio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../drivers/gpio/gpio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../drivers/gpio/gpio.h</name>
 				</file>
 			</group>
 			<group>
@@ -1954,6 +2089,18 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../drivers/usart/usart.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../drivers/usart/usart.h</name>
+				</file>
+			</group>
+			<group>
+				<name>cpu</name>
+				<group>
+					<name>cycle_counter</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../drivers/cpu/cycle_counter/cycle_counter.h</name>
+					</file>
+				</group>
 			</group>
 		</group>
 		<group>
@@ -1962,6 +2109,12 @@
 				<name>evk1101</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../boards/evk1101/led.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../boards/evk1101/evk1101.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../boards/evk1101/led.h</name>
 				</file>
 			</group>
 		</group>
@@ -1991,6 +2144,54 @@
 					</group>
 				</group>
 			</group>
+		</group>
+		<group>
+			<name>newlib_addons</name>
+			<group>
+				<name>libs</name>
+				<group>
+					<name>include</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../thirdparty/newlib_addons/libs/include/nlao_interrupts.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../thirdparty/newlib_addons/libs/include/nlao_io.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../thirdparty/newlib_addons/libs/include/nlao_exceptions.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../thirdparty/newlib_addons/libs/include/nlao_usart.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../thirdparty/newlib_addons/libs/include/nlao_cpu.h</name>
+					</file>
+				</group>
+			</group>
+		</group>
+	</group>
+	<group>
+		<name>common</name>
+		<group>
+			<name>utils</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../../common/utils/interrupt.h</name>
+			</file>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/interrupt/interrupt_avr32.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../../common/utils/parts.h</name>
+			</file>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../../common/boards/board.h</name>
+			</file>
 		</group>
 	</group>
 </project>

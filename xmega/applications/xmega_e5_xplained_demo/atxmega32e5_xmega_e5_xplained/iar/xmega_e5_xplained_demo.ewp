@@ -2131,6 +2131,24 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/services/gfx_mono/gfx_mono_framebuffer.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx_mono/gfx_mono.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx_mono/gfx_mono_generic.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx_mono/sysfont.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx_mono/gfx_mono_ug_2832hsweg04.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx_mono/gfx_mono_text.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx_mono/gfx_mono_framebuffer.h</name>
+				</file>
 			</group>
 			<group>
 				<name>sleepmgr</name>
@@ -2139,7 +2157,13 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/services/sleepmgr/xmega/sleepmgr.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/sleepmgr/xmega/sleepmgr.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/sleepmgr/sleepmgr.h</name>
+				</file>
 			</group>
 			<group>
 				<name>clock</name>
@@ -2148,7 +2172,28 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/services/clock/xmega/sysclk.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/clock/xmega/pll.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/clock/xmega/sysclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/clock/xmega/osc.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/clock/osc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/clock/genclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/clock/pll.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/clock/sysclk.h</name>
+				</file>
 			</group>
 			<group>
 				<name>spi</name>
@@ -2157,12 +2202,21 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/services/spi/xmega_usart_spi/usart_spi.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/spi/xmega_usart_spi/usart_spi.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/spi/usart_spi.h</name>
+				</file>
 			</group>
 			<group>
 				<name>fifo</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/services/fifo/fifo.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/fifo/fifo.h</name>
 				</file>
 			</group>
 			<group>
@@ -2172,13 +2226,55 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/services/ioport/xmega/ioport_compat.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/ioport/xmega/ioport.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/ioport/xmega/ioport_compat.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/ioport/ioport.h</name>
+				</file>
 			</group>
 			<group>
 				<name>serial</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/services/serial/usart_serial.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/serial/serial.h</name>
+				</file>
+				<group>
+					<name>xmega_usart</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/serial/xmega_usart/usart_serial.h</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>delay</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/delay/delay.h</name>
+				</file>
+				<group>
+					<name>xmega</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/delay/xmega/cycle_counter.h</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gpio/gpio.h</name>
+				</file>
+				<group>
+					<name>xmega_gpio</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/gpio/xmega_gpio/xmega_gpio.h</name>
+					</file>
+				</group>
 			</group>
 		</group>
 		<group>
@@ -2193,6 +2289,12 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/components/display/ssd1306/ssd1306.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/components/display/ssd1306/font.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/components/display/ssd1306/ssd1306.h</name>
+					</file>
 				</group>
 			</group>
 		</group>
@@ -2206,7 +2308,31 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/utils/stdio/read.c</name>
 				</file>
+				<group>
+					<name>stdio_serial</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial/stdio_serial.h</name>
+					</file>
+				</group>
 			</group>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/utils/interrupt/interrupt_avr8.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../common/utils/parts.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../common/utils/interrupt.h</name>
+			</file>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../common/boards/board.h</name>
+			</file>
 		</group>
 	</group>
 	<group>
@@ -2224,11 +2350,17 @@
 						<name>$PROJ_DIR$/../../../../drivers/adc/xmega_e/adc_e.c</name>
 					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/adc/adc.h</name>
+				</file>
 			</group>
 			<group>
 				<name>qdec</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/qdec/qdec.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/qdec/qdec.h</name>
 				</file>
 			</group>
 			<group>
@@ -2239,11 +2371,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/nvm/nvm_asm.s</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/nvm/nvm.h</name>
+				</file>
 			</group>
 			<group>
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/usart/usart.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/usart/usart.h</name>
 				</file>
 			</group>
 			<group>
@@ -2251,17 +2389,41 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/rtc/rtc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/rtc/rtc.h</name>
+				</file>
 			</group>
 			<group>
 				<name>tc45</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/tc45/tc45.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/tc45/tc45.h</name>
+				</file>
 			</group>
 			<group>
 				<name>cpu</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/cpu/ccp.s</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/cpu/ccp.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/cpu/xmega_reset_cause.h</name>
+				</file>
+			</group>
+			<group>
+				<name>pmic</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/pmic/pmic.h</name>
+				</file>
+			</group>
+			<group>
+				<name>sleep</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/sleep/sleep.h</name>
 				</file>
 			</group>
 		</group>
@@ -2281,6 +2443,51 @@
 				<file>
 					<name>$PROJ_DIR$/../../app_sampling.c</name>
 				</file>
+				<group>
+					<name>atxmega32e5_xmega_e5_xplained</name>
+					<file>
+						<name>$PROJ_DIR$/../conf_usart_spi.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf_adc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf_app_display.h</name>
+					</file>
+					<group>
+						<name>iar</name>
+						<file>
+							<name>$PROJ_DIR$/asf.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../conf_clock.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf_board.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf_ssd1306.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf_sysfont.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf_rtc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf_usart_serial.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../app_sampling.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../app_cpu_load.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -2290,7 +2497,55 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../boards/xmega_e5_xplained/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../boards/xmega_e5_xplained/led.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../boards/xmega_e5_xplained/xmega_e5_xplained.h</name>
+				</file>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>assembler</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/assembler/iar.h</name>
+				</file>
+			</group>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/preprocessor/stringz.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/preprocessor/mrepeat.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../utils/compiler.h</name>
+			</file>
+			<group>
+				<name>bit_handling</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../utils/bit_handling/clz_ctz.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../utils/assembler.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../utils/progmem.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../utils/status_codes.h</name>
+			</file>
 		</group>
 	</group>
 </project>

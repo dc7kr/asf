@@ -79,7 +79,8 @@ INC_PATH = \
        mega/drivers/wdt                                   \
        mega/drivers/wdt/unit_tests                        \
        mega/drivers/wdt/unit_tests/atmega256rfr2_atmega256rfr2_xplained_pro \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        mega/drivers/wdt/unit_tests/atmega256rfr2_atmega256rfr2_xplained_pro/gcc
 
 # Library paths from the top-level source directory

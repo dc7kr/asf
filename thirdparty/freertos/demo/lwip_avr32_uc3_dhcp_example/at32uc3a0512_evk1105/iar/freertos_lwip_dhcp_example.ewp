@@ -1957,6 +1957,147 @@
 							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/api/netifapi.c</name>
 						</file>
 					</group>
+					<group>
+						<name>include</name>
+						<group>
+							<name>lwip</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/tcp_impl.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/api.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/snmp_structs.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/udp.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/pbuf.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/timers.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/arch.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/raw.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/sockets.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/api_msg.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/def.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/debug.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/memp.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/err.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/sys.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/dhcp.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/sio.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/dns.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/netbuf.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/mem.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/snmp_msg.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/tcpip.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/opt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/init.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/netifapi.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/netdb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/netif.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/snmp.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/memp_std.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/snmp_asn1.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/tcp.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip/stats.h</name>
+							</file>
+						</group>
+						<group>
+							<name>ipv4</name>
+							<group>
+								<name>lwip</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4/lwip/ip_frag.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4/lwip/igmp.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4/lwip/icmp.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4/lwip/autoip.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4/lwip/inet_chksum.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4/lwip/ip.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4/lwip/ip_addr.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4/lwip/inet.h</name>
+								</file>
+							</group>
+						</group>
+						<group>
+							<name>netif</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/netif/etharp.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/netif/ppp_oe.h</name>
+							</file>
+						</group>
+					</group>
 				</group>
 			</group>
 			<group>
@@ -1972,6 +2113,27 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../lwip/lwip-port-1.4.0/at32uc3/sys_arch.c</name>
 					</file>
+					<group>
+						<name>include</name>
+						<group>
+							<name>arch</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-port-1.4.0/at32uc3/include/arch/cc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-port-1.4.0/at32uc3/include/arch/sys_arch.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-port-1.4.0/at32uc3/include/arch/perf.h</name>
+							</file>
+						</group>
+						<group>
+							<name>netif</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../lwip/lwip-port-1.4.0/at32uc3/include/netif/ethernetif.h</name>
+							</file>
+						</group>
+					</group>
 				</group>
 			</group>
 		</group>
@@ -1999,6 +2161,9 @@
 								<file>
 									<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3/exception.s82</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3/portmacro.h</name>
+								</file>
 							</group>
 						</group>
 						<group>
@@ -2023,6 +2188,42 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/tasks.c</name>
 					</file>
+					<group>
+						<name>include</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/include/semphr.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/include/FreeRTOS.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/include/list.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/include/projdefs.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/include/mpu_wrappers.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/include/task.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/include/queue.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/include/croutine.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/include/timers.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/include/StackMacros.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/include/portable.h</name>
+						</file>
+					</group>
 				</group>
 			</group>
 			<group>
@@ -2036,11 +2237,17 @@
 							<file>
 								<name>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network/basicsmtp/BasicSMTP.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network/basicsmtp/BasicSMTP.h</name>
+							</file>
 						</group>
 						<group>
 							<name>basictftp</name>
 							<file>
 								<name>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network/basictftp/BasicTFTP.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network/basictftp/BasicTFTP.h</name>
 							</file>
 						</group>
 						<group>
@@ -2048,7 +2255,13 @@
 							<file>
 								<name>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network/basicweb/BasicWEB.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network/basicweb/BasicWEB.h</name>
+							</file>
 						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network/ethernet.h</name>
+						</file>
 					</group>
 					<group>
 						<name>partest</name>
@@ -2063,6 +2276,15 @@
 						<name>minimal</name>
 						<file>
 							<name>$PROJ_DIR$/../../../common/minimal/flash.c</name>
+						</file>
+					</group>
+					<group>
+						<name>include</name>
+						<file>
+							<name>$PROJ_DIR$/../../../common/include/flash.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../common/include/partest.h</name>
 						</file>
 					</group>
 				</group>
@@ -2085,7 +2307,43 @@
 						<file>
 							<name>$PROJ_DIR$/../../display/displayTask.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../display/displayTask.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../display/display.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../display/conf_et024006dhu.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../display/conf_ebi.h</name>
+						</file>
 					</group>
+					<file>
+						<name>$PROJ_DIR$/../../FreeRTOSConfig.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../conf_lwip_threads.h</name>
+					</file>
+					<group>
+						<name>at32uc3a0512_evk1105</name>
+						<file>
+							<name>$PROJ_DIR$/../conf_clock.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../conf_eth.h</name>
+						</file>
+						<group>
+							<name>iar</name>
+							<file>
+								<name>$PROJ_DIR$/asf.h</name>
+							</file>
+						</group>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../lwipopts.h</name>
+					</file>
 				</group>
 			</group>
 		</group>
@@ -2099,11 +2357,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/pwm/pwm.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/pwm/pwm.h</name>
+				</file>
 			</group>
 			<group>
 				<name>gpio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/gpio/gpio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/gpio/gpio.h</name>
 				</file>
 			</group>
 			<group>
@@ -2111,11 +2375,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/intc/intc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/intc/intc.h</name>
+				</file>
 			</group>
 			<group>
 				<name>tc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/tc/tc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/tc/tc.h</name>
 				</file>
 			</group>
 			<group>
@@ -2129,11 +2399,23 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/pm/power_clocks_lib.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/pm/power_clocks_lib.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/pm/sleep.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/pm/pm.h</name>
+				</file>
 			</group>
 			<group>
 				<name>macb</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/macb/macb.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/macb/macb.h</name>
 				</file>
 			</group>
 			<group>
@@ -2143,6 +2425,9 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../avr32/drivers/ebi/smc/smc.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../avr32/drivers/ebi/smc/smc.h</name>
+					</file>
 				</group>
 			</group>
 			<group>
@@ -2150,12 +2435,27 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/flashc/flashc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/flashc/flashc.h</name>
+				</file>
 			</group>
 			<group>
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/usart/usart.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/usart/usart.h</name>
+				</file>
+			</group>
+			<group>
+				<name>cpu</name>
+				<group>
+					<name>cycle_counter</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter/cycle_counter.h</name>
+					</file>
+				</group>
 			</group>
 		</group>
 		<group>
@@ -2164,6 +2464,12 @@
 				<name>evk1105</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1105/led.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1105/led.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1105/evk1105.h</name>
 				</file>
 			</group>
 		</group>
@@ -2176,7 +2482,25 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../avr32/components/display/et024006dhu/et024006dhu.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../avr32/components/display/et024006dhu/smc_et024006dhu.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../avr32/components/display/et024006dhu/et024006dhu.h</name>
+					</file>
 				</group>
+			</group>
+			<group>
+				<name>ethernet_phy</name>
+				<group>
+					<name>dp83848</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../avr32/components/ethernet_phy/dp83848/ethernet_phy.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/components/ethernet_phy/documentation.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -2186,7 +2510,40 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/utils/startup/trampoline_uc3.s82</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/utils/startup/trampoline_uc3.h</name>
+				</file>
 			</group>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor/stringz.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor/preprocessor.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../avr32/utils/status_codes.h</name>
+			</file>
+			<group>
+				<name>header_files</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/utils/header_files/uc3l3_l4_defines_fix.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/utils/header_files/uc3d_defines_fix.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../avr32/utils/compiler.h</name>
+			</file>
 		</group>
 	</group>
 	<group>
@@ -2200,8 +2557,53 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../common/services/clock/uc3a0_a1/sysclk.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/uc3a0_a1/genclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/uc3a0_a1/sysclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/uc3a0_a1/pll.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/uc3a0_a1/osc.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/clock/osc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/clock/genclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/clock/sysclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/clock/pll.h</name>
+				</file>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_avr32.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../common/utils/interrupt.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../common/utils/parts.h</name>
+			</file>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../common/boards/board.h</name>
+			</file>
 		</group>
 	</group>
 </project>

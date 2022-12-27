@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../main.c ../../../../../mega/boards/stk600/rcx_x/init.c  ../config/conf_board.h ../../../../../mega/utils/compiler.h ../../../../utils/parts.h ../../../../../mega/utils/status_codes.h ../../../../boards/board.h ../../../../utils/interrupt/interrupt_avr8.h ../../../../../mega/utils/assembler.h ../../../../utils/interrupt.h ../../../../../mega/utils/progmem.h
+INPUT                  =  ../../main.c ../../../../../mega/boards/stk600/rcx_x/init.c  ../config/conf_board.h ../../../../../mega/utils/preprocessor/mrepeat.h ../../../../../mega/utils/preprocessor/tpaste.h ../../../../../mega/utils/preprocessor/preprocessor.h ../../../../../mega/utils/compiler.h ../../../../utils/parts.h ../../../../../mega/utils/status_codes.h ../../../../boards/board.h ../../../../utils/interrupt/interrupt_avr8.h ../../../../../mega/utils/assembler.h ../../../../utils/interrupt.h ../../../../../mega/utils/progmem.h ../../../../../mega/utils/preprocessor/stringz.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -642,7 +642,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ./
+EXAMPLE_PATH           = ./ 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../utils ../../../../boards ../config ../../../../../mega/utils
+INCLUDE_PATH           =  ../../../../utils ../../../../boards ../config ../../../../../mega/utils ../../../../../mega/utils/preprocessor
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

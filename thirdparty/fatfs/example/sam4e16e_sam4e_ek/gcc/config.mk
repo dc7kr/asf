@@ -78,7 +78,6 @@ CSRCS = \
        sam/drivers/pmc/sleep.c                            \
        sam/drivers/rtc/rtc.c                              \
        sam/drivers/spi/spi.c                              \
-       sam/drivers/tc/tc.c                                \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam4e/source/templates/exceptions.c \
@@ -122,7 +121,6 @@ INC_PATH = \
        sam/drivers/pmc                                    \
        sam/drivers/rtc                                    \
        sam/drivers/spi                                    \
-       sam/drivers/tc                                     \
        sam/drivers/uart                                   \
        sam/drivers/usart                                  \
        sam/utils                                          \

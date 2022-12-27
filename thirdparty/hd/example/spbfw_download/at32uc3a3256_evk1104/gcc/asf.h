@@ -68,6 +68,12 @@
 // From module: Generic board support
 #include <board.h>
 
+// From module: H&D Wi-Fi SPI transport library - UC3 UCR2 Implementation
+#include <wl_spi.h>
+
+// From module: H&D Wi-Fi WL library - UC3 UCR2 Implementation
+#include <wl_api.h>
+
 // From module: INTC - Interrupt Controller
 #include <intc.h>
 

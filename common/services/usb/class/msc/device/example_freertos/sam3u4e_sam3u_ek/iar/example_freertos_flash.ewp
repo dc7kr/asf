@@ -1941,6 +1941,33 @@
 									<file>
 										<name>$PROJ_DIR$/../ui.c</name>
 									</file>
+									<file>
+										<name>$PROJ_DIR$/../conf_virtual_mem.h</name>
+									</file>
+									<file>
+										<name>$PROJ_DIR$/../conf_clock.h</name>
+									</file>
+									<file>
+										<name>$PROJ_DIR$/../conf_board.h</name>
+									</file>
+									<group>
+										<name>iar</name>
+										<file>
+											<name>$PROJ_DIR$/asf.h</name>
+										</file>
+									</group>
+									<file>
+										<name>$PROJ_DIR$/../conf_sd_mmc.h</name>
+									</file>
+									<file>
+										<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
+									</file>
+									<file>
+										<name>$PROJ_DIR$/../FreeRTOSConfig.h</name>
+									</file>
+									<file>
+										<name>$PROJ_DIR$/../conf_access.h</name>
+									</file>
 								</group>
 								<file>
 									<name>$PROJ_DIR$/../../memories_initialization_sam.c</name>
@@ -1951,8 +1978,32 @@
 								<file>
 									<name>$PROJ_DIR$/../../main.c</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../conf_usb.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../main.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../ui.h</name>
+								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../udi_msc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../udi_msc_conf.h</name>
+							</file>
 						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../usb_protocol_msc.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../spc_protocol.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../sbc_protocol.h</name>
+						</file>
 					</group>
 				</group>
 				<group>
@@ -1960,7 +2011,25 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../udc/udc.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../udc/udi.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../udc/udd.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../udc/udc_desc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../udc/udc.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../usb_atmel.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../usb_protocol.h</name>
+				</file>
 			</group>
 			<group>
 				<name>storage</name>
@@ -1968,6 +2037,9 @@
 					<name>ctrl_access</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../storage/ctrl_access/ctrl_access.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../storage/ctrl_access/ctrl_access.h</name>
 					</file>
 				</group>
 			</group>
@@ -1978,7 +2050,13 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../sleepmgr/sam/sleepmgr.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../sleepmgr/sam/sleepmgr.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sleepmgr/sleepmgr.h</name>
+				</file>
 			</group>
 			<group>
 				<name>delay</name>
@@ -1987,7 +2065,13 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../delay/sam/cycle_counter.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../delay/sam/cycle_counter.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../delay/delay.h</name>
+				</file>
 			</group>
 			<group>
 				<name>clock</name>
@@ -1996,7 +2080,55 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../clock/sam3u/sysclk.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../clock/sam3u/genclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../clock/sam3u/pll.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../clock/sam3u/osc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../clock/sam3u/sysclk.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../clock/pll.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../clock/genclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../clock/osc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../clock/sysclk.h</name>
+				</file>
+			</group>
+			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../gpio/gpio.h</name>
+				</file>
+				<group>
+					<name>sam_gpio</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../gpio/sam_gpio/sam_gpio.h</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>ioport</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../ioport/sam/ioport_pio.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../ioport/ioport.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -2011,11 +2143,23 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc/sd_mmc.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc/sd_mmc_protocol.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc/sd_mmc_mem.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc/sd_mmc.h</name>
+					</file>
 				</group>
 				<group>
 					<name>virtual_mem</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem/virtual_mem.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem/virtual_mem.h</name>
 					</file>
 				</group>
 			</group>
@@ -2027,7 +2171,22 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../utils/interrupt/interrupt_sam_nvic.h</name>
+				</file>
 			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../utils/interrupt.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../utils/parts.h</name>
+			</file>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../boards/board.h</name>
+			</file>
 		</group>
 	</group>
 	<group>
@@ -2042,6 +2201,12 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio/pio_handler.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio/pio_handler.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio/pio.h</name>
+				</file>
 			</group>
 			<group>
 				<name>ebi</name>
@@ -2050,6 +2215,9 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/ebi/smc/smc.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/ebi/smc/smc.h</name>
+					</file>
 				</group>
 			</group>
 			<group>
@@ -2057,17 +2225,26 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/udphs/udphs_device.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/udphs/udphs_device.h</name>
+				</file>
 			</group>
 			<group>
 				<name>hsmci</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/hsmci/hsmci.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/hsmci/hsmci.h</name>
+				</file>
 			</group>
 			<group>
 				<name>dmac</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/dmac/dmac.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/dmac/dmac.h</name>
 				</file>
 			</group>
 			<group>
@@ -2077,6 +2254,12 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.h</name>
 				</file>
 			</group>
 		</group>
@@ -2102,10 +2285,262 @@
 									<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/source/templates/iar/startup_sam3u.c</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/source/templates/exceptions.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/source/templates/system_sam3u.h</name>
+							</file>
 						</group>
+					</group>
+					<group>
+						<name>include</name>
+						<group>
+							<name>component</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_rtc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_adc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_hsmci.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_adc12b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_gpbr.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_ssc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_tc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_supc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_rtt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_uart.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_matrix.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_dmac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_efc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_chipid.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_wdt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_smc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_pdc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_twi.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_pwm.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_udphs.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_usart.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_pmc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_pio.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_rstc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/component/component_spi.h</name>
+							</file>
+						</group>
+						<group>
+							<name>instance</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_hsmci.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_usart2.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_dmac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_rstc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_twi0.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_tc0.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_usart0.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_spi.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_pioc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_matrix.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_pioa.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_smc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_adc12b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_twi1.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_udphs.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_wdt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_efc0.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_pwm.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_adc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_pmc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_uart.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_rtc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_usart3.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_chipid.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_usart1.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_efc1.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_ssc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_piob.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_supc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_rtt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/instance/instance_gpbr.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/sam3u1c.h</name>
+						</file>
+						<group>
+							<name>pio</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/pio/pio_sam3u2c.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/pio/pio_sam3u4c.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/pio/pio_sam3u4e.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/pio/pio_sam3u1c.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/pio/pio_sam3u1e.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/pio/pio_sam3u2e.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/sam3u.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/sam3u1e.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/sam3u4e.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/sam3u2c.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/sam3u4c.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include/sam3u2e.h</name>
+						</file>
 					</group>
 				</group>
 			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../sam/utils/compiler.h</name>
+			</file>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor/stringz.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor/tpaste.h</name>
+				</file>
+			</group>
+			<group>
+				<name>header_files</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files/io.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../sam/utils/status_codes.h</name>
+			</file>
 		</group>
 		<group>
 			<name>boards</name>
@@ -2116,6 +2551,12 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3u_ek/led.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3u_ek/led.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3u_ek/sam3u_ek.h</name>
 				</file>
 			</group>
 		</group>
@@ -2158,12 +2599,51 @@
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/sam/portasm.s</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/sam/portmacro.h</name>
+								</file>
 							</group>
 						</group>
 					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/timers.c</name>
 					</file>
+					<group>
+						<name>include</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include/mpu_wrappers.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include/task.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include/list.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include/semphr.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include/queue.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include/timers.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include/StackMacros.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include/projdefs.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include/FreeRTOS.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include/portable.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include/croutine.h</name>
+						</file>
+					</group>
 				</group>
 			</group>
 		</group>

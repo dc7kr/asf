@@ -116,7 +116,7 @@
 #include <usart.h>
 
 // From module: USB Host MSC (Single Class support)
-#include <uhi_msc_mem.h>
+#include <uhi_msc.h>
 
 // From module: USB Host stack core
 #include <uhc.h>
@@ -124,5 +124,8 @@
 
 // From module: USB MSC Protocol
 #include <usb_protocol_msc.h>
+
+// From module: WDT - Watchdog Timer
+#include <wdt_sam4l.h>
 
 #endif // ASF_H

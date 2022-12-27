@@ -72,6 +72,7 @@ CSRCS = \
        sam/drivers/gpio/gpio.c                            \
        sam/drivers/usart/usart.c                          \
        sam/drivers/usbc/usbc_host.c                       \
+       sam/drivers/wdt/wdt_sam4l.c                        \
        sam/utils/cmsis/sam4l/source/templates/exceptions.c \
        sam/utils/cmsis/sam4l/source/templates/gcc/startup_sam4l.c \
        sam/utils/cmsis/sam4l/source/templates/system_sam4l.c \
@@ -102,6 +103,7 @@ INC_PATH = \
        sam/drivers/gpio                                   \
        sam/drivers/usart                                  \
        sam/drivers/usbc                                   \
+       sam/drivers/wdt                                    \
        sam/utils                                          \
        sam/utils/cmsis/sam4l/include                      \
        sam/utils/cmsis/sam4l/source/templates             \

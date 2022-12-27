@@ -68,6 +68,7 @@ INC_PATH = \
        common/boards/user_board                           \
        common/utils                                       \
        mega/utils                                         \
+       mega/utils/preprocessor                            \
        thirdparty/atmel_rf4ce/examples/atmega128rfa1_avr477_remote \
        thirdparty/atmel_rf4ce/examples/atmega128rfa1_avr477_remote/qdebug_remote \
        thirdparty/atmel_rf4ce/lib                         \

@@ -71,6 +71,7 @@ INC_PATH = \
        common/services/clock                              \
        common/services/delay                              \
        common/services/gfx_mono                           \
+       common/services/gfx_mono/example_screen_dump       \
        common/services/gfx_mono/example_screen_dump/atxmega128a1_xplain \
        common/services/gpio                               \
        common/services/ioport                             \

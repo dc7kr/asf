@@ -78,7 +78,8 @@ INC_PATH = \
        mega/drivers/ext_int/unit_tests                    \
        mega/drivers/ext_int/unit_tests/atmega256rfr2_atmega256rfr2_xplained_pro \
        mega/drivers/usart                                 \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        mega/drivers/ext_int/unit_tests/atmega256rfr2_atmega256rfr2_xplained_pro/gcc
 
 # Library paths from the top-level source directory

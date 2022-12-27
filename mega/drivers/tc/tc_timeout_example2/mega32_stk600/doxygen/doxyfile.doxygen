@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../tc_timeout_example2.c ../../../../../boards/stk600/rcx_x/init.c ../../../tc_timeout.c  ../conf_tc_timeout.h ../../../../../../common/boards/board.h ../../../../../utils/assembler.h ../../../../../../common/utils/parts.h ../../../../../utils/status_codes.h ../conf_board.h ../../../../../utils/compiler.h ../../../../../../common/utils/interrupt/interrupt_avr8.h ../../../tc_timeout.h ../../../../../../common/utils/interrupt.h ../../../../../utils/progmem.h
+INPUT                  =  ../../tc_timeout_example2.c ../../../../../boards/stk600/rcx_x/init.c ../../../tc_timeout.c  ../conf_tc_timeout.h ../../../../../utils/preprocessor/mrepeat.h ../../../../../utils/preprocessor/tpaste.h ../../../../../../common/boards/board.h ../../../../../utils/preprocessor/preprocessor.h ../../../../../utils/compiler.h ../../../../../../common/utils/parts.h ../../../../../utils/status_codes.h ../conf_board.h ../../../../../utils/assembler.h ../../../../../../common/utils/interrupt/interrupt_avr8.h ../../../tc_timeout.h ../../../../../../common/utils/interrupt.h ../../../../../utils/progmem.h ../../../../../utils/preprocessor/stringz.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -642,7 +642,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ./
+EXAMPLE_PATH           = ./ 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../.. ../../../../../../common/boards ../../../../../../common/utils ../../../../../utils ..
+INCLUDE_PATH           =  ../../../../../utils/preprocessor ../../../../../utils ../../../../../../common/boards .. ../../.. ../../../../../../common/utils
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

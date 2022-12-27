@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../../../../mega/boards/atmega256rfr2_xplained_pro/init.c ../../main.c  ../../../../services/ioport/ioport.h ../../../../../mega/boards/atmega256rfr2_xplained_pro/atmega256rfr2_xplained_pro.h ../../../../../mega/utils/compiler.h ../../../../utils/parts.h ../../../../../mega/utils/status_codes.h ../../../../boards/board.h ../../../../utils/interrupt/interrupt_avr8.h ../../../../services/ioport/mega/ioport.h ../config/conf_board.h ../../../../../mega/utils/assembler.h ../../../../utils/interrupt.h ../../../../../mega/utils/progmem.h ../../../../services/gpio/mega_gpio/mega_gpio.h ../../../../../mega/boards/atmega256rfr2_xplained_pro/led.h ../../../../services/gpio/gpio.h
+INPUT                  =  ../../../../../mega/boards/atmega256rfr2_xplained_pro/init.c ../../main.c  ../../../../../mega/utils/preprocessor/mrepeat.h ../../../../../mega/utils/preprocessor/tpaste.h ../../../../services/ioport/ioport.h ../../../../../mega/utils/preprocessor/preprocessor.h ../../../../../mega/utils/compiler.h ../../../../utils/parts.h ../../../../../mega/utils/status_codes.h ../../../../boards/board.h ../../../../utils/interrupt/interrupt_avr8.h ../../../../services/ioport/mega/ioport.h ../config/conf_board.h ../../../../../mega/utils/assembler.h ../../../../utils/interrupt.h ../../../../../mega/utils/progmem.h ../../../../../mega/boards/atmega256rfr2_xplained_pro/atmega256rfr2_xplained_pro.h ../../../../services/gpio/gpio.h ../../../../services/gpio/mega_gpio/mega_gpio.h ../../../../../mega/boards/atmega256rfr2_xplained_pro/led.h ../../../../../mega/utils/preprocessor/stringz.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -642,7 +642,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ./
+EXAMPLE_PATH           = ./ 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../mega/utils ../../../../../mega/boards ../../../../boards ../config ../../../../services/ioport ../../../../utils ../../../../../mega/boards/atmega256rfr2_xplained_pro ../../../../services/gpio
+INCLUDE_PATH           =  ../../../../../mega/utils/preprocessor ../../../../../mega/utils ../../../../../mega/boards ../../../../boards ../config ../../../../services/ioport ../../../../utils ../../../../../mega/boards/atmega256rfr2_xplained_pro ../../../../services/gpio
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../../../../../../../../mega/boards/stk600/rc128x_rfx/init.c ../../../../../../../qdebug/eeprom_access_mega.c ../../BitBangSPI_Master.c ../../../../../../../qdebug/QDebug.c ../main_m128rfa1.c ../../../../../../../qdebug/QDebugTransport.c  ../../QDebugSettings.h ../include/touch_config.h ../../../../common/qm_asm_avr.h ../../../../../../../../../common/services/ioport/mega/ioport.h ../../../../../../../../../common/utils/parts.h ../../../../../../../qdebug/QDebugTransport.h ../../../../../../../../../common/utils/interrupt.h ../../conf_board.h ../../BitBangSPI_Master.h ../../avr_compiler.h ../../../../../../../../../mega/utils/compiler.h ../../../../../../include/touch_api.h ../../../../../../../../../mega/utils/progmem.h ../../../../../../../../../common/services/gpio/gpio.h ../../../../../../../../../mega/utils/assembler.h ../../../../../../../../../common/utils/interrupt/interrupt_avr8.h ../../../../../../../../../mega/boards/stk600/rc128x_rfx/led.h ../../../../../../../../../mega/boards/stk600/rc128x_rfx/stk600.h ../../../../../../../../../mega/utils/status_codes.h ../../../../../../../../../common/boards/board.h ../../../../../../../../../common/services/ioport/ioport.h ../../../../../../../qdebug/QDebug.h ../../../../../../../../../common/services/gpio/mega_gpio/mega_gpio.h ../../../../../../../qdebug/eeprom_access_mega.h
+INPUT                  =  ../../../../../../../../../mega/boards/stk600/rc128x_rfx/init.c ../../../../../../../qdebug/eeprom_access_mega.c ../../BitBangSPI_Master.c ../../../../../../../qdebug/QDebug.c ../main_m128rfa1.c ../../../../../../../qdebug/QDebugTransport.c  ../../QDebugSettings.h ../include/touch_config.h ../../../../common/qm_asm_avr.h ../../../../../../../../../mega/utils/compiler.h ../../../../../../../../../common/utils/parts.h ../../../../../../../qdebug/QDebugTransport.h ../../../../../../../../../common/utils/interrupt.h ../../conf_board.h ../../BitBangSPI_Master.h ../../../../../../../../../mega/utils/preprocessor/stringz.h ../../../../../../../../../mega/utils/preprocessor/tpaste.h ../../avr_compiler.h ../../../../../../../../../common/services/ioport/mega/ioport.h ../../../../../../include/touch_api.h ../../../../../../../../../mega/utils/progmem.h ../../../../../../../../../common/services/gpio/gpio.h ../../../../../../../../../mega/utils/assembler.h ../../../../../../../../../common/utils/interrupt/interrupt_avr8.h ../../../../../../../../../mega/boards/stk600/rc128x_rfx/led.h ../../../../../../../../../mega/boards/stk600/rc128x_rfx/stk600.h ../../../../../../../../../mega/utils/preprocessor/mrepeat.h ../../../../../../../../../mega/utils/preprocessor/preprocessor.h ../../../../../../../../../mega/utils/status_codes.h ../../../../../../../../../common/boards/board.h ../../../../../../../../../common/services/ioport/ioport.h ../../../../../../../qdebug/QDebug.h ../../../../../../../../../common/services/gpio/mega_gpio/mega_gpio.h ../../../../../../../qdebug/eeprom_access_mega.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -642,7 +642,7 @@ EXCLUDE_SYMBOLS        =
 # directories that contain example code fragments that are included (see
 # the \include command).
 
-EXAMPLE_PATH           = ./
+EXAMPLE_PATH           = ./ 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../common ../../../../../../../../../mega/boards/stk600 ../../../../../../../../../mega/utils ../include ../../../../../../include ../../../../../../../../../common/boards ../../../../../../../../../common/services/ioport ../../../../../../../qdebug ../../../../../../../../../common/utils ../../../../../../../../../mega/boards/stk600/rc128x_rfx ../../../../../../../../../common/services/gpio ../.. ../../../../..
+INCLUDE_PATH           =  ../../../../common ../../../../../../../../../mega/boards/stk600 ../../../../../../../../../mega/utils/preprocessor ../../../../../../../../../mega/utils ../include ../../../../../../include ../../../../../../../../../common/boards ../../../../../../../../../common/services/ioport ../../../../../../../qdebug ../../../../../../../../../common/utils ../../../../../../../../../mega/boards/stk600/rc128x_rfx ../../../../../../../../../common/services/gpio ../.. ../../../../..
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

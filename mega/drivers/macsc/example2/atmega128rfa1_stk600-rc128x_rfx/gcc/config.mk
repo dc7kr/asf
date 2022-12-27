@@ -72,7 +72,8 @@ INC_PATH = \
        mega/drivers/macsc/example2/atmega128rfa1_stk600-rc128x_rfx \
        mega/drivers/sleep                                 \
        mega/drivers/usart                                 \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        mega/drivers/macsc/example2/atmega128rfa1_stk600-rc128x_rfx/gcc
 
 # Library paths from the top-level source directory

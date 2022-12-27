@@ -63,6 +63,7 @@ INC_PATH = \
        common/boards/user_board                           \
        common/utils                                       \
        mega/utils                                         \
+       mega/utils/preprocessor                            \
        thirdparty/atmel_rf4ce/examples/atmega128rfa1_avr477_target \
        thirdparty/atmel_rf4ce/lib                         \
        thirdparty/atmel_rf4ce/lib/inc \

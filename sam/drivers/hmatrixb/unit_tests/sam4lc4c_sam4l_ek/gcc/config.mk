@@ -70,6 +70,7 @@ CSRCS = \
        sam/drivers/hmatrixb/hmatrixb.c                    \
        sam/drivers/hmatrixb/unit_tests/unit_tests.c       \
        sam/drivers/usart/usart.c                          \
+       sam/drivers/wdt/wdt_sam4l.c                        \
        sam/utils/cmsis/sam4l/source/templates/exceptions.c \
        sam/utils/cmsis/sam4l/source/templates/gcc/startup_sam4l.c \
        sam/utils/cmsis/sam4l/source/templates/system_sam4l.c \
@@ -97,6 +98,7 @@ INC_PATH = \
        sam/drivers/hmatrixb/unit_tests                    \
        sam/drivers/hmatrixb/unit_tests/sam4lc4c_sam4l_ek  \
        sam/drivers/usart                                  \
+       sam/drivers/wdt                                    \
        sam/utils                                          \
        sam/utils/cmsis/sam4l/include                      \
        sam/utils/cmsis/sam4l/source/templates             \

@@ -2110,6 +2110,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../drivers/nvm/nvm_asm.s</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/nvm/nvm.h</name>
+				</file>
 			</group>
 			<group>
 				<name>twi</name>
@@ -2119,17 +2122,41 @@
 				<file>
 					<name>$PROJ_DIR$/../../../drivers/twi/twim.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/twi/twi_common.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/twi/twim.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/twi/twis.h</name>
+				</file>
 			</group>
 			<group>
 				<name>usb</name>
 				<file>
 					<name>$PROJ_DIR$/../../../drivers/usb/usb_device.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/usb/usb_device.h</name>
+				</file>
 			</group>
 			<group>
 				<name>cpu</name>
 				<file>
 					<name>$PROJ_DIR$/../../../drivers/cpu/ccp.s</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/cpu/xmega_reset_cause.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/cpu/ccp.h</name>
+				</file>
+			</group>
+			<group>
+				<name>sleep</name>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/sleep/sleep.h</name>
 				</file>
 			</group>
 		</group>
@@ -2140,7 +2167,82 @@
 				<file>
 					<name>$PROJ_DIR$/../../../boards/xmega_a3bu_xplained/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../boards/xmega_a3bu_xplained/led.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../boards/xmega_a3bu_xplained/xmega_a3bu_xplained.h</name>
+				</file>
 			</group>
+		</group>
+		<group>
+			<name>applications</name>
+			<group>
+				<name>xmega-pressure-demo</name>
+				<group>
+					<name>conf</name>
+					<file>
+						<name>$PROJ_DIR$/../conf/conf_board.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf/conf_sleepmgr.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf/conf_usb.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf/conf_twim.h</name>
+					</file>
+				</group>
+				<group>
+					<name>iar</name>
+					<file>
+						<name>$PROJ_DIR$/asf.h</name>
+					</file>
+				</group>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<file>
+				<name>$PROJ_DIR$/../../../utils/assembler.h</name>
+			</file>
+			<group>
+				<name>bit_handling</name>
+				<file>
+					<name>$PROJ_DIR$/../../../utils/bit_handling/clz_ctz.h</name>
+				</file>
+			</group>
+			<group>
+				<name>assembler</name>
+				<file>
+					<name>$PROJ_DIR$/../../../utils/assembler/iar.h</name>
+				</file>
+			</group>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../utils/preprocessor/stringz.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../utils/preprocessor/preprocessor.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../utils/compiler.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../utils/progmem.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../utils/status_codes.h</name>
+			</file>
 		</group>
 	</group>
 	<group>
@@ -2154,6 +2256,9 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../common/utils/stdio/stdio_usb/stdio_usb.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/utils/stdio/stdio_usb/stdio_usb.h</name>
+					</file>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../common/utils/stdio/read.c</name>
@@ -2162,6 +2267,18 @@
 					<name>$PROJ_DIR$/../../../../common/utils/stdio/write.c</name>
 				</file>
 			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../common/utils/interrupt.h</name>
+			</file>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/utils/interrupt/interrupt_avr8.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../common/utils/parts.h</name>
+			</file>
 		</group>
 		<group>
 			<name>applications</name>
@@ -2188,6 +2305,12 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/invensense/itg3200.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/invensense/itg3200.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/invensense/imu3000.h</name>
 						</file>
 					</group>
 					<group>
@@ -2216,11 +2339,38 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bmp.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma020.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma222.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma220.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma250.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma_axis.inc.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bmp.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma150.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma180.h</name>
+						</file>
 					</group>
 					<group>
 						<name>honeywell</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/honeywell/hmc5883l.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/honeywell/hmc5883l.h</name>
 						</file>
 					</group>
 					<group>
@@ -2231,11 +2381,20 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/osram/sfh7770.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/osram/sfh5712.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/osram/sfh7770.h</name>
+						</file>
 					</group>
 					<group>
 						<name>kionix</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/kionix/kxtf9.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/kionix/kxtf9.h</name>
 						</file>
 					</group>
 					<group>
@@ -2243,12 +2402,21 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/akm/ak8975.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/akm/ak8975.h</name>
+						</file>
 					</group>
 				</group>
 				<group>
 					<name>physics</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../common/services/sensors/physics/physics.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/physics/physics.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/physics/constants.h</name>
 					</file>
 				</group>
 				<file>
@@ -2263,6 +2431,42 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_bus.c</name>
 				</file>
+				<group>
+					<name>math</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/math/fixed_t.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/math/precision.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/math/fixed.h</name>
+					</file>
+				</group>
+				<group>
+					<name>module_config</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/module_config/conf_platform.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/module_config/conf_clock.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/module_config/conf_sensors.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_bus.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_nvram.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_dev.h</name>
+				</file>
 			</group>
 			<group>
 				<name>sleepmgr</name>
@@ -2271,7 +2475,13 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../common/services/sleepmgr/xmega/sleepmgr.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sleepmgr/xmega/sleepmgr.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sleepmgr/sleepmgr.h</name>
+				</file>
 			</group>
 			<group>
 				<name>usb</name>
@@ -2287,7 +2497,16 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../common/services/usb/class/cdc/device/udi_cdc.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../common/services/usb/class/cdc/device/udi_cdc_conf.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../common/services/usb/class/cdc/device/udi_cdc.h</name>
+							</file>
 						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/usb/class/cdc/usb_protocol_cdc.h</name>
+						</file>
 					</group>
 				</group>
 				<group>
@@ -2295,7 +2514,25 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../common/services/usb/udc/udc.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/usb/udc/udd.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/usb/udc/udc_desc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/usb/udc/udc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/usb/udc/udi.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/usb/usb_atmel.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/usb/usb_protocol.h</name>
+				</file>
 			</group>
 			<group>
 				<name>clock</name>
@@ -2304,7 +2541,28 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../common/services/clock/xmega/sysclk.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/clock/xmega/osc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/clock/xmega/sysclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/clock/xmega/pll.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/clock/genclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/clock/pll.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/clock/osc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/clock/sysclk.h</name>
+				</file>
 			</group>
 			<group>
 				<name>ioport</name>
@@ -2312,6 +2570,57 @@
 					<name>xmega</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../common/services/ioport/xmega/ioport_compat.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/ioport/xmega/ioport.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/ioport/xmega/ioport_compat.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/ioport/ioport.h</name>
+				</file>
+			</group>
+			<group>
+				<name>twi</name>
+				<group>
+					<name>xmega_twi</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/twi/xmega_twi/twi_slave.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/twi/xmega_twi/twi_master.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/twi/twi_master.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/twi/twi_slave.h</name>
+				</file>
+			</group>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>xmega</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/delay/xmega/cycle_counter.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/delay/delay.h</name>
+				</file>
+			</group>
+			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/gpio/gpio.h</name>
+				</file>
+				<group>
+					<name>xmega_gpio</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/gpio/xmega_gpio/xmega_gpio.h</name>
 					</file>
 				</group>
 			</group>
@@ -2323,7 +2632,16 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../common/boards/sensors_xplained/sensors_xplained.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/boards/sensors_xplained/xplained_headers.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/boards/sensors_xplained/sensors_xplained.h</name>
+				</file>
 			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../common/boards/board.h</name>
+			</file>
 		</group>
 	</group>
 </project>

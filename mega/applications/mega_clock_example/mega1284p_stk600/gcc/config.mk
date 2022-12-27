@@ -60,7 +60,8 @@ INC_PATH = \
        common/utils                                       \
        mega/applications/mega_clock_example               \
        mega/applications/mega_clock_example/mega1284p_stk600 \
-       mega/utils \
+       mega/utils                                         \
+       mega/utils/preprocessor \
        mega/applications/mega_clock_example/mega1284p_stk600/gcc
 
 # Library paths from the top-level source directory

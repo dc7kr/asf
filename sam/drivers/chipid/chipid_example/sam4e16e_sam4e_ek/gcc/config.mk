@@ -60,8 +60,6 @@ CSRCS = \
        sam/boards/sam4e_ek/init.c                         \
        sam/drivers/chipid/chipid.c                        \
        sam/drivers/chipid/chipid_example/chipid_example.c \
-       sam/drivers/pio/pio.c                              \
-       sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/pmc/sleep.c                            \
        sam/drivers/uart/uart.c                            \
@@ -78,7 +76,6 @@ ASSRCS =
 INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
-       common/services/gpio                               \
        common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
@@ -89,7 +86,6 @@ INC_PATH = \
        sam/drivers/chipid                                 \
        sam/drivers/chipid/chipid_example                  \
        sam/drivers/chipid/chipid_example/sam4e16e_sam4e_ek \
-       sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/uart                                   \
        sam/drivers/usart                                  \

@@ -1770,6 +1770,12 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../avr32/boards/uc3_a3_xplained/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../avr32/boards/uc3_a3_xplained/uc3_a3_xplained.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../avr32/boards/uc3_a3_xplained/led.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1779,11 +1785,17 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../avr32/drivers/flashc/flashc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../avr32/drivers/flashc/flashc.h</name>
+				</file>
 			</group>
 			<group>
 				<name>pdca</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca/pdca.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca/pdca.h</name>
 				</file>
 			</group>
 			<group>
@@ -1791,12 +1803,27 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../avr32/drivers/spi/spi.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../avr32/drivers/spi/spi.h</name>
+				</file>
 			</group>
 			<group>
 				<name>gpio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../avr32/drivers/gpio/gpio.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../avr32/drivers/gpio/gpio.h</name>
+				</file>
+			</group>
+			<group>
+				<name>cpu</name>
+				<group>
+					<name>cycle_counter</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../avr32/drivers/cpu/cycle_counter/cycle_counter.h</name>
+					</file>
+				</group>
 			</group>
 		</group>
 		<group>
@@ -1805,6 +1832,39 @@
 				<name>startup</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../avr32/utils/startup/trampoline_uc3.s82</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../avr32/utils/startup/trampoline_uc3.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../avr32/utils/status_codes.h</name>
+			</file>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor/stringz.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor/mrepeat.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../avr32/utils/compiler.h</name>
+			</file>
+			<group>
+				<name>header_files</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../avr32/utils/header_files/uc3l3_l4_defines_fix.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../avr32/utils/header_files/uc3d_defines_fix.h</name>
 				</file>
 			</group>
 		</group>
@@ -1825,7 +1885,34 @@
 						<file>
 							<name>$PROJ_DIR$/../../ili9341_example.c</name>
 						</file>
+						<group>
+							<name>at32uc3a3256_uc3_a3_xplained</name>
+							<file>
+								<name>$PROJ_DIR$/../conf_ili9341.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../conf_clock.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../conf_board.h</name>
+							</file>
+							<group>
+								<name>iar</name>
+								<file>
+									<name>$PROJ_DIR$/asf.h</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../conf_spi_master.h</name>
+							</file>
+						</group>
 					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../ili9341.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../ili9341_regs.h</name>
+					</file>
 				</group>
 			</group>
 		</group>
@@ -1838,7 +1925,13 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../services/spi/uc3_spi/spi_master.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../services/spi/uc3_spi/spi_master.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../services/spi/spi_master.h</name>
+				</file>
 			</group>
 			<group>
 				<name>clock</name>
@@ -1847,7 +1940,70 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../services/clock/uc3a3_a4/sysclk.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../services/clock/uc3a3_a4/pll.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../services/clock/uc3a3_a4/genclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../services/clock/uc3a3_a4/sysclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../services/clock/uc3a3_a4/osc.h</name>
+					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../services/clock/sysclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../services/clock/osc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../services/clock/genclk.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../services/clock/pll.h</name>
+				</file>
+			</group>
+			<group>
+				<name>ioport</name>
+				<group>
+					<name>uc3</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../services/ioport/uc3/ioport.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../services/ioport/ioport.h</name>
+				</file>
+			</group>
+			<group>
+				<name>delay</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../services/delay/delay.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../boards/board.h</name>
+			</file>
+		</group>
+		<group>
+			<name>utils</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../utils/parts.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../utils/interrupt.h</name>
+			</file>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/interrupt/interrupt_avr32.h</name>
+				</file>
 			</group>
 		</group>
 	</group>
