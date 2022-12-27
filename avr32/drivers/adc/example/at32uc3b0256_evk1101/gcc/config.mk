@@ -83,6 +83,7 @@ INC_PATH = \
        avr32/boards/evk1101                               \
        avr32/drivers/adc                                  \
        avr32/drivers/adc/example                          \
+       avr32/drivers/adc/example/at32uc3b0256_evk1101     \
        avr32/drivers/cpu/cycle_counter                    \
        avr32/drivers/flashc                               \
        avr32/drivers/gpio                                 \

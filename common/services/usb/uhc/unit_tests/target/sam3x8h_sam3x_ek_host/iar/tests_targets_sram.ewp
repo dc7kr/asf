@@ -296,7 +296,7 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uotghs</state>
-					<state>$PROJ_DIR$/../../../../../../serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../class/hid/host/mouse</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
@@ -317,7 +317,8 @@
 					<state>$PROJ_DIR$/../../../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../class/hid</state>
@@ -570,7 +571,34 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uotghs</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../class/hid/host/mouse</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam3x_ek</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../class/hid</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1212,7 +1240,7 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uotghs</state>
-					<state>$PROJ_DIR$/../../../../../../serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../class/hid/host/mouse</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
@@ -1233,7 +1261,8 @@
 					<state>$PROJ_DIR$/../../../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../class/hid</state>
@@ -1486,7 +1515,34 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uotghs</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../class/hid/host/mouse</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam3x_ek</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../class/hid</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1833,9 +1889,120 @@
 		</settings>
 	</configuration>
 	<group>
+		<name>common</name>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+			</group>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../utils/stdio/write.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../utils/stdio/read.c</name>
+				</file>
+			</group>
+			<group>
+				<name>unit_test</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../utils/unit_test/suite.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>services</name>
+			<group>
+				<name>sleepmgr</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../sleepmgr/sam/sleepmgr.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../serial/usart_serial.c</name>
+				</file>
+			</group>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../delay/sam/cycle_counter.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>usb</name>
+				<group>
+					<name>class</name>
+					<group>
+						<name>hid</name>
+						<group>
+							<name>host</name>
+							<group>
+								<name>mouse</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../class/hid/host/mouse/uhi_hid_mouse.c</name>
+								</file>
+							</group>
+						</group>
+					</group>
+				</group>
+				<group>
+					<name>uhc</name>
+					<group>
+						<name>unit_tests</name>
+						<group>
+							<name>target</name>
+							<file>
+								<name>$PROJ_DIR$/../../unit_tests.c</name>
+							</file>
+						</group>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../uhc.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam3x</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../clock/sam3x/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
+	</group>
+	<group>
 		<name>sam</name>
 		<group>
 			<name>drivers</name>
+			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/usart/usart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pio/pio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pio/pio_handler.c</name>
+				</file>
+			</group>
 			<group>
 				<name>uotghs</name>
 				<file>
@@ -1843,24 +2010,15 @@
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pio/pio_handler.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pio/pio.c</name>
-				</file>
-			</group>
-			<group>
 				<name>uart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/uart/uart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 		</group>
@@ -1896,103 +2054,10 @@
 			<group>
 				<name>sam3x_ek</name>
 				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/boards/sam3x_ek/led.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/boards/sam3x_ek/init.c</name>
-				</file>
-			</group>
-		</group>
-	</group>
-	<group>
-		<name>common</name>
-		<group>
-			<name>services</name>
-			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../serial/usart_serial.c</name>
-				</file>
-			</group>
-			<group>
-				<name>delay</name>
-				<group>
-					<name>sam</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../delay/sam/cycle_counter.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>sleepmgr</name>
-				<group>
-					<name>sam</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../sleepmgr/sam/sleepmgr.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>usb</name>
-				<group>
-					<name>class</name>
-					<group>
-						<name>hid</name>
-						<group>
-							<name>host</name>
-							<group>
-								<name>mouse</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../class/hid/host/mouse/uhi_hid_mouse.c</name>
-								</file>
-							</group>
-						</group>
-					</group>
-				</group>
-				<group>
-					<name>uhc</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../uhc.c</name>
-					</file>
-					<group>
-						<name>unit_tests</name>
-						<group>
-							<name>target</name>
-							<file>
-								<name>$PROJ_DIR$/../../unit_tests.c</name>
-							</file>
-						</group>
-					</group>
-				</group>
-			</group>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>sam3x</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../clock/sam3x/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../utils/stdio/read.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../utils/stdio/write.c</name>
-				</file>
-			</group>
-			<group>
-				<name>unit_test</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../utils/unit_test/suite.c</name>
-				</file>
-			</group>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
 				</file>
 			</group>
 		</group>

@@ -293,14 +293,15 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi/sam_spi</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../fatfs-r0.09/src</state>
 					<state>$PROJ_DIR$/../../../fatfs-port-r0.09/sam</state>
-					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/ebi/smc</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam3s/include</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/spi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
@@ -308,18 +309,24 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards/sam3s_ek</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/matrix</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi</state>
+					<state>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/ftl_lib</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/storage/ecc_hamming</state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/uart</state>
-					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam3s/include</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/tc</state>
-					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/rtc</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -568,7 +575,42 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../common/services/spi/sam_spi</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../fatfs-r0.09/src</state>
+					<state>$PROJ_DIR$/../../../fatfs-port-r0.09/sam</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/ebi/smc</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam3s/include</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam3s/source/templates</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../sam/boards/sam3s_ek</state>
+					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/matrix</state>
+					<state>$PROJ_DIR$/../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi</state>
+					<state>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/ftl_lib</state>
+					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/storage/ecc_hamming</state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../common/services/delay</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/tc</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/rtc</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1207,14 +1249,15 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi/sam_spi</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../fatfs-r0.09/src</state>
 					<state>$PROJ_DIR$/../../../fatfs-port-r0.09/sam</state>
-					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/ebi/smc</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam3s/include</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/spi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
@@ -1222,18 +1265,24 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards/sam3s_ek</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/matrix</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi</state>
+					<state>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/ftl_lib</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/storage/ecc_hamming</state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/uart</state>
-					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam3s/include</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/tc</state>
-					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/rtc</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1482,7 +1531,42 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../common/services/spi/sam_spi</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../fatfs-r0.09/src</state>
+					<state>$PROJ_DIR$/../../../fatfs-port-r0.09/sam</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/ebi/smc</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam3s/include</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam3s/source/templates</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../sam/boards/sam3s_ek</state>
+					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/matrix</state>
+					<state>$PROJ_DIR$/../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi</state>
+					<state>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/ftl_lib</state>
+					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/storage/ecc_hamming</state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../common/services/delay</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/tc</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/rtc</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1831,7 +1915,61 @@
 	<group>
 		<name>common</name>
 		<group>
+			<name>components</name>
+			<group>
+				<name>memory</name>
+				<group>
+					<name>nand_flash</name>
+					<group>
+						<name>nand_flash_ebi</name>
+						<group>
+							<name>ftl_lib</name>
+							<group>
+								<name>iar</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/iar/lib_nand_flash_cortexm3.a</name>
+								</file>
+							</group>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/nand_flash_ecc_sw.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/nand_flash_spare_scheme.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/nand_flash_model.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/nand_flash_raw_smc.c</name>
+						</file>
+					</group>
+				</group>
+				<group>
+					<name>data_flash</name>
+					<group>
+						<name>at45dbx</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx/at45dbx.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx/at45dbx_mem.c</name>
+						</file>
+					</group>
+				</group>
+			</group>
+		</group>
+		<group>
 			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam3s</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/clock/sam3s/sysclk.c</name>
+					</file>
+				</group>
+			</group>
 			<group>
 				<name>storage</name>
 				<group>
@@ -1840,13 +1978,19 @@
 						<name>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access/ctrl_access.c</name>
 					</file>
 				</group>
+				<group>
+					<name>ecc_hamming</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/storage/ecc_hamming/ecc-sw.c</name>
+					</file>
+				</group>
 			</group>
 			<group>
-				<name>clock</name>
+				<name>delay</name>
 				<group>
-					<name>sam3s</name>
+					<name>sam</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../common/services/clock/sam3s/sysclk.c</name>
+						<name>$PROJ_DIR$/../../../../../common/services/delay/sam/cycle_counter.c</name>
 					</file>
 				</group>
 			</group>
@@ -1884,24 +2028,6 @@
 				</file>
 			</group>
 		</group>
-		<group>
-			<name>components</name>
-			<group>
-				<name>memory</name>
-				<group>
-					<name>data_flash</name>
-					<group>
-						<name>at45dbx</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx/at45dbx.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx/at45dbx_mem.c</name>
-						</file>
-					</group>
-				</group>
-			</group>
-		</group>
 	</group>
 	<group>
 		<name>sam</name>
@@ -1920,6 +2046,12 @@
 				</file>
 			</group>
 			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/usart/usart.c</name>
+				</file>
+			</group>
+			<group>
 				<name>pio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../sam/drivers/pio/pio_handler.c</name>
@@ -1929,15 +2061,30 @@
 				</file>
 			</group>
 			<group>
-				<name>rtc</name>
+				<name>matrix</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../sam/drivers/rtc/rtc.c</name>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/matrix/matrix.c</name>
 				</file>
 			</group>
 			<group>
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>ebi</name>
+				<group>
+					<name>smc</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../sam/drivers/ebi/smc/smc.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>rtc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/rtc/rtc.c</name>
 				</file>
 			</group>
 			<group>
@@ -1953,6 +2100,9 @@
 				<name>sam3s_ek</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../sam/boards/sam3s_ek/init.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/boards/sam3s_ek/led.c</name>
 				</file>
 			</group>
 		</group>

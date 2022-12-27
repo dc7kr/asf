@@ -62,7 +62,6 @@ CSRCS = \
        avr32/drivers/flashcdw/flashcdw.c                  \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \
-       avr32/drivers/spi/spi.c                            \
        avr32/drivers/usart/usart.c                        \
        common/components/memory/data_flash/at45dbx/at45dbx.c \
        common/components/memory/data_flash/at45dbx/unit_tests/unit_tests.c \
@@ -71,7 +70,7 @@ CSRCS = \
        common/services/clock/uc3l/pll.c                   \
        common/services/clock/uc3l/sysclk.c                \
        common/services/serial/usart_serial.c              \
-       common/services/spi/uc3_spi/spi_master.c           \
+       common/services/spi/uc3_usart_spi/usart_spi.c      \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c
@@ -89,7 +88,6 @@ INC_PATH = \
        avr32/drivers/flashcdw                             \
        avr32/drivers/gpio                                 \
        avr32/drivers/intc                                 \
-       avr32/drivers/spi                                  \
        avr32/drivers/usart                                \
        avr32/utils                                        \
        avr32/utils/preprocessor                           \
@@ -100,7 +98,7 @@ INC_PATH = \
        common/services/serial                             \
        common/services/serial/uc3_usart                   \
        common/services/spi                                \
-       common/services/spi/uc3_spi                        \
+       common/services/spi/uc3_usart_spi                  \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
        ./common/components/memory/data_flash/at45dbx/unit_tests/atuc256l4u_stk600-rcuc3l4/gcc

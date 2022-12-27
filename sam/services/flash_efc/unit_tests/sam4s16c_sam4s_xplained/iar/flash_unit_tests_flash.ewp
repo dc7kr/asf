@@ -295,27 +295,28 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
-					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/include</state>
-					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -565,7 +566,29 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../boards/sam4s_xplained</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1206,27 +1229,28 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
-					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/include</state>
-					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1476,7 +1500,29 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../boards/sam4s_xplained</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1848,6 +1894,12 @@
 				</file>
 			</group>
 			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/usart/usart.c</name>
+				</file>
+			</group>
+			<group>
 				<name>efc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../drivers/efc/efc.c</name>
@@ -1860,6 +1912,9 @@
 				<name>sam4s_xplained</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../boards/sam4s_xplained/init.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/sam4s_xplained/led.c</name>
 				</file>
 			</group>
 		</group>
@@ -1911,18 +1966,18 @@
 		<group>
 			<name>utils</name>
 			<group>
-				<name>unit_test</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/unit_test/suite.c</name>
-				</file>
-			</group>
-			<group>
 				<name>stdio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
+				</file>
+			</group>
+			<group>
+				<name>unit_test</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/unit_test/suite.c</name>
 				</file>
 			</group>
 			<group>

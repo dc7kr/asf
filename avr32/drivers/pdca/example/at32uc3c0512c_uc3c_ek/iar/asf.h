@@ -81,6 +81,13 @@
 // From module: SCIF System Control Interface - UC3C implementation
 #include <scif_uc3c.h>
 
+// From module: Sleep manager - UC3 implementation
+#include <sleepmgr.h>
+#include <uc3/sleepmgr.h>
+
+// From module: System Clock Control - UC3 C implementation
+#include <sysclk.h>
+
 // From module: UC3C-EK
 #include <led.h>
 

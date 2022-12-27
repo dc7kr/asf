@@ -48,7 +48,7 @@ TARGET = mxt_example_hid.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
-       common/components/display_controller/ili9341/ili9341.c \
+       common/components/display/ili9341/ili9341.c        \
        common/components/touch/mxt/example_hid/example_hid.c \
        common/components/touch/mxt/example_hid/ui.c       \
        common/components/touch/mxt/mxt_device.c           \
@@ -79,7 +79,7 @@ ASSRCS = \
 # Include path located from the top-level source directory
 INC_PATH = \
        common/boards                                      \
-       common/components/display_controller/ili9341       \
+       common/components/display/ili9341                  \
        common/components/touch/mxt                        \
        common/components/touch/mxt/example_hid            \
        common/components/touch/mxt/example_hid/atxmega256a3bu_xplained \

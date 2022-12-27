@@ -68,7 +68,10 @@ CSRCS = \
        avr32/drivers/pm/power_clocks_lib.c                \
        avr32/drivers/scif/scif_uc3c.c                     \
        avr32/drivers/usart/usart.c                        \
-       avr32/utils/debug/print_funcs.c
+       avr32/utils/debug/print_funcs.c                    \
+       common/services/clock/uc3c/osc.c                   \
+       common/services/clock/uc3c/pll.c                   \
+       common/services/clock/uc3c/sysclk.c
 
 # List of assembler source files.
 ASSRCS = \
@@ -81,6 +84,8 @@ INC_PATH = \
        avr32/boards                                       \
        avr32/boards/uc3c_ek                               \
        avr32/drivers/acifa                                \
+       avr32/drivers/acifa/example/at32uc3c0512c_uc3c_ek  \
+       avr32/drivers/cpu/cycle_counter                    \
        avr32/drivers/flashc                               \
        avr32/drivers/gpio                                 \
        avr32/drivers/intc                                 \
@@ -91,6 +96,8 @@ INC_PATH = \
        avr32/utils/debug                                  \
        avr32/utils/preprocessor                           \
        common/boards                                      \
+       common/services/clock                              \
+       common/services/delay                              \
        common/utils \
        ./avr32/drivers/acifa/example/at32uc3c0512c_uc3c_ek/gcc
 

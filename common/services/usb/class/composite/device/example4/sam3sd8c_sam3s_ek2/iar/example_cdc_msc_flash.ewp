@@ -302,13 +302,13 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../cdc</state>
 					<state>$PROJ_DIR$/../../../../../msc/device</state>
-					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
@@ -571,7 +571,34 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../cdc/device</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../msc</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../cdc</state>
+					<state>$PROJ_DIR$/../../../../../msc/device</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../udc</state>
+					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3s_ek2</state>
+					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/include</state>
+					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1219,13 +1246,13 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../cdc</state>
 					<state>$PROJ_DIR$/../../../../../msc/device</state>
-					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
@@ -1488,7 +1515,34 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../cdc/device</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../msc</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../cdc</state>
+					<state>$PROJ_DIR$/../../../../../msc/device</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../udc</state>
+					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3s_ek2</state>
+					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/include</state>
+					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1881,15 +1935,15 @@
 				</file>
 			</group>
 			<group>
-				<name>udp</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp/udp_device.c</name>
-				</file>
-			</group>
-			<group>
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>udp</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp/udp_device.c</name>
 				</file>
 			</group>
 		</group>
@@ -1897,6 +1951,9 @@
 			<name>boards</name>
 			<group>
 				<name>sam3s_ek2</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3s_ek2/led.c</name>
+				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3s_ek2/init.c</name>
 				</file>
@@ -1942,9 +1999,6 @@
 						<name>composite</name>
 						<group>
 							<name>device</name>
-							<file>
-								<name>$PROJ_DIR$/../../../udi_composite_desc.c</name>
-							</file>
 							<group>
 								<name>example4</name>
 								<file>
@@ -1963,6 +2017,9 @@
 									<name>$PROJ_DIR$/../../main.c</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../udi_composite_desc.c</name>
+							</file>
 						</group>
 					</group>
 					<group>

@@ -58,8 +58,8 @@ TARGET = ioport_example1.elf
 
 # List of C source files.
 CSRCS = \
-       avr32/boards/uc3_a3_xplained/init.c                \
-       avr32/boards/uc3_a3_xplained/led.c                 \
+       avr32/boards/evk1104/init.c                        \
+       avr32/boards/evk1104/led.c                         \
        avr32/drivers/flashc/flashc.c                      \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \
@@ -75,7 +75,7 @@ ASSRCS = \
 # List of include paths.
 INC_PATH = \
        avr32/boards                                       \
-       avr32/boards/uc3_a3_xplained                       \
+       avr32/boards/evk1104                               \
        avr32/drivers/cpu/cycle_counter                    \
        avr32/drivers/flashc                               \
        avr32/drivers/gpio                                 \
@@ -127,7 +127,7 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=UC3_A3_XPLAINED
+       -D BOARD=EVK1104
 
 # Extra flags to use when linking
 LDFLAGS = \

@@ -58,6 +58,7 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/sam3u_ek/init.c                         \
+       sam/boards/sam3u_ek/led.c                          \
        sam/components/display/aat31xx/aat31xx.c           \
        sam/components/display/hx8347a/example/hx8347a_example.c \
        sam/components/display/hx8347a/hx8347a.c           \
@@ -66,6 +67,7 @@ CSRCS = \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam3u/source/templates/exceptions.c \
        sam/utils/cmsis/sam3u/source/templates/gcc/startup_sam3u.c \
        sam/utils/cmsis/sam3u/source/templates/system_sam3u.c \
@@ -93,6 +95,7 @@ INC_PATH = \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/utils                                          \
        sam/utils/cmsis/sam3u/include                      \
        sam/utils/cmsis/sam3u/source/templates             \

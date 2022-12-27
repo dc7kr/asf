@@ -57,13 +57,15 @@ CSRCS = \
        common/services/usb/uhc/unit_tests/usb_device_generator/unit_tests.c \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3x_ek/init.c                         \
+       sam/boards/sam3x_ek/led.c                          \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/uart/uart.c                            \
        sam/utils/cmsis/sam3x/source/templates/exceptions.c \
        sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.c \
-       sam/utils/cmsis/sam3x/source/templates/system_sam3x.c
+       sam/utils/cmsis/sam3x/source/templates/system_sam3x.c \
+       sam/utils/syscalls/gcc/syscalls.c
 
 # List of assembler source files.
 ASSRCS = 

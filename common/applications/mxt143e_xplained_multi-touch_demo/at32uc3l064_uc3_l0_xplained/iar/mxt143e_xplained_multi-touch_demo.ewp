@@ -340,9 +340,9 @@
 					<state>$PROJ_DIR$/../../../../services/twi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../components/display_controller/ili9341</state>
 					<state>$PROJ_DIR$/../../../../services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../avr32/boards/uc3_l0_xplained</state>
@@ -480,9 +480,9 @@
 					<state>$PROJ_DIR$/../../../../services/twi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../components/display_controller/ili9341</state>
 					<state>$PROJ_DIR$/../../../../services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../avr32/boards/uc3_l0_xplained</state>
@@ -1229,9 +1229,9 @@
 					<state>$PROJ_DIR$/../../../../services/twi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../components/display_controller/ili9341</state>
 					<state>$PROJ_DIR$/../../../../services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../avr32/boards/uc3_l0_xplained</state>
@@ -1369,9 +1369,9 @@
 					<state>$PROJ_DIR$/../../../../services/twi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../components/display_controller/ili9341</state>
 					<state>$PROJ_DIR$/../../../../services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../avr32/boards/uc3_l0_xplained</state>
@@ -1825,20 +1825,20 @@
 		<group>
 			<name>components</name>
 			<group>
+				<name>display</name>
+				<group>
+					<name>ili9341</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../components/display/ili9341/ili9341.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
 				<name>touch</name>
 				<group>
 					<name>mxt</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../components/touch/mxt/mxt_device.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>display_controller</name>
-				<group>
-					<name>ili9341</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../components/display_controller/ili9341/ili9341.c</name>
 					</file>
 				</group>
 			</group>

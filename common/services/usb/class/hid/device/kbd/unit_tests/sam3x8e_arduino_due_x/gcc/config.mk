@@ -70,6 +70,7 @@ CSRCS = \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/uart/uart.c                            \
        sam/drivers/uotghs/uotghs_device.c                 \
+       sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam3x/source/templates/exceptions.c \
        sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.c \
        sam/utils/cmsis/sam3x/source/templates/system_sam3x.c \
@@ -101,6 +102,7 @@ INC_PATH = \
        sam/drivers/pmc                                    \
        sam/drivers/uart                                   \
        sam/drivers/uotghs                                 \
+       sam/drivers/usart                                  \
        sam/utils                                          \
        sam/utils/cmsis/sam3x/include                      \
        sam/utils/cmsis/sam3x/source/templates             \

@@ -295,7 +295,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udphs</state>
-					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include</state>
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
@@ -313,7 +313,7 @@
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/source/templates</state>
+					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -561,7 +561,28 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udphs</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3u_ek</state>
+					<state>$PROJ_DIR$/../../../../../../udc</state>
+					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1202,7 +1223,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udphs</state>
-					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include</state>
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
@@ -1220,7 +1241,7 @@
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/source/templates</state>
+					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1468,7 +1489,28 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udphs</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3u_ek</state>
+					<state>$PROJ_DIR$/../../../../../../udc</state>
+					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1817,26 +1859,14 @@
 	<group>
 		<name>sam</name>
 		<group>
-			<name>drivers</name>
+			<name>boards</name>
 			<group>
-				<name>pio</name>
+				<name>sam3u_ek</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio/pio_handler.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3u_ek/led.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio/pio.c</name>
-				</file>
-			</group>
-			<group>
-				<name>udphs</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/udphs/udphs_device.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3u_ek/init.c</name>
 				</file>
 			</group>
 		</group>
@@ -1868,11 +1898,26 @@
 			</group>
 		</group>
 		<group>
-			<name>boards</name>
+			<name>drivers</name>
 			<group>
-				<name>sam3u_ek</name>
+				<name>pio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3u_ek/init.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio/pio_handler.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio/pio.c</name>
+				</file>
+			</group>
+			<group>
+				<name>udphs</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/udphs/udphs_device.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 		</group>

@@ -415,12 +415,12 @@
 					<state>$PROJ_DIR$/../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../services/twi</state>
 					<state>$PROJ_DIR$/../../../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../../display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid/device</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/usb</state>
 					<state>$PROJ_DIR$/../../../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../display_controller/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
@@ -711,12 +711,12 @@
 					<state>$PROJ_DIR$/../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../services/twi</state>
 					<state>$PROJ_DIR$/../../../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../../display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid/device</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/usb</state>
 					<state>$PROJ_DIR$/../../../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../display_controller/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
@@ -1472,12 +1472,12 @@
 					<state>$PROJ_DIR$/../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../services/twi</state>
 					<state>$PROJ_DIR$/../../../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../../display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid/device</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/usb</state>
 					<state>$PROJ_DIR$/../../../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../display_controller/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
@@ -1768,12 +1768,12 @@
 					<state>$PROJ_DIR$/../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../services/twi</state>
 					<state>$PROJ_DIR$/../../../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../../display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid/device</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/usb</state>
 					<state>$PROJ_DIR$/../../../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../display_controller/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
@@ -2137,11 +2137,11 @@
 				</group>
 			</group>
 			<group>
-				<name>display_controller</name>
+				<name>display</name>
 				<group>
 					<name>ili9341</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../display_controller/ili9341/ili9341.c</name>
+						<name>$PROJ_DIR$/../../../../../display/ili9341/ili9341.c</name>
 					</file>
 				</group>
 			</group>

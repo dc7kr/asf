@@ -74,12 +74,9 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: SPI - Serial Peripheral Interface
-#include <spi.h>
-
 // From module: SPI - UC3 implementation
-#include <spi_master.h>
-#include <spi_master.h>
+#include <usart_spi.h>
+#include <usart_spi.h>
 
 // From module: STK600
 #include <led.h>

@@ -573,7 +573,34 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../msc</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
+					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../hid/device/mouse</state>
+					<state>$PROJ_DIR$/../../../../../msc/device</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam4s_ek</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../udc</state>
+					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp</state>
+					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../hid/device</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../hid</state>
+					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1492,7 +1519,34 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../msc</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
+					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../hid/device/mouse</state>
+					<state>$PROJ_DIR$/../../../../../msc/device</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam4s_ek</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../udc</state>
+					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp</state>
+					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../hid/device</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../hid</state>
+					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1841,30 +1895,6 @@
 	<group>
 		<name>sam</name>
 		<group>
-			<name>drivers</name>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio/pio_handler.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio/pio.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>udp</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp/udp_device.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
 			<name>utils</name>
 			<group>
 				<name>cmsis</name>
@@ -1892,9 +1922,36 @@
 			</group>
 		</group>
 		<group>
+			<name>drivers</name>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio/pio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio/pio_handler.c</name>
+				</file>
+			</group>
+			<group>
+				<name>udp</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp/udp_device.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
 			<name>boards</name>
 			<group>
 				<name>sam4s_ek</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/boards/sam4s_ek/led.c</name>
+				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/boards/sam4s_ek/init.c</name>
 				</file>
@@ -1905,75 +1962,6 @@
 		<name>common</name>
 		<group>
 			<name>services</name>
-			<group>
-				<name>usb</name>
-				<group>
-					<name>udc</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../udc/udc.c</name>
-					</file>
-				</group>
-				<group>
-					<name>class</name>
-					<group>
-						<name>composite</name>
-						<group>
-							<name>device</name>
-							<group>
-								<name>example1</name>
-								<group>
-									<name>sam4s16c_sam4s_ek</name>
-									<file>
-										<name>$PROJ_DIR$/../ui.c</name>
-									</file>
-								</group>
-								<file>
-									<name>$PROJ_DIR$/../../memories_initialization_sam.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../main.c</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../udi_composite_desc.c</name>
-							</file>
-						</group>
-					</group>
-					<group>
-						<name>hid</name>
-						<group>
-							<name>device</name>
-							<group>
-								<name>mouse</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../hid/device/mouse/udi_hid_mouse.c</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../../../hid/device/udi_hid.c</name>
-							</file>
-						</group>
-					</group>
-					<group>
-						<name>msc</name>
-						<group>
-							<name>device</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../msc/device/udi_msc.c</name>
-							</file>
-						</group>
-					</group>
-				</group>
-			</group>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>sam4s</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../clock/sam4s/sysclk.c</name>
-					</file>
-				</group>
-			</group>
 			<group>
 				<name>storage</name>
 				<group>
@@ -1992,15 +1980,72 @@
 					</file>
 				</group>
 			</group>
-		</group>
-		<group>
-			<name>components</name>
 			<group>
-				<name>memory</name>
+				<name>usb</name>
 				<group>
-					<name>virtual_mem</name>
+					<name>class</name>
+					<group>
+						<name>hid</name>
+						<group>
+							<name>device</name>
+							<group>
+								<name>mouse</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../hid/device/mouse/udi_hid_mouse.c</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../hid/device/udi_hid.c</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>composite</name>
+						<group>
+							<name>device</name>
+							<file>
+								<name>$PROJ_DIR$/../../../udi_composite_desc.c</name>
+							</file>
+							<group>
+								<name>example1</name>
+								<group>
+									<name>sam4s16c_sam4s_ek</name>
+									<file>
+										<name>$PROJ_DIR$/../ui.c</name>
+									</file>
+								</group>
+								<file>
+									<name>$PROJ_DIR$/../../memories_initialization_sam.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../main.c</name>
+								</file>
+							</group>
+						</group>
+					</group>
+					<group>
+						<name>msc</name>
+						<group>
+							<name>device</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../msc/device/udi_msc.c</name>
+							</file>
+						</group>
+					</group>
+				</group>
+				<group>
+					<name>udc</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem/virtual_mem.c</name>
+						<name>$PROJ_DIR$/../../../../../../udc/udc.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam4s</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../clock/sam4s/sysclk.c</name>
 					</file>
 				</group>
 			</group>
@@ -2012,6 +2057,18 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
 				</file>
+			</group>
+		</group>
+		<group>
+			<name>components</name>
+			<group>
+				<name>memory</name>
+				<group>
+					<name>virtual_mem</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem/virtual_mem.c</name>
+					</file>
+				</group>
 			</group>
 		</group>
 	</group>

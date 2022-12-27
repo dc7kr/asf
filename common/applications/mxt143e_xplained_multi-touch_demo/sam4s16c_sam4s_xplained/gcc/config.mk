@@ -53,7 +53,7 @@ TARGET_SRAM = mxt143e_xplained_multi-touch_demo_sram.elf
 # List of C source files.
 CSRCS = \
        common/applications/mxt143e_xplained_multi-touch_demo/multi-touch_demo.c \
-       common/components/display_controller/ili9341/ili9341.c \
+       common/components/display/ili9341/ili9341.c        \
        common/components/touch/mxt/mxt_device.c           \
        common/services/clock/sam4s/sysclk.c               \
        common/services/delay/sam/cycle_counter.c          \
@@ -66,6 +66,8 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/sam4s_xplained/init.c                   \
+       sam/boards/sam4s_xplained/led.c                    \
+       sam/drivers/pdc/pdc.c                              \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
@@ -84,7 +86,7 @@ INC_PATH = \
        common/applications/mxt143e_xplained_multi-touch_demo \
        common/applications/mxt143e_xplained_multi-touch_demo/sam4s16c_sam4s_xplained \
        common/boards                                      \
-       common/components/display_controller/ili9341       \
+       common/components/display/ili9341                  \
        common/components/touch/mxt                        \
        common/services/clock                              \
        common/services/delay                              \
@@ -97,6 +99,7 @@ INC_PATH = \
        common/utils                                       \
        sam/boards                                         \
        sam/boards/sam4s_xplained                          \
+       sam/drivers/pdc                                    \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/spi                                    \

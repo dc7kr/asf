@@ -70,7 +70,7 @@ CSRCS = \
        avr32/drivers/spi/spi.c                            \
        avr32/drivers/twim/twim.c                          \
        avr32/drivers/usbb/usbb_device.c                   \
-       common/components/display_controller/ili9341/ili9341.c \
+       common/components/display/ili9341/ili9341.c        \
        common/components/touch/mxt/example_hid/example_hid.c \
        common/components/touch/mxt/example_hid/ui.c       \
        common/components/touch/mxt/mxt_device.c           \
@@ -108,7 +108,7 @@ INC_PATH = \
        avr32/utils                                        \
        avr32/utils/preprocessor                           \
        common/boards                                      \
-       common/components/display_controller/ili9341       \
+       common/components/display/ili9341                  \
        common/components/touch/mxt                        \
        common/components/touch/mxt/example_hid            \
        common/components/touch/mxt/example_hid/at32uc3a3256_uc3_a3_xplained \

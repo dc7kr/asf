@@ -57,7 +57,7 @@
 // Example: Version 0x00 give 1.0.0 on batchisp log
 // Example: Version 0x03 give 1.0.3 on batchisp log
 // Example: Version 0x25 give 1.2.5 on batchisp log
-#  define BOOTLOADER_VERSION   0x04
+#  define BOOTLOADER_VERSION   0x05
 
 #  if (FLASH_SIZE<=0x10000) // FLASH <= 64KB
 // If all memories (flash,eeprom,...) do not exceed 64KB.

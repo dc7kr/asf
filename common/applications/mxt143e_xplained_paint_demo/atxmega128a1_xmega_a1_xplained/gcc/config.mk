@@ -49,7 +49,7 @@ TARGET = mxt143e_xplained_paint_demo.elf
 # C source files located from the top-level source directory
 CSRCS = \
        common/applications/mxt143e_xplained_paint_demo/paint_demo.c \
-       common/components/display_controller/ili9341/ili9341.c \
+       common/components/display/ili9341/ili9341.c        \
        common/components/touch/mxt/mxt_device.c           \
        common/services/clock/xmega/sysclk.c               \
        common/services/gfx/gfx_generic.c                  \
@@ -72,7 +72,7 @@ INC_PATH = \
        common/applications/mxt143e_xplained_paint_demo    \
        common/applications/mxt143e_xplained_paint_demo/atxmega128a1_xmega_a1_xplained \
        common/boards                                      \
-       common/components/display_controller/ili9341       \
+       common/components/display/ili9341                  \
        common/components/touch/mxt                        \
        common/services/clock                              \
        common/services/delay                              \

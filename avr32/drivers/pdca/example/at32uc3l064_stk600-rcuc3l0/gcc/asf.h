@@ -84,6 +84,13 @@
 // From module: STK600
 #include <led.h>
 
+// From module: Sleep manager - UC3 implementation
+#include <sleepmgr.h>
+#include <uc3/sleepmgr.h>
+
+// From module: System Clock Control - UC3 L0 implementation
+#include <sysclk.h>
+
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter
 #include <usart.h>
 

@@ -395,6 +395,7 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmic</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -678,6 +679,7 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmic</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1426,6 +1428,7 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmic</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1709,6 +1712,7 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmic</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../..</state>

@@ -59,6 +59,9 @@
 // From module: Calendar functionality
 #include <calendar.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: FatFS file system
 #include <diskio.h>
 #include <ff.h>

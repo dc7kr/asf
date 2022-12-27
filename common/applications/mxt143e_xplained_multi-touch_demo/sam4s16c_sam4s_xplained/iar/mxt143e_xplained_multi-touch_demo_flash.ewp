@@ -299,22 +299,23 @@
 					<state>$PROJ_DIR$/../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../services/gfx</state>
-					<state>$PROJ_DIR$/../../../../services/twi</state>
+					<state>$PROJ_DIR$/../../../../services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/pdc</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../components/touch/mxt</state>
 					<state>$PROJ_DIR$/../../../../services/clock</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../services/gpio</state>
+					<state>$PROJ_DIR$/../../../../services/twi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/source/templates</state>
 					<state>$PROJ_DIR$/../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../components/display_controller/ili9341</state>
 					<state>$PROJ_DIR$/../../../../services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards/sam4s_xplained</state>
@@ -567,7 +568,33 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../services/spi/sam_spi</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../services/gfx</state>
+					<state>$PROJ_DIR$/../../../../services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/pdc</state>
+					<state>$PROJ_DIR$/../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../components/touch/mxt</state>
+					<state>$PROJ_DIR$/../../../../services/clock</state>
+					<state>$PROJ_DIR$/../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../services/twi</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../components/display/ili9341</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../services/spi</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../sam/boards/sam4s_xplained</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/twi</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1212,22 +1239,23 @@
 					<state>$PROJ_DIR$/../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../services/gfx</state>
-					<state>$PROJ_DIR$/../../../../services/twi</state>
+					<state>$PROJ_DIR$/../../../../services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/pdc</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../components/touch/mxt</state>
 					<state>$PROJ_DIR$/../../../../services/clock</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../services/gpio</state>
+					<state>$PROJ_DIR$/../../../../services/twi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/source/templates</state>
 					<state>$PROJ_DIR$/../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../components/display_controller/ili9341</state>
 					<state>$PROJ_DIR$/../../../../services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards/sam4s_xplained</state>
@@ -1480,7 +1508,33 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../services/spi/sam_spi</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../services/gfx</state>
+					<state>$PROJ_DIR$/../../../../services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/pdc</state>
+					<state>$PROJ_DIR$/../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../components/touch/mxt</state>
+					<state>$PROJ_DIR$/../../../../services/clock</state>
+					<state>$PROJ_DIR$/../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../services/twi</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../components/display/ili9341</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../services/spi</state>
+					<state>$PROJ_DIR$/../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../sam/boards/sam4s_xplained</state>
+					<state>$PROJ_DIR$/../../../../../sam/drivers/twi</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1835,6 +1889,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../sam/boards/sam4s_xplained/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/boards/sam4s_xplained/led.c</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1849,6 +1906,12 @@
 				<name>spi</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../sam/drivers/spi/spi.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pdc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/pdc/pdc.c</name>
 				</file>
 			</group>
 			<group>
@@ -1918,15 +1981,6 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>delay</name>
-				<group>
-					<name>sam</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../services/delay/sam/cycle_counter.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>gfx</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../services/gfx/gfx_generic.c</name>
@@ -1940,6 +1994,15 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../services/gfx/gfx_text.c</name>
 				</file>
+			</group>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/delay/sam/cycle_counter.c</name>
+					</file>
+				</group>
 			</group>
 			<group>
 				<name>clock</name>
@@ -1961,13 +2024,22 @@
 			</group>
 		</group>
 		<group>
+			<name>applications</name>
+			<group>
+				<name>mxt143e_xplained_multi-touch_demo</name>
+				<file>
+					<name>$PROJ_DIR$/../../multi-touch_demo.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
 			<name>components</name>
 			<group>
-				<name>display_controller</name>
+				<name>display</name>
 				<group>
 					<name>ili9341</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../components/display_controller/ili9341/ili9341.c</name>
+						<name>$PROJ_DIR$/../../../../components/display/ili9341/ili9341.c</name>
 					</file>
 				</group>
 			</group>
@@ -1979,15 +2051,6 @@
 						<name>$PROJ_DIR$/../../../../components/touch/mxt/mxt_device.c</name>
 					</file>
 				</group>
-			</group>
-		</group>
-		<group>
-			<name>applications</name>
-			<group>
-				<name>mxt143e_xplained_multi-touch_demo</name>
-				<file>
-					<name>$PROJ_DIR$/../../multi-touch_demo.c</name>
-				</file>
 			</group>
 		</group>
 	</group>

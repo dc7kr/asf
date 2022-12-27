@@ -418,6 +418,7 @@
 					<state>$PROJ_DIR$/../../../fatfs-port-r0.09/xmega</state>
 					<state>$PROJ_DIR$/../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../common/services/hugemem</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
@@ -714,6 +715,7 @@
 					<state>$PROJ_DIR$/../../../fatfs-port-r0.09/xmega</state>
 					<state>$PROJ_DIR$/../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../common/services/hugemem</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
@@ -1475,6 +1477,7 @@
 					<state>$PROJ_DIR$/../../../fatfs-port-r0.09/xmega</state>
 					<state>$PROJ_DIR$/../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../common/services/hugemem</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
@@ -1771,6 +1774,7 @@
 					<state>$PROJ_DIR$/../../../fatfs-port-r0.09/xmega</state>
 					<state>$PROJ_DIR$/../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../common/services/hugemem</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>

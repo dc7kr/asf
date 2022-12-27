@@ -57,6 +57,8 @@ extern "C" {
 #include <wtk_slider.h>
 #include <wtk_label.h>
 #include <wtk_progress_bar.h>
+#include <wtk_icon.h>
+#include <wtk_plot.h>
 #include "conf_wtk.h"
 
 /**
@@ -67,11 +69,15 @@ extern "C" {
  * display using the functionality of \ref win_group "Window system"
  * and \ref gfx_group "Graphics library".
  *
+ * \image html WTK.jpg
+ *
  * The following widgets are implemented:
  * - \ref wtk_basic_frame_group
- * - \ref wtk_frame_group
  * - \ref wtk_button_group
  * - \ref wtk_check_box_group
+ * - \ref wtk_frame_group
+ * - \ref wtk_icon_group
+ * - \ref wtk_plot_group
  * - \ref wtk_progress_bar_group
  * - \ref wtk_radio_button_group
  * - \ref wtk_slider_group

@@ -59,6 +59,8 @@ CSRCS = \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c                     \
        sam/boards/sam3s_ek2/init.c                        \
+       sam/boards/sam3s_ek2/led.c                         \
+       sam/components/display/aat31xx/aat31xx.c           \
        sam/components/display/ili9325/ili9325.c           \
        sam/components/display/ili9325/unit_tests/unit_tests.c \
        sam/drivers/ebi/smc/smc.c                          \
@@ -66,6 +68,7 @@ CSRCS = \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam3s8/source/templates/exceptions.c \
        sam/utils/cmsis/sam3s8/source/templates/gcc/startup_sam3sd8.c \
        sam/utils/cmsis/sam3s8/source/templates/system_sam3sd8.c \
@@ -85,6 +88,7 @@ INC_PATH = \
        common/utils/stdio/stdio_serial                    \
        sam/boards                                         \
        sam/boards/sam3s_ek2                               \
+       sam/components/display/aat31xx                     \
        sam/components/display/ili9325                     \
        sam/components/display/ili9325/unit_tests          \
        sam/components/display/ili9325/unit_tests/sam3sd8c_sam3s_ek2 \
@@ -92,6 +96,7 @@ INC_PATH = \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/utils                                          \
        sam/utils/cmsis/sam3s8/include                     \
        sam/utils/cmsis/sam3s8/source/templates            \

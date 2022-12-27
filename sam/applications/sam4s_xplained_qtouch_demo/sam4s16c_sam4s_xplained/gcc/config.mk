@@ -58,11 +58,13 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/applications/sam4s_xplained_qtouch_demo/qtouch_demo.c \
+       sam/boards/sam4s_xplained/led.c                    \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/tc/tc.c                                \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/drivers/wdt/wdt.c                              \
        sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
@@ -92,6 +94,7 @@ INC_PATH = \
        sam/drivers/pmc                                    \
        sam/drivers/tc                                     \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/drivers/wdt                                    \
        sam/utils                                          \
        sam/utils/cmsis/sam4s/include                      \

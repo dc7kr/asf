@@ -58,6 +58,7 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/sam4s_ek/init.c                         \
+       sam/boards/sam4s_ek/led.c                          \
        sam/drivers/crccu/crccu.c                          \
        sam/drivers/crccu/crccu_example/crccu_example.c    \
        sam/drivers/efc/efc.c                              \
@@ -65,6 +66,7 @@ CSRCS = \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/services/flash_efc/flash_efc.c                 \
        sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
@@ -92,6 +94,7 @@ INC_PATH = \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/services/flash_efc                             \
        sam/utils                                          \
        sam/utils/cmsis/sam4s/include                      \

@@ -373,6 +373,7 @@
 					<state>$PROJ_DIR$/../../usb/appli/mass_storage</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../drivers/pwm</state>
+					<state>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../serial</state>
 					<state>$PROJ_DIR$/../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/enum</state>
@@ -559,6 +560,7 @@
 					<state>$PROJ_DIR$/../../usb/appli/mass_storage</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../drivers/pwm</state>
+					<state>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../serial</state>
 					<state>$PROJ_DIR$/../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/enum</state>
@@ -1354,6 +1356,7 @@
 					<state>$PROJ_DIR$/../../usb/appli/mass_storage</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../drivers/pwm</state>
+					<state>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../serial</state>
 					<state>$PROJ_DIR$/../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/enum</state>
@@ -1540,6 +1543,7 @@
 					<state>$PROJ_DIR$/../../usb/appli/mass_storage</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../drivers/pwm</state>
+					<state>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../serial</state>
 					<state>$PROJ_DIR$/../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1/enum</state>

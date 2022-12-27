@@ -66,6 +66,7 @@ CSRCS = \
        common/services/usb/udc/udc.c                      \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3s_ek/init.c                         \
+       sam/boards/sam3s_ek/led.c                          \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
@@ -73,7 +74,8 @@ CSRCS = \
        sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam3s/source/templates/exceptions.c \
        sam/utils/cmsis/sam3s/source/templates/gcc/startup_sam3s.c \
-       sam/utils/cmsis/sam3s/source/templates/system_sam3s.c
+       sam/utils/cmsis/sam3s/source/templates/system_sam3s.c \
+       sam/utils/syscalls/gcc/syscalls.c
 
 # List of assembler source files.
 ASSRCS = 

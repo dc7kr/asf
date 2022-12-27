@@ -48,7 +48,7 @@ TARGET = gfx_example1.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
-       common/components/display_controller/ili9341/ili9341.c \
+       common/components/display/ili9341/ili9341.c        \
        common/services/clock/xmega/sysclk.c               \
        common/services/gfx/example1/example1.c            \
        common/services/gfx/gfx_generic.c                  \
@@ -69,7 +69,7 @@ ASSRCS = \
 # Include path located from the top-level source directory
 INC_PATH = \
        common/boards                                      \
-       common/components/display_controller/ili9341       \
+       common/components/display/ili9341                  \
        common/services/clock                              \
        common/services/delay                              \
        common/services/gfx                                \

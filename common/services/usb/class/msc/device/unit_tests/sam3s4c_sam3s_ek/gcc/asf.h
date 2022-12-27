@@ -100,8 +100,11 @@
 // From module: UART - Univ. Async Rec/Trans
 #include <uart.h>
 
-// From module: USART - Serial interface
+// From module: USART - Serial interface - SAM implementation for devices with both UART and USART
 #include <serial.h>
+
+// From module: USART - Univ. Syn Async Rec/Trans
+#include <usart.h>
 
 // From module: USB Device MSC (Single Interface Device)
 #include <udi_msc.h>

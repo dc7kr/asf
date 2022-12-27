@@ -58,10 +58,12 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/sam3s_ek2/init.c                        \
+       sam/boards/sam3s_ek2/led.c                         \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam3s8/source/templates/exceptions.c \
        sam/utils/cmsis/sam3s8/source/templates/gcc/startup_sam3sd8.c \
        sam/utils/cmsis/sam3s8/source/templates/system_sam3sd8.c \
@@ -92,6 +94,7 @@ INC_PATH = \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/utils                                          \
        sam/utils/cmsis/sam3s8/include                     \
        sam/utils/cmsis/sam3s8/source/templates            \

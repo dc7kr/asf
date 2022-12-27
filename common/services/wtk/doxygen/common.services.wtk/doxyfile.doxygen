@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../wtk_radio_button.c ../../wtk_slider.c ../../wtk_basic_frame.c ../../wtk_button.c ../../wtk_progress_bar.c ../../wtk_frame.c ../../wtk_label.c ../../win.c ../../wtk.c ../../wtk_check_box.c  ../../wtk_basic_frame.h ../../wtk_frame.h ../../wtk_progress_bar.h ../../wtk_button.h ../../wtk_radio_button.h ../../wtk_slider.h ../../wtk.h ../../wtk_check_box.h ../../wtk_label.h ../../win.h doxygen_module_mainpage.h
+INPUT                  =  ../../wtk_radio_button.c ../../wtk_plot.c ../../wtk_slider.c ../../wtk_basic_frame.c ../../wtk_button.c ../../wtk_progress_bar.c ../../wtk_frame.c ../../wtk_label.c ../../win.c ../../wtk_icon.c ../../wtk.c ../../wtk_check_box.c  ../../wtk_basic_frame.h ../../wtk_plot.h ../../wtk_frame.h ../../wtk_progress_bar.h ../../wtk_button.h ../../wtk_radio_button.h ../../wtk_slider.h ../../wtk.h ../../wtk_icon.h ../../wtk_check_box.h ../../wtk_label.h ../../win.h doxygen_module_mainpage.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is

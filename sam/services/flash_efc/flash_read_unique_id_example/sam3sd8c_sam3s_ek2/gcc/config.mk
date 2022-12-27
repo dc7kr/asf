@@ -58,11 +58,13 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/sam3s_ek2/init.c                        \
+       sam/boards/sam3s_ek2/led.c                         \
        sam/drivers/efc/efc.c                              \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/services/flash_efc/flash_efc.c                 \
        sam/services/flash_efc/flash_read_unique_id_example/flash_read_unique_id_example.c \
        sam/utils/cmsis/sam3s8/source/templates/exceptions.c \
@@ -88,6 +90,7 @@ INC_PATH = \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/services/flash_efc                             \
        sam/services/flash_efc/flash_read_unique_id_example/sam3sd8c_sam3s_ek2 \
        sam/utils                                          \

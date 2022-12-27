@@ -320,6 +320,7 @@
 					<state>$PROJ_DIR$/../../../../utils</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../drivers/tc</state>
+					<state>$PROJ_DIR$/../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../drivers/pio</state>
@@ -578,7 +579,32 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../../thirdparty/qtouch/generic/include</state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../thirdparty/qtouch/qdebug</state>
+					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../drivers/wdt</state>
+					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../thirdparty/qtouch/generic/sam/qtouch/common</state>
+					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../utils</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../drivers/tc</state>
+					<state>$PROJ_DIR$/../../../../drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../boards/sam4s_xplained</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1244,6 +1270,7 @@
 					<state>$PROJ_DIR$/../../../../utils</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../drivers/tc</state>
+					<state>$PROJ_DIR$/../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../drivers/pio</state>
@@ -1502,7 +1529,32 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../../thirdparty/qtouch/generic/include</state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../thirdparty/qtouch/qdebug</state>
+					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../drivers/wdt</state>
+					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../thirdparty/qtouch/generic/sam/qtouch/common</state>
+					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../utils</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../drivers/tc</state>
+					<state>$PROJ_DIR$/../../../../drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../boards/sam4s_xplained</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1949,15 +2001,30 @@
 				</file>
 			</group>
 			<group>
+				<name>wdt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/wdt/wdt.c</name>
+				</file>
+			</group>
+			<group>
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 			<group>
-				<name>wdt</name>
+				<name>usart</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../drivers/wdt/wdt.c</name>
+					<name>$PROJ_DIR$/../../../../drivers/usart/usart.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>sam4s_xplained</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../boards/sam4s_xplained/led.c</name>
 				</file>
 			</group>
 		</group>
@@ -1967,18 +2034,18 @@
 		<group>
 			<name>utils</name>
 			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-			</group>
-			<group>
 				<name>stdio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/utils/stdio/write.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/utils/stdio/read.c</name>
+				</file>
+			</group>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
 				</file>
 			</group>
 		</group>

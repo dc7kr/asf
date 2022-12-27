@@ -312,6 +312,7 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pio</state>
@@ -564,7 +565,30 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../../../services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam3x_ek</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../services/twi</state>
+					<state>$PROJ_DIR$/../../../../../../../services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../../services/clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../../services/gpio</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/twi</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1222,6 +1246,7 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pio</state>
@@ -1474,7 +1499,30 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../../../services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam3x_ek</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../services/twi</state>
+					<state>$PROJ_DIR$/../../../../../../../services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../../services/clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../../services/gpio</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/twi</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1821,6 +1869,84 @@
 		</settings>
 	</configuration>
 	<group>
+		<name>sam</name>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>sam3x_ek</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/boards/sam3x_ek/led.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/boards/sam3x_ek/init.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>drivers</name>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pio/pio_handler.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pio/pio.c</name>
+				</file>
+			</group>
+			<group>
+				<name>twi</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/twi/twi.c</name>
+				</file>
+			</group>
+			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/usart/usart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/uart/uart.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>cmsis</name>
+				<group>
+					<name>sam3x</name>
+					<group>
+						<name>source</name>
+						<group>
+							<name>templates</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3x/source/templates/exceptions.c</name>
+							</file>
+							<group>
+								<name>iar</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3x/source/templates/iar/startup_sam3x.c</name>
+								</file>
+							</group>
+						</group>
+					</group>
+				</group>
+			</group>
+		</group>
+	</group>
+	<group>
 		<name>common</name>
 		<group>
 			<name>utils</name>
@@ -1883,75 +2009,6 @@
 						</file>
 					</group>
 				</group>
-			</group>
-		</group>
-	</group>
-	<group>
-		<name>sam</name>
-		<group>
-			<name>drivers</name>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pio/pio.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pio/pio_handler.c</name>
-				</file>
-			</group>
-			<group>
-				<name>twi</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/twi/twi.c</name>
-				</file>
-			</group>
-			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/uart/uart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>cmsis</name>
-				<group>
-					<name>sam3x</name>
-					<group>
-						<name>source</name>
-						<group>
-							<name>templates</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3x/source/templates/exceptions.c</name>
-							</file>
-							<group>
-								<name>iar</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3x/source/templates/iar/startup_sam3x.c</name>
-								</file>
-							</group>
-						</group>
-					</group>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>sam3x_ek</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/boards/sam3x_ek/init.c</name>
-				</file>
 			</group>
 		</group>
 	</group>

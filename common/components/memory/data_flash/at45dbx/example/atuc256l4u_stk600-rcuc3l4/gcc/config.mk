@@ -62,14 +62,14 @@ CSRCS = \
        avr32/drivers/flashcdw/flashcdw.c                  \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \
-       avr32/drivers/spi/spi.c                            \
+       avr32/drivers/usart/usart.c                        \
        common/components/memory/data_flash/at45dbx/at45dbx.c \
        common/components/memory/data_flash/at45dbx/example/at45dbx_example.c \
        common/services/clock/uc3l/dfll.c                  \
        common/services/clock/uc3l/osc.c                   \
        common/services/clock/uc3l/pll.c                   \
        common/services/clock/uc3l/sysclk.c                \
-       common/services/spi/uc3_spi/spi_master.c
+       common/services/spi/uc3_usart_spi/usart_spi.c
 
 # List of assembler source files.
 ASSRCS = \
@@ -84,7 +84,7 @@ INC_PATH = \
        avr32/drivers/flashcdw                             \
        avr32/drivers/gpio                                 \
        avr32/drivers/intc                                 \
-       avr32/drivers/spi                                  \
+       avr32/drivers/usart                                \
        avr32/utils                                        \
        avr32/utils/preprocessor                           \
        common/boards                                      \
@@ -92,7 +92,7 @@ INC_PATH = \
        common/components/memory/data_flash/at45dbx/example/atuc256l4u_stk600-rcuc3l4 \
        common/services/clock                              \
        common/services/spi                                \
-       common/services/spi/uc3_spi                        \
+       common/services/spi/uc3_usart_spi                  \
        common/utils \
        ./common/components/memory/data_flash/at45dbx/example/atuc256l4u_stk600-rcuc3l4/gcc
 

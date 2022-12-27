@@ -63,6 +63,7 @@ CSRCS = \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/drivers/wdt/unit_tests/unit_tests.c            \
        sam/drivers/wdt/wdt.c                              \
        sam/utils/cmsis/sam3x/source/templates/exceptions.c \
@@ -87,6 +88,7 @@ INC_PATH = \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/drivers/wdt                                    \
        sam/drivers/wdt/unit_tests                         \
        sam/drivers/wdt/unit_tests/sam3x8e_arduino_due_x   \

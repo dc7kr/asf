@@ -327,8 +327,8 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../utils/debug</state>
-					<state>$PROJ_DIR$/../../../../../boards/evk1101</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../flashc</state>
@@ -336,9 +336,10 @@
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../utils/debug</state>
 					<state>$PROJ_DIR$/../../../../pm</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../boards/evk1101</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -460,8 +461,8 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../utils/debug</state>
-					<state>$PROJ_DIR$/../../../../../boards/evk1101</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../flashc</state>
@@ -469,9 +470,10 @@
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../utils/debug</state>
 					<state>$PROJ_DIR$/../../../../pm</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../boards/evk1101</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1202,8 +1204,8 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../utils/debug</state>
-					<state>$PROJ_DIR$/../../../../../boards/evk1101</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../flashc</state>
@@ -1211,9 +1213,10 @@
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../utils/debug</state>
 					<state>$PROJ_DIR$/../../../../pm</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../boards/evk1101</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1335,8 +1338,8 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../utils/debug</state>
-					<state>$PROJ_DIR$/../../../../../boards/evk1101</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../flashc</state>
@@ -1344,9 +1347,10 @@
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../utils/debug</state>
 					<state>$PROJ_DIR$/../../../../pm</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../boards/evk1101</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>

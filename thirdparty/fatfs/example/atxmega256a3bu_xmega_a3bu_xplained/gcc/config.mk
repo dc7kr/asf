@@ -83,6 +83,7 @@ INC_PATH = \
        common/components/memory/data_flash/at45dbx        \
        common/services/calendar                           \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/gpio                               \
        common/services/hugemem                            \
        common/services/ioport                             \

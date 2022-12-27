@@ -68,6 +68,7 @@ CSRCS = \
        sam/drivers/rtt/rtt.c                              \
        sam/drivers/supc/supc.c                            \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/services/flash_efc/flash_efc.c                 \
        sam/utils/cmsis/sam3x/source/templates/exceptions.c \
        sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.c \
@@ -97,6 +98,7 @@ INC_PATH = \
        sam/drivers/rtt                                    \
        sam/drivers/supc                                   \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/services/flash_efc                             \
        sam/utils                                          \
        sam/utils/cmsis/sam3x/include                      \

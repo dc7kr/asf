@@ -62,6 +62,9 @@
 // From module: Delay routines
 #include <delay.h>
 
+// From module: EVK1104
+#include <led.h>
+
 // From module: FLASHC - Flash Controller
 #include <flashc.h>
 
@@ -82,8 +85,5 @@
 
 // From module: System Clock Control - UC3 A3/A4 implementation
 #include <sysclk.h>
-
-// From module: UC3-A3 Xplained
-#include <led.h>
 
 #endif // ASF_H

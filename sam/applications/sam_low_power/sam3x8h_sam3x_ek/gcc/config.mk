@@ -60,6 +60,7 @@ CSRCS = \
        sam/applications/sam_low_power/low_power_example.c \
        sam/applications/sam_low_power/sam3x8h_sam3x_ek/low_power_board.c \
        sam/boards/sam3x_ek/init.c                         \
+       sam/boards/sam3x_ek/led.c                          \
        sam/drivers/adc/adc.c                              \
        sam/drivers/adc/adc_sam3u.c                        \
        sam/drivers/efc/efc.c                              \
@@ -69,6 +70,7 @@ CSRCS = \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/supc/supc.c                            \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/drivers/wdt/wdt.c                              \
        sam/utils/cmsis/sam3x/source/templates/exceptions.c \
        sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.c \
@@ -98,6 +100,7 @@ INC_PATH = \
        sam/drivers/pmc                                    \
        sam/drivers/supc                                   \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/drivers/wdt                                    \
        sam/utils                                          \
        sam/utils/cmsis/sam3x/include                      \

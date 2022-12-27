@@ -312,6 +312,7 @@
 					<state>$PROJ_DIR$/../../../../uart</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../tc</state>
+					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
@@ -562,7 +563,30 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../pwm</state>
+					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../boards/sam4s_ek</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../uart</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../tc</state>
+					<state>$PROJ_DIR$/../../../../usart</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1220,6 +1244,7 @@
 					<state>$PROJ_DIR$/../../../../uart</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../tc</state>
+					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
@@ -1470,7 +1495,30 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../pwm</state>
+					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../boards/sam4s_ek</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../uart</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../tc</state>
+					<state>$PROJ_DIR$/../../../../usart</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1839,12 +1887,6 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
-				</file>
-			</group>
-			<group>
 				<name>clock</name>
 				<group>
 					<name>sam4s</name>
@@ -1853,6 +1895,12 @@
 					</file>
 				</group>
 			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
+			</group>
 		</group>
 	</group>
 	<group>
@@ -1860,24 +1908,15 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>adc</name>
-				<group>
-					<name>adc_example</name>
-					<file>
-						<name>$PROJ_DIR$/../../adc_example.c</name>
-					</file>
-				</group>
+				<name>pwm</name>
 				<file>
-					<name>$PROJ_DIR$/../../../adc.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../adc_sam3u.c</name>
+					<name>$PROJ_DIR$/../../../../pwm/pwm.c</name>
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
+				<name>usart</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
+					<name>$PROJ_DIR$/../../../../usart/usart.c</name>
 				</file>
 			</group>
 			<group>
@@ -1902,9 +1941,24 @@
 				</file>
 			</group>
 			<group>
-				<name>pwm</name>
+				<name>adc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../pwm/pwm.c</name>
+					<name>$PROJ_DIR$/../../../adc.c</name>
+				</file>
+				<group>
+					<name>adc_example</name>
+					<file>
+						<name>$PROJ_DIR$/../../adc_example.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../adc_sam3u.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
 				</file>
 			</group>
 		</group>
@@ -1941,6 +1995,9 @@
 				<name>sam4s_ek</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../boards/sam4s_ek/init.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/sam4s_ek/led.c</name>
 				</file>
 			</group>
 		</group>

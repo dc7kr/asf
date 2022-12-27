@@ -52,7 +52,7 @@ extern "C" {
 #include <compiler.h>
 
 /**
- * \defgroup ioport_service_group Common IOPORT API
+ * \defgroup ioport_group Common IOPORT API
  *
  * See \ref ioport_quickstart.
  *
@@ -106,7 +106,11 @@ enum ioport_sense {
 #elif UC3
 # include "uc3/ioport.h"
 #elif SAM
-# include "sam/ioport.h"
+# if SAM4L
+#  include "sam/ioport_gpio.h"
+# else
+#  include "sam/ioport_pio.h"
+# endif
 #endif
 
 /**
@@ -367,7 +371,7 @@ static inline ioport_port_mask_t ioport_pin_to_mask(ioport_pin_t pin)
 /**
  * \page ioport_quickstart Quick start guide for the common IOPORT service
  *
- * This is the quick start guide for the \ref ioport_service_group, with
+ * This is the quick start guide for the \ref ioport_group, with
  * step-by-step instructions on how to configure and use the service in a
  * selection of use cases.
  *

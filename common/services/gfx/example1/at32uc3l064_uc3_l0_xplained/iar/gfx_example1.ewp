@@ -325,13 +325,13 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../../components/display_controller/ili9341</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
@@ -461,13 +461,13 @@
 				<option>
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../../components/display_controller/ili9341</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
@@ -1206,13 +1206,13 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../../components/display_controller/ili9341</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
@@ -1342,13 +1342,13 @@
 				<option>
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../../components/display_controller/ili9341</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
@@ -1815,11 +1815,11 @@
 		<group>
 			<name>components</name>
 			<group>
-				<name>display_controller</name>
+				<name>display</name>
 				<group>
 					<name>ili9341</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../components/display_controller/ili9341/ili9341.c</name>
+						<name>$PROJ_DIR$/../../../../../components/display/ili9341/ili9341.c</name>
 					</file>
 				</group>
 			</group>

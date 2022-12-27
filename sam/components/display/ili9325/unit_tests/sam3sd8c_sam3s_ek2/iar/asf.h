@@ -56,6 +56,9 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: Display - AAT31XX Backlight Controller
+#include <aat31xx.h>
+
 // From module: Display - ILI9325 LCD Controller
 #include <ili9325.h>
 
@@ -99,8 +102,11 @@
 // From module: UART - Univ. Async Rec/Trans
 #include <uart.h>
 
-// From module: USART - Serial interface
+// From module: USART - Serial interface - SAM implementation for devices with both UART and USART
 #include <serial.h>
+
+// From module: USART - Univ. Syn Async Rec/Trans
+#include <usart.h>
 
 // From module: pio_handler support enabled
 #include <pio_handler.h>

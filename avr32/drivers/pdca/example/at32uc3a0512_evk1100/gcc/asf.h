@@ -81,6 +81,13 @@
 // From module: Part identification macros
 #include <parts.h>
 
+// From module: Sleep manager - UC3 implementation
+#include <sleepmgr.h>
+#include <uc3/sleepmgr.h>
+
+// From module: System Clock Control - UC3 A implementation
+#include <sysclk.h>
+
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter
 #include <usart.h>
 

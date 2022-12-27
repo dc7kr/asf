@@ -54,12 +54,14 @@ TARGET_SRAM = cmsis_cm3_bit_banding_example_sram.elf
 CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3s_ek/init.c                         \
+       sam/boards/sam3s_ek/led.c                          \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/utils/cmsis/cm3_bit_banding_example/main.c     \
        sam/utils/cmsis/sam3s/source/templates/exceptions.c \
        sam/utils/cmsis/sam3s/source/templates/gcc/startup_sam3s.c \
-       sam/utils/cmsis/sam3s/source/templates/system_sam3s.c
+       sam/utils/cmsis/sam3s/source/templates/system_sam3s.c \
+       sam/utils/syscalls/gcc/syscalls.c
 
 # List of assembler source files.
 ASSRCS = 

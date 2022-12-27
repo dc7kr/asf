@@ -64,7 +64,7 @@ CSRCS = \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \
        avr32/drivers/spi/spi.c                            \
-       common/components/display_controller/ili9341/ili9341.c \
+       common/components/display/ili9341/ili9341.c        \
        common/services/clock/uc3l/dfll.c                  \
        common/services/clock/uc3l/osc.c                   \
        common/services/clock/uc3l/sysclk.c                \
@@ -93,7 +93,7 @@ INC_PATH = \
        avr32/utils                                        \
        avr32/utils/preprocessor                           \
        common/boards                                      \
-       common/components/display_controller/ili9341       \
+       common/components/display/ili9341                  \
        common/services/clock                              \
        common/services/delay                              \
        common/services/gfx                                \

@@ -66,6 +66,7 @@ ASSRCS = \
 INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/gpio                               \
        common/services/ioport                             \
        common/services/sleepmgr                           \

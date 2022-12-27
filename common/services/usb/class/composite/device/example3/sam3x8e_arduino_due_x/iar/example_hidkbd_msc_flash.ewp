@@ -571,7 +571,34 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../msc</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../hid/device/kbd</state>
+					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../msc/device</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../udc</state>
+					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../hid/device</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../hid</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/arduino_due_x</state>
+					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1488,7 +1515,34 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../msc</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../hid/device/kbd</state>
+					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../msc/device</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../udc</state>
+					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../hid/device</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../hid</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/arduino_due_x</state>
+					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1839,18 +1893,18 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>uotghs</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs/uotghs_device.c</name>
-				</file>
-			</group>
-			<group>
 				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio/pio.c</name>
+				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio/pio_handler.c</name>
 				</file>
+			</group>
+			<group>
+				<name>uotghs</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio/pio.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs/uotghs_device.c</name>
 				</file>
 			</group>
 			<group>
@@ -1892,6 +1946,9 @@
 			<group>
 				<name>arduino_due_x</name>
 				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/boards/arduino_due_x/led.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/boards/arduino_due_x/init.c</name>
 				</file>
 			</group>
@@ -1902,13 +1959,49 @@
 		<group>
 			<name>services</name>
 			<group>
+				<name>storage</name>
+				<group>
+					<name>ctrl_access</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../storage/ctrl_access/ctrl_access.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>sleepmgr</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../sleepmgr/sam/sleepmgr.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
 				<name>usb</name>
 				<group>
 					<name>class</name>
 					<group>
+						<name>hid</name>
+						<group>
+							<name>device</name>
+							<group>
+								<name>kbd</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../hid/device/kbd/udi_hid_kbd.c</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../hid/device/udi_hid.c</name>
+							</file>
+						</group>
+					</group>
+					<group>
 						<name>composite</name>
 						<group>
 							<name>device</name>
+							<file>
+								<name>$PROJ_DIR$/../../../udi_composite_desc.c</name>
+							</file>
 							<group>
 								<name>example3</name>
 								<group>
@@ -1924,24 +2017,6 @@
 									<name>$PROJ_DIR$/../../main.c</name>
 								</file>
 							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../udi_composite_desc.c</name>
-							</file>
-						</group>
-					</group>
-					<group>
-						<name>hid</name>
-						<group>
-							<name>device</name>
-							<group>
-								<name>kbd</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../hid/device/kbd/udi_hid_kbd.c</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../../../hid/device/udi_hid.c</name>
-							</file>
 						</group>
 					</group>
 					<group>
@@ -1962,15 +2037,6 @@
 				</group>
 			</group>
 			<group>
-				<name>storage</name>
-				<group>
-					<name>ctrl_access</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../storage/ctrl_access/ctrl_access.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>clock</name>
 				<group>
 					<name>sam3x</name>
@@ -1979,14 +2045,14 @@
 					</file>
 				</group>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
 			<group>
-				<name>sleepmgr</name>
-				<group>
-					<name>sam</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../sleepmgr/sam/sleepmgr.c</name>
-					</file>
-				</group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1999,15 +2065,6 @@
 						<name>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem/virtual_mem.c</name>
 					</file>
 				</group>
-			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
 			</group>
 		</group>
 	</group>

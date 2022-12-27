@@ -69,6 +69,7 @@ CSRCS = \
        common/services/usb/udc/udc.c                      \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam4s_ek/init.c                         \
+       sam/boards/sam4s_ek/led.c                          \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
@@ -76,7 +77,8 @@ CSRCS = \
        sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
-       sam/utils/cmsis/sam4s/source/templates/system_sam4s.c
+       sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
+       sam/utils/syscalls/gcc/syscalls.c
 
 # List of assembler source files.
 ASSRCS = 

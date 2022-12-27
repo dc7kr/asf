@@ -562,7 +562,29 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../../services/usb/class/cdc/device</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam3s/include</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam3s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../services/usb/class/cdc</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/boards/sam3s_ek</state>
+					<state>$PROJ_DIR$/../../../../../../services/clock</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../services/usb/udc</state>
+					<state>$PROJ_DIR$/../../../../../../services/usb</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/drivers/udp</state>
+					<state>$PROJ_DIR$/../../../../../../services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1470,7 +1492,29 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../../services/usb/class/cdc/device</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam3s/include</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam3s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../services/usb/class/cdc</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/boards/sam3s_ek</state>
+					<state>$PROJ_DIR$/../../../../../../services/clock</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../services/usb/udc</state>
+					<state>$PROJ_DIR$/../../../../../../services/usb</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/drivers/udp</state>
+					<state>$PROJ_DIR$/../../../../../../services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1831,15 +1875,15 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam3s/source/templates/exceptions.c</name>
 							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam3s/source/templates/system_sam3s.c</name>
-							</file>
 							<group>
 								<name>iar</name>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam3s/source/templates/iar/startup_sam3s.c</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam3s/source/templates/system_sam3s.c</name>
+							</file>
 						</group>
 					</group>
 				</group>
@@ -1850,22 +1894,22 @@
 			<group>
 				<name>pio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio.c</name>
-				</file>
-				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio_handler.c</name>
 				</file>
-			</group>
-			<group>
-				<name>pmc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/pmc.c</name>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio.c</name>
 				</file>
 			</group>
 			<group>
 				<name>udp</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/drivers/udp/udp_device.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 		</group>
@@ -1876,41 +1920,14 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam3s_ek/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam3s_ek/led.c</name>
+				</file>
 			</group>
 		</group>
 	</group>
 	<group>
 		<name>common</name>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>stdio</name>
-				<group>
-					<name>stdio_usb</name>
-					<file>
-						<name>$PROJ_DIR$/../../../stdio_usb.c</name>
-					</file>
-					<group>
-						<name>stdio_usb_example</name>
-						<file>
-							<name>$PROJ_DIR$/../../stdio_usb_example.c</name>
-						</file>
-					</group>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../read.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../write.c</name>
-				</file>
-			</group>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../interrupt/interrupt_sam_nvic.c</name>
-				</file>
-			</group>
-		</group>
 		<group>
 			<name>services</name>
 			<group>
@@ -1954,6 +1971,36 @@
 						<name>$PROJ_DIR$/../../../../../../services/clock/sam3s/sysclk.c</name>
 					</file>
 				</group>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>stdio</name>
+				<group>
+					<name>stdio_usb</name>
+					<file>
+						<name>$PROJ_DIR$/../../../stdio_usb.c</name>
+					</file>
+					<group>
+						<name>stdio_usb_example</name>
+						<file>
+							<name>$PROJ_DIR$/../../stdio_usb_example.c</name>
+						</file>
+					</group>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../read.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../write.c</name>
+				</file>
+			</group>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../interrupt/interrupt_sam_nvic.c</name>
+				</file>
 			</group>
 		</group>
 	</group>

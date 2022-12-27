@@ -55,9 +55,15 @@
 // From module: ACIFA - Analog Comparator Interface
 #include <acifa.h>
 
+// From module: CPU Cycle Counter
+#include <cycle_counter.h>
+
 // From module: Compiler abstraction layer and code utilities
 #include <compiler.h>
 #include <status_codes.h>
+
+// From module: Delay routines
+#include <delay.h>
 
 // From module: FLASHC - Flash Controller
 #include <flashc.h>
@@ -80,6 +86,9 @@
 
 // From module: SCIF System Control Interface - UC3C implementation
 #include <scif_uc3c.h>
+
+// From module: System Clock Control - UC3 C implementation
+#include <sysclk.h>
 
 // From module: UC3C-EK
 #include <led.h>

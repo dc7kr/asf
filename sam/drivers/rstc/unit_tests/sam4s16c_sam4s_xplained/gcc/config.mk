@@ -59,6 +59,7 @@ CSRCS = \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c                     \
        sam/boards/sam4s_xplained/init.c                   \
+       sam/boards/sam4s_xplained/led.c                    \
        sam/drivers/gpbr/gpbr.c                            \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
@@ -66,6 +67,7 @@ CSRCS = \
        sam/drivers/rstc/rstc.c                            \
        sam/drivers/rstc/unit_tests/unit_tests.c           \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/drivers/wdt/wdt.c                              \
        sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
@@ -93,6 +95,7 @@ INC_PATH = \
        sam/drivers/rstc/unit_tests                        \
        sam/drivers/rstc/unit_tests/sam4s16c_sam4s_xplained \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/drivers/wdt                                    \
        sam/utils                                          \
        sam/utils/cmsis/sam4s/include                      \

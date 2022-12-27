@@ -562,7 +562,29 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../../services/usb/class/cdc/device</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/drivers/uotghs</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/boards/sam3x_ek</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../services/usb/class/cdc</state>
+					<state>$PROJ_DIR$/../../../../../../services/clock</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../services/usb/udc</state>
+					<state>$PROJ_DIR$/../../../../../../services/usb</state>
+					<state>$PROJ_DIR$/../../../../../../services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1470,7 +1492,29 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../../../services/usb/class/cdc/device</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/drivers/uotghs</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/boards/sam3x_ek</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../services/usb/class/cdc</state>
+					<state>$PROJ_DIR$/../../../../../../services/clock</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../services/usb/udc</state>
+					<state>$PROJ_DIR$/../../../../../../services/usb</state>
+					<state>$PROJ_DIR$/../../../../../../services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1848,18 +1892,18 @@
 		<group>
 			<name>drivers</name>
 			<group>
+				<name>uotghs</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/uotghs/uotghs_device.c</name>
+				</file>
+			</group>
+			<group>
 				<name>pio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio_handler.c</name>
-				</file>
-			</group>
-			<group>
-				<name>uotghs</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/uotghs/uotghs_device.c</name>
 				</file>
 			</group>
 			<group>
@@ -1875,6 +1919,9 @@
 				<name>sam3x_ek</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam3x_ek/init.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam3x_ek/led.c</name>
 				</file>
 			</group>
 		</group>

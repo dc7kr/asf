@@ -233,6 +233,7 @@ INC_PATH = \
        thirdparty/freertos/source/portable/gcc/avr32_uc3  \
        thirdparty/lwip/lwip-1.4.0/src/include             \
        thirdparty/lwip/lwip-1.4.0/src/include/ipv4        \
+       thirdparty/lwip/lwip-1.4.0/src/include/lwip        \
        thirdparty/lwip/lwip-port-1.4.0/at32uc3/include \
        ./avr32/applications/evk1100-control-panel/at32uc3a0512_evk1100/gcc
 

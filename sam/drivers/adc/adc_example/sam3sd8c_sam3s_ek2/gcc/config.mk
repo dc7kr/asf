@@ -58,6 +58,7 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/sam3s_ek2/init.c                        \
+       sam/boards/sam3s_ek2/led.c                         \
        sam/drivers/adc/adc.c                              \
        sam/drivers/adc/adc_example/adc_example.c          \
        sam/drivers/adc/adc_sam3u.c                        \
@@ -67,6 +68,7 @@ CSRCS = \
        sam/drivers/pwm/pwm.c                              \
        sam/drivers/tc/tc.c                                \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam3s8/source/templates/exceptions.c \
        sam/utils/cmsis/sam3s8/source/templates/gcc/startup_sam3sd8.c \
        sam/utils/cmsis/sam3s8/source/templates/system_sam3sd8.c \
@@ -94,6 +96,7 @@ INC_PATH = \
        sam/drivers/pwm                                    \
        sam/drivers/tc                                     \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/utils                                          \
        sam/utils/cmsis/sam3s8/include                     \
        sam/utils/cmsis/sam3s8/source/templates            \

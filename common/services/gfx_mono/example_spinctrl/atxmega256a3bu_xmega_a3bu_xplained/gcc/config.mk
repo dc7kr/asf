@@ -54,7 +54,6 @@ CSRCS = \
        common/services/gfx_mono/gfx_mono_c12832_a1z.c     \
        common/services/gfx_mono/gfx_mono_framebuffer.c    \
        common/services/gfx_mono/gfx_mono_generic.c        \
-       common/services/gfx_mono/gfx_mono_null.c           \
        common/services/gfx_mono/gfx_mono_spinctrl.c       \
        common/services/gfx_mono/gfx_mono_text.c           \
        common/services/gfx_mono/sysfont.c                 \

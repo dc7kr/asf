@@ -55,9 +55,15 @@
 // From module: ADCIFB - ADC Interface B
 #include <adcifb.h>
 
+// From module: CPU Cycle Counter
+#include <cycle_counter.h>
+
 // From module: Compiler abstraction layer and code utilities
 #include <compiler.h>
 #include <status_codes.h>
+
+// From module: Delay routines
+#include <delay.h>
 
 // From module: FLASH Controller Double-Word (FLASHCDW)
 #include <flashcdw.h>
@@ -80,6 +86,9 @@
 
 // From module: SCIF System Control Interface - UC3L implementation
 #include <scif_uc3l.h>
+
+// From module: System Clock Control - UC3 L0 implementation
+#include <sysclk.h>
 
 // From module: UC3-L0 Xplained
 #include <led.h>

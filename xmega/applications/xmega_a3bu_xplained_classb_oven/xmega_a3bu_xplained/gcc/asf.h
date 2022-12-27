@@ -74,6 +74,9 @@
 // From module: DAC - Digital to Analog Converter
 #include <dac.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: GFX Monochrome - Menu System
 #include <gfx_mono_menu.h>
 

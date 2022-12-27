@@ -298,7 +298,7 @@
 					<state>$PROJ_DIR$/../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
@@ -311,6 +311,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -558,7 +559,28 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../utils/cmsis/sam3u/source/templates</state>
+					<state>$PROJ_DIR$/../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../boards/sam3u_ek</state>
+					<state>$PROJ_DIR$/../../../../utils/cmsis/sam3u/include</state>
+					<state>$PROJ_DIR$/../../../../drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../drivers/tc</state>
+					<state>$PROJ_DIR$/../../../../drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1202,7 +1224,7 @@
 					<state>$PROJ_DIR$/../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
@@ -1215,6 +1237,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1462,7 +1485,28 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../utils/cmsis/sam3u/source/templates</state>
+					<state>$PROJ_DIR$/../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../boards/sam3u_ek</state>
+					<state>$PROJ_DIR$/../../../../utils/cmsis/sam3u/include</state>
+					<state>$PROJ_DIR$/../../../../drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../drivers/tc</state>
+					<state>$PROJ_DIR$/../../../../drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1838,20 +1882,32 @@
 			</group>
 		</group>
 		<group>
-			<name>drivers</name>
+			<name>boards</name>
 			<group>
-				<name>pio</name>
+				<name>sam3u_ek</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../drivers/pio/pio_handler.c</name>
+					<name>$PROJ_DIR$/../../../../boards/sam3u_ek/led.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../drivers/pio/pio.c</name>
+					<name>$PROJ_DIR$/../../../../boards/sam3u_ek/init.c</name>
 				</file>
 			</group>
+		</group>
+		<group>
+			<name>drivers</name>
 			<group>
 				<name>uart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/uart/uart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/pio/pio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/pio/pio_handler.c</name>
 				</file>
 			</group>
 			<group>
@@ -1866,13 +1922,10 @@
 					<name>$PROJ_DIR$/../../../../drivers/pmc/pmc.c</name>
 				</file>
 			</group>
-		</group>
-		<group>
-			<name>boards</name>
 			<group>
-				<name>sam3u_ek</name>
+				<name>usart</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../boards/sam3u_ek/init.c</name>
+					<name>$PROJ_DIR$/../../../../drivers/usart/usart.c</name>
 				</file>
 			</group>
 		</group>

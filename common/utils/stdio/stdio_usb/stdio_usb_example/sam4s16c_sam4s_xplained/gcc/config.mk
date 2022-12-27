@@ -63,6 +63,7 @@ CSRCS = \
        common/utils/stdio/stdio_usb/stdio_usb_example/stdio_usb_example.c \
        common/utils/stdio/write.c                         \
        sam/boards/sam4s_xplained/init.c                   \
+       sam/boards/sam4s_xplained/led.c                    \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \

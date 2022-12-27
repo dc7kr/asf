@@ -77,6 +77,7 @@ INC_PATH = \
        avr32/drivers/gpio                                 \
        avr32/drivers/intc                                 \
        avr32/drivers/pwm                                  \
+       avr32/drivers/pwm/example/at32uc3b0256_evk1101     \
        avr32/utils                                        \
        avr32/utils/preprocessor                           \
        common/boards                                      \

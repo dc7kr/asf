@@ -294,27 +294,28 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../spi/sam_spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/pdc</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
-					<state>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils</state>
-					<state>$PROJ_DIR$/../../../../clock</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/header_files</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../components/display_controller/ili9341</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
-					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
-					<state>$PROJ_DIR$/../../../../../../sam/drivers/spi</state>
-					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
-					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/include</state>
-					<state>$PROJ_DIR$/../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../spi/sam_spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -563,7 +564,29 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../spi/sam_spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/pdc</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1203,27 +1226,28 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../spi/sam_spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/pdc</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
-					<state>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils</state>
-					<state>$PROJ_DIR$/../../../../clock</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/header_files</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../components/display_controller/ili9341</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
-					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
-					<state>$PROJ_DIR$/../../../../../../sam/drivers/spi</state>
-					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
-					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/include</state>
-					<state>$PROJ_DIR$/../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../spi/sam_spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1472,7 +1496,29 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../../spi/sam_spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/pdc</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1819,6 +1865,78 @@
 		</settings>
 	</configuration>
 	<group>
+		<name>sam</name>
+		<group>
+			<name>drivers</name>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pio/pio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pio/pio_handler.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pdc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pdc/pdc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>spi</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/spi/spi.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>cmsis</name>
+				<group>
+					<name>sam4s</name>
+					<group>
+						<name>source</name>
+						<group>
+							<name>templates</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates/system_sam4s.c</name>
+							</file>
+							<group>
+								<name>iar</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates/iar/startup_sam4s.c</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates/exceptions.c</name>
+							</file>
+						</group>
+					</group>
+				</group>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>sam4s_xplained</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained/init.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained/led.c</name>
+				</file>
+			</group>
+		</group>
+	</group>
+	<group>
 		<name>common</name>
 		<group>
 			<name>services</name>
@@ -1853,15 +1971,6 @@
 				</group>
 			</group>
 			<group>
-				<name>delay</name>
-				<group>
-					<name>sam</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../delay/sam/cycle_counter.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>clock</name>
 				<group>
 					<name>sam4s</name>
@@ -1870,15 +1979,12 @@
 					</file>
 				</group>
 			</group>
-		</group>
-		<group>
-			<name>components</name>
 			<group>
-				<name>display_controller</name>
+				<name>delay</name>
 				<group>
-					<name>ili9341</name>
+					<name>sam</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../components/display_controller/ili9341/ili9341.c</name>
+						<name>$PROJ_DIR$/../../../../delay/sam/cycle_counter.c</name>
 					</file>
 				</group>
 			</group>
@@ -1892,67 +1998,16 @@
 				</file>
 			</group>
 		</group>
-	</group>
-	<group>
-		<name>sam</name>
 		<group>
-			<name>drivers</name>
+			<name>components</name>
 			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>spi</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/spi/spi.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pio/pio_handler.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pio/pio.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>cmsis</name>
+				<name>display</name>
 				<group>
-					<name>sam4s</name>
-					<group>
-						<name>source</name>
-						<group>
-							<name>templates</name>
-							<group>
-								<name>iar</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates/iar/startup_sam4s.c</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates/system_sam4s.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates/exceptions.c</name>
-							</file>
-						</group>
-					</group>
+					<name>ili9341</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../components/display/ili9341/ili9341.c</name>
+					</file>
 				</group>
-			</group>
-		</group>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>sam4s_xplained</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained/init.c</name>
-				</file>
 			</group>
 		</group>
 	</group>

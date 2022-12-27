@@ -349,6 +349,7 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pwm</state>
 					<state>$PROJ_DIR$/../../display</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4</state>
 					<state>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3</state>
@@ -503,6 +504,7 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pwm</state>
 					<state>$PROJ_DIR$/../../display</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4</state>
 					<state>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3</state>
@@ -1266,6 +1268,7 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pwm</state>
 					<state>$PROJ_DIR$/../../display</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4</state>
 					<state>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3</state>
@@ -1420,6 +1423,7 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pwm</state>
 					<state>$PROJ_DIR$/../../display</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4</state>
 					<state>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3</state>

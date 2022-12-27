@@ -80,6 +80,9 @@
 // From module: LCD - ILI9341 Display Controller
 #include <ili9341.h>
 
+// From module: PDC - Peripheral DMA Controller Example
+#include <pdc.h>
+
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
 

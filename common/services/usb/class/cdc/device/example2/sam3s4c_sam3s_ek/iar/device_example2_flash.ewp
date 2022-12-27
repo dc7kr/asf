@@ -562,7 +562,29 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/source/templates</state>
+					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3s_ek</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../udc</state>
+					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp</state>
+					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1470,7 +1492,29 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/source/templates</state>
+					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3s_ek</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../udc</state>
+					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp</state>
+					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1835,10 +1879,10 @@
 								</file>
 							</group>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/source/templates/exceptions.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/source/templates/system_sam3s.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/source/templates/system_sam3s.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/source/templates/exceptions.c</name>
 							</file>
 						</group>
 					</group>
@@ -1857,15 +1901,15 @@
 				</file>
 			</group>
 			<group>
-				<name>udp</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp/udp_device.c</name>
-				</file>
-			</group>
-			<group>
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>udp</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp/udp_device.c</name>
 				</file>
 			</group>
 			<group>
@@ -1879,6 +1923,9 @@
 			<name>boards</name>
 			<group>
 				<name>sam3s_ek</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3s_ek/led.c</name>
+				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3s_ek/init.c</name>
 				</file>
@@ -1905,6 +1952,9 @@
 							<name>device</name>
 							<group>
 								<name>example2</name>
+								<file>
+									<name>$PROJ_DIR$/../../uart_sam.c</name>
+								</file>
 								<group>
 									<name>sam3s4c_sam3s_ek</name>
 									<file>
@@ -1912,29 +1962,17 @@
 									</file>
 								</group>
 								<file>
-									<name>$PROJ_DIR$/../../uart_sam.c</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../main.c</name>
 								</file>
 							</group>
 							<file>
-								<name>$PROJ_DIR$/../../../udi_cdc_desc.c</name>
+								<name>$PROJ_DIR$/../../../udi_cdc.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../udi_cdc.c</name>
+								<name>$PROJ_DIR$/../../../udi_cdc_desc.c</name>
 							</file>
 						</group>
 					</group>
-				</group>
-			</group>
-			<group>
-				<name>sleepmgr</name>
-				<group>
-					<name>sam</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../sleepmgr/sam/sleepmgr.c</name>
-					</file>
 				</group>
 			</group>
 			<group>
@@ -1943,6 +1981,15 @@
 					<name>sam3s</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../clock/sam3s/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>sleepmgr</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../sleepmgr/sam/sleepmgr.c</name>
 					</file>
 				</group>
 			</group>

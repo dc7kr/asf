@@ -54,13 +54,15 @@
  *
  * \section ioport_service_section services/ioport/ioport.h
  * The common IOPORT service is described in
- * \ref ioport_service_group section.
+ * \ref ioport_group section.
  *
  * \section device_info Device Info
- * All AVR XMEGA and UC3 devices can be used. This example has been tested with
- * the following setup:
+ * All Atmel SAM, XMEGA and UC3 devices can be used. This example has been
+ * tested with the following setup:
  *  - Xplain evaluation kit
  *  - EVK1100 evaluation kit
+ *  - SAM4L evaluation kit
+ *  - SAM3X evaluation kit
  *
  * \section example_description Description of the example
  * This example flashes a single LEDs present with flash speed of 1Hz.
@@ -68,17 +70,14 @@
  * Additionally a pin input can inspected from a debug session.
  *
  * \section compinfo Compilation Info
- * This software was written for the GNU GCC and IAR for AVR. Other compilers
- * may or may not work.
+ * This software was written for the GNU GCC and IAR for SAM and AVR.
+ * Other compilers may or may not work.
  *
  * \section contactinfo Contact Information
  * For further information, visit <a href="http://www.atmel.com/">Atmel</a>.\n
  * Support and FAQ: http://support.atmel.no/
  */
-#include "sysclk.h"
-#include "ioport.h"
-#include "board.h"
-#include "delay.h"
+#include <asf.h>
 #include "conf_example.h"
 
 int main(void)

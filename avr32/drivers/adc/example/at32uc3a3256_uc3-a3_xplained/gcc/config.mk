@@ -83,6 +83,7 @@ INC_PATH = \
        avr32/boards/uc3_a3_xplained                       \
        avr32/drivers/adc                                  \
        avr32/drivers/adc/example                          \
+       avr32/drivers/adc/example/at32uc3a3256_uc3-a3_xplained \
        avr32/drivers/cpu/cycle_counter                    \
        avr32/drivers/flashc                               \
        avr32/drivers/gpio                                 \

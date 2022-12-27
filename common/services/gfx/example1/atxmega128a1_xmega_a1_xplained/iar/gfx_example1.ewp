@@ -414,8 +414,8 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/boards/xmega_a1_xplained</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
@@ -424,7 +424,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
-					<state>$PROJ_DIR$/../../../../../components/display_controller/ili9341</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/boards/xmega_a1_xplained</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
@@ -673,8 +673,8 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/boards/xmega_a1_xplained</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
@@ -683,7 +683,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
-					<state>$PROJ_DIR$/../../../../../components/display_controller/ili9341</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/boards/xmega_a1_xplained</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
@@ -1437,8 +1437,8 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/boards/xmega_a1_xplained</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
@@ -1447,7 +1447,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
-					<state>$PROJ_DIR$/../../../../../components/display_controller/ili9341</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/boards/xmega_a1_xplained</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
@@ -1696,8 +1696,8 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/boards/xmega_a1_xplained</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
@@ -1706,7 +1706,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
-					<state>$PROJ_DIR$/../../../../../components/display_controller/ili9341</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/boards/xmega_a1_xplained</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
@@ -2049,21 +2049,12 @@
 	<group>
 		<name>common</name>
 		<group>
-			<name>components</name>
-			<group>
-				<name>display_controller</name>
-				<group>
-					<name>ili9341</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../components/display_controller/ili9341/ili9341.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
 			<name>services</name>
 			<group>
 				<name>gfx</name>
+				<file>
+					<name>$PROJ_DIR$/../../../gfx_text.c</name>
+				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../gfx_generic.c</name>
 				</file>
@@ -2078,9 +2069,6 @@
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../gfx_ili9341_sdt028atft.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../gfx_text.c</name>
 				</file>
 			</group>
 			<group>
@@ -2107,6 +2095,18 @@
 					<name>xmega</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../ioport/xmega/ioport_compat.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
+		<group>
+			<name>components</name>
+			<group>
+				<name>display</name>
+				<group>
+					<name>ili9341</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../components/display/ili9341/ili9341.c</name>
 					</file>
 				</group>
 			</group>

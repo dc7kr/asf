@@ -58,6 +58,7 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/sam3n_ek/init.c                         \
+       sam/boards/sam3n_ek/led.c                          \
        sam/drivers/adc/adc.c                              \
        sam/drivers/adc/adc_sam3u.c                        \
        sam/drivers/adc/adc_threshold_wakeup_example/adc_threshold_wakeup_example.c \
@@ -66,6 +67,7 @@ CSRCS = \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/tc/tc.c                                \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam3n/source/templates/exceptions.c \
        sam/utils/cmsis/sam3n/source/templates/gcc/startup_sam3n.c \
        sam/utils/cmsis/sam3n/source/templates/system_sam3n.c \
@@ -92,6 +94,7 @@ INC_PATH = \
        sam/drivers/pmc                                    \
        sam/drivers/tc                                     \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/utils                                          \
        sam/utils/cmsis/sam3n/include                      \
        sam/utils/cmsis/sam3n/source/templates             \

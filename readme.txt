@@ -49,7 +49,8 @@ interface to interact with the component (eg memories like SDRAM, SD card, or di
 --------------------------
 
 ASF release notes, reference manual and getting started documents can be found on http://www.atmel.com/asf.
-The ASF documentation can be found onlin on http://asf.atmel.com/docs/latest/.
+
+The ASF documentation can be found online on http://asf.atmel.com.
 
 
 3 - Toolchain Header Files Update
@@ -117,7 +118,7 @@ The support site also have a Frequently Asked Questions page with the most commo
 ASF bugs or enhancement requests can be reported in the ASF Bug Tracker (http://asf.atmel.com/bugzilla/).
 
 
-7 - Community Information
+8 - Community Information
 -------------------------
 
 Users can find an ASF forum (http://www.avrfreaks.net/index.php?name=PNphpBB2&file=viewforum&f=21) on AVRfreaks for AVR users or on http://www.at91.com/ for SAM users.

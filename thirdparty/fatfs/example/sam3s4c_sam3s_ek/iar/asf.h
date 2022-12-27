@@ -56,6 +56,9 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: FatFS file system
 #include <diskio.h>
 #include <ff.h>
@@ -71,8 +74,21 @@
 // From module: Interrupt management - SAM3 implementation
 #include <interrupt.h>
 
+// From module: MATRIX - Bus Matrix
+#include <matrix.h>
+
 // From module: Memory Control Access Interface
 #include <ctrl_access.h>
+
+// From module: NAND Flash on EBI
+#include <nand_flash_common.h>
+#include <nand_flash_ecc.h>
+#include <nand_flash_management.h>
+#include <nand_flash_mem.h>
+#include <nand_flash_model.h>
+#include <nand_flash_raw.h>
+#include <nand_flash_spare_scheme.h>
+#include <nand_flash_translation.h>
 
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
@@ -92,6 +108,9 @@
 
 // From module: SAM3S startup code
 #include <exceptions.h>
+
+// From module: SMC - Static Memory Controller
+#include <smc.h>
 
 // From module: SPI - SAM Implementation
 #include <spi_master.h>
@@ -115,8 +134,11 @@
 // From module: UART - Univ. Async Rec/Trans
 #include <uart.h>
 
-// From module: USART - Serial interface
+// From module: USART - Serial interface - SAM implementation for devices with both UART and USART
 #include <serial.h>
+
+// From module: USART - Univ. Syn Async Rec/Trans
+#include <usart.h>
 
 // From module: pio_handler support enabled
 #include <pio_handler.h>

@@ -61,6 +61,7 @@ CSRCS = \
        common/services/usb/uhc/uhc.c                      \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/arduino_due_x/init.c                    \
+       sam/boards/arduino_due_x/led.c                     \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \

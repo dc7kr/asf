@@ -52,27 +52,34 @@ TARGET_SRAM = fatfs_access_example_sram.elf
 
 # List of C source files.
 CSRCS = \
+       common/components/memory/data_flash/at45dbx/at45dbx.c \
+       common/components/memory/data_flash/at45dbx/at45dbx_mem.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_ecc_sw.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_model.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_raw_smc.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_spare_scheme.c \
+       common/components/memory/virtual_mem/virtual_mem.c \
        common/services/clock/sam4s/sysclk.c               \
        common/services/delay/sam/cycle_counter.c          \
        common/services/serial/usart_serial.c              \
+       common/services/spi/sam_spi/spi_master.c           \
        common/services/storage/ctrl_access/ctrl_access.c  \
        common/services/storage/ecc_hamming/ecc-sw.c       \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/sam4s_ek/init.c                         \
+       sam/boards/sam4s_ek/led.c                          \
        sam/drivers/ebi/smc/smc.c                          \
        sam/drivers/matrix/matrix.c                        \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/rtc/rtc.c                              \
+       sam/drivers/spi/spi.c                              \
        sam/drivers/tc/tc.c                                \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
@@ -90,13 +97,17 @@ ASSRCS =
 # List of include paths.
 INC_PATH = \
        common/boards                                      \
+       common/components/memory/data_flash/at45dbx        \
        common/components/memory/nand_flash/nand_flash_ebi \
        common/components/memory/nand_flash/nand_flash_ebi/ftl_lib \
+       common/components/memory/virtual_mem               \
        common/services/clock                              \
        common/services/delay                              \
        common/services/gpio                               \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
+       common/services/spi                                \
+       common/services/spi/sam_spi                        \
        common/services/storage/ctrl_access                \
        common/services/storage/ecc_hamming                \
        common/utils                                       \
@@ -108,8 +119,10 @@ INC_PATH = \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/rtc                                    \
+       sam/drivers/spi                                    \
        sam/drivers/tc                                     \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/utils                                          \
        sam/utils/cmsis/sam4s/include                      \
        sam/utils/cmsis/sam4s/source/templates             \
@@ -172,7 +185,9 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D ARM_MATH_CM4=true                               \
+       -D AT45DBX_ENABLE                                  \
        -D BOARD=SAM4S_EK                                  \
+       -D VIRTUAL_MEMORY_ENABLE                           \
        -D __SAM4S16C__
 
 # Extra flags to use when linking

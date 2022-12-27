@@ -555,7 +555,24 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../sam_spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/boards/sam3n_ek</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1456,7 +1473,24 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state></state>
+					<state>$PROJ_DIR$/../../../sam_spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils</state>
+					<state>$PROJ_DIR$/../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../sam/boards/sam3n_ek</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
 					<name>AExtraOptionsCheckV2</name>
@@ -1807,15 +1841,15 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>spi</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/spi/spi.c</name>
-				</file>
-			</group>
-			<group>
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>spi</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/spi/spi.c</name>
 				</file>
 			</group>
 			<group>
@@ -1861,6 +1895,9 @@
 				<name>sam3n_ek</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/boards/sam3n_ek/init.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/boards/sam3n_ek/led.c</name>
 				</file>
 			</group>
 		</group>

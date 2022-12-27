@@ -52,7 +52,7 @@ TARGET_SRAM = mxt_example_hid_sram.elf
 
 # List of C source files.
 CSRCS = \
-       common/components/display_controller/ili9341/ili9341.c \
+       common/components/display/ili9341/ili9341.c        \
        common/components/touch/mxt/example_hid/example_hid.c \
        common/components/touch/mxt/example_hid/ui.c       \
        common/components/touch/mxt/mxt_device.c           \
@@ -70,6 +70,8 @@ CSRCS = \
        common/services/usb/udc/udc.c                      \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam4s_xplained/init.c                   \
+       sam/boards/sam4s_xplained/led.c                    \
+       sam/drivers/pdc/pdc.c                              \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
@@ -87,7 +89,7 @@ ASSRCS =
 # List of include paths.
 INC_PATH = \
        common/boards                                      \
-       common/components/display_controller/ili9341       \
+       common/components/display/ili9341                  \
        common/components/touch/mxt                        \
        common/components/touch/mxt/example_hid            \
        common/components/touch/mxt/example_hid/sam4s16c_sam4s_xplained \
@@ -108,6 +110,7 @@ INC_PATH = \
        common/utils                                       \
        sam/boards                                         \
        sam/boards/sam4s_xplained                          \
+       sam/drivers/pdc                                    \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/spi                                    \

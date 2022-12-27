@@ -59,7 +59,8 @@ CSRCS = \
        sam/utils/cmsis/cm3_cmsis_example/main.c           \
        sam/utils/cmsis/sam3x/source/templates/exceptions.c \
        sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.c \
-       sam/utils/cmsis/sam3x/source/templates/system_sam3x.c
+       sam/utils/cmsis/sam3x/source/templates/system_sam3x.c \
+       sam/utils/syscalls/gcc/syscalls.c
 
 # List of assembler source files.
 ASSRCS = 

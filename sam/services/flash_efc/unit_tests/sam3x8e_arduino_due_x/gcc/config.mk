@@ -64,6 +64,7 @@ CSRCS = \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/services/flash_efc/flash_efc.c                 \
        sam/services/flash_efc/unit_tests/unit_tests.c     \
        sam/utils/cmsis/sam3x/source/templates/exceptions.c \
@@ -89,6 +90,7 @@ INC_PATH = \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/services/flash_efc                             \
        sam/services/flash_efc/unit_tests                  \
        sam/services/flash_efc/unit_tests/sam3x8e_arduino_due_x \

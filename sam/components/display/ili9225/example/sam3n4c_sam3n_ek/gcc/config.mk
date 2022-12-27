@@ -59,6 +59,7 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/sam3n_ek/init.c                         \
+       sam/boards/sam3n_ek/led.c                          \
        sam/components/display/aat31xx/aat31xx.c           \
        sam/components/display/ili9225/example/ili9225_example.c \
        sam/components/display/ili9225/ili9225.c           \
@@ -67,6 +68,7 @@ CSRCS = \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/spi/spi.c                              \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam3n/source/templates/exceptions.c \
        sam/utils/cmsis/sam3n/source/templates/gcc/startup_sam3n.c \
        sam/utils/cmsis/sam3n/source/templates/system_sam3n.c \
@@ -95,6 +97,7 @@ INC_PATH = \
        sam/drivers/pmc                                    \
        sam/drivers/spi                                    \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/utils                                          \
        sam/utils/cmsis/sam3n/include                      \
        sam/utils/cmsis/sam3n/source/templates             \

@@ -59,6 +59,7 @@ CSRCS = \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c                     \
        sam/boards/sam3x_ek/init.c                         \
+       sam/boards/sam3x_ek/led.c                          \
        sam/components/ethernet_phy/dm9161a/dm9161a.c      \
        sam/drivers/efc/efc.c                              \
        sam/drivers/emac/emac.c                            \
@@ -68,6 +69,7 @@ CSRCS = \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/rstc/rstc.c                            \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/services/flash_efc/flash_efc.c                 \
        sam/utils/cmsis/sam3x/source/templates/exceptions.c \
        sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.c \
@@ -97,6 +99,7 @@ INC_PATH = \
        sam/drivers/pmc                                    \
        sam/drivers/rstc                                   \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/services/flash_efc                             \
        sam/utils                                          \
        sam/utils/cmsis/sam3x/include                      \

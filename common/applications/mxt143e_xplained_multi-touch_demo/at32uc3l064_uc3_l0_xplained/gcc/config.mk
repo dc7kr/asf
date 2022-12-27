@@ -66,7 +66,7 @@ CSRCS = \
        avr32/drivers/spi/spi.c                            \
        avr32/drivers/twim/twim.c                          \
        common/applications/mxt143e_xplained_multi-touch_demo/multi-touch_demo.c \
-       common/components/display_controller/ili9341/ili9341.c \
+       common/components/display/ili9341/ili9341.c        \
        common/components/touch/mxt/mxt_device.c           \
        common/services/clock/uc3l/dfll.c                  \
        common/services/clock/uc3l/osc.c                   \
@@ -98,7 +98,7 @@ INC_PATH = \
        common/applications/mxt143e_xplained_multi-touch_demo \
        common/applications/mxt143e_xplained_multi-touch_demo/at32uc3l064_uc3_l0_xplained \
        common/boards                                      \
-       common/components/display_controller/ili9341       \
+       common/components/display/ili9341                  \
        common/components/touch/mxt                        \
        common/services/clock                              \
        common/services/delay                              \

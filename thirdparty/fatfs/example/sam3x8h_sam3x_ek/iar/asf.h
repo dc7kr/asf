@@ -56,6 +56,12 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: DMAC - DMAC Controller
+#include <dmac.h>
+
+// From module: Delay routines
+#include <delay.h>
+
 // From module: FatFS file system
 #include <diskio.h>
 #include <ff.h>
@@ -73,6 +79,16 @@
 
 // From module: Memory Control Access Interface
 #include <ctrl_access.h>
+
+// From module: NAND Flash on EBI
+#include <nand_flash_common.h>
+#include <nand_flash_ecc.h>
+#include <nand_flash_management.h>
+#include <nand_flash_mem.h>
+#include <nand_flash_model.h>
+#include <nand_flash_raw.h>
+#include <nand_flash_spare_scheme.h>
+#include <nand_flash_translation.h>
 
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
@@ -93,6 +109,16 @@
 // From module: SAM3X startup code
 #include <exceptions.h>
 
+// From module: SMC - Static Memory Controller
+#include <smc.h>
+
+// From module: SPI - SAM Implementation
+#include <spi_master.h>
+#include <spi_master.h>
+
+// From module: SPI - Serial Peripheral Interface
+#include <spi.h>
+
 // From module: Standard serial I/O (stdio) - SAM implementation
 #include <stdio_serial.h>
 
@@ -108,8 +134,11 @@
 // From module: UART - Univ. Async Rec/Trans
 #include <uart.h>
 
-// From module: USART - Serial interface
+// From module: USART - Serial interface - SAM implementation for devices with both UART and USART
 #include <serial.h>
+
+// From module: USART - Univ. Syn Async Rec/Trans
+#include <usart.h>
 
 // From module: Virtual Memory in RAM
 #include <virtual_mem.h>

@@ -59,6 +59,7 @@ CSRCS = \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c                     \
        sam/boards/sam3u_ek/init.c                         \
+       sam/boards/sam3u_ek/led.c                          \
        sam/drivers/pdc/pdc.c                              \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
@@ -66,6 +67,7 @@ CSRCS = \
        sam/drivers/pwm/pwm.c                              \
        sam/drivers/pwm/unit_tests/unit_tests.c            \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam3u/source/templates/exceptions.c \
        sam/utils/cmsis/sam3u/source/templates/gcc/startup_sam3u.c \
        sam/utils/cmsis/sam3u/source/templates/system_sam3u.c \
@@ -92,6 +94,7 @@ INC_PATH = \
        sam/drivers/pwm/unit_tests                         \
        sam/drivers/pwm/unit_tests/sam3u4e_sam3u_ek        \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/utils                                          \
        sam/utils/cmsis/sam3u/include                      \
        sam/utils/cmsis/sam3u/source/templates             \

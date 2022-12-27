@@ -52,7 +52,7 @@ TARGET_SRAM = gfx_example1_sram.elf
 
 # List of C source files.
 CSRCS = \
-       common/components/display_controller/ili9341/ili9341.c \
+       common/components/display/ili9341/ili9341.c        \
        common/services/clock/sam4s/sysclk.c               \
        common/services/delay/sam/cycle_counter.c          \
        common/services/gfx/example1/example1.c            \
@@ -63,13 +63,16 @@ CSRCS = \
        common/services/spi/sam_spi/spi_master.c           \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam4s_xplained/init.c                   \
+       sam/boards/sam4s_xplained/led.c                    \
+       sam/drivers/pdc/pdc.c                              \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/spi/spi.c                              \
        sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
-       sam/utils/cmsis/sam4s/source/templates/system_sam4s.c
+       sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
+       sam/utils/syscalls/gcc/syscalls.c
 
 # List of assembler source files.
 ASSRCS = 
@@ -77,7 +80,7 @@ ASSRCS =
 # List of include paths.
 INC_PATH = \
        common/boards                                      \
-       common/components/display_controller/ili9341       \
+       common/components/display/ili9341                  \
        common/services/clock                              \
        common/services/delay                              \
        common/services/gfx                                \
@@ -89,6 +92,7 @@ INC_PATH = \
        common/utils                                       \
        sam/boards                                         \
        sam/boards/sam4s_xplained                          \
+       sam/drivers/pdc                                    \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/spi                                    \

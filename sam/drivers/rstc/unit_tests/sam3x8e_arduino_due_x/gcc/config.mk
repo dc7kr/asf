@@ -66,6 +66,7 @@ CSRCS = \
        sam/drivers/rstc/rstc.c                            \
        sam/drivers/rstc/unit_tests/unit_tests.c           \
        sam/drivers/uart/uart.c                            \
+       sam/drivers/usart/usart.c                          \
        sam/drivers/wdt/wdt.c                              \
        sam/utils/cmsis/sam3x/source/templates/exceptions.c \
        sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.c \
@@ -93,6 +94,7 @@ INC_PATH = \
        sam/drivers/rstc/unit_tests                        \
        sam/drivers/rstc/unit_tests/sam3x8e_arduino_due_x  \
        sam/drivers/uart                                   \
+       sam/drivers/usart                                  \
        sam/drivers/wdt                                    \
        sam/utils                                          \
        sam/utils/cmsis/sam3x/include                      \

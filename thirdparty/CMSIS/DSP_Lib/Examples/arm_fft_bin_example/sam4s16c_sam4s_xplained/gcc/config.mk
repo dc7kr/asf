@@ -54,12 +54,14 @@ TARGET_SRAM = examples_arm_fft_bin_example_sram.elf
 CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam4s_xplained/init.c                   \
+       sam/boards/sam4s_xplained/led.c                    \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
+       sam/utils/syscalls/gcc/syscalls.c                  \
        thirdparty/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/arm_fft_bin_data.c \
        thirdparty/CMSIS/DSP_Lib/Examples/arm_fft_bin_example/arm_fft_bin_example_f32.c
 
