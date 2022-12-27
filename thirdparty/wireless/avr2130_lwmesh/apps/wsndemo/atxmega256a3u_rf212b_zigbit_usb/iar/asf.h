@@ -117,7 +117,7 @@
 #include <compiler.h>
 #include <status_codes.h>
 
-// From module: XMEGA-ZIGBIT RF233 LED support enabled
+// From module: XMEGA-ZIGBIT RF212b LED support enabled
 #include <led.h>
 
 #endif // ASF_H

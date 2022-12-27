@@ -411,11 +411,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/at86rf231/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
@@ -728,11 +728,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/at86rf231/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
@@ -1510,11 +1510,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/at86rf231/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
@@ -1827,11 +1827,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/at86rf231/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
@@ -2234,6 +2234,30 @@
 						<name>$PROJ_DIR$/../../../../../../../../services/trx_access/trx_access.h</name>
 					</file>
 				</group>
+				<group>
+					<name>sal</name>
+					<group>
+						<name>atxmega_sal</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../services/sal/atxmega_sal/src/sal.c</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>inc</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../services/sal/inc/sal.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../services/sal/inc/sal_types.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../services/sal/inc/sal_generic.h</name>
+						</file>
+					</group>
+				</group>
 			</group>
 			<group>
 				<name>avr2025_mac</name>
@@ -2256,10 +2280,10 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_poll.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_ind.c</name>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_mcps_data.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_api.c</name>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_ind.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_orphan.c</name>
@@ -2289,9 +2313,6 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_dispatcher.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_tx_coord_realignment_command.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_extract_mhr.c</name>
 							</file>
 							<file>
@@ -2299,6 +2320,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_security.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_api.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_scan.c</name>
@@ -2310,7 +2334,7 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_process_tal_tx_frame_status.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_mcps_data.c</name>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_tx_coord_realignment_command.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_process_beacon_frame.c</name>
@@ -2408,13 +2432,13 @@
 									<name>$PROJ_DIR$/../../../../../../../source/tal/at86rf231/src/tal_slotted_csma.c</name>
 								</file>
 								<file>
+									<name>$PROJ_DIR$/../../../../../../../source/tal/at86rf231/src/tal_pwr_mgmt.c</name>
+								</file>
+								<file>
 									<name>$PROJ_DIR$/../../../../../../../source/tal/at86rf231/src/tal_pib.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../source/tal/at86rf231/src/tal_init.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../source/tal/at86rf231/src/tal_pwr_mgmt.c</name>
 								</file>
 							</group>
 							<group>
@@ -2478,9 +2502,6 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../source/pal/pal.c</name>
 						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../source/pal/pal_ext_trx.c</name>
-						</file>
 						<group>
 							<name>common_sw_timer</name>
 							<file>
@@ -2496,33 +2517,6 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../source/pal/pal.h</name>
 						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../source/pal/pal_ext_trx.h</name>
-						</file>
-					</group>
-					<group>
-						<name>sal</name>
-						<group>
-							<name>atxmega_sal</name>
-							<group>
-								<name>src</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../source/sal/atxmega_sal/src/sal.c</name>
-								</file>
-							</group>
-						</group>
-						<group>
-							<name>inc</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal_generic.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal_types.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal.h</name>
-							</file>
-						</group>
 					</group>
 					<group>
 						<name>stb</name>
@@ -2532,10 +2526,10 @@
 								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb_help.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb.c</name>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb_armcrypto.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb_armcrypto.c</name>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb.c</name>
 							</file>
 						</group>
 						<group>
@@ -2884,21 +2878,21 @@
 				</file>
 			</group>
 			<group>
-				<name>usb</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usb/usb_device.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usb/usb_device.h</name>
-				</file>
-			</group>
-			<group>
 				<name>tc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/tc/tc.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/tc/tc.h</name>
+				</file>
+			</group>
+			<group>
+				<name>usb</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usb/usb_device.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usb/usb_device.h</name>
 				</file>
 			</group>
 			<group>

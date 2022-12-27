@@ -2083,9 +2083,6 @@
 					</group>
 					<group>
 						<name>pal</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal_ext_trx.c</name>
-						</file>
 						<group>
 							<name>common_sw_timer</name>
 							<file>
@@ -2103,9 +2100,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../pal/pal.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal_ext_trx.h</name>
 						</file>
 					</group>
 					<group>

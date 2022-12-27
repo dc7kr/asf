@@ -246,6 +246,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state></state>
+					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>PHY_ATMEGARFA1</state>
 					<state>BOARD=ATMEGARFX_RCB</state>
 				</option>
@@ -414,6 +415,7 @@
 					<state></state>
 					<state>$PROJ_DIR$/../../../../../../../mega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../mega/utils</state>
+					<state>$PROJ_DIR$/../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../mega/drivers/macsc</state>
 					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../source/phy/atmegarfa1/inc</state>
@@ -561,6 +563,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>PHY_ATMEGARFA1</state>
 					<state>BOARD=ATMEGARFX_RCB</state>
 				</option>
@@ -682,6 +685,7 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$PROJ_DIR$/../../../../../../../mega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../mega/utils</state>
+					<state>$PROJ_DIR$/../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../mega/drivers/macsc</state>
 					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../source/phy/atmegarfa1/inc</state>
@@ -1287,6 +1291,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
+					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>PHY_ATMEGARFA1</state>
 					<state>BOARD=ATMEGARFX_RCB</state>
 				</option>
@@ -1455,6 +1460,7 @@
 					<state></state>
 					<state>$PROJ_DIR$/../../../../../../../mega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../mega/utils</state>
+					<state>$PROJ_DIR$/../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../mega/drivers/macsc</state>
 					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../source/phy/atmegarfa1/inc</state>
@@ -1602,6 +1608,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>PHY_ATMEGARFA1</state>
 					<state>BOARD=ATMEGARFX_RCB</state>
 				</option>
@@ -1723,6 +1730,7 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$PROJ_DIR$/../../../../../../../mega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../mega/utils</state>
+					<state>$PROJ_DIR$/../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../mega/drivers/macsc</state>
 					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../source/phy/atmegarfa1/inc</state>
@@ -2136,6 +2144,30 @@
 						</group>
 					</group>
 				</group>
+				<group>
+					<name>sal</name>
+					<group>
+						<name>atmegarf_sal</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../services/sal/atmegarf_sal/src/sal.c</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>inc</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../services/sal/inc/sal_generic.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../services/sal/inc/sal.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../services/sal/inc/sal_types.h</name>
+						</file>
+					</group>
+				</group>
 			</group>
 			<group>
 				<name>avr2130_lwmesh</name>
@@ -2227,13 +2259,10 @@
 								<name>$PROJ_DIR$/../../../../source/sys/inc/sys.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../source/sys/inc/sysEncrypt.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../source/sys/inc/sysConfig.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../source/sys/inc/sysTypes.h</name>
+								<name>$PROJ_DIR$/../../../../source/sys/inc/sysEncrypt.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../source/sys/inc/sysTimer.h</name>
@@ -2269,13 +2298,19 @@
 						<file>
 							<name>$PROJ_DIR$/../../wsndemo.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../commands.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../main.c</name>
+						</file>
 						<group>
 							<name>atmega128rfa1_rcb</name>
 							<file>
 								<name>$PROJ_DIR$/../conf_usart_serial.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../conf_sio2host.h</name>
+								<name>$PROJ_DIR$/../conf_trx_access.h</name>
 							</file>
 							<group>
 								<name>iar</name>
@@ -2290,6 +2325,9 @@
 								<name>$PROJ_DIR$/../conf_hw_timer.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../conf_sio2host.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../conf_board.h</name>
 							</file>
 							<file>
@@ -2297,10 +2335,13 @@
 							</file>
 						</group>
 						<file>
-							<name>$PROJ_DIR$/../../conf_trx_access.h</name>
+							<name>$PROJ_DIR$/../../config.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../config.h</name>
+							<name>$PROJ_DIR$/../../commands.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../wsndemo.h</name>
 						</file>
 					</group>
 				</group>
@@ -2398,6 +2439,9 @@
 					<name>$PROJ_DIR$/../../../../../../../mega/utils/preprocessor/mrepeat.h</name>
 				</file>
 			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../mega/utils/status_codes.h</name>
+			</file>
 			<group>
 				<name>assembler</name>
 				<file>
@@ -2406,9 +2450,6 @@
 			</group>
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../mega/utils/progmem.h</name>
-			</file>
-			<file>
-				<name>$PROJ_DIR$/../../../../../../../mega/utils/status_codes.h</name>
 			</file>
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../mega/utils/assembler.h</name>
@@ -2442,15 +2483,15 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../common/services/serial/usart_serial.c</name>
 				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../common/services/serial/serial.h</name>
-				</file>
 				<group>
 					<name>megarf_usart</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../common/services/serial/megarf_usart/usart_serial.h</name>
 					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/services/serial/serial.h</name>
+				</file>
 			</group>
 			<group>
 				<name>clock</name>
@@ -2480,6 +2521,18 @@
 				</file>
 			</group>
 			<group>
+				<name>gpio</name>
+				<group>
+					<name>mega_gpio</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../common/services/gpio/mega_gpio/mega_gpio.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/services/gpio/gpio.h</name>
+				</file>
+			</group>
+			<group>
 				<name>delay</name>
 				<group>
 					<name>mega</name>
@@ -2490,18 +2543,6 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../common/services/delay/delay.h</name>
 				</file>
-			</group>
-			<group>
-				<name>gpio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../common/services/gpio/gpio.h</name>
-				</file>
-				<group>
-					<name>mega_gpio</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../common/services/gpio/mega_gpio/mega_gpio.h</name>
-					</file>
-				</group>
 			</group>
 		</group>
 		<group>

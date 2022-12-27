@@ -311,6 +311,7 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common2/services/delay</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/component</state>
 					<state>$PROJ_DIR$/../../../../sercom</state>
@@ -318,7 +319,6 @@
 					<state>$PROJ_DIR$/../../../../sercom/usart</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include</state>
@@ -593,6 +593,7 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common2/services/delay</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/component</state>
 					<state>$PROJ_DIR$/../../../../sercom</state>
@@ -600,7 +601,6 @@
 					<state>$PROJ_DIR$/../../../../sercom/usart</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include</state>
@@ -1300,6 +1300,7 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common2/services/delay</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/component</state>
 					<state>$PROJ_DIR$/../../../../sercom</state>
@@ -1307,7 +1308,6 @@
 					<state>$PROJ_DIR$/../../../../sercom/usart</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include</state>
@@ -1582,6 +1582,7 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common2/services/delay</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/component</state>
 					<state>$PROJ_DIR$/../../../../sercom</state>
@@ -1589,7 +1590,6 @@
 					<state>$PROJ_DIR$/../../../../sercom/usart</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include</state>
@@ -2005,15 +2005,15 @@
 				<group>
 					<name>clock</name>
 					<group>
-						<name>clock_samd21</name>
+						<name>clock_samd21_r21</name>
 						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21/clock.c</name>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/gclk.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21/gclk.c</name>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21/clock_config_check.h</name>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock_config_check.h</name>
 						</file>
 					</group>
 					<file>

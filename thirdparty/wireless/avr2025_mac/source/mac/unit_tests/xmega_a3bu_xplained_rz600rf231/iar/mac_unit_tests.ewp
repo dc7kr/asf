@@ -413,13 +413,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../../tal/at86rf231/inc</state>
+					<state>$PROJ_DIR$/../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../stb/inc</state>
-					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
@@ -729,13 +729,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../../tal/at86rf231/inc</state>
+					<state>$PROJ_DIR$/../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../stb/inc</state>
-					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
@@ -1510,13 +1510,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../../tal/at86rf231/inc</state>
+					<state>$PROJ_DIR$/../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../stb/inc</state>
-					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
@@ -1826,13 +1826,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../../tal/at86rf231/inc</state>
+					<state>$PROJ_DIR$/../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../stb/inc</state>
-					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
@@ -2222,6 +2222,30 @@
 					</file>
 				</group>
 				<group>
+					<name>sal</name>
+					<group>
+						<name>atxmega_sal</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../services/sal/atxmega_sal/src/sal.c</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>inc</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../services/sal/inc/sal_types.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../services/sal/inc/sal_generic.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../services/sal/inc/sal.h</name>
+						</file>
+					</group>
+				</group>
+				<group>
 					<name>trx_access</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../services/trx_access/trx_access.c</name>
@@ -2297,9 +2321,6 @@
 								<name>$PROJ_DIR$/../../../src/mac_data_req.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../src/mac_poll.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../src/mac_mcps_data.c</name>
 							</file>
 							<file>
@@ -2310,6 +2331,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../src/mac_data_extract_mhr.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../src/mac_poll.c</name>
 							</file>
 						</group>
 						<group>
@@ -2562,41 +2586,11 @@
 							<name>$PROJ_DIR$/../../../../pal/pal.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal_ext_trx.c</name>
-						</file>
-						<file>
 							<name>$PROJ_DIR$/../../../../pal/pal_generic.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../pal/pal.h</name>
 						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal_ext_trx.h</name>
-						</file>
-					</group>
-					<group>
-						<name>sal</name>
-						<group>
-							<name>atxmega_sal</name>
-							<group>
-								<name>src</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../sal/atxmega_sal/src/sal.c</name>
-								</file>
-							</group>
-						</group>
-						<group>
-							<name>inc</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../sal/inc/sal.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../sal/inc/sal_generic.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../sal/inc/sal_types.h</name>
-							</file>
-						</group>
 					</group>
 				</group>
 				<group>

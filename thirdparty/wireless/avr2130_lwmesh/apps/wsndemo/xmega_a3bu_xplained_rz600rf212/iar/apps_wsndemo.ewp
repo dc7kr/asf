@@ -236,8 +236,9 @@
 				<option>
 					<name>CCDefines</name>
 					<state></state>
-					<state>PHY_AT86RF212</state>
 					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>PHY_AT86RF212</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
@@ -401,11 +402,12 @@
 					<state>$PROJ_DIR$/../../../../../../../common/services/spi/xmega_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/utils</state>
+					<state>$PROJ_DIR$/../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../services/trx_access</state>
-					<state>$PROJ_DIR$/../../../../../addons/sio2host/usb</state>
-					<state>$PROJ_DIR$/../../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../source/phy/at86rf212/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../addons/sio2host/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../common/services/sleepmgr</state>
@@ -428,7 +430,7 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/spi</state>
-					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
@@ -575,8 +577,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>PHY_AT86RF212</state>
 					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>PHY_AT86RF212</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
@@ -702,11 +705,12 @@
 					<state>$PROJ_DIR$/../../../../../../../common/services/spi/xmega_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/utils</state>
+					<state>$PROJ_DIR$/../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../services/trx_access</state>
-					<state>$PROJ_DIR$/../../../../../addons/sio2host/usb</state>
-					<state>$PROJ_DIR$/../../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../source/phy/at86rf212/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../addons/sio2host/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../common/services/sleepmgr</state>
@@ -729,7 +733,7 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/spi</state>
-					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1303,8 +1307,9 @@
 				<option>
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
-					<state>PHY_AT86RF212</state>
 					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>PHY_AT86RF212</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
@@ -1468,11 +1473,12 @@
 					<state>$PROJ_DIR$/../../../../../../../common/services/spi/xmega_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/utils</state>
+					<state>$PROJ_DIR$/../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../services/trx_access</state>
-					<state>$PROJ_DIR$/../../../../../addons/sio2host/usb</state>
-					<state>$PROJ_DIR$/../../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../source/phy/at86rf212/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../addons/sio2host/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../common/services/sleepmgr</state>
@@ -1495,7 +1501,7 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/spi</state>
-					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1642,8 +1648,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>PHY_AT86RF212</state>
 					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>PHY_AT86RF212</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
@@ -1769,11 +1776,12 @@
 					<state>$PROJ_DIR$/../../../../../../../common/services/spi/xmega_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/utils</state>
+					<state>$PROJ_DIR$/../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../services/trx_access</state>
-					<state>$PROJ_DIR$/../../../../../addons/sio2host/usb</state>
-					<state>$PROJ_DIR$/../../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../source/phy/at86rf212/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../addons/sio2host/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../common/services/sleepmgr</state>
@@ -1796,7 +1804,7 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/spi</state>
-					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
@@ -2182,6 +2190,30 @@
 						<name>$PROJ_DIR$/../../../../../services/sleep_mgr/sleep_mgr.h</name>
 					</file>
 				</group>
+				<group>
+					<name>sal</name>
+					<group>
+						<name>atxmega_sal</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../services/sal/atxmega_sal/src/sal.c</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>inc</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../services/sal/inc/sal_generic.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../services/sal/inc/sal.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../services/sal/inc/sal_types.h</name>
+						</file>
+					</group>
+				</group>
 			</group>
 			<group>
 				<name>avr2130_lwmesh</name>
@@ -2207,13 +2239,10 @@
 								<name>$PROJ_DIR$/../../../../source/sys/inc/sys.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../source/sys/inc/sysEncrypt.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../source/sys/inc/sysTypes.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../source/sys/inc/sysConfig.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../source/sys/inc/sysEncrypt.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../source/sys/inc/sysTimer.h</name>
@@ -2258,13 +2287,22 @@
 								<name>$PROJ_DIR$/../../../../source/nwk/inc/nwkCommand.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../source/nwk/inc/nwkRx.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../source/nwk/inc/nwkRoute.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../source/nwk/inc/nwkGroup.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../source/nwk/inc/nwkRouteDiscovery.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../source/nwk/inc/nwkDataReq.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../source/nwk/inc/nwkTx.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../source/nwk/inc/nwkRoute.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../source/nwk/inc/nwk.h</name>
@@ -2273,16 +2311,7 @@
 								<name>$PROJ_DIR$/../../../../source/nwk/inc/nwkSecurity.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../source/nwk/inc/nwkRx.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../source/nwk/inc/nwkFrame.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../source/nwk/inc/nwkGroup.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../source/nwk/inc/nwkRouteDiscovery.h</name>
 							</file>
 						</group>
 					</group>
@@ -2299,10 +2328,10 @@
 							<group>
 								<name>inc</name>
 								<file>
-									<name>$PROJ_DIR$/../../../../source/phy/at86rf212/inc/at86rf212.h</name>
+									<name>$PROJ_DIR$/../../../../source/phy/at86rf212/inc/phy.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../source/phy/at86rf212/inc/phy.h</name>
+									<name>$PROJ_DIR$/../../../../source/phy/at86rf212/inc/at86rf212.h</name>
 								</file>
 							</group>
 						</group>
@@ -2315,16 +2344,25 @@
 						<file>
 							<name>$PROJ_DIR$/../../wsndemo.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../commands.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../main.c</name>
+						</file>
 						<group>
 							<name>xmega_a3bu_xplained_rz600rf212</name>
+							<file>
+								<name>$PROJ_DIR$/../conf_trx_access.h</name>
+							</file>
 							<file>
 								<name>$PROJ_DIR$/../conf_sio2host.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../conf_board.h</name>
+								<name>$PROJ_DIR$/../conf_clock.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
+								<name>$PROJ_DIR$/../conf_board.h</name>
 							</file>
 							<group>
 								<name>iar</name>
@@ -2333,23 +2371,26 @@
 								</file>
 							</group>
 							<file>
+								<name>$PROJ_DIR$/../conf_usb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../conf_hw_timer.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../conf_spi_master.h</name>
 							</file>
-							<file>
-								<name>$PROJ_DIR$/../conf_clock.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../conf_usb.h</name>
-							</file>
 						</group>
 						<file>
-							<name>$PROJ_DIR$/../../conf_trx_access.h</name>
+							<name>$PROJ_DIR$/../../config.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../config.h</name>
+							<name>$PROJ_DIR$/../../commands.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../wsndemo.h</name>
 						</file>
 					</group>
 				</group>
@@ -2462,18 +2503,24 @@
 					<name>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor/tpaste.h</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor/stringz.h</name>
+					<name>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor/preprocessor.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor/mrepeat.h</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor/preprocessor.h</name>
+					<name>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor/stringz.h</name>
 				</file>
 			</group>
 			<file>
-				<name>$PROJ_DIR$/../../../../../../../xmega/utils/status_codes.h</name>
+				<name>$PROJ_DIR$/../../../../../../../xmega/utils/assembler.h</name>
 			</file>
+			<group>
+				<name>assembler</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../xmega/utils/assembler/iar.h</name>
+				</file>
+			</group>
 			<group>
 				<name>bit_handling</name>
 				<file>
@@ -2484,14 +2531,8 @@
 				<name>$PROJ_DIR$/../../../../../../../xmega/utils/compiler.h</name>
 			</file>
 			<file>
-				<name>$PROJ_DIR$/../../../../../../../xmega/utils/assembler.h</name>
+				<name>$PROJ_DIR$/../../../../../../../xmega/utils/status_codes.h</name>
 			</file>
-			<group>
-				<name>assembler</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../xmega/utils/assembler/iar.h</name>
-				</file>
-			</group>
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../xmega/utils/progmem.h</name>
 			</file>
@@ -2509,10 +2550,10 @@
 						<name>$PROJ_DIR$/../../../../../../../common/services/clock/xmega/sysclk.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../common/services/clock/xmega/osc.h</name>
+						<name>$PROJ_DIR$/../../../../../../../common/services/clock/xmega/sysclk.h</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../common/services/clock/xmega/sysclk.h</name>
+						<name>$PROJ_DIR$/../../../../../../../common/services/clock/xmega/osc.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../common/services/clock/xmega/pll.h</name>
@@ -2522,13 +2563,13 @@
 					<name>$PROJ_DIR$/../../../../../../../common/services/clock/sysclk.h</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../common/services/clock/pll.h</name>
+					<name>$PROJ_DIR$/../../../../../../../common/services/clock/osc.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../common/services/clock/genclk.h</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../common/services/clock/osc.h</name>
+					<name>$PROJ_DIR$/../../../../../../../common/services/clock/pll.h</name>
 				</file>
 			</group>
 			<group>
@@ -2569,13 +2610,13 @@
 						<name>$PROJ_DIR$/../../../../../../../common/services/usb/udc/udc.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../common/services/usb/udc/udi.h</name>
+						<name>$PROJ_DIR$/../../../../../../../common/services/usb/udc/udd.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../common/services/usb/udc/udc.h</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../common/services/usb/udc/udd.h</name>
+						<name>$PROJ_DIR$/../../../../../../../common/services/usb/udc/udi.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../common/services/usb/udc/udc_desc.h</name>
@@ -2620,10 +2661,10 @@
 						<name>$PROJ_DIR$/../../../../../../../common/services/ioport/xmega/ioport_compat.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../common/services/ioport/xmega/ioport.h</name>
+						<name>$PROJ_DIR$/../../../../../../../common/services/ioport/xmega/ioport_compat.h</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../common/services/ioport/xmega/ioport_compat.h</name>
+						<name>$PROJ_DIR$/../../../../../../../common/services/ioport/xmega/ioport.h</name>
 					</file>
 				</group>
 				<file>
@@ -2678,15 +2719,15 @@
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../common/utils/interrupt.h</name>
 			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../common/utils/parts.h</name>
+			</file>
 			<group>
 				<name>interrupt</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../common/utils/interrupt/interrupt_avr8.h</name>
 				</file>
 			</group>
-			<file>
-				<name>$PROJ_DIR$/../../../../../../../common/utils/parts.h</name>
-			</file>
 		</group>
 		<group>
 			<name>boards</name>

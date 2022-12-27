@@ -1944,6 +1944,9 @@
 					<file>
 						<name>$PROJ_DIR$/../../qs_tc_basic.h</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../conf_quick_start.h</name>
+					</file>
 					<group>
 						<name>samd20_xplained_pro</name>
 						<file>
@@ -1955,9 +1958,6 @@
 								<name>$PROJ_DIR$/asf.h</name>
 							</file>
 						</group>
-						<file>
-							<name>$PROJ_DIR$/../conf_quick_start.h</name>
-						</file>
 						<file>
 							<name>$PROJ_DIR$/../conf_clocks.h</name>
 						</file>

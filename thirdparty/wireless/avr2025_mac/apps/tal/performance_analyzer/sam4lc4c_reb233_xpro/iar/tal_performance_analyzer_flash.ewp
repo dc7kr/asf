@@ -166,10 +166,12 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
+					<state>ANTENNA_DIVERSITY=0</state>
 					<state>FFD</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>ENABLE_TFA</state>
 					<state>TAL_TYPE=AT86RF233</state>
+					<state>_DEBUG_=0</state>
 					<state>__SAM4LC4C__</state>
 					<state>TRX_REG_RAW_VALUE</state>
 					<state>HIGHEST_STACK_LAYER=TAL</state>
@@ -306,7 +308,7 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/spi/sam_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
@@ -320,7 +322,7 @@
 					<state>$PROJ_DIR$/../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../../inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../source/tfa/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
@@ -338,13 +340,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/tc</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam4l_xplained_pro</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/bpm</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -494,10 +496,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>ANTENNA_DIVERSITY=0</state>
 					<state>FFD</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>ENABLE_TFA</state>
 					<state>TAL_TYPE=AT86RF233</state>
+					<state>_DEBUG_=0</state>
 					<state>__SAM4LC4C__</state>
 					<state>TRX_REG_RAW_VALUE</state>
 					<state>HIGHEST_STACK_LAYER=TAL</state>
@@ -601,7 +605,7 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/spi/sam_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
@@ -615,7 +619,7 @@
 					<state>$PROJ_DIR$/../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../../inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../source/tfa/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
@@ -633,13 +637,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/tc</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam4l_xplained_pro</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/bpm</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1181,10 +1185,12 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
+					<state>ANTENNA_DIVERSITY=0</state>
 					<state>FFD</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>ENABLE_TFA</state>
 					<state>TAL_TYPE=AT86RF233</state>
+					<state>_DEBUG_=0</state>
 					<state>__SAM4LC4C__</state>
 					<state>TRX_REG_RAW_VALUE</state>
 					<state>HIGHEST_STACK_LAYER=TAL</state>
@@ -1321,7 +1327,7 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/spi/sam_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
@@ -1335,7 +1341,7 @@
 					<state>$PROJ_DIR$/../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../../inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../source/tfa/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
@@ -1353,13 +1359,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/tc</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam4l_xplained_pro</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/bpm</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1509,10 +1515,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>ANTENNA_DIVERSITY=0</state>
 					<state>FFD</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>ENABLE_TFA</state>
 					<state>TAL_TYPE=AT86RF233</state>
+					<state>_DEBUG_=0</state>
 					<state>__SAM4LC4C__</state>
 					<state>TRX_REG_RAW_VALUE</state>
 					<state>HIGHEST_STACK_LAYER=TAL</state>
@@ -1616,7 +1624,7 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/spi/sam_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
@@ -1630,7 +1638,7 @@
 					<state>$PROJ_DIR$/../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../../inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../source/tfa/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
@@ -1648,13 +1656,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/tc</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam4l_xplained_pro</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/bpm</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -2099,47 +2107,29 @@
 									<name>$PROJ_DIR$/../../src/init_state.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../src/main.c</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../src/peer_search_initiator.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../src/per_mode_receptor.c</name>
 								</file>
 								<file>
+									<name>$PROJ_DIR$/../../src/performance_main.c</name>
+								</file>
+								<file>
 									<name>$PROJ_DIR$/../../src/wait_for_event.c</name>
 								</file>
 							</group>
-							<group>
-								<name>sam4lc4c_reb233_xpro</name>
-								<file>
-									<name>$PROJ_DIR$/../conf_sio2host.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../conf_uart_serial.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../conf_clock.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../conf_board.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../conf_spi_master.h</name>
-								</file>
-								<group>
-									<name>iar</name>
-									<file>
-										<name>$PROJ_DIR$/asf.h</name>
-									</file>
-								</group>
-								<file>
-									<name>$PROJ_DIR$/../conf_hw_timer.h</name>
-								</file>
-							</group>
+							<file>
+								<name>$PROJ_DIR$/../../main.c</name>
+							</file>
 							<group>
 								<name>inc</name>
+								<file>
+									<name>$PROJ_DIR$/../../inc/app_frame_format.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../inc/performance_main.h</name>
+								</file>
 								<file>
 									<name>$PROJ_DIR$/../../inc/perf_api.h</name>
 								</file>
@@ -2156,9 +2146,6 @@
 									<name>$PROJ_DIR$/../../inc/app_range_mode.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../inc/app_frame_format.h</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../inc/perf_api_serial_handler.h</name>
 								</file>
 								<file>
@@ -2171,11 +2158,38 @@
 									<name>$PROJ_DIR$/../../inc/app_init.h</name>
 								</file>
 							</group>
+							<group>
+								<name>sam4lc4c_reb233_xpro</name>
+								<file>
+									<name>$PROJ_DIR$/../conf_trx_access.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_sio2host.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_uart_serial.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_board.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_spi_master.h</name>
+								</file>
+								<group>
+									<name>iar</name>
+									<file>
+										<name>$PROJ_DIR$/asf.h</name>
+									</file>
+								</group>
+								<file>
+									<name>$PROJ_DIR$/../conf_hw_timer.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_clock.h</name>
+								</file>
+							</group>
 							<file>
 								<name>$PROJ_DIR$/../../conf_common_sw_timer.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../conf_trx_access.h</name>
 							</file>
 						</group>
 					</group>
@@ -2280,9 +2294,6 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../../source/pal/pal.c</name>
 						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal_ext_trx.c</name>
-						</file>
 						<group>
 							<name>common_sw_timer</name>
 							<file>
@@ -2297,9 +2308,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../source/pal/pal_generic.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal_ext_trx.h</name>
 						</file>
 					</group>
 					<group>
@@ -2364,9 +2372,6 @@
 								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_config.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_msg_types.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_api.h</name>
 							</file>
 							<file>
@@ -2374,6 +2379,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_msg_type_data_ind.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_msg_types.h</name>
 							</file>
 						</group>
 					</group>
@@ -2610,16 +2618,10 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_acifc.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_hflashc.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_freqm.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_eic.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_pm.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_twis0.h</name>
@@ -2640,9 +2642,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_smap.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_abdacb.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_aesa.h</name>
 							</file>
 							<file>
@@ -2653,6 +2652,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_wdt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_spi.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_twim0.h</name>
@@ -2697,10 +2699,16 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_pevc.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_pm.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_iisc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_twim1.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_abdacb.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_usart1.h</name>
@@ -2712,19 +2720,19 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_tc0.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_hflashc.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_twim3.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_spi.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_picouart.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_dacc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_pdca.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_picouart.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_hmatrix.h</name>
@@ -2754,6 +2762,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc4a.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls2a.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc4c.h</name>
 							</file>
 							<file>
@@ -2773,9 +2784,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls4c.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls2a.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc4b.h</name>
@@ -2923,9 +2931,6 @@
 							<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/sam4lc2c.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/sam4ls4a.h</name>
-						</file>
-						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/sam4ls2c.h</name>
 						</file>
 						<file>
@@ -2936,6 +2941,9 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/sam4ls4c.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/sam4ls4a.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/sam4lc4b.h</name>
@@ -2976,15 +2984,15 @@
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../../sam/utils/compiler.h</name>
 			</file>
-			<file>
-				<name>$PROJ_DIR$/../../../../../../../../sam/utils/status_codes.h</name>
-			</file>
 			<group>
 				<name>header_files</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/utils/header_files/io.h</name>
 				</file>
 			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../sam/utils/status_codes.h</name>
+			</file>
 		</group>
 		<group>
 			<name>boards</name>

@@ -296,9 +296,11 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../efc</state>
 					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../boards/samg53_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../supc</state>
 					<state>$PROJ_DIR$/../../../../pdc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -565,9 +567,11 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../efc</state>
 					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../boards/samg53_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../supc</state>
 					<state>$PROJ_DIR$/../../../../pdc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1225,9 +1229,11 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../efc</state>
 					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../boards/samg53_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../supc</state>
 					<state>$PROJ_DIR$/../../../../pdc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1494,9 +1500,11 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../efc</state>
 					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../boards/samg53_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../supc</state>
 					<state>$PROJ_DIR$/../../../../pdc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1940,6 +1948,24 @@
 					<name>$PROJ_DIR$/../../../../pmc/sleep.h</name>
 				</file>
 			</group>
+			<group>
+				<name>supc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../supc/supc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../supc/supc.h</name>
+				</file>
+			</group>
+			<group>
+				<name>efc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../efc/efc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../efc/efc.h</name>
+				</file>
+			</group>
 		</group>
 		<group>
 			<name>utils</name>
@@ -2005,10 +2031,13 @@
 									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_piob.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_twi2.h</name>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_i2sc1.h</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_uart0.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_twi2.h</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_rstc.h</name>
@@ -2050,9 +2079,6 @@
 									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_matrix.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_i2sc1.h</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_gpbr.h</name>
 								</file>
 								<file>
@@ -2086,10 +2112,10 @@
 									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/component/component_pdc.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/component/component_rtc.h</name>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/component/component_pdmic.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/component/component_pdmic.h</name>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/component/component_rtc.h</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/component/component_chipid.h</name>

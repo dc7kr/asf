@@ -2353,33 +2353,6 @@
 						</group>
 					</group>
 					<group>
-						<name>pal</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal_ext_trx.c</name>
-						</file>
-						<group>
-							<name>common_sw_timer</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../pal/common_sw_timer/common_sw_timer.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../pal/common_sw_timer/common_sw_timer.h</name>
-							</file>
-						</group>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal_generic.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal_ext_trx.h</name>
-						</file>
-					</group>
-					<group>
 						<name>resources</name>
 						<group>
 							<name>buffer</name>
@@ -2411,6 +2384,27 @@
 								</file>
 							</group>
 						</group>
+					</group>
+					<group>
+						<name>pal</name>
+						<group>
+							<name>common_sw_timer</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../pal/common_sw_timer/common_sw_timer.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../pal/common_sw_timer/common_sw_timer.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../pal/pal.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../pal/pal_generic.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../pal/pal.h</name>
+						</file>
 					</group>
 					<group>
 						<name>mac</name>

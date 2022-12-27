@@ -423,15 +423,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../mega/utils</state>
 					<state>$PROJ_DIR$/../../../../../source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
-					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../../../addons/sio2host/usb_ftdi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../source/tfa/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../mega/boards/atmegarfx_rcb</state>
-					<state>$PROJ_DIR$/../../../../../../addons/sio2host/usb_ftdi</state>
+					<state>$PROJ_DIR$/../../../../../../../../mega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/mega</state>
@@ -440,7 +441,6 @@
 					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/delay</state>
-					<state>$PROJ_DIR$/../../../../../../../../mega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../inc</state>
 					<state>$PROJ_DIR$/../../../../../../services/mega/drivers/tc</state>
@@ -695,15 +695,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../mega/utils</state>
 					<state>$PROJ_DIR$/../../../../../source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
-					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../../../addons/sio2host/usb_ftdi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../source/tfa/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../mega/boards/atmegarfx_rcb</state>
-					<state>$PROJ_DIR$/../../../../../../addons/sio2host/usb_ftdi</state>
+					<state>$PROJ_DIR$/../../../../../../../../mega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/mega</state>
@@ -712,7 +713,6 @@
 					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/delay</state>
-					<state>$PROJ_DIR$/../../../../../../../../mega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../inc</state>
 					<state>$PROJ_DIR$/../../../../../../services/mega/drivers/tc</state>
@@ -1472,15 +1472,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../mega/utils</state>
 					<state>$PROJ_DIR$/../../../../../source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
-					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../../../addons/sio2host/usb_ftdi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../source/tfa/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../mega/boards/atmegarfx_rcb</state>
-					<state>$PROJ_DIR$/../../../../../../addons/sio2host/usb_ftdi</state>
+					<state>$PROJ_DIR$/../../../../../../../../mega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/mega</state>
@@ -1489,7 +1490,6 @@
 					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/delay</state>
-					<state>$PROJ_DIR$/../../../../../../../../mega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../inc</state>
 					<state>$PROJ_DIR$/../../../../../../services/mega/drivers/tc</state>
@@ -1744,15 +1744,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../mega/utils</state>
 					<state>$PROJ_DIR$/../../../../../source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
-					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../../../addons/sio2host/usb_ftdi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../source/tfa/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../mega/boards/atmegarfx_rcb</state>
-					<state>$PROJ_DIR$/../../../../../../addons/sio2host/usb_ftdi</state>
+					<state>$PROJ_DIR$/../../../../../../../../mega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/mega</state>
@@ -1761,7 +1762,6 @@
 					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/delay</state>
-					<state>$PROJ_DIR$/../../../../../../../../mega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../inc</state>
 					<state>$PROJ_DIR$/../../../../../../services/mega/drivers/tc</state>
@@ -2164,7 +2164,7 @@
 									<name>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/src/tal_irq_handler.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/src/tal_init.c</name>
+									<name>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/src/tal_tx.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/src/tal_ed.c</name>
@@ -2173,7 +2173,7 @@
 									<name>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/src/tal_rx_enable.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/src/tal_tx.c</name>
+									<name>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/src/tal_init.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/src/tal_pwr_mgmt.c</name>
@@ -2206,10 +2206,10 @@
 									<name>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/inc/tal_rx.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/inc/tal_internal.h</name>
+									<name>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/inc/tal_tx.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/inc/tal_tx.h</name>
+									<name>$PROJ_DIR$/../../../../../source/tal/atmegarfa1/inc/tal_internal.h</name>
 								</file>
 							</group>
 						</group>
@@ -2222,10 +2222,10 @@
 						<group>
 							<name>inc</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../source/tal/inc/tal_timer_config.h</name>
+								<name>$PROJ_DIR$/../../../../../source/tal/inc/tal.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../source/tal/inc/tal.h</name>
+								<name>$PROJ_DIR$/../../../../../source/tal/inc/tal_timer_config.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/tal/inc/tal_types.h</name>
@@ -2371,12 +2371,15 @@
 									<name>$PROJ_DIR$/../../src/peer_search_initiator.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../src/main.c</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../src/per_mode_initiator.c</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../src/performance_main.c</name>
+								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../main.c</name>
+							</file>
 							<group>
 								<name>atmega128rfa1_rcb</name>
 								<group>
@@ -2404,6 +2407,12 @@
 									<name>$PROJ_DIR$/../../inc/perf_api_serial_handler.h</name>
 								</file>
 								<file>
+									<name>$PROJ_DIR$/../../inc/perf_msg_const.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../inc/performance_main.h</name>
+								</file>
+								<file>
 									<name>$PROJ_DIR$/../../inc/app_config.h</name>
 								</file>
 								<file>
@@ -2425,17 +2434,11 @@
 									<name>$PROJ_DIR$/../../inc/app_range_mode.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../inc/perf_msg_const.h</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../inc/perf_api.h</name>
 								</file>
 							</group>
 							<file>
 								<name>$PROJ_DIR$/../../conf_common_sw_timer.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../conf_trx_access.h</name>
 							</file>
 						</group>
 					</group>
@@ -2443,19 +2446,19 @@
 				<group>
 					<name>include</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../include/tal_build_config.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../include/ieee_const.h</name>
+						<name>$PROJ_DIR$/../../../../../include/mac_build_config.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../include/avr2025_mac.h</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../include/mac_build_config.h</name>
+						<name>$PROJ_DIR$/../../../../../include/return_val.h</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../include/return_val.h</name>
+						<name>$PROJ_DIR$/../../../../../include/tal_build_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/ieee_const.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../include/stack_config.h</name>
@@ -2504,6 +2507,9 @@
 		</group>
 		<group>
 			<name>utils</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../mega/utils/progmem.h</name>
+			</file>
 			<group>
 				<name>assembler</name>
 				<file>
@@ -2525,9 +2531,6 @@
 					<name>$PROJ_DIR$/../../../../../../../../mega/utils/preprocessor/mrepeat.h</name>
 				</file>
 			</group>
-			<file>
-				<name>$PROJ_DIR$/../../../../../../../../mega/utils/progmem.h</name>
-			</file>
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../../mega/utils/status_codes.h</name>
 			</file>

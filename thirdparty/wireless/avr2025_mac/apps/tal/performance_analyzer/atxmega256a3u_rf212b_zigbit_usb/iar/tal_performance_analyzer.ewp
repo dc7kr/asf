@@ -421,16 +421,16 @@
 					<state>$PROJ_DIR$/../../../../../../addons/sio2host/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/nvm</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb/class/cdc</state>
-					<state>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/boards/xmega_rf212b_zigbit</state>
+					<state>$PROJ_DIR$/../../inc</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/at86rf212b/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/xmega</state>
@@ -441,7 +441,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/spi</state>
-					<state>$PROJ_DIR$/../../inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
@@ -735,16 +735,16 @@
 					<state>$PROJ_DIR$/../../../../../../addons/sio2host/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/nvm</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb/class/cdc</state>
-					<state>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/boards/xmega_rf212b_zigbit</state>
+					<state>$PROJ_DIR$/../../inc</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/at86rf212b/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/xmega</state>
@@ -755,7 +755,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/spi</state>
-					<state>$PROJ_DIR$/../../inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1514,16 +1514,16 @@
 					<state>$PROJ_DIR$/../../../../../../addons/sio2host/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/nvm</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb/class/cdc</state>
-					<state>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/boards/xmega_rf212b_zigbit</state>
+					<state>$PROJ_DIR$/../../inc</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/at86rf212b/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/xmega</state>
@@ -1534,7 +1534,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/spi</state>
-					<state>$PROJ_DIR$/../../inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1828,16 +1828,16 @@
 					<state>$PROJ_DIR$/../../../../../../addons/sio2host/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/nvm</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb/class/cdc</state>
-					<state>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/boards/xmega_rf212b_zigbit</state>
+					<state>$PROJ_DIR$/../../inc</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/at86rf212b/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/xmega</state>
@@ -1848,7 +1848,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/spi</state>
-					<state>$PROJ_DIR$/../../inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
@@ -2226,121 +2226,25 @@
 			<group>
 				<name>avr2025_mac</name>
 				<group>
-					<name>apps</name>
+					<name>source</name>
 					<group>
-						<name>tal</name>
+						<name>tfa</name>
 						<group>
-							<name>performance_analyzer</name>
+							<name>at86rf212b</name>
 							<group>
 								<name>src</name>
 								<file>
-									<name>$PROJ_DIR$/../../src/perf_api_serial_handler.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../src/init_state.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../src/user_interface.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../src/wait_for_event.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../src/range_measure.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../src/per_mode_common_utils.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../src/peer_search_receptor.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../src/peer_search_initiator.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../src/main.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../src/per_mode_initiator.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../src/per_mode_receptor.c</name>
+									<name>$PROJ_DIR$/../../../../../source/tfa/at86rf212b/src/tfa.c</name>
 								</file>
 							</group>
-							<group>
-								<name>atxmega256a3u_rf212b_zigbit_usb</name>
-								<file>
-									<name>$PROJ_DIR$/../conf_sio2host.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../conf_clock.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../conf_board.h</name>
-								</file>
-								<group>
-									<name>iar</name>
-									<file>
-										<name>$PROJ_DIR$/asf.h</name>
-									</file>
-								</group>
-								<file>
-									<name>$PROJ_DIR$/../conf_usb.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../conf_spi_master.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../conf_hw_timer.h</name>
-								</file>
-							</group>
-							<group>
-								<name>inc</name>
-								<file>
-									<name>$PROJ_DIR$/../../inc/perf_api.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../inc/perf_msg_const.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../inc/app_peer_search.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../inc/user_interface.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../inc/app_range_mode.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../inc/app_frame_format.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../inc/perf_api_serial_handler.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../inc/app_config.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../inc/app_per_mode.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../inc/app_init.h</name>
-								</file>
-							</group>
+						</group>
+						<group>
+							<name>inc</name>
 							<file>
-								<name>$PROJ_DIR$/../../conf_common_sw_timer.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../conf_trx_access.h</name>
+								<name>$PROJ_DIR$/../../../../../source/tfa/inc/tfa.h</name>
 							</file>
 						</group>
 					</group>
-				</group>
-				<group>
-					<name>source</name>
 					<group>
 						<name>tal</name>
 						<group>
@@ -2449,16 +2353,10 @@
 							</file>
 						</group>
 						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal_ext_trx.c</name>
-						</file>
-						<file>
 							<name>$PROJ_DIR$/../../../../../source/pal/pal.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../source/pal/pal_generic.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal_ext_trx.h</name>
 						</file>
 					</group>
 					<group>
@@ -2495,24 +2393,6 @@
 						</group>
 					</group>
 					<group>
-						<name>tfa</name>
-						<group>
-							<name>at86rf212b</name>
-							<group>
-								<name>src</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../source/tfa/at86rf212b/src/tfa.c</name>
-								</file>
-							</group>
-						</group>
-						<group>
-							<name>inc</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/tfa/inc/tfa.h</name>
-							</file>
-						</group>
-					</group>
-					<group>
 						<name>mac</name>
 						<group>
 							<name>inc</name>
@@ -2533,6 +2413,126 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_msg_types.h</name>
+							</file>
+						</group>
+					</group>
+				</group>
+				<group>
+					<name>apps</name>
+					<group>
+						<name>tal</name>
+						<group>
+							<name>performance_analyzer</name>
+							<group>
+								<name>src</name>
+								<file>
+									<name>$PROJ_DIR$/../../src/perf_api_serial_handler.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../src/init_state.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../src/user_interface.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../src/wait_for_event.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../src/range_measure.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../src/per_mode_common_utils.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../src/peer_search_receptor.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../src/peer_search_initiator.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../src/per_mode_initiator.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../src/per_mode_receptor.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../src/performance_main.c</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../main.c</name>
+							</file>
+							<group>
+								<name>atxmega256a3u_rf212b_zigbit_usb</name>
+								<file>
+									<name>$PROJ_DIR$/../conf_trx_access.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_sio2host.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_clock.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_board.h</name>
+								</file>
+								<group>
+									<name>iar</name>
+									<file>
+										<name>$PROJ_DIR$/asf.h</name>
+									</file>
+								</group>
+								<file>
+									<name>$PROJ_DIR$/../conf_usb.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_spi_master.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_hw_timer.h</name>
+								</file>
+							</group>
+							<group>
+								<name>inc</name>
+								<file>
+									<name>$PROJ_DIR$/../../inc/performance_main.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../inc/perf_api.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../inc/perf_msg_const.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../inc/app_peer_search.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../inc/user_interface.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../inc/app_range_mode.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../inc/app_frame_format.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../inc/perf_api_serial_handler.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../inc/app_config.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../inc/app_per_mode.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../inc/app_init.h</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../conf_common_sw_timer.h</name>
 							</file>
 						</group>
 					</group>

@@ -301,7 +301,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../../sam0/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../services/delay</state>
@@ -575,7 +575,7 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../../sam0/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../services/delay</state>
@@ -1274,7 +1274,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../../sam0/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../services/delay</state>
@@ -1548,7 +1548,7 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../../sam0/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../services/delay</state>
@@ -2019,6 +2019,39 @@
 					<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/system.c</name>
 				</file>
 				<group>
+					<name>clock</name>
+					<group>
+						<name>clock_samd21_r21</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock_samd21_r21/clock.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock_samd21_r21/gclk.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock_samd21_r21/clock_config_check.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/gclk.h</name>
+					</file>
+					<group>
+						<name>quick_start_gclk</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/quick_start_gclk/qs_gclk_basic.h</name>
+						</file>
+					</group>
+					<group>
+						<name>quick_start_clock</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/quick_start_clock/qs_clock_source.h</name>
+						</file>
+					</group>
+				</group>
+				<group>
 					<name>interrupt</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/interrupt/system_interrupt.c</name>
@@ -2054,39 +2087,6 @@
 						<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/pinmux/pinmux.h</name>
 					</file>
 				</group>
-				<group>
-					<name>clock</name>
-					<group>
-						<name>clock_samd21</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock_samd21/clock.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock_samd21/gclk.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock_samd21/clock_config_check.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/clock.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/gclk.h</name>
-					</file>
-					<group>
-						<name>quick_start_gclk</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/quick_start_gclk/qs_gclk_basic.h</name>
-						</file>
-					</group>
-					<group>
-						<name>quick_start_clock</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/clock/quick_start_clock/qs_clock_source.h</name>
-						</file>
-					</group>
-				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam0/drivers/system/system.h</name>
 				</file>
@@ -2108,9 +2108,6 @@
 			</group>
 			<group>
 				<name>sercom</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam0/drivers/sercom/sercom_interrupt.c</name>
-				</file>
 				<group>
 					<name>spi</name>
 					<file>
@@ -2157,6 +2154,9 @@
 					</group>
 				</group>
 				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam0/drivers/sercom/sercom_interrupt.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam0/drivers/sercom/sercom.c</name>
 				</file>
 				<file>
@@ -2178,15 +2178,15 @@
 					<name>samd21</name>
 					<group>
 						<name>source</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd21/source/system_samd21.c</name>
+						</file>
 						<group>
 							<name>iar</name>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd21/source/iar/startup_samd21.c</name>
 							</file>
 						</group>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd21/source/system_samd21.c</name>
-						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd21/source/system_samd21.h</name>
 						</file>

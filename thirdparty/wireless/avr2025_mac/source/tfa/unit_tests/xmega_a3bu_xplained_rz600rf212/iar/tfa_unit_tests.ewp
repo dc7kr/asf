@@ -2381,9 +2381,6 @@
 					<group>
 						<name>pal</name>
 						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal_ext_trx.c</name>
-						</file>
-						<file>
 							<name>$PROJ_DIR$/../../../../pal/pal.c</name>
 						</file>
 						<group>
@@ -2400,9 +2397,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../pal/pal.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal_ext_trx.h</name>
 						</file>
 					</group>
 					<group>

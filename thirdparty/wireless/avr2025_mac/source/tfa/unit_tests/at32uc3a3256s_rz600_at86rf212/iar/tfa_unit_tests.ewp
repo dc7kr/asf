@@ -2075,33 +2075,6 @@
 						</group>
 					</group>
 					<group>
-						<name>pal</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal_ext_trx.c</name>
-						</file>
-						<group>
-							<name>common_sw_timer</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../pal/common_sw_timer/common_sw_timer.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../pal/common_sw_timer/common_sw_timer.h</name>
-							</file>
-						</group>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal_generic.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal_ext_trx.h</name>
-						</file>
-					</group>
-					<group>
 						<name>resources</name>
 						<group>
 							<name>buffer</name>
@@ -2133,6 +2106,27 @@
 								</file>
 							</group>
 						</group>
+					</group>
+					<group>
+						<name>pal</name>
+						<group>
+							<name>common_sw_timer</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../pal/common_sw_timer/common_sw_timer.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../pal/common_sw_timer/common_sw_timer.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../pal/pal.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../pal/pal_generic.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../pal/pal.h</name>
+						</file>
 					</group>
 					<group>
 						<name>mac</name>
@@ -2330,6 +2324,48 @@
 	<group>
 		<name>common</name>
 		<group>
+			<name>utils</name>
+			<group>
+				<name>unit_test</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/unit_test/suite.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/unit_test/suite.h</name>
+				</file>
+			</group>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/write.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/read.c</name>
+				</file>
+				<group>
+					<name>stdio_usb</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb/stdio_usb.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb/stdio_usb.h</name>
+					</file>
+				</group>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../common/utils/parts.h</name>
+			</file>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt/interrupt_avr32.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt.h</name>
+			</file>
+		</group>
+		<group>
 			<name>services</name>
 			<group>
 				<name>usb</name>
@@ -2416,21 +2452,6 @@
 				</file>
 			</group>
 			<group>
-				<name>spi</name>
-				<group>
-					<name>uc3_spi</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common/services/spi/uc3_spi/spi_master.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common/services/spi/uc3_spi/spi_master.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/services/spi/spi_master.h</name>
-				</file>
-			</group>
-			<group>
 				<name>sleepmgr</name>
 				<group>
 					<name>uc3</name>
@@ -2443,6 +2464,21 @@
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr/sleepmgr.h</name>
+				</file>
+			</group>
+			<group>
+				<name>spi</name>
+				<group>
+					<name>uc3_spi</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/spi/uc3_spi/spi_master.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/spi/uc3_spi/spi_master.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/services/spi/spi_master.h</name>
 				</file>
 			</group>
 			<group>
@@ -2463,48 +2499,6 @@
 					<name>$PROJ_DIR$/../../../../../../../../common/services/delay/delay.h</name>
 				</file>
 			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/write.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/read.c</name>
-				</file>
-				<group>
-					<name>stdio_usb</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb/stdio_usb.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb/stdio_usb.h</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>unit_test</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/unit_test/suite.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/unit_test/suite.h</name>
-				</file>
-			</group>
-			<file>
-				<name>$PROJ_DIR$/../../../../../../../../common/utils/parts.h</name>
-			</file>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt/interrupt_avr32.h</name>
-				</file>
-			</group>
-			<file>
-				<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt.h</name>
-			</file>
 		</group>
 		<group>
 			<name>boards</name>

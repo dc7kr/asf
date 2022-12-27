@@ -301,7 +301,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -314,8 +314,8 @@
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samd21</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/include</state>
+					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21_r21</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/include/pio</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/include/instance</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
@@ -576,7 +576,7 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -589,8 +589,8 @@
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samd21</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/include</state>
+					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21_r21</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/include/pio</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/include/instance</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
@@ -1276,7 +1276,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -1289,8 +1289,8 @@
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samd21</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/include</state>
+					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21_r21</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/include/pio</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/include/instance</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
@@ -1551,7 +1551,7 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -1564,8 +1564,8 @@
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samd21</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/include</state>
+					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21_r21</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/include/pio</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samd21/include/instance</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
@@ -1962,9 +1962,9 @@
 				<group>
 					<name>i2c</name>
 					<group>
-						<name>i2c_samd21</name>
+						<name>i2c_samd21_r21</name>
 						<file>
-							<name>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21/i2c_slave.c</name>
+							<name>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21_r21/i2c_slave.c</name>
 						</file>
 					</group>
 					<file>
@@ -2000,19 +2000,46 @@
 				</file>
 			</group>
 			<group>
+				<name>wdt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/wdt/wdt_callback.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/wdt/wdt.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/wdt/wdt_callback.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/wdt/wdt.h</name>
+				</file>
+				<group>
+					<name>quick_start</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/wdt/quick_start/qs_wdt_basic.h</name>
+					</file>
+				</group>
+				<group>
+					<name>quick_start_callback</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/wdt/quick_start_callback/qs_wdt_callback.h</name>
+					</file>
+				</group>
+			</group>
+			<group>
 				<name>system</name>
 				<group>
 					<name>clock</name>
 					<group>
-						<name>clock_samd21</name>
+						<name>clock_samd21_r21</name>
 						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21/gclk.c</name>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21/gclk.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21/clock.c</name>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21/clock.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21/clock_config_check.h</name>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21/clock_config_check.h</name>
 						</file>
 					</group>
 					<file>
@@ -2076,33 +2103,6 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/system/system.h</name>
 				</file>
-			</group>
-			<group>
-				<name>wdt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/wdt/wdt_callback.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/wdt/wdt.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/wdt/wdt_callback.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/wdt/wdt.h</name>
-				</file>
-				<group>
-					<name>quick_start</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/wdt/quick_start/qs_wdt_basic.h</name>
-					</file>
-				</group>
-				<group>
-					<name>quick_start_callback</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/wdt/quick_start_callback/qs_wdt_callback.h</name>
-					</file>
-				</group>
 			</group>
 			<group>
 				<name>port</name>

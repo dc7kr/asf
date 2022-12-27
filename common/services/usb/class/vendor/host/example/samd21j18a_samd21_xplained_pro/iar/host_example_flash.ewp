@@ -302,7 +302,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -581,7 +581,7 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -1286,7 +1286,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -1565,7 +1565,7 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam0/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -1973,6 +1973,84 @@
 		<group>
 			<name>drivers</name>
 			<group>
+				<name>system</name>
+				<group>
+					<name>clock</name>
+					<group>
+						<name>clock_samd21_r21</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock_samd21_r21/clock.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock_samd21_r21/gclk.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock_samd21_r21/clock_config_check.h</name>
+						</file>
+					</group>
+					<group>
+						<name>quick_start_gclk</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/quick_start_gclk/qs_gclk_basic.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock.h</name>
+					</file>
+					<group>
+						<name>quick_start_clock</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/quick_start_clock/qs_clock_source.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/gclk.h</name>
+					</file>
+				</group>
+				<group>
+					<name>pinmux</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/pinmux/pinmux.c</name>
+					</file>
+					<group>
+						<name>quick_start</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/pinmux/quick_start/qs_pinmux_basic.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/pinmux/pinmux.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/system.c</name>
+				</file>
+				<group>
+					<name>interrupt</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/interrupt/system_interrupt.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/interrupt/system_interrupt.h</name>
+					</file>
+					<group>
+						<name>quick_start</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/interrupt/quick_start/qs_system_interrupt.h</name>
+						</file>
+					</group>
+					<group>
+						<name>system_interrupt_samd21</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_samd21/system_interrupt_features.h</name>
+						</file>
+					</group>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/system.h</name>
+				</file>
+			</group>
+			<group>
 				<name>extint</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/extint/extint_callback.c</name>
@@ -2013,84 +2091,6 @@
 						<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/port/quick_start/qs_port_basic.h</name>
 					</file>
 				</group>
-			</group>
-			<group>
-				<name>system</name>
-				<group>
-					<name>pinmux</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/pinmux/pinmux.c</name>
-					</file>
-					<group>
-						<name>quick_start</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/pinmux/quick_start/qs_pinmux_basic.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/pinmux/pinmux.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/system.c</name>
-				</file>
-				<group>
-					<name>interrupt</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/interrupt/system_interrupt.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/interrupt/system_interrupt.h</name>
-					</file>
-					<group>
-						<name>quick_start</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/interrupt/quick_start/qs_system_interrupt.h</name>
-						</file>
-					</group>
-					<group>
-						<name>system_interrupt_samd21</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_samd21/system_interrupt_features.h</name>
-						</file>
-					</group>
-				</group>
-				<group>
-					<name>clock</name>
-					<group>
-						<name>clock_samd21</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock_samd21/clock.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock_samd21/gclk.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock_samd21/clock_config_check.h</name>
-						</file>
-					</group>
-					<group>
-						<name>quick_start_gclk</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/quick_start_gclk/qs_gclk_basic.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/clock.h</name>
-					</file>
-					<group>
-						<name>quick_start_clock</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/quick_start_clock/qs_clock_source.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/clock/gclk.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam0/drivers/system/system.h</name>
-				</file>
 			</group>
 			<group>
 				<name>usb</name>
@@ -2424,66 +2424,15 @@
 	<group>
 		<name>common</name>
 		<group>
-			<name>utils</name>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../utils/interrupt/interrupt_sam_nvic.h</name>
-				</file>
-			</group>
-			<file>
-				<name>$PROJ_DIR$/../../../../../../../../utils/interrupt.h</name>
-			</file>
-			<file>
-				<name>$PROJ_DIR$/../../../../../../../../utils/parts.h</name>
-			</file>
-		</group>
-		<group>
 			<name>services</name>
 			<group>
-				<name>sleepmgr</name>
-				<group>
-					<name>samd</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../sleepmgr/samd/sleepmgr.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../sleepmgr/samd/sleepmgr.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sleepmgr/sleepmgr.h</name>
-				</file>
-			</group>
-			<group>
 				<name>usb</name>
-				<group>
-					<name>uhc</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../uhc/uhc.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../uhc/uhd.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../uhc/uhi.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../uhc/uhc.h</name>
-					</file>
-				</group>
 				<group>
 					<name>class</name>
 					<group>
 						<name>vendor</name>
 						<group>
 							<name>host</name>
-							<file>
-								<name>$PROJ_DIR$/../../../uhi_vendor.c</name>
-							</file>
 							<group>
 								<name>example</name>
 								<group>
@@ -2524,6 +2473,9 @@
 								</file>
 							</group>
 							<file>
+								<name>$PROJ_DIR$/../../../uhi_vendor.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../uhi_vendor.h</name>
 							</file>
 						</group>
@@ -2532,6 +2484,21 @@
 						</file>
 					</group>
 				</group>
+				<group>
+					<name>uhc</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../uhc/uhc.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../uhc/uhd.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../uhc/uhi.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../uhc/uhc.h</name>
+					</file>
+				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../usb_atmel.h</name>
 				</file>
@@ -2539,6 +2506,39 @@
 					<name>$PROJ_DIR$/../../../../../../usb_protocol.h</name>
 				</file>
 			</group>
+			<group>
+				<name>sleepmgr</name>
+				<group>
+					<name>samd</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../sleepmgr/samd/sleepmgr.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../sleepmgr/samd/sleepmgr.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sleepmgr/sleepmgr.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../utils/interrupt/interrupt_sam_nvic.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../utils/interrupt.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../utils/parts.h</name>
+			</file>
 		</group>
 		<group>
 			<name>boards</name>

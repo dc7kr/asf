@@ -2420,10 +2420,10 @@
 						<name>$PROJ_DIR$/../../../../freertos_peripheral_control.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../freertos_peripheral_control_private.h</name>
+						<name>$PROJ_DIR$/../../../../freertos_usart_serial.h</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../freertos_uart_serial.h</name>
+						<name>$PROJ_DIR$/../../../../freertos_peripheral_control_private.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../freertos_peripheral_control.h</name>

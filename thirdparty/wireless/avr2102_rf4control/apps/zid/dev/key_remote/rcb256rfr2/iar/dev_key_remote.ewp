@@ -250,11 +250,12 @@
 					<state>TAL_USER_BUILD_CONFIG</state>
 					<state>NLDE_HANDLE</state>
 					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ADC_ACCELEROMETER=0</state>
 					<state>VENDOR_DATA</state>
 					<state>ENABLE_STACK_NVM</state>
-					<state>RF4CE_SECURITY</state>
-					<state>RSSI_TO_LQI_MAPPING</state>
 					<state>BOARD=ATMEGARFX_RCB</state>
+					<state>RSSI_TO_LQI_MAPPING</state>
+					<state>RF4CE_SECURITY</state>
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>KEY_RC_BOARD</state>
@@ -429,11 +430,13 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/stb/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/sal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common/drivers/nvm</state>
+					<state>$PROJ_DIR$/../../../../../../addons/kbd</state>
 					<state>$PROJ_DIR$/../../../../../../../services/mega/drivers/flash</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils</state>
@@ -447,7 +450,6 @@
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../lib/zid/dev/config</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/boards</state>
@@ -601,11 +603,12 @@
 					<state>TAL_USER_BUILD_CONFIG</state>
 					<state>NLDE_HANDLE</state>
 					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ADC_ACCELEROMETER=0</state>
 					<state>VENDOR_DATA</state>
 					<state>ENABLE_STACK_NVM</state>
-					<state>RF4CE_SECURITY</state>
-					<state>RSSI_TO_LQI_MAPPING</state>
 					<state>BOARD=ATMEGARFX_RCB</state>
+					<state>RSSI_TO_LQI_MAPPING</state>
+					<state>RF4CE_SECURITY</state>
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>KEY_RC_BOARD</state>
@@ -742,11 +745,13 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/stb/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/sal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common/drivers/nvm</state>
+					<state>$PROJ_DIR$/../../../../../../addons/kbd</state>
 					<state>$PROJ_DIR$/../../../../../../../services/mega/drivers/flash</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils</state>
@@ -760,7 +765,6 @@
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../lib/zid/dev/config</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/boards</state>
@@ -1359,11 +1363,12 @@
 					<state>TAL_USER_BUILD_CONFIG</state>
 					<state>NLDE_HANDLE</state>
 					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ADC_ACCELEROMETER=0</state>
 					<state>VENDOR_DATA</state>
 					<state>ENABLE_STACK_NVM</state>
-					<state>RF4CE_SECURITY</state>
-					<state>RSSI_TO_LQI_MAPPING</state>
 					<state>BOARD=ATMEGARFX_RCB</state>
+					<state>RSSI_TO_LQI_MAPPING</state>
+					<state>RF4CE_SECURITY</state>
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>KEY_RC_BOARD</state>
@@ -1538,11 +1543,13 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/stb/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/sal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common/drivers/nvm</state>
+					<state>$PROJ_DIR$/../../../../../../addons/kbd</state>
 					<state>$PROJ_DIR$/../../../../../../../services/mega/drivers/flash</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils</state>
@@ -1556,7 +1563,6 @@
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../lib/zid/dev/config</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/boards</state>
@@ -1710,11 +1716,12 @@
 					<state>TAL_USER_BUILD_CONFIG</state>
 					<state>NLDE_HANDLE</state>
 					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ADC_ACCELEROMETER=0</state>
 					<state>VENDOR_DATA</state>
 					<state>ENABLE_STACK_NVM</state>
-					<state>RF4CE_SECURITY</state>
-					<state>RSSI_TO_LQI_MAPPING</state>
 					<state>BOARD=ATMEGARFX_RCB</state>
+					<state>RSSI_TO_LQI_MAPPING</state>
+					<state>RF4CE_SECURITY</state>
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>KEY_RC_BOARD</state>
@@ -1851,11 +1858,13 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/stb/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/sal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common/drivers/nvm</state>
+					<state>$PROJ_DIR$/../../../../../../addons/kbd</state>
 					<state>$PROJ_DIR$/../../../../../../../services/mega/drivers/flash</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils</state>
@@ -1869,7 +1878,6 @@
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../lib/zid/dev/config</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/boards</state>
@@ -2268,9 +2276,6 @@
 										<name>$PROJ_DIR$/../conf_flash.h</name>
 									</file>
 									<file>
-										<name>$PROJ_DIR$/../conf_clock.h</name>
-									</file>
-									<file>
 										<name>$PROJ_DIR$/../conf_board.h</name>
 									</file>
 									<group>
@@ -2284,6 +2289,9 @@
 									</file>
 									<file>
 										<name>$PROJ_DIR$/../conf_hw_timer.h</name>
+									</file>
+									<file>
+										<name>$PROJ_DIR$/../conf_clock.h</name>
 									</file>
 								</group>
 								<file>
@@ -2312,6 +2320,9 @@
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../include/nwk_internal.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../include/nwk_msg_code.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../include/gdp_config.h</name>
@@ -2344,11 +2355,17 @@
 						<name>$PROJ_DIR$/../../../../../../include/vendor_data.h</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../include/nwk_msg_code.h</name>
-					</file>
-					<file>
 						<name>$PROJ_DIR$/../../../../../../include/zid_device.h</name>
 					</file>
+				</group>
+				<group>
+					<name>addons</name>
+					<group>
+						<name>kbd</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../addons/kbd/usb_hid.h</name>
+						</file>
+					</group>
 				</group>
 			</group>
 			<group>
@@ -2396,6 +2413,30 @@
 								<name>$PROJ_DIR$/../../../../../../../services/mega/drivers/flash/flash.h</name>
 							</file>
 						</group>
+					</group>
+				</group>
+				<group>
+					<name>sal</name>
+					<group>
+						<name>atmegarf_sal</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../services/sal/atmegarf_sal/src/sal.c</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>inc</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../services/sal/inc/sal_generic.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../services/sal/inc/sal.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../services/sal/inc/sal_types.h</name>
+						</file>
 					</group>
 				</group>
 			</group>
@@ -2522,6 +2563,9 @@
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_misc.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_associate.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
 							</file>
 							<file>
@@ -2544,9 +2588,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_scan.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_associate.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac.c</name>
@@ -2573,7 +2614,7 @@
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_config.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_msg_types.h</name>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_msg_const.h</name>
@@ -2582,10 +2623,10 @@
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_internal.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_msg_type_data_ind.h</name>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_msg_types.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac.h</name>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_msg_type_data_ind.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_security.h</name>
@@ -2636,30 +2677,6 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/pal_generic.h</name>
 						</file>
-					</group>
-					<group>
-						<name>sal</name>
-						<group>
-							<name>atmegarf_sal</name>
-							<group>
-								<name>src</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/sal/atmegarf_sal/src/sal.c</name>
-								</file>
-							</group>
-						</group>
-						<group>
-							<name>inc</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/sal/inc/sal.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/sal/inc/sal_types.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/sal/inc/sal_generic.h</name>
-							</file>
-						</group>
 					</group>
 					<group>
 						<name>stb</name>

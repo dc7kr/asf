@@ -311,13 +311,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../source/stb/inc</state>
-					<state>$PROJ_DIR$/../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
@@ -601,13 +601,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../source/stb/inc</state>
-					<state>$PROJ_DIR$/../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
@@ -1316,13 +1316,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../source/stb/inc</state>
-					<state>$PROJ_DIR$/../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
@@ -1606,13 +1606,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../source/stb/inc</state>
-					<state>$PROJ_DIR$/../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
@@ -2038,6 +2038,30 @@
 					</file>
 				</group>
 				<group>
+					<name>sal</name>
+					<group>
+						<name>at86rf2xx</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../services/sal/at86rf2xx/src/sal.c</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>inc</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../services/sal/inc/sal.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../services/sal/inc/sal_types.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../services/sal/inc/sal_generic.h</name>
+						</file>
+					</group>
+				</group>
+				<group>
 					<name>trx_access</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../services/trx_access/trx_access.c</name>
@@ -2083,7 +2107,7 @@
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_dispatcher.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_orphan.c</name>
+								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_scan.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_process_beacon_frame.c</name>
@@ -2095,6 +2119,9 @@
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_start.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_orphan.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_mcps_data.c</name>
 							</file>
 							<file>
@@ -2102,6 +2129,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_data_req.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_rx_enable.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_process_tal_tx_frame_status.c</name>
@@ -2113,9 +2143,6 @@
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_scan.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_security.c</name>
 							</file>
 							<file>
@@ -2123,9 +2150,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_misc.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_rx_enable.c</name>
 							</file>
 						</group>
 						<group>
@@ -2160,92 +2184,14 @@
 						</group>
 					</group>
 					<group>
-						<name>stb</name>
-						<group>
-							<name>src</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/stb/src/stb_armcrypto.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/stb/src/stb.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/stb/src/stb_help.c</name>
-							</file>
-						</group>
-						<group>
-							<name>inc</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/stb/inc/stb.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/stb/inc/stb_generic.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/stb/inc/stb_internal.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/stb/inc/stb_armcrypto.h</name>
-							</file>
-						</group>
-					</group>
-					<group>
-						<name>pal</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal.c</name>
-						</file>
-						<group>
-							<name>common_sw_timer</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/pal/common_sw_timer/common_sw_timer.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/pal/common_sw_timer/common_sw_timer.h</name>
-							</file>
-						</group>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal_ext_trx.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal_generic.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal_ext_trx.h</name>
-						</file>
-					</group>
-					<group>
-						<name>sal</name>
-						<group>
-							<name>at86rf2xx</name>
-							<group>
-								<name>src</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../source/sal/at86rf2xx/src/sal.c</name>
-								</file>
-							</group>
-						</group>
-						<group>
-							<name>inc</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/sal/inc/sal.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/sal/inc/sal_types.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/sal/inc/sal_generic.h</name>
-							</file>
-						</group>
-					</group>
-					<group>
 						<name>tal</name>
 						<group>
 							<name>at86rf233</name>
 							<group>
 								<name>src</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_init.c</name>
+								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_rx_enable.c</name>
 								</file>
@@ -2257,9 +2203,6 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_pib.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_init.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_tx.c</name>
@@ -2330,6 +2273,57 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/tal/inc/tal_helper.h</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>pal</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../source/pal/pal.c</name>
+						</file>
+						<group>
+							<name>common_sw_timer</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/pal/common_sw_timer/common_sw_timer.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/pal/common_sw_timer/common_sw_timer.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../source/pal/pal.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../source/pal/pal_generic.h</name>
+						</file>
+					</group>
+					<group>
+						<name>stb</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/stb/src/stb_armcrypto.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/stb/src/stb.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/stb/src/stb_help.c</name>
+							</file>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/stb/inc/stb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/stb/inc/stb_generic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/stb/inc/stb_internal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/stb/inc/stb_armcrypto.h</name>
 							</file>
 						</group>
 					</group>
@@ -2573,54 +2567,6 @@
 	</group>
 	<group>
 		<name>sam</name>
-		<group>
-			<name>drivers</name>
-			<group>
-				<name>spi</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/spi/spi.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/spi/spi.h</name>
-				</file>
-			</group>
-			<group>
-				<name>tc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc.h</name>
-				</file>
-			</group>
-			<group>
-				<name>bpm</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/bpm/bpm.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/bpm/bpm.h</name>
-				</file>
-			</group>
-			<group>
-				<name>flashcalw</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw/flashcalw.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw/flashcalw.h</name>
-				</file>
-			</group>
-			<group>
-				<name>wdt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/wdt/wdt_sam4l.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/wdt/wdt_sam4l.h</name>
-				</file>
-			</group>
-		</group>
 		<group>
 			<name>utils</name>
 			<group>
@@ -3050,6 +2996,54 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/boards/sam4l_xplained_pro/led.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>drivers</name>
+			<group>
+				<name>flashcalw</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw/flashcalw.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw/flashcalw.h</name>
+				</file>
+			</group>
+			<group>
+				<name>bpm</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/bpm/bpm.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/bpm/bpm.h</name>
+				</file>
+			</group>
+			<group>
+				<name>tc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc.h</name>
+				</file>
+			</group>
+			<group>
+				<name>wdt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/wdt/wdt_sam4l.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/wdt/wdt_sam4l.h</name>
+				</file>
+			</group>
+			<group>
+				<name>spi</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/spi/spi.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/spi/spi.h</name>
 				</file>
 			</group>
 		</group>

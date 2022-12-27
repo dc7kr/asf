@@ -293,8 +293,10 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../supc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
@@ -310,7 +312,7 @@
 					<state>$PROJ_DIR$/../../../../pdc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include</state>
+					<state>$PROJ_DIR$/../../../../efc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -558,8 +560,10 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
+					<state>$PROJ_DIR$/../../../../supc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
@@ -575,7 +579,7 @@
 					<state>$PROJ_DIR$/../../../../pdc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include</state>
+					<state>$PROJ_DIR$/../../../../efc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1214,8 +1218,10 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../supc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
@@ -1231,7 +1237,7 @@
 					<state>$PROJ_DIR$/../../../../pdc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include</state>
+					<state>$PROJ_DIR$/../../../../efc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1479,8 +1485,10 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
+					<state>$PROJ_DIR$/../../../../supc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
@@ -1496,7 +1504,7 @@
 					<state>$PROJ_DIR$/../../../../pdc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include</state>
+					<state>$PROJ_DIR$/../../../../efc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1899,9 +1907,6 @@
 									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_adc.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_twi2.h</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_usart.h</name>
 								</file>
 								<file>
@@ -1915,6 +1920,9 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_uart0.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_twi2.h</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_rstc.h</name>
@@ -2159,6 +2167,24 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../pio/pio.h</name>
+				</file>
+			</group>
+			<group>
+				<name>supc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../supc/supc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../supc/supc.h</name>
+				</file>
+			</group>
+			<group>
+				<name>efc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../efc/efc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../efc/efc.h</name>
 				</file>
 			</group>
 		</group>

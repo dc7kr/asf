@@ -166,12 +166,12 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>FFD</state>
 					<state>ANTENNA_DIVERSITY=0</state>
+					<state>FFD</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>ENABLE_TFA</state>
 					<state>ARM_MATH_CM0=true</state>
+					<state>ENABLE_TFA</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
@@ -180,7 +180,7 @@
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
-					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -322,10 +322,10 @@
 					<state>$PROJ_DIR$/../../../../../../../../common2/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils</state>
-					<state>$PROJ_DIR$/../../../../../source/tal/at86rf212b/inc</state>
+					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
-					<state>$PROJ_DIR$/../../../../../source/pal</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/boards</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -339,11 +339,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc</state>
-					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
-					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component</state>
+					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
+					<state>$PROJ_DIR$/../../../../../source/tal/at86rf212b/inc</state>
+					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
@@ -505,12 +505,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>FFD</state>
 					<state>ANTENNA_DIVERSITY=0</state>
+					<state>FFD</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>ENABLE_TFA</state>
 					<state>ARM_MATH_CM0=true</state>
+					<state>ENABLE_TFA</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
@@ -519,7 +519,7 @@
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
-					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -628,10 +628,10 @@
 					<state>$PROJ_DIR$/../../../../../../../../common2/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils</state>
-					<state>$PROJ_DIR$/../../../../../source/tal/at86rf212b/inc</state>
+					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
-					<state>$PROJ_DIR$/../../../../../source/pal</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/boards</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -645,11 +645,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc</state>
-					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
-					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component</state>
+					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
+					<state>$PROJ_DIR$/../../../../../source/tal/at86rf212b/inc</state>
+					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
@@ -1203,12 +1203,12 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>FFD</state>
 					<state>ANTENNA_DIVERSITY=0</state>
+					<state>FFD</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>ENABLE_TFA</state>
 					<state>ARM_MATH_CM0=true</state>
+					<state>ENABLE_TFA</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
@@ -1217,7 +1217,7 @@
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
-					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -1359,10 +1359,10 @@
 					<state>$PROJ_DIR$/../../../../../../../../common2/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils</state>
-					<state>$PROJ_DIR$/../../../../../source/tal/at86rf212b/inc</state>
+					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
-					<state>$PROJ_DIR$/../../../../../source/pal</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/boards</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1376,11 +1376,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc</state>
-					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
-					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component</state>
+					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
+					<state>$PROJ_DIR$/../../../../../source/tal/at86rf212b/inc</state>
+					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
@@ -1542,12 +1542,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>FFD</state>
 					<state>ANTENNA_DIVERSITY=0</state>
+					<state>FFD</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>ENABLE_TFA</state>
 					<state>ARM_MATH_CM0=true</state>
+					<state>ENABLE_TFA</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
@@ -1556,7 +1556,7 @@
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
-					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -1665,10 +1665,10 @@
 					<state>$PROJ_DIR$/../../../../../../../../common2/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils</state>
-					<state>$PROJ_DIR$/../../../../../source/tal/at86rf212b/inc</state>
+					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
-					<state>$PROJ_DIR$/../../../../../source/pal</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/boards</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1682,11 +1682,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc</state>
-					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
-					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component</state>
+					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
+					<state>$PROJ_DIR$/../../../../../source/tal/at86rf212b/inc</state>
+					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
@@ -2146,17 +2146,23 @@
 									<name>$PROJ_DIR$/../../src/peer_search_initiator.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../src/main.c</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../src/per_mode_initiator.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../src/init_state.c</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../src/performance_main.c</name>
+								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../main.c</name>
+							</file>
 							<group>
 								<name>samd20_rf212b_zigbit_ext</name>
+								<file>
+									<name>$PROJ_DIR$/../conf_trx_access.h</name>
+								</file>
 								<file>
 									<name>$PROJ_DIR$/../conf_sio2host.h</name>
 								</file>
@@ -2187,6 +2193,9 @@
 							</group>
 							<group>
 								<name>inc</name>
+								<file>
+									<name>$PROJ_DIR$/../../inc/performance_main.h</name>
+								</file>
 								<file>
 									<name>$PROJ_DIR$/../../inc/perf_msg_const.h</name>
 								</file>
@@ -2220,9 +2229,6 @@
 							</group>
 							<file>
 								<name>$PROJ_DIR$/../../conf_common_sw_timer.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../conf_trx_access.h</name>
 							</file>
 						</group>
 					</group>
@@ -2356,6 +2362,27 @@
 						</group>
 					</group>
 					<group>
+						<name>pal</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../source/pal/pal.c</name>
+						</file>
+						<group>
+							<name>common_sw_timer</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/pal/common_sw_timer/common_sw_timer.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/pal/common_sw_timer/common_sw_timer.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../source/pal/pal_generic.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../source/pal/pal.h</name>
+						</file>
+					</group>
+					<group>
 						<name>tfa</name>
 						<group>
 							<name>at86rf212b</name>
@@ -2372,33 +2399,6 @@
 								<name>$PROJ_DIR$/../../../../../source/tfa/inc/tfa.h</name>
 							</file>
 						</group>
-					</group>
-					<group>
-						<name>pal</name>
-						<group>
-							<name>common_sw_timer</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/pal/common_sw_timer/common_sw_timer.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/pal/common_sw_timer/common_sw_timer.h</name>
-							</file>
-						</group>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal_ext_trx.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal_generic.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal_ext_trx.h</name>
-						</file>
 					</group>
 					<group>
 						<name>mac</name>
@@ -2747,9 +2747,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_tc1.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_sysctrl.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_tc3.h</name>
 							</file>
 							<file>
@@ -2760,6 +2757,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_wdt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_sysctrl.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_sercom1.h</name>
@@ -2874,6 +2874,9 @@
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20e14.h</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20j15.h</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20g14.h</name>
 						</file>
 						<group>
@@ -2883,9 +2886,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/component_tc.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/component_dsu.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/component_nvmctrl.h</name>
@@ -2904,6 +2904,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/component_dac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/component_dsu.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/component_evsys.h</name>
@@ -2950,9 +2953,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20e15.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20j15.h</name>
 						</file>
 					</group>
 				</group>

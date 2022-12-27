@@ -304,7 +304,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../drivers/dac</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -578,7 +578,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../drivers/dac</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -1277,7 +1277,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../drivers/dac</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -1551,7 +1551,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../drivers/dac</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -1951,99 +1951,6 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>dac</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/dac/dac.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/dac/dac_callback.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/dac/dac.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/dac/dac_callback.h</name>
-				</file>
-			</group>
-			<group>
-				<name>system</name>
-				<group>
-					<name>clock</name>
-					<group>
-						<name>clock_samd21</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21/gclk.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21/clock.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21/clock_config_check.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/system/clock/gclk.h</name>
-					</file>
-					<group>
-						<name>quick_start_gclk</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/quick_start_gclk/qs_gclk_basic.h</name>
-						</file>
-					</group>
-					<group>
-						<name>quick_start_clock</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/quick_start_clock/qs_clock_source.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/system/clock/clock.h</name>
-					</file>
-				</group>
-				<group>
-					<name>pinmux</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.h</name>
-					</file>
-					<group>
-						<name>quick_start</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/pinmux/quick_start/qs_pinmux_basic.h</name>
-						</file>
-					</group>
-				</group>
-				<group>
-					<name>interrupt</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt.c</name>
-					</file>
-					<group>
-						<name>system_interrupt_samd21</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samd21/system_interrupt_features.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt.h</name>
-					</file>
-					<group>
-						<name>quick_start</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/interrupt/quick_start/qs_system_interrupt.h</name>
-						</file>
-					</group>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/system/system.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/system/system.h</name>
-				</file>
-			</group>
-			<group>
 				<name>tc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/tc/tc.c</name>
@@ -2081,6 +1988,99 @@
 						<name>$PROJ_DIR$/../../../../drivers/tc/quick_start_timer/qs_tc_timer.h</name>
 					</file>
 				</group>
+			</group>
+			<group>
+				<name>dac</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/dac/dac.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/dac/dac_callback.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/dac/dac.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/dac/dac_callback.h</name>
+				</file>
+			</group>
+			<group>
+				<name>system</name>
+				<group>
+					<name>pinmux</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.h</name>
+					</file>
+					<group>
+						<name>quick_start</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../drivers/system/pinmux/quick_start/qs_pinmux_basic.h</name>
+						</file>
+					</group>
+				</group>
+				<group>
+					<name>clock</name>
+					<group>
+						<name>clock_samd21_r21</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21/gclk.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21/clock.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21/clock_config_check.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/system/clock/gclk.h</name>
+					</file>
+					<group>
+						<name>quick_start_gclk</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/quick_start_gclk/qs_gclk_basic.h</name>
+						</file>
+					</group>
+					<group>
+						<name>quick_start_clock</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/quick_start_clock/qs_clock_source.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/system/clock/clock.h</name>
+					</file>
+				</group>
+				<group>
+					<name>interrupt</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt.c</name>
+					</file>
+					<group>
+						<name>system_interrupt_samd21</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samd21/system_interrupt_features.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt.h</name>
+					</file>
+					<group>
+						<name>quick_start</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../drivers/system/interrupt/quick_start/qs_system_interrupt.h</name>
+						</file>
+					</group>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/system/system.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/system/system.h</name>
+				</file>
 			</group>
 			<group>
 				<name>events</name>

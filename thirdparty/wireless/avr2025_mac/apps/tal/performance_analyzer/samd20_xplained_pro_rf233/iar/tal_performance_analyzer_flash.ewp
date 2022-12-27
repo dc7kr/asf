@@ -328,7 +328,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
-					<state>$PROJ_DIR$/../../../../../source/pal</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/boards</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -343,12 +343,12 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component</state>
+					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include</state>
@@ -638,7 +638,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
-					<state>$PROJ_DIR$/../../../../../source/pal</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/boards</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -653,12 +653,12 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component</state>
+					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include</state>
@@ -1373,7 +1373,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
-					<state>$PROJ_DIR$/../../../../../source/pal</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/boards</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1388,12 +1388,12 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component</state>
+					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include</state>
@@ -1683,7 +1683,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils</state>
 					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
-					<state>$PROJ_DIR$/../../../../../source/pal</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/boards</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1698,12 +1698,12 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component</state>
+					<state>$PROJ_DIR$/../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include</state>
@@ -2165,19 +2165,28 @@
 									<name>$PROJ_DIR$/../../src/per_mode_initiator.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../src/main.c</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../src/peer_search_initiator.c</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../src/performance_main.c</name>
+								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../main.c</name>
+							</file>
 							<group>
 								<name>samd20_xplained_pro_rf233</name>
+								<file>
+									<name>$PROJ_DIR$/../conf_trx_access.h</name>
+								</file>
 								<file>
 									<name>$PROJ_DIR$/../conf_sio2host.h</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../conf_board.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_hw_timer.h</name>
 								</file>
 								<group>
 									<name>iar</name>
@@ -2195,14 +2204,14 @@
 									<name>$PROJ_DIR$/../conf_clocks.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../conf_hw_timer.h</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../conf_extint.h</name>
 								</file>
 							</group>
 							<group>
 								<name>inc</name>
+								<file>
+									<name>$PROJ_DIR$/../../inc/performance_main.h</name>
+								</file>
 								<file>
 									<name>$PROJ_DIR$/../../inc/perf_msg_const.h</name>
 								</file>
@@ -2237,9 +2246,6 @@
 							<file>
 								<name>$PROJ_DIR$/../../conf_common_sw_timer.h</name>
 							</file>
-							<file>
-								<name>$PROJ_DIR$/../../conf_trx_access.h</name>
-							</file>
 						</group>
 					</group>
 				</group>
@@ -2264,6 +2270,9 @@
 									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_pib.c</name>
 								</file>
 								<file>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_slotted_csma.c</name>
+								</file>
+								<file>
 									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_tx.c</name>
 								</file>
 								<file>
@@ -2277,9 +2286,6 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_pwr_mgmt.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_slotted_csma.c</name>
 								</file>
 							</group>
 							<group>
@@ -2372,6 +2378,27 @@
 						</group>
 					</group>
 					<group>
+						<name>pal</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../source/pal/pal.c</name>
+						</file>
+						<group>
+							<name>common_sw_timer</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/pal/common_sw_timer/common_sw_timer.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/pal/common_sw_timer/common_sw_timer.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../source/pal/pal.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../source/pal/pal_generic.h</name>
+						</file>
+					</group>
+					<group>
 						<name>tfa</name>
 						<group>
 							<name>at86rf233</name>
@@ -2390,36 +2417,12 @@
 						</group>
 					</group>
 					<group>
-						<name>pal</name>
-						<group>
-							<name>common_sw_timer</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/pal/common_sw_timer/common_sw_timer.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/pal/common_sw_timer/common_sw_timer.h</name>
-							</file>
-						</group>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal_ext_trx.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal_generic.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../source/pal/pal_ext_trx.h</name>
-						</file>
-					</group>
-					<group>
 						<name>mac</name>
 						<group>
 							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_msg_type_data_ind.h</name>
+							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_api.h</name>
 							</file>
@@ -2428,9 +2431,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_msg_const.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_msg_type_data_ind.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac.h</name>
@@ -2670,12 +2670,6 @@
 					</file>
 				</group>
 				<group>
-					<name>quick_start_callback</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc/quick_start_callback/qs_tc_callback.h</name>
-					</file>
-				</group>
-				<group>
 					<name>quick_start_dma</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc/quick_start_dma/qs_tc_dma.h</name>
@@ -2693,6 +2687,12 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc/tc.h</name>
 				</file>
+				<group>
+					<name>quick_start_callback</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc/quick_start_callback/qs_tc_callback.h</name>
+					</file>
+				</group>
 			</group>
 			<group>
 				<name>port</name>
@@ -2763,9 +2763,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_tc1.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_sysctrl.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_tc3.h</name>
 							</file>
 							<file>
@@ -2778,7 +2775,7 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_wdt.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_pac2.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_sysctrl.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_sercom1.h</name>
@@ -2814,6 +2811,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_port.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_pac2.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_tc6.h</name>
 							</file>
 							<file>
@@ -2841,9 +2841,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20j16.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20g14.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20g17.h</name>
 							</file>
 							<file>
@@ -2866,6 +2863,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20g18.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20g14.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20e1f.h</name>
@@ -2895,9 +2895,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/component_tc.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/component_dsu.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/component_port.h</name>
 							</file>
 							<file>
@@ -2905,6 +2902,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/component_dac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/component_dsu.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/component_evsys.h</name>
@@ -2941,6 +2941,9 @@
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20e14.h</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20j15.h</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20g14.h</name>
 						</file>
 						<file>
@@ -2966,9 +2969,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20e15.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20j15.h</name>
 						</file>
 					</group>
 				</group>

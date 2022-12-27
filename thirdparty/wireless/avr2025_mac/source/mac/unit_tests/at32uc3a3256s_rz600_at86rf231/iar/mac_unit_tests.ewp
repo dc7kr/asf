@@ -337,10 +337,11 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb/class/cdc/device</state>
 					<state>$PROJ_DIR$/../../../inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../tal/at86rf231/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/usbb</state>
+					<state>$PROJ_DIR$/../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -349,7 +350,6 @@
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../pal</state>
 					<state>$PROJ_DIR$/../../../../stb/inc</state>
-					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/utils</state>
@@ -505,10 +505,11 @@
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb/class/cdc/device</state>
 					<state>$PROJ_DIR$/../../../inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../tal/at86rf231/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/usbb</state>
+					<state>$PROJ_DIR$/../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -517,7 +518,6 @@
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../pal</state>
 					<state>$PROJ_DIR$/../../../../stb/inc</state>
-					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/utils</state>
@@ -1282,10 +1282,11 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb/class/cdc/device</state>
 					<state>$PROJ_DIR$/../../../inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../tal/at86rf231/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/usbb</state>
+					<state>$PROJ_DIR$/../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1294,7 +1295,6 @@
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../pal</state>
 					<state>$PROJ_DIR$/../../../../stb/inc</state>
-					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/utils</state>
@@ -1450,10 +1450,11 @@
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb/class/cdc/device</state>
 					<state>$PROJ_DIR$/../../../inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../tal/at86rf231/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/usbb</state>
+					<state>$PROJ_DIR$/../../../../../../services/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1462,7 +1463,6 @@
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../pal</state>
 					<state>$PROJ_DIR$/../../../../stb/inc</state>
-					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/utils</state>
@@ -1918,6 +1918,30 @@
 					</file>
 				</group>
 				<group>
+					<name>sal</name>
+					<group>
+						<name>at86rf2xx</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../services/sal/at86rf2xx/src/sal.c</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>inc</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../services/sal/inc/sal.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../services/sal/inc/sal_types.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../services/sal/inc/sal_generic.h</name>
+						</file>
+					</group>
+				</group>
+				<group>
 					<name>trx_access</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../services/trx_access/trx_access.c</name>
@@ -2244,30 +2268,6 @@
 						</group>
 					</group>
 					<group>
-						<name>sal</name>
-						<group>
-							<name>at86rf2xx</name>
-							<group>
-								<name>src</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../sal/at86rf2xx/src/sal.c</name>
-								</file>
-							</group>
-						</group>
-						<group>
-							<name>inc</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../sal/inc/sal.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../sal/inc/sal_generic.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../sal/inc/sal_types.h</name>
-							</file>
-						</group>
-					</group>
-					<group>
 						<name>pal</name>
 						<group>
 							<name>common_sw_timer</name>
@@ -2282,16 +2282,10 @@
 							<name>$PROJ_DIR$/../../../../pal/pal.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal_ext_trx.c</name>
-						</file>
-						<file>
 							<name>$PROJ_DIR$/../../../../pal/pal_generic.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../pal/pal.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../pal/pal_ext_trx.h</name>
 						</file>
 					</group>
 				</group>

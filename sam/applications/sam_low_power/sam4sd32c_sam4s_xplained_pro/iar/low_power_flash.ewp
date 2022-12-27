@@ -2363,6 +2363,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../boards/sam4s_xplained_pro/sam4s_xplained_pro.h</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../boards/sam4s_xplained_pro/led.h</name>
+				</file>
 			</group>
 		</group>
 	</group>

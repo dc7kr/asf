@@ -2059,6 +2059,9 @@
 						<name>$PROJ_DIR$/../../../../../../common/services/freertos/sam/freertos_peripheral_control.c</name>
 					</file>
 					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/freertos/sam/freertos_uart_serial.c</name>
+					</file>
+					<file>
 						<name>$PROJ_DIR$/../../../../../../common/services/freertos/sam/freertos_usart_serial.c</name>
 					</file>
 					<file>
@@ -2072,6 +2075,9 @@
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../common/services/freertos/sam/freertos_twi_master.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/freertos/sam/freertos_usart_serial.h</name>
 					</file>
 				</group>
 			</group>
@@ -2586,16 +2592,19 @@
 							<name>$PROJ_DIR$/../../demo-tasks/USB-CDC-CLI-task.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../demo-tasks/CLI-commands.c</name>
+							<name>$PROJ_DIR$/../../demo-tasks/UART-CLI-task.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../demo-tasks/USART-CLI-task.c</name>
+							<name>$PROJ_DIR$/../../demo-tasks/CLI-commands.c</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../demo-tasks/TWI-EEPROM-task.c</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../demo-tasks/USART-echo-tasks.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../demo-tasks/USART-CLI-task.c</name>
 						</file>
 					</group>
 					<file>

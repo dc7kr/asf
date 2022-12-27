@@ -300,7 +300,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../port</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
@@ -570,7 +570,7 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../port</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
@@ -1265,7 +1265,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../port</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
@@ -1535,7 +1535,7 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../system/interrupt</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../port</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
@@ -1987,18 +1987,36 @@
 			</group>
 			<group>
 				<name>system</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../system/system.c</name>
+				</file>
+				<group>
+					<name>pinmux</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../system/pinmux/pinmux.c</name>
+					</file>
+					<group>
+						<name>quick_start</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../system/pinmux/quick_start/qs_pinmux_basic.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../system/pinmux/pinmux.h</name>
+					</file>
+				</group>
 				<group>
 					<name>clock</name>
 					<group>
-						<name>clock_samd21</name>
+						<name>clock_samd21_r21</name>
 						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21/clock.c</name>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/gclk.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21/gclk.c</name>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21/clock_config_check.h</name>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock_config_check.h</name>
 						</file>
 					</group>
 					<file>
@@ -2019,24 +2037,6 @@
 							<name>$PROJ_DIR$/../../../../system/clock/quick_start_gclk/qs_gclk_basic.h</name>
 						</file>
 					</group>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../system/system.c</name>
-				</file>
-				<group>
-					<name>pinmux</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../system/pinmux/pinmux.c</name>
-					</file>
-					<group>
-						<name>quick_start</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../system/pinmux/quick_start/qs_pinmux_basic.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../system/pinmux/pinmux.h</name>
-					</file>
 				</group>
 				<group>
 					<name>interrupt</name>

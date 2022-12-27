@@ -295,17 +295,18 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../efc</state>
 					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../boards/samg53_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../supc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/source/templates</state>
@@ -314,7 +315,6 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -564,17 +564,18 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../efc</state>
 					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../boards/samg53_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../supc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/source/templates</state>
@@ -583,7 +584,6 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1224,17 +1224,18 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../efc</state>
 					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../boards/samg53_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../supc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/source/templates</state>
@@ -1243,7 +1244,6 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1493,17 +1493,18 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../efc</state>
 					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../boards/samg53_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../supc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/source/templates</state>
@@ -1512,7 +1513,6 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1944,18 +1944,6 @@
 				</file>
 			</group>
 			<group>
-				<name>gpio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/services/gpio/gpio.h</name>
-				</file>
-				<group>
-					<name>sam_gpio</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/gpio/sam_gpio/sam_gpio.h</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>ioport</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../common/services/ioport/ioport.h</name>
@@ -2011,6 +1999,90 @@
 						</group>
 						<group>
 							<name>include</name>
+							<group>
+								<name>instance</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_rtc.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_tc0.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_pdmic0.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_pdmic1.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_mem2mem.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_adc.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_usart.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_chipid.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_piob.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_i2sc1.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_uart0.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_twi2.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_rstc.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_pioa.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_efc.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_i2sc0.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_spi.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_twi0.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_uart1.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_tc1.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_twi1.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_supc.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_wdt.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_pmc.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_matrix.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_gpbr.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_rtt.h</name>
+								</file>
+							</group>
 							<group>
 								<name>pio</name>
 								<file>
@@ -2089,90 +2161,6 @@
 									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/component/component_twihs.h</name>
 								</file>
 							</group>
-							<group>
-								<name>instance</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_tc0.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_pdmic0.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_pdmic1.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_mem2mem.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_adc.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_usart.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_chipid.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_piob.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_i2sc1.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_uart0.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_twi2.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_rstc.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_pioa.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_efc.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_i2sc0.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_spi.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_twi0.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_uart1.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_rtc.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_tc1.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_twi1.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_supc.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_wdt.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_pmc.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_matrix.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_gpbr.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/instance/instance_rtt.h</name>
-								</file>
-							</group>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samg/samg53/include/samg53g19.h</name>
 							</file>
@@ -2221,22 +2209,16 @@
 			</group>
 		</group>
 		<group>
-			<name>boards</name>
+			<name>drivers</name>
 			<group>
-				<name>samg53_xplained_pro</name>
+				<name>efc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../boards/samg53_xplained_pro/board_init.c</name>
+					<name>$PROJ_DIR$/../../../../efc/efc.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../boards/samg53_xplained_pro/led.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../boards/samg53_xplained_pro/samg53_xplained_pro.h</name>
+					<name>$PROJ_DIR$/../../../../efc/efc.h</name>
 				</file>
 			</group>
-		</group>
-		<group>
-			<name>drivers</name>
 			<group>
 				<name>rtc</name>
 				<file>
@@ -2295,18 +2277,12 @@
 				</file>
 			</group>
 			<group>
-				<name>pio</name>
+				<name>supc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
+					<name>$PROJ_DIR$/../../../../supc/supc.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio_handler.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio.h</name>
+					<name>$PROJ_DIR$/../../../../supc/supc.h</name>
 				</file>
 			</group>
 			<group>
@@ -2316,6 +2292,21 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../usart/usart.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>samg53_xplained_pro</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/samg53_xplained_pro/board_init.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/samg53_xplained_pro/led.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/samg53_xplained_pro/samg53_xplained_pro.h</name>
 				</file>
 			</group>
 		</group>
