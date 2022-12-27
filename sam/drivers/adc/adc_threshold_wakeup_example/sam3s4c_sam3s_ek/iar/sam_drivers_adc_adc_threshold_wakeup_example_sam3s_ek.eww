@@ -1,0 +1,9 @@
+<workspace>
+	<batchBuild></batchBuild>
+	<project>
+		<path>$WS_DIR$\sam_drivers_adc_adc_threshold_wakeup_example_sam3s_ek_flash.ewp</path>
+	</project>
+	<project>
+		<path>$WS_DIR$\sam_drivers_adc_adc_threshold_wakeup_example_sam3s_ek_sram.ewp</path>
+	</project>
+</workspace>

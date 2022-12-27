@@ -1,0 +1,9 @@
+<workspace>
+	<batchBuild></batchBuild>
+	<project>
+		<path>$WS_DIR$\sam_applications_getting-started_sam3u_ek_flash.ewp</path>
+	</project>
+	<project>
+		<path>$WS_DIR$\sam_applications_getting-started_sam3u_ek_sram.ewp</path>
+	</project>
+</workspace>

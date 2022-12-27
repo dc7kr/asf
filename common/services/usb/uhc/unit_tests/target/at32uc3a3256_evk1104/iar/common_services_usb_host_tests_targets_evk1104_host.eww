@@ -1,0 +1,6 @@
+<workspace>
+	<batchBuild></batchBuild>
+	<project>
+		<path>$WS_DIR$\common_services_usb_host_tests_targets_evk1104_host.ewp</path>
+	</project>
+</workspace>

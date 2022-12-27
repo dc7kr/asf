@@ -1,0 +1,6 @@
+<workspace>
+	<batchBuild></batchBuild>
+	<project>
+		<path>$WS_DIR$\common_components_wireless_unit_tests_rz600_at86rf212.ewp</path>
+	</project>
+</workspace>

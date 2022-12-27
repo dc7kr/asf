@@ -1,0 +1,9 @@
+<workspace>
+	<batchBuild></batchBuild>
+	<project>
+		<path>$WS_DIR$\sam_utils_cmsis_dsp_lib_examples_arm_variance_example_sam4s_ek_flash.ewp</path>
+	</project>
+	<project>
+		<path>$WS_DIR$\sam_utils_cmsis_dsp_lib_examples_arm_variance_example_sam4s_ek_sram.ewp</path>
+	</project>
+</workspace>

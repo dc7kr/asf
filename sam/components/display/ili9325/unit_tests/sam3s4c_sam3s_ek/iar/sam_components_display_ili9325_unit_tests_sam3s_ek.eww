@@ -1,0 +1,9 @@
+<workspace>
+	<batchBuild></batchBuild>
+	<project>
+		<path>$WS_DIR$\sam_components_display_ili9325_unit_tests_sam3s_ek_flash.ewp</path>
+	</project>
+	<project>
+		<path>$WS_DIR$\sam_components_display_ili9325_unit_tests_sam3s_ek_sram.ewp</path>
+	</project>
+</workspace>

@@ -1,0 +1,6 @@
+<workspace>
+	<batchBuild></batchBuild>
+	<project>
+		<path>$WS_DIR$\xmega_drivers_ioport_example_stk600-rc064x_atxmega256a3.ewp</path>
+	</project>
+</workspace>
