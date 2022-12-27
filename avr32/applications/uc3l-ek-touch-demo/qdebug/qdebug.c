@@ -1,11 +1,13 @@
 /**
- * \file qdebug.c
+ * \file QDebug.c
  *
- * \brief Qdebug module
+ * \brief QDebug module
  *
  * Copyright (c) 2010 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -138,7 +140,7 @@ Purpose :   Command handler for the data received from QTouch Studio
 Input   :   n/a
 Output  :   n/a
 Notes   :   This function should be called in the main loop after
-            measure_sensors to process the data received from QTOuch Studio
+            measure_sensors to process the data received from QTouch Studio
 ============================================================================*/
 void QDebug_ProcessCommands(void)
 {
@@ -555,7 +557,7 @@ void Transmit_Global_Config(void)
       touch_global_param_t global_params;
 
       /* get the global parameters from the library and transmit the global
-         parameters to the Qtouch Studio */
+         parameters to the QTouch Studio */
       touch_ret = QDEBUG_GET_GLOBAL_PARAM_FUNC(&global_params);
       if(touch_ret != TOUCH_SUCCESS)
       {

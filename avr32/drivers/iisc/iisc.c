@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -59,12 +61,12 @@ bool rx_is_enabled = false;
  */
 bool is_master = false;
 
-/*! \brief Sets up registers and intializes IISC for use as I2S.
+/*! \brief Sets up registers and initializes IISC for use as I2S.
  *
  *  \param iisc Pointer to the correct volatile avr32_iisc_t struct
  *  \param iisc_opt Option structure for IISC Configuration.
  *  \return Status
- *    \retval IISC_OK when no error occured.
+ *    \retval IISC_OK when no error occurred.
  *    \retval IISC_ERROR_ARGUMENT when invalid arguments are passed
  */
 status_code_t iisc_init(volatile avr32_iisc_t *iisc,
@@ -206,8 +208,8 @@ void iisc_disable(volatile avr32_iisc_t *iisc)
  *  \param data The data to write
  *
  *  \return Status
- *    \retval IISC_OK when no error occured.
- *    \retval IISC_TIMEOUT when a timeout occured while trying to transfer
+ *    \retval IISC_OK when no error occurred.
+ *    \retval IISC_TIMEOUT when a timeout occurred while trying to transfer
  */
 status_code_t iisc_write(volatile avr32_iisc_t *iisc, uint32_t data)
 {
@@ -232,8 +234,8 @@ status_code_t iisc_write(volatile avr32_iisc_t *iisc, uint32_t data)
  *  \param *data The data to read
  *
  *  \return Status
- *    \retval IISC_OK when no error occured.
- *    \retval IISC_TIMEOUT when a timeout occured while trying to transfer
+ *    \retval IISC_OK when no error occurred.
+ *    \retval IISC_TIMEOUT when a timeout occurred while trying to transfer
  */
 status_code_t iisc_read(volatile avr32_iisc_t *iisc, uint32_t *data)
 {

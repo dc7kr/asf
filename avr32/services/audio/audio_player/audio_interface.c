@@ -13,12 +13,12 @@
  * The Audio Interface can be used in 2 different ways:
  *
  * - Using "asynchronous" functions, i.e. which result/effect may
- *   not be produced immediatly. Using these functions usually leads to the use of
+ *   not be produced immediately. Using these functions usually leads to the use of
  *   state-machines in the user firmware (since we must wait for the completion of
  *   a command before launching a new one), but has the advantage of reducing the
  *   risks of audio "blips".
  *
- * - Using "synchronous" functions, i.e. which are executed immediatly. This drastically
+ * - Using "synchronous" functions, i.e. which are executed immediately. This drastically
  *   simplifies the user firmware architecture (we do not have to use state-machines since
  *   the synchronous AI functions are immediately executed) but *may* produce audio
  *   "blips" since the execution time of these functions can lead to audio underrun.
@@ -34,6 +34,8 @@
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -330,8 +332,8 @@ void ai_async_cmd_task( void )
   if ( !g_b_ai_cmd_received )
     return;
 
-  g_ai_u32_out = 0;           // By default resultat uint32_t is NULL
-  g_ai_u64_out = 0;           // By default resultat uint64_t is NULL
+  g_ai_u32_out = 0;           // By default result uint32_t is NULL
+  g_ai_u64_out = 0;           // By default result uint64_t is NULL
 
   if( ai_fct_set_tab[current_ai_fct_set]==NULL )
   {

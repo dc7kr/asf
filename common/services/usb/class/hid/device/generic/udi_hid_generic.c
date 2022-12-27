@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -161,7 +163,7 @@ static void udi_hid_generic_setfeature_valid(void);
  * \param nb_sent    number of data received
  */
 static void udi_hid_generic_report_out_received(udd_ep_status_t status,
-		iram_size_t nb_received);
+		iram_size_t nb_received, udd_ep_id_t ep);
 
 /**
  * \brief Enable reception of out report
@@ -178,7 +180,7 @@ static bool udi_hid_generic_report_out_enable(void);
  * \param nb_sent    number of data transfered
  */
 static void udi_hid_generic_report_in_sent(udd_ep_status_t status,
-		iram_size_t nb_sent);
+		iram_size_t nb_sent, udd_ep_id_t ep);
 
 //@}
 
@@ -271,7 +273,7 @@ static void udi_hid_generic_setfeature_valid(void)
 }
 
 static void udi_hid_generic_report_out_received(udd_ep_status_t status,
-		iram_size_t nb_received)
+		iram_size_t nb_received, udd_ep_id_t ep)
 {
 	if (UDD_EP_TRANSFER_OK != status)
 		return;	// Abort reception
@@ -294,8 +296,10 @@ static bool udi_hid_generic_report_out_enable(void)
 
 
 static void udi_hid_generic_report_in_sent(udd_ep_status_t status,
-		iram_size_t nb_sent)
+		iram_size_t nb_sent, udd_ep_id_t ep)
 {
+	UNUSED(status);
+	UNUSED(nb_sent);
 	udi_hid_generic_b_report_in_free = true;
 }
 

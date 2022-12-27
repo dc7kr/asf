@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -55,12 +57,13 @@ extern "C" {
  * \ingroup uhi_cdc_group
  * \defgroup uhi_cdc_group_uhc Interface with USB Host Core (UHC)
  *
- * Structures and functions required by UHC.
+ * Define and functions required by UHC.
  * 
  * @{
  */
 
-//! Global struture which contains standard UHI API for UHC
+//! Global define which contains standard UHI API for UHC
+//! It must be added in USB_HOST_UHI define from conf_usb_host.h file.
 #define UHI_CDC { \
 	.install = uhi_cdc_install, \
 	.enable = uhi_cdc_enable, \
@@ -89,6 +92,7 @@ void uhi_cdc_sof(bool b_micro);
  * These routines are used by memory to transfer its data
  * to/from USB CDC endpoint.
  *
+ * See \ref uhi_cdc_quickstart.
  * @{
  */
 
@@ -179,6 +183,123 @@ int uhi_cdc_putc(uint8_t port, int value);
  */
 iram_size_t uhi_cdc_write_buf(uint8_t port, const void* buf, iram_size_t size);
 //@}
+
+/**
+ * \page uhi_cdc_quickstart Quick start guide for USB host Communication Device Class module (UHI CDC)
+ *
+ * This is the quick start guide for the \ref uhi_cdc_group 
+ * "USB host Communication Device Class module (UHI CDC)" with step-by-step instructions on 
+ * how to configure and use the modules in a selection of use cases.
+ *
+ * The use cases contain several code fragments. The code fragments in the
+ * steps for setup can be copied into a custom initialization function, while
+ * the steps for usage can be copied into, e.g., the main application function.
+ * 
+ * \section uhi_cdc_basic_use_case Basic use case
+ * In this basic use case, the "USB Host CDC (Single Class support)" module is used.
+ *
+ * The "USB Host CDC (Multiple Classes support)" module usage is described
+ * in \ref uhi_cdc_use_cases "Advanced use cases".
+ *
+ * \section uhi_cdc_basic_use_case_setup Setup steps
+ * \subsection uhi_cdc_basic_use_case_setup_prereq Prerequisites
+ * \copydetails uhc_basic_use_case_setup_prereq
+ * \subsection uhi_cdc_basic_use_case_setup_code Example code
+ * \copydetails uhc_basic_use_case_setup_code
+ * \subsection uhi_cdc_basic_use_case_setup_flow Workflow
+ * \copydetails uhc_basic_use_case_setup_flow
+ *
+ * \section uhi_cdc_basic_use_case_usage Usage steps
+ *
+ * \subsection uhi_cdc_basic_use_case_usage_code Example code
+ * Content of conf_usb_host.h:
+ * \code
+ * #define USB_HOST_UHI        UHI_CDC
+ * #define UHI_CDC_CHANGE(dev, b_plug) my_callback_cdc_change(dev, b_plug)
+ * extern bool my_callback_cdc_change(uhc_device_t* dev, bool b_plug);
+ * #define UHI_CDC_RX_NOTIFY() my_callback_cdc_rx_notify()
+ * extern void my_callback_cdc_rx_notify(void);
+ * #include "uhi_cdc.h" // At the end of conf_usb_host.h file
+ * \endcode
+ *
+ * Add to application C-file:
+ * \code
+ * static bool my_flag_cdc_available = false;
+ * bool my_callback_cdc_change(uhc_device_t* dev, bool b_plug)
+ * {
+ *    if (b_plug) {
+ *
+ *       // USB Device CDC connected
+ *       my_flag_cdc_available = true;
+ *       // Open and configure USB CDC ports
+ *       usb_cdc_line_coding_t cfg = {
+ *          .dwDTERate   = CPU_TO_LE32(115200),
+ *          .bCharFormat = CDC_STOP_BITS_1,
+ *          .bParityType = CDC_PAR_NONE,
+ *          .bDataBits   = 8,
+ *       };
+ *       uhi_cdc_open(0, &cfg);
+ *
+ *    } else {
+ *
+ *       my_flag_cdc_available = false;
+ *
+ *    }
+ * }
+ *
+ * void my_callback_cdc_rx_notify(void)
+ * {
+ *    // Wakeup my_task_rx() task
+ * }
+ *
+ * #define MESSAGE "Hello"
+ * void my_task(void)
+ * {
+ *    static bool startup = true;
+ *
+ *    if (!my_flag_cdc_available) {
+ *       startup = true;
+ *       return;
+ *    }
+ *
+ *    if (startup) {
+ *       startup = false;
+ *       // Send data on CDC communication port
+ *       uhi_cdc_write_buf(0, MESSAGE, sizeof(MESSAGE)-1);
+ *       uhi_cdc_putc(0,'\n');
+ *       return;
+ *    }
+ * }
+ *
+ * void my_task_rx(void)
+ * {
+ *    while (uhi_cdc_is_rx_ready(0)) {
+ *       int value = uhi_cdc_getc(0);
+ *    }
+ * }
+ * \endcode
+ *
+ * \subsection uhi_cdc_basic_use_case_setup_flow Workflow
+ * -# Ensure that conf_usb_host.h is available and contains the following configuration
+ * which is the USB host CDC configuration:
+ *   - \code #define USB_HOST_UHI   UHI_CDC \endcode
+ *     \note It defines the list of UHI supported by USB host.
+ *   - \code #define UHI_CDC_CHANGE(dev, b_plug) my_callback_cdc_change(dev, b_plug)
+ * extern bool my_callback_cdc_change(uhc_device_t* dev, bool b_plug); \endcode
+ *     \note This callback is called when a USB device CDC is plugged or unplugged.
+ *     The communication port can be opened and configured here.
+ *   - \code #define UHI_CDC_RX_NOTIFY() my_callback_cdc_rx_notify()
+ * extern void my_callback_cdc_rx_notify(void); \endcode
+ *     \note This callback is called when a new data are received.
+ *     This can be used to manage data reception through interrupt and avoid pooling.
+ * -# The CDC data access functions are described in \ref uhi_cdc_group.
+ *
+ * \section uhi_cdc_use_cases Advanced use cases
+ * For more advanced use of the UHI CDC module, see the following use cases:
+ * - \subpage uhc_use_case_1
+ * - \subpage uhc_use_case_2
+ * - \subpage uhc_use_case_3
+ */
 
 
 #ifdef __cplusplus

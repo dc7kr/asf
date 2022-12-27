@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -209,6 +211,16 @@
 #  define DBG_USART_TX_FUNCTION   AVR32_USART2_TXD_0_1_FUNCTION
 // For the TX pin, connect STK600.PORTC.PJ04 to STK600.RS232 SPARE.TXD
 #  define DBG_USART_IRQ           AVR32_USART2_IRQ
+#  define DBG_USART_BAUDRATE      57600
+#elif BOARD == STK600_RCUC3L3
+#  define DBG_USART               (&AVR32_USART1)
+#  define DBG_USART_RX_PIN        AVR32_USART1_RXD_0_0_PIN
+#  define DBG_USART_RX_FUNCTION   AVR32_USART1_RXD_0_0_FUNCTION
+// For the RX pin, connect STK600.PORTB.PB01 to STK600.RS232 SPARE.RXD
+#  define DBG_USART_TX_PIN        AVR32_USART1_TXD_0_0_PIN
+#  define DBG_USART_TX_FUNCTION   AVR32_USART1_TXD_0_0_FUNCTION
+// For the TX pin, connect STK600.PORTB.PB00 to STK600.RS232 SPARE.TXD
+#  define DBG_USART_IRQ           AVR32_USART1_IRQ
 #  define DBG_USART_BAUDRATE      57600
 #endif
 

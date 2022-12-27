@@ -3,9 +3,11 @@
  *
  * \brief Common User Interface for USB application
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -48,10 +50,10 @@ void ui_init(void);
 //! \brief Enters the user interface in power down mode
 void ui_powerdown(void);
 
-//! \brief Enables the asynchrone interrupts of the user interface
+//! \brief Enables the asynchronous interrupts of the user interface
 void ui_wakeup_enable(void);
 
-//! \brief Disables the asynchrone interrupts of the user interface
+//! \brief Disables the asynchronous interrupts of the user interface
 void ui_wakeup_disable(void);
 
 //! \brief Exits the user interface of power down mode
@@ -67,11 +69,11 @@ void ui_stop_write(void);
 
 /*! \brief Called when communication port is opened
  */
-void ui_com_open(void);
+void ui_com_open(uint8_t port);
 
 /*! \brief Called when communication port is closed
  */
-void ui_com_close(void);
+void ui_com_close(uint8_t port);
 
 /*! \brief Called when a data is received on CDC
  */

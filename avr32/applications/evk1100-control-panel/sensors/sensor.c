@@ -14,6 +14,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -51,7 +53,7 @@
  * Brief description of the module:
  * This module acts as an interface to all sensors.
  *
- * Detailled description of the module:
+ * Detailed description of the module:
  * TODO
  */
 

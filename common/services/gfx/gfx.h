@@ -3,11 +3,13 @@
  *
  * \brief Graphical library API header file
  *
- * This files includes the correct header files for the grapics service
+ * This files includes the correct header files for the graphics service
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -95,18 +97,18 @@ extern "C" {
  * implement it directly.
  *
  * The display specific drivers provides an interface to the graphical
- * display via the disaply controller. It implements the low level
+ * display via the display controller. It implements the low level
  * communication with the display hardware, putting pixels on the display
  * and drawing primitives such as lines, circles and rectangles. Depending
  * on the display driver implementation, drawing the graphics primitives
- * might be handled by the generic graphics drawing primitves rather than the
+ * might be handled by the generic graphics drawing primitives rather than the
  * display driver itself.
  *
  * @{
  */
 
-/*! \name Driver-specific Definitions */
-/* @{ */
+/** \name Driver-specific Definitions */
+/** @{ */
 
 /**
  * \typedef gfx_color_t
@@ -123,14 +125,14 @@ extern "C" {
  * \brief Generate a display-native color value from constant RGB
  * components.
  *
- * This macro does the same job as gfx_color(), except that the RGB
+ * This macro does the same job as \ref gfx_color(), except that the RGB
  * values must be constant, and that it is usable as a static
  * initializer.
  */
 
 /**
  * \def GFX_COLOR_INVALID
- * \brief Value returned by gfx_get_pixel() for pixels outside clipping
+ * \brief Value returned by \ref gfx_get_pixel() for pixels outside clipping
  * region.
  */
 
@@ -140,76 +142,76 @@ extern "C" {
  * region.
  */
 
-/* @} */
+/** @} */
 
-/*! \name Circle Sector Definitions */
-/* @{ */
+/** \name Circle Sector Definitions */
+/** @{ */
 
-/*! Bitmask for drawing circle octant 0. */
+/** Bitmask for drawing circle octant 0. */
 #define GFX_OCTANT0 (1 << 0)
 
-/*! Bitmask for drawing circle octant 1. */
+/** Bitmask for drawing circle octant 1. */
 #define GFX_OCTANT1 (1 << 1)
 
-/*! Bitmask for drawing circle octant 2. */
+/** Bitmask for drawing circle octant 2. */
 #define GFX_OCTANT2 (1 << 2)
 
-/*! Bitmask for drawing circle octant 3. */
+/** Bitmask for drawing circle octant 3. */
 #define GFX_OCTANT3 (1 << 3)
 
-/*! Bitmask for drawing circle octant 4. */
+/** Bitmask for drawing circle octant 4. */
 #define GFX_OCTANT4 (1 << 4)
 
-/*! Bitmask for drawing circle octant 5. */
+/** Bitmask for drawing circle octant 5. */
 #define GFX_OCTANT5 (1 << 5)
 
-/*! Bitmask for drawing circle octant 6. */
+/** Bitmask for drawing circle octant 6. */
 #define GFX_OCTANT6 (1 << 6)
 
-/*! Bitmask for drawing circle octant 7. */
+/** Bitmask for drawing circle octant 7. */
 #define GFX_OCTANT7 (1 << 7)
 
-/*! Bitmask for drawing circle quadrant 0. */
+/** Bitmask for drawing circle quadrant 0. */
 #define GFX_QUADRANT0 (GFX_OCTANT0 | GFX_OCTANT1)
 
-/*! Bitmask for drawing circle quadrant 1. */
+/** Bitmask for drawing circle quadrant 1. */
 #define GFX_QUADRANT1 (GFX_OCTANT2 | GFX_OCTANT3)
 
-/*! Bitmask for drawing circle quadrant 2. */
+/** Bitmask for drawing circle quadrant 2. */
 #define GFX_QUADRANT2 (GFX_OCTANT4 | GFX_OCTANT5)
 
-/*! Bitmask for drawing circle quadrant 3. */
+/** Bitmask for drawing circle quadrant 3. */
 #define GFX_QUADRANT3 (GFX_OCTANT6 | GFX_OCTANT7)
 
-/*! Bitmask for drawing left half of circle. */
+/** Bitmask for drawing left half of circle. */
 #define GFX_LEFTHALF (GFX_QUADRANT3 | GFX_QUADRANT0)
 
-/*! Bitmask for drawing top half of circle. */
+/** Bitmask for drawing top half of circle. */
 #define GFX_TOPHALF (GFX_QUADRANT0 | GFX_QUADRANT1)
 
-/*! Bitmask for drawing right half of circle. */
+/** Bitmask for drawing right half of circle. */
 #define GFX_RIGHTHALF (GFX_QUADRANT1 | GFX_QUADRANT2)
 
-/*! Bitmask for drawing bottom half of circle. */
+/** Bitmask for drawing bottom half of circle. */
 #define GFX_BOTTOMHALF (GFX_QUADRANT2 | GFX_QUADRANT3)
 
-/*! Bitmask for drawing whole circle. */
+/** Bitmask for drawing whole circle. */
 #define GFX_WHOLE 0xFF
 
-/* @} */
+/** @} */
 
-/*! \name Flags for gfx_set_orientation() */
+/** \name Flags for gfx_set_orientation() */
 /*@{ */
-/*! Bitmask for flipping X for gfx_set_orientation */
+/** Bitmask for flipping X for \ref gfx_set_orientation() */
 #define GFX_FLIP_X 1
 
-/*! Bitmask for flipping Y for gfx_set_orientation */
+/** Bitmask for flipping Y for \ref gfx_set_orientation() */
 #define GFX_FLIP_Y 2
 
-/*! Bitmask for swapping X and Y for gfx_set_orientation */
+/** Bitmask for swapping X and Y for \ref gfx_set_orientation() */
 #define GFX_SWITCH_XY 4
 
-/*@} */
+/** @} */
 
 /**
  * \name Screen geometry and clipping variables
@@ -219,26 +221,28 @@ extern "C" {
  * marked as private/static since they are shared within multiple C files
  * of the graphics drivers.
  *
- * Use \ref gfx_set_clipping to change clipping region.
+ * Use \ref gfx_set_clipping() to change clipping region.
  */
 
-/*! @{ */
+/** @{ */
 #if defined(CONF_GFX_USE_CLIPPING) || defined(__DOXYGEN__)
-extern gfx_coord_t gfx_min_x;   /*!< Minimum X of current clipping region. */
-extern gfx_coord_t gfx_min_y;   /*!< Maximum Y of current clipping region. */
-extern gfx_coord_t gfx_max_x;   /*!< Minimum X of current clipping region. */
-extern gfx_coord_t gfx_max_y;   /*!< Maximum Y of current clipping region. */
+extern gfx_coord_t gfx_min_x;   /**< Minimum X of current clipping region. */
+extern gfx_coord_t gfx_min_y;   /**< Maximum Y of current clipping region. */
+extern gfx_coord_t gfx_max_x;   /**< Minimum X of current clipping region. */
+extern gfx_coord_t gfx_max_y;   /**< Maximum Y of current clipping region. */
 #endif
 
-extern gfx_coord_t gfx_width;  /*!< Current width of screen. */
-extern gfx_coord_t gfx_height; /*!< Current height of screen. */
-/*@} */
+extern gfx_coord_t gfx_width;  /**< Current width of screen. */
+extern gfx_coord_t gfx_height; /**< Current height of screen. */
+/** @} */
+
+#if defined(__DOXYGEN__)
 
 /**
  * \name Bitmap functions and structures
  */
 
-/*@{ */
+/** @{ */
 
 /**
  * \brief Draw a bitmap
@@ -327,10 +331,10 @@ void gfx_put_bitmap(const struct gfx_bitmap *bmp, gfx_coord_t map_x,
 		gfx_coord_t width,
 		gfx_coord_t height);
 
-/*@} */
+/** @} */
 
-/*! \name Display driver management functions */
-/*@{ */
+/** \name Display driver management functions */
+/** @{ */
 
 /**
  * \brief Synchronize access to the display
@@ -347,10 +351,10 @@ void gfx_put_bitmap(const struct gfx_bitmap *bmp, gfx_coord_t map_x,
  */
 void gfx_sync(void);
 
-/*@} */
+/** @} */
 
-/*! \name Display Geometry */
-/*@{ */
+/** \name Display Geometry */
+/** @{ */
 
 /**
  * \brief Change display orientation
@@ -363,7 +367,7 @@ void gfx_sync(void);
  * - #GFX_FLIP_Y Flip Y axis
  * - #GFX_SWITCH_XY Switch X/Y
  *
- * Note that rotating the screen 90 degress means switching X/Y _and_
+ * Note that rotating the screen 90 degrees means switching X/Y _and_
  * mirroring one of the axes. It is not enough to just switch X/Y.
  *
  * \param flags A bitmask of which axes to flip and/or switch.
@@ -402,7 +406,7 @@ gfx_coord_t gfx_get_height(void);
  * unwanted drawing to the display will give a higher performance on
  * displays which has a low bandwidth from the CPU.
  * Software is enabled by the CONF_GFX_USE_CLIPPING configuration symbol.
- * Clipping region is set with the \ref gfx_set_clipping function.
+ * Clipping region is set with the \ref gfx_set_clipping() function.
  *
  * Hardware clipping is used in the supported display drivers to efficiently
  * draw primitives on a subset of the display. Example: when drawing a
@@ -418,7 +422,7 @@ gfx_coord_t gfx_get_height(void);
  * will not have any effect.
  */
 
-/*@{ */
+/** @{ */
 
 /**
  * \brief Set the clipping region
@@ -471,10 +475,10 @@ void gfx_set_bottom_right_limit(gfx_coord_t x, gfx_coord_t y);
 void gfx_set_limits(gfx_coord_t x1, gfx_coord_t y1,
 		gfx_coord_t x2, gfx_coord_t y2);
 
-/*@} */
+/** @} */
 
-/*! \name Low-level pixel drawing operations */
-/*@{ */
+/** \name Low-level pixel drawing operations */
+/** @{ */
 
 /**
  * \brief Generate native color value from R/G/B values.
@@ -573,10 +577,10 @@ void gfx_copy_progmem_pixels_to_screen(gfx_color_t PROGMEM_PTR_T pixels,
  */
 void gfx_copy_pixels_from_screen(gfx_color_t *pixels, uint32_t count);
 
-/*@} */
+/** @} */
 
-/*! \name Graphics Drawing Primitives */
-/*@{ */
+/** \name Graphics Drawing Primitives */
+/** @{ */
 
 /**
  * \def gfx_draw_horizontal_line(x, y, length, color)
@@ -641,7 +645,7 @@ void gfx_copy_pixels_from_screen(gfx_color_t *pixels, uint32_t count);
  *
  * The octant_mask parameter is a bitmask that decides which octants of
  * the circle to draw. Use the GFX_OCTANTn, GFX_QUADRANTn, GFX_xHALF and
- * GFX_WHOLE contants and OR them together if required. Radius equal to
+ * GFX_WHOLE constants and OR them together if required. Radius equal to
  * zero gives a single pixel.
  *
  * \param  x           X coordinate of center.
@@ -661,7 +665,7 @@ void gfx_copy_pixels_from_screen(gfx_color_t *pixels, uint32_t count);
  *
  * The quadrant_mask parameter is a bitmask that decides which quadrants
  * of the circle to draw. Use the GFX_QUADRANTn, GFX_xHALF and
- * GFX_WHOLE contants and OR them together if required. Radius equal to
+ * GFX_WHOLE constants and OR them together if required. Radius equal to
  * zero gives a single pixel.
  *
  * \note This function only supports quadrants while gfx_draw_circle()
@@ -720,9 +724,9 @@ void gfx_copy_pixels_from_screen(gfx_color_t *pixels, uint32_t count);
  * \param  height    Height of pixel rectangle to copy.
  */
 
-/*@} */
+/** @} */
 
-/*! @} */
+/** @} */
 
 /**
  * \page gfx_quickstart Quick Start Guide for the graphics service
@@ -754,7 +758,7 @@ void gfx_copy_pixels_from_screen(gfx_color_t *pixels, uint32_t count);
  * -# Initialize graphics service
  *  - \code gfx_init(); \endcode
  *  - \note This will call the init function for the low level display
- * controller driver and intialize the screen to a white background.
+ * controller driver and initialize the screen to a white background.
  * -# Draw a red line from 10,10 to 20,20:
  * -  \code gfx_draw_line(10, 10, 20, 20, GFX_COLOR(0xFF, 0, 0)); \endcode
  * -  \attention This uses the \ref GFX_COLOR macro to convert a RGB
@@ -764,6 +768,15 @@ void gfx_copy_pixels_from_screen(gfx_color_t *pixels, uint32_t count);
  * non-constant value you must use the \ref gfx_color function to generate the
  * color.
  */
+
+#else
+	gfx_coord_t gfx_get_width(void);
+
+	gfx_coord_t gfx_get_height(void);
+
+	void gfx_set_clipping(gfx_coord_t min_x, gfx_coord_t min_y,
+			gfx_coord_t max_x, gfx_coord_t max_y);
+#endif
 
 #ifdef __cplusplus
 }

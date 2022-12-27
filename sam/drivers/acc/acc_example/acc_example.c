@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -49,9 +51,9 @@
  *
  * \section Requirements
  *
- * This example can be used with sam3s-ek and sam3s-ek2. The DAC0 uses
- * 3.3v as reference voltage so that make sure to close JP2 on ADVREF and
- * 3V3 on the board.
+ * This example can be used with any SAM3/4 MCU featuring Analog Comparator 
+ * Controller. The DAC0 uses 3.3v as reference voltage so that make sure to 
+ * close JP2 on ADVREF and 3V3 on the board.
  *
  * \section Description
  *
@@ -103,6 +105,7 @@
  */
 
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 
@@ -168,27 +171,14 @@ void ACC_Handler(void)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -275,7 +265,7 @@ int main(void)
 	volatile uint32_t ul_status = 0x0;
 	int32_t l_volt_dac0 = 0;
 
-	/* Initilize the system */
+	/* Initialize the system */
 	sysclk_init();
 	board_init();
 
@@ -414,7 +404,7 @@ int main(void)
 			 */
 			s_volt = (ul_value * VOLT_REF) / MAX_DIGITAL;
 			printf("-I- Voltage on potentiometer(AD5) is %d mv\n\r", s_volt);
-			printf("-I- Voltage on DAC0 is %d mv \n\r", l_volt_dac0);
+			printf("-I- Voltage on DAC0 is %ld mv \n\r", (long)l_volt_dac0);
 			break;
 			
 		case 'm':

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -57,7 +59,7 @@ static uint8_t ebi_enabled_chip_selects;
  * This functions converts the chip select number into an EBI_CS_t memory
  * pointer, which points to the base of the chip select register.
  *
- * \param cs Chip select number to get the chip select register adress for
+ * \param cs Chip select number to get the chip select register address for
  *
  * \return Pointer to a chip select register address
  */

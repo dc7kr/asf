@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -162,12 +164,12 @@ extern void sdramc_init(unsigned long hsb_hz);
  * \note Once the SELF REFRESH command is registered, all
  * the inputs to the SDRAM become "Don't Care" with
  * the exception of CKE, which must remain LOW.
- * Once self refresh mode is engaged, the SDRAM pro-
- * vides its own internal clocking, causing it to perform its
+ * Once self refresh mode is engaged, the SDRAM provides its own internal
+ * clocking, causing it to perform its
  * own AUTO REFRESH cycles. The SDRAM must remain
  * in self refresh mode for a minimum period equal to
- * tRAS and may remain in self refresh mode for an indefi-
- * nite period beyond that.
+ * tRAS and may remain in self refresh mode for an indefinite
+ * period beyond that.
  *
  * \note An example of entering/exiting CPU sleep mode while keeping SDRAM content is :
  * sdram_enter_self_refresh(); SLEEP(AVR32_PM_SMODE_STATIC);  sdram_exit_self_refresh();

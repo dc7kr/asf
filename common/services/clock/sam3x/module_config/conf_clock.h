@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -70,13 +72,13 @@
 #define CONFIG_PLL0_MUL             14
 #define CONFIG_PLL0_DIV             1
 
-// ===== UPLL (UTMI) Hardware fixed at 480 Mhz.
+// ===== UPLL (UTMI) Hardware fixed at 480 MHz.
 
 // ===== USB Clock Source Options   (Fusb = FpllX / USB_div)
 // Use div effective value here.
 //#define CONFIG_USBCLK_SOURCE        USBCLK_SRC_PLL0
-//#define CONFIG_USBCLK_SOURCE        USBCLK_SRC_UPLL
-//#define CONFIG_USBCLK_DIV           1
+#define CONFIG_USBCLK_SOURCE        USBCLK_SRC_UPLL
+#define CONFIG_USBCLK_DIV           1
 
 // ===== Target frequency (System clock)
 // - XTAL frequency: 12MHz
@@ -87,7 +89,7 @@
 // - System clock is: 12 * 14 / 1 /2 = 84MHz
 // ===== Target frequency (USB Clock)
 // - USB clock source: UPLL
-// - USB clock devider: 1 (not devided)
+// - USB clock divider: 1 (not divided)
 // - UPLL frequency: 480MHz
 // - USB clock: 480 / 1 = 480MHz
 

@@ -1,4 +1,3 @@
-
 // This header file is a compilation of multiple dsp header files
 
 /*****************************************************************************
@@ -12,6 +11,8 @@
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -117,6 +118,8 @@
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -383,7 +386,7 @@ typedef struct A_PACKED dsp32_complex_t
 #define DSP_FP_RES(a, b)        (1./((unsigned) (1 << (b))))
 //! \}
 
-/*! \name Convertion macro from a float to a Q Formated value
+/*! \name Conversion macro from a float to a Q Formated value
  * \note These macros limit the number in its range
  */
 //! \{
@@ -474,6 +477,8 @@ typedef struct A_PACKED dsp32_complex_t
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -559,7 +564,7 @@ typedef struct A_PACKED dsp32_complex_t
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the vector additon function.
+/*! \brief 16-bit fixed point version of the vector addition function.
  * \ingroup group_vectors
  * \param vect1 A pointer on the 16-bit real vector that will received the result of the addition.
  * \param vect2 A pointer on the 16-bit real vector that will be added with the other input vector (vect3).
@@ -567,7 +572,7 @@ typedef struct A_PACKED dsp32_complex_t
  * \param size The size of the input buffers.
  */
 void dsp16_vect_add(dsp16_t *vect1, dsp16_t *vect2, dsp16_t *vect3, int size);
-/*! \brief 32-bit fixed point version of the vector additon function.
+/*! \brief 32-bit fixed point version of the vector addition function.
  * \ingroup group_vectors
  * \param vect1 A pointer on the 32-bit real vector that will received the result of the addition.
  * \param vect2 A pointer on the 32-bit real vector that will be added with the other input vector (vect3).
@@ -590,7 +595,7 @@ void dsp32_vect_add(dsp32_t *vect1, dsp32_t *vect2, dsp32_t *vect3, int size);
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the vector additon function.
+/*! \brief 16-bit fixed point version of the vector addition function.
  * \ingroup group_vectors
  * \param vect1 A pointer on the 16-bit real vector that will received the result of the addition.
  * \param vect2 A pointer on the 16-bit real vector that will be added with the other input vector (vect3).
@@ -598,7 +603,7 @@ void dsp32_vect_add(dsp32_t *vect1, dsp32_t *vect2, dsp32_t *vect3, int size);
  * \param size The size of the input buffers.
  */
 void dsp16_vect_add_and_sat(dsp16_t *vect1, dsp16_t *vect2, dsp16_t *vect3, int size);
-/*! \brief 32-bit fixed point version of the vector additon function.
+/*! \brief 32-bit fixed point version of the vector addition function.
  * \ingroup group_vectors
  * \param vect1 A pointer on the 32-bit real vector that will received the result of the addition.
  * \param vect2 A pointer on the 32-bit real vector that will be added with the other input vector (vect3).
@@ -1157,7 +1162,7 @@ void dsp32_vect_conv(dsp32_t *vect1, dsp32_t *vect2, int vect2_size, dsp32_t *ve
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the complex vector additon function.
+/*! \brief 16-bit fixed point version of the complex vector addition function.
  * \ingroup group_vectors
  * \param vect1 A pointer on the 16-bit complex vector that will received the result of the addition.
  * \param vect2 A pointer on the 16-bit complex vector that will be added with the other input vector (vect3).
@@ -1165,7 +1170,7 @@ void dsp32_vect_conv(dsp32_t *vect1, dsp32_t *vect2, int vect2_size, dsp32_t *ve
  * \param size The size of the input buffers.
  */
 void dsp16_vect_complex_add(dsp16_complex_t *vect1, dsp16_complex_t *vect2, dsp16_complex_t *vect3, int size);
-/*! \brief 32-bit fixed point version of the complex vector additon function.
+/*! \brief 32-bit fixed point version of the complex vector addition function.
  * \ingroup group_vectors
  * \param vect1 A pointer on the 32-bit complex vector that will received the result of the addition.
  * \param vect2 A pointer on the 32-bit complex vector that will be added with the other input vector (vect3).
@@ -1271,6 +1276,8 @@ void dsp16_vect_complex_conj(dsp16_complex_t *vect1, dsp16_complex_t *vect2, int
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -1326,7 +1333,7 @@ void dsp16_vect_complex_conj(dsp16_complex_t *vect1, dsp16_complex_t *vect2, int
  * define the properties of the filter used and must be generated first.\n
  * There are different ways to do it:
  * - By using a dedicated software, many of them can be easily found on the web.
- * - By using a digital signal software which provides the capabilty to do it
+ * - By using a digital signal software which provides the capability to do it
  * such as Matlab (http://www.mathworks.com/) or Scilab
  * (http://www.scilab.org/) (Scilab is a free tool similar to Matlab).
  * - By using a dedicated DSP Library function such as \ref lp_FIR_design.
@@ -1424,7 +1431,7 @@ void dsp16_filt_iir(dsp16_t *y, dsp16_t *x, int size, dsp16_t *num, int num_size
  * \param y A pointer on a 32-bit fixed-point vector of size elements corresponding to the output buffer.
  *          The den_size previous elements correspond to values of old output samples and have to be set to 0 at the initialization (y-1, y-2, ...).
  * \param x A pointer on a 32-bit fixed-point vector of size elements corresponding to the input buffer.
- *          The num_size previous elements correspond to old samples intput samples have to be set to 0 at the initialization (x-1, x-2, ...).
+ *          The num_size previous elements correspond to old samples input samples have to be set to 0 at the initialization (x-1, x-2, ...).
  * \param size The length of the input buffer.
  * \param num A pointer on a 32-bit fixed-point vector of num_size elements corresponding to the buffer containing the numerator's coefficients of the filter.
  * \param num_size The length of the numerator's coefficients of the filter (must be a multiple of 2).
@@ -1516,7 +1523,7 @@ void dsp32_filt_iirpart(dsp32_t *vect1, dsp32_t *vect2, int size, dsp32_t *num, 
 /*! \brief 16-bit fixed point version of the LMS filter.
  * \ingroup group_filtering
  * \param x A pointer on a 16-bit fixed-point vector of (size) elements that acts as a circular buffer, filled with the input samples. Its elements
- *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions whithout filling any of its values.
+ *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions without filling any of its values.
  * \param w A pointer on a 16-bit fixed-point vector of size elements corresponding to the coefficients of the filter. Just initialize its elements
  *          to zero and after several  iterations, this buffer will be filled with the actual coefficients of the filter.
  * \param size The length of the circular buffer (x) and of the coefficient's buffer (w). It must be a multiple of 4.
@@ -1530,7 +1537,7 @@ void dsp16_filt_lms(dsp16_t *x, dsp16_t *w, int size, dsp16_t new_x, dsp16_t d, 
 /*! \brief 32-bit fixed point version of the LMS filter.
  * \ingroup group_filtering
  * \param x A pointer on a 32-bit fixed-point vector of (size) elements that acts as a circular buffer, filled with the input samples. Its elements
- *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions whithout filling any of its values.
+ *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions without filling any of its values.
  * \param w A pointer on a 32-bit fixed-point vector of size elements corresponding to the coefficients of the filter. Just initialize its elements
  *          to zero and after several  iterations, this buffer will be filled with the actual coefficients of the filter.
  * \param size The length of the circular buffer (x) and of the coefficient's buffer (w).
@@ -1565,7 +1572,7 @@ void dsp32_filt_lms_fir(dsp32_t *x, dsp32_t *w, int size, dsp32_t *y, int i);
 /*! \brief 16-bit fixed point version of the NLMS filter.
  * \ingroup group_filtering
  * \param x A pointer on a 16-bit fixed-point vector of (size) elements that acts as a circular buffer, filled with the input samples. Its elements
- *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions whithout filling any of its values.
+ *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions without filling any of its values.
  * \param w A pointer on a 16-bit fixed-point vector of size elements corresponding to the coefficients of the filter. Just initialize its elements
  *          to zero and after several  iterations, this buffer will be filled with the actual coefficients of the filter.
  * \param size The length of the circular buffer (x) and of the coefficient's buffer (w). It must be a multiple of 4.
@@ -1579,7 +1586,7 @@ void dsp16_filt_nlms(dsp16_t *x, dsp16_t *w, int size, dsp16_t new_x, dsp16_t d,
 /*! \brief 32-bit fixed point version of the NLMS filter.
  * \ingroup group_filtering
  * \param x A pointer on a 32-bit fixed-point vector of (size) elements that acts as a circular buffer, filled with the input samples. Its elements
- *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions whithout filling any of its values.
+ *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions without filling any of its values.
  * \param w A pointer on a 32-bit fixed-point vector of size elements corresponding to the coefficients of the filter. Just initialize its elements
  *          to zero and after several  iterations, this buffer will be filled with the actual coefficients of the filter.
  * \param size The length of the circular buffer (x) and of the coefficient's buffer (w).
@@ -1623,7 +1630,7 @@ void dsp16_filt_interpolation_coefsort(dsp16_t *fir_coefs, int n_tap, int interp
  * \param vect1 A pointer on a 16-bit fixed-point vector where to store the result.
  *              It must be of a size (in sample) equals to the size of the input
  *              buffer multiplied by the interpolation factor.
- * \param vect2 A pointer on a 16-bit fixed-point vector containig the input samples.
+ * \param vect2 A pointer on a 16-bit fixed-point vector containing the input samples.
  * \param vect2_size The size of the input buffer.
  * \param h A pointer on a 16-bit fixed-point vector which contains the coefficients
  *          of the filter. These coefficients must be reorder with the function
@@ -1685,6 +1692,8 @@ void dsp16_filt_lpfirdesign_windowed_sinc(dsp16_t *c, int fc_hz, int fs_hz, int 
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -2177,6 +2186,8 @@ dsp32_t dsp32_op_rand(void);
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -2607,6 +2618,8 @@ void dsp32_gen_dirac(dsp32_t *vect1, int size, int dirac_index);
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -2774,6 +2787,8 @@ void dsp32_trans_realcomplexfft(dsp32_complex_t *vect1, dsp32_t *vect2, int nlog
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -2863,7 +2878,7 @@ void dsp32_win_rect(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \section Bartlett Bartlett
  * \image html windowing_bartlett.gif
  * Also known simply as the triangular windows, these functions generate
- * a bartlett window that fits in the output buffer.\n
+ * a Bartlett window that fits in the output buffer.\n
  * The amplitude of the signal is in the range [0; 1]
  *
  * Relative functions:
@@ -2875,7 +2890,7 @@ void dsp32_win_rect(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the bartlett windowing function.
+/*! \brief 16-bit fixed point version of the Bartlett windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 16-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -2884,7 +2899,7 @@ void dsp32_win_rect(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \param size The size of the output buffer.
  */
 void dsp16_win_bart(dsp16_t *vect1, dsp16_t *vect2, int size);
-/*! \brief 32-bit fixed point version of the bartlett windowing function.
+/*! \brief 32-bit fixed point version of the Bartlett windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 32-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -2897,7 +2912,7 @@ void dsp32_win_bart(dsp32_t *vect1, dsp32_t *vect2, int size);
 /*! \addtogroup group_windowing
  * \section Blackman Blackman
  * \image html windowing_blackman.gif
- * These functions generate a blackman window that fits in the output buffer.\n
+ * These functions generate a Blackman window that fits in the output buffer.\n
  * The amplitude of the signal is in the range [0; 1]
  *
  * Relative functions:
@@ -2909,7 +2924,7 @@ void dsp32_win_bart(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the blackman windowing function.
+/*! \brief 16-bit fixed point version of the Blackman windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 16-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -2918,7 +2933,7 @@ void dsp32_win_bart(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \param size The size of the output buffer.
  */
 void dsp16_win_black(dsp16_t *vect1, dsp16_t *vect2, int size);
-/*! \brief 32-bit fixed point version of the blackman windowing function.
+/*! \brief 32-bit fixed point version of the Blackman windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 32-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -2965,7 +2980,7 @@ void dsp32_win_hamm(dsp32_t *vect1, dsp32_t *vect2, int size);
 /*! \addtogroup group_windowing
  * \section Gauss Gauss
  * \image html windowing_gauss.gif
- * These functions generate a gaussian window that fits in the output buffer.\n
+ * These functions generate a Gaussian window that fits in the output buffer.\n
  * The amplitude of the signal is in the range [0; 1]
  * \note You can change the value of the teta coefficient by defining DSP_GAUSS_TETA
  * at the compilation with a value that fits in the range ]0; 0.5]
@@ -2979,7 +2994,7 @@ void dsp32_win_hamm(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the gaussian windowing function.
+/*! \brief 16-bit fixed point version of the Gaussian windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 16-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -2988,7 +3003,7 @@ void dsp32_win_hamm(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \param size The size of the output buffer.
  */
 void dsp16_win_gauss(dsp16_t *vect1, dsp16_t *vect2, int size);
-/*! \brief 32-bit fixed point version of the gaussian windowing function.
+/*! \brief 32-bit fixed point version of the Gaussian windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 32-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -3071,8 +3086,8 @@ void dsp32_win_kaiser(dsp32_t *vect1, dsp32_t *vect2, int size, int alpha);
 /*! \addtogroup group_windowing
  * \section Welch Welch
  * \image html windowing_welch.gif
- * These functions generate a welch window that fits in the output buffer.\n
- * The welch window is commonly used as a window for power spectral estimation.\n
+ * These functions generate a Welch window that fits in the output buffer.\n
+ * The Welch window is commonly used as a window for power spectral estimation.\n
  * The amplitude of the signal is in the range [0; 1]
  *
  * Relative functions:
@@ -3084,7 +3099,7 @@ void dsp32_win_kaiser(dsp32_t *vect1, dsp32_t *vect2, int size, int alpha);
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the welch windowing function.
+/*! \brief 16-bit fixed point version of the Welch windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 16-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -3093,7 +3108,7 @@ void dsp32_win_kaiser(dsp32_t *vect1, dsp32_t *vect2, int size, int alpha);
  * \param size The size of the output buffer.
  */
 void dsp16_win_welch(dsp16_t *vect1, dsp16_t *vect2, int size);
-/*! \brief 32-bit fixed point version of the welch windowing function.
+/*! \brief 32-bit fixed point version of the Welch windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 32-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -3118,6 +3133,8 @@ void dsp32_win_welch(dsp32_t *vect1, dsp32_t *vect2, int size);
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -3224,6 +3241,8 @@ void dsp_adpcm_ima_decode(int16_t *out, void *in, int size, int16_t *step_index,
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -3381,7 +3400,7 @@ typedef struct
 //!  @{
 /*! \brief Options to attribute to the resampling algorithm
  * \note The structure must be initialized to 0 before using it. This will ensure
- * all the defautl options will be chosen.
+ * all the default options will be chosen.
  * \ingroup group_resampling
  */
 typedef struct
@@ -3407,7 +3426,7 @@ typedef struct
       int custom_fc_hz;
       //! Custom filter function. If set to NULL, the algorithm will use the dsp16_filt_lpfirdesign function.
       void (*dsp16_custom_filter)(dsp16_t *coefficients, int fc_hz, int fs_hz, int order);
-      //! Custom window function. If set to NULL, the algortihm will use a rectangular window.
+      //! Custom window function. If set to NULL, the algorithm will use a rectangular window.
       void (*dsp16_custom_window)(dsp16_t *window, dsp16_t *input, int size);
     } dynamic;
     //! If using the static method to generate the filter coefficients
@@ -3431,7 +3450,7 @@ typedef void *(*malloc_fct_t)(int);
  * \param output_sample_rate The sample rate of the output signal.
  * \param buffer_size The size of the input buffers.
  * \param order The order of the re-sampling module. This defines indirectly the order of the
- *        filter to be used. It sorder will be <order> * <interpolation factor>.
+ *        filter to be used. Its order will be <order> * <interpolation factor>.
  * \param malloc_fct A pointer on a memory allocation function.
  * \param nb_channels The number of channels to compute.
  * \param options Add specific options to the algorithm.
@@ -3481,7 +3500,7 @@ int dsp16_resampling_get_output_current_buffer_size(dsp_resampling_t *dsp_resamp
  *              process. It has to be of a length defined to the
  *              \ref dsp16_resampling_setup function as for its sampling rate.
  * \param channel The channel number to compute (starting from 0 to nb_channels - 1
- *                refered in \ref dsp16_resampling_setup).
+ *                referred in \ref dsp16_resampling_setup).
  */
 void dsp16_resampling_compute(dsp_resampling_t *dsp_resampling, dsp16_t *output, dsp16_t *input, int channel);
 

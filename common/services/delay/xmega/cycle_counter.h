@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -99,8 +101,8 @@ static inline void __portable_avr_delay_cycles(unsigned long n)
 #	define cpu_us_2_cy(us, f_cpu)  (((uint64_t)(us) * (f_cpu) + 999999ul) / 1e6)
 #endif
 
-#define cpu_delay_ms(delay, f_cpu) delay_cycles(cpu_ms_2_cy(delay, f_cpu))
-#define cpu_delay_us(delay, f_cpu) delay_cycles(cpu_us_2_cy(delay, f_cpu))
+#define cpu_delay_ms(delay, f_cpu) delay_cycles((uint64_t)cpu_ms_2_cy(delay, f_cpu))
+#define cpu_delay_us(delay, f_cpu) delay_cycles((uint64_t)cpu_us_2_cy(delay, f_cpu))
 //! @}
 
 

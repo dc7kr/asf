@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -52,9 +54,9 @@ void ui_powerdown(void);
 void ui_wakeup(void);
 
 /*! \brief Notify the state of loopback
- * It is called when a the loopback is started and stoped.
+ * It is called when a the loopback is started and stopped.
  *
- * \param b_started    loopback started if true, else stoped
+ * \param b_started    loopback started if true, else stopped
  */
 void ui_loop_back_state(bool b_started);
 

@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -52,7 +54,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = stdio_stdio_usb_example.elf
+TARGET = stdio_usb_example.elf
 
 # List of C source files.
 CSRCS = \
@@ -101,6 +103,7 @@ INC_PATH = \
        common/services/usb/udc                            \
        common/utils                                       \
        common/utils/stdio/stdio_usb                       \
+       common/utils/stdio/stdio_usb/stdio_usb_example     \
        common/utils/stdio/stdio_usb/stdio_usb_example/at32uc3a3256_uc3_a3_xplained \
        ./common/utils/stdio/stdio_usb/stdio_usb_example/at32uc3a3256_uc3_a3_xplained/gcc
 

@@ -397,9 +397,9 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../drivers/adc</state>
+					<state>$PROJ_DIR$/../../../../drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../drivers/pmic</state>
-					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
@@ -414,8 +414,8 @@
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../common/services/sleepmgr</state>
-					<state>$PROJ_DIR$/../../../../drivers/sleep</state>
-					<state>$PROJ_DIR$/../../../../drivers/cpu</state>
+					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../drivers/adc</state>
 					<state>$PROJ_DIR$/../../../../../common/components/display/st7565r</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -684,9 +684,9 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../drivers/adc</state>
+					<state>$PROJ_DIR$/../../../../drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../drivers/pmic</state>
-					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
@@ -701,8 +701,8 @@
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../common/services/sleepmgr</state>
-					<state>$PROJ_DIR$/../../../../drivers/sleep</state>
-					<state>$PROJ_DIR$/../../../../drivers/cpu</state>
+					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../drivers/adc</state>
 					<state>$PROJ_DIR$/../../../../../common/components/display/st7565r</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1436,9 +1436,9 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../drivers/adc</state>
+					<state>$PROJ_DIR$/../../../../drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../drivers/pmic</state>
-					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
@@ -1453,8 +1453,8 @@
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../common/services/sleepmgr</state>
-					<state>$PROJ_DIR$/../../../../drivers/sleep</state>
-					<state>$PROJ_DIR$/../../../../drivers/cpu</state>
+					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../drivers/adc</state>
 					<state>$PROJ_DIR$/../../../../../common/components/display/st7565r</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1723,9 +1723,9 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../drivers/adc</state>
+					<state>$PROJ_DIR$/../../../../drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../drivers/pmic</state>
-					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
@@ -1740,8 +1740,8 @@
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../common/services/sleepmgr</state>
-					<state>$PROJ_DIR$/../../../../drivers/sleep</state>
-					<state>$PROJ_DIR$/../../../../drivers/cpu</state>
+					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../drivers/adc</state>
 					<state>$PROJ_DIR$/../../../../../common/components/display/st7565r</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>

@@ -16,6 +16,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -50,7 +52,7 @@
 
 
 /*!
- * Detailled description of the module:
+ * Detailed description of the module:
  * TODO
  */
 
@@ -264,7 +266,7 @@ static portTASK_FUNCTION( vDataLogTask, pvParameters )
 
    xDataLogStatus = SYS_STATUS_RUNNING;
 
-   /* We need to initialise xLastFocusTime prior to the first call to vTaskDelayUntil(). */
+   /* We need to initialize xLastFocusTime prior to the first call to vTaskDelayUntil(). */
    xLastFocusTime = xTaskGetTickCount();
 
    for(;;)
@@ -553,7 +555,7 @@ void vdatalog_make_logstring( xLogDef *pxLog, signed portCHAR *pcLogString )
    pxLogDate = gmtime( &(pxLog->rawdate) );
 
    // Build the log string.
-   // WARNING: pxLogDate->tm_year == nunmber of years since 1900.
+   // WARNING: pxLogDate->tm_year == number of years since 1900.
    // For years >= 2000, we'll display the last 2 digits only.
    if( pxLogDate->tm_year >= 100 )
       pxLogDate->tm_year -= 100;
@@ -613,7 +615,7 @@ static int prv_xopen_current_logfile( void )
          pxDate = gmtime( &xcptime_LocalTime );
 
          // Build the filename: mmddyy_hhmm.log
-         // WARNING: pxDate->tm_year == nunmber of years since 1900.
+         // WARNING: pxDate->tm_year == number of years since 1900.
          // For years >= 2000, we'll display the last 2 digits only.
          if( pxDate->tm_year >= 100 )
             pxDate->tm_year -= 100;

@@ -3,9 +3,11 @@
  *
  * \brief USB Device Human Interface Device (HID) interface definitions.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -53,15 +55,12 @@ extern "C" {
 
 /**
  * \ingroup udi_group
- * \defgroup udi_hid_group UDI for Human Interface Device Class
+ * \defgroup udi_hid_group USB Device Interface (UDI) for Human Interface Device (HID)
+ *
+ * Common library for all Human Interface Device (HID) implementation.
  *
  * @{
  */
-
-/**
- * \name Interface for application
- */
-//@{
 
 /**
  * \brief Decode HID setup request
@@ -74,8 +73,6 @@ extern "C" {
  * \return \c 1 if function was successfully done, otherwise \c 0.
  */
 bool udi_hid_setup( uint8_t *rate, uint8_t *protocol, uint8_t *report_desc, bool (*set_report)(void) );
-
-//@}
 
 //@}
 

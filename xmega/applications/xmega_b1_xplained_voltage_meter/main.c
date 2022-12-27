@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -166,9 +168,9 @@ static void adc_handler(ADC_t *adc, uint8_t channel, adc_result_t result)
 }
 
 /**
- * \brief Timer Counter Oveflow interrupt callback function
+ * \brief Timer Counter Overflow interrupt callback function
  *
- * This function is called when an overflow interrupt has occured on
+ * This function is called when an overflow interrupt has occurred on
  * TCC0.
  */
 static void tcc0_ovf_interrupt_callback(void)
@@ -188,7 +190,7 @@ static void tcc0_ovf_interrupt_callback(void)
 /**
  * \brief LCD interrupt callback function
  *
- * This function is called when an interrupt has occured on LCD.
+ * This function is called when an interrupt has occurred on LCD.
  */
 void lcd_interrupt_callback(void)
 {
@@ -371,7 +373,7 @@ int main(void)
 	// Enable the ADC
 	adc_enable(&EXT_VIN_ADC_MODULE);
 
-	// Unmask clok for TCC0
+	// Unmask clock for TCC0
 	tc_enable(&TCC0);
 	tc_set_overflow_interrupt_callback(&TCC0,
 			tcc0_ovf_interrupt_callback);

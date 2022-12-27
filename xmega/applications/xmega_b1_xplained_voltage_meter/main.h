@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -72,7 +74,7 @@ enum sensor_display_t {
 	OFFSET_CALIBRATION = 2,
 	//! Potentiometer Sensor
 	POTENTIOMETER_SENSOR = 3,
-	//! External Voltage Imput
+	//! External Voltage Input
 	EXT_VOLTAGE_INPUT = 4,
 };
 

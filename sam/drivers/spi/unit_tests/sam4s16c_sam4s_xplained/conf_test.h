@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -51,7 +53,7 @@
 /** unit test SPI handler in vector table */
 #define CONF_TEST_SPI_HANDLER SPI_Handler
 
-/** USART Interface  : Consol UARG */
+/** USART Interface  : Console UART */
 #define CONF_TEST_USART      CONSOLE_UART
 /** Baudrate setting : 115200 */
 #define CONF_TEST_BAUDRATE   115200

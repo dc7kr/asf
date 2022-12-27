@@ -3,9 +3,11 @@
  *
  * \brief Access to huge data memory with 8-bit AVR
  *
- * Copyright (c) 2009-2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -82,6 +84,28 @@ uint_fast32_t hugemem_read32(const hugemem_ptr_t from)
 	return value;
 }
 
+void hugemem_read_block(void *to, const hugemem_ptr_t from, size_t size)
+{
+	// Ensure that the address range to copy to is within 64 kB boundary.
+	Assert(((uint32_t)to + size) <= 0x10000);
+
+	if (size > 0) {
+		asm volatile(
+			"movw r30, %A2 \n\t"
+			"out %3, %C2 \n\t"
+			"get_%=: \n\t"
+			"ld __tmp_reg__, Z+ \n\t"
+			"st X+, __tmp_reg__ \n\t"
+			"sbiw %A1, 1 \n\t"
+			"brne get_%= \n\t"
+			"out %3, __zero_reg__ \n\t"
+			: "+x"(to), "+w"(size)
+			: "r"(from), "i"(&RAMPZ)
+			: "r30", "r31"
+		);
+	}
+}
+
 void hugemem_write16(hugemem_ptr_t to, uint_fast16_t val)
 {
 	asm(
@@ -111,11 +135,61 @@ void hugemem_write32(hugemem_ptr_t to, uint_fast32_t val)
 		: "r30", "r31"
 	);
 }
+
+void hugemem_write_block(hugemem_ptr_t to, const void *from, size_t size)
+{
+	// Ensure that the address range to copy from is within 64 kB boundary.
+	Assert(((uint32_t)from + size) <= 0x10000);
+
+	if (size > 0) {
+		asm volatile(
+			"movw r30, %A2 \n\t"
+			"out %3, %C2 \n\t"
+			"put_%=: \n\t"
+			"ld __tmp_reg__, X+ \n\t"
+			"st Z+, __tmp_reg__ \n\t"
+			"sbiw %A1, 1 \n\t"
+			"brne put_%= \n\t"
+			"out %3, __zero_reg__ \n\t"
+			: "+x"(from), "+w"(size)
+			: "r"(to), "i"(&RAMPZ)
+			: "r30", "r31"
+		);
+	}
+}
 # endif /* __GNUC__ */
 
 # ifdef __ICCAVR__
+void hugemem_read_block(void *to, const hugemem_ptr_t from, size_t size)
+{
+	uint8_t *to_ptr;
+	uint8_t __huge *from_ptr;
 
-	/* Intentionally left empty. */
+	// Ensure that the address range to copy to is within 64 kB boundary.
+	Assert(((uint32_t)to + size) <= 0x10000);
 
+	to_ptr = (uint8_t *)to;
+	from_ptr = (uint8_t __huge *)from;
+
+	for (; size > 0; size--) {
+		*to_ptr++ = *from_ptr++;
+	}
+}
+
+void hugemem_write_block(hugemem_ptr_t to, const void *from, size_t size)
+{
+	uint8_t __huge *to_ptr;
+	uint8_t *from_ptr;
+
+	// Ensure that the address range to copy from is within 64 kB boundary.
+	Assert(((uint32_t)from + size) <= 0x10000);
+
+	to_ptr = (uint8_t __huge *)to;
+	from_ptr = (uint8_t *)from;
+
+	for (; size > 0; size--) {
+		*to_ptr++ = *from_ptr++;
+	}
+}
 # endif /* __ICCAVR__ */
 #endif /* CONFIG_HAVE_HUGEMEM */

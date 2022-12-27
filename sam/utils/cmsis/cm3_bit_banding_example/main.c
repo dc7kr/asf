@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -146,7 +148,7 @@ int main(void)
 {
 	uint8_t uc_led_bit;
 
-	/* Initilize the SAM3 system */
+	/* Initialize the SAM3 system */
 	SystemInit();
 
 	WDT->WDT_MR = WDT_MR_WDDIS;

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -72,15 +74,15 @@
 
 // ===== PLL1 (B) Options   (Fpll = (Fclk * PLL_mul) / PLL_div)
 // Use mul and div effective values here.
-//#define CONFIG_PLL1_SOURCE          PLL_SRC_MAINCK_XTAL
-//#define CONFIG_PLL1_MUL             16
-//#define CONFIG_PLL1_DIV             2
+#define CONFIG_PLL1_SOURCE          PLL_SRC_MAINCK_XTAL
+#define CONFIG_PLL1_MUL             16
+#define CONFIG_PLL1_DIV             2
 
 // ===== USB Clock Source Options   (Fusb = FpllX / USB_div)
 // Use div effective value here.
 //#define CONFIG_USBCLK_SOURCE        USBCLK_SRC_PLL0
-//#define CONFIG_USBCLK_SOURCE        USBCLK_SRC_PLL1
-//#define CONFIG_USBCLK_DIV           2
+#define CONFIG_USBCLK_SOURCE        USBCLK_SRC_PLL1
+#define CONFIG_USBCLK_DIV           2
 
 // ===== Target frequency (System clock)
 // - XTAL frequency: 12MHz
@@ -91,7 +93,7 @@
 // - System clock: 12 * 20 / 1 / 2 = 120MHz
 // ===== Target frequency (USB Clock)
 // - USB clock source: PLLB
-// - USB clock devider: 2 (devided by 2)
+// - USB clock divider: 2 (divided by 2)
 // - PLLB output: XTAL * 16 / 2
 // - USB clock: 12 * 16 / 2 / 2 = 48MHz
 

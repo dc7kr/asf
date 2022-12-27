@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -117,7 +119,7 @@ void rtc_set_time(uint32_t time)
  *
  * \return Current time value
  *
- * \note Due to errate, this can return old values shortly after waking up from
+ * \note Due to errata, this can return old values shortly after waking up from
  * sleep.
  */
 uint32_t rtc_get_time(void)
@@ -140,7 +142,7 @@ uint32_t rtc_get_time(void)
 /**
  * \brief Set alarm time
  *
- * Will set absolute alarm time that will call the callback specifed by \ref
+ * Will set absolute alarm time that will call the callback specified by \ref
  * rtc_set_callback on completion. Or possibly use \ref
  * rtc_alarm_has_triggered to check for it.
  *
@@ -216,7 +218,7 @@ ISR(RTC_COMP_vect)
 					| rtc_data.alarm_low;
 			/* Workaround for errata. Count might not be updated
 			 * when waking up from sleep, so in this case use alarm
-			 * time pluss one.
+			 * time plus one.
 			 */
 			if (alarm >= count)
 				count = alarm + 1;

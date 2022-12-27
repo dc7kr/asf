@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -89,7 +91,7 @@ ISR(twim_master_interrupt_handler,CONF_TWIM_IRQ_GROUP,CONF_TWIM_IRQ_LEVEL)
 		// get data from Receive Holding Register
 		*twim_rx_data = twim_inst->rhr;
 		twim_rx_data++;
-		// decrease recieved bytes number
+		// decrease received bytes number
 		twim_rx_nb_bytes--;
 		// receive complete
 		if (twim_rx_nb_bytes == 0) {
@@ -110,7 +112,7 @@ ISR(twim_master_interrupt_handler,CONF_TWIM_IRQ_GROUP,CONF_TWIM_IRQ_LEVEL)
 		} else {
 			// put the byte in the Transmit Holding Register
 			twim_inst->thr = *twim_tx_data++;
-			// decrease transmited bytes number
+			// decrease transmitted bytes number
 			twim_tx_nb_bytes--;
 			if (twim_tx_nb_bytes == 0) {
 				// Check for next transfer
@@ -126,7 +128,7 @@ ISR(twim_master_interrupt_handler,CONF_TWIM_IRQ_GROUP,CONF_TWIM_IRQ_LEVEL)
 }
 
 /**
- * \brief Set the twim bus speed in cojunction with the clock frequency
+ * \brief Set the twim bus speed in conjunction with the clock frequency
  *
  * \param twim              Base address of the TWIM (i.e. &AVR32_TWIM).
  * \param speed             The desired twim bus speed
@@ -208,7 +210,7 @@ status_code_t twim_master_init (volatile avr32_twim_t *twim,
 	}
 	// Probe the component
 	twim_probe (twim, opt->chip);
-	//Check for nack and abitration
+	//Check for nack and arbitration
 	if (transfer_status == TWI_RECEIVE_NACK
 			|| transfer_status == TWI_ARBITRATION_LOST) {
 		return ERR_IO_ERROR;

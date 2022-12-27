@@ -13,6 +13,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -121,7 +123,7 @@ void nf_reset_nands( U8 nb_dev )
    {
       nf_select( i_dev );
       // The wait is mandatory here since the function is used to wait any
-      // pending internal programmation (Cache Program cmd).
+      // pending internal programming (Cache Program cmd).
       nf_wait_busy();
       nf_wr_cmd(NF_RESET_CMD);
       nf_wait_busy();
@@ -257,7 +259,7 @@ void nf_mark_bad_block(U32 page_addr)
          nf_wr_data(0);
          nf_wr_data(0);
       }
-      nf_wr_cmd(NF_PAGE_PROGRAM_CMD); // Confirm programmation
+      nf_wr_cmd(NF_PAGE_PROGRAM_CMD); // Confirm programming
    }
 }
 
@@ -546,7 +548,7 @@ void nf_protect( void )
 {
   U32 i_dev;
 
-  // Wait until the end of any pending internal programmation (Cache Program cmd).
+  // Wait until the end of any pending internal programming (Cache Program cmd).
   for( i_dev=0 ; i_dev<NF_N_DEVICES ; i_dev++ )
   {
     nf_select( i_dev );

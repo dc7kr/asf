@@ -3,9 +3,11 @@
  *
  * \brief Uart Serial for SAM.
  *
- * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -156,7 +158,7 @@ static inline void usart_serial_init(usart_if p_uart,
  */
 static inline int usart_serial_putchar(usart_if p_uart, const uint8_t c)
 {
-	while (uart_write(p_uart, c)!=1);
+	while (uart_write(p_uart, c)!=0);
 	return 1;
 }
 /*! \brief Waits until a character is received, and returns it.
@@ -167,7 +169,7 @@ static inline int usart_serial_putchar(usart_if p_uart, const uint8_t c)
  */
 static inline void usart_serial_getchar(usart_if p_uart, uint8_t *data)
 {
-	uart_read(p_uart, (uint8_t *)data);
+	while (uart_read(p_uart, data));
 }
 
 /**
@@ -182,7 +184,7 @@ status_code_t usart_serial_write_packet(usart_if usart, const uint8_t *data,
 		size_t len);
 
 /**
- * \brief Reveive a sequence of bytes to a USART device
+ * \brief Receive a sequence of bytes to a USART device
  *
  * \param usart Base address of the USART instance.
  * \param data   data buffer to write

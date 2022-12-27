@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -54,7 +56,7 @@
 #include <compiler.h>
 #include <status_codes.h>
 
-// From module: FLASH Controller Double-Word
+// From module: FLASH Controller Double-Word (FLASHCDW)
 #include <flashcdw.h>
 
 // From module: GPIO - General-Purpose Input/Output
@@ -72,7 +74,7 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: STK600-RCUC3D board support
+// From module: STK600
 #include <led.h>
 
 // From module: Standard serial I/O (stdio) - UC3 implementation

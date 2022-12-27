@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -70,7 +72,7 @@
 //! for some unspecified reason.
 #define PWM_FAILURE                           -1
 
-//! Value returned by function when the input paramters are out of range.
+//! Value returned by function when the input parameters are out of range.
 #define PWM_INVALID_INPUT                      1
 
 //! Value returned by function when the channel number is invalid.

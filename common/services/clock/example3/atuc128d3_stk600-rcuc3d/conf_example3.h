@@ -7,6 +7,8 @@
  * 
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -45,7 +47,7 @@
 //! \note This is onboard push button 0, STK600.PORTD.PE0 to STK600.SWITCHES.SW0.
 #define NEXT_BUTTON     GPIO_PUSH_BUTTON_SW0
 
-//! \note This is the LED that will be toggeled in this example
+//! \note This is the LED that will be toggled in this example
 //        This STK600.PORTA.PA4 -> STK600.LEDS.LED0
 #define LED_EXAMPLE_OUTPUT     LED0_GPIO
 

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -155,7 +157,7 @@ void main_usb_connection_event(uhc_device_t * dev, bool b_present)
  * on Atmel MCU with USB module.
  *
  * \section startup Startup
- * After loading firmware, connect the board (EVKxx,XPlain,...) to a U-Disk
+ * After loading firmware, connect the board (EVKxx,Xplain,...) to a U-Disk
  * (FAT/FAT32 are supported). This example creates a file "uhi_msc_test.txt"
  * on all present U-disks.
  *

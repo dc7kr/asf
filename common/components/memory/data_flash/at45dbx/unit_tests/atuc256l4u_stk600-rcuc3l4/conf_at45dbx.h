@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -53,7 +55,7 @@
 //! Connect AT45DBx driver to spi master service
 #define AT45DBX_USES_SPI_MASTER_SERVICE
 
-//! Select the SPI module AT45DBX is conntected to
+//! Select the SPI module AT45DBX is connected to
 #define AT45DBX_SPI_MODULE          AT45DBX_SPI
 
 //! Size of AT45DBX data flash memories to manage.

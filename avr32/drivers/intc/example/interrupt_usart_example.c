@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -90,7 +92,7 @@
  *        -- 12 MHz : EVK1100, EVK1101, EVK1104, EVK1105, AT32UC3L-EK evaluation
  *                    kits; STK600+RCUC3L routing card; STK600+RCUCD routing
  *                    card;
- *        -- 16 Mhz : UC3C_EK
+ *        -- 16 MHz : UC3C_EK
  *   - USART0 (on EVK1100) or USART1 (on EVK1101 or STK1000 or STK600+RCUCD )
  *     connected to a PC serial port via a standard RS232 DB9 cable, or USART0
  *     (on EVK1105) or USART1 (on EVK1104) or USART2 (on AT32UC3C-EK) or USART3

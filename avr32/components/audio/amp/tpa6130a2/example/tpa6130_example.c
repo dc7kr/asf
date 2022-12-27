@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -281,7 +283,7 @@ int main(void)
 
   print_dbg(MSG_WELCOME);
 
-  // Enbale LED0 and LED1
+  // Enable LED0 and LED1
   gpio_enable_gpio_pin(LED0_GPIO);
   gpio_enable_gpio_pin(LED1_GPIO);
 

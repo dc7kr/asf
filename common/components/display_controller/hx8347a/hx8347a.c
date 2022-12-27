@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -44,48 +46,6 @@
 #include <sysclk.h>
 #include <gpio.h>
 #include <delay.h>
-
-/* If the low level driver is used without the top level GFX stack some typedefs
- * and functions needs to be declared */
-#ifndef GFX_INITIALIZED
-
-/**
- * \internal
- * \brief Calculate a pixel color based on red, green and blue value
- *
- * \note This function has only been included in the low level driver to be
- * able to use the driver stand-alone. In most cases the driver will be use with
- * a display and the gfx drivers, hence it will be defined there.
- *
- * \param r the red color value
- * \param g the green color value
- * \param b the blue color value
- *
- * \retval gfx_color_t the color pixel
- */
-static gfx_color_t gfx_color(uint8_t r, uint8_t g, uint8_t b)
-{
-	gfx_color_t color;
-	uint16_t red = r >> 3;
-	uint16_t green = g >> 2;
-	uint16_t blue = b >> 3;
-
-	/* Stuff into one 16-bit word */
-	red <<= (5 + 6);
-	green <<= 5;
-	color = red | green | blue;
-
-	/* Convert to big endian, to fit the display data format */
-	color = (color >> 8) | (color << 8);
-
-	return color;
-}
-
-#else
-
-#  include "gfx.h"
-
-#endif
 
 /**
  * \internal
@@ -139,7 +99,7 @@ __always_inline static void hx8347a_send_byte(uint8_t data)
 #if defined(CONF_HX8347A_USART_SPI)
 
 	/* A workaround for optimizing data transfer had to be done for the
-	 * XMEGA in order for the diplay to work correctly at all SPI clock
+	 * XMEGA in order for the display to work correctly at all SPI clock
 	 * clock speeds */
 
 #  if UC3
@@ -181,7 +141,7 @@ __always_inline static uint8_t hx8347a_read_byte(void)
 #  if UC3
 
 	/* A workaround for optimizing data transfer had to be done for the
-	 * XMEGA in order for the diplay to work correctly at all SPI clock
+	 * XMEGA in order for the display to work correctly at all SPI clock
 	 * clock speeds */
 
 	/* This function could also be used for XMEGA but results in a very slow
@@ -340,7 +300,7 @@ gfx_color_t hx8347a_read_gram(void)
 	hx8347a_deselect_chip();
 
 	/* Convert to the correct GFX color type e.g. 16-bit or 18-bit */
-	return gfx_color(red, green, blue);
+	return HX8347A_COLOR(red, green, blue);
 }
 
 /**
@@ -441,13 +401,13 @@ void hx8347a_set_orientation(uint8_t flags)
 	uint8_t setting = 0;
 	uint8_t regval;
 
-	setting |= (flags & GFX_FLIP_X ? HX8347A_FLIP_X : 0);
-	setting |= (flags & GFX_FLIP_Y ? HX8347A_FLIP_Y : 0);
-	setting |= (flags & GFX_SWITCH_XY ? HX8347A_SWITCH_XY : 0);
+	setting |= (flags & HX8347A_FLIP_X ? HX8347A_FLIP_X_MASK : 0);
+	setting |= (flags & HX8347A_FLIP_Y ? HX8347A_FLIP_Y_MASK : 0);
+	setting |= (flags & HX8347A_SWITCH_XY ? HX8347A_SWITCH_XY_MASK : 0);
 
 	/* Read-modify-write HIMAX control register */
 	regval = hx8347a_read_register(HX8347A_MEMACCESSCTRL);
-	regval &= ~(HX8347A_FLIP_X | HX8347A_FLIP_Y | HX8347A_SWITCH_XY);
+	regval &= ~(HX8347A_FLIP_X_MASK | HX8347A_FLIP_Y_MASK | HX8347A_SWITCH_XY_MASK);
 	regval |= setting;
 	hx8347a_write_register(HX8347A_MEMACCESSCTRL, regval);
 }
@@ -595,7 +555,7 @@ void hx8347a_copy_pixels_from_screen(gfx_color_t *pixels, uint32_t count)
 		green = hx8347a_read_byte();
 		blue = hx8347a_read_byte();
 
-		*pixels = gfx_color(red, green, blue);
+		*pixels = HX8347A_COLOR(red, green, blue);
 
 		pixels++;
 		count--;
@@ -748,9 +708,6 @@ void hx8347a_init(void)
 
 	/* Write all the controller registers with correct values */
 	hx8347a_controller_init_registers();
-
-	/* Set up default orientation */
-	hx8347a_set_orientation(HX8347A_FLIP_Y | HX8347A_SWITCH_XY);
 }
 
 /**

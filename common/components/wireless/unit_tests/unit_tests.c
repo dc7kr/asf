@@ -3,9 +3,11 @@
  *
  * \brief AT86RFx Wireless Module Unit Test.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -108,13 +110,7 @@ int main(void)
 	cpu_irq_enable();
 
 	// Enable interrupts
-	stdio_usb_init(&USB_PORT);
-
-	// Specify that stdout and stdin should not be buffered.
-#if defined(__GNUC__) && defined(__AVR32__)
-	setbuf(stdout, NULL);
-	setbuf(stdin, NULL);
-#endif
+	stdio_usb_init();
 
 	while (1) {
 		at86rfx_task();

@@ -9,6 +9,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -63,7 +65,7 @@ void dsp16_filt_interpolation_coefsort(dsp16_t *fir_coefs, int n_tap, int interp
 
   // Uses the LSB of each data as a marker.
   // This will avoid a lot of computation time
-  // or memory requierment.
+  // or memory requirement.
   for (temp1=1; temp1<size-1; temp1++)
     fir_coefs[temp1] &= 0xFFFE;
 

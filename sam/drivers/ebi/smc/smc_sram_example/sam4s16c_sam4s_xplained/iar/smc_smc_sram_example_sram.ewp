@@ -308,7 +308,10 @@
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -736,7 +739,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1210,7 +1213,10 @@
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1638,7 +1644,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1807,45 +1813,6 @@
 	<group>
 		<name>sam</name>
 		<group>
-			<name>drivers</name>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../pio/pio_handler.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../pio/pio.c</name>
-				</file>
-			</group>
-			<group>
-				<name>ebi</name>
-				<group>
-					<name>smc</name>
-					<group>
-						<name>smc_sram_example</name>
-						<file>
-							<name>$PROJ_DIR$/../../smc_sram_example.c</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../smc.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../uart/uart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../pmc/pmc.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
 			<name>utils</name>
 			<group>
 				<name>cmsis</name>
@@ -1871,14 +1838,44 @@
 					</group>
 				</group>
 			</group>
+		</group>
+		<group>
+			<name>drivers</name>
 			<group>
-				<name>syscalls</name>
+				<name>ebi</name>
 				<group>
-					<name>iar</name>
+					<name>smc</name>
+					<group>
+						<name>smc_sram_example</name>
+						<file>
+							<name>$PROJ_DIR$/../../smc_sram_example.c</name>
+						</file>
+					</group>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../utils/syscalls/iar/dlib_lowlevel.c</name>
+						<name>$PROJ_DIR$/../../../smc.c</name>
 					</file>
 				</group>
+			</group>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../pio/pio_handler.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../pio/pio.c</name>
+				</file>
+			</group>
+			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../uart/uart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../pmc/pmc.c</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1904,9 +1901,24 @@
 					</file>
 				</group>
 			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
+			</group>
 		</group>
 		<group>
 			<name>utils</name>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/utils/stdio/read.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/utils/stdio/write.c</name>
+				</file>
+			</group>
 			<group>
 				<name>interrupt</name>
 				<file>

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -134,7 +136,7 @@
 // From module: XMEGA-A3BU Xplained LED support enabled
 #include <led.h>
 
-// From module: maXTouch
+// From module: maXTouch - mXT143E Controller
 #include <mxt_device.h>
 
 #endif // ASF_H

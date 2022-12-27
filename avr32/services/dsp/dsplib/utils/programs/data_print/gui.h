@@ -4,6 +4,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -97,7 +99,7 @@ typedef struct
         float scale_x, scale_y;
 }s_gui_tab_layout;
 
-// To allocate the ressources for the creation of a new GUI
+// To allocate the resources for the creation of a new GUI
 void gui_new_tab_layout(s_gui_tab_layout *_gui_layout, int max_elements);
 // Delete a previously created GUI
 void gui_delete_tab_layout(s_gui_tab_layout *_gui_layout);

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -457,7 +459,7 @@ static bool udc_req_std_dev_clear_feature(void)
 	}
 
 	if (udd_g_ctrlreq.req.wValue == USB_DEV_FEATURE_REMOTE_WAKEUP) {
-		udc_device_status &= CPU_TO_LE16(~USB_DEV_STATUS_REMOTEWAKEUP);
+		udc_device_status &= CPU_TO_LE16(~(uint32_t)USB_DEV_STATUS_REMOTEWAKEUP);
 #if (USB_CONFIG_ATTR_REMOTE_WAKEUP \
 	== (USB_DEVICE_ATTR & USB_CONFIG_ATTR_REMOTE_WAKEUP))
 		UDC_REMOTEWAKEUP_DISABLE();

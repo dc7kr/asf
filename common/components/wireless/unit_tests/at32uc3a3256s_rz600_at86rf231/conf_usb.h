@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -107,12 +109,12 @@
  * @{
  */
 //! Interface callback definition
-#define  UDI_CDC_ENABLE_EXT()             stdio_usb_enable()
-#define  UDI_CDC_DISABLE_EXT()            stdio_usb_disable()
-#define  UDI_CDC_RX_NOTIFY()
-#define  UDI_CDC_SET_CODING_EXT(cfg)
-#define  UDI_CDC_SET_DTR_EXT(set)         main_cdc_set_dtr(set)
-#define  UDI_CDC_SET_RTS_EXT(set)
+#define  UDI_CDC_ENABLE_EXT(port)         stdio_usb_enable()
+#define  UDI_CDC_DISABLE_EXT(port)        stdio_usb_disable()
+#define  UDI_CDC_RX_NOTIFY(port)
+#define  UDI_CDC_SET_CODING_EXT(port,cfg)
+#define  UDI_CDC_SET_DTR_EXT(port,set)    main_cdc_set_dtr(set)
+#define  UDI_CDC_SET_RTS_EXT(port,set)
 
 //! Define it when the transfer CDC Device to Host is a low rate (<512000 bauds)
 //! to reduce CDC buffers size
@@ -132,8 +134,6 @@
  * @{
  */
 //@}
-
-#define	 USB_PORT						  AVR32_USBB
 
 //! The includes of classes and other headers must be done at the end of this file to avoid compile error
 #include "udi_cdc_conf.h"

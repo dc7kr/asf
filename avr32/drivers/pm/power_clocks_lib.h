@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -304,7 +306,7 @@ extern long int pcl_configure_clocks_dfll0(pcl_freq_param_t *param);
  *
  * \return Status.
  *   \retval 0  Success.
- *   \retval <0 An error occured.
+ *   \retval <0 An error occurred.
  */
 extern long int pcl_switch_to_osc(pcl_osc_t osc, unsigned int fcrystal, unsigned int startup);
 
@@ -317,7 +319,7 @@ extern long int pcl_switch_to_osc(pcl_osc_t osc, unsigned int fcrystal, unsigned
  *
  * \return Status.
  *   \retval 0  Success.
- *   \retval <0 An error occured.
+ *   \retval <0 An error occurred.
  */
 #ifndef AVR32_PM_VERSION_RESETVALUE
 // Implementation for UC3A, UC3A3, UC3B parts.
@@ -336,7 +338,7 @@ extern long int pcl_switch_to_osc(pcl_osc_t osc, unsigned int fcrystal, unsigned
  *
  * \return Status.
  *   \retval 0  Success.
- *   \retval <0 An error occured.
+ *   \retval <0 An error occurred.
  */
 #ifndef AVR32_PM_VERSION_RESETVALUE
 // Implementation for UC3A, UC3A3, UC3B parts.
@@ -350,7 +352,7 @@ extern long int pcl_switch_to_osc(pcl_osc_t osc, unsigned int fcrystal, unsigned
  *
  * \return Status.
  *   \retval 0  Success.
- *   \retval <0 An error occured.
+ *   \retval <0 An error occurred.
  */
 extern long int pcl_configure_usb_clock(void);
 

@@ -9,6 +9,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -142,7 +144,7 @@ void display_result(uint32_t refhz, uint32_t duration, uint32_t msrhz)
 	print_dbg_ulong(refhz);
 	print_dbg(" Hz\r\n");
 
-	print_dbg("Measred Time: ");
+	print_dbg("Measured Time: ");
 	print_dbg_ulong(duration);
 	print_dbg(" reference clock cycle\r\n");
 

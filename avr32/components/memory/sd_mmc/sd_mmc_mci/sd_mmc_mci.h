@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -192,7 +194,7 @@
 #define MMC_TAG_ERASE_GROUP_END           36    ///< Sets end of erase group (mass erase)
 #define MMC_UNTAG_ERASE_GROUP             37    ///< Untag (unset) erase group (mass erase)
 #define MMC_ERASE                         38    ///< Perform block/mass erase
-#define SD_SEND_OP_COND_ACMD              41    ///< Same as MMC_SEND_OP_COND but specific to SD (must be preceeded by CMD55)
+#define SD_SEND_OP_COND_ACMD              41    ///< Same as MMC_SEND_OP_COND but specific to SD (must be preceded by CMD55)
 #define MMC_LOCK_UNLOCK                   42    ///< To start a lock/unlock/pwd operation
 #define SD_APP_CMD55                      55    ///< Use before any specific command (type ACMD)
 #define MMC_CRC_ON_OFF                    59    ///< Turns CRC check on/off
@@ -503,7 +505,7 @@ extern bool sd_mmc_mci_card_init(unsigned char card_slot);
  *
  * \param slot SD/MMC Slot Card Selected.
  * \retval true Card Present
- * \retval false Card Unpresent.
+ * \retval false Card not present.
  */
 extern bool is_sd_mmc_mci_card_present(uint8_t slot);
 
@@ -775,7 +777,7 @@ extern bool sd_mmc_mci_dma_write_sector_from_ram(uint8_t slot, const void *ram);
  * \param pwd_len       password length in bytes (limited to 253).
  * \param password      the password content.
  *
- * \retval true Command successfull.
+ * \retval true Command successful.
  * \retval false Command failed.
  *
  */
@@ -796,7 +798,7 @@ extern bool is_sd_mmc_mci_locked(uint8_t slot);
  * \param slot SD/MMC Slot Card Selected.
  *
  * \retval true Lock/Unlock failed.
- * \retval false Lock/Unlock was successfull.
+ * \retval false Lock/Unlock was successful.
  *
  */
 extern bool sd_mmc_mci_lock_unlock_failed(uint8_t slot);

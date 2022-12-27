@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -60,7 +62,7 @@
 // From module: EBI SDRAM Controller
 #include <sdramc.h>
 
-// From module: EVK1100 board support
+// From module: EVK1100
 #include <led.h>
 
 // From module: FLASHC - Flash Controller

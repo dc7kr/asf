@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -73,13 +75,13 @@
 #define  SCSI_INQ_REQ_CMDT    0x02
 //@}
 
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 
 /**
  * \brief SCSI Standard Inquiry data structure
  */
 struct scsi_inquiry_data {
-	uint8_t pq_pdt; //!< Periph Qual / Periph Dev Type
+	uint8_t pq_pdt; //!< Peripheral Qual / Peripheral Dev Type
 #define  SCSI_INQ_PQ_CONNECTED   0x00   //!< Peripheral connected
 #define  SCSI_INQ_PQ_NOT_CONN    0x20   //!< Peripheral not connected
 #define  SCSI_INQ_PQ_NOT_SUPP    0x60   //!< Peripheral not supported
@@ -108,7 +110,7 @@ struct scsi_inquiry_data {
 #define  SCSI_INQ_VER_SPC4       0x06   //!< SCSI Primary Commands - 4 (link to SBC-3)
 	uint8_t flags3; //!< Flags (byte 3)
 #define  SCSI_INQ_NORMACA        0x20   //!< Normal ACA Supported
-#define  SCSI_INQ_HISUP          0x10   //!< Hierarchial LUN addressing
+#define  SCSI_INQ_HISUP          0x10   //!< Hierarchal LUN addressing
 #define  SCSI_INQ_RSP_SPC2       0x02   //!< SPC-2 / SPC-3 response format
 	uint8_t addl_len; //!< Additional Length (n-4)
 #define  SCSI_INQ_ADDL_LEN(tot)  ((tot)-5) //!< Total length is \a tot
@@ -176,7 +178,7 @@ struct scsi_request_sense_data {
 #define  SCSI_SENSE_SKSV            0x80 //!< Indicates the SENSE-KEY SPECIFIC field contains valid information
 };
 
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
 /* Vital Product Data page codes */
 enum scsi_vpd_page_code {

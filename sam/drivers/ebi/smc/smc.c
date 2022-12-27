@@ -3,9 +3,11 @@
  *
  * \brief Static Memory Controller (SMC) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -164,23 +166,25 @@ uint32_t smc_get_writeprotect_status(Smc *p_smc)
 
 #if ((SAM3U) || (SAM3XA))
 /**
- * \brief Initialize NFC configuration.
- *
+ * \brief Configure the SMC nand timing for the specified Chip Select.
  * \param p_smc Pointer to an SMC instance.
- * \param ul_page_size Use pattern defined in the device header file.
- * \param ul_write_spare_flag 1 for enable, 0 for disable.
- * \param ul_read_spare_flag 1 for enable, 0 for disable.
+ * \param ul_cs Chip Select number to be set.
+ * \param ul_nand_timing nand timing for related signal.
  */
-void smc_nfc_init(Smc *p_smc, uint32_t ul_page_size,
-		uint32_t ul_write_spare_flag, uint32_t ul_read_spare_flag)
+void smc_set_nand_timing(Smc *p_smc, uint32_t ul_cs,
+		uint32_t ul_nand_timing)
 {
-	p_smc->SMC_CFG = ul_page_size;
-	if (ul_write_spare_flag) {
-		p_smc->SMC_CFG |= SMC_CFG_WSPARE;
-	}
-	if (ul_read_spare_flag) {
-		p_smc->SMC_CFG |= SMC_CFG_RSPARE;
-	}
+	p_smc->SMC_CS_NUMBER[ul_cs].SMC_TIMINGS= ul_nand_timing;
+}
+
+/**
+ * \brief Initialize NFC configuration.
+ * \param p_smc Pointer to an SMC instance.
+ * \param ul_config SMC NFC Configuration.
+ */
+void smc_nfc_init(Smc *p_smc, uint32_t ul_config)
+{
+	p_smc->SMC_CFG = ul_config;
 }
 
 /**
@@ -326,7 +330,7 @@ void smc_nfc_set_bank(Smc *p_smc, uint32_t ul_bank)
 }
 
 /**
- * \brief Use the HOST nandflash conntroller to send a command.
+ * \brief Use the HOST nandflash controller to send a command.
  *
  * \param p_smc Pointer to an SMC instance.
  * \param ul_cmd Command to send.
@@ -355,7 +359,7 @@ void smc_nfc_send_command(Smc *p_smc, uint32_t ul_cmd,
  *
  * \param p_smc Pointer to an SMC instance.
  * \param ul_type Type of correction, use pattern defined in the device header file.
- * \param ul_pagesize Page size of NAND flash device, use pattern defined in
+ * \param ul_pagesize Page size of NAND Flash device, use pattern defined in
  * the device header file.
  */
 void smc_ecc_init(Smc *p_smc, uint32_t ul_type, uint32_t ul_pagesize)

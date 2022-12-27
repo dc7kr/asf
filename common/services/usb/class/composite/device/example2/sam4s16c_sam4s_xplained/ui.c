@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -168,7 +170,7 @@ void ui_wakeup_enable(void)
 	pio_configure_pin(WAKEUP_PIN, WAKEUP_PIO_ATTR);
 	// Enable interrupt for PA15
 	pio_enable_pin_interrupt(WAKEUP_PIN);
-	// Enable fastwakeup for button pin (WKUP14 for PA15)
+	// Enable fast wakeup for button pin (WKUP14 for PA15)
 	pmc_set_fast_startup_input(WAKEUP_PMC_FSTT);
 }
 
@@ -176,7 +178,7 @@ void ui_wakeup_disable(void)
 {
 	// Disable interrupt for button pin
 	pio_disable_pin_interrupt(WAKEUP_PIN);
-	// Disable fastwakeup for button pin (WKUP14 for PA15)
+	// Disable fast wakeup for button pin (WKUP14 for PA15)
 	pmc_clr_fast_startup_input(WAKEUP_PMC_FSTT);
 }
 
@@ -185,11 +187,11 @@ void ui_wakeup(void)
 	LED_On(LED0_GPIO);
 }
 
-void ui_com_open(void)
+void ui_com_open(uint8_t port)
 {
 }
 
-void ui_com_close(void)
+void ui_com_close(uint8_t port)
 {
 }
 
@@ -350,12 +352,12 @@ void ui_kbd_led(uint8_t value)
 /**
  * \defgroup UI User Interface
  *
- * Human interface on SAM4S Xplained:
- * - Led 0 (D9) blinks when USB host has checked and enabled HID and MSC interface
- * - Led 1 (D10) is on during read/write operation
+ * Human interface on SAM4S-Xplained:
+ * - LED D9 blinks when USB host has checked and enabled HID and MSC interface
+ * - LED D10 is on during read/write operation
  * - No mouse buttons are linked
- * - SW1/BP1 is used to move mouse around
- * - SW1/BP1 down opens a notepad application on Windows O.S.
+ * - SW1(BOARD REV A) or BP2(BOARD REV B) is used to move mouse around
+ * - SW1(BOARD REV A) or BP2(BOARD REV B) down opens a notepad application on Windows O.S.
  *   and sends key sequence "Atmel ARM"
  * - Only a low level on J13.PA15 will generate a wakeup to USB Host in remote wakeup mode.
  *

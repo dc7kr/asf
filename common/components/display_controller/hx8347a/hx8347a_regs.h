@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -168,10 +170,10 @@
 #define HX8347A_DISPCTRL8 0x90
 
 /* Bitmask used by gfx_set_orientation to flip X direction */
-#define HX8347A_FLIP_X (1 << HX8347A_MX)
+#define HX8347A_FLIP_X_MASK (1 << HX8347A_MX)
 /* Bitmask used by gfx_set_orientation to flip Y direction */
-#define HX8347A_FLIP_Y (1 << HX8347A_MY)
-/* Bitmask used by gfx_set_orientation to switch X and Y corrdinates */
-#define HX8347A_SWITCH_XY (1 << HX8347A_MV)
+#define HX8347A_FLIP_Y_MASK (1 << HX8347A_MY)
+/* Bitmask used by gfx_set_orientation to switch X and Y coordinates */
+#define HX8347A_SWITCH_XY_MASK (1 << HX8347A_MV)
 
 #endif /* DRIVERS_GFX_HX8347A_HX8347A_REGS_H_INCLUDED */

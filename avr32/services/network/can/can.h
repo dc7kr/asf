@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -103,7 +105,7 @@ typedef struct{
 
 /*! \brief Initialize CAN channel
  *  \param ch CAN channel selected 0 (CAN Channel 0) 1 (CAN Channel 1)
- *  \param can_msg_ram_add Adress of the location of MOB Ram Buffer
+ *  \param can_msg_ram_add Address of the location of MOB Ram Buffer
  *  \param operating_mode  Selection between CAN_CHANNEL_MODE_NORMAL or CAN_CHANNEL_MODE_LISTENING or CAN_CHANNEL_MODE_LOOPBACK
  *  \param can_msg_callback  Callback for hardware interrupt
  *  \return U8 CAN_CMD_REFUSED or CAN_CMD_ACCEPTED

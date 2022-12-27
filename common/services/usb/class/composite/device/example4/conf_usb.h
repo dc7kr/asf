@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -94,7 +96,9 @@
 #define  UDC_RESUME_EVENT()               main_resume_action()
 //! Mandatory when USB_DEVICE_ATTR authorizes remote wakeup feature
 // #define  UDC_REMOTEWAKEUP_ENABLE()        user_callback_remotewakeup_enable()
+// extern void user_callback_remotewakeup_enable(void);
 // #define  UDC_REMOTEWAKEUP_DISABLE()       user_callback_remotewakeup_disable()
+// extern void user_callback_remotewakeup_disable(void);
 //! When a extra string descriptor must be supported
 //! other than manufacturer, product and serial string
 #define  UDC_GET_EXTRA_STRING()           main_extra_string()
@@ -155,13 +159,17 @@
  * Configuration of CDC interface
  * @{
  */
+
+//! Define two USB communication ports
+#define  UDI_CDC_PORT_NB 1
+
 //! Interface callback definition
-#define  UDI_CDC_ENABLE_EXT()             main_cdc_enable()
-#define  UDI_CDC_DISABLE_EXT()            main_cdc_disable()
-#define  UDI_CDC_RX_NOTIFY()              uart_rx_notify()
-#define  UDI_CDC_SET_CODING_EXT(cfg)      uart_config(cfg)
-#define  UDI_CDC_SET_DTR_EXT(set)         main_cdc_set_dtr(set)
-#define  UDI_CDC_SET_RTS_EXT(set)
+#define  UDI_CDC_ENABLE_EXT(port)         main_cdc_enable(port)
+#define  UDI_CDC_DISABLE_EXT(port)        main_cdc_disable(port)
+#define  UDI_CDC_RX_NOTIFY(port)          uart_rx_notify(port)
+#define  UDI_CDC_SET_CODING_EXT(port,cfg) uart_config(port,cfg)
+#define  UDI_CDC_SET_DTR_EXT(port,set)    main_cdc_set_dtr(port,set)
+#define  UDI_CDC_SET_RTS_EXT(port,set)
 
 //! Define it when the transfer CDC Device to Host is a low rate (<512000 bauds)
 //! to reduce CDC buffers size
@@ -184,18 +192,18 @@
  */
 //! Endpoint numbers definition
 #if SAM3U
-#  define  UDI_CDC_COMM_EP               (3 | USB_EP_DIR_IN) // Notify endpoint
-#  define  UDI_CDC_DATA_EP_IN            (6 | USB_EP_DIR_IN) // TX
-#  define  UDI_CDC_DATA_EP_OUT           (5 | USB_EP_DIR_OUT)// RX
+#  define  UDI_CDC_COMM_EP_0             (3 | USB_EP_DIR_IN) // Notify endpoint
+#  define  UDI_CDC_DATA_EP_IN_0          (6 | USB_EP_DIR_IN) // TX
+#  define  UDI_CDC_DATA_EP_OUT_0         (5 | USB_EP_DIR_OUT)// RX
 #else
-#  define  UDI_CDC_COMM_EP               (3 | USB_EP_DIR_IN) // Notify endpoint
-#  define  UDI_CDC_DATA_EP_IN            (4 | USB_EP_DIR_IN) // TX
-#  define  UDI_CDC_DATA_EP_OUT           (5 | USB_EP_DIR_OUT)// RX
+#  define  UDI_CDC_COMM_EP_0             (3 | USB_EP_DIR_IN) // Notify endpoint
+#  define  UDI_CDC_DATA_EP_IN_0          (4 | USB_EP_DIR_IN) // TX
+#  define  UDI_CDC_DATA_EP_OUT_0         (5 | USB_EP_DIR_OUT)// RX
 #endif
 
 //! Interface numbers
-#define  UDI_CDC_COMM_IFACE_NUMBER     0
-#define  UDI_CDC_DATA_IFACE_NUMBER     1
+#define  UDI_CDC_COMM_IFACE_NUMBER_0   0
+#define  UDI_CDC_DATA_IFACE_NUMBER_0   1
 //@}
 //@}
 
@@ -248,16 +256,16 @@
 
 //! USB Interfaces descriptor value for Full Speed
 #define UDI_COMPOSITE_DESC_FS \
-	.udi_cdc_iad   = UDI_CDC_IAD_DESC, \
-	.udi_cdc_comm  = UDI_CDC_COMM_DESC, \
-	.udi_cdc_data  = UDI_CDC_DATA_DESC_FS, \
+	.udi_cdc_iad   = UDI_CDC_IAD_DESC_0, \
+	.udi_cdc_comm  = UDI_CDC_COMM_DESC_0, \
+	.udi_cdc_data  = UDI_CDC_DATA_DESC_0_FS, \
 	.udi_msc       = UDI_MSC_DESC_FS
 
 //! USB Interfaces descriptor value for High Speed
 #define UDI_COMPOSITE_DESC_HS \
-	.udi_cdc_iad   = UDI_CDC_IAD_DESC,  \
-	.udi_cdc_comm  = UDI_CDC_COMM_DESC, \
-	.udi_cdc_data  = UDI_CDC_DATA_DESC_HS, \
+	.udi_cdc_iad   = UDI_CDC_IAD_DESC_0, \
+	.udi_cdc_comm  = UDI_CDC_COMM_DESC_0, \
+	.udi_cdc_data  = UDI_CDC_DATA_DESC_0_HS, \
 	.udi_msc       = UDI_MSC_DESC_HS
 
 //! USB Interface APIs

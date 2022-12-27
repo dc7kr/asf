@@ -1830,15 +1830,15 @@
 				</file>
 			</group>
 			<group>
-				<name>unit_test</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/unit_test/suite.c</name>
-				</file>
-			</group>
-			<group>
 				<name>interrupt</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+			</group>
+			<group>
+				<name>unit_test</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/unit_test/suite.c</name>
 				</file>
 			</group>
 		</group>
@@ -1880,22 +1880,13 @@
 								</file>
 							</group>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/source/templates/exceptions.c</name>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/source/templates/exceptions.c</name>
 							</file>
 						</group>
 					</group>
-				</group>
-			</group>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
 				</group>
 			</group>
 		</group>

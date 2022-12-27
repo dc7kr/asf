@@ -9,6 +9,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -114,7 +116,7 @@ void init_sys_clocks(void)
   // start PLL0 and wait for the lock
   pm_pll_enable(&AVR32_PM, 0);
   pm_wait_for_pll0_locked(&AVR32_PM);
-  // Set all peripheral clocks torun at master clock rate
+  // Set all peripheral clocks to run at master clock rate
   pm_cksel(&AVR32_PM,
     0,   // pbadiv.
     0,   // pbasel.

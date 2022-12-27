@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -72,7 +74,7 @@
 
 typedef struct {
   uint8_t target;   // audio target (speaker or micro)
-  uint8_t cs;       // Command slector
+  uint8_t cs;       // Command selector
 } st_audio_cmd;
 
 //! Mute control of speaker
@@ -86,7 +88,7 @@ int16_t s16_speaker_volume = (SPEAKER_VOL_MIN + SPEAKER_VOL_MAX)/2;
 //! Represents a copy of the USB volume. The USB volume has a range [USB_SPEAKER_VOL_MIN; USB_SPEAKER_VOL_MAX]
 //! and must be converted to the volume of the DAC used.
 //! We keep back a copy of the last USB volume since Windows ask for the current volume and a double conversion
-//! USB -> appli -> USB may lead to inprecision.
+//! USB -> appli -> USB may lead to imprecision.
 int16_t s16_usb_speaker_volume = (USB_SPEAKER_VOL_MIN + USB_SPEAKER_VOL_MAX)/2;
 
 //! Mute control of micro
@@ -95,7 +97,7 @@ int16_t s16_usb_speaker_volume = (USB_SPEAKER_VOL_MIN + USB_SPEAKER_VOL_MAX)/2;
 bool b_micro_mute;
 
 //! Represents the current volume of audio stream micro
-//! No effet in this demo
+//! No effect in this demo
 //!
 int16_t s16_micro_volume;
 
@@ -614,7 +616,7 @@ void audio_speaker_set_sample_freq(void)
 
 #if (defined BOARD) && (BOARD==EVK1105) && (defined DEFAULT_DACS) && (DEFAULT_DACS==AUDIO_MIXER_DAC_AIC23B)
    // Disable microphone callback interrupt in order for the flush to not be blocked.
-   // TODO: audio_mixer_dacs_flush_direct flushs Rx and Tw part of the DAC.
+   // TODO: audio_mixer_dacs_flush_direct flushes Rx and Tw part of the DAC.
    //       Should we separate them? Here, we want to flash the output only.
    device_audio_disable_microphone();
 #endif

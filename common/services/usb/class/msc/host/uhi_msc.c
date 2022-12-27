@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -71,7 +73,7 @@
  */
 //@{
 
-//! Flag to securise the UHI MSC ressources
+//! Flag to secure the UHI MSC resources
 static volatile bool b_uhi_msc_free = true;
 
 //! USB MSC device information
@@ -140,7 +142,7 @@ UHC_BSS(4) static struct usb_msc_cbw uhi_msc_cbw =
 //! Structure to receive a CSW packet
 UHC_DATA(4) static struct usb_msc_csw uhi_msc_csw;
 
-//! Structure to sent or reveiced DATA packet
+//! Structure to sent or received DATA packet
 static uint8_t *uhi_msc_data;
 //@}
 
@@ -309,7 +311,7 @@ void uhi_msc_enable(uhc_device_t * dev)
 #ifdef USB_HOST_HUB_SUPPORT
 	uhi_msc_dev_sel = &uhi_msc_dev[];
 	if (!b_uhi_msc_free) {
-		// Install must be posponed
+		// Install must be postponed
 	}
 #else
 	Assert(uhi_msc_dev.dev != NULL);
@@ -626,7 +628,7 @@ static void uhi_msc_scsi_inquiry_done(bool b_cbw_succes)
 
 /**
  * \brief Decodes the result of scsi TEST UNIT READY command
- * Launchs READ CAPACITY command, if a new LUN has been detected.
+ * Launches READ CAPACITY command, if a new LUN has been detected.
  *
  * \param b_cbw_succes true, if the scsi command is successful
  */
@@ -706,7 +708,7 @@ static void uhi_msc_scsi_read_capacity(uhi_msc_scsi_callback_t callback)
 
 /**
  * \brief Decodes the result of scsi READ CAPACITY command
- * Launchs MODE SENSE 6 command.
+ * Launches MODE SENSE 6 command.
  *
  * \param b_cbw_succes true, if the scsi command is successful
  */

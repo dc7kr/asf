@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -97,7 +99,7 @@ void spi_master_init(SPI_t *spi)
  *                  implementations are the SPI modes SPI_MODE_0 ...
  *                  SPI_MODE_3.
  * \param baud_rate Baud rate for communication with slave device in Hz.
- * \param sel_id    Board specific seclet id
+ * \param sel_id    Board specific select id
  */
 void spi_master_setup_device(SPI_t *spi, struct spi_device *device,
      spi_flags_t flags, uint32_t baud_rate,

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -137,7 +139,7 @@ static void set_buffer(uint8_t *buffer, uint8_t value)
  * - Verify that the EEPROM is erased by a spot test on the
  *   TEST_ERASE_PAGE page.
  *
- * \return STATUS_OK if test succeded, otherwise ERR_BAD_DATA
+ * \return STATUS_OK if test succeeded, otherwise ERR_BAD_DATA
  */
 static status_code_t test_erase(void)
 {
@@ -160,7 +162,7 @@ static status_code_t test_erase(void)
  * - Write one byte
  * - Verify that the byte is written and that all other bytes are erased.
  *
- * \return STATUS_OK if test succeded, otherwise ERR_BAD_DATA
+ * \return STATUS_OK if test succeeded, otherwise ERR_BAD_DATA
  */
 static status_code_t test_write(void)
 {
@@ -189,7 +191,7 @@ static status_code_t test_write(void)
  * - Write the page.
  * - Verify that only two bytes are written and the rest of the page is erased.
  *
- * \return STATUS_OK if test succeded, otherwise ERR_BAD_DATA
+ * \return STATUS_OK if test succeeded, otherwise ERR_BAD_DATA
  */
 static status_code_t test_atomic_write(void)
 {
@@ -227,7 +229,7 @@ static status_code_t test_atomic_write(void)
  * - Verify that all 3 bytes written correctly and that the rest of the page
  *   is erased.
  *
- * \return STATUS_OK if test succeded, otherwise ERR_BAD_DATA
+ * \return STATUS_OK if test succeeded, otherwise ERR_BAD_DATA
  */
 static status_code_t test_split_write(void)
 {
@@ -268,7 +270,7 @@ static status_code_t test_split_write(void)
  * - Erase first byte of all pages
  * - Verify that first byte is deleted in TEST_ERASE_BYTES_PAGE_2
  *
- * \return STATUS_OK if test succeded, otherwise ERR_BAD_DATA
+ * \return STATUS_OK if test succeeded, otherwise ERR_BAD_DATA
  */
 static status_code_t test_erase_bytes(void)
 {

@@ -203,6 +203,33 @@ static int print(char **out, const char *format, va_list args )
         			pc += prints (out, s?s:"(null)", width, pad, printlimit, false);
         			continue;
         		}
+				if (*format == 'l')
+				{
+					if (*(format+1) == 'l')
+					{
+						format++;
+						if (*(format+1) == 'd')
+						{
+							format++;
+							pc += printi (out, va_arg( args, long long int), 10, 1, width, pad, 'a', printlimit);
+						}
+						else if (*(format+1) == 'u')
+						{
+							format++;
+							pc += printi (out, va_arg( args, unsigned long long int), 10, 1, width, pad, 'a', printlimit);
+						}
+					}
+					else if (*(format+1) == 'u')
+					{
+					    format++;
+						pc += printi (out, va_arg( args, unsigned long int), 10, 1, width, pad, 'a', printlimit);
+					}
+					else
+					{
+						pc += printi (out, va_arg( args, long int), 10, 1, width, pad, 'a', printlimit);
+					}
+        			continue;
+				}
         		if( *format == 'd' ) {
         			pc += printi (out, va_arg( args, int ), 10, 1, width, pad, 'a', printlimit);
         			continue;
@@ -261,15 +288,30 @@ int main(void)
         char *np = 0;
         int i = 5;
         unsigned int bs = sizeof(int)*8;
+        long int li;
+        long long int lli;
+        unsigned long int uli;
+        unsigned long long int ulli;
         int mi;
         char buf[80];
 
         mi = (1 << (bs-1)) + 1;
+        bs = sizeof (long int)*8;
+        li = (1 << (bs-1)) + 1;
+        uli = (1 << (bs-1));
+        bs = sizeof (long long int)*8;
+        lli = (1 << (bs-1)) + 1;
+        ulli = (1 << (bs-1));;
         printf("%s\n", ptr);
         printf("printf test\n");
+        // cppcheck-suppress nullPointer
         printf("%s is null pointer\n", np);
         printf("%d = 5\n", i);
         printf("%d = - max int\n", mi);
+        printf("%ld = - max long int\n", li);
+        printf("%lld = - max long long int\n", lli);
+        printf("%lu = max unsigned long \n", uli);
+        printf("%llu = max unsigned long long \n", ulli);
         printf("char %c = 'a'\n", 'a');
         printf("hex %x = ff\n", 0xff);
         printf("hex %02x = 00\n", 0);

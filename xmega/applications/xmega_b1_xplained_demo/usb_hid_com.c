@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -73,7 +75,7 @@ void usb_hid_com_report_out_received(uint8_t *data)
 	// Mapped received data to report out type
 	struct hid_report_out *report_out=(struct hid_report_out*)data;
 
-	// Update LEDs with new repport value
+	// Update LEDs with new report value
 	ui_led(report_out->leds);
 	// Load contrast value
 	ui_set_contrast(report_out->contrast);

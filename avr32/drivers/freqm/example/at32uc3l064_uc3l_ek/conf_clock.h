@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -51,7 +53,7 @@
 
 // System clock source
 #define CONFIG_SYSCLK_SOURCE          SYSCLK_SRC_DFLL
-// CPU, PBA, PBB equals main clock diveded by 8
+// CPU, PBA, PBB equals main clock divided by 8
 #define CONFIG_SYSCLK_CPU_DIV         3
 #define CONFIG_SYSCLK_PBA_DIV         3
 #define CONFIG_SYSCLK_PBB_DIV         3

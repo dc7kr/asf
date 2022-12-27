@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -82,7 +84,7 @@ typedef uint8_t port_id_t;
 /** \name Input/Sense Configuration Flags */
 /** @{ */
 #define IOPORT_BOTHEDGES          (0 << 8) /*!< Sense Both Edges */
-#define IOPORT_RISING             (1 << 8) /*!< Sense Risign Edge */
+#define IOPORT_RISING             (1 << 8) /*!< Sense Rising Edge */
 #define IOPORT_FALLING            (2 << 8) /*!< Sense Falling Edge */
 #define IOPORT_LEVEL              (3 << 8) /*!< Sense Low Level */
 #define IOPORT_INPUT_DISABLE      (7 << 8) /*!< Input Buffer Disabled */
@@ -114,10 +116,10 @@ typedef uint8_t port_id_t;
 
 /**
  * \internal
- * \name PORT fields struture offset
+ * \name PORT fields structure offset
  *
- * These macros are used to compute the field offset nummber with the PORT_t
- * struture.
+ * These macros are used to compute the field offset number with the PORT_t
+ * structure.
  */
 /** @{ */
 #define PORT_DIR                0x00  /*!< Data Direction */

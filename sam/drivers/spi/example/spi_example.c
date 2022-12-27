@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -49,13 +51,9 @@
  *
  * \par Requirements
  *
- * This package can be used with two SAM3 evaluation kits boards.
+ * This package can be used with two SAM evaluation kits boards.
  * Please connect the SPI pins from one board to another.
- *        - <b>SAM3 EK board(MASTER)--SAM3 EK board(SLAVE)</b>
- *        - NPCS0--NPCS0
- *        - MISO--MISO
- *        - MOSI--MOSI
- *        - SPCK--SPCK
+ * \copydoc spi_example_pin_defs
  *
  * \par Descriptions
  *
@@ -70,7 +68,7 @@
  * <li>Configure SPI as master, and set up SPI clock.
  * <li>Send 4-byte CMD_TEST to indicate the start of test.
  * <li>Send several 64-byte blocks, and after transmitting the next block, the content of the last block is returned and checked.
- * <li>Send CMD_STATUS command and wait for the status reprots from slave.
+ * <li>Send CMD_STATUS command and wait for the status reports from slave.
  * <li>Send CMD_END command to indicate the end of test.
  * </ol>
  * <li>Setup SPI clock for master.
@@ -101,6 +99,7 @@
  */
 
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_spi_example.h"
@@ -236,7 +235,8 @@ static void display_menu(void)
 			"------\r");
 
 	for (i = 0; i < NUM_SPCK_CONFIGURATIONS; i++) {
-		printf("  %u: Set SPCK = %7u Hz\n\r", i, gs_ul_clock_configurations[i]);
+		printf("  %u: Set SPCK = %7lu Hz\n\r", (unsigned)i,
+			(unsigned long)gs_ul_clock_configurations[i]);
 	}
 	puts("  t: Perform SPI master\n\r"
 			"  h: Display this menu again\n\r\r");
@@ -437,7 +437,7 @@ static void spi_master_initialize(void)
 static void spi_set_clock_configuration(uint8_t configuration)
 {
 	gs_ul_spi_clock = gs_ul_clock_configurations[configuration];
-	printf("Setting SPI clock #%u ... \n\r", gs_ul_spi_clock);
+	printf("Setting SPI clock #%lu ... \n\r", (unsigned long)gs_ul_spi_clock);
 	spi_master_initialize();
 }
 
@@ -488,7 +488,7 @@ static void spi_master_go(void)
 			break;
 		}
 		if (cmd != RC_SYN) {
-			printf("-E- Response unexpected: 0x%x \n\r", cmd);
+			printf("-E- Response unexpected: 0x%x \n\r", (unsigned)cmd);
 			return;
 		}
 	}
@@ -501,7 +501,7 @@ static void spi_master_go(void)
 		for (i = 0; i < COMM_BUFFER_SIZE; i++) {
 			gs_uc_spi_buffer[i] = block;
 		}
-		printf("-> Master sending block %u ... \n\r", block);
+		printf("-> Master sending block %u ... \n\r", (unsigned)block);
 		spi_master_transfer(gs_uc_spi_buffer, COMM_BUFFER_SIZE);
 		if (block) {
 			for (i = 0; i < COMM_BUFFER_SIZE; i++) {
@@ -510,9 +510,11 @@ static void spi_master_go(void)
 				}
 			}
 			if (i < COMM_BUFFER_SIZE) {
-				printf("-E- block %u contains unexpected data \n\r", block);
+				printf("-E- block %u contains unexpected data \n\r",
+					(unsigned)block);
 			} else {
-				printf("   <- Slave response last block %x \n\r", (block - 1));
+				printf("   <- Slave response last block %x \n\r",
+					(unsigned)(block - 1));
 			}
 		}
 	}
@@ -535,13 +537,14 @@ static void spi_master_go(void)
 	spi_master_transfer(&gs_spi_status, sizeof(struct status_block_t));
 
 	puts("   <- Slave reports status...\r");
-	printf("-I- Received  %u commands:", gs_spi_status.ul_total_command_number);
+	printf("-I- Received  %u commands:",
+		(unsigned)gs_spi_status.ul_total_command_number);
 
 	for (i = 0; i < gs_spi_status.ul_total_command_number; i++) {
-		printf(" 0x%08x", gs_spi_status.ul_cmd_list[i]);
+		printf(" 0x%08x", (unsigned)gs_spi_status.ul_cmd_list[i]);
 	}
-	printf(" \n\r-I- Received  %u data blocks \n\r",
-			gs_spi_status.ul_total_block_number);
+	printf(" \n\r-I- Received  %lu data blocks \n\r",
+			(unsigned long)gs_spi_status.ul_total_block_number);
 
 	for (i = 0; i < MAX_RETRY; i++) {
 		puts("-> Master sending CMD_END... \r");
@@ -567,27 +570,14 @@ static void spi_master_go(void)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), UART_BAUDRATE, UART_MR_PAR_NO };
-
-	/* Configure PIO. */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC. */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART. */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 
@@ -596,11 +586,11 @@ static void configure_console(void)
  *
  * \return Unused (ANSI-C compatibility).
  */
-uint32_t main(void)
+int main(void)
 {
 	uint8_t uc_key;
 
-	/* Initialize the SAM3 system. */
+	/* Initialize the SAM system. */
 	sysclk_init();
 	board_init();
 

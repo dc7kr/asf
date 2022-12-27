@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -45,13 +47,13 @@
  * \section Purpose
  *
  * This basic example shows how to use the Real-Time Clock (RTC) peripheral
- * available on the SAM3  microcontrollers. The RTC enables easy
+ * available on the SAM  microcontrollers. The RTC enables easy
  * time and date management and allows the user to monitor events like a
  * configurable alarm, second change, calendar change, and so on.
  *
  * \section Requirements
  *
- * This example can be used with SAM3 evaluation kits.
+ * This example can be used with SAM evaluation kits.
  *
  * \section Description
  *
@@ -67,17 +69,18 @@
  *        w - Generate Waveform
  *     \endcode
  *
- * "w" is an additional option for SAM3SD8. An RTC output can be programmed to
- * generate several waveforms, including a prescaled clock derived from slow clock.
+ * "w" is an additional option for SAM3S8, SAM3SD8 or SAM4S. An RTC output can 
+ * be programmed to generate several waveforms, including a prescaled clock 
+ * derived from slow clock.
  *
  * Setting the time, date and time alarm is done by using Menu option, and
  * the display is updated accordingly.
  *
- * The time alarm is triggered only when the second, minute and hour match the preset
- * values; the date alarm is triggered only when the month and date match the preset
- * values. 
+ * The time alarm is triggered only when the second, minute and hour match the 
+ * preset values; the date alarm is triggered only when the month and date match
+ * the preset values. 
  *
- * Generating waveform is done by using Menu option "w" and a menu to peform the following:
+ * Generating waveform is done by using Menu option "w" and a menu to perform the following:
  *     \code
  *     Menu:
  *     0 - No Waveform
@@ -126,6 +129,7 @@
  */
 
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_clock.h"
 #include "conf_board.h"
 
@@ -201,27 +205,14 @@ static uint32_t gs_ul_menu_shown = 0;
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -259,7 +250,7 @@ static uint32_t get_new_time(void)
 				puts("\b \b");
 				--i;
 
-				/* Delimitor ':' for time is uneditable */
+				/* Delimiter ':' for time is uneditable */
 				if (!((gs_uc_rtc_time[i]) >= '0' && (gs_uc_rtc_time[i]) <= '9') && i > 0) {
 					puts("\b \b");
 					--i;
@@ -272,18 +263,9 @@ static uint32_t get_new_time(void)
 			continue;
 		}
 
-		if (!((uc_key) >= '0' && (uc_key) <= '9')) {
-			continue;
-		}
-
 		while (uart_write(CONSOLE_UART, uc_key));
 		gs_uc_rtc_time[i++] = uc_key;
 
-		/* Ignore non-digit position if not the end */
-		if (!((gs_uc_rtc_time[i]) >= '0' && (gs_uc_rtc_time[i]) <='9') && i < 8) {
-			while (uart_write(CONSOLE_UART, gs_uc_rtc_time[i]));
-			++i;
-		}
 	}
 
 	if (i == 0) {
@@ -363,7 +345,7 @@ static uint32_t get_new_date(void)
 				puts("\b \b");
 				--i;
 
-				/* Delimitor '/' for date is uneditable */
+				/* Delimiter '/' for date is uneditable */
 				if (!((gs_uc_date[i]) >= '0' && (gs_uc_date[i]) <='9') && i > 0) {
 					puts("\b \b");
 					--i;
@@ -376,18 +358,9 @@ static uint32_t get_new_date(void)
 			continue;
 		}
 
-		if (!((uc_key) >= '0' && (uc_key) <= '9')) {
-			continue;
-		}
-
 		while (uart_write(CONSOLE_UART, uc_key));
 		gs_uc_date[i++] = uc_key;
 
-		/* Ignore non-digit position */
-		if (!((gs_uc_date[i]) >= '0' && (gs_uc_date[i]) <= '9') && i < 10) {
-			while (uart_write(CONSOLE_UART, gs_uc_date[i]));
-			++i;
-		}
 	}
 
 	if (i == 0) {
@@ -501,7 +474,7 @@ int main(void)
 {
 	uint8_t uc_key;
 
-	/* Initialize the SAM3 system */
+	/* Initialize the SAM system */
 	sysclk_init();
 	board_init();
 
@@ -538,11 +511,16 @@ int main(void)
 			} while (get_new_time());
 
 			/* If valid input, none of the variables for time is 0xff. */
-			if (gs_ul_new_hour != 0xFFFFFFFF) {
+			if (gs_ul_new_hour != 0xFFFFFFFF && (gs_uc_rtc_time[2] == ':')
+					&& (gs_uc_rtc_time[5] == ':')) {
 				if (rtc_set_time(RTC, gs_ul_new_hour, gs_ul_new_minute,
 						gs_ul_new_second)) {
 					puts("\n\r Time not set, invalid input!\r");
 				}
+			} else {
+				gs_uc_rtc_time[2] = ':';
+				gs_uc_rtc_time[5] = ':';
+				puts("\n\r Time not set, invalid input!\r");
 			}
 
 			gs_ul_state = STATE_MENU;
@@ -559,11 +537,16 @@ int main(void)
 			} while (get_new_date());
 
 			/* If valid input, none of the variables for date is 0xff(ff). */
-			if (gs_ul_new_year != 0xFFFFFFFF) {
+			if (gs_ul_new_year != 0xFFFFFFFF && (gs_uc_date[2] == '/')
+					&& (gs_uc_date[5] == '/')) {
 				if (rtc_set_date(RTC, gs_ul_new_year, gs_ul_new_month,
 						gs_ul_new_day, gs_ul_new_week)) {
 					puts("\n\r Date not set, invalid input!\r");
 				}
+			} else {
+				gs_uc_date[2] = '/';
+				gs_uc_date[5] = '/';
+				puts("\n\r Time not set, invalid input!\r");
 			}
 
 			/* Only 'mm/dd' is input. */
@@ -586,7 +569,8 @@ int main(void)
 				puts("\n\r\n\r Set time alarm(hh:mm:ss): ");
 			} while (get_new_time());
 
-			if (gs_ul_new_hour != 0xFFFFFFFF) {
+			if (gs_ul_new_hour != 0xFFFFFFFF && (gs_uc_rtc_time[2] == ':')
+					&& (gs_uc_rtc_time[5] == ':')) {
 				if (rtc_set_time_alarm(RTC, 1, gs_ul_new_hour,
 						1, gs_ul_new_minute, 1, gs_ul_new_second)) {
 					puts("\n\r Time alarm not set, invalid input!\r");
@@ -594,6 +578,10 @@ int main(void)
 					printf("\n\r Time alarm is set at %02u:%02u:%02u!",
 						gs_ul_new_hour, gs_ul_new_minute, gs_ul_new_second);
 				}
+			} else {
+				gs_uc_rtc_time[2] = ':';
+				gs_uc_rtc_time[5] = ':';
+				puts("\n\r Time not set, invalid input!\r");
 			}
 			gs_ul_state = STATE_MENU;
 			gs_ul_menu_shown = 0;
@@ -608,16 +596,21 @@ int main(void)
 			rtc_clear_time_alarm(RTC);
 
 			do {
-				puts("\n\r\n\r Set date alarm(mm/dd/): ");
+				puts("\n\r\n\r Set date alarm(mm/dd/yyyy): ");
 			} while (get_new_date());
 
-			if (gs_ul_new_year == 0xFFFFFFFF && gs_ul_new_month != 0xFFFFFFFF) {
+			if (gs_ul_new_year != 0xFFFFFFFF && (gs_uc_date[2] == '/')
+					&& (gs_uc_date[5] == '/')) {
 				if (rtc_set_date_alarm(RTC, 1, gs_ul_new_month, 1, gs_ul_new_day)) {
 					puts("\n\r Date alarm not set, invalid input!\r");
 				} else {
-					printf("\n\r Date alarm is set on %02u/%02u!",
-							gs_ul_new_month, gs_ul_new_day);
+					printf("\n\r Date alarm is set on %02u/%02u/%4u!",
+							gs_ul_new_month, gs_ul_new_day, gs_ul_new_year);
 				}
+			} else {
+				gs_uc_date[2] = '/';
+				gs_uc_date[5] = '/';
+				puts("\n\r Date alarm not set, invalid input!\r");
 			}
 			gs_ul_state = STATE_MENU;
 			gs_ul_menu_shown = 0;

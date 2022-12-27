@@ -9,6 +9,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -593,7 +595,7 @@ typedef struct {
 //! Define the maximum timeout of the Nand Flash
 // max time reset (10us)
 // max time for Data Transfer from Cell to Register (MLC=50us)
-// Convert the timing (us) to a number of loop test for the nfc_nf_is_ready fonction
+// Convert the timing (us) to a number of loop test for the nfc_nf_is_ready function
 // formula = coef security * (maximun timeout / timing of one loop at 30MHz x2)
 //#define  NF_MAX_RB_TIMEOUT    (2 * (50/1))    // 240us with 12MHz in mode X2
 

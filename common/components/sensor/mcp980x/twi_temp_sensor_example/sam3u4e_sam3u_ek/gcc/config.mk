@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -53,7 +55,10 @@ CSRCS = \
        common/components/sensor/mcp980x/mcp980x.c         \
        common/components/sensor/mcp980x/twi_temp_sensor_example/twi_temp_sensor_example.c \
        common/services/clock/sam3u/sysclk.c               \
+       common/services/serial/usart_serial.c              \
        common/utils/interrupt/interrupt_sam_nvic.c        \
+       common/utils/stdio/read.c                          \
+       common/utils/stdio/write.c                         \
        sam/boards/sam3u_ek/init.c                         \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
@@ -75,8 +80,11 @@ INC_PATH = \
        common/components/sensor/mcp980x/twi_temp_sensor_example/sam3u4e_sam3u_ek \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/serial                             \
+       common/services/serial/sam_uart                    \
        common/services/twi                                \
        common/utils                                       \
+       common/utils/stdio/stdio_serial                    \
        sam/boards                                         \
        sam/boards/sam3u_ek                                \
        sam/drivers/pio                                    \

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -700,7 +702,7 @@ static void run_draw_diagonal_line_test(const struct test_case *test)
  * \internal
  * \brief Test drawing a bitmap stored in FLASH
  *
- * This test draws a bitmap to posistion x = 60, y = 9 and checks that
+ * This test draws a bitmap to position x = 60, y = 9 and checks that
  * it is aligned with display pages and that it is drawn correctly.
  *
  * \param test Current test case.
@@ -775,7 +777,7 @@ static void run_draw_flash_bitmap_test(const struct test_case *test)
  * \internal
  * \brief Test drawing a bitmap stored in RAM
  *
- * This test draws a bitmap to posistion x = 50, y = 5 and checks that
+ * This test draws a bitmap to position x = 50, y = 5 and checks that
  * it is aligned with display pages and that it is drawn correctly.
  *
  * \param test Current test case.

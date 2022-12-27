@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -55,7 +57,7 @@
  *   - A mass storage device (using the on-board 8MBytes DataFlash memory)
  *   - A Generic HID device that can exchange data with a dedicated host
  *     application.
- * - LCD module controller: The ATxmega128B1 is conected to an LCD glass, and is
+ * - LCD module controller: The ATxmega128B1 is connected to an LCD glass, and is
  *   able to write text messages, display numeric values or blink pixel on the
  *   LCD glass.
  * - Measure on-board analog sensors values (NTC, light sensor, external voltage
@@ -67,10 +69,10 @@
  * The application is build by default for ATxmega128B1 revision B and higher.
  * At startup time, the application checks if the silicon revision match with the
  * firmware build. If the application detects an issue, it will be reported with
- * a "REV ERR" messsage on the LCD and the application will be locked.
+ * a "REV ERR" message on the LCD and the application will be locked.
  * However pressing CS0,CS1,CS2,CS3 in this sequence can force application execution,
- * but the LCD display behavior will be incorect. To rebuild the application
- * for ATxmega128B1 revision A, the CONFIG_XMEGA_128B1_REVA define shoud
+ * but the LCD display behavior will be incorrect. To rebuild the application
+ * for ATxmega128B1 revision A, the CONFIG_XMEGA_128B1_REVA define should
  * be set in the project.
  *
  * \section files Main files:
@@ -117,7 +119,7 @@ void (*start_bootloader) (void) = (void (*)(void))(BOOT_SECTION_START/2+0x1FC/2)
  */
 int main(void)
 {
-	//Initialize interupt controller
+	//Initialize interrupt controller
 	irq_initialize_vectors();
 	cpu_irq_enable();
 
@@ -125,7 +127,7 @@ int main(void)
 	sleepmgr_init();
 	// Initialize clock tree
 	sysclk_init();
-	// Initialize hardware board ressources
+	// Initialize hardware board resources
 	board_init();
 
 	// Initialize user interface
@@ -238,7 +240,7 @@ void main_sof_action(void)
 			ui_display_text(lcd_txt_ext_v, sizeof(lcd_txt_ext_v));
 			main_sensor_selected = EXT_VOLTAGE_INPUT;
 		}
-		// If hid generic interface is not up and runing, do nothing
+		// If hid generic interface is not up and running, do nothing
 		if (!main_b_generic_enable) {
 			return;
 		}

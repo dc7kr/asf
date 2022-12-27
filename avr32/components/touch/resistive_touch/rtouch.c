@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -42,7 +44,7 @@
 // TODO  Implement delayed resample when timer ready, if we want to support it.
 //       That way it is now, the resample is called directly after processing
 //       samples. We've had no problems with this implementation on that regard,
-//       so it is problay perfectly OK to remove all traces of "delayed"
+//       so it is probably perfectly OK to remove all traces of "delayed"
 //       resample. The intention was to make use of a timer to resample after
 //       a short period of time. However, resampling continuously is no
 //       problem. It only gives us better resolution and tracking. So my
@@ -257,7 +259,7 @@ void inline rtouch_ground_x_surface(void)
 	//	sizeof(rtouch_gpio_xmap)/ sizeof(rtouch_gpio_xmap[0]));
 
 	// enable pins as gpio (sets as input)
-	// to avoid a spike due to a Y-surface that is tristatet and
+	// to avoid a spike due to a Y-surface that is tristated and
 	// X-surface that was gradiented we need to set XH as input first.
 	// Otherwise the voltage on the signal line will rise to VDD. This is
 	// not an issue to the measurement but it helps to let the signal look
@@ -265,7 +267,7 @@ void inline rtouch_ground_x_surface(void)
 	gpio_enable_gpio_pin(rtouch_gpio_xmap[1].pin);
 	gpio_enable_gpio_pin(rtouch_gpio_xmap[0].pin);
 
-	// set ouput low
+	// set output low
 	gpio_clr_gpio_pin(rtouch_gpio_xmap[1].pin);
 	gpio_clr_gpio_pin(rtouch_gpio_xmap[0].pin);
 }
@@ -280,7 +282,7 @@ void inline rtouch_ground_y_surface(void)
 
 	gpio_enable_gpio_pin(rtouch_gpio_ymap[1].pin);
 	gpio_enable_gpio_pin(rtouch_gpio_ymap[0].pin);
-	// set ouput low
+	// set output low
 	gpio_clr_gpio_pin(rtouch_gpio_ymap[0].pin);
 	gpio_clr_gpio_pin(rtouch_gpio_ymap[1].pin);
 }
@@ -292,7 +294,7 @@ void inline rtouch_ground_y_surface(void)
 static void inline rtouch_pullup_y_surface(void)
 {
 	// control pins by gpio controller
-	// this means implicitely: set as input
+	// this means implicitly: set as input
 	gpio_enable_gpio(rtouch_gpio_ymap,
 			sizeof(rtouch_gpio_ymap)/ sizeof(rtouch_gpio_ymap[0]));
 	gpio_enable_pin_pull_up(rtouch_gpio_ymap[0].pin);
@@ -728,7 +730,7 @@ void rtouch_enable(void)
 
 /*!
  * This function will copy the last event information to a struct. The caller
- * is reponsible for providing memory.
+ * is responsible for providing memory.
  *
  * \param  event  Pointer to the struct where event will be copied.
  */
@@ -754,7 +756,7 @@ bool rtouch_is_touched(void)
 
 /*!
  * This function computes a calibration matrix from a set of three calibration
- * points povided by the caller. Use the raw sample values from the event struct
+ * points provided by the caller. Use the raw sample values from the event struct
  * when filling data into the calibration point struct. The calibration matrix
  * will be copied into the struct also provided by the user. Use the
  * TOUCH_SetCalibrationMatrix() function to assign a calibration matrix to the

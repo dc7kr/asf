@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -182,7 +184,7 @@ ISR(adc_int_window_handler, AVR32_ADCIFA_IRQ_GROUP, 0)
 		case ADC_TRIGGER_SYNC_MIN: // Min level found
 			if (potentiometer_value > adc_window_config_t.high_threshold) {
 				// Start order synchronization step only if
-				// trig > min saignal value
+				// trig > min signal value
 				trigger_process_state = ADC_TRIGGER_SYNC_ORDER;
 				adc_window_config_t.low_threshold = potentiometer_value;
 				// Trig when sample > LT

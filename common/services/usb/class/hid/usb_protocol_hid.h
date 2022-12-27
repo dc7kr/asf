@@ -3,9 +3,11 @@
  *
  * \brief USB Human Interface Device (HID) protocol definitions.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -115,20 +117,20 @@ enum usb_hid_protocol {
 	USB_HID_PROCOTOL_REPORT = 1,
 };
 
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 
 //! \brief HID Descriptor
 typedef struct {
 	uint8_t bLength;          //!< Size of this descriptor in bytes
 	uint8_t bDescriptorType;  //!< HID descriptor type
-	le16_t bcdHID;            //!< Binay Coded Decimal Spec. release
+	le16_t bcdHID;            //!< Binary Coded Decimal Spec. release
 	uint8_t bCountryCode;     //!< Hardware target country
 	uint8_t bNumDescriptors;  //!< Number of HID class descriptors to follow
 	uint8_t bRDescriptorType; //!< Report descriptor type
 	le16_t wDescriptorLength; //!< Total length of Report descriptor
 } usb_hid_descriptor_t;
 
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
    //! \name HID Report type
    //! Used by SETUP_HID_GET_REPORT & SETUP_HID_SET_REPORT

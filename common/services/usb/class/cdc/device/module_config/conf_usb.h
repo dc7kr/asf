@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -86,14 +88,20 @@
  * @{
  */
 // #define  UDC_VBUS_EVENT(b_vbus_high)      user_callback_vbus_action(b_vbus_high)
+// extern void user_callback_vbus_action(bool b_vbus_high);
 // #define  UDC_SOF_EVENT()                  user_callback_sof_action()
+// extern void user_callback_sof_action(void);
 // #define  UDC_SUSPEND_EVENT()              user_callback_suspend_action()
+// extern void user_callback_suspend_action(void);
 // #define  UDC_RESUME_EVENT()               user_callback_resume_action()
-//! Mandatory when USB_DEVICE_ATTR authorizes remote wakeup feature
+// extern void user_callback_resume_action(void);
+// Mandatory when USB_DEVICE_ATTR authorizes remote wakeup feature
 // #define  UDC_REMOTEWAKEUP_ENABLE()        user_callback_remotewakeup_enable()
+// extern void user_callback_remotewakeup_enable(void);
 // #define  UDC_REMOTEWAKEUP_DISABLE()       user_callback_remotewakeup_disable()
-//! When a extra string descriptor must be supported
-//! other than manufacturer, product and serial string
+// extern void user_callback_remotewakeup_disable(void);
+// When a extra string descriptor must be supported
+// other than manufacturer, product and serial string
 // #define  UDC_GET_EXTRA_STRING()
 //@}
 
@@ -113,12 +121,26 @@
 #define  UDI_CDC_PORT_NB 1
 
 //! Interface callback definition
-#define  UDI_CDC_ENABLE_EXT()             true
-#define  UDI_CDC_DISABLE_EXT()
-#define  UDI_CDC_RX_NOTIFY()
-#define  UDI_CDC_SET_CODING_EXT(cfg)
-#define  UDI_CDC_SET_DTR_EXT(set)
-#define  UDI_CDC_SET_RTS_EXT(set)
+#define  UDI_CDC_ENABLE_EXT(port)          true
+#define  UDI_CDC_DISABLE_EXT(port)
+#define  UDI_CDC_RX_NOTIFY(port)
+#define  UDI_CDC_SET_CODING_EXT(port,cfg)
+#define  UDI_CDC_SET_DTR_EXT(port,set)
+#define  UDI_CDC_SET_RTS_EXT(port,set)
+/*
+ * #define UDI_CDC_ENABLE_EXT(port) my_callback_cdc_enable()
+ * extern bool my_callback_cdc_enable(void);
+ * #define UDI_CDC_DISABLE_EXT(port) my_callback_cdc_disable()
+ * extern void my_callback_cdc_disable(void);
+ * #define  UDI_CDC_RX_NOTIFY(port) my_callback_rx_notify(port)
+ * extern void my_callback_rx_notify(uint8_t port);
+ * #define  UDI_CDC_SET_CODING_EXT(port,cfg) my_callback_config(port,cfg)
+ * extern void my_callback_config(uint8_t port, usb_cdc_line_coding_t * cfg); 
+ * #define  UDI_CDC_SET_DTR_EXT(port,set) my_callback_cdc_set_dtr(port,set)
+ * extern void my_callback_cdc_set_dtr(uint8_t port, bool b_enable);
+ * #define  UDI_CDC_SET_RTS_EXT(port,set) my_callback_cdc_set_rts(port,set)
+ * extern void my_callback_cdc_set_rts(uint8_t port, bool b_enable); 
+ */
 
 //! Define it when the transfer CDC Device to Host is a low rate (<512000 bauds)
 //! to reduce CDC buffers size

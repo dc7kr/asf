@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -372,7 +374,7 @@ int32_t i;
 		signal4_buf[0] = ( (~adc_values_seq1[0])*0x20) - 0x8000;
 	}
 }
-/*! \brief TWI Initialisation for QTouch Controller
+/*! \brief TWI Initialization for QTouch Controller
  *
  *
  */

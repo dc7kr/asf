@@ -8,6 +8,8 @@
  * 
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -142,7 +144,7 @@ void sysclk_auto_init(void)
 /**
  * \brief Enable the USB generic clock
  *
- * \pre The USB generick clock must be configurated to 48MHz.
+ * \pre The USB generic clock must be configured to 48MHz.
  */
 void sysclk_auto_enable_usb(void)
 {

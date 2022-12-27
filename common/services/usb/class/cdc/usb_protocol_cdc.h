@@ -3,9 +3,11 @@
  *
  * \brief USB Communication Device Class (CDC) protocol definitions
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -156,7 +158,7 @@
  * Need to pack structures tightly, or the compiler might insert padding
  * and violate the spec-mandated layout.
  */
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 
 //! \name USB CDC Descriptors
 //@{
@@ -306,7 +308,7 @@ typedef struct {
 
 //! @}
 
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
 //! @}
 

@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -264,7 +266,7 @@ bool   pl_main_save( void )
       nav_file_del( true );               // Remove the copy
    nav_gotoindex( &index );               // Re select play list file
    pl_main_open( true );                  // Re open play list file
-   pl_nav_setpos(u16_pos);                // Restort position in play list
+   pl_nav_setpos(u16_pos);                // Restore position in play list
    nav_select( nav_id_save );
 
    return true;
@@ -403,7 +405,7 @@ pl_main_modify_end:
    pl_main_open( true );                  // Re open play list file
    pl_g_list_is_modify = b_copy_finish;
    nav_select( nav_id_save );
-   pl_nav_setpos(u16_pos);                // Restort position in play list
+   pl_nav_setpos(u16_pos);                // Restore position in play list
    return pl_g_list_is_modify;
 }
 #endif
@@ -496,7 +498,7 @@ bool  pl_nav_setpos( uint16_t u16_position )
    return true;
 }
 
-//! This function read the playliost's entry at a specific position
+//! This function read the playlist's entry at a specific position
 //!
 //! @param u16_position Position in play list.
 //! @param sz_path      The address of the string where is stored the information.
@@ -568,11 +570,11 @@ bool pl_nav_readentry(uint16_t u16_position, FS_STRING *sz_path, uint16_t *u16_s
 //!
 //! @param opt         PL_MAIN_READLINE_OPT_CHECKLINE to check the next line in the file.\n
 //!                     PL_MAIN_READLINE_OPT_READSTRING to read the string in the text file.\n
-//!                     PL_MAIN_READLINE_OPT_GOTOPATH to read, chack and goto the path.
+//!                     PL_MAIN_READLINE_OPT_GOTOPATH to read, check and goto the path.
 //! @param id_nav       ID navigator to update with the selected file (ignore if b_gotopatch == false)
 //! @param sz_path      Address of the string returned. It is used only if PL_MAIN_READLINE_OPT_READSTRING or
 //!                     PL_MAIN_READLINE_OPT_GOTOPATH options are specified.
-//! @param u16_size_line  The length of the path. If this parameter is NULL, then the lenght is not returned.
+//! @param u16_size_line  The length of the path. If this parameter is NULL, then the length is not returned.
 //!
 //! @return    true  if a line with a correct path
 //!            false line ignored or end of file
@@ -606,7 +608,7 @@ bool  pl_main_readline( readline_opt_t opt, uint8_t id_nav, FS_STRING *sz_path, 
       // PLS path lines = "Filexxx=path\file"
       // SMP path lines = "File=path\file"
       u16_alt_length = reader_txt_get_line( true, (FS_STRING)line_beg, 8 );
-      if(6 > u16_alt_length)     // The line size can't containt a path line
+      if(6 > u16_alt_length)     // The line size can't contain a path line
          return false;
       // Check if it is a path line
       if( ('F' != line_beg[0])
@@ -645,7 +647,7 @@ bool  pl_main_readline( readline_opt_t opt, uint8_t id_nav, FS_STRING *sz_path, 
    file_seek( u32_file_pos, FS_SEEK_SET );
    *sz_path = PLAYLIST_BUF_ALLOC( u16_alt_length * (Is_unicode? 2 : 1 ) );
    if( NULL == *sz_path )
-      return false;   // no enought memory, impossible to store the path but path present in line
+      return false;   // no enough memory, impossible to store the path but path present in line
    if( 0 == reader_txt_get_line( (FS_UNICODE==true), *sz_path, u16_alt_length ) )
       return false;  // Error during the read
    if( 0 != u8_pos_path_in_line )
@@ -657,7 +659,7 @@ bool  pl_main_readline( readline_opt_t opt, uint8_t id_nav, FS_STRING *sz_path, 
    if (opt == PL_MAIN_READLINE_OPT_READSTRING)
      return true;
 
-   // Update the navigator with the path of play list file, because the path is relatif at this one
+   // Update the navigator with the path of play list file, because the path is relative at this one
    nav_copy( id_nav );
    nav_select( id_nav );
    // Go to the path included in the line
@@ -738,7 +740,7 @@ bool   pl_add( const FS_STRING sz_filterext , uint8_t u8_mode )
    }
    nav_select( nav_id_save );
 
-   // Get path of play list file and check with curent to create a relative path
+   // Get path of play list file and check with current to create a relative path
 
    if( PL_ADD_FILE == u8_mode )
       goto pl_add_file;
@@ -956,7 +958,7 @@ bool pl_main_open_non_blocking(uint16_t u16_n)
 
   switch((state_t) ctx.state)
   {
-  // Intialization
+  // Initialization
   case STATE_INITIALIZATION:
     if (pl_main_isopen())
       return false;
@@ -1000,7 +1002,7 @@ bool pl_main_open_non_blocking(uint16_t u16_n)
     {
       if (pl_main_readline(PL_MAIN_READLINE_OPT_CHECKLINE, 0, NULL, NULL))
         pl_g_u16_list_size++;
-      // Check if an error occured during the reading
+      // Check if an error occurred during the reading
       else if (fs_g_status == FS_ERR_FS)
       {
         // Error file system
@@ -1073,7 +1075,7 @@ bool pl_nav_readentry_non_blocking(pl_nav_readentry_context_t *data, uint16_t u1
 
   switch((state_t) ctx.state)
   {
-  // Intialization
+  // Initialization
   case STATE_INITIALIZATION:
     // Set output to NULL to specify if there is an error
     *sz_path = NULL;

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -42,15 +44,19 @@
 #ifndef SYSFONT_H_INCLUDED
 #define SYSFONT_H_INCLUDED
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "conf_sysfont.h"
 #include "gfx.h"
 #include "gfx_text.h"
 
 /**
- * \ingroup gfx_font
+ * \ingroup gfx_font_group
  * \defgroup gfx_sysfont System font
  *
- * The system font objects are globaly available for a graphical application.
+ * The system font objects are globally available for a graphical application.
  * System fonts are by design read only, hence there are not any functions to
  * change them during runtime. If the application needs additional fonts it
  * should add additional font objects.
@@ -61,5 +67,9 @@
 extern struct font sysfont;
 
 /** @} */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* SYSFONT_H_INCLUDED */

@@ -15,9 +15,11 @@
  *   - specific features;
  *   - etc.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -555,12 +557,14 @@ Ctrl_status stream_mem_to_mem(U8 src_lun, U32 src_addr, U8 dest_lun, U32 dest_ad
 
 Ctrl_status stream_state(U8 id)
 {
+  UNUSED(id);
   return CTRL_GOOD;
 }
 
 
 U16 stream_stop(U8 id)
 {
+  UNUSED(id);
   return 0;
 }
 

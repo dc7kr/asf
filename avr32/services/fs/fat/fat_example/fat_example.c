@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -1013,7 +1015,7 @@ int main(void)
             // Return to the previous.
             nav_drive_set(j);
           }
-          // Format succeds, if drives is the one we were navigating on
+          // Format succeeds, if drives is the one we were navigating on
           else if (i == j)
           {
             // Reset the navigators.
@@ -1034,7 +1036,7 @@ int main(void)
               first_ls = false;
             }
           }
-          // Format succeds, restore previous navigator drive.
+          // Format succeeds, restore previous navigator drive.
           else nav_drive_set(j);
         }
         break;
@@ -1062,7 +1064,7 @@ int main(void)
             // Return to the previous.
             nav_drive_set(j);
           }
-          // Format succeds, if drives is the one we were navigating on
+          // Format succeeds, if drives is the one we were navigating on
           else if (i == j)
           {
             // Reset the navigators.
@@ -1083,7 +1085,7 @@ int main(void)
               first_ls = false;
             }
           }
-          // Format succeds, restore previous navigator drive.
+          // Format succeeds, restore previous navigator drive.
           else nav_drive_set(j);
         }
         break;

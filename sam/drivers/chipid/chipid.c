@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -211,7 +213,7 @@ uint32_t chipid_read_nvpmtype(Chipid *p_chipid)
  *
  * \param p_chipid Pointer to a CHIPID instance.
  *
- * \return Chip extension indentifier if available, else 0.
+ * \return Chip extension identifier if available, else 0.
  */
 uint32_t chipid_read_extchipid(Chipid *p_chipid)
 {

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -41,6 +43,10 @@
 #ifndef GFX_TEXT_H_INCLUDED
 #define GFX_TEXT_H_INCLUDED
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdint.h>
 
 #include "compiler.h"
@@ -52,8 +58,8 @@
 #endif
 
 /**
- * \ingroup gfx
- * \defgroup gfx_font Font support
+ * \ingroup gfx_group
+ * \defgroup gfx_font_group Font support
  * This modules provides functionality for outputting a font to a display.
  *
  * @{
@@ -89,13 +95,13 @@ struct font {
 		uint8_t PROGMEM_PTR_T progmem;
 	} data;
 	
-	/*! Width of one font character, in pixles. */
+	/*! Width of one font character, in pixels. */
 	uint8_t width;
-	/*! Height of one font character, in pixles. */
+	/*! Height of one font character, in pixels. */
 	uint8_t height;
 	/*! ASCII value of first character in font set. */
 	uint8_t first_char;
-	/*! ASCII value of last character in ont set. */
+	/*! ASCII value of last character in the set. */
 	uint8_t last_char;
 };
 
@@ -126,5 +132,9 @@ void gfx_get_progmem_string_bounding_box(char PROGMEM_PTR_T str,
 /** @} */
 
 /** @} */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* GFX_TEXT_H_INCLUDED */

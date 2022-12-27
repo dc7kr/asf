@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -138,7 +140,7 @@ enum vbat_status_code {
 /**
  * \brief A brown-out was detected on the VBAT input.
  *
- * The backup system is in an unkown state and therefore the time in the RTC32
+ * The backup system is in an unknown state and therefore the time in the RTC32
  * is invalid. This can happen when the voltage on VBAT drops below the
  * brown-out detection level while main power is absent.
  */
@@ -249,7 +251,7 @@ void rtc_init(void);
  * For the setup code of this use case to work, the following must
  * be added to the project:
  * -# PMIC for interrupt handling.
- * -# Sleep Managager.
+ * -# Sleep Manager.
  * -# A \ref rtc_callback_t "callback" function, called alarm, that
  * reschedules the alarm must be provided
  * by the user.
@@ -304,7 +306,7 @@ void rtc_init(void);
  * \endcode
  *
  * \subsection rtc32_use_case_1_usage_flow Workflow
- * -# Set the alarm to trigget on next time unit roll over:
+ * -# Set the alarm to trigger on next time unit roll over:
  *   - \code rtc_set_alarm_relative(3); \endcode
  * \note The lowest value which is safe to use is 3. The use of 2 could
  * happen in a second change, and we would not get an interrupt. A

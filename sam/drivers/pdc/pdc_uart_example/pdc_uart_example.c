@@ -1,11 +1,13 @@
 /**
  * \file
  *
- * \brief PDC_UART Example for SAM.
+ * \brief Peripheral DMA Controller Example for SAM.
  *
  * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -40,7 +42,7 @@
  */
 
 /**
- * \mainpage PDC_UART Example
+ * \mainpage Peripheral DMA Controller Example
  *
  * \section Purpose
  *
@@ -76,11 +78,18 @@
  *   - No parity
  *   - 1 stop bit
  *   - No flow control
- * -# In the terminal window, the sended text should appear.
- *
+ * -# In the terminal window, the following text should appear (values depend
+ *    on the board and chip used):
+ *    \code
+ *     -- PDC Uart Example xxx --
+ *     -- xxxxxx-xx
+ *     -- Compiled: xxx xx xxxx xx:xx:xx --
+ *    \endcode
+ * -# the sent text should appear.
  */
 
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
 #include "conf_pdc_uart_example.h"
 
@@ -91,7 +100,7 @@
 		"-- "BOARD_NAME" --\r\n" \
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 
-/* Pdc tansfer buffer */
+/* Pdc transfer buffer */
 uint8_t g_uc_pdc_buffer[BUFFER_SIZE];
 /* PDC data packet for transfer */
 pdc_packet_t g_pdc_uart_packet;
@@ -116,27 +125,14 @@ void console_uart_irq_handler(void)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -146,7 +142,7 @@ static void configure_console(void)
  */
 int main(void)
 {
-	/* Initialize the SAM3 system */
+	/* Initialize the SAM system */
 	sysclk_init();
 	board_init();    
 

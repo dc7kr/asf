@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -96,7 +98,7 @@ extern "C" {
 //! Chip select on the EBI that can be configured for SDRAM operation
 #define EBI_SDRAM_CS    3
 
-//! Externel bus interface chip select configuration
+//! External bus interface chip select configuration
 struct ebi_cs_config {
 	//! EBI chip select control A register
 	uint8_t         ctrla;
@@ -106,7 +108,7 @@ struct ebi_cs_config {
 	uint16_t        base_address;
 };
 
-//! Externel bus interface SDRAM configuration
+//! External bus interface SDRAM configuration
 struct ebi_sdram_config {
 	//! EBI SDRAM control A register
 	uint8_t         sdramctrla;
@@ -137,7 +139,7 @@ void ebi_disable_cs(const uint8_t cs);
  * This function must be checked after the SDRAM chip select has been enabled.
  * It will return true when the SDRAM is initialized.
  *
- * \retval true when SDRAM is ready, false otherwize
+ * \retval true when SDRAM is ready, false otherwise
  */
 static inline bool ebi_sdram_is_ready(void)
 {

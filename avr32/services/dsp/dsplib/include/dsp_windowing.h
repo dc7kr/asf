@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -104,7 +106,7 @@ void dsp32_win_rect(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \section Bartlett Bartlett
  * \image html windowing_bartlett.gif
  * Also known simply as the triangular windows, these functions generate
- * a bartlett window that fits in the output buffer.\n
+ * a Bartlett window that fits in the output buffer.\n
  * The amplitude of the signal is in the range [0; 1]
  *
  * Relative functions:
@@ -116,7 +118,7 @@ void dsp32_win_rect(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the bartlett windowing function.
+/*! \brief 16-bit fixed point version of the Bartlett windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 16-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -125,7 +127,7 @@ void dsp32_win_rect(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \param size The size of the output buffer.
  */
 void dsp16_win_bart(dsp16_t *vect1, dsp16_t *vect2, int size);
-/*! \brief 32-bit fixed point version of the bartlett windowing function.
+/*! \brief 32-bit fixed point version of the Bartlett windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 32-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -138,7 +140,7 @@ void dsp32_win_bart(dsp32_t *vect1, dsp32_t *vect2, int size);
 /*! \addtogroup group_windowing
  * \section Blackman Blackman
  * \image html windowing_blackman.gif
- * These functions generate a blackman window that fits in the output buffer.\n
+ * These functions generate a Blackman window that fits in the output buffer.\n
  * The amplitude of the signal is in the range [0; 1]
  *
  * Relative functions:
@@ -150,7 +152,7 @@ void dsp32_win_bart(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the blackman windowing function.
+/*! \brief 16-bit fixed point version of the Blackman windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 16-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -159,7 +161,7 @@ void dsp32_win_bart(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \param size The size of the output buffer.
  */
 void dsp16_win_black(dsp16_t *vect1, dsp16_t *vect2, int size);
-/*! \brief 32-bit fixed point version of the blackman windowing function.
+/*! \brief 32-bit fixed point version of the Blackman windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 32-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -206,7 +208,7 @@ void dsp32_win_hamm(dsp32_t *vect1, dsp32_t *vect2, int size);
 /*! \addtogroup group_windowing
  * \section Gauss Gauss
  * \image html windowing_gauss.gif
- * These functions generate a gaussian window that fits in the output buffer.\n
+ * These functions generate a Gaussian window that fits in the output buffer.\n
  * The amplitude of the signal is in the range [0; 1]
  * \note You can change the value of the teta coefficient by defining DSP_GAUSS_TETA
  * at the compilation with a value that fits in the range ]0; 0.5]
@@ -220,7 +222,7 @@ void dsp32_win_hamm(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the gaussian windowing function.
+/*! \brief 16-bit fixed point version of the Gaussian windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 16-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -229,7 +231,7 @@ void dsp32_win_hamm(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \param size The size of the output buffer.
  */
 void dsp16_win_gauss(dsp16_t *vect1, dsp16_t *vect2, int size);
-/*! \brief 32-bit fixed point version of the gaussian windowing function.
+/*! \brief 32-bit fixed point version of the Gaussian windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 32-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -242,7 +244,7 @@ void dsp32_win_gauss(dsp32_t *vect1, dsp32_t *vect2, int size);
 /*! \addtogroup group_windowing
  * \section Hann Hann
  * \image html windowing_hann.gif
- * These functions generate a hann window that fits in the output buffer.\n
+ * These functions generate a Hann window that fits in the output buffer.\n
  * The amplitude of the signal is in the range [0; 1]
  *
  * Relative functions:
@@ -254,7 +256,7 @@ void dsp32_win_gauss(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the hann windowing function.
+/*! \brief 16-bit fixed point version of the Hann windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 16-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -263,7 +265,7 @@ void dsp32_win_gauss(dsp32_t *vect1, dsp32_t *vect2, int size);
  * \param size The size of the output buffer.
  */
 void dsp16_win_hann(dsp16_t *vect1, dsp16_t *vect2, int size);
-/*! \brief 32-bit fixed point version of the hann windowing function.
+/*! \brief 32-bit fixed point version of the Hann windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 32-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -312,8 +314,8 @@ void dsp32_win_kaiser(dsp32_t *vect1, dsp32_t *vect2, int size, int alpha);
 /*! \addtogroup group_windowing
  * \section Welch Welch
  * \image html windowing_welch.gif
- * These functions generate a welch window that fits in the output buffer.\n
- * The welch window is commonly used as a window for power spectral estimation.\n
+ * These functions generate a Welch window that fits in the output buffer.\n
+ * The Welch window is commonly used as a window for power spectral estimation.\n
  * The amplitude of the signal is in the range [0; 1]
  *
  * Relative functions:
@@ -325,7 +327,7 @@ void dsp32_win_kaiser(dsp32_t *vect1, dsp32_t *vect2, int size, int alpha);
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the welch windowing function.
+/*! \brief 16-bit fixed point version of the Welch windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 16-bit real vector that will contain the window
  * multiplied by \b vect2.
@@ -334,7 +336,7 @@ void dsp32_win_kaiser(dsp32_t *vect1, dsp32_t *vect2, int size, int alpha);
  * \param size The size of the output buffer.
  */
 void dsp16_win_welch(dsp16_t *vect1, dsp16_t *vect2, int size);
-/*! \brief 32-bit fixed point version of the welch windowing function.
+/*! \brief 32-bit fixed point version of the Welch windowing function.
  * \ingroup group_windowing
  * \param vect1 A pointer on a 32-bit real vector that will contain the window
  * multiplied by \b vect2.

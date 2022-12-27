@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -234,7 +236,7 @@ bool scsi_decode_command(void)
   case SBC_CMD_PREFETCH_16:                   // 0x90 - Optional.
   case SBC_CMD_SYNCHRONIZE_CACHE_16:          // 0x91 - Optional.
   case SBC_CMD_WRITE_SAME_16:                 // 0x93 - Optional.
-  case SBC_CMD_REPORT_LUNS:                   // 0xA0 - Mandator.
+  case SBC_CMD_REPORT_LUNS:                   // 0xA0 - Mandatory.
   case SBC_CMD_READ_12:                       // 0xA8 - Optional.
   case SBC_CMD_WRITE_12:                      // 0xAA - Optional.
   case SBC_CMD_WRITE_AND_VERIFY_12:           // 0xAE - Optional.
@@ -314,7 +316,7 @@ bool sbc_request_sense(void)
      Usb_reset_endpoint_fifo_access(g_scsi_ep_ms_in);
      usb_write_ep_txpacket(g_scsi_ep_ms_in, request_sense_output, allocation_length, NULL);
      Sbc_valid_write_usb(allocation_length);
-     // MSC Compliance - Wait end of all transmitions on USB line, because a stall may be send after data
+     // MSC Compliance - Wait end of all transmissions on USB line, because a stall may be send after data
      while( 0 != Usb_nb_busy_bank(EP_MS_IN) );
   }
   sbc_lun_status_is_good();
@@ -346,7 +348,7 @@ bool sbc_inquiry(void)
      usb_write_ep_txpacket(g_scsi_ep_ms_in, &sbc_std_inquiry_data,
                            allocation_length, NULL);
      Sbc_valid_write_usb(allocation_length);
-     // MSC Compliance - Wait end of all transmitions on USB line, because a stall may be send after data
+     // MSC Compliance - Wait end of all transmissions on USB line, because a stall may be send after data
      while( 0 != Usb_nb_busy_bank(EP_MS_IN) );
   }
   sbc_lun_status_is_good();

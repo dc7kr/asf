@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -72,7 +74,7 @@ const uint8_t usb_hid_report_descriptor_mouse[USB_HID_REPORT_DESC_MOUSE] =
 
   0x05, 0x09, //     Usage Page (Buttons)
   0x19, 0x01, //     Usage Minimum (01)
-  0x29, 0x03, //     Usage Maximun (03)
+  0x29, 0x03, //     Usage Maximum (03)
   0x15, 0x00, //     Logical Minimum (0)
   0x25, 0x01, //     Logical Maximum (1)
   0x95, 0x03, //     Report Count (3)

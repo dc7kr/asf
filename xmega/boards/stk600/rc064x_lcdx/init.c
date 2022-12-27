@@ -1,13 +1,15 @@
 /**
  * \file
  *
- * \brief STK600 board + RC100X + LCDX inititialization.
+ * \brief STK600 board + RC100X + LCDX initialization.
  *
  * To use this board, define BOARD=STK600_RC064X_LCDX
  *
  * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

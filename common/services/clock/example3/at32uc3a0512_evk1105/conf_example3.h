@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -44,7 +46,7 @@
 //! \note This is the onboard right touch sensor, corresponding to PB24.
 #define NEXT_BUTTON              QT1081_TOUCH_SENSOR_RIGHT
 
-//! \note This is the LED that will be toggeled in this example
+//! \note This is the LED that will be toggled in this example
 #define LED_EXAMPLE_OUTPUT     LED0_GPIO
 
 #define STEP4_PLL_OUTPUT_FREQ    132000000UL

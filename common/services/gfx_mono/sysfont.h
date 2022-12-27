@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -50,7 +52,7 @@
  * \ingroup gfx_mono_font
  * \defgroup gfx_mono_sysfont System font
  *
- * The system font objects are globaly available for a graphical application.
+ * The system font objects are globally available for a graphical application.
  * System fonts are by design read only, hence there are not any functions to
  * change them during runtime. If the application needs additional fonts it
  * should add additional font objects.

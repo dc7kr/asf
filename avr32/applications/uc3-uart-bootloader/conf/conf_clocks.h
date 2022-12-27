@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -54,13 +56,13 @@
 /*! \name Frequency Settings
  */
 //! @{
-//! Target DFLL frequency, in Herz
+//! Target DFLL frequency, in Hz
 #define TARGET_DFLL_FREQ_HZ   96000000UL
-//! Target CPU frequency, in Herz
+//! Target CPU frequency, in Hz
 #define TARGET_CPU_FREQ_HZ    12000000UL
-//! Target PBA frequency, in Herz
+//! Target PBA frequency, in Hz
 #define TARGET_PBA_FREQ_HZ    12000000UL
-//! Target PBB frequency, in Herz
+//! Target PBB frequency, in Hz
 #define TARGET_PBB_FREQ_HZ    12000000UL
 //! @}
 #endif

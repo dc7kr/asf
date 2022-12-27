@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -92,14 +94,14 @@ void portable_delay_cycles(unsigned long n);
 
 #if (defined __GNUC__)
 #  define cpu_ms_2_cy(ms, f_cpu)  \
-	(((uint64_t)(ms) * (f_cpu) + (57e2-1ul)) / 57e2)
+	(((uint64_t)(ms) * (f_cpu) + (uint64_t)(57e2-1ul)) / (uint64_t)57e2)
 #  define cpu_us_2_cy(us, f_cpu)  \
-	(((uint64_t)(us) * (f_cpu) + (57e5-1ul)) / 57e5)
+	(((uint64_t)(us) * (f_cpu) + (uint64_t)(57e5-1ul)) / (uint64_t)57e5)
 #elif (defined __ICCARM__)
 #  define cpu_ms_2_cy(ms, f_cpu)  \
-	(((uint64_t)(ms) * (f_cpu) + (14e3-1ul)) / 14e3)
+	(((uint64_t)(ms) * (f_cpu) + (uint64_t)(14e3-1ul)) / (uint64_t)14e3)
 #  define cpu_us_2_cy(us, f_cpu)  \
-	(((uint64_t)(us) * (f_cpu) + (14e6-1ul)) / 14e6)
+	(((uint64_t)(us) * (f_cpu) + (uint64_t)(14e6-1ul)) / (uint64_t)14e6)
 #endif
 
 #define delay_cycles               portable_delay_cycles

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -95,13 +97,10 @@ extern "C" {
 #error "Interface not supported by the driver"
 #endif
 
-/* If the low level driver is used without the top level GFX stack some typedefs
- * and functions needs to be declared */
-#ifndef GFX_INITIALIZED
 /** This macro generates a 16-bit native color for the display from a
- *  24-bit RGB value
+ *  24-bit RGB value.
  */
-#define GFX_COLOR(r, g, b)\
+#define HX8347A_COLOR(r, g, b)\
 		((((uint16_t)r) & 0x00f8) |\
 		((((uint16_t)b) << 5) & 0x1f00) |\
 		((((uint16_t)g) >> 5) & 0x0007) |\
@@ -110,15 +109,24 @@ extern "C" {
 typedef uint16_t gfx_color_t;
 typedef int16_t gfx_coord_t;
 
-/** Bit mask for flipping X for gfx_set_orientation() */
-#  define GFX_FLIP_X 1
-/** Bit mask for flipping Y for gfx_set_orientation() */
-#  define GFX_FLIP_Y 2
-/** Bit mask for swapping X and Y for gfx_set_orientation() */
-#  define GFX_SWITCH_XY 4
-#else
-#  include <gfx.h>
-#endif
+/** Bit mask for flipping X for hx8347a_set_orientation() */
+#define HX8347A_FLIP_X 1
+/** Bit mask for flipping Y for hx8347a_set_orientation() */
+#define HX8347A_FLIP_Y 2
+/** Bit mask for swapping X and Y for hx8347a_set_orientation() */
+#define HX8347A_SWITCH_XY 4
+
+/** Height of display using default orientation */
+#define HX8347A_DEFAULT_HEIGHT   320
+
+/** Width of display using default orientation */
+#define HX8347A_DEFAULT_WIDTH    240
+
+/** Height of display using swapped X/Y orientation */
+#define HX8347A_SWITCH_XY_HEIGHT 240
+
+/** Width of display using swapped X/Y orientation */
+#define HX8347A_SWITCH_XY_WIDTH  320
 
 /**
  * \name Register manipulation functions

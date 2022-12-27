@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -128,7 +130,7 @@ static void record_events(void)
 			sleepmgr_enter_sleep(); \
 		}
 		if (i < NB_EVENTS) {
-			// Registre events
+			// Register events
 			irqflags_t flags = cpu_irq_save();
 			list_event[i].event = main_events;
 			list_event[i++].timestamp =
@@ -358,14 +360,6 @@ int main(void)
 	board_init();
 	delay_init(sysclk_get_cpu_hz());
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-#if defined(__GNUC__) && defined(__AVR32__)
-	// This unit test will be launched on a test-server, using avr32program.
-	// The reset is done through the OCD. The 'setbuf' command allows to make the
-	// application starts correctly: it will not execute the 'breakpoint'
-	// instruction in _fstat_host (used by printf) and the core will not stay
-	// blocked on the 'breakpoint' instruction (executed in the debug mode).
-	setbuf(stdout, NULL);
-#endif
 
 	// Define all the timestamp to date test cases
 
@@ -442,7 +436,9 @@ int main(void)
 		&usb_test_13,
 		&usb_test_14,
 #if !UC3C // USBC have no hardware limit about endpoint size
+# if !SAM3XA // UOTGHS has no hardware limit about ep0
 		&usb_test_15,
+# endif
 #endif
 		&usb_test_16,
 		&usb_test_17ls,
@@ -468,7 +464,9 @@ int main(void)
 		&usb_test_13,
 		&usb_test_14,
 #if !UC3C // USBC have no hardware limit about endpoint size
+# if !SAM3XA // UOTGHS has no hardware limit about ep0
 		&usb_test_15,
+# endif
 #endif
 		&usb_test_16,
 		&usb_test_17fs,
@@ -494,7 +492,9 @@ int main(void)
 		&usb_test_13,
 		&usb_test_14,
 #if !UC3C // USBC have no hardware limit about endpoint size
+# if !SAM3XA // UOTGHS has no hardware limit about ep0
 		&usb_test_15,
+# endif
 #endif
 		&usb_test_16,
 #ifndef USB_HOST_HS_SUPPORT
@@ -518,6 +518,13 @@ int main(void)
 	// Define the test suite
 	DEFINE_TEST_SUITE(usb_host_suite_host, usb_host_tests_host,
 			"Common usb host service test suite");
+
+	// The unit test prints message via UART which does not support deep sleep mode.
+#if SAM
+	sleepmgr_lock_mode(SLEEPMGR_ACTIVE);
+#else
+	sleepmgr_lock_mode(SLEEPMGR_IDLE);
+#endif
 
 	// Run all tests in the suite
 	test_suite_run(&usb_host_suite_host);
@@ -596,7 +603,7 @@ void main_usb_enum_event(uhc_device_t *dev, uhc_enum_status_t status)
 		main_events |= MAIN_EVENT_ENUM_OVERCURRENT;
 		break;
 
-		//! A problem has been occured during USB enumeration
+		//! A problem has been occurred during USB enumeration
 	case UHC_ENUM_FAIL:
 		main_events |= MAIN_EVENT_ENUM_FAIL;
 		break;

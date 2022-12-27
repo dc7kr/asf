@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -408,7 +410,7 @@
    uhd_g_pipe_table[pipe].PCKSIZE_BK0.auto_zlp = val
 
 
-// Maximum size of a tranfer in multipacket mode
+// Maximum size of a transfer in multipacket mode
 #define UHD_ENDPOINT_MAX_TRANS ((32*1024)-1)
 
 #define uhd_enable_ram_eccess_error_interrupt(p) USBC_P_REG_SET(UPCON,RAMACERIE,p)
@@ -467,7 +469,7 @@
 
 //! @name USB host pipe descriptor table management
 //! @{
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 
 struct avr32_usbc_pcksize_bk_t {
 	unsigned int auto_zlp:1;
@@ -523,7 +525,7 @@ typedef struct {
 	};
 } uhd_desc_table_t;
 
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 //! @}
 
 //! @}

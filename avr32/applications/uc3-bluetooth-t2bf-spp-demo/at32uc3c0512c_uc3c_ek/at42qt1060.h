@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -165,7 +167,7 @@ void at42qt1060_calibrate(void);
 /*! \brief Sets the current power mode of the device.
  *
  * \param lp_mode Determines the number of 16ms intervals between key measurements.
- * Longer invervals between measurements -> lower power consumption but slower response
+ * Longer intervals between measurements -> lower power consumption but slower response
  * A value of 0 causes the device to sleep and no measurements are performed.
  * A value of 255 causes the device to enter "free-run" mode where measurements are
  * continuously taken.
@@ -175,7 +177,7 @@ void at42qt1060_calibrate(void);
  */
 void at42qt1060_set_low_power_mode(uint8_t lp_mode);
 
-/*! \brief Initialise touch sensor with default configuration values.
+/*! \brief Initialize touch sensor with default configuration values.
  *
  */
 void at42qt1060_init(int32_t fcpu);

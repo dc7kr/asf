@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -96,13 +98,6 @@
  * \brief Parity mode of UART
  */
 /** @} */
-
-/* Pointer to the module instance to use for stdio. */
-#if defined(__GNUC__)
-void (*ptr_get)(void volatile *, int *);
-int (*ptr_put)(void volatile *, int);
-volatile void *volatile stdio_base;
-#endif
 
 /* DMA channel used in this example. */
 #define DMA_CH 0
@@ -298,10 +293,6 @@ int main(void)
 	/* Configure console UART. */
 	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
 	stdio_serial_init(CONF_TEST_UART, &uart_serial_options);
-
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
 
 	/* Define all the test cases */
 	DEFINE_TEST_CASE(single_buf_xfer_test, NULL, run_single_buf_xfer_test,

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -316,7 +318,7 @@ uint32_t matrix_get_system_io(void)
 
 #if (SAM3S || SAM4S)
 /** 
- * \brief Set NAND flash Chip Select configuration register.
+ * \brief Set NAND Flash Chip Select configuration register.
  *
  * \param ul_cs Bitmask OR of SMC_NFCSx: 0 if NCSx is not assigned,
  * 1 if NCSx is assigned. 
@@ -329,7 +331,7 @@ void matrix_set_nandflash_cs(uint32_t ul_cs)
 }
 
 /** 
- * \brief Get NAND flash Chip Select configuration register.
+ * \brief Get NAND Flash Chip Select configuration register.
  *
  * \return Bitmask OR of SMC_NFCSx.
  */

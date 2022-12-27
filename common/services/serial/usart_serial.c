@@ -9,6 +9,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -62,7 +64,7 @@ status_code_t usart_serial_write_packet(usart_if usart, const uint8_t *data,
 }
 
 /**
- * \brief Reveive a sequence of bytes from USART device
+ * \brief Receive a sequence of bytes from USART device
  *
  * \param usart  Base address of the USART instance.
  * \param data   Data buffer to write

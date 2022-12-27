@@ -293,6 +293,7 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
@@ -300,14 +301,16 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -735,7 +738,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1194,6 +1197,7 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
@@ -1201,14 +1205,16 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1636,7 +1642,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1845,9 +1851,6 @@
 						<group>
 							<name>templates</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/source/templates/system_sam3sd8.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/source/templates/exceptions.c</name>
 							</file>
 							<group>
@@ -1856,27 +1859,12 @@
 									<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/source/templates/iar/startup_sam3sd8.c</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/source/templates/system_sam3sd8.c</name>
+							</file>
 						</group>
 					</group>
 				</group>
-			</group>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>sam3s_ek2</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../boards/sam3s_ek2/init.c</name>
-				</file>
 			</group>
 		</group>
 		<group>
@@ -1894,6 +1882,15 @@
 				</group>
 			</group>
 		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>sam3s_ek2</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/sam3s_ek2/init.c</name>
+				</file>
+			</group>
+		</group>
 	</group>
 	<group>
 		<name>common</name>
@@ -1908,9 +1905,24 @@
 					</file>
 				</group>
 			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
+			</group>
 		</group>
 		<group>
 			<name>utils</name>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
+				</file>
+			</group>
 			<group>
 				<name>interrupt</name>
 				<file>

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -186,7 +188,8 @@ static bool udi_hid_mouse_send_report(void);
  *
  * \return \c 1 if function was successfully done, otherwise \c 0.
  */
-void udi_hid_mouse_report_sent(udd_ep_status_t status, iram_size_t nb_sent);
+static void udi_hid_mouse_report_sent(udd_ep_status_t status,
+		iram_size_t nb_sent, udd_ep_id_t ep);
 
 //@}
 
@@ -300,7 +303,7 @@ static bool udi_hid_mouse_btn(bool b_state, uint8_t btn)
 	if (HID_MOUSE_BTN_DOWN == b_state)
 		udi_hid_mouse_report[0] |= btn;
 	else
-		udi_hid_mouse_report[0] &= ~btn;
+		udi_hid_mouse_report[0] &= ~(unsigned)btn;
 	// Use mouse move routine
 	return udi_hid_mouse_move(0, 1);
 }
@@ -328,8 +331,11 @@ static bool udi_hid_mouse_send_report(void)
 }
 
 
-void udi_hid_mouse_report_sent(udd_ep_status_t status, iram_size_t nb_sent)
+static void udi_hid_mouse_report_sent(udd_ep_status_t status,
+		iram_size_t nb_sent, udd_ep_id_t ep)
 {
+	UNUSED(status);
+	UNUSED(nb_sent);
 	// Valid report sending
 	udi_hid_mouse_report_trans_ongoing = false;
 	if (udi_hid_mouse_b_report_valid) {

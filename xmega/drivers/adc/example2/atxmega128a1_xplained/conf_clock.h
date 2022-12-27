@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -63,7 +65,7 @@
 // ***************************************************************
 // **                  CONFIGURATION WITH USB                   **
 // ***************************************************************
-//! The following clock configuraiton can be used for USB operation
+//! The following clock configuration can be used for USB operation
 //! It allows to operate USB using On-Chip RC oscillator at 48MHz
 //! The RC oscillator is calibrated via USB Start Of Frame
 //! Clk USB     = 48MHz (used by USB)

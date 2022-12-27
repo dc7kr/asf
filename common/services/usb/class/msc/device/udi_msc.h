@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -57,7 +59,7 @@ extern "C" {
  * \addtogroup udi_msc_group_udc
  * @{
  */
-//! Global struture which contains standard UDI interface for UDC
+//! Global structure which contains standard UDI interface for UDC
 extern UDC_DESC_STORAGE udi_api_t udi_api_msc;
 //@}
 
@@ -70,7 +72,7 @@ extern UDC_DESC_STORAGE udi_api_t udi_api_msc;
  */
 //@{
 
-//! Interface descriptor struture for MSC
+//! Interface descriptor structure for MSC
 typedef struct {
 	usb_iface_desc_t iface;
 	usb_ep_desc_t ep_in;
@@ -82,9 +84,9 @@ typedef struct {
 #define UDI_MSC_STRING_ID     0
 #endif
 
-//! MSC enpoints size for full speed
+//! MSC endpoints size for full speed
 #define UDI_MSC_EPS_SIZE_FS   64
-//! MSC enpoints size for high speed
+//! MSC endpoints size for high speed
 #define UDI_MSC_EPS_SIZE_HS   512
 
 //! Content of MSC interface descriptor for all speeds
@@ -158,7 +160,7 @@ bool udi_msc_process_trans(void);
  * \return \c 1 if function was successfully done, otherwise \c 0.
  */
 bool udi_msc_trans_block(bool b_read, uint8_t * block, iram_size_t block_size,
-		void (*callback) (udd_ep_status_t status, iram_size_t n));
+		void (*callback) (udd_ep_status_t status, iram_size_t n, udd_ep_id_t ep));
 //@}
 
 #ifdef __cplusplus
@@ -250,8 +252,8 @@ bool udi_msc_trans_block(bool b_read, uint8_t * block, iram_size_t block_size,
  * extern void my_callback_msc_disable(void); \endcode
  *     \note When the USB device is unplugged or is reset by the USB host, the USB
  *     interface is disabled and the UDI_MSC_DISABLE_EXT() callback function
- *     is called. Thus, it is recommended to disable the task whichs call udi_msc_process_trans().
- * -# The MSC is automaticaly linked with memory control access component 
+ *     is called. Thus, it is recommended to disable the task which is called udi_msc_process_trans().
+ * -# The MSC is automatically linked with memory control access component 
  * which provides the memories interfaces. However, the memory data transfers
  * must be done outside USB interrupt routine. This is done in the MSC process
  * ("udi_msc_process_trans()") called by main loop:

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -193,7 +195,7 @@ extern "C" {
 #define  Is_udd_reset()                            (Tst_bits(UDPHS->UDPHS_INTSTA, UDPHS_INTSTA_ENDRESET))
 //! @}
 
-//! Manage sart of frame event
+//! Manage start of frame event
 //! @{
 #define  udd_enable_sof_interrupt()                (Set_bits(UDPHS->UDPHS_IEN, UDPHS_IEN_INT_SOF))
 #define  udd_disable_sof_interrupt()               (Clr_bits(UDPHS->UDPHS_IEN, UDPHS_IEN_INT_SOF))
@@ -249,7 +251,7 @@ extern "C" {
 #define UDPHS_ARRAY(reg,index)                     ((&(UDPHS->reg))[(index)])
 //! @}
 
-//! @name UDPHS Device endpoint configguration
+//! @name UDPHS Device endpoint configuration
 //! @{
   //! enables the selected endpoint
 #define  udd_enable_endpoint(ep)                   (UDPHS->UDPHS_EPT[ep].UDPHS_EPTCTLENB = UDPHS_EPTCTLENB_EPT_ENABL)

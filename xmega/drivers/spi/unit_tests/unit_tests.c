@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -186,7 +188,7 @@ static void run_baudrate_set_test(const struct test_case *test)
 	sysclk_enable_peripheral_clock(&CONF_TEST_SPI);
 	spi_enable(&CONF_TEST_SPI);
 
-	// Loop thru the test set and test each case
+	// Loop through the test set and test each case
 	for (i = 0; i < (sizeof(test_set) / sizeof(test_set[0])); i++) {
 		ret = spi_xmega_set_baud_div(&CONF_TEST_SPI,
 				test_set[i].baudrate, 32000000);

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -65,6 +67,10 @@
 
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
+
+// From module: PMC - Power Management Controller
+#include <pmc.h>
+#include <sleep.h>
 
 // From module: Part identification macros
 #include <parts.h>

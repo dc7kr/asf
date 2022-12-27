@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -59,7 +61,7 @@
 #endif
 
 #ifndef UDD_USB_INT_LEVEL
-# define UDD_USB_INT_LEVEL 0 // By default USB interrupt have low priority
+# define UDD_USB_INT_LEVEL 5 // By default USB interrupt have low priority
 #endif
 
 #define UDD_EP_USED(ep)      (USB_DEVICE_MAX_EP >= ep)
@@ -115,7 +117,7 @@
  * file of the application.
  *
  * UDD_USB_INT_LEVEL<br>
- * Option to change the interrupt priority (0 to 3) by default 0 (recommended).
+ * Option to change the interrupt priority (0 to 15) by default 5 (recommended).
  *
  * UDD_USB_INT_FUN<br>
  * Option to fit interrupt function to what defined in exception table.
@@ -354,22 +356,22 @@ static void udd_reset_ep_ctrl(void);
  */
 static void udd_ctrl_init(void);
 
-//! \brief Managed reception of SETUP packet on control enpoint
+//! \brief Managed reception of SETUP packet on control endpoint
 static void udd_ctrl_setup_received(void);
 
-//! \brief Managed reception of IN packet on control enpoint
+//! \brief Managed reception of IN packet on control endpoint
 static void udd_ctrl_in_sent(void);
 
-//! \brief Managed reception of OUT packet on control enpoint
+//! \brief Managed reception of OUT packet on control endpoint
 static void udd_ctrl_out_received(void);
 
-//! \brief Managed underflow event of IN packet on control enpoint
+//! \brief Managed underflow event of IN packet on control endpoint
 static void udd_ctrl_underflow(void);
 
-//! \brief Managed overflow event of OUT packet on control enpoint
+//! \brief Managed overflow event of OUT packet on control endpoint
 static void udd_ctrl_overflow(void);
 
-//! \brief Managed stall event of IN/OUT packet on control enpoint
+//! \brief Managed stall event of IN/OUT packet on control endpoint
 static void udd_ctrl_stall_data(void);
 
 //! \brief Send a ZLP IN on control endpoint
@@ -470,13 +472,13 @@ static void udd_ep_abort_job(udd_ep_id_t ep);
  * \param ptr_job job to complete
  * \param b_abort if true then the job has been aborted
  */
-static void udd_ep_finish_job(udd_ep_job_t * ptr_job, bool b_abort);
+static void udd_ep_finish_job(udd_ep_job_t * ptr_job, bool b_abort, uint8_t ep_num);
 
 #ifdef UDD_EP_DMA_SUPPORTED
 	/**
 	 * \brief Start the next transfer if necessary or complet the job associated.
 	 *
-	 * \param ep endpoint number wihtout direction flag
+	 * \param ep endpoint number without direction flag
 	 */
 	static void udd_ep_trans_done(udd_ep_id_t ep);
 #endif
@@ -638,16 +640,16 @@ void udd_enable(void)
 	pmc_enable_periph_clk(ID_UOTGHS);
 	sysclk_enable_usb();
 
-	// Here, only the device mode is possible, then link USBB interrupt to UDD interrupt
+	// Here, only the device mode is possible, then link UOTGHS interrupt to UDD interrupt
 	NVIC_SetPriority((IRQn_Type) ID_UOTGHS, UDD_USB_INT_LEVEL);
 	NVIC_EnableIRQ((IRQn_Type) ID_UOTGHS);
 
 	// Always authorize asynchrone USB interrupts to exit of sleep mode
-	// For SAM3 USB wake up device except BACKUP mode
+	// For SAM USB wake up device except BACKUP mode
 	pmc_set_fast_startup_input(PMC_FSMR_USBAL);
 #endif
 
-#if (defined USB_ID) && (defined UHD_ENABLE)
+#if (defined USB_ID_GPIO) && (defined UHD_ENABLE)
 	// Check that the device mode is selected by ID pin
 	if (!Is_otg_id_device()) {
 		cpu_irq_restore(flags);
@@ -659,7 +661,6 @@ void udd_enable(void)
 	otg_force_device_mode();
 #endif
 	// Enable USB hardware
-	otg_disable_pad();
 	otg_enable_pad();
 	otg_enable();
 	otg_unfreeze_clock();
@@ -707,7 +708,7 @@ void udd_disable(void)
 	flags = cpu_irq_save();
 
 #ifdef UHD_ENABLE
-# ifdef USB_ID
+# ifdef USB_ID_GPIO
 	if (Is_otg_id_host()) {
 		return; // Host mode running, ignore UDD disable
 	}
@@ -929,8 +930,11 @@ bool udd_ep_alloc(udd_ep_id_t ep, uint8_t bmAttributes,
 				if (NULL == ptr_job->call_trans) {
 					return false;
 				}
+				if (Is_udd_endpoint_in(i)) {
+					i |= USB_EP_DIR_IN;
+				}
 				ptr_job->call_trans(UDD_EP_TRANSFER_ABORT,
-						ptr_job->buf_cnt);
+						ptr_job->buf_cnt, i);
 				return false;
 			}
 			udd_enable_endpoint_bank_autoswitch(i);
@@ -963,35 +967,35 @@ bool udd_ep_alloc(udd_ep_id_t ep, uint8_t bmAttributes,
 
 void udd_ep_free(udd_ep_id_t ep)
 {
-	uint8_t index = ep & USB_EP_ADDR_MASK;
-	if (USB_DEVICE_MAX_EP < index) {
+	uint8_t ep_index = ep & USB_EP_ADDR_MASK;
+	if (USB_DEVICE_MAX_EP < ep_index) {
 		return;
 	}
-	udd_disable_endpoint(index);
-	udd_unallocate_memory(index);
+	udd_disable_endpoint(ep_index);
+	udd_unallocate_memory(ep_index);
 	udd_ep_abort_job(ep);
-	udd_ep_job[index - 1].stall_requested = false;
+	udd_ep_job[ep_index - 1].stall_requested = false;
 }
 
 
 bool udd_ep_is_halted(udd_ep_id_t ep)
 {
-	uint8_t index = ep & USB_EP_ADDR_MASK;
-	return Is_udd_endpoint_stall_requested(index);
+	uint8_t ep_index = ep & USB_EP_ADDR_MASK;
+	return Is_udd_endpoint_stall_requested(ep_index);
 }
 
 
 bool udd_ep_set_halt(udd_ep_id_t ep)
 {
-	uint8_t index = ep & USB_EP_ADDR_MASK;
-	udd_ep_job_t *ptr_job = &udd_ep_job[index - 1];
+	uint8_t ep_index = ep & USB_EP_ADDR_MASK;
+	udd_ep_job_t *ptr_job = &udd_ep_job[ep_index - 1];
 	irqflags_t flags;
 
-	if (USB_DEVICE_MAX_EP < index) {
+	if (USB_DEVICE_MAX_EP < ep_index) {
 		return false;
 	}
 
-	if (Is_udd_endpoint_stall_requested(index) // Endpoint stalled
+	if (Is_udd_endpoint_stall_requested(ep_index) // Endpoint stalled
 			|| ptr_job->stall_requested) { // Endpoint stall is requested
 		return true; // Already STALL
 	}
@@ -1001,22 +1005,22 @@ bool udd_ep_set_halt(udd_ep_id_t ep)
 	}
 
 	flags = cpu_irq_save();
-	if ((ep & USB_EP_DIR_IN) && (0 != udd_nb_busy_bank(index))) {
+	if ((ep & USB_EP_DIR_IN) && (0 != udd_nb_busy_bank(ep_index))) {
 		// Delay the stall after the end of IN transfer on USB line
 		ptr_job->stall_requested = true;
 #ifdef UDD_EP_FIFO_SUPPORTED
-		udd_disable_in_send_interrupt(index);
-		udd_enable_endpoint_bank_autoswitch(index);
+		udd_disable_in_send_interrupt(ep_index);
+		udd_enable_endpoint_bank_autoswitch(ep_index);
 #endif
-		udd_enable_bank_interrupt(index);
-		udd_enable_endpoint_interrupt(index);
+		udd_enable_bank_interrupt(ep_index);
+		udd_enable_endpoint_interrupt(ep_index);
 		cpu_irq_restore(flags);
 		return true;
 	}
 	// Stall endpoint immediately
-	udd_disable_endpoint_bank_autoswitch(index);
-	udd_ack_stall(index);
-	udd_enable_stall_handshake(index);
+	udd_disable_endpoint_bank_autoswitch(ep_index);
+	udd_ack_stall(ep_index);
+	udd_enable_stall_handshake(ep_index);
 	cpu_irq_restore(flags);
 	return true;
 }
@@ -1024,31 +1028,31 @@ bool udd_ep_set_halt(udd_ep_id_t ep)
 
 bool udd_ep_clear_halt(udd_ep_id_t ep)
 {
-	uint8_t index = ep & USB_EP_ADDR_MASK;
-	udd_ep_job_t *ptr_job = &udd_ep_job[index - 1];
+	uint8_t ep_index = ep & USB_EP_ADDR_MASK;
+	udd_ep_job_t *ptr_job = &udd_ep_job[ep_index - 1];
 	bool b_stall_cleared = false;
 
-	if (USB_DEVICE_MAX_EP < index)
+	if (USB_DEVICE_MAX_EP < ep_index)
 		return false;
 
 	if (ptr_job->stall_requested) {
 		// Endpoint stall has been requested but not done
 		// Remove stall request
 		ptr_job->stall_requested = false;
-		udd_disable_bank_interrupt(index);
-		udd_disable_endpoint_interrupt(index);
+		udd_disable_bank_interrupt(ep_index);
+		udd_disable_endpoint_interrupt(ep_index);
 		b_stall_cleared = true;
 	}
-	if (Is_udd_endpoint_stall_requested(index)) {
-		if (Is_udd_stall(index)) {
-			udd_ack_stall(index);
+	if (Is_udd_endpoint_stall_requested(ep_index)) {
+		if (Is_udd_stall(ep_index)) {
+			udd_ack_stall(ep_index);
 			// A packet has been stalled
 			// then reset datatoggle
-			udd_reset_data_toggle(index);
+			udd_reset_data_toggle(ep_index);
 		}
 		// Disable stall
-		udd_disable_stall_handshake(index);
-		udd_enable_endpoint_bank_autoswitch(index);
+		udd_disable_stall_handshake(ep_index);
+		udd_enable_endpoint_bank_autoswitch(ep_index);
 		b_stall_cleared = true;
 	}
 	if (b_stall_cleared) {
@@ -1132,27 +1136,27 @@ bool udd_ep_run(udd_ep_id_t ep, bool b_shortpacket,
 
 void udd_ep_abort(udd_ep_id_t ep)
 {
-	uint8_t index = ep & USB_EP_ADDR_MASK;
+	uint8_t ep_index = ep & USB_EP_ADDR_MASK;
 
 #ifdef UDD_EP_FIFO_SUPPORTED
-	if (!Is_udd_endpoint_dma_supported(index)) {
+	if (!Is_udd_endpoint_dma_supported(ep_index)) {
 		// Disable interrupts
-		udd_disable_endpoint_interrupt(index);
-		udd_disable_out_received_interrupt(index);
-		udd_disable_in_send_interrupt(index);
+		udd_disable_endpoint_interrupt(ep_index);
+		udd_disable_out_received_interrupt(ep_index);
+		udd_disable_in_send_interrupt(ep_index);
 	} else
 #endif
 	{
 		// Stop DMA transfer
-		udd_disable_endpoint_dma_interrupt(index);
-		udd_endpoint_dma_set_control(index, 0);
+		udd_disable_endpoint_dma_interrupt(ep_index);
+		udd_endpoint_dma_set_control(ep_index, 0);
 	}
-	udd_disable_endpoint_interrupt(index);
+	udd_disable_endpoint_interrupt(ep_index);
 	// Kill IN banks
 	if (ep & USB_EP_DIR_IN) {
-		while(udd_nb_busy_bank(index)) {
-			udd_kill_last_in_bank(index);
-			while(Is_udd_kill_last(index));
+		while(udd_nb_busy_bank(ep_index)) {
+			udd_kill_last_in_bank(ep_index);
+			while(Is_udd_kill_last(ep_index));
 		}
 	}
 	udd_ep_abort_job(ep);
@@ -1186,7 +1190,7 @@ bool udd_ep_wait_stall_clear(udd_ep_id_t ep,
 		ptr_job->busy = true;
 		ptr_job->call_nohalt = callback;
 	} else {
-		// Enpoint not halted then call directly callback
+		// endpoint not halted then call directly callback
 		callback();
 	}
 	return true;
@@ -1709,7 +1713,7 @@ static void udd_ep_job_table_kill(void)
 
 	// For each endpoint, kill job
 	for (i = 0; i < USB_DEVICE_MAX_EP; i++) {
-		udd_ep_finish_job(&udd_ep_job[i], true);
+		udd_ep_finish_job(&udd_ep_job[i], true, i + 1);
 	}
 }
 
@@ -1719,11 +1723,11 @@ static void udd_ep_abort_job(udd_ep_id_t ep)
 	ep &= USB_EP_ADDR_MASK;
 
 	// Abort job on endpoint
-	udd_ep_finish_job(&udd_ep_job[ep - 1], true);
+	udd_ep_finish_job(&udd_ep_job[ep - 1], true, ep);
 }
 
 
-static void udd_ep_finish_job(udd_ep_job_t * ptr_job, bool b_abort)
+static void udd_ep_finish_job(udd_ep_job_t * ptr_job, bool b_abort, uint8_t ep_num)
 {
 	if (ptr_job->busy == false) {
 		return; // No on-going job
@@ -1733,8 +1737,11 @@ static void udd_ep_finish_job(udd_ep_job_t * ptr_job, bool b_abort)
 	if (NULL == ptr_job->call_trans) {
 		return; // No callback linked to job
 	}
+	if (Is_udd_endpoint_in(ep_num)) {
+		ep_num |= USB_EP_DIR_IN;
+	}	
 	ptr_job->call_trans((b_abort) ? UDD_EP_TRANSFER_ABORT :
-			UDD_EP_TRANSFER_OK, ptr_job->buf_size);
+			UDD_EP_TRANSFER_OK, ptr_job->buf_size, ep_num);
 }
 
 #ifdef UDD_EP_DMA_SUPPORTED
@@ -1828,7 +1835,7 @@ static void udd_ep_trans_done(udd_ep_id_t ep)
 	}
 	dbg_print("dmaE ");
 	// Call callback to signal end of transfer
-	udd_ep_finish_job(ptr_job, false);
+	udd_ep_finish_job(ptr_job, false, ep);
 }
 #endif
 
@@ -1851,7 +1858,7 @@ static void udd_ep_in_sent(udd_ep_id_t ep)
 		cpu_irq_restore(flags);
 
 		ptr_job->buf_size = ptr_job->buf_cnt; // buf_size is passed to callback as XFR count
-		udd_ep_finish_job(ptr_job, false);
+		udd_ep_finish_job(ptr_job, false, ep);
 		return;
 	} else {
 		// ACK TXINI
@@ -1921,7 +1928,7 @@ static void udd_ep_out_received(udd_ep_id_t ep)
 		udd_disable_out_received_interrupt(ep);
 		udd_disable_endpoint_interrupt(ep);
 		ptr_job->buf_size = ptr_job->buf_cnt; // buf_size is passed to callback as XFR count
-		udd_ep_finish_job(ptr_job, false);
+		udd_ep_finish_job(ptr_job, false, ep);
 	}
 }
 #endif // #ifdef UDD_EP_FIFO_SUPPORTED
@@ -2001,7 +2008,7 @@ static bool udd_ep_interrupt(void)
 				// One bank is free then send a ZLP
 				udd_ack_in_send(ep);
 				udd_ack_fifocon(ep);
-				udd_ep_finish_job(ptr_job, false);
+				udd_ep_finish_job(ptr_job, false, ep);
 				return true;
 			}
 			if (Is_udd_bank_interrupt_enabled(ep)

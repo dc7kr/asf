@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -92,12 +94,12 @@ UDC_DESC_STORAGE usb_dev_desc_t udc_device_desc = {
 
 
 //! Structure for USB Device Configuration Descriptor
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 typedef struct {
 	usb_conf_desc_t conf;
 	udi_dfu_atmel_desc_t udi_dfu_atmel;
 } udc_desc_t;
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
 //! USB Device Configuration Descriptor filled for FS
 COMPILER_WORD_ALIGNED

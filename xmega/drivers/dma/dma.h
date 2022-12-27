@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -83,7 +85,7 @@ typedef uint8_t dma_channel_num_t;
 
 //! \brief DMA channel status
 enum dma_channel_status {
-	//! DMA channel is ideling
+	//! DMA channel is idling
 	DMA_CH_FREE = 0,
 	//! DMA channel has a block transfer pending
 	DMA_CH_PENDING,
@@ -112,14 +114,18 @@ struct dma_channel_config {
 	//! DMA channel repeat counter register
 	uint8_t         repcnt;
 	union {
+#ifdef CONFIG_HAVE_HUGEMEM
 		//! DMA channel source hugemem address
 		hugemem_ptr_t   srcaddr;
+#endif
 		//! DMA channel source 16-bit address
 		uint16_t        srcaddr16;
 	};
 	union {
+#ifdef CONFIG_HAVE_HUGEMEM
 		//! DMA channel destination hugemem address
 		hugemem_ptr_t   destaddr;
+#endif
 		//! DMA channel destaddr 16-bit address
 		uint16_t        destaddr16;
 	};
@@ -454,6 +460,7 @@ static inline void dma_channel_write_destination(dma_channel_num_t num,
  * \param num DMA channel number to write hugemem destination address for
  * \param destination hugemem destination address
  */
+#ifdef CONFIG_HAVE_HUGEMEM
 static inline void dma_channel_write_destination_hugemem(dma_channel_num_t num,
 		hugemem_ptr_t destination)
 {
@@ -462,18 +469,11 @@ static inline void dma_channel_write_destination_hugemem(dma_channel_num_t num,
 
 	channel->DESTADDR0 = (uint32_t)destination;
 	channel->DESTADDR1 = (uint32_t)destination >> 8;
-#ifdef CONFIG_HAVE_HUGEMEM
 	channel->DESTADDR2 = (uint32_t)destination  >> 16;
-#else
-	/*
-	 * Make sure the third byte of the destination address is zero to avoid
-	 * a runaway DMA transfer.
-	 */
-	channel->DESTADDR2 = 0;
-#endif
 
 	cpu_irq_restore(iflags);
 }
+#endif
 
 /**
  * \brief Write DMA channel 16-bit source address to hardware
@@ -508,6 +508,7 @@ static inline void dma_channel_write_source(dma_channel_num_t num,
  * \param num DMA channel number to write hugemem source address for
  * \param source hugemem source address
  */
+#ifdef CONFIG_HAVE_HUGEMEM
 static inline void dma_channel_write_source_hugemem(dma_channel_num_t num,
 		hugemem_ptr_t source)
 {
@@ -516,18 +517,11 @@ static inline void dma_channel_write_source_hugemem(dma_channel_num_t num,
 
 	channel->SRCADDR0 = (uint32_t)source;
 	channel->SRCADDR1 = (uint32_t)source >> 8;
-#ifdef CONFIG_HAVE_HUGEMEM
 	channel->SRCADDR2 = (uint32_t)source  >> 16;
-#else
-	/*
-	 * Make sure the third byte of the source address is zero to avoid a
-	 * runaway DMA transfer.
-	 */
-	channel->SRCADDR2 = 0;
-#endif
 
 	cpu_irq_restore(iflags);
 }
+#endif
 
 //! @}
 
@@ -743,12 +737,13 @@ static inline void dma_channel_set_destination_address(struct dma_channel_config
  * \param config Pointer to a \ref dma_channel_config variable
  * \param destination Destination address provided by a \ref hugemem_ptr_t type
  */
+#ifdef CONFIG_HAVE_HUGEMEM
 static inline void dma_channel_set_destination_hugemem(struct dma_channel_config *config,
 		hugemem_ptr_t destination)
 {
 	config->destaddr = destination;
 }
-
+#endif
 /**
  * \brief Set DMA channel 16-bit source address
  *
@@ -776,12 +771,13 @@ static inline void dma_channel_set_source_address(struct dma_channel_config *con
  * \param config Pointer to a \ref dma_channel_config variable
  * \param source Source address provided by a \ref hugemem_ptr_t type
  */
+#ifdef CONFIG_HAVE_HUGEMEM
 static inline void dma_channel_set_source_hugemem(struct dma_channel_config *config,
 		hugemem_ptr_t source)
 {
 	config->srcaddr = source;
 }
-
+#endif
 //@}
 
 //! @}

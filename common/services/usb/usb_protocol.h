@@ -6,9 +6,11 @@
  * This file contains the USB definitions and data structures provided by the
  * USB 2.0 specification.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -253,7 +255,7 @@ typedef uint8_t usb_ep_t;
 /*
  * 2-byte alignment requested for all USB structures.
  */
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 
 /**
  * \brief A USB Device SETUP request
@@ -269,7 +271,7 @@ typedef struct {
 } usb_setup_req_t;
 
 /**
- * \brief Standard USB device descriptor stucture
+ * \brief Standard USB device descriptor structure
  */
 typedef struct {
 	uint8_t bLength;
@@ -376,7 +378,7 @@ typedef struct {
 } usb_iface_desc_t;
 
 /**
- * \brief Standard USB endpoint descriptor stcuture
+ * \brief Standard USB endpoint descriptor structure
  */
 typedef struct {
 	uint8_t bLength;
@@ -389,7 +391,7 @@ typedef struct {
 
 
 /**
- * \brief A standard USB string descriptor sructure
+ * \brief A standard USB string descriptor structure
  */
 typedef struct {
 	uint8_t bLength;
@@ -401,7 +403,7 @@ typedef struct {
 	le16_t string[1];
 } usb_str_lgid_desc_t;
 
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
 //! @}
 

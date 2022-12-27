@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -291,7 +293,7 @@ static int qt60168_check_device_ready(void)
   int value;
 #if BOARD==EVK1104
   // QT60168_DRDY_PIN Pin is on the same pin has AVR32_EBI_NWE1_0_PIN pin
-  // It is require to temproray disable AVR32_EBI_NWE1_0_PIN function 0
+  // It is require to temporary disable AVR32_EBI_NWE1_0_PIN function 0
   // to read correct status of QT60168_DRDY_PIN (This is only for EVK1104
   static const gpio_map_t SDRAMC_EBI_GPIO_MAP =
   {

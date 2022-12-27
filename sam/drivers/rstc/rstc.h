@@ -3,9 +3,11 @@
  *
  * \brief Reset Controller (RSTC) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -69,6 +71,7 @@ void rstc_disable_user_reset(Rstc* p_rstc);
 void rstc_enable_user_reset_interrupt(Rstc* p_rstc);
 void rstc_disable_user_reset_interrupt(Rstc* p_rstc);
 void rstc_start_software_reset(Rstc* p_rstc);
+void rstc_reset_extern(Rstc *p_rstc);
 uint32_t rstc_get_status(Rstc* p_rstc);
 uint32_t rstc_get_reset_cause(Rstc* p_rstc);
 

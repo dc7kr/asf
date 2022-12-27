@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -79,7 +81,7 @@ struct file_list
   uint16_t file_pos;
   // The umber of valid entries on this list.
   uint16_t nb_valid_entries;
-  // Number of files in the direcotory. This number is not always right and
+  // Number of files in the directory. This number is not always right and
   // it is calculated when the list has been fully explored.
   uint16_t nb_files;
 };

@@ -9,6 +9,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -202,7 +204,7 @@ int main(void)
   // It's defined as local variable for ease-of-use causes and readability.
   volatile avr32_tc_t *tc = EXAMPLE_TC;
 
-  // Options for waveform genration.
+  // Options for waveform generation.
   tc_waveform_opt_t waveform_opt =
   {
     .channel  = EXAMPLE_TC_CHANNEL_ID,        // Channel selection.

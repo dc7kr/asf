@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -91,7 +93,9 @@
 #define  UDC_RESUME_EVENT()               main_resume_action()
 //! Mandatory when USB_DEVICE_ATTR authorizes remote wakeup feature
 // #define  UDC_REMOTEWAKEUP_ENABLE()        user_callback_remotewakeup_enable()
+// extern void user_callback_remotewakeup_enable(void);
 // #define  UDC_REMOTEWAKEUP_DISABLE()       user_callback_remotewakeup_disable()
+// extern void user_callback_remotewakeup_disable(void);
 //! When a extra string descriptor must be supported
 //! other than manufacturer, product and serial string
 // #define  UDC_GET_EXTRA_STRING()
@@ -115,13 +119,13 @@
 #define UDI_VENDOR_SETUP_OUT_RECEIVED()   main_setup_out_received()
 #define UDI_VENDOR_SETUP_IN_RECEIVED()    main_setup_in_received()
 
-//! Enpoints size for full speed
-//! Note: Disable the enpoints of a type, if size equal 0
+//! endpoints size for full speed
+//! Note: Disable the endpoints of a type, if size equal 0
 #define UDI_VENDOR_EPS_SIZE_INT_FS    64
 #define UDI_VENDOR_EPS_SIZE_BULK_FS   64
 #define UDI_VENDOR_EPS_SIZE_ISO_FS   256
 
-//! Enpoints size for high speed
+//! endpoints size for high speed
 #define UDI_VENDOR_EPS_SIZE_INT_HS    64
 #define UDI_VENDOR_EPS_SIZE_BULK_HS  512
 #define UDI_VENDOR_EPS_SIZE_ISO_HS    64

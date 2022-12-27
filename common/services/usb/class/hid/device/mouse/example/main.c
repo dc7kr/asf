@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -155,7 +157,7 @@ void main_mouse_disable(void)
  * \section startup Startup
  * The example uses the buttons or sensors available on the board
  * to simulate a standard mouse.
- * After loading firmware, connect the board (EVKxx,XPlain,...) to the USB Host.
+ * After loading firmware, connect the board (EVKxx,Xplain,...) to the USB Host.
  * When connected to a USB host system this application provides a mouse application
  * in the Unix/Mac/Windows operating systems.
  * This example uses the native HID driver for these operating systems.

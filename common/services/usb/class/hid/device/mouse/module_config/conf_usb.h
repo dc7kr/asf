@@ -3,9 +3,11 @@
  *
  * \brief USB configuration file
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -86,12 +88,18 @@
  * @{
  */
 // #define  UDC_VBUS_EVENT(b_vbus_high)      user_callback_vbus_action(b_vbus_high)
+// extern void user_callback_vbus_action(bool b_vbus_high);
 // #define  UDC_SOF_EVENT()                  user_callback_sof_action()
+// extern void user_callback_sof_action(void);
 // #define  UDC_SUSPEND_EVENT()              user_callback_suspend_action()
+// extern void user_callback_suspend_action(void);
 // #define  UDC_RESUME_EVENT()               user_callback_resume_action()
+// extern void user_callback_resume_action(void);
 //! Mandatory when USB_DEVICE_ATTR authorizes remote wakeup feature
 // #define  UDC_REMOTEWAKEUP_ENABLE()        user_callback_remotewakeup_enable()
+// extern void user_callback_remotewakeup_enable(void);
 // #define  UDC_REMOTEWAKEUP_DISABLE()       user_callback_remotewakeup_disable()
+// extern void user_callback_remotewakeup_disable(void);
 //! When a extra string descriptor must be supported
 //! other than manufacturer, product and serial string
 // #define  UDC_GET_EXTRA_STRING()
@@ -111,6 +119,10 @@
 //! Interface callback definition
 #define  UDI_HID_MOUSE_ENABLE_EXT()       true
 #define  UDI_HID_MOUSE_DISABLE_EXT()
+// #define UDI_HID_MOUSE_ENABLE_EXT() my_callback_mouse_enable()
+// extern bool my_callback_mouse_enable(void);
+// #define UDI_HID_MOUSE_DISABLE_EXT() my_callback_mouse_disable()
+// extern void my_callback_mouse_disable(void);
 //@}
 //@}
 

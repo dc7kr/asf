@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -306,7 +308,7 @@ int main(void)
 	int led_index = 0;
 	int loop_count = 0;
 
-	sensor_t accel_dev;             /* Acceleromter device */
+	sensor_t accel_dev;             /* Accelerometer device */
 	sensor_t compass_dev;           /* Compass/magnetometer device */
 	sensor_t gyro_dev;              /* Gyroscope device */
 
@@ -330,7 +332,7 @@ int main(void)
 
 	if (accel_dev.err || gyro_dev.err || compass_dev.err) {
 		while (true) {
-			/* Error ocurred, loop forever */
+			/* Error occurred, loop forever */
 		}
 	}
 

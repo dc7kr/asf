@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -68,9 +70,11 @@ CSRCS = \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
        sam/utils/syscalls/gcc/syscalls.c                  \
-       thirdparty/fatfs/fatfs-port-r0.09/sam/diskio_sam.c \
+       thirdparty/fatfs/fatfs-port-r0.09/diskio.c         \
+       thirdparty/fatfs/fatfs-port-r0.09/sam/fattime.c    \
        thirdparty/fatfs/fatfs-r0.09/src/ff.c              \
        thirdparty/fatfs/fatfs-r0.09/src/option/ccsbcs.c   \
+       thirdparty/fatfs/unit_tests/memories_initialization_sam.c \
        thirdparty/fatfs/unit_tests/unit_tests.c
 
 # List of assembler source files.

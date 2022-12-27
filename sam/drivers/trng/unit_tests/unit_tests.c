@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -105,13 +107,6 @@
  */
 //@}
 
-/* Pointer to the module instance used for stdio. */
-#if defined(__GNUC__)
-void (*ptr_get) (void volatile*, int*);
-int (*ptr_put) (void volatile*, int);
-volatile void *volatile stdio_base;
-#endif
-
 /* Change when a TRNG interrupt happens */
 static volatile uint32_t trng_int_flag = 0U;
 
@@ -176,10 +171,6 @@ int main(void)
 
 	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
 
 	/* Define all the test cases */
 	DEFINE_TEST_CASE(trng_test, NULL, run_trng_test, NULL,

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -88,7 +90,7 @@ void lightsensor_application(void)
 
 		lightsensor_val += lightsensor_get_raw_value();
 
-		// Let's average some samples to be outputed
+		// Let's average some samples to be outputted
 		if (iterations++ >= LIGHTSENSOR_NUM_SAMPLES) {
 			iterations = 0;
 			lightsensor_val /= LIGHTSENSOR_NUM_SAMPLES;

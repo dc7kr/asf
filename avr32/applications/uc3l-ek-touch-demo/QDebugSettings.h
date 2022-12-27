@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -53,7 +55,7 @@
 #define UC3_A3_XPLAINED						0xF009
 #define UC3_L0_XPLAINED						0xF00A
 
-// Interface constans
+// Interface constants
 #define TWI									1
 #define SPI1W								2
 #define SPI2W								3

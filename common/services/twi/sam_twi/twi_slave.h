@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -47,7 +49,7 @@
 
 typedef Twi *twi_slave_t;
 
-static void twi_slave_setup(twi_slave_t p_twi, uint32_t dw_device_addr)
+static inline void twi_slave_setup(twi_slave_t p_twi, uint32_t dw_device_addr)
 {
 	if (p_twi == TWI0) {
 		sysclk_enable_peripheral_clock(ID_TWI0);

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -122,6 +124,6 @@ void ui_process(uint16_t framenumber)
  * Human interface on SAM3X-EK:
  * - SAM3X USART used UART on J11 connector and USART0 on J13 connector
  * - Led 0 (D2, blue) blinks when USB host has checked and enabled CDC interface
- * - Led 1 (D4, green) is on when UART is open
- * - Led 2 (D3, amber) is on when USART0 is open
+ * - Led 1 (D3, green) is on when UART is open
+ * - Led 2 (D4, amber) is on when USART0 is open
  */

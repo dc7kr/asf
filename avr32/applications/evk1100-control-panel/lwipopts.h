@@ -4,9 +4,11 @@
  *
  * \brief lwIP configuration for AVR32 UC3.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -101,7 +103,7 @@ a lot of data that needs to be copied, this should be set high. */
      per active UDP "connection". */
   #define MEMP_NUM_UDP_PCB        0
 #endif
-/* MEMP_NUM_TCP_PCB: the number of simulatenously active TCP
+/* MEMP_NUM_TCP_PCB: the number of simultaneously active TCP
    connections. */
 #define MEMP_NUM_TCP_PCB                15
 /* MEMP_NUM_TCP_PCB_LISTEN: the number of listening TCP
@@ -110,7 +112,7 @@ a lot of data that needs to be copied, this should be set high. */
 /* MEMP_NUM_TCP_SEG: the number of simultaneously queued TCP
    segments. */
 #define MEMP_NUM_TCP_SEG                9
-/* MEMP_NUM_SYS_TIMEOUT: the number of simulateously active
+/* MEMP_NUM_SYS_TIMEOUT: the number of simultaneously active
    timeouts. */
 #define MEMP_NUM_SYS_TIMEOUT            4
 
@@ -131,10 +133,17 @@ a lot of data that needs to be copied, this should be set high. */
 
 #define PBUF_POOL_BUFSIZE               512
 
+/** ETH_PAD_SIZE: number of bytes added before the Ethernet header to ensure
+ * alignment of payload after that header. Since the header is 14 bytes long,
+ * without this padding e.g. addresses in the IP header will not be aligned
+ * on a 32-bit boundary, so setting this to 2 can speed up 32-bit-platforms.
+ */
+#define ETH_PAD_SIZE                    0
+
 /* PBUF_LINK_HLEN: the number of bytes that should be allocated for a
    link level header. Defaults to 14 for Ethernet. */
 
-#define PBUF_LINK_HLEN                  14
+#define PBUF_LINK_HLEN                  (14 + ETH_PAD_SIZE)
 
 
 /**
@@ -247,7 +256,7 @@ a lot of data that needs to be copied, this should be set high. */
 
 /* TCP sender buffer space (pbufs). This must be at least = 2 *
    TCP_SND_BUF/TCP_MSS for things to work. */
-#define TCP_SND_QUEUELEN                6 * TCP_SND_BUF/TCP_MSS
+#define TCP_SND_QUEUELEN                ((6 * (TCP_SND_BUF) + (TCP_MSS - 1))/(TCP_MSS))
 
 
 /* Maximum number of retransmissions of data segments. */
@@ -331,61 +340,59 @@ a lot of data that needs to be copied, this should be set high. */
 
 /* ---------- Lwip Debug options ---------- */
 
-#undef LWIP_DEBUG
-
 
 
 #define DBG_TYPES_ON                    0xff
 
-#define ETHARP_DEBUG                    DBG_OFF
+#define ETHARP_DEBUG                    LWIP_DBG_OFF
 
-#define NETIF_DEBUG                     DBG_OFF
+#define NETIF_DEBUG                     LWIP_DBG_OFF
 
-#define PBUF_DEBUG                      DBG_ON
+#define PBUF_DEBUG                      LWIP_DBG_ON
 
-#define API_LIB_DEBUG                   DBG_OFF
+#define API_LIB_DEBUG                   LWIP_DBG_OFF
 
-#define API_MSG_DEBUG                   DBG_ON
+#define API_MSG_DEBUG                   LWIP_DBG_ON
 
-#define SOCKETS_DEBUG                   DBG_OFF
+#define SOCKETS_DEBUG                   LWIP_DBG_OFF
 
-#define ICMP_DEBUG                      DBG_OFF
+#define ICMP_DEBUG                      LWIP_DBG_OFF
 
-#define INET_DEBUG                      DBG_OFF
+#define INET_DEBUG                      LWIP_DBG_OFF
 
-#define IP_DEBUG                        DBG_OFF
+#define IP_DEBUG                        LWIP_DBG_OFF
 
-#define IP_REASS_DEBUG                  DBG_OFF
+#define IP_REASS_DEBUG                  LWIP_DBG_OFF
 
-#define RAW_DEBUG                       DBG_OFF
+#define RAW_DEBUG                       LWIP_DBG_OFF
 
-#define MEM_DEBUG                       DBG_OFF
+#define MEM_DEBUG                       LWIP_DBG_OFF
 
-#define MEMP_DEBUG                      DBG_OFF
+#define MEMP_DEBUG                      LWIP_DBG_OFF
 
-#define SYS_DEBUG                       DBG_OFF
+#define SYS_DEBUG                       LWIP_DBG_OFF
 
-#define TCP_DEBUG                       DBG_ON
+#define TCP_DEBUG                       LWIP_DBG_ON
 
-#define TCP_INPUT_DEBUG                 DBG_OFF
+#define TCP_INPUT_DEBUG                 LWIP_DBG_OFF
 
-#define TCP_FR_DEBUG                    DBG_OFF
+#define TCP_FR_DEBUG                    LWIP_DBG_OFF
 
-#define TCP_RTO_DEBUG                   DBG_OFF
+#define TCP_RTO_DEBUG                   LWIP_DBG_OFF
 
-#define TCP_CWND_DEBUG                  DBG_OFF
+#define TCP_CWND_DEBUG                  LWIP_DBG_OFF
 
-#define TCP_WND_DEBUG                   DBG_OFF
+#define TCP_WND_DEBUG                   LWIP_DBG_OFF
 
-#define TCP_OUTPUT_DEBUG                DBG_OFF
+#define TCP_OUTPUT_DEBUG                LWIP_DBG_OFF
 
-#define TCP_RST_DEBUG                   DBG_OFF
+#define TCP_RST_DEBUG                   LWIP_DBG_OFF
 
-#define TCP_QLEN_DEBUG                  DBG_OFF
+#define TCP_QLEN_DEBUG                  LWIP_DBG_OFF
 
-#define UDP_DEBUG                       DBG_OFF
+#define UDP_DEBUG                       LWIP_DBG_OFF
 
-#define TCPIP_DEBUG                     DBG_OFF
+#define TCPIP_DEBUG                     LWIP_DBG_OFF
 
 #define DBG_MIN_LEVEL                   LWIP_DBG_LEVEL_SEVERE
 

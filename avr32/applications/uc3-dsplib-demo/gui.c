@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -251,7 +253,7 @@ void gui_text_print(int box_id, const char *text)
   else
     et024006_DrawFilledRect(sb->x, sb->y, sb->width, sb->height, sb->bg_color);
 
-  // Calculte the number of line to be displayed
+  // Calculate the number of line to be displayed
   len = 0;
   i = 0;
   do
@@ -351,7 +353,7 @@ static void gui_buffer_print_dsp16_signal(void *buffer, uint16_t width, uint16_t
       // Draw a line between points
       if (i_signal)
       {
-        // Draw a line when its angle with the horizontal axis is bellow 45 degres
+        // Draw a line when its angle with the horizontal axis is bellow 45 degrees
         if (Abs(prev_y - cur_y) < t - prev_t)
         {
           int16_t b;
@@ -365,7 +367,7 @@ static void gui_buffer_print_dsp16_signal(void *buffer, uint16_t width, uint16_t
             gui_buffer_set_pixel(buffer, width, height, i, temp_y);
           }
         }
-        // Draw a line when its angle with the horizontal axis is above 45 degres
+        // Draw a line when its angle with the horizontal axis is above 45 degrees
         else
         {
           int16_t b;

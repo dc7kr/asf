@@ -7,9 +7,11 @@
  * This file defines a useful set of functions for the SPI interface on AVR32
  * devices.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -50,6 +52,8 @@
 /**
  * \defgroup group_avr32_drivers_spi SPI - Serial Peripheral Interface
  *
+ * See \ref avr32_drivers_spi_quick_start
+ * 
  * Driver for the SPI (Serial Peripheral Interface).
  * The SPI circuit is a synchronous serial data link that provides communication with external devices in Master
  * or Slave mode. Connection to Peripheral DMA Controller channel capabilities optimizes data transfers.
@@ -529,7 +533,7 @@ extern spi_status_t spi_selectionMode(volatile avr32_spi_t *spi,
 /*! \brief Selects slave chip.
  *
  * \param spi   Base address of the SPI instance.
- * \param chip  Slave chip number (normal: 0 to 3, extarnally decoded signal: 0
+ * \param chip  Slave chip number (normal: 0 to 3, externally decoded signal: 0
  *              to 14).
  *
  * \return Status.
@@ -541,7 +545,7 @@ extern spi_status_t spi_selectChip(volatile avr32_spi_t *spi, unsigned char chip
 /*! \brief Unselects slave chip.
  *
  * \param spi   Base address of the SPI instance.
- * \param chip  Slave chip number (normal: 0 to 3, extarnally decoded signal: 0
+ * \param chip  Slave chip number (normal: 0 to 3, externally decoded signal: 0
  *              to 14).
  *
  * \return Status.
@@ -707,4 +711,226 @@ extern unsigned char spi_getStatus(volatile avr32_spi_t *spi);
  * \}
  */
 
+ 
+/**
+ * \page avr32_drivers_spi_quick_start Quick start guide for SPI driver on AVR32 devices
+ *
+ * This is the quick start guide for the \ref group_avr32_drivers_spi, 
+ * with step-by-step instructions on how to configure and use the driver for a 
+ * specific use case.
+ * The code examples can be copied into e.g the main application loop or any
+ * other function that will need to control the SPI
+ *
+ * \section driver_spi_basic Basic setup
+ * The SPI module will be set up as master:
+ *  - SPI on module SPI0
+ *  - 1MHz SPI clock speed
+ *  - Slave Chip Select connected on NPCS1
+ *  - 8 bits per transfer
+ *  - SPI mode 0 (data on rising clock edge)
+ *
+ * \subsection driver_spi_basic_prereq Prerequisites
+ *
+ * This module requires the following drivers
+ * - \ref sysclk_driver
+ * \section module_basic_setup Setup steps
+ * \subsection driver_spi_basic_setup_code Example code
+ * Add to application C-file (e.g. main.c):  
+ * \code
+ * #define SPI_EXAMPLE             (&AVR32_SPI0)
+ * #define SPI_SLAVECHIP_NUMBER    (1)
+ *
+ *  spi_options_t my_spi_options={
+ *    // The SPI channel to set up : Memory is connected to CS1
+ *    SPI_SLAVECHIP_NUMBER,
+ *    // Preferred baudrate for the SPI.
+ *    1000000,
+ *    // Number of bits in each character (8 to 16).
+ *    8,
+ *    // Delay before first clock pulse after selecting slave (in PBA clock periods).
+ *    0,
+ *    // Delay between each transfer/character (in PBA clock periods).
+ *    0,
+ *    // Sets this chip to stay active after last transfer to it.
+ *    1,
+ *    // Which SPI mode to use when transmitting.
+ *    SPI_MODE_0,
+ *    // Disables the mode fault detection.
+ *    // With this bit cleared, the SPI master mode will disable itself if another
+ *    // master tries to address it.
+ *    1
+ *  };
+ * 
+ * void spi_init_module(void)
+ * {
+ *   //Init SPI module as master
+ *   spi_initMaster(SPI_EXAMPLE,&my_spi_options);
+ *   //Setup configuration for chip connected to CS1
+ *   spi_setupChipReg(SPI_EXAMPLE,&my_spi_options,sysclk_get_pba_hz());
+ *   //Allow the module to transfer data
+ *   spi_enable(SPI_EXAMPLE);
+ * }
+ * \endcode 
+ *
+ * \subsection driver_spi_basic_setup Workflow
+ * -# Ensure that board_init() has configured selected I/Os for SPI function.
+ * -# Ensure that sysclk_init() is called at the beginning of the main function. 
+ * -# Define an alias for the SPI module you want to use :
+ * \code
+ *   #define SPI_EXAMPLE             (&AVR32_SPI0)
+ * \endcode 
+ * -# Define an alias for the slave device SPI module you want to use :
+ * \code
+ *   #define SPI_SLAVECHIP_NUMBER    (1)
+ * \endcode 
+ * -# Create an spi_options_t structure for the your slave device :
+ * This configure the SPI module to suit the SPI format of the slave device you
+ * want to communicate with
+ * \code
+ *  spi_options_t my_spi_options={
+ *    // The SPI channel to set up : Memory is connected to CS1
+ *    SPI_SLAVECHIP_NUMBER,
+ *    // Preferred baudrate for the SPI.
+ *    1000000,
+ *    // Number of bits in each character (8 to 16).
+ *    8,
+ *    // Delay before first clock pulse after selecting slave (in PBA clock periods).
+ *    0,
+ *    // Delay between each transfer/character (in PBA clock periods).
+ *    0,
+ *    // Sets this chip to stay active after last transfer to it.
+ *    1,
+ *    // Which SPI mode to use when transmitting.
+ *    SPI_MODE_0,
+ *    // Disables the mode fault detection.
+ *    // With this bit cleared, the SPI master mode will disable itself if another
+ *    // master tries to address it.
+ *    1
+ *  };
+ * \endcode 
+ * -# Write the initialization function to setup the module :
+ * \code 
+ *   void spi_init_module(void)
+ *   {
+ *     //Init SPI module as master
+ *     spi_initMaster(SPI_EXAMPLE,&my_spi_options);
+ *     //Setup configuration for chip connected to CS1
+ *     spi_setupChipReg(SPI_EXAMPLE,&my_spi_options,sysclk_get_pba_hz());
+ *     //Allow the module to transfer data
+ *     spi_enable(SPI_EXAMPLE);
+ *   }
+ * \endcode
+ *  - \note The last argument of spi_setupChipReg, is the PBA Clock frequency
+ *  This frequency is given by the sysclk module and is used to compute the 
+ *  correct baudrate for the SPI.
+ *
+ * -# Call the initialization routine from your application.
+ *  - \code
+ *      spi_init_module();
+ *    \endcode
+ *
+
+ * \section driver_spi_basic_usage Usage steps
+ * \subsection driver_spi_basic_usage_code Example code
+ * Use in application C-file:
+ * \code
+ * //Buffer to send data to SPI slave
+ * uint16_t txdata;
+ * //Buffer to receive data from SPI slave
+ * uint16_t rxdata;
+ * ...
+ * //Select given device on the SPI bus
+ * spi_selectChip(SPI_EXAMPLE, SPI_SLAVECHIP_NUMBER);
+ * //Wait for the transmitter to be ready
+ * while(!spi_is_tx_ready(SPI_EXAMPLE))
+ *   ;
+ * // Send the data to slave (ie = AT45DBX_CMDC_RD_STATUS_REG)
+ * txdata=0xD7;
+ * spi_put(SPI_EXAMPLE,txdata);
+ * //Wait for a complete transmission
+ * while(!spi_is_tx_empty(SPI_EXAMPLE))
+ *   
+ * //Wait for the transmitter to be ready
+ * while(!spi_is_tx_ready(SPI_EXAMPLE))
+ *   ;
+ * // Send dummy data to slave (ie = 0x00)
+ * txdata=0x00;
+ * spi_put(SPI_EXAMPLE,txdata);
+ * //Wait for a complete transmission
+ * while(!spi_is_tx_empty(SPI_EXAMPLE))
+ *   ;
+ * //Now simply read the data in the receive register 
+ * rxdata=spi_get(SPI_EXAMPLE);
+ * 
+ * // Deselect the slave
+ * spi_unselectChip(SPI_EXAMPLE,SPI_SLAVECHIP_NUMBER);
+ * \endcode
+ *
+ * \subsection driver_spi_basic_usage_flow Workflow
+ * -# Create two buffers for data to be sent/received on the SPI bus, 
+ *  - \code
+ * //Buffer to send data to SPI slave
+ * uint16_t txdata;
+ * //Buffer to receive data from SPI slave
+ * uint16_t rxdata;
+ *    \endcode
+ * -# Call the spi_selectChip routine to enable the chip select line for 
+ * the slave you want to communicate with.
+ * \code
+ *  	spi_selectChip(SPI_EXAMPLE,SPI_SLAVECHIP_NUMBER);
+ * \endcode
+ * -# Wait for the SPI transmitter to be ready before sending data
+ *  - \code
+ * //Wait for the transmitter to be ready
+ * while(!spi_is_tx_ready(SPI_EXAMPLE))
+ *   ;
+ * \endcode
+ * -# Set and send the data to slave
+ * txdata is set 0xD7 (= AT45DBX_CMDC_RD_STATUS_REG) which is a status read 
+ * command to an Atmel SPI memory chip.
+ *  - \code
+ * txdata=0xD7;
+ * spi_put(SPI_EXAMPLE,txdata);
+ * \endcode
+
+ * -# Then wait for the data to be sent by SPI module
+ *  - \code
+ * //Wait for a complete transmission
+ * while(!spi_is_tx_empty(SPI_EXAMPLE))
+ * \endcode
+ * -# As the SPI works as a shift register, data is shifted in at
+ * the same time as data is shifted out. A read operation will mean that a 
+ * dummy byte is written to the SPI bus and data is read at the same time.
+ * As we are sending, we have to check again for the SPI module to be ready 
+ * before sending and also check for the completion of this send operation.
+ *  - \code
+ * //Wait for the transmitter to be ready
+ * while(!spi_is_tx_ready(SPI_EXAMPLE))
+ *   ;
+ * // Send dummy data to slave (ie = 0x00)
+ * txdata=0x00;
+ * spi_put(SPI_EXAMPLE,txdata);
+ * //Wait for a complete transmission
+ * while(!spi_is_tx_empty(SPI_EXAMPLE))
+ *   ;
+ * \endcode
+ * -# Now the dummy data is sent the value of the receive register 
+ * is the data from slave
+ *  - \code
+ * //Now simply read the data in the receive register
+ * rxdata=spi_get(SPI_EXAMPLE);
+ * \endcode
+ * -# When read and write operations is done, de-select the slave:
+ *  - \code
+ *   spi_unselectChip(SPI_EXAMPLE,SPI_SLAVECHIP_NUMBER);
+ * \endcode
+ * -# Now you can use the data read from the slave which is in rxdata
+ *  - \code
+ *     //Check read content
+ *     if(rxdata<0x3C)
+ *       do_something();
+ * \endcode
+ */
+
+  
 #endif  // _SPI_H_

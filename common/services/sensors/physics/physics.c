@@ -4,11 +4,13 @@
  * \brief ASF Sensor API physics utilities
  *
  * This module defines types and operations that support basic physical
- * modeling and equations for sensor data.
+ * modelling and equations for sensor data.
  *
  * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

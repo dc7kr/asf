@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -357,7 +359,7 @@ uint16_t i, last_y = 0;
 			// Draw a line between points
 			if (i_signal) {
 				// Draw a line when its angle with the horizontal axis is
-				// < 45 degres
+				// < 45 degrees
 				if (Abs(prev_y - cur_y) < t - prev_t) {
 					int16_t b;
 					// delta_y = a * 0x10000
@@ -375,7 +377,7 @@ uint16_t i, last_y = 0;
 					}
 				}
 				// Draw a line when its angle with the horizontal axis is
-				// > 45 degres
+				// > 45 degrees
 				else {
 					int16_t b;
 					// delta_y = (1 / a) * 0x10000 < 0x10000

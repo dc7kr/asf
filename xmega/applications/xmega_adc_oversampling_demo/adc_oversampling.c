@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -338,7 +340,7 @@ void init_adc(void)
  *  - After, scaling is done with scaled factor.
  *  - Finally, Analog value at ADC input pin is calculated
  *  - Reset all variable used in ADC ISR and enable ADC interrupt to start
- *    next overSampling Process.
+ *    next oversampling Process.
  */
 void adc_oversampled(void)
 {
@@ -450,7 +452,7 @@ void adc_oversampled(void)
 			(uint8_t)117, sign_flag );
 
 	/*Reset ADC_result accumulator value and ADC_sample count to zero
-	 * for nNext overSampling process
+	 * for next oversampling process
 	 */
 	adc_result_accumulator = 0;
 	adc_result_accum_processed = 0;

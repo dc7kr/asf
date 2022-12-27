@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -297,7 +299,7 @@ static inline uint32_t sysclk_get_main_hz(void)
 static inline uint32_t sysclk_get_cpu_hz(void)
 {
 	/* CONFIG_SYSCLK_PRES is the register value for setting the expected */
-	/* prescaler, not an immediat value. */
+	/* prescaler, not an immediate value. */
 	return sysclk_get_main_hz() / ((CONFIG_SYSCLK_PRES >> PMC_MCKR_PRES_Pos) + 1);
 }
 
@@ -309,7 +311,7 @@ static inline uint32_t sysclk_get_cpu_hz(void)
 static inline uint32_t sysclk_get_peripheral_hz(void)
 {
 	/* CONFIG_SYSCLK_PRES is the register value for setting the expected */
-	/* prescaler, not an immediat value. */
+	/* prescaler, not an immediate value. */
 	return sysclk_get_main_hz() / ((CONFIG_SYSCLK_PRES >> PMC_MCKR_PRES_Pos) + 1);
 }
 

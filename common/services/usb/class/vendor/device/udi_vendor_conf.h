@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -56,7 +58,7 @@
 //! Endpoint numbers used by vendor interface.
 //! Note: The order of endpoint can depend on USB hardware capability
 //! when a specific mapping is used on USB DPRAM.
-#if SAM3S || SAM3SD || SAM4S
+#if SAM3S || SAM4S
 #  define  UDI_VENDOR_EP_INTERRUPT_IN  (3 | USB_EP_DIR_IN)
 #  define  UDI_VENDOR_EP_INTERRUPT_OUT (6 | USB_EP_DIR_OUT)
 #  define  UDI_VENDOR_EP_BULK_IN       (1 | USB_EP_DIR_IN)
@@ -70,7 +72,7 @@
 #  define  UDI_VENDOR_EP_BULK_OUT      (2 | USB_EP_DIR_OUT)
 #  define  UDI_VENDOR_EP_ISO_IN        (5 | USB_EP_DIR_IN)
 #  define  UDI_VENDOR_EP_ISO_OUT       (6 | USB_EP_DIR_OUT)
-#elif SAM3X || SAM3A
+#elif SAM3XA
 #  define  UDI_VENDOR_EP_INTERRUPT_IN  (3 | USB_EP_DIR_IN)
 #  define  UDI_VENDOR_EP_INTERRUPT_OUT (4 | USB_EP_DIR_OUT)
 #  define  UDI_VENDOR_EP_BULK_IN       (5 | USB_EP_DIR_IN)

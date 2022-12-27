@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -58,7 +60,7 @@
  */
 /** @{ */
 #define TWI_INTERFACE                    MXT143E_XPLAINED_TWI
-#define MAXTOUCH_DEVICE_ADR              0x4A
+#define MAXTOUCH_TWI_ADDRESS             0x4a
 #define MAXTOUCH_CHG_PIN                 MXT143E_XPLAINED_CHG
 /* @} */
 

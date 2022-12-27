@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -267,7 +269,7 @@ void timer1_init(void)
  */
 void qt_set_parameters( void )
 {
-	//  Treshold values for touch sensing
+	//  Threshold values for touch sensing
 	qt_config_data.qt_di              = DEF_QT_DI;
 	qt_config_data.qt_neg_drift_rate  = DEF_QT_NEG_DRIFT_RATE;
 	qt_config_data.qt_pos_drift_rate  = DEF_QT_POS_DRIFT_RATE;
@@ -304,7 +306,7 @@ void touch_init(void)
 	// Configure the Sensor
 	qt_enable_key(CHANNEL_0, NO_AKS_GROUP, 30, HYST_6_25);
 
-	// Initialise touch sensing
+	// Initialize touch sensing
 	qt_init_sensing();
 
 	/* Set the parameters like recalibration threshold,

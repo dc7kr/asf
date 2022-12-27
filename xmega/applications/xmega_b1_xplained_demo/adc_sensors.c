@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -60,7 +62,7 @@ static uint16_t light, temperature, potentiometer, ext_voltage;
 /**
  * \brief Table to store ADC codes matching a specific NTC temperature value
  *
- * This table gives the correspondance between the ADC code and the temperature.
+ * This table gives the correspondence between the ADC code and the temperature.
  * Each elements of the table corresponds to an ADC code value.
  * The index in the table give the corresponding temperature (in°C) with
  * the following formula : Tempeature=index-5.
@@ -78,7 +80,7 @@ uint16_t temperature_code[]={
  * \brief Convert an ADC code from the NTC channel into temperature value
  *
  * \param adc_code The ADC input code read from the NTC
- * \return The temperature value in degree celcius
+ * \return The temperature value in degree Celsius
  */
 static int8_t code_to_temperature(uint16_t adc_code)
 {
@@ -128,7 +130,7 @@ static void adc_handler(ADC_t *adc, uint8_t channel, adc_result_t result)
 	} else {
 		result = 0;
 	}
-	//Store ADC convertion result for the coresponding on-board sensor
+	//Store ADC conversion result for the corresponding on-board sensor
 	switch (adc_conv[adc_mux_index]) {
 		case LIGHT_SENSOR_ADC_INPUT:
 			light = result;

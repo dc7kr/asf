@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -123,10 +125,10 @@
  * - \ref PIN_LED_2
  * - \ref PINS_LEDS
  *
- * \section MCI
- * - \ref PINS_MCI
- * - \ref PIN_MCI_DAT0
- * - \ref PIN_MCI_CD
+ * \section HSMCI
+ * - \ref PINS_HSMCI
+ * - \ref PIN_HSMCI_DAT0
+ * - \ref PIN_HSMCI_CD
  *
  * \section Push buttons
  * - \ref PIN_PUSHBUTTON_1
@@ -316,6 +318,23 @@
 #define BOARD_BACKLIGHT                PIO_PC19_IDX
 #define BOARD_BACKLIGHT_FLAG       PIO_OUTPUT_0 | PIO_DEFAULT
 
+/** Definition of MMA7341L x,y,z axis channel number */
+#define MMA7341L_ADC_CHANNEL_X  2
+#define MMA7341L_ADC_CHANNEL_Y  6
+#define MMA7341L_ADC_CHANNEL_Z  7
+
+/** MMA7341L mode set pin definition. */
+#define PIN_MMA7341L_MODE                PIO_PC13_IDX
+#define PIN_MMA7341L_MODE_FLAG       PIO_OUTPUT_1 | PIO_DEFAULT
+
+/** MMA7341L X,Y,Z axis pin definition. */
+#define PIN_MMA7341L_X_AXIS                PIO_PB3_IDX
+#define PIN_MMA7341L_X_AXIS_FLAG       PIO_INPUT | PIO_DEFAULT
+#define PIN_MMA7341L_Y_AXIS                PIO_PC17_IDX
+#define PIN_MMA7341L_Y_AXIS_FLAG       PIO_INPUT | PIO_DEFAULT
+#define PIN_MMA7341L_Z_AXIS                PIO_PC18_IDX
+#define PIN_MMA7341L_Z_AXIS_FLAG       PIO_INPUT | PIO_DEFAULT
+
 /** Define HX8347A base address. */
 #define BOARD_LCD_BASE              0x62000000
 /** Define HX8347A register select signal. */
@@ -364,14 +383,14 @@
 //! List of all LEDs definitions.
 #define PINS_LEDS   PIN_LED_0, PIN_LED_1, PIN_LED_2
 
-//!// MCI pins definition.
-#define PINS_MCI  {0x1f8, PIOA, ID_PIOA, PIO_PERIPH_A, PIO_PULLUP}, \
+//!// HSMCI pins definition.
+#define PINS_HSMCI  {0x1f8, PIOA, ID_PIOA, PIO_PERIPH_A, PIO_PULLUP}, \
                       {1 << 3, PIOA, ID_PIOA, PIO_PERIPH_A, PIO_DEFAULT}
-//! MCI pin DAT0 (busy)
-#define PIN_MCI_DAT0 \
+//! HSMCI pin DAT0 (busy)
+#define PIN_HSMCI_DAT0 \
     {PIO_PA5, PIOA, ID_PIOA, PIO_PERIPH_A, PIO_PULLUP}
-//! MCI pin Card Detect
-#define PIN_MCI_CD \
+//! HSMCI pin Card Detect
+#define PIN_HSMCI_CD \
     {PIO_PA25, PIOA, ID_PIOA, PIO_INPUT, PIO_PULLUP}
 
 //! Push button #0 definition.
@@ -461,12 +480,12 @@
 //! PWM LED0 pin definitions.
 #define PIN_PWM_LED0_GPIO    PIO_PB0_IDX
 #define PIN_PWM_LED0_FLAGS   (PIO_PERIPH_A | PIO_DEFAULT)
-#define PIN_PWM_LED0_CHANNEL 0
+#define PIN_PWM_LED0_CHANNEL PWM_CHANNEL_0
 
 //! PWM LED1 pin definitions.
 #define PIN_PWM_LED1_GPIO    PIO_PB1_IDX
 #define PIN_PWM_LED1_FLAGS   (PIO_PERIPH_A | PIO_DEFAULT)
-#define PIN_PWM_LED1_CHANNEL 1
+#define PIN_PWM_LED1_CHANNEL PWM_CHANNEL_1
 
 //! PWM LED2 pin definitions.
 #define PIN_PWM_LED2_GPIO    PIO_PB2_IDX
@@ -534,12 +553,116 @@
 #define PIN_PCK_0_TYPE PIO_PERIPH_B
 #define PIN_PCK_0_ATTR PIO_DEFAULT
 
+/** NandFlash pins definition: OE. */
+#define PIN_EBI_NANDOE    (PIO_PB17_IDX)
+#define PIN_EBI_NANDOE_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+/** NandFlash pins definition: WE. */
+#define PIN_EBI_NANDWE    (PIO_PB18_IDX)
+#define PIN_EBI_NANDWE_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+/** NandFlash pins definition: CLE. */
+#define PIN_EBI_NANDCLE    (PIO_PB22_IDX)
+#define PIN_EBI_NANDCLE_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+/** NandFlash pins definition: ALE. */
+#define PIN_EBI_NANDALE    (PIO_PB21_IDX)
+#define PIN_EBI_NANDALE_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+/** NandFlash pins definition: DATA. */
+#define PIN_EBI_NANDIO_0    (PIO_PB9_IDX)
+#define PIN_EBI_NANDIO_0_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_1    (PIO_PB10_IDX)
+#define PIN_EBI_NANDIO_1_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_2    (PIO_PB11_IDX)
+#define PIN_EBI_NANDIO_2_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_3    (PIO_PB12_IDX)
+#define PIN_EBI_NANDIO_3_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_4    (PIO_PB13_IDX)
+#define PIN_EBI_NANDIO_4_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_5    (PIO_PB14_IDX)
+#define PIN_EBI_NANDIO_5_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_6    (PIO_PB15_IDX)
+#define PIN_EBI_NANDIO_6_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_7    (PIO_PB16_IDX)
+#define PIN_EBI_NANDIO_7_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_8    (PIO_PB25_IDX)
+#define PIN_EBI_NANDIO_8_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_9    (PIO_PB26_IDX)
+#define PIN_EBI_NANDIO_9_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_10    (PIO_PB27_IDX)
+#define PIN_EBI_NANDIO_10_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_11    (PIO_PB28_IDX)
+#define PIN_EBI_NANDIO_11_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_12    (PIO_PB29_IDX)
+#define PIN_EBI_NANDIO_12_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_13    (PIO_PB30_IDX)
+#define PIN_EBI_NANDIO_13_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_14    (PIO_PB31_IDX)
+#define PIN_EBI_NANDIO_14_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+#define PIN_EBI_NANDIO_15    (PIO_PB6_IDX)
+#define PIN_EBI_NANDIO_15_FLAGS    (PIO_PERIPH_B | PIO_PULLUP)
+
+/** Nandflash chip enable pin definition. */
+#define PIN_NF_CE_IDX    (PIO_PC12_IDX)
+#define PIN_NF_CE_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+/** Nandflash ready/busy pin definition. */
+#define PIN_NF_RB_IDX    (PIO_PB24_IDX)
+#define PIN_NF_RB_FLAGS    (PIO_PERIPH_A | PIO_PULLUP)
+
+/* Chip select number for nand */
+#define BOARD_NAND_CS      1
+
 /** Address for transferring command bytes to the nandflash. */
-#define BOARD_NF_COMMAND_ADDR   0x60400000
+#define BOARD_NF_COMMAND_ADDR   0x60000000
 /** Address for transferring address bytes to the nandflash. */
-#define BOARD_NF_ADDRESS_ADDR   0x60200000
+#define BOARD_NF_ADDRESS_ADDR   0x61200000
 /** Address for transferring data bytes to the nandflash. */
-#define BOARD_NF_DATA_ADDR      0x60000000
+#define BOARD_NF_DATA_ADDR      0x61000000
+/* Bus width for NAND */
+#define CONF_NF_BUSWIDTH    16
+/* SMC NFC using five address cycle */
+#define CONF_NF_NEED_FIVE_ADDRESS_CYCLES    1
+/* Access timing for NAND */
+#define CONF_NF_SETUP_TIMING (SMC_SETUP_NWE_SETUP(1) \
+		| SMC_SETUP_NCS_WR_SETUP(2) \
+		| SMC_SETUP_NRD_SETUP(1) \
+		| SMC_SETUP_NCS_RD_SETUP(2))
+#define CONF_NF_PULSE_TIMING (SMC_PULSE_NWE_PULSE(3) \
+		| SMC_PULSE_NCS_WR_PULSE(4) \
+		| SMC_PULSE_NRD_PULSE(4) \
+		| SMC_PULSE_NCS_RD_PULSE(4))
+#define CONF_NF_CYCLE_TIMING (SMC_CYCLE_NWE_CYCLE(6) \
+		| SMC_CYCLE_NRD_CYCLE(9))
+#define CONF_NF_TIMING (SMC_TIMINGS_TCLR(3) \
+		| SMC_TIMINGS_TADL(4) \
+		| SMC_TIMINGS_TAR(2) \
+		| SMC_TIMINGS_TRR(2) \
+		| SMC_TIMINGS_TWB(4) \
+		| SMC_TIMINGS_RBNSEL(7) \
+		| (SMC_TIMINGS_NFSEL))
+/* Support DMA */
+#define CONF_NF_USE_DMA
+#ifdef CONF_NF_USE_DMA
+/* DMA channel used for NF */
+#define CONF_NF_DMA_CHANNEL    0
+#endif
 
 //! TWI pins definition.
 #define TWI_V3XX
@@ -636,6 +759,6 @@
 #define ISO7816_USART_ID           ID_USART0
 #define ISO7816_USART              USART0
 #define PIN_ISO7816_RST_IDX        PIO_PA15_IDX
-#define PIN_ISO7816_RST_FLAG       (PIO_OUTPUT_0 | PIO_DEFAULT) 
+#define PIN_ISO7816_RST_FLAG       (PIO_OUTPUT_0 | PIO_DEFAULT)
 
 #endif  // _SAM3U_EK_H_

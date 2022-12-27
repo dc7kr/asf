@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -1029,10 +1031,6 @@ int main(void)
 	sysclk_init();
 	board_init();
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-// GCC AVR32 implementation
-#if defined(__GNUC__) && !XMEGA
-	setbuf(stdout, NULL);
-#endif
 
 	// Define all the timestamp to date test cases
 	DEFINE_TEST_CASE(timestamp_to_normal_date_test, NULL,

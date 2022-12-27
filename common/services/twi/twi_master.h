@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -116,7 +118,7 @@
  * \section twi_basic_use_case Basic use case
  * In the most basic use case, the TWI module is configured for
  * - Master operation
- * - adressing one slave device of the bus at address 0x50
+ * - addressing one slave device of the bus at address 0x50
  * - TWI clock of 50kHz
  * - polled read/write handling
  *

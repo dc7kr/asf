@@ -3,9 +3,11 @@
  *
  * \brief Huge data memory space access
  *
- * Copyright (c) 2009-2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -96,6 +98,13 @@
  */
 
 /**
+ * \fn void hugemem_read_block(void *to, const hugemem_ptr_t from, size_t size)
+ *
+ * \brief Read \a size bytes from huge memory address \a from into buffer at
+ * address \a to.
+ */
+
+/**
  * \fn uint_fast32_t hugemem_read32(const hugemem_ptr_t from)
  *
  * \brief Read 32-bit value stored at huge memory address \a from.
@@ -117,6 +126,13 @@
  * \fn void hugemem_write32(hugemem_ptr_t to, uint_fast32_t val)
  *
  * \brief Write 32-bit value \a val to huge memory address \a to.
+ */
+
+/**
+ * \fn void hugemem_write_block(hugemem_ptr_t to, const void *from, size_t size)
+ *
+ * \brief Write \a size bytes from buffer at address \a from to huge memory
+ * address \a to.
  */
 
 //@}

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -145,7 +147,8 @@ void main_generic_disable(void)
 
 void main_hid_set_feature(uint8_t* report)
 {
-	if (*((uint32_t*)report)==0x55AA55AA) {
+	if (report[0] == 0xAA && report[1] == 0x55
+			&& report[2] == 0xAA && report[3] == 0x55) {
 		// Disconnect USB Device
 		udc_stop();
 		ui_powerdown();
@@ -163,7 +166,7 @@ void main_hid_set_feature(uint8_t* report)
  * \section startup Startup
  * The example uses the buttons or sensors available on the board
  * to simulate a standard generic.
- * After loading firmware, connect the board (EVKxx,XPlain,...) to the USB Host.
+ * After loading firmware, connect the board (EVKxx,Xplain,...) to the USB Host.
  * When connected to a USB host system this application provides a HID generic
  * application in the Unix/Mac/Windows operating systems.
  * This example uses the native HID driver for these operating systems.
@@ -174,7 +177,7 @@ void main_hid_set_feature(uint8_t* report)
  * http://www.atmel.com/dyn/resources/prod_documents/doc7645.pdf
  * The PC tool is available here:
  * http://www.atmel.com/dyn/resources/prod_documents/AVR153.zip
- * Note: Use the PID 0x2402 in tool graphique interface,
+ * Note: Use the PID 0x2402 in tool graphical interface,
  * and the button Firmware Upgrade only disconnects the USB device.
  *
  * \copydoc UI

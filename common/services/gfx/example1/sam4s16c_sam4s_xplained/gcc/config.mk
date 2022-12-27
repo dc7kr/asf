@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -148,7 +150,6 @@ CPPFLAGS = \
        -D ARM_MATH_CM4=true                               \
        -D BOARD=SAM4S_XPLAINED                            \
        -D CONF_GFX_ILI9341_SDT028ATFT=1                   \
-       -D GFX_INITIALIZED=1                               \
        -D __SAM4S16C__
 
 # Extra flags to use when linking

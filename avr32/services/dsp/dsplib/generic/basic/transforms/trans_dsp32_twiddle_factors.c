@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -44,7 +46,7 @@
 
 #include "trans_dsp32_twiddle_factors.h"
 
-//! This macro is used to convert the raw data acording to the algorithm's optimization we need
+//! This macro is used to convert the raw data according to the algorithm's optimization we need
 #if DSP_OPTIMIZATION & DSP_OPTI_ACCURACY
 #  define DSP32_Q_CONVERT(x)  DSP32_Q(x)
 #else

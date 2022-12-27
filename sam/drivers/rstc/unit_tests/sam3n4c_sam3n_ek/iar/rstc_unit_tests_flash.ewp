@@ -744,7 +744,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1654,7 +1654,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1845,16 +1845,10 @@
 			<group>
 				<name>pio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
-				</file>
-				<file>
 					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
 				</file>
-			</group>
-			<group>
-				<name>wdt</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../wdt/wdt.c</name>
+					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
 				</file>
 			</group>
 			<group>
@@ -1868,6 +1862,12 @@
 						<name>$PROJ_DIR$/../../unit_tests.c</name>
 					</file>
 				</group>
+			</group>
+			<group>
+				<name>wdt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../wdt/wdt.c</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1894,15 +1894,6 @@
 							</group>
 						</group>
 					</group>
-				</group>
-			</group>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
 				</group>
 			</group>
 		</group>

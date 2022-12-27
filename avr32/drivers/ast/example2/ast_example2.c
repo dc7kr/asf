@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -264,7 +266,7 @@ int main(void)
 	usart_write_line(EXAMPLE_USART,
 			"Alarm0 wakeup from static sleep mode every second.\r\n");
 
-	/* Unsing counter mode and set it to 0 */
+	/* Using counter mode and set it to 0 */
 	unsigned long ast_counter = 0;
 
 	/* Initialize the AST */

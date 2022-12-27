@@ -3,9 +3,11 @@
  *
  * \brief Unit tests for First In First Out buffer service
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -375,15 +377,6 @@ int main (void)
 	sysclk_init();
 	board_init();
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-
-#if defined(__GNUC__) && defined(__AVR32__)
-	// This unit test will be launched on a test-server, using avr32program.
-	// The reset is done through the OCD. The 'setbuf' command allows to make the
-	// application starts correctly: it will not execute the 'breakpoint'
-	// instruction in _fstat_host (used by printf) and the core will not stay
-	// blocked on the 'breakpoint' instruction (executed in the debug mode).
-	setbuf(stdout, NULL);
-#endif
 
 	fifo_init(&test_fifo_desc, test_fifo_buffer, TEST_FIFO_BUFFER_LENGTH);
 

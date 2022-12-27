@@ -9,6 +9,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -189,14 +191,14 @@ ISR(pevc_int_handler,AVR32_PEVC_IRQ_GROUP,0)
 int32_t i=0;
 	for(i=0;i<PEVC_NUMBER_OF_EVENT_USERS;i++) {
 		if(true == pevc_channel_is_trigger_interrupt_raised(ppevc, i)) {
-		// An overrun on the channel Id=i occured.
+		// An overrun on the channel Id=i occurred.
 		// Clear the interrupt
 		pevc_channel_clear_trigger_interrupt(ppevc, i);
 		touch_detect=true;
 		gpio_tgl_gpio_pin(LED0_GPIO);
 		}
 		if(true == pevc_channel_is_overrun_interrupt_raised(ppevc, i)) {
-			// An overrun on the channel Id=i occured.
+			// An overrun on the channel Id=i occurred.
 			// Clear the interrupt
 			pevc_channel_clear_overrun_interrupt(ppevc, i);
 			touch_detect=true;
@@ -313,8 +315,8 @@ t_cpu_time timeout;
 
 	init_sys_clocks();
 	init_dbg_rs232(FPBA_HZ);
-	print_dbg("\x0CPEVC Dirver - EXAMPLE 3\r\n");
-	print_dbg("AVR32 UC3 - PEVC Sofware event example\r\n");
+	print_dbg("\x0CPEVC Driver - EXAMPLE 3\r\n");
+	print_dbg("AVR32 UC3 - PEVC Software event example\r\n");
 
 	// Initialize and enable interrupt
 	irq_initialize_vectors();

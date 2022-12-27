@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -74,7 +76,7 @@ bool controller_key_fct4(void);
 //! Local definition for controller Key 5: Middle Button (Noise Signal)
 bool controller_key_fct5(void);
 
-/*! \brief TWI Initialisation for QTouch Controller
+/*! \brief TWI Initialization for QTouch Controller
  */
 static void controller_twi_init(void)
 {

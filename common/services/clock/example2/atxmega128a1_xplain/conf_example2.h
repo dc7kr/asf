@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -41,7 +43,7 @@
 #ifndef CONF_EXAMPLE2_H_INCLUDED
 #define CONF_EXAMPLE2_H_INCLUDED
 
-//! \note Clock output on PD7 wich is available as a header on the XPLAIN
+//! \note Clock output on PD7 which is available as a header on the XPLAIN
 #define CLKOUT_PORT     PORTCFG_CLKOUT_PD7_gc
 #define IOPORT_PIN      IOPORT_CREATE_PIN(PORTD, 7)
 

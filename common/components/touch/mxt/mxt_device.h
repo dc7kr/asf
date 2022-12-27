@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -100,7 +102,7 @@ enum mxt_object_type {
 /* @} */
 
 /* Align struct members to bytes for communication objects */
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 
 /** \brief Identification header */
 struct mxt_info_object {
@@ -176,7 +178,7 @@ struct mxt_touch_event {
 };
 
 /* Reset struct member alignment */
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
 /** \brief Map of the report ID vs object type and instance */
 struct mxt_report_id_map {
@@ -273,7 +275,7 @@ status_code_t mxt_process_messages(struct mxt_device *device);
  * This is the quick start guide for the \ref mxt_group "maXTouch component"
  * The guide will give you a step-by-step introduction on how to setup and
  * use the component to be able to read touch responses from the maXTouch
- * xplained kit.
+ * Xplained kit.
  *
  * The use cases contain several code fragments. The code fragments in the
  * steps for setup can be copied into a custom initialization function, while
@@ -291,7 +293,7 @@ status_code_t mxt_process_messages(struct mxt_device *device);
  *
  * \section mxt_device_use_case_setup Setup steps
  *
- * \subsection mxt_device_use_case_setup_prereq Prerequisities
+ * \subsection mxt_device_use_case_setup_prereq Prerequisites
  * For the setup code of this use csse to work, the following is
  * needed:
  * -# An empty XMEGA-A1 Xplained board project.
@@ -343,7 +345,7 @@ status_code_t mxt_process_messages(struct mxt_device *device);
  * -# The last ting we have to do before the device is ready for use is to set
  *    the CHG pin modus to 1. Which means that the pin will stay low until the
  *    message queue is empty instead of strobing each time a new message is
- *    received. To achive that we write 1 to the CHG_MODE bit position in the
+ *    received. To achieve that we write 1 to the CHG_MODE bit position in the
  *    T18 objects control register:
  *   - \code
  *      mxt_write_config_reg(&device, mxt_get_object_address(&device,

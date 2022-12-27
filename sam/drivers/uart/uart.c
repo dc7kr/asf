@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -277,8 +279,8 @@ uint32_t uart_is_tx_ready(Uart *p_uart)
  *
  * \param p_uart Pointer to a UART instance.
  *
- * \retval 1 Transmitter is emtpy.
- * \retval 0 Transmitter is not emtpy.
+ * \retval 1 Transmitter is empty.
+ * \retval 0 Transmitter is not empty.
  */
 uint32_t uart_is_tx_empty(Uart *p_uart)
 {

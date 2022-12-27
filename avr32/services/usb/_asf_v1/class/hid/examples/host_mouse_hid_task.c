@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -240,7 +242,7 @@ static void disp_led_mouse(void)
 //! @brief Display the mouse pointer on a terminal.
 //!
 //! This function displays a mouse cursor through the USART port.
-//  The terminal shall takein charge the use of ANSI code.
+//  The terminal shall take in charge the use of ANSI code.
 //!
 static void disp_ascii_mouse(void)
 {

@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -260,7 +262,7 @@ __attribute__((__packed__))
   U8      bDescriptorType;      //!< CONFIGURATION descriptor type
   U16     wTotalLength;         //!< Total length of data returned
   U8      bNumInterfaces;       //!< Number of interfaces for this conf.
-  U8      bConfigurationValue;  //!< Value for SetConfiguration resquest
+  U8      bConfigurationValue;  //!< Value for SetConfiguration request
   U8      iConfiguration;       //!< Index of string descriptor
   U8      bmAttributes;         //!< Configuration characteristics
   U8      MaxPower;             //!< Maximum power consumption
@@ -332,7 +334,7 @@ __attribute__((__packed__))
 {
   U8      bLength;              //!< Size of this descriptor in bytes
   U8      bDescriptorType;      //!< Device Qualifier descriptor type
-  U16     bscUSB;               //!< Binay Coded Decimal Spec. release
+  U16     bscUSB;               //!< Binary Coded Decimal Spec. release
   U8      bDeviceClass;         //!< Class code assigned by the USB
   U8      bDeviceSubClass;      //!< Subclass code assigned by the USB
   U8      bDeviceProtocol;      //!< Protocol code assigned by the USB

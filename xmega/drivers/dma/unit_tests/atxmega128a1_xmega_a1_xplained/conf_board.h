@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -44,7 +46,7 @@
 //! State that huge memory access (beyond 64k RAM) should be enabled
 #define CONFIG_HAVE_HUGEMEM
 
-//! Enable USART0 on PORTC routed thru board controller to USB
+//! Enable USART0 on PORTC routed through board controller to USB
 #define CONF_BOARD_ENABLE_USARTC0
 
 #endif /* CONF_BOARD_H */

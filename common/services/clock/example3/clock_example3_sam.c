@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -118,7 +120,7 @@ static void wait_for_switches(void)
 }
 
 /**
- * \brief Handler for Sytem Tick interrupt.
+ * \brief Handler for System Tick interrupt.
  *
  * Process System Tick Event
  * Increments the ul_ms_ticks counter.
@@ -151,7 +153,7 @@ int main(void)
 	/* Configure specific CLKOUT pin */
 	gpio_configure_pin(GCLK_PIN, GCLK_PIN_FLAGS);
 
-	/* Configure the output clock source and frequence */
+	/* Configure the output clock source and frequency */
 	genclk_config_defaults(&gcfg, GENCLK_PCK_0);	
 	genclk_config_set_source(&gcfg, GENCLK_PCK_SRC_PLLACK);
 	genclk_config_set_divider(&gcfg, GENCLK_PCK_PRES_1);
@@ -165,7 +167,7 @@ int main(void)
 		wait_for_switches();
 
 		/*
-		 * Divide MCK frequency by 2. Now MCK = 32/60 (SAM3/SAM4) Mhz.
+		 * Divide MCK frequency by 2. Now MCK = 32/60 (SAM3/SAM4) MHz.
 		 */
 		sysclk_set_prescalers(SYSCLK_PRES_2);		
 		genclk_config_set_divider(&gcfg, GENCLK_PCK_PRES_2);
@@ -186,7 +188,7 @@ int main(void)
 #endif
 
 		/*
-		 * Switch to internal 4 Mhz RC.
+		 * Switch to internal 4 MHz RC.
 		 */
 		osc_enable(OSC_MAINCK_4M_RC);
 		osc_wait_ready(OSC_MAINCK_4M_RC);
@@ -196,7 +198,7 @@ int main(void)
 		wait_for_switches();
 
 		/*
-		 * Switch to external 12 Mhz crystal.
+		 * Switch to external 12 MHz crystal.
 		 */
 		osc_enable(OSC_MAINCK_XTAL);
 		osc_wait_ready(OSC_MAINCK_XTAL);

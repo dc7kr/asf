@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -187,7 +189,7 @@ int main(void)
   while (twi_master_read(TWI_EXAMPLE, &packet_received) != TWI_SUCCESS);
 
   // Verify that the received data matches the sent data.
-  for (int i = 0 ; i < PATTERN_TEST_LENGTH; ++i) {
+  for (uint32_t i = 0 ; i < PATTERN_TEST_LENGTH; ++i) {
 
     if (data_received[i] != test_pattern[i]) {
       // Error

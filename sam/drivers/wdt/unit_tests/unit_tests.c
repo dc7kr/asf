@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -93,13 +95,6 @@
  * \brief Init watchdog, restart it and trigger it.
  */
 //@}
-
-/* Pointer to the module instance to use for stdio. */
-#if defined(__GNUC__)
-void (*ptr_get)(void volatile*,int*);
-int (*ptr_put)(void volatile*,int);
-volatile void *volatile stdio_base;
-#endif
 
 /* Is set to 1 when a watchdog interrupt happens */
 static volatile int gs_wdt_triggered = 0U;
@@ -192,10 +187,6 @@ int main(void)
 		while (1) {
 		}
 	}
-
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
 
 	/* Define all the test cases */
 	DEFINE_TEST_CASE(wdt_test, NULL, run_wdt_test, NULL,

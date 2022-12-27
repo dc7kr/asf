@@ -9,6 +9,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -46,7 +48,7 @@
  *
  * The given example covers a use of PEVC controller and demonstrates how to
  *  use it.
- * In the present example the AST generate a peridic event, this one is transmitted
+ * In the present example the AST generate a periodic event, this one is transmitted
  * to the PDCA. Each time a new event is coming, a character is sent to the
  * USART without the use of the CPU. The main loop of the function is a delay 500ms and
  * toggle LED 1 continuously to show CPU activity.
@@ -277,7 +279,7 @@ static void init_sys_clocks(void)
 }
 
 /*! \brief This example show a DMA transfer to USART controlled by the AST
-    peridic alarm using the PEVC.
+    periodic alarm using the PEVC.
  */
 int main(void)
 {

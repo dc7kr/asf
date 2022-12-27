@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -125,6 +127,9 @@
 //! @}
 
 /*! \name External Event Selection
+ *
+ * \attention See \ref tc_attention_eevt "this note" for important details about
+ * this setting.
  */
 //! @{
 #define TC_EXT_EVENT_SEL_TIOB_INPUT             AVR32_TC_EEVT_TIOB_INPUT
@@ -360,6 +365,8 @@ typedef struct
   //!   - \ref TC_EXT_EVENT_SEL_XC0_OUTPUT;\n
   //!   - \ref TC_EXT_EVENT_SEL_XC1_OUTPUT;\n
   //!   - \ref TC_EXT_EVENT_SEL_XC2_OUTPUT.
+  //! \attention See \ref tc_attention_eevt "this note" for important details
+  //! about this setting.
   unsigned int eevt            : 2;
 
   //! External event edge selection:\n
@@ -465,6 +472,15 @@ extern int tc_init_capture(volatile avr32_tc_t *tc, const tc_capture_opt_t *opt)
  *
  * \retval 0 Success.
  * \retval TC_INVALID_ARGUMENT Invalid argument(s).
+ *
+ * \anchor tc_attention_eevt
+ * \attention If the external event selection, \ref tc_waveform_opt_t::eevt
+ * "EEVT", is set to \ref TC_EXT_EVENT_SEL_TIOB_INPUT or the equivalent value 0,
+ * TIOB becomes an input even if external event triggers
+ * are \e not enabled (\ref tc_waveform_opt_t::enetrg "ENETRG").\n
+ * Therefore, unless it is the intention to use TIOB as an external event trigger,
+ * \ref tc_waveform_opt_t::eevt "EEVT" should be set to any other value than
+ * \ref TC_EXT_EVENT_SEL_TIOB_INPUT to allow normal operation of TIOB.
  */
 extern int tc_init_waveform(volatile avr32_tc_t *tc, const tc_waveform_opt_t *opt);
 

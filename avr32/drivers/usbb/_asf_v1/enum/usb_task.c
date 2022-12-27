@@ -25,6 +25,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -133,7 +135,7 @@ static const char log_device_disconnected[] = "Device disconnected\r\n";
 
 //!
 //! Private: U8 private_sof_counter
-//! Incremented  by host SOF interrupt subroutime
+//! Incremented  by host SOF interrupt subroutine
 //! This counter is used to detect time-out in host requests.
 //! It must not be modified by the user applicative tasks.
 volatile U32 private_sof_counter;
@@ -214,7 +216,7 @@ static void usb_general_interrupt(void);
 //! @brief This function initializes the USB process.
 //!
 //! Depending on the mode supported (HOST/DEVICE/DUAL_ROLE) the function
-//! calls the coresponding USB mode initialization function
+//! calls the corresponding USB mode initialization function
 void usb_task_init(void)
 {
 #ifdef FREERTOS_USED
@@ -301,10 +303,10 @@ void usb_task(void *pvParameters)
 }
 
 
-//! @brief Entry point of the USB mamnagement
+//! @brief Entry point of the USB management
 //!
 //! Depending on the USB mode supported (HOST/DEVICE/DUAL_ROLE) the function
-//! calls the coresponding USB management function.
+//! calls the corresponding USB management function.
 #ifndef FREERTOS_USED
 void usb_task(void)
 {
@@ -432,7 +434,7 @@ static void usb_general_interrupt(void)
       {
         if (usb_connected)
         {
-          // Device mode diconnection actions
+          // Device mode disconnection actions
           usb_connected = false;
           usb_configuration_nb = 0;
           Usb_vbus_off_action();
@@ -441,7 +443,7 @@ static void usb_general_interrupt(void)
       // Previously in host mode, check if disconnection was detected
       else if (Is_host_attached())
       {
-        // Host mode diconnection actions
+        // Host mode disconnection actions
         device_state = DEVICE_UNATTACHED;
         Host_device_disconnection_action();
       }
@@ -603,7 +605,7 @@ static void usb_general_interrupt(void)
 #else
       private_sof_counter++;
 #endif
-      // Delay time-out management for interrupt tranfer mode in host mode
+      // Delay time-out management for interrupt transfer mode in host mode
   #if USB_HOST_PIPE_INTERRUPT_TRANSFER == ENABLE && TIMEOUT_DELAY_ENABLE == ENABLE
       if (private_sof_counter >= 250) // Count 250 ms (SOF @ 1 ms)
       {

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -48,9 +50,11 @@
  *
  *  \par Requirements
  *
- *  This package can be used with all SAM3-EK boards. Before running, make sure to 
+ *  This package can be used with all SAM-EK boards. Before running, make sure to 
  *  connect two boards with RS485 lines. Match each paired pins of two boards 
  *  respectively with A to A, B to B and FGND to FGND.
+ *
+ *  Please refer to the board user guide for the details of RS485 jumper settings.
  *
  *  \par Description
  *
@@ -118,6 +122,7 @@
 
 #include <string.h>
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_example.h"
@@ -174,9 +179,9 @@ uint8_t g_uc_transmit_buffer[BUFFER_SIZE] = "DESCRIPTION of this example: \r\n \
  *  This example connects two boards through RS485 interface. One board acts \r\n\
  *  as the transmitter and the other one as the receiver. It is determined by \r\n\
  *  the sequence the two applications started. The earlier started board will \r\n\
- *  act automatically as the receiver due to no acknowledgment received. The \r\n\
+ *  act automatically as the receiver due to no acknowledgement received. The \r\n\
  *  receiver will wait until sync character is received. Then it sends the \r\n\
- *  acknowledgment and waits for the full frame sent by the transmitter. \r\n\
+ *  acknowledgement and waits for the full frame sent by the transmitter. \r\n\
  *  At the end of reception, it prints out message through UART interface to \r\n\
  *  assert that the whole process succeeds.\r\n\
  **************************************************************************\r\n\
@@ -307,27 +312,14 @@ static void configure_systick(void)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -344,7 +336,7 @@ int main(void)
 	uint32_t time_elapsed = 0;
 	uint32_t ul_i;
 
-	/* Initialize the SAM3 system. */
+	/* Initialize the SAM system. */
 	sysclk_init();
 	board_init();
 

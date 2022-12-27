@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -175,7 +177,7 @@ static void tc_irq(void)
 static void tc_init(volatile avr32_tc_t *tc)
 {
 
-	// Options for waveform genration.
+	// Options for waveform generation.
 	static const tc_waveform_opt_t waveform_opt = {
 		// Channel selection.
 		.channel  = EXAMPLE_TC_CHANNEL,

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -61,14 +63,14 @@ void ui_wakeup(void)
 {
 }
 
-void ui_com_open(void)
+void ui_com_open(uint8_t port)
 {
 	// Here the COM port has been open on terminal
 	ui_b_dtr_enable = true;
 	ui_b_error_occur = false; // Reset error notification
 }
 
-void ui_com_close(void)
+void ui_com_close(uint8_t port)
 {
 	// Here the COM port has been close on terminal
 	ui_b_dtr_enable = false;
@@ -118,7 +120,7 @@ void ui_process(uint16_t framenumber)
 			// Blink each 0.5s
 			frequency = 500;
 		}else{
-			// Port is open and an error has occured
+			// Port is open and an error has occurred
 			// Blink each 250ms
 			frequency = 250;
 		}
@@ -134,7 +136,7 @@ void ui_process(uint16_t framenumber)
  * \defgroup UI User Interface
  *
  * Human interface on uc3b board controller:
- * - Led 0 blink (each 1s) when CDC is enumarated by host
+ * - Led 0 blink (each 1s) when CDC is enumerated by host
  * - Led 0 blink (each 0.5s) when communication port is open by a terminal
  * - Led 0 blink (each 0.25s) when an underflow/overflow occurs
  * - Led 1 is on during data transfer

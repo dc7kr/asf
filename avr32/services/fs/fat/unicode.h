@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -64,7 +66,7 @@
 
 //! Detect the text format via a header (3 bytes)
 //!
-//! @param  header      header to analyse (array of 3B)
+//! @param  header      header to analyze (array of 3B)
 //!
 //! @return text format identifier
 //!

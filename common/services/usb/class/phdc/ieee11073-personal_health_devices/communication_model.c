@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -60,7 +62,7 @@ uint8_t ieee11073_g_metadata_out[IEEE11073_LGT_METADATA_OUT];
 //! @}
 
 
-//! @defgroup IEEE11073_COM_MODEL_STATE Communication model processus states
+//! @defgroup IEEE11073_COM_MODEL_STATE Communication model processing states
 //! @{
 #define  IEEE11073_STATE_DISABLE       0
 #define  IEEE11073_STATE_WAIT_ASSOC    1
@@ -70,7 +72,7 @@ uint8_t ieee11073_g_state = IEEE11073_STATE_DISABLE;
 
 
 //! @defgroup IEEE11073_COM_MODEL_EVENT Internal events
-//! for communication model processus
+//! for communication model processing
 //! @{
 #define  IEEE11073_EVENT_NONE          0
 #define  IEEE11073_EVENT_ENABLE        1
@@ -142,7 +144,7 @@ void ieee11073_received(uint16_t nb_received);
 void ieee11073_sent(uint16_t nb_send);
 
 
-/*! \brief Enable the communication model processus
+/*! \brief Enable the communication model processing
  *
  * \retval true
  */
@@ -152,7 +154,7 @@ bool ieee11073_com_model_enable(void)
 	return true;
 }
 
-/*! \brief Disable the communication model processus
+/*! \brief Disable the communication model processing
  */
 void ieee11073_com_model_disable(void)
 {
@@ -268,7 +270,7 @@ bool ieee11073_com_model_process(void)
 		switch (ieee11073_g_event) {
 		case IEEE11073_EVENT_RECEIVED:
 			ieee11073_decode_metadata();
-			// Restart recption
+			// Restart reception
 			if (!ieee11073_enable_reception())
 				goto ieee11073_com_model_process_end;
 			break;
@@ -322,7 +324,7 @@ static bool ieee11073_enable_reception(void)
 /*! \brief Start the data  reception on communication line
  *
  * \retval true   Metadata correct
- * \retval false  Metadata unknow
+ * \retval false  Metadata unknown
  */
 static bool ieee11073_decode_metadata(void)
 {

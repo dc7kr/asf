@@ -237,7 +237,6 @@
 					<name>CCDefines</name>
 					<state></state>
 					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
-					<state>GFX_INITIALIZED=1</state>
 					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
@@ -564,7 +563,6 @@
 				<option>
 					<name>ADefines</name>
 					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
-					<state>GFX_INITIALIZED=1</state>
 					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
@@ -1280,7 +1278,6 @@
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
 					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
-					<state>GFX_INITIALIZED=1</state>
 					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
@@ -1607,7 +1604,6 @@
 				<option>
 					<name>ADefines</name>
 					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
-					<state>GFX_INITIALIZED=1</state>
 					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>

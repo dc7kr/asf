@@ -3,9 +3,11 @@
  *
  * \brief Unit tests for common clock service
  *
- * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -119,7 +121,7 @@
 //@}
 
 //! Pointer to the external low level write function.
-extern int (*ptr_put)(void volatile*,int);
+extern int (*ptr_put)(void volatile*,char);
 
 //! USART initialize with the CONFIG_PBA_HZ
 int usart_ready = 0;
@@ -419,16 +421,7 @@ int main (void)
 	//usart can work only after we call sysclk_init, because the
 	//PBA clock initialized with correct value which used by usart
 	//So, we output the information to one buffer before usart can work.
-	ptr_put = (int (*)(void volatile*,int))&usart_write_char_buf;
-
-#if defined(__GNUC__) && defined(__AVR32__)
-	// This unit test will be launched on a test-server, using avr32program.
-	// The reset is done through the OCD. The 'setbuf' command allows to make the
-	// application starts correctly: it will not execute the 'breakpoint'
-	// instruction in _fstat_host (used by printf) and the core will not stay
-	// blocked on the 'breakpoint' instruction (executed in the debug mode).
-	setbuf(stdout, NULL);
-#endif
+	ptr_put = (int (*)(void volatile*,char))&usart_write_char_buf;
 
 	// Define all the test cases.
 	DEFINE_TEST_CASE(osc_test, NULL, run_osc_test, cleanup_osc_test,

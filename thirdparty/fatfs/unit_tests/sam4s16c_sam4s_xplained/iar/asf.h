@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -97,7 +99,7 @@
 // From module: Standard serial I/O (stdio) - SAM implementation
 #include <stdio_serial.h>
 
-// From module: Supported ports of FatFS 
+// From module: Supported ports of FatFS
 #include <diskio.h>
 
 // From module: System Clock Control - SAM4S implementation

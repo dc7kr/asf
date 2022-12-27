@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -77,7 +79,7 @@
 volatile uint32_t ul_ms_ticks = 0;
 
 /**
- * \brief Handler for Sytem Tick interrupt.
+ * \brief Handler for System Tick interrupt.
  *
  * Process System Tick Event increments the timestamp counter.
  */
@@ -103,15 +105,14 @@ static void mdelay(uint32_t ul_dly_ticks)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings = {
-		sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
 	};
-
-	/* Enable the peripheral clock for console UART */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART peripheral */
-	uart_init(CONSOLE_UART, &uart_console_settings);
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -124,7 +125,7 @@ int main(void)
 	int8_t temperature_int = 0;
 	uint32_t temperature_dec = 0;
 
-	/* Initilize the SAM system */
+	/* Initialize the SAM system */
 	sysclk_init();
 	board_init();
 
@@ -163,14 +164,14 @@ int main(void)
 	/* Set temperature limit and then get it. */
 	mcp980x_set_temperature_limit(TEMP_LIMIT_MAX, TEMP_LIMIT_DEC);
 	mcp980x_get_temperature_limit(&temperature_int, &temperature_dec);
-	printf("Temperature Limit:      %d.%04u\r\n", temperature_int,
-			temperature_dec);
+	printf("Temperature Limit:      %d.%04lu\r\n", temperature_int,
+			(unsigned long)temperature_dec);
 
 	/* Set temperature hysteresis and then get it. */
 	mcp980x_set_temperature_hysteresis(TEMP_LIMIT_MIN, TEMP_LIMIT_DEC);
 	mcp980x_get_temperature_hysteresis(&temperature_int, &temperature_dec);
-	printf("Temperature Hysteresis: %d.%04u\r\n", temperature_int,
-			temperature_dec);
+	printf("Temperature Hysteresis: %d.%04lu\r\n", temperature_int,
+			(unsigned long)temperature_dec);
 
 	while (1) {
 		/* Enable One-Shot mode to perform a single temperature measurement. */
@@ -185,8 +186,8 @@ int main(void)
 				&temperature_dec)) {
 			break;
 		}
-		printf("Ambient Temperature:    %d.%04u\r\n", temperature_int,
-				temperature_dec);
+		printf("Ambient Temperature:    %d.%04lu\r\n", temperature_int,
+				(unsigned long)temperature_dec);
 	}
 
 	printf("TWI bus operation error!\r\n");

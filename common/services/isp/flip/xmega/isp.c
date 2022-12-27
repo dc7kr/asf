@@ -3,9 +3,11 @@
  *
  * \brief In system programming to control security, memories and fuse bits
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -53,8 +55,14 @@
 
 
 /**
- * \defgroup isp In System Programming
- * to manage security, memories and fuse bits
+ * \ingroup isp
+ * \defgroup isp_implementation In System Programming XMEGA implementation
+ * This implementation links the XMEGA NVM functions to the common isp API.
+ * Also, it manage :
+ * - the flash access security
+ * - the JTAG ID information storage
+ * - the bootloader version storage
+ * - the start appli operation through software reset
  *
  * @{
  */
@@ -127,7 +135,7 @@ static void mem_eeprom_write(isp_addr_t dst, const void *src, uint16_t nbytes)
 {
 #if (FLASH_SIZE==0x10000)
 	// Optimize CODE space (150B), but decrease the speed
-   	// 24s to progam 2KB instead of 1s
+   	// 24s to program 2KB instead of 1s
 	while (nbytes--) {
 		nvm_eeprom_write_byte(dst++, *(uint8_t*)src);
 		src = (uint8_t*)src + 1;
@@ -254,7 +262,7 @@ bool isp_erase_chip(void)
 void isp_start_appli(void)
 {
 	cpu_irq_disable();
-	// generate soft reset for xmega
+	// generate soft reset for Xmega
 	start_app_key=0x55AA;
 	ccp_write_io((uint8_t *)&RST.CTRL, RST.CTRL | RST_SWRST_bm);
 	while (1);

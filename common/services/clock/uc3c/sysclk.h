@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -125,7 +127,7 @@ extern "C" {
  * This use case will configure the main system clock to 48MHz, using an internal PLL
  * module to multiply the frequency of a crystal attached to the microcontroller. The peripheral bus
  * clocks will be divided down by a factor of two, and the USB clock will be configured via a
- * seperate PLL module.
+ * separate PLL module.
  *
  * \subsection sysclk_quickstart_use_case_2_prereq Prerequisites
  *  - None

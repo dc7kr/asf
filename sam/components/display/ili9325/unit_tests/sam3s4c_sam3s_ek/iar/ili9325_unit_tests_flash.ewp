@@ -743,7 +743,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1652,7 +1652,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1872,16 +1872,16 @@
 			</group>
 		</group>
 		<group>
-			<name>utils</name>
+			<name>boards</name>
 			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
-				</group>
+				<name>sam3s_ek</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../boards/sam3s_ek/init.c</name>
+				</file>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
 			<group>
 				<name>cmsis</name>
 				<group>
@@ -1905,15 +1905,6 @@
 						</group>
 					</group>
 				</group>
-			</group>
-		</group>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>sam3s_ek</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../boards/sam3s_ek/init.c</name>
-				</file>
 			</group>
 		</group>
 	</group>

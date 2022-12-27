@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -60,10 +62,10 @@
  * - conf_sysfont.h: system font configuration
  * - conf_twim.h: TWI driver configuration
  * - conf_usb.h: USB stack configuration
- * - UC3 only: conf_spi_master.h: SPI master service configuration
+ * - UC3 and SAM only: conf_spi_master.h: SPI master service configuration
  * - XMEGA only: conf_usart_spi.h: USART SPI service configuration
  *
- * \section apiinfo maXTouch lowlevel component API
+ * \section apiinfo maXTouch low level component API
  * The maXTouch component API can be found \ref mxt_group "here", while the
  * graphics service API can be found \ref gfx_group "here".
  *
@@ -71,6 +73,7 @@
  * This example has been tested with the mXT143E Xplained on the following kits:
  * - UC3-A3 Xplained
  * - XMEGA-A3BU Xplained
+ * - SAM4S Xplained 
  *
  * \section exampledescription Description of the example
  * When the Xplained board is connected to a host computer supporting the USB
@@ -99,12 +102,17 @@
 static bool main_b_mouse_enable = false;
 
 /**
- * \brief Set the predefined, optimal maXTouch configuration
+ * \brief Set maXTouch configuration
  *
- * \param *device Pointer to mxt_device struct
+ * This function writes a set of predefined, optimal maXTouch configuration data
+ * to the mXT143E Xplained.
+ *
+ * \param device Pointer to mxt_device struct
  */
-static void mxt_set_config(struct mxt_device *device)
+static void mxt_init(struct mxt_device *device)
 {
+	enum status_code status;
+
 	/* T8 configuration object data */
 	uint8_t t8_object[] = {
 		0x10, 0x05, 0x0a, 0x14, 0x64, 0x00, 0x05,
@@ -132,8 +140,30 @@ static void mxt_set_config(struct mxt_device *device)
 		0x00, 0x00, 0x00, 0x00, 0x00
 	};
 
-	/* Writing data to configuration register in T7 configuration
-	 * object */
+	/* TWI configuration */
+	twi_master_options_t twi_opt = {
+		.speed = MXT_TWI_SPEED,
+		.chip  = MAXTOUCH_TWI_ADDRESS,
+	};
+
+	status = twi_master_setup(TWI_INTERFACE, &twi_opt);
+	Assert(status == STATUS_OK);
+
+	/* Initialize the maXTouch device */
+	status = mxt_init_device(device, TWI_INTERFACE,
+			MAXTOUCH_TWI_ADDRESS, MXT143E_XPLAINED_CHG);
+	Assert(status == STATUS_OK);
+
+	/* Issue soft reset of maXTouch device by writing a non-zero value to
+	 * the reset register */
+	mxt_write_config_reg(device, mxt_get_object_address(device,
+			MXT_GEN_COMMANDPROCESSOR_T6, 0)
+			+ MXT_GEN_COMMANDPROCESSOR_RESET, 0x01);
+
+	/* Wait for the reset of the device to complete */
+	delay_ms(MXT_RESET_TIME);
+
+	/* Write data to configuration registers in T7 configuration object */
 	mxt_write_config_reg(device, mxt_get_object_address(device,
 			MXT_GEN_POWERCONFIG_T7, 0) + 0, 0xff);
 	mxt_write_config_reg(device, mxt_get_object_address(device,
@@ -141,13 +171,19 @@ static void mxt_set_config(struct mxt_device *device)
 	mxt_write_config_reg(device, mxt_get_object_address(device,
 			MXT_GEN_POWERCONFIG_T7, 0) + 2, 0x32);
 
-	/* Writing configuration data to configuration objects */
+	/* Write predefined configuration data to configuration objects */
 	mxt_write_config_object(device, mxt_get_object_address(device,
 			MXT_GEN_ACQUISITIONCONFIG_T8, 0), &t8_object);
 	mxt_write_config_object(device, mxt_get_object_address(device,
 			MXT_TOUCH_MULTITOUCHSCREEN_T9, 0), &t9_object);
 	mxt_write_config_object(device, mxt_get_object_address(device,
 			MXT_PROCG_TOUCHSUPPRESSION_T48, 0), &t48_object);
+
+	/* Issue recalibration command to maXTouch device by writing a non-zero
+	 * value to the calibrate register */
+	mxt_write_config_reg(device, mxt_get_object_address(device,
+			MXT_GEN_COMMANDPROCESSOR_T6, 0)
+			+ MXT_GEN_COMMANDPROCESSOR_CALIBRATE, 0x01);
 }
 
 /**
@@ -170,12 +206,6 @@ int main(void)
 	uint16_t virtual_sof;
 #endif
 
-	/* TWI configuration */
-	twi_master_options_t twi_opt = {
-		.speed = MXT_TWI_SPEED,
-		.chip  = MAXTOUCH_DEVICE_ADR
-	};
-
 	/* maXTouch data structure */
 	static struct mxt_device device;
 
@@ -193,43 +223,9 @@ int main(void)
 
 	/* Initialize the board */
 	board_init();
-
-	/* Setup TWI master to communicate to maXTouch device */
-	if (twi_master_setup(TWI_INTERFACE, &twi_opt) != STATUS_OK) {
-		Assert(false);
-	}
-
-	/* Proble for any available maXTouch device on the defined bus address */
-	if (mxt_probe_device(TWI_INTERFACE, MAXTOUCH_DEVICE_ADR) != STATUS_OK) {
-		Assert(false);
-	}
-
-	/* Initialize the maXTouch device on the defined bus address */
-	if (mxt_init_device(&device, TWI_INTERFACE, MAXTOUCH_DEVICE_ADR,
-			MAXTOUCH_CHG_PIN) != STATUS_OK) {
-		Assert(false);
-	}
-
-	/* Send softreset command to maXTouch device (send a non-zero value to
-	 * the defined offset */
-	mxt_write_config_reg(&device, mxt_get_object_address(&device,
-			MXT_GEN_COMMANDPROCESSOR_T6, 0) + MXT_GEN_COMMANDPROCESSOR_RESET, 1);
-
-	/* Wait for the reset of the device to complete */
-	delay_ms(MXT_RESET_TIME);
-
-	/* Set configuration */
-	mxt_set_config(&device);
-
-	/* Set CHG pin mode to 1 (stay low until message queue is empty */
-	mxt_write_config_reg(&device, mxt_get_object_address(&device,
-			MXT_SPT_COMMSCONFIG_T18, 0),
-			MXT_COMMSCONFIG_T18_CHG_MODE_bp << 1);
-
-	/* Re-calibrate device (send non-zero value to the defined offset*/
-	mxt_write_config_reg(&device, mxt_get_object_address(&device,
-			MXT_GEN_COMMANDPROCESSOR_T6, 0) +
-			MXT_GEN_COMMANDPROCESSOR_CALIBRATE, 0x1);
+	
+	/* Initialize the mXT touch device */
+	mxt_init(&device);
 
 	/* Initialize the graphical library */
 	gfx_init();

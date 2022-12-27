@@ -749,7 +749,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1664,7 +1664,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1845,15 +1845,15 @@
 							<file>
 								<name>$PROJ_DIR$/../../../udi_cdc.c</name>
 							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../udi_cdc_desc.c</name>
-							</file>
 							<group>
 								<name>unit_tests</name>
 								<file>
 									<name>$PROJ_DIR$/../../unit_tests.c</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../udi_cdc_desc.c</name>
+							</file>
 						</group>
 					</group>
 				</group>
@@ -1979,15 +1979,6 @@
 							</group>
 						</group>
 					</group>
-				</group>
-			</group>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../sam/utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
 				</group>
 			</group>
 		</group>

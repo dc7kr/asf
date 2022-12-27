@@ -3,9 +3,11 @@
  *
  * \brief Boot process definition for uc3 parts.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -46,9 +48,9 @@
 
 /**
  * \ingroup isp
- * \defgroup boot_uc3 Boot Process defintion for uc3 parts
+ * \defgroup boot_uc3 Boot Process definition for UC3 parts
  *
- * The behavior of the AT32UC3 boot process for bootloader is defined
+ * The behavior of the UC3 boot process for bootloader is defined
  * by the fuses values and two Words in the user page.
  *
  * The AT32UC3 boot process is described in both documents:

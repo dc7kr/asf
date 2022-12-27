@@ -4,11 +4,13 @@
  *
  * \brief Debugging module for the DSP library.
  * This file is used to make an abstraction of the driver used to control
- * the debugging periferal.
+ * the debugging peripheral.
  *
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -80,7 +82,7 @@ char dsp_debug_read_fct()
   return usart_getchar(EXAMPLE_USART);
 }
 
-//! this function intializes the USART module at "EXAMPLE_USART_BAUDRATE" bauds
+//! this function initializes the USART module at "EXAMPLE_USART_BAUDRATE" bauds
 void dsp_debug_init(int fosc)
 {
   static const gpio_map_t USART_GPIO_MAP =

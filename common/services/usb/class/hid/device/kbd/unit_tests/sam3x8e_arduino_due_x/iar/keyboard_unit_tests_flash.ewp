@@ -1837,6 +1837,15 @@
 		<group>
 			<name>utils</name>
 			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/stdio/read.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/stdio/write.c</name>
+				</file>
+			</group>
+			<group>
 				<name>interrupt</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
@@ -1848,18 +1857,18 @@
 					<name>$PROJ_DIR$/../../../../../../../../../utils/unit_test/suite.c</name>
 				</file>
 			</group>
-			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../utils/stdio/read.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../utils/stdio/write.c</name>
-				</file>
-			</group>
 		</group>
 		<group>
 			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam3x</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../clock/sam3x/sysclk.c</name>
+					</file>
+				</group>
+			</group>
 			<group>
 				<name>usb</name>
 				<group>
@@ -1911,57 +1920,18 @@
 					<name>$PROJ_DIR$/../../../../../../../../serial/usart_serial.c</name>
 				</file>
 			</group>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>sam3x</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../clock/sam3x/sysclk.c</name>
-					</file>
-				</group>
-			</group>
 		</group>
 	</group>
 	<group>
 		<name>sam</name>
 		<group>
-			<name>utils</name>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>cmsis</name>
-				<group>
-					<name>sam3x</name>
-					<group>
-						<name>source</name>
-						<group>
-							<name>templates</name>
-							<group>
-								<name>iar</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/iar/startup_sam3x.c</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/exceptions.c</name>
-							</file>
-						</group>
-					</group>
-				</group>
-			</group>
-		</group>
-		<group>
 			<name>drivers</name>
+			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/uart/uart.c</name>
+				</file>
+			</group>
 			<group>
 				<name>uotghs</name>
 				<file>
@@ -1977,17 +1947,38 @@
 			<group>
 				<name>pio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio/pio_handler.c</name>
-				</file>
-				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio/pio.c</name>
 				</file>
-			</group>
-			<group>
-				<name>uart</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/uart/uart.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio/pio_handler.c</name>
 				</file>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>cmsis</name>
+				<group>
+					<name>sam3x</name>
+					<group>
+						<name>source</name>
+						<group>
+							<name>templates</name>
+							<group>
+								<name>iar</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/iar/startup_sam3x.c</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/exceptions.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
+							</file>
+						</group>
+					</group>
+				</group>
 			</group>
 		</group>
 		<group>

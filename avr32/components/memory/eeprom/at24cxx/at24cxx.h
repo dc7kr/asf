@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -74,7 +76,7 @@ void at24cxx_init(int32_t fcpu);
 void at24cxx_write_byte(uint16_t byte_address, uint8_t byte_value);
 
 
-/*! \brief Write bytes continously to the serial EEPROM.
+/*! \brief Write bytes continuously to the serial EEPROM.
  *
  *  \param[in] start_address Address of first byte in transaction.
  *  \param[in] length Number of bytes to write.
@@ -97,7 +99,7 @@ void at24cxx_write_continuous(uint16_t start_address, uint16_t length, uint8_t c
 uint8_t at24cxx_read_byte(uint16_t byte_address) ;
 
 
-/*! \brief Read bytes continously from the serial EEPROM.
+/*! \brief Read bytes continuously from the serial EEPROM.
  *
  *  \param[in] start_address Address of first byte to read.
  *  \param[in] length Number of bytes to read.

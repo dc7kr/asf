@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -54,7 +56,7 @@
  *
  * See \ref xmega_ac_quickstart
  *
- * This is a driver for configuring, enablig, disabling and use of the on-chip
+ * This is a driver for configuring, enabling, disabling and use of the on-chip
  * analog comparator (AC).
  *
  * \section dependencies Dependencies
@@ -291,7 +293,7 @@ static inline void ac_set_negative_reference(struct ac_config *config,
  * \brief Set analog comparator hysteresis
  *
  * This function helps the caller setting the analog comparator hysteresis for
- * a channel configuration. The hysteresises are defined in the toolchain
+ * a channel configuration. The hysteresis are defined in the toolchain
  * header files in the form of \a AC_HYSMODE_*_gc, where * represents \a NONE,
  * \a SMALL and \a LARGE.
  *
@@ -469,7 +471,7 @@ static inline void ac_set_low_power_mode(struct ac_config *config)
  * ac_set_positive_reference(&aca_config, AC_MUXPOS_PIN1_gc);
  * \endcode
  *
- * We set the interrrupt mode to call the interrupt function on
+ * We set the interrupt mode to call the interrupt function on
  * both edges, the interrupt level to medium, and set the callback
  * function:
  *

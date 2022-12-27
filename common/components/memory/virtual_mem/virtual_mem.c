@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -77,13 +79,14 @@
 # if (0 != (VMEM_ADDRESS & 0x3))
 #   error VMEM_ADDRESS defined in conf_virtual_mem.h must be a WORD address
 # endif
+# if (VMEM_ADDRESS + (VMEM_NB_SECTOR * VMEM_SECTOR_SIZE) - 1) > UINTPTR_MAX
+#  include <hugemem.h>
+static hugemem_ptr_t vmem_data = (hugemem_ptr_t)VMEM_ADDRESS;
+# else
 static uint8_t* vmem_data = (uint8_t*)VMEM_ADDRESS;
-#else
-# if defined(__GNUC__) && (UC3 || SAM)
-	__attribute__((__aligned__(4)))
-# elif (defined __ICCAVR32__) || (defined __ICCARM__)
-	#pragma data_alignment = 4
 # endif
+#else
+COMPILER_WORD_ALIGNED
 static uint8_t vmem_data[VMEM_NB_SECTOR * VMEM_SECTOR_SIZE];
 #endif
 
@@ -157,8 +160,40 @@ bool virtual_removal(void)
 //!   Not initialized or changed ->    CTRL_BUSY
 //!   An error occurred          ->    CTRL_FAIL
 //!
-static Ctrl_status virtual_usb_trans(uint32_t addr, uint16_t nb_sector, bool b_read)
+static Ctrl_status virtual_usb_trans(uint32_t addr, uint16_t nb_sector,
+		bool b_read)
 {
+/* USB DMA for XMEGA only works on internal RAM, so use a temporal buffer if
+ * it's outside this.
+ */
+#if (VMEM_ADDRESS + (VMEM_NB_SECTOR * VMEM_SECTOR_SIZE) - 1) > UINTPTR_MAX
+	uint8_t       buffer[VMEM_SECTOR_SIZE];
+	hugemem_ptr_t ptr_cram;
+
+	if ((addr > VMEM_NB_SECTOR) ||  (addr + nb_sector > VMEM_NB_SECTOR)) {
+		return CTRL_FAIL;
+	}
+
+	while (nb_sector) {
+		ptr_cram = (hugemem_ptr_t)((uint32_t)vmem_data
+				+ (addr++ * VMEM_SECTOR_SIZE));
+		if (b_read) {
+			hugemem_read_block(buffer, ptr_cram, VMEM_SECTOR_SIZE);
+			if (!udi_msc_trans_block(b_read, buffer,
+						VMEM_SECTOR_SIZE, NULL)) {
+				return CTRL_FAIL; // transfer aborted
+			}
+		} else {
+			if (!udi_msc_trans_block(b_read, buffer,
+						VMEM_SECTOR_SIZE, NULL)) {
+				return CTRL_FAIL; // transfer aborted
+			}
+			hugemem_write_block(ptr_cram, buffer,
+					VMEM_SECTOR_SIZE);
+		}
+		nb_sector -= 1;
+	}
+#else
 	uint8_t *ptr_cram;
 	uint8_t nb_sector_trans;
 
@@ -172,10 +207,11 @@ static Ctrl_status virtual_usb_trans(uint32_t addr, uint16_t nb_sector, bool b_r
 		ptr_cram = &vmem_data[addr++ * VMEM_SECTOR_SIZE];
 		if (!udi_msc_trans_block( b_read, ptr_cram,
 				nb_sector_trans*VMEM_SECTOR_SIZE, NULL)) {
-			return CTRL_FAIL; // transfert aborted
+			return CTRL_FAIL; // transfer aborted
 		}
 		nb_sector -= nb_sector_trans;
 	}
+#endif
 
 	return CTRL_GOOD;
 }
@@ -222,7 +258,7 @@ Ctrl_status virtual_usb_write_10(uint32_t addr, uint16_t nb_sector)
 
 #include <string.h>
 
-//! This function tranfers 1 data sector from memory to RAM
+//! This function transfers 1 data sector from memory to RAM
 //! sector = 512 bytes
 //! @param addr         Sector address to start read
 //! @param ram          Address of RAM buffer
@@ -239,12 +275,18 @@ Ctrl_status virtual_mem_2_ram(uint32_t addr, void *ram)
 
 	// If overflow (possible with size virtual mem < 8 sectors) then read the last sector
 	addr = min(addr, VMEM_NB_SECTOR - 1);
+#if (VMEM_ADDRESS + (VMEM_NB_SECTOR * VMEM_SECTOR_SIZE) - 1) > UINTPTR_MAX
+	hugemem_read_block(ram, (hugemem_ptr_t)((uint32_t)vmem_data + addr
+				* VMEM_SECTOR_SIZE), VMEM_SECTOR_SIZE);
+#else
 	memcpy(ram, &vmem_data[addr * VMEM_SECTOR_SIZE], VMEM_SECTOR_SIZE);
+#endif
+
 	return CTRL_GOOD;
 }
 
 
-//! This function tranfers 1 data sector from memory to RAM
+//! This function transfers 1 data sector from memory to RAM
 //! sector = 512 bytes
 //! @param addr         Sector address to start write
 //! @param ram          Address of RAM buffer
@@ -259,7 +301,12 @@ Ctrl_status virtual_ram_2_mem(uint32_t addr, const void *ram)
 		return CTRL_FAIL;
 	}
 
+#if (VMEM_ADDRESS + (VMEM_NB_SECTOR * VMEM_SECTOR_SIZE) - 1) > UINTPTR_MAX
+	hugemem_write_block((hugemem_ptr_t)((uint32_t)vmem_data + addr
+				* VMEM_SECTOR_SIZE), ram, VMEM_SECTOR_SIZE);
+#else
 	memcpy(&vmem_data[addr * VMEM_SECTOR_SIZE], ram, VMEM_SECTOR_SIZE);
+#endif
 	return CTRL_GOOD;
 }
 

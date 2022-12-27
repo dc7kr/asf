@@ -744,7 +744,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1654,7 +1654,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1869,15 +1869,6 @@
 		<name>sam</name>
 		<group>
 			<name>utils</name>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
-				</group>
-			</group>
 			<group>
 				<name>cmsis</name>
 				<group>

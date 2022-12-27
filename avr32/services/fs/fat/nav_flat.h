@@ -14,6 +14,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -67,7 +69,7 @@
 //!
 bool  nav_flat_mount( void );
 
-//! This function initializes the falt list on the root directory
+//! This function initializes the file list on the root directory
 //!
 //! @return  false in case of error, see global value "fs_g_status" for more detail
 //! @return  true otherwise
@@ -125,7 +127,7 @@ uint16_t   nav_flat_get( void );
 //!
 bool  nav_flat_goto( uint16_t u16_newpos );
 
-//! This function searchs a file name in file list FLAT
+//! This function searches a file name in file list FLAT
 //!
 //! @param     sz_name        name to search (UNICODE or ASCII) <br>
 //!                           It must be terminated by NULL or '*' value

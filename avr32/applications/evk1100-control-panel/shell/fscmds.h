@@ -14,6 +14,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -51,7 +53,7 @@
  * Brief description of the module.
  * This module provides a set of shell & basic commands to interface with the file system.
  *
- * Detailled description of the module.
+ * Detailed description of the module.
  * TODO
  */
 
@@ -620,7 +622,7 @@ eExecStatus e_fscmds_shell_pwd( eModId xModId, signed short FsNavId,
 
 /*!
  *  \brief Check the FAT module global var fs_g_status to get the error that
- *         occured in the FAT module.
+ *         occurred in the FAT module.
  *
  *  \return a status translation of the FAT module error status.
  */

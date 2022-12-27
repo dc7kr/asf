@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -592,7 +594,7 @@ int usart_init_iso7816(volatile avr32_usart_t *usart, const usart_iso7816_option
   // Set FIDI register: bit rate = selected clock/FI_DI_ratio/16.
   usart->fidi = opt->fidi_ratio;
 
-  // Set ISO7816 spesific options in the MODE register.
+  // Set ISO7816 specific options in the MODE register.
   usart->mr |= opt->paritytype << AVR32_USART_MR_PAR_OFFSET |
                AVR32_USART_MR_CLKO_MASK | // Enable clock output.
                opt->inhibit_nack << AVR32_USART_MR_INACK_OFFSET |

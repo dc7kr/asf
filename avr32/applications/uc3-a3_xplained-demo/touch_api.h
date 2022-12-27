@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -172,7 +174,7 @@ Clock speed (MHz) Cycle time (us) Suitable charge times
 */
 #define TICKS_PER_MS                500u
 
-/* Initialization values for the Qtouch library parameters. */
+/* Initialization values for the QTouch library parameters. */
 /*
 * Sensor detect integration (DI) limit.
 * Default value: 4.
@@ -254,7 +256,7 @@ Clock speed (MHz) Cycle time (us) Suitable charge times
 #define QTLIB_NO_ACTIVITY             (uint16_t) 0x0000
 /* indicating that at least one sensor is in detect   */
 #define QTLIB_IN_DETECT               (uint16_t) 0x0001
-/* indicating that at least one sensor haschanged ON/OFF state since last call to measure_sensors */
+/* indicating that at least one sensor has changed ON/OFF state since last call to measure_sensors */
 #define QTLIB_STATUS_CHANGE           (uint16_t) 0x0002
 /* indicating that at least one rotor slider has changed position since last call to measure_sensors  */
 #define QTLIB_ROTOR_SLIDER_POS_CHANGE (uint16_t) 0x0004
@@ -529,7 +531,7 @@ Clock speed (MHz) Cycle time (us) Suitable charge times
 
     } y_line_info_t;
 
-    /* enumeration of recognised burst masks */
+    /* enumeration of recognized burst masks */
     typedef enum tag_burst_mask_t
     {
         BURST_MASK_Y, 	/*mask for y lines*/
@@ -886,7 +888,7 @@ extern void qt_enable_key(    channel_t channel,
 /*============================================================================
 Name     :  qt_init_sensing
 ------------------------------------------------------------------------------
-Purpose  :  initialise touch sensing
+Purpose  :  initialize touch sensing
 Input    :  n/a
 Output   :  n/a
 Notes    :  Any sensors required must be enabled (using qt_enable_xxx()) before

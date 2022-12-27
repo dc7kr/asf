@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -288,7 +290,7 @@ static void hx8347a_write_ram(hx8347a_color_t us_color)
 }
 
 /**
- * \brief Write mutiple data in buffer to LCD controller.
+ * \brief Write multiple data in buffer to LCD controller.
  *
  * \param p_ul_buf data buffer.
  * \param ul_size size in pixels.
@@ -335,8 +337,8 @@ static void hx8347a_read_ram_prepare(void)
 /**
  * \brief Read data to LCD GRAM.
  *
- * \note Because pixel data LCD GRAM is 18-bits, so convertion to RGB 24-bits
- * will cause low color bit lose.
+ * \note Because pixel data LCD GRAM is 18-bits, so conversion to RGB 24-bits
+ * will cause lost low color bits.
  *
  * \return 16-bits RGB color.
  */
@@ -420,7 +422,7 @@ static void hx8347a_check_box_coordinates(uint32_t *p_ul_x1, uint32_t *p_ul_y1,
  * 1. HX8347A related Pins have been initialized correctly. \n
  * 2. SMC has been configured correctly for access HX8347A (16-bit system interface for now). \n
  *
- * \param p_opt pointer to HX8347A option stucture.
+ * \param p_opt pointer to HX8347A option structure.
  *
  * \return 0 if initialization succeeds, otherwise fails.
  */

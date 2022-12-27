@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -485,7 +487,7 @@ int pwm_compare_match_setup(int line,pwm_compare_opt_t *pwm_compare_t)
                     ((pwm_compare_t->compare_pwm_update_period)        << AVR32_PWM_CMP0M_CUPR_OFFSET) |
                     ((pwm_compare_t->compare_status)                   << AVR32_PWM_CMP0M_CEN_OFFSET));
 
-  // configure Comparaison Period
+  // configure Comparison Period
   return PWM_SUCCESS;
 }
 

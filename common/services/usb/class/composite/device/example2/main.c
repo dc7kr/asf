@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -130,7 +132,7 @@ void main_remotewakeup_disable(void)
 	ui_wakeup_disable();
 }
 
-/*! \brief Example of extra USB string maangement
+/*! \brief Example of extra USB string management
  * This feature is available for single or composite device
  * which want implement additional USB string than
  * Manufacture, Product and serial number ID.
@@ -139,22 +141,22 @@ void main_remotewakeup_disable(void)
  */
 bool main_extra_string(void)
 {
-   static uint8_t udi_cdc_name[] = "CDC interface";
-   static uint8_t udi_msc_name[] = "MSC interface";
-   static uint8_t udi_hid_mouse_name[] = "HID mouse interface";
-   static uint8_t udi_hid_kbd_name[] = "HID keyboard interface";
+	static uint8_t udi_cdc_name[] = "CDC interface";
+	static uint8_t udi_msc_name[] = "MSC interface";
+	static uint8_t udi_hid_mouse_name[] = "HID mouse interface";
+	static uint8_t udi_hid_kbd_name[] = "HID keyboard interface";
 
-   struct extra_strings_desc_t{
+	struct extra_strings_desc_t{
 		usb_str_desc_t header;
 		le16_t string[Max(Max(Max( \
-        sizeof(udi_cdc_name)-1, sizeof(udi_msc_name)-1),\
-        sizeof(udi_hid_mouse_name)-1), sizeof(udi_hid_kbd_name)-1)];
-   };
-   static UDC_DESC_STORAGE struct extra_strings_desc_t extra_strings_desc = {
+			sizeof(udi_cdc_name)-1, sizeof(udi_msc_name)-1),\
+			sizeof(udi_hid_mouse_name)-1), sizeof(udi_hid_kbd_name)-1)];
+	};
+	static UDC_DESC_STORAGE struct extra_strings_desc_t extra_strings_desc = {
 		.header.bDescriptorType = USB_DT_STRING
-   };
+	};
 
-   uint8_t i;
+	uint8_t i;
 	uint8_t *str;
 	uint8_t str_lgt=0;
 
@@ -229,34 +231,34 @@ void main_keyboard_disable(void)
 	main_b_keyboard_enable = false;
 }
 
-bool main_cdc_enable(void)
+bool main_cdc_enable(uint8_t port)
 {
 	main_b_cdc_enable = true;
 	// Open communication
-	uart_open();
+	uart_open(port);
 	return true;
 }
 
-void main_cdc_disable(void)
+void main_cdc_disable(uint8_t port)
 {
 	main_b_cdc_enable = false;
 	// Close communication
-	uart_close();
+	uart_close(port);
 }
 
-void main_cdc_set_dtr(bool b_enable)
+void main_cdc_set_dtr(uint8_t port, bool b_enable)
 {
 	if (b_enable) {
 		// Host terminal has open COM
-		ui_com_open();
+		ui_com_open(port);
 	}else{
 		// Host terminal has close COM
-		ui_com_close();
+		ui_com_close(port);
 	}
 }
 
 /**
- * \mainpage ASF USB Composite Device
+ * \mainpage ASF USB Composite Device Example HIDs, CDC and MSC
  *
  * \section intro Introduction
  * This example shows how to implement a USB Composite Device with HID mouse,
@@ -280,7 +282,7 @@ void main_cdc_set_dtr(bool b_enable)
  * and the USB CDC interface.
  * And, the example uses the buttons or sensors available on the board
  * to simulate a standard mouse, keyboard.
- * After loading firmware, connect the board (EVKxx,XPlain,...) to the USB Host.
+ * After loading firmware, connect the board (EVKxx,Xplain,...) to the USB Host.
  * When connected to a USB host system this application allows to display
  * all available memories as a removable disks and provides a mouse in
  * the Unix/Mac/Windows operating systems.
@@ -290,9 +292,9 @@ void main_cdc_set_dtr(bool b_enable)
  * - Connect the application to a USB host (e.g. a PC)
  *   with a mini-B (embedded side) to A (PC host side) cable.
  * The application will behave as a virtual COM (see Windows Device Manager).
- * - Open a hyperterminal on both COM ports (RS232 and Virtual COM)
+ * - Open a HyperTerminal on both COM ports (RS232 and Virtual COM)
  * - Select the same configuration for both COM ports up to 115200 baud.
- * - Type a character in one hyperterminal and it will echo in the other.
+ * - Type a character in one HyperTerminal and it will echo in the other.
  *
  * \note
  * This example uses the native MSC and HID drivers on Unix/Mac/Windows OS, except for Win98.

@@ -38,6 +38,10 @@
 #include "lwip/sockets.h"
 #include "lwip/inet.h"
 #include "lwip/inet_chksum.h"
+#include "lwip/init.h"
+#if ( (LWIP_VERSION) != ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
+#include "lwip/ip_addr.h"
+#endif
 
 #include <net/ping.h>
 #include <ports/avr32/timer.h>
@@ -100,6 +104,12 @@ static u8_t ping_recv(void *arg, struct raw_pcb *pcb, struct pbuf *p,
         struct ping_info_t* ping_info = (struct ping_info_t*) arg;
         uint32_t us;
 
+#if ( (LWIP_VERSION) != ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
+        struct ip_addr ip_adr;
+
+        /* to get unpacked version without losing alignment */
+        memcpy(&ip_adr, &(ip->src), sizeof(ip_adr));
+#endif
         if (pbuf_header( p, -PBUF_IP_HLEN)==0) {
                 iecho = p->payload;
 
@@ -111,12 +121,22 @@ static u8_t ping_recv(void *arg, struct raw_pcb *pcb, struct pbuf *p,
                                 (ping_info->last_rx_tm - ping_info->last_tx_tm);
 
                         if (!ping_info->quiet)
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
                                 printk("%d bytes from %s: icmp_seq=%d ttl=%d " \
                                        "time=%d.%03d ms\n",
                                        p->tot_len, ip2str(ip->src),
                                        ntohs(iecho->seqno),
                                        IPH_TTL(ip),
                                        us / 1000, us % 1000);
+#else
+                                printk("%d bytes from %s: icmp_seq=%d ttl=%d " \
+                                       "time=%d.%03d ms\n",
+                                       p->tot_len, ip2str(ip_adr),
+                                       ntohs(iecho->seqno),
+                                       IPH_TTL(ip),
+                                       us / 1000, us % 1000);
+
+#endif
 
                         /* do some ping result processing */
                         ping_info->flags |= PING_REPLY;

@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -316,7 +318,7 @@ void tpa6130_powerup(void)
   tpa6130_write_data(TPA6130_CONTROL, data & (~SW_SHUTDOWN));
 }
 /*! \brief Sets the volume of the amplifier.
- *  Valid values are between 0 (min -59dB) and 63 (max 4dB) altough
+ *  Valid values are between 0 (min -59dB) and 63 (max 4dB) although
  *  the function takes care of any values higher than that by setting
  *  it to max.
  *  A volume of 0 will mute both channels. Any other value will unmute
@@ -539,7 +541,7 @@ void tpa6130_dac_mute(bool mute)
   }
 */
 
-  // 3rd Version wait until the current buffers are empty and disable the interrutps
+  // 3rd Version wait until the current buffers are empty and disable the interrupts
   int8_t volume = tpa6130_get_volume();
   if (mute)
   {

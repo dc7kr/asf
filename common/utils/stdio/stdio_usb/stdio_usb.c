@@ -6,9 +6,11 @@
  * This module defines support routines for a stdio serial interface to the
  * Atmel Software Framework (ASF) common USB CDC service.
  *
- * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -47,7 +49,7 @@
 
 static bool stdio_usb_interface_enable = false;
 
-int stdio_usb_putchar (volatile void * usart, int data)
+int stdio_usb_putchar (volatile void * unused, char data)
 {
 	/* A negative return value should be used to indicate that data
 	 * was not written, but this doesn't seem to work with GCC libc.
@@ -56,10 +58,10 @@ int stdio_usb_putchar (volatile void * usart, int data)
 		return 0;  // -1
 	}
 
-	return udi_cdc_putc (data) ? 0 : -1;
+	return udi_cdc_putc(data) ? 0 : -1;
 }
 
-void stdio_usb_getchar (void volatile * usart, int * data)
+void stdio_usb_getchar (void volatile * unused, char *data)
 {
 	/* A negative return value should be used to indicate that data
 	 * was not read, but this doesn't seem to work with GCC libc.
@@ -69,17 +71,17 @@ void stdio_usb_getchar (void volatile * usart, int * data)
 		return;
 	}
 
-	*data = udi_cdc_getc ();
+	*data = (char)udi_cdc_getc();
 }
 
 void stdio_usb_vbus_event(bool b_high)
 {
 	if (b_high) {
 		// Attach USB Device
-		udc_attach ();
+		udc_attach();
 	} else {
 		// VBUS not present
-		udc_detach ();
+		udc_detach();
 	}
 }
 
@@ -94,9 +96,9 @@ void stdio_usb_disable(void)
 	stdio_usb_interface_enable = false;
 }
 
-void stdio_usb_init (volatile void * usart)
+void stdio_usb_init(void)
 {
-	stdio_base = usart;
+	stdio_base = NULL;
 	ptr_put = stdio_usb_putchar;
 	ptr_get = stdio_usb_getchar;
 
@@ -107,14 +109,25 @@ void stdio_usb_init (volatile void * usart)
 	 */
 	udc_start ();
 
-	if (! udc_include_vbus_monitoring ()) {
-		stdio_usb_vbus_event (true);
+	if (!udc_include_vbus_monitoring()) {
+		stdio_usb_vbus_event(true);
 	}
 
+#if defined(__GNUC__)
+# if XMEGA
 	// For AVR GCC libc print redirection uses fdevopen.
-
-	#if XMEGA && defined(__GNUC__)
-		fdevopen((int (*)(char, FILE*))(_write),(int (*)(FILE*))(_read));
-	#endif
+	fdevopen((int (*)(char, FILE*))(_write),(int (*)(FILE*))(_read));
+# endif
+# if UC3 || SAM
+	// For AVR32 and SAM GCC
+	// Specify that stdout and stdin should not be buffered.
+	setbuf(stdout, NULL);
+	setbuf(stdin, NULL);
+	// Note: Already the case in IAR's Normal DLIB default configuration
+	// and AVR GCC library:
+	// - printf() emits one character at a time.
+	// - getchar() requests only 1 byte to exit.
+# endif
+#endif
 }
 

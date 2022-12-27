@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -133,7 +135,7 @@
 
 //! FLIP protocol version to use
 #define  FLIP_PROTOCOL_VERSION   FLIP_PROTOCOL_VERSION_2
-// Split erase is avaliable since batchisp 1.2.5 to avoid USB protocol 2 error
+// Split erase is available since batchisp 1.2.5 to avoid USB protocol 2 error
 #define  UDI_DFU_ATMEL_PROTOCOL_2_SPLIT_ERASE_CHIP
 //@}
 //@}

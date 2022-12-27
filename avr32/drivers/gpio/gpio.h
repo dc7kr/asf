@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -76,8 +78,8 @@
 //! @{
 #define GPIO_DIR_INPUT  (0 << 0) //!< Pin is Input
 #define GPIO_DIR_OUTPUT (1 << 0) //!< Pin is Output
-#define GPIO_INIT_LOW   (0 << 1) //!< Initial Ouptput State is Low
-#define GPIO_INIT_HIGH  (1 << 1) //!< Initial Ouptput State is High
+#define GPIO_INIT_LOW   (0 << 1) //!< Initial Output State is Low
+#define GPIO_INIT_HIGH  (1 << 1) //!< Initial Output State is High
 #define GPIO_PULL_UP    (1 << 2) //!< Pull-Up (when input)
 #define GPIO_PULL_DOWN  (2 << 2) //!< Pull-Down (when input)
 #define GPIO_BUSKEEPER  (3 << 2) //!< Bus Keeper
@@ -88,7 +90,7 @@
 #define GPIO_OPEN_DRAIN (1 << 6) //!< Open-Drain (when output)
 #define GPIO_INTERRUPT  (1 << 7) //!< Enable Pin/Group Interrupt
 #define GPIO_BOTHEDGES  (3 << 7) //!< Sense Both Edges
-#define GPIO_RISING     (5 << 7) //!< Sense Risign Edge
+#define GPIO_RISING     (5 << 7) //!< Sense Rising Edge
 #define GPIO_FALLING    (7 << 7) //!< Sense Falling Edge
 //! @}
 

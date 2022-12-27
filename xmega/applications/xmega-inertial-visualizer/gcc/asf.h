@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -104,7 +106,7 @@
 // From module: USB Device CDC (Single Interface Device)
 #include <udi_cdc.h>
 
-// From module: USB Device CDC Standard I/O (stdio)
+// From module: USB Device CDC Standard I/O (stdio) - AVR implementation
 #include <stdio_usb.h>
 
 // From module: USB Device Stack Core (Common API)

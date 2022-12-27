@@ -1,11 +1,13 @@
 /**
  * \file qdebugtransport.h
  *
- * \brief API of the Qdebug transport layer
+ * \brief API of the QDebug transport layer
  *
  * Copyright (c) 2010 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

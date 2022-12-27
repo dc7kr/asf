@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -101,7 +103,7 @@ void  nav_string_length_disable( void );
 //! This function disables the disk check before each actions on disk
 //!
 //! @verbatim
-//! By default, between each read/write access a check disk (test unit ready) is sended at device.
+//! By default, between each read/write access a check disk (test unit ready) is sent at device.
 //! This check can reduce the speed access on specific disk.
 //! @endverbatim
 //!
@@ -110,7 +112,7 @@ void  nav_checkdisk_disable( void );
 //! This function enables the disk check before each actions on disk
 //!
 //! @verbatim
-//! By default, between each read/write access a check disk (test unit ready) is sended at device.
+//! By default, between each read/write access a check disk (test unit ready) is sent at device.
 //! This check can reduce the speed access on specific disk.
 //! @endverbatim
 //!
@@ -118,7 +120,7 @@ void  nav_checkdisk_enable( void );
 
 
 //**********************************************************************
-//************** Initialise or Stop navigation module ******************
+//************** Initialize or Stop navigation module ******************
 
 
 //! This function resets ALL navigations to init file system core
@@ -152,7 +154,7 @@ bool  nav_select( uint8_t u8_idnav );
 //!
 uint8_t    nav_get( void );
 
-//! This function copys the navigator information to another navigator
+//! This function copies the navigator information to another navigator
 //!
 //! @param     u8_idnav       navigator identifier where the main navigator will be copied
 //!
@@ -170,7 +172,7 @@ bool  nav_copy( uint8_t u8_idnav );
 //********************* Drive navigation functions *********************
 
 
-//! This function returns the number of devices availabled
+//! This function returns the number of devices available
 //!
 //! @return    number of devices, 0 = NO DEVICE AVAILABLED
 //!
@@ -257,7 +259,7 @@ bool  nav_partition_mount( void );
 //! This function gives the partition type
 //!
 //! @return partition type: FS_TYPE_FAT_12, FS_TYPE_FAT_16, FS_TYPE_FAT_32
-//! @return FS_TYPE_FAT_UNM, in case of error or unknow format
+//! @return FS_TYPE_FAT_UNM, in case of error or unknown format
 //!
 uint8_t    nav_partition_type( void );
 
@@ -323,7 +325,7 @@ uint32_t   nav_partition_freespace( void );
 //! @return    0% in case of error or full partition
 //!
 //! @verbatim
-//! To speed up the compute, the resultat have an error delta of 1%
+//! To speed up the compute, the result have an error delta of 1%
 //! @endverbatim
 //!
 uint8_t    nav_partition_freespace_percent( void );
@@ -335,7 +337,7 @@ uint8_t    nav_partition_freespace_percent( void );
 //! To display in File List only the files OR directories
 //!
 //! @param     b_type   FS_DIR  to display only directories presence <br>
-//!                     FS_FILE to dispaly only files presence <br>
+//!                     FS_FILE to display only files presence <br>
 //!
 //! @return  false in case of error, see global value "fs_g_status" for more detail
 //! @return  true otherwise
@@ -405,7 +407,7 @@ uint16_t   nav_filelist_get( void );
 //!
 bool  nav_filelist_goto( uint16_t u16_newpos );
 
-//! This function searchs a file name in file list
+//! This function searches a file name in file list
 //!
 //! @param     sz_name        name to search (UNICODE or ASCII) <br>
 //!                           It must be terminate by NULL or '*' value
@@ -482,7 +484,7 @@ bool  nav_filelist_last( bool b_type );
 //! @return    It is a small index structure with information on selected file (disk, partition, dir, file/dir selected)
 //!
 //! @verbatim
-//! This routine is interresting to save a file position in small variable.
+//! This routine is interesting to save a file position in small variable.
 //! This pointer allow to reinit a navigator quickly with nav_gotoindex() routine.
 //! @endverbatim
 //!
@@ -585,9 +587,9 @@ bool  nav_getcwd( FS_STRING sz_path  , uint8_t u8_size_path , bool b_view_file_s
 //! @return    true otherwise
 //!
 //! @verbatim
-//! The syntact "./../../file_name" is supported.
-//! With syntact "./dir_parent/directory_name"  the file list corresponding at "dir_parent" and "directory_name" is selected.
-//! With syntact "./dir_parent/directory_name/" the file list corresponding at "directory_name" and no file is selected.
+//! The syntax "./../../file_name" is supported.
+//! With syntax "./dir_parent/directory_name"  the file list corresponding at "dir_parent" and "directory_name" is selected.
+//! With syntax "./dir_parent/directory_name/" the file list corresponding at "directory_name" and no file is selected.
 //! @endverbatim
 //!
 bool  nav_setcwd( FS_STRING sz_path , bool b_match_case , bool b_create );
@@ -636,7 +638,7 @@ uint32_t   nav_file_lgt( void );
 //!
 uint16_t   nav_file_lgtsector( void );
 
-//! This function checks the write protection of disk and the attribut "read only" of selected file
+//! This function checks the write protection of disk and the Attribute "read only" of selected file
 //!
 //! @return    false, it is possible to modify the selected file
 //! @return    true, in other case
@@ -664,16 +666,16 @@ bool  nav_file_checkext( const FS_STRING sz_filterext );
 //! @param     type_date      FS_DATE_LAST_WRITE,  to get the date of last write access <br>
 //!                           FS_DATE_CREATION,    to get the date of file creation
 //! @param     sz_date        ASCCI string (>17B) to store the information about date <br>
-//!                           "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, seconde, miliseconde
+//!                           "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, second, millisecond
 //!
 //! @return    false in case of error, see global value "fs_g_status" for more detail
 //! @return    true otherwise
 //!
 bool  nav_file_dateget( FS_STRING sz_date , bool type_date );
 
-//! This function returns the attribut of selected file
+//! This function returns the Attribute of selected file
 //!
-//! @return    attribut of selected file, see masks "FS_ATTR_" in fs_com.h file.
+//! @return    Attribute of selected file, see masks "FS_ATTR_" in fs_com.h file.
 //!
 uint8_t    nav_file_attributget( void );
 
@@ -682,14 +684,14 @@ uint8_t    nav_file_attributget( void );
 //! @param     type_date      FS_DATE_LAST_WRITE,  to get the date of last write access <br>
 //!                           FS_DATE_CREATION,    to get the date of file creation
 //! @param     sz_date        ASCCI string contains the date to write<br>
-//!                           "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, seconde, miliseconde
+//!                           "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, second, millisecond
 //!
 //! @return    false in case of error, see global value "fs_g_status" for more detail
 //! @return    true otherwise
 //!
 bool  nav_file_dateset( const FS_STRING sz_date , bool type_date );
 
-//! This function changes the attribut of selected file
+//! This function changes the Attribute of selected file
 //!
 //! @param   u8_attribut   value to write on selected file, see masks "FS_ATTR_" in fs_com.h file.
 //!
@@ -718,7 +720,7 @@ bool  nav_file_del( bool b_only_empty );
 //!
 bool  nav_file_rename( const FS_STRING sz_name  );
 
-//! This function creates a file with NULL size and NULL attribut
+//! This function creates a file with NULL size and NULL Attribute
 //!
 //! @param     sz_name     file name to create (ASCII or UNICODE )
 //!

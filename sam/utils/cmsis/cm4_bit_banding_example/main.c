@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -44,10 +46,10 @@
  *
  * \section Purpose
  *
- * The cm3-bitbanding example will help new users get familiar with
+ * The cm4-bitbanding example will help new users get familiar with
  * bitbanding feature of SAM4 microcontrollers.
  *
- * Bit-banding is a useful feature of Cortex M3 processor. The processor memory map
+ * Bit-banding is a useful feature of Cortex M4 processor. The processor memory map
  * includes two bit-band regions, which occupy the lowest 1MB of the SRAM and
  * Peripheral memory regions. These bit-band regions map each word in an alias
  * region of memory to a bit in a bit-band region of memory. 
@@ -61,7 +63,7 @@
  * This package can be used with SAM4 evaluation kits.
  *
  * \section Description
- * The cm3-bitbanding example will help new users get familiar with
+ * The cm4-bitbanding example will help new users get familiar with
  * bitbanding feature of SAM4 microcontrollers.
  *
  * \section Usage
@@ -146,7 +148,7 @@ int main(void)
 {
 	uint8_t uc_led_bit;
 
-	/* Initilize the SAM4 system */
+	/* Initialize the SAM4 system */
 	SystemInit();
 
 	WDT->WDT_MR = WDT_MR_WDDIS;

@@ -7,12 +7,14 @@
  * be 100% full thanks to a double-index range implementation. For example,
  * a FIFO of 4 elements can be implemented: the FIFO can really hold up to 4
  * elements.
- * This is particurly well suited for any kind of application needing a lot of
+ * This is particularly well suited for any kind of application needing a lot of
  * small FIFO.
  *
  * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

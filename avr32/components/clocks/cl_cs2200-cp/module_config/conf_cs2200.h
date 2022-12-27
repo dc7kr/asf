@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -41,7 +43,7 @@
  ******************************************************************************/
 
 
- //! Configuration of the clock synthetizers device driver
+ //! Configuration of the clock synthesizer device driver
 
 #ifndef _CONF_CS2200_H_
 #define _CONF_CS2200_H_

@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -120,7 +122,7 @@
 #define MMC_TAG_ERASE_GROUP_END           36    ///< Sets end of erase group (mass erase)
 #define MMC_UNTAG_ERASE_GROUP             37    ///< Untag (unset) erase group (mass erase)
 #define MMC_ERASE                         38    ///< Perform block/mass erase
-#define SD_SEND_OP_COND_ACMD              41              ///< Same as MMC_SEND_OP_COND but specific to SD (must be preceeded by CMD55)
+#define SD_SEND_OP_COND_ACMD              41              ///< Same as MMC_SEND_OP_COND but specific to SD (must be preceded by CMD55)
 #define MMC_LOCK_UNLOCK                   42              ///< To start a lock/unlock/pwd operation
 #define SD_APP_CMD55                      55              ///< Use before any specific command (type ACMD)
 #define SD_READ_OCR						  58
@@ -170,11 +172,11 @@ extern bool sd_mmc_spi_get_csd(uint8_t *);      // stores the CSD of the card in
 extern bool sd_mmc_spi_get_cid(uint8_t *);      // stores the CID of the card into cid[16]
 extern int  sd_mmc_spi_get_if(void);
 extern int  sd_mmc_spi_check_hc(void);
-extern void sd_mmc_spi_get_capacity(void);                     // extract parameters from CSD and compute capacity, last block adress, erase group size
+extern void sd_mmc_spi_get_capacity(void);                     // extract parameters from CSD and compute capacity, last block address, erase group size
 extern bool sd_mmc_spi_get_status(void);                       // read the status register of the card (R2 response)
 extern uint8_t   sd_mmc_spi_send_and_read(uint8_t);            // send a byte on SPI and returns the received byte
 extern uint8_t   sd_mmc_spi_send_command(uint8_t, uint32_t);   // send a single command + argument (R1 response expected and returned), with memory select then unselect
-extern uint8_t   sd_mmc_spi_command(uint8_t, uint32_t);        // send a command + argument (R1 response expected and returned), without memory selct/unselect
+extern uint8_t   sd_mmc_spi_command(uint8_t, uint32_t);        // send a command + argument (R1 response expected and returned), without memory select/unselect
 
 //! Protection functions (optionnal)
 extern bool is_sd_mmc_spi_write_pwd_locked(void);                    // check if the lock protection on the card is featured and enabled
@@ -186,7 +188,7 @@ extern bool sd_mmc_spi_read_close (void);
 extern bool sd_mmc_spi_write_open (uint32_t);        // to call before first access to a random page
 extern void sd_mmc_spi_write_close (void);
 
-//! Funtions to link USB DEVICE flow with MMC
+//! Functions to link USB DEVICE flow with MMC
 extern bool sd_mmc_spi_write_sector (uint16_t);      // write a 512b sector from USB buffer
 extern bool sd_mmc_spi_read_sector (uint16_t);       // reads a 512b sector to an USB buffer
 extern bool sd_mmc_spi_read_multiple_sector(uint16_t nb_sector);
@@ -196,7 +198,7 @@ extern void sd_mmc_spi_write_multiple_sector_callback(void *psector);
 
 
 /*
-//! Funtions to link USB HOST flow with MMC
+//! Functions to link USB HOST flow with MMC
 bit     sd_mmc_spi_host_write_sector (uint16_t);
 bit     sd_mmc_spi_host_read_sector (uint16_t);
 */

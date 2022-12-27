@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -61,7 +63,7 @@
  *   - ethernet_phy_hw_reset()
  *   - ethernet_phy_sw_reset()
  *   - ethernet_phy_setup_rmii()
- *   - ethernet_phy_setup_auto_negociation()
+ *   - ethernet_phy_setup_auto_negotiation()
  *
  * @{
  */

@@ -746,7 +746,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1658,7 +1658,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1852,22 +1852,13 @@
 					</group>
 				</group>
 			</group>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
-				</group>
-			</group>
 		</group>
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>supc</name>
+				<name>efc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../supc/supc.c</name>
+					<name>$PROJ_DIR$/../../../../efc/efc.c</name>
 				</file>
 			</group>
 			<group>
@@ -1910,9 +1901,9 @@
 				</file>
 			</group>
 			<group>
-				<name>efc</name>
+				<name>supc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../efc/efc.c</name>
+					<name>$PROJ_DIR$/../../../../supc/supc.c</name>
 				</file>
 			</group>
 		</group>
@@ -1964,12 +1955,6 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
-				</file>
-			</group>
-			<group>
 				<name>clock</name>
 				<group>
 					<name>sam3s</name>
@@ -1977,6 +1962,12 @@
 						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam3s/sysclk.c</name>
 					</file>
 				</group>
+			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
 			</group>
 		</group>
 	</group>

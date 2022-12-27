@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -166,7 +168,7 @@
 #define  Is_udd_reset()                            USBC_TST_BITS(UDINT,EORST)
 //! @}
 
-//! Manage sart of frame event
+//! Manage start of frame event
 //! @{
 #define  udd_enable_sof_interrupt()                USBC_REG_SET(UDINTE,SOFE)
 #define  udd_disable_sof_interrupt()               USBC_REG_CLR(UDINTE,SOFE)
@@ -244,7 +246,7 @@
 		 = TPASTE5(AVR32_USBC_,reg,0SET_,bit,S_MASK))
 //! @}
 
-//! @name USBC Devcice endpoint configuration
+//! @name USBC Device endpoint configuration
 //! @{
 #define  udd_enable_endpoint(ep) \
 		(Set_bits(AVR32_USBC.uerst, AVR32_USBC_UERST_EPEN0_MASK << (ep)))
@@ -479,7 +481,7 @@
 #define udd_udesc_set_buf0_autozlp(ep,val)             \
    udd_g_ep_table[ep*2].SIZES.auto_zlp = val
 
-// Maximum size of a tranfer in multipacket mode
+// Maximum size of a transfer in multipacket mode
 #define UDD_ENDPOINT_MAX_TRANS ((32*1024)-1)
 
 struct avr32_usbc_udesc_sizes_t {

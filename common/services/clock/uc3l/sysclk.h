@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -526,7 +528,7 @@ static inline uint32_t sysclk_get_pba_hz(void)
 }
 
 /**
- * \brief Return the current rate in Hz of the Peripheral Bus B cl ock
+ * \brief Return the current rate in Hz of the Peripheral Bus B clock
  *
  * \return Frequency of the Peripheral Bus B clock, in Hz.
  */

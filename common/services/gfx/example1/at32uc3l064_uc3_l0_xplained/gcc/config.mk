@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -139,8 +141,7 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D BOARD=UC3_L0_XPLAINED                           \
-       -D CONF_GFX_ILI9341_SDT028ATFT=1                   \
-       -D GFX_INITIALIZED=1
+       -D CONF_GFX_ILI9341_SDT028ATFT=1
 
 # Extra flags to use when linking
 LDFLAGS = \

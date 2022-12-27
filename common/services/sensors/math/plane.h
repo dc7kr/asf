@@ -3,11 +3,13 @@
  *
  * \brief The math::plane class models a plane in 3-dimensional space.
  *
- * This module implements a class modeling a plane in 3-dimensional space.
+ * This module implements a class modelling a plane in 3-dimensional space.
  *
  * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

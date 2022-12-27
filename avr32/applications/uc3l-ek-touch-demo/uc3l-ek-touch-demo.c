@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -58,7 +60,7 @@
  *   - setup the demo
  *   - main loop.
  * - demo.c: demo state-machine.
- * - touch_api_at32uc3l.h: the AT32UC3L QTouch Libary API interface for
+ * - touch_api_at32uc3l.h: the AT32UC3L QTouch Library API interface for
  *   QMatrix, QTouch and Autonomous Touch method using the Capacitive Touch
  *   (CAT) module.
  * - touch_config_at32uc3l.h: the AT32UC3L Touch Library pin, register and
@@ -106,7 +108,7 @@
  *  appear. Click on the "start reading" button. All touch events on the board
  * appear on the UC3L-EK drawing on QTouch Studio (a green color is a match).
  * \note The AT32UC3L-EK supports two USB modes: the CDC Virtual Com Port and
- * the Qdebug mode. Change of the USB mode is done upon power-up of the board by
+ * the QDebug mode. Change of the USB mode is done upon power-up of the board by
  * pressing the USB mode button.
  *
  * \section compinfo Compilation Info
@@ -418,15 +420,15 @@ int main( void )
    a. QM_GCLK_CAT_DIV.
    b. QM_CAT_CLK_DIV.
    c. TOUCH_SPREAD_SPECTRUM_MAX_DEV, when Spread spectrum is enabled.
-   d. PBA_HZ, when using qdebug/SPI_Master.c
-   e. TARGET_PBA_FREQ_HZ and TARGET_CPU_FREQ_HZ, when using qdebug/SERIAL.c
+   d. PBA_HZ, when using QDebug/SPI_Master.c
+   e. TARGET_PBA_FREQ_HZ and TARGET_CPU_FREQ_HZ, when using QDebug/SERIAL.c
 
 2. In the UC3L-Evaluation kit (Rev2), the R42 and R54 (both 470KOhm) resistors
    MUST be replaced to 910KOhms.
 
 3. The QTouch library uses PDCA channels 0 and 1.
    (QM_DMA_CHANNEL_0, QM_DMA_CHANNEL_1).
-   Similarly, the qdebug/SERIAL.c uses PDCA channels 2 and 3.
+   Similarly, the QDebug/SERIAL.c uses PDCA channels 2 and 3.
    (PDCA_CHANNEL_RX_USART, PDCA_CHANNEL_TX_USART)
 
 4. For QMatrix operation, the Analog comparators channels are used (using the
@@ -471,7 +473,7 @@ int main( void )
      with the GCC compiler.
 
      For the case of IAR the registration of interrupt is automatically taken
-     care by the compiler. The Touch Libary CAT interrupt level for the case
+     care by the compiler. The Touch Library CAT interrupt level for the case
      of IAR is fixed to Interrupt level 3. */
   INTC_register_interrupt(&touch_acq_done_irq, AVR32_CAT_IRQ, AVR32_INTC_INT3);
 
@@ -713,7 +715,7 @@ static unsigned long init_clock( unsigned long cpuclk_hz )
 /*============================================================================
   Name : init_system
 ------------------------------------------------------------------------------
-Purpose: initialise host clock, pins, watchdog, etc.
+Purpose: initialize host clock, pins, watchdog, etc.
 Input  : n/a
 Output : n/a
 Notes  :

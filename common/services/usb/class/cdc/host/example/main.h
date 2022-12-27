@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -42,7 +44,7 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
-//! \brief Notify that a SOF has been sent (each 1 ms)
+/*! \brief Notify that a SOF has been sent (each 1 ms) */
 void main_usb_sof_event(void);
 
 /*! \brief Notify that a USB device has been connected or disconnected.
@@ -52,4 +54,4 @@ void main_usb_sof_event(void);
  */
 void main_usb_connection_event(uhc_device_t *dev, bool b_present);
 
-#endif // _MAIN_H_
+#endif /* _MAIN_H_ */

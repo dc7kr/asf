@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -112,7 +114,7 @@ ISR(twi_master_interrupt_handler, CONF_TWI_IRQ_GROUP, CONF_TWI_IRQ_LEVEL)
 	}
 	// this is a TXRDY
 	else if (status & AVR32_TWI_SR_TXRDY_MASK) {
-		// decrease transmited bytes number
+		// decrease transmitted bytes number
 		twi_tx_nb_bytes--;
 		// no more bytes to transmit
 		if (twi_tx_nb_bytes <= 0) {
@@ -163,7 +165,7 @@ ISR(twi_slave_interrupt_handler, AVR32_TWI_IRQ_GROUP, CONF_TWI_IRQ_LEVEL)
 				| AVR32_TWI_IDR_RXRDY_MASK
 				| AVR32_TWI_IER_EOSACC_MASK;
 
-		// Reenable detection slave access
+		// Re-enable detection slave access
 		twi_it_mask = AVR32_TWI_IER_SVACC_MASK;
 		twi_inst->ier = twi_it_mask;
 
@@ -175,7 +177,7 @@ ISR(twi_slave_interrupt_handler, AVR32_TWI_IRQ_GROUP, CONF_TWI_IRQ_LEVEL)
 		twi_inst->idr = AVR32_TWI_IDR_SVACC_MASK;
 		// A slave is selected, then check direction
 		if ( status & AVR32_TWI_SR_SVREAD_MASK ) {
-			// enable flag to signal data transmition
+			// enable flag to signal data transmission
 			twi_it_mask = AVR32_TWI_IER_TXRDY_MASK;
 			twi_inst->ier = twi_it_mask;
 			// Transmit a data to master
@@ -196,12 +198,12 @@ ISR(twi_slave_interrupt_handler, AVR32_TWI_IRQ_GROUP, CONF_TWI_IRQ_LEVEL)
 	// this is a TXRDY
 	} else if( (twi_it_mask & AVR32_TWI_IER_TXRDY_MASK)
 			&&  (status & AVR32_TWI_SR_TXRDY_MASK ) ) {
-		// Byte transmited
+		// Byte transmitted
 		if ( status & AVR32_TWI_SR_NACK_MASK ) {
 			// Last Byte
 			// Clear flag NACK
 			twi_inst->rhr;
-			// Renable IT select slave
+			// Re-enable IT select slave
 			twi_it_mask = AVR32_TWI_IER_EOSACC_MASK;
 			twi_inst->ier = twi_it_mask;
 		} else {
@@ -215,7 +217,7 @@ ISR(twi_slave_interrupt_handler, AVR32_TWI_IRQ_GROUP, CONF_TWI_IRQ_LEVEL)
 #endif
 
 
-/*! \brief Set the twi bus speed in cojunction with the clock frequency
+/*! \brief Set the twi bus speed in conjunction with the clock frequency
  *
  * \param twi    Base address of the TWI (i.e. &AVR32_TWI).
  * \param speed  The desired twi bus speed

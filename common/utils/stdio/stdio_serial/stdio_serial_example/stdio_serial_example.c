@@ -8,9 +8,11 @@
  * \section file File(s)
  * - \ref stdio_serial_example.c
  *
- * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -111,23 +113,8 @@ int main(void)
 	// Initialize Serial Interface using Stdio Library
 	stdio_serial_init(USART_SERIAL_EXAMPLE, &usart_serial_options);
 
-	// Specify that stdout should not be buffered.
-#if (defined(__GNUC__) && defined(__AVR32__))
-	setbuf(stdout, NULL);
-#else // __ICCAVR32__
-	// Already the case in IAR's Normal DLIB default configuration: printf()
-	// emits one character at a time.
-#endif
-
 	// Print welcome message
 	printf("\n\rHello AVR World!\n\r");
-
-	// Specify that stdin should not be buffered.
-#if (defined(__GNUC__) && defined(__AVR32__))
-	setbuf(stdin, NULL);
-#else // __ICCAVR32__
-	// Already the case in IAR's Normal DLIB default configuration
-#endif
 
 	// Get and echo a character forever.
 	while (true)

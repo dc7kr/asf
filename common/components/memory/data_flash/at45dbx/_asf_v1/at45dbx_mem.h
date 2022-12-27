@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -105,7 +107,7 @@ extern bool at45dbx_removal(void);
  */
 //! @{
 
-/*! \brief Tranfers data from the memory to USB.
+/*! \brief Transfers data from the memory to USB.
  *
  * \param addr      Address of first memory sector to read.
  * \param nb_sector Number of sectors to transfer.
@@ -114,7 +116,7 @@ extern bool at45dbx_removal(void);
  */
 extern Ctrl_status at45dbx_usb_read_10(U32 addr, U16 nb_sector);
 
-/*! \brief Tranfers data from USB to the memory.
+/*! \brief Transfers data from USB to the memory.
  *
  * \param addr      Address of first memory sector to write.
  * \param nb_sector Number of sectors to transfer.

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -90,7 +92,7 @@ void ui_wakeup_enable(void)
 	// Enable interrupt for button pin
 	pio_configure_pin(WAKEUP_PIN, WAKEUP_PIO_ATTR);
 	pio_enable_pin_interrupt(WAKEUP_PIN);
-	// Enable fastwakeup for button pin
+	// Enable fast wakeup for button pin
 	pmc_set_fast_startup_input(WAKEUP_PMC_FSTT);
 }
 
@@ -98,7 +100,7 @@ void ui_wakeup_disable(void)
 {
 	// Disable interrupt for button pin
 	pio_disable_pin_interrupt(WAKEUP_PIN);
-	// Disable fastwakeup for button pin
+	// Disable fast wakeup for button pin
 	pmc_clr_fast_startup_input(WAKEUP_PMC_FSTT);
 }
 
@@ -158,7 +160,7 @@ void ui_stop_write(void)
  *
  * Human interface on SAM3U-EK:
  * - Led 0 (D2, blue) blinks when USB host has checked and enabled HID and MSC interface
- * - Led 1 (D4, green) is on during read/write operation
+ * - Led 1 (D3, green) is on during read/write operation
  * - USR-LEFT (BP4) and USR-RIGHT (BP5) are used to move mouse left and right
  * - The USR-LEFT (BP4) can be used to wakeup USB Host in remote wakeup mode.
  *

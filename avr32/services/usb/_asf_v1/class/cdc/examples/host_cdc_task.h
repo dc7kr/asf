@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -80,15 +82,15 @@
 
 //! @brief Size of transmit buffer (must be less or equal than pipe size !)
 //!
-//! @note: Irrelevent when CDC_USE_UART is false.
+//! @note: Irrelevant when CDC_USE_UART is false.
 #define     CDC_STREAM_OUT_SIZE                 0x10
 
 //! @brief Size of receive buffer (must be less or equal than pipe size !)
 //!
-//! @note: Irrelevent when CDC_USE_UART is false.
+//! @note: Irrelevant when CDC_USE_UART is false.
 #define     CDC_STREAM_IN_SIZE                  0x10
 
-//! @brief Data Pipe flush timout in milli-second.
+//! @brief Data Pipe flush timeout in milli-second.
 #define     CDC_NB_MS_BEFORE_FLUSH              5
 
 //! @brief Set here the length of your encapsulated command (user defined)

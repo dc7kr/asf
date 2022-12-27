@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -44,6 +46,9 @@
 
 /* Configure UART pins */
 #define CONF_BOARD_UART_CONSOLE
+
+/* Enable USB interface (USB) for host mode */
+#define CONF_BOARD_USB_PORT
 
 /* Configure ADC example pins */
 //#define CONF_BOARD_ADC

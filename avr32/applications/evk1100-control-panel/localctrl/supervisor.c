@@ -13,6 +13,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -435,7 +437,7 @@ static portTASK_FUNCTION( vSupervisorTask, pvParameters )
 #ifdef MMILCD_ENABLE
 #ifdef USB_ENABLE
 /*** Start of Host behaviour ***/
-      // first occurence of MS connection, Host mode
+      // first occurrence of MS connection, Host mode
       if (ms_connected == true && ms_connected_displayed == pdFALSE)
       {
         // display connected logo
@@ -445,7 +447,7 @@ static portTASK_FUNCTION( vSupervisorTask, pvParameters )
         vMMI_SetUserMenuMode(eUserMenuUSBHost, pdTRUE);
 
       }
-      // first occurence of MS disconnection, end of Host mode
+      // first occurrence of MS disconnection, end of Host mode
       if (ms_connected == false && ms_connected_displayed == pdTRUE)
       {
         // remove connected logo
@@ -457,7 +459,7 @@ static portTASK_FUNCTION( vSupervisorTask, pvParameters )
 /*** End of Host behaviour ***/
 /*** Start of Device behaviour ***/
 #if USB_DEVICE_FEATURE == true
-      // first occurence of Device connection, Device mode
+      // first occurrence of Device connection, Device mode
       if (Is_device_enumerated() && ( enum_connected_displayed == pdFALSE ) )
       {
         if( true == bIsInMaintenance )
@@ -469,7 +471,7 @@ static portTASK_FUNCTION( vSupervisorTask, pvParameters )
           vMMI_SetUserMenuMode(eUserMenuUSBDevice, pdTRUE);
         }
       }
-      // first occurence of Device disconnection, end of Device mode
+      // first occurrence of Device disconnection, end of Device mode
       else if (!Is_device_enumerated() && enum_connected_displayed == pdTRUE)
       {
         // remove connected logo
@@ -506,7 +508,7 @@ static portTASK_FUNCTION( vSupervisorTask, pvParameters )
          // Get the broken-down representation of the current date.
          pxDate = gmtime( &xcptime_LocalTime );
 
-         // WARNING: pxDate->tm_year == nunmber of years since 1900.
+         // WARNING: pxDate->tm_year == number of years since 1900.
          // For years >= 2000, we'll display the last 2 digits only.
          if( pxDate->tm_year >= 100 )  pxDate->tm_year -= 100;
 #if DISPLAY_MMI_SECOND == 1
@@ -817,7 +819,7 @@ portBASE_TYPE x_supervisor_SemaphoreGive( xSemaphoreHandle xSemaphore )
 
          // If the USB clock is frozen, unfreeze it so that we can write in the
          // USB registers. The USB clock is frozen if a "Device Suspend" event
-         // occured (no more USB activity detected) (cf. usb_general_interrupt()).
+         // occurred (no more USB activity detected) (cf. usb_general_interrupt()).
          if(true == Is_usb_clock_frozen())
          {
            Usb_unfreeze_clock();

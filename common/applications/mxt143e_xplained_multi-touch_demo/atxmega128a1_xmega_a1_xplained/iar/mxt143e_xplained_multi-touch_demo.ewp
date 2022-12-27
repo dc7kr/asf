@@ -246,9 +246,8 @@
 				<option>
 					<name>CCDefines</name>
 					<state></state>
-					<state>GFX_INITIALIZED=1</state>
-					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>BOARD=XMEGA_A1_XPLAINED</state>
+					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
 				<option>
@@ -557,9 +556,8 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>GFX_INITIALIZED=1</state>
-					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>BOARD=XMEGA_A1_XPLAINED</state>
+					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
 				<option>
@@ -1279,9 +1277,8 @@
 				<option>
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
-					<state>GFX_INITIALIZED=1</state>
-					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>BOARD=XMEGA_A1_XPLAINED</state>
+					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
 				<option>
@@ -1590,9 +1587,8 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>GFX_INITIALIZED=1</state>
-					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>BOARD=XMEGA_A1_XPLAINED</state>
+					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
 				<option>

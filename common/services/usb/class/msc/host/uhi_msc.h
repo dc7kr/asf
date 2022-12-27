@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -57,12 +59,13 @@ extern "C" {
  * \ingroup uhi_msc_group
  * \defgroup uhi_msc_group_uhc Interface with USB Host Core (UHC)
  *
- * Structures and functions required by UHC.
+ * Define and functions required by UHC.
  * 
  * @{
  */
 
-//! Global struture which contains standard UHI API for UHC
+//! Global define which contains standard UHI API for UHC.
+//! It must be added in USB_HOST_UHI define from conf_usb_host.h file.
 #define UHI_MSC { \
 	.install = uhi_msc_install, \
 	.enable = uhi_msc_enable, \
@@ -126,10 +129,10 @@ bool uhi_msc_is_available(void);
 
 /**
  * \brief Gives the number of LUN available
- * Note: A LUN can be avaliable, but with a status LUN_NOT_PRESENT.
+ * Note: A LUN can be available, but with a status LUN_NOT_PRESENT.
  * It is the case for a card reader without card.
  *
- * \return Number of LUN avalaible
+ * \return Number of LUN available
  */
 uint8_t uhi_msc_get_lun(void);
 

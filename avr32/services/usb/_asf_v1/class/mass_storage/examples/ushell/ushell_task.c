@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -184,7 +186,7 @@ void  ushell_cmdusb_suspend   ( void );
 void  ushell_cmdusb_resume    ( void );
 
 
-//! @brief This function initializes the hardware/software ressources required for ushell task.
+//! @brief This function initializes the hardware/software resources required for ushell task.
 //!
 void ushell_task_init(uint32_t pba_hz)
 {
@@ -264,7 +266,7 @@ void ushell_task(void)
 {
 
 #ifdef FREERTOS_USED
-   //** Inifinit loop for RTOS because it is a RTOS task
+   //** Inifinite loop for RTOS because it is a RTOS task
    portTickType xLastWakeTime;
 
    xLastWakeTime = xTaskGetTickCount();
@@ -405,7 +407,7 @@ void ushell_task(void)
       nav_gotoindex( &g_mark_index );
       break;
 
-      // Copys file to other location
+      // Copies file to other location
       case CMD_CP:
       ushell_cmd_copy();
       break;
@@ -808,7 +810,7 @@ void ushell_cmd_free_space( void )
       printf("%c: %s\r\n", 'a'+u8_tmp, mem_name(u8_tmp) );
       if( g_s_arg[0][0]=='l' )        // Choose command option
       {
-         // Long and exact fonction
+         // Long and exact function
          printf("Free space: %llu Bytes / %llu Bytes\n\r",
                    (uint64_t)(nav_partition_freespace() << FS_SHIFT_B_TO_SECTOR),
                    (uint64_t)(nav_partition_space() << FS_SHIFT_B_TO_SECTOR));
@@ -944,7 +946,7 @@ void ushell_cmd_ls( bool b_more )
 
    //** Print files list
    printf("          Size  Name\n\r");
-   // Init loop at the begining of directory
+   // Init loop at the beginning of directory
    nav_filelist_reset();
    u16_nb_file=0;
    u16_nb_dir=0;
@@ -1022,7 +1024,7 @@ void ushell_cmd_gotoparent( void )
 //!
 //! @param b_more   enable the '|more' management
 //!
-//! @todo more management not fully functionnal with file without CR
+//! @todo more management not fully functional with file without CR
 //!
 void ushell_cmd_cat(bool b_more)
 {
@@ -1180,7 +1182,7 @@ void ushell_cmd_append_file( void )
 }
 
 
-//! @brief This function copys a file to other location
+//! @brief This function copies a file to other location
 //!
 void ushell_cmd_copy( void )
 {
@@ -1370,7 +1372,7 @@ bool ushell_cmd_sync( void )
             }
             goto ushell_cmd_sync_error;
          }
-         // here, the folder is created and the navigatorS is entered in this dir
+         // here, the folder is created and the navigator is entered in this dir
       }
       else
       {
@@ -1690,7 +1692,7 @@ void ushell_path_valid_syntac( char *path )
 
 
 #if USB_HOST_FEATURE == true
-//! @brief In host mode, display basic lowlevel information about the device connected
+//! @brief In host mode, display basic low level information about the device connected
 //!
 //! @note The device should be supported by the host (configured)
 //!

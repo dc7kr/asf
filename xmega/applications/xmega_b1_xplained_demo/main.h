@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -53,7 +55,7 @@ enum sensor_display_t {
 	TEMPERATURE_SENSOR = 2,
 	//! Potentiometer Sensor
 	POTENTIOMETER_SENSOR = 3,
-	//! External Voltage Imput
+	//! External Voltage Input
 	EXT_VOLTAGE_INPUT = 4,
 };
 
@@ -73,7 +75,7 @@ void main_hid_generic_disable(void);
  */
 void main_sof_action(void);
 
-/*! \brief Function executed when a repport OUT from HID is received
+/*! \brief Function executed when a report OUT from HID is received
  *
  * \param data Pointer to the received data buffer in SRAM
  */
@@ -124,7 +126,7 @@ extern uint8_t xplain_b1_serial_number[];
 //! The interval to send new HID OUT report in ms
 #define LCD_SENSOR_MS             100
 
-//! Firmware revisio
+//! Firmware revision
 #define FIRMWARE_REVISION         200
 
 //! USBID position in user signature row

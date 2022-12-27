@@ -6,9 +6,11 @@
  * This file defines a useful set of functions for the Stdio Serial
  * interface on AVR devices.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -69,9 +71,9 @@ extern int _read (int *f);
 //! Pointer to the base of the USART module instance to use for stdio.
 extern volatile void *volatile stdio_base;
 //! Pointer to the external low level write function.
-extern int (*ptr_put)(void volatile*,int);
+extern int (*ptr_put)(void volatile*, char);
 //! Pointer to the external low level read function.
-extern void (*ptr_get)(void volatile*,int*);
+extern void (*ptr_get)(void volatile*, char*);
 
 /*! \brief Sends a character with the USART.
  *
@@ -82,7 +84,7 @@ extern void (*ptr_get)(void volatile*,int*);
  *   \retval  0  The character was written.
  *   \retval -1  The function timed out before the transmitter became ready.
  */
-int stdio_usb_putchar (volatile void * usart, int data);
+int stdio_usb_putchar (volatile void * usart, char data);
 
 /*! \brief Waits until a character is received, and returns it.
  *
@@ -91,7 +93,7 @@ int stdio_usb_putchar (volatile void * usart, int data);
  *
  * \return Nothing.
  */
-void stdio_usb_getchar (void volatile * usart, int * data);
+void stdio_usb_getchar (void volatile * usart, char * data);
 
 /*! \brief Callback for VBUS level change event.
  *
@@ -117,7 +119,7 @@ void stdio_usb_disable(void);
  *
  * \return Nothing.
  */
-void stdio_usb_init (volatile void * usart);
+void stdio_usb_init(void);
 
 /**
  * \}

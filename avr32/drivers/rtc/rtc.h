@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -84,7 +86,7 @@
 
 
 /*!
- * \brief This function will initialise the RTC module.
+ * \brief This function will initialize the RTC module.
  *        If you use the 32 KHz oscillator, it will enable this module.
  *        This function also set the top value of the RTC to 0xFFFFFFFF
  *        and the value to 0.
@@ -96,7 +98,7 @@
  *        psel = log(Fosc/Frtc)/log(2)-1, where Fosc is the frequency of the
  *        oscillator you are using (32 KHz or 115 KHz) and Frtc the frequency
  *        desired.
- * \return 1 if the initialisation succeds otherwize it will return 0.
+ * \return 1 if the initialization succeeds otherwise it will return 0.
  */
 extern int rtc_init(volatile avr32_rtc_t *rtc, unsigned char osc_type, unsigned char psel);
 
@@ -148,14 +150,14 @@ extern void rtc_clear_interrupt(volatile avr32_rtc_t *rtc);
 /*!
  * \brief Get the status of interrupts.
  * \param rtc Base address of the RTC (i.e. &AVR32_RTC).
- * \return 1 if the interrupts are enabled otherwize it returns 0.
+ * \return 1 if the interrupts are enabled otherwise it returns 0.
  */
 extern int rtc_interrupt_enabled(volatile avr32_rtc_t *rtc);
 
 /*!
  * \brief Check if an interrupt is raised.
  * \param rtc Base address of the RTC (i.e. &AVR32_RTC).
- * \return 1 if an interrupt is currently raised otherwize it returns 0.
+ * \return 1 if an interrupt is currently raised otherwise it returns 0.
  */
 extern int rtc_is_interrupt(volatile avr32_rtc_t *rtc);
 
@@ -176,7 +178,7 @@ extern unsigned long rtc_get_top_value(volatile avr32_rtc_t *rtc);
 /*!
  * \brief This function checks if the RTC is busy or not.
  * \param rtc Base address of the RTC (i.e. &AVR32_RTC).
- * \return 1 if the RTC is busy otherwize it will return 0.
+ * \return 1 if the RTC is busy otherwise it will return 0.
  */
 extern int rtc_is_busy(volatile avr32_rtc_t *rtc);
 

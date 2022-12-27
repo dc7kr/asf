@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -94,7 +96,7 @@ uint32_t freq_detect_start(void)
 		if (counter_target <= delay_osc_target || counter_ref <= delay_osc_ref) {
 			continue;
 		}
-		// Substracts the delay due to the functions' call
+		// Subtracts the delay due to the functions' call
 		counter_ref -= delay_osc_ref;
 		counter_target -= delay_osc_target;
 		// Estimates the frequency

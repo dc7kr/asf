@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -237,7 +239,7 @@ static bool draw_file_list(struct display_file_list *lst_str)
   return true;
 }
 
-/*! \brief Draw the statup image on the display.
+/*! \brief Draw the startup image on the display.
  */
 static bool draw_startup(void)
 {
@@ -317,7 +319,7 @@ static bool draw_play_view_print_total_time(struct file_info *current_file_info)
 
 /*! \brief Draws the song progress bar on the screen.
  *
- * \param init If true the progress bar is initialised which should be done after a song change
+ * \param init If true the progress bar is initialized which should be done after a song change
  * or after a new draw of the play view. If the progress bar should just be updated call with false
  * \param ptime Current play time in milliseconds.
  * \param current_file_info contains the total play time length

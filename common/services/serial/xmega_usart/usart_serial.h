@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -47,6 +49,12 @@
 #include "status_codes.h"
 #include "usart.h"
 
+/*! \name Serial Management Configuration
+ */
+//! @{
+#include "conf_usart_serial.h"
+//! @}
+
 typedef usart_rs232_options_t usart_serial_options_t;
 
 typedef USART_t *usart_if;
@@ -56,7 +64,7 @@ typedef USART_t *usart_if;
  * \param usart       Base address of the USART instance.
  * \param options     Options needed to set up RS232 communication (see \ref usart_serial_options_t).
  *
- * \retval true if the inititialization was successfull
+ * \retval true if the initialization was successful
  * \retval false if initialization failed (error in baud rate calculation)
  */
 static inline bool usart_serial_init(usart_if usart, const
@@ -150,7 +158,7 @@ static inline void usart_serial_getchar(usart_if usart, uint8_t *data)
 extern status_code_t usart_serial_write_packet(usart_if usart, const uint8_t *data, size_t len);
 
 /**
- * \brief Reveive a sequence of bytes from USART device
+ * \brief Receive a sequence of bytes from USART device
  *
  * \param usart  Base address of the USART instance.
  * \param data   Data buffer to write

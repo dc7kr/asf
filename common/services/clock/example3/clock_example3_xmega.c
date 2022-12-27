@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -192,7 +194,7 @@ int main(void)
 
 		/*
 		 * Switch to PLL with RC2M as reference and 4x multiplier.
-		 * Prescale CLKsys by 128x, and all periheral clocks by 1x.
+		 * Prescale CLKsys by 128x, and all peripheral clocks by 1x.
 		 */
 		pll_config_init(&pcfg, PLL_SRC_RC2MHZ, 1, 4);
 		pll_enable(&pcfg, 0);

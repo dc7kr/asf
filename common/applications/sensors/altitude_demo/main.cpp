@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -47,12 +49,12 @@
  * This application uses the common sensor service to obtain pressure data
  * from a MEMS pressure sensor installed on an Atmel development board.  After
  * initializing sensor platform board resources, this demonstration will
- * attach and initialize a baromtric sensor installed on the development board.
+ * attach and initialize a barometric sensor installed on the development board.
  * In the case of the Atmel Xplained development boards, for example, the
  * platform should be fitted and built for a Sensors Xplained Pressure sensor
  * board.
  *
- * Once an appropriate pressure sensor is intialized, the
+ * Once an appropriate pressure sensor is initialized, the
  * \ref pressure_altitude() utility in the ASF Common Sensor service is used
  * to calculate the pressure altitude as a function of the current barometric
  * pressure and configured local mean sea level pressure.  Adjust the
@@ -150,7 +152,7 @@ static inline int32_t average(func callback, T arg, int M = 25)
 /** \brief Pressure demo application entry
  *
  * After initializing sensor platform board resources, this demonstration will
- * attach and initialize a baromtric sensor installed on the development board.
+ * attach and initialize a barometric sensor installed on the development board.
  * In the case of the Atmel Xplained development boards, for example, the
  * platform should be fitted and built for a Sensors Xplained Pressure sensor
  * board.
@@ -171,7 +173,7 @@ int main(void)
 		puts("\rSensor initialization error.");
 
 		while (true) {
-			/* Error ocurred, loop forever */
+			/* Error occurred, loop forever */
 		}
 	}
 

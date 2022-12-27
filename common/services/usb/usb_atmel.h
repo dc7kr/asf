@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -122,6 +124,7 @@
 #define  USB_PID_ATMEL_ASF_VENDOR_CLASS            0x2423
 #define  USB_PID_ATMEL_ASF_MSC_CDC                 0x2424
 #define  USB_PID_ATMEL_ASF_TWO_CDC                 0x2425
+#define  USB_PID_ATMEL_ASF_SEVEN_CDC               0x2426
 #define  USB_PID_ATMEL_ASF_XPLAIN_BC_POWERONLY     0x2430
 #define  USB_PID_ATMEL_ASF_XPLAIN_BC_TERMINAL      0x2431
 #define  USB_PID_ATMEL_ASF_XPLAIN_BC_TOUCH         0x2432

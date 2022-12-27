@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -60,7 +62,7 @@
  * All AVR XMEGA devices with an LCD module can be used.
  *
  * \section exampledescription Description of the example
- * After an intitialization phase where all pixels of LCD are blinking, the LCD
+ * After an intialization phase where all pixels of LCD are blinking, the LCD
  * displays a "welcome" sequence. Then, for one of the Touch-Buttons pressed,
  * a dedicated sentence is displayed and a pseudo stopwatch is started (mn:s).
  *
@@ -96,7 +98,7 @@
 /**
  * \brief LCD frame interrupt callback function
  *
- * This function is called when LCD interrupt has occured and toggles LED3.
+ * This function is called when LCD interrupt has occurred and toggles LED3.
  */
 static void example_lcd_interrupt_callback(void)
 {

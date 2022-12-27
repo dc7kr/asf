@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -162,7 +164,7 @@ can_mob_t appli_remote_rx_msg = {
 
 // -----------------------------------------------------------------
 const char CAN_Success[] = "\r\n\
-=== OK: UC3C CAN Communication Successed ===\r\n\
+=== OK: UC3C CAN Communication Succeeded ===\r\n\
 \r\n";
 
 const char CAN_Error[] = "\r\n\

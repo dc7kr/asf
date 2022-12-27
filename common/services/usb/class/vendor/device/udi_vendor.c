@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -68,7 +70,7 @@ void udi_vendor_disable(void);
 bool udi_vendor_setup(void);
 uint8_t udi_vendor_getsetting(void);
 
-//! Global struture which contains standard UDI API for UDC
+//! Global structure which contains standard UDI API for UDC
 UDC_DESC_STORAGE udi_api_t udi_api_vendor = {
 	.enable = udi_vendor_enable,
 	.disable = udi_vendor_disable,

@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -264,7 +266,7 @@ uint8_t sd_mmc_spi_send_command(uint8_t command, uint32_t arg)
 
 //!
 //! @brief This function sends a command WITH DATA STATE to the SD/MMC and waits for R1 response
-//!        The memory /CS signal is not affected so this function can be used to send a commande during a large transmission
+//!        The memory /CS signal is not affected so this function can be used to send a command during a large transmission
 //!
 //! @param  command   command to send (see sd_mmc_spi.h for command list)
 //! @param  arg       argument of the command
@@ -569,7 +571,7 @@ void sd_mmc_spi_get_capacity(void)
 
 
 //!
-//! @brief    This function reads the STATUS regsiter of the memory card
+//! @brief    This function reads the STATUS register of the memory card
 //!           After a read the error flags are automatically cleared
 //!
 //! @return bit
@@ -741,7 +743,7 @@ bool is_sd_mmc_spi_write_pwd_locked(void)
 //!         Moreover the OP_FORCED_ERASE command can also have no effect on some cards !
 //!
 //! @param operation
-//!           OP_LOCK           -> to lock the card (the current pasword must be specified)
+//!           OP_LOCK           -> to lock the card (the current password must be specified)
 //!           OP_UNLOCK         -> to unlock the card (the current password must be specified)
 //!           OP_RESET_PWD      -> to clear the current password (the current password must be specified)
 //!           OP_SET_PWD        -> to set a new password to the card (the old password must have been cleared first)

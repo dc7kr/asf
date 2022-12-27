@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -80,7 +82,7 @@
  * Option to change the interrupt priority (0 to 3) by default 0 (recommended).
  *
  * \section Callbacks management
- * The USB driver is fully managed by interrupt and does not request periodique
+ * The USB driver is fully managed by interrupt and does not request periodic
  * task. Thereby, the USB events use callbacks to transfer the information.
  * The callbacks are declared in static during compilation or in variable during
  * code execution.
@@ -205,7 +207,7 @@ static volatile usb_desc_table_t udd_g_ep_table[2 * (USB_DEVICE_MAX_EP + 1)];
 /**
  * \name Control endpoint low level management routine.
  *
- * This function performs control endpoint mangement.
+ * This function performs control endpoint management.
  * It handle the SETUP/DATA/HANDSHAKE phases of a control transaction.
  */
 //@{
@@ -254,22 +256,22 @@ static void udd_reset_ep_ctrl(void);
  */
 static void udd_ctrl_init(void);
 
-//! \brief Managed reception of SETUP packet on control enpoint
+//! \brief Managed reception of SETUP packet on control endpoint
 static void udd_ctrl_setup_received(void);
 
-//! \brief Managed reception of IN packet on control enpoint
+//! \brief Managed reception of IN packet on control endpoint
 static void udd_ctrl_in_sent(void);
 
-//! \brief Managed reception of OUT packet on control enpoint
+//! \brief Managed reception of OUT packet on control endpoint
 static void udd_ctrl_out_received(void);
 
-//! \brief Managed underflow event of IN packet on control enpoint
+//! \brief Managed underflow event of IN packet on control endpoint
 static void udd_ctrl_underflow(void);
 
-//! \brief Managed overflow event of OUT packet on control enpoint
+//! \brief Managed overflow event of OUT packet on control endpoint
 static void udd_ctrl_overflow(void);
 
-//! \brief Managed stall event of IN/OUT packet on control enpoint
+//! \brief Managed stall event of IN/OUT packet on control endpoint
 static void udd_ctrl_stall_data(void);
 
 //! \brief Send a ZLP IN on control endpoint
@@ -285,9 +287,9 @@ static void udd_ctrl_endofrequest(void);
 /**
  * \brief Main interrupt routine for control endpoint
  *
- * This switchs control endpoint events to correct sub function.
+ * This switches control endpoint events to correct sub function.
  *
- * \return \c 1 if an event about control endpoint is occured, otherwise \c 0.
+ * \return \c 1 if an event about control endpoint is occurred, otherwise \c 0.
  */
 static bool udd_ctrl_interrupt(void);
 
@@ -298,7 +300,7 @@ static bool udd_ctrl_interrupt(void);
  * \name Management of bulk/interrupt/isochronous endpoints
  *
  * The UDD manages the data transfer on endpoints:
- * - Start data tranfer on endpoint with USB Device DMA
+ * - Start data transfer on endpoint with USB Device DMA
  * - Send a ZLP packet if requested
  * - Call callback registered to signal end of transfer
  * The transfer abort and stall feature are supported.
@@ -323,7 +325,7 @@ typedef struct {
 	//! Size of buffer to send or fill
 	iram_size_t buf_size;
 
-	//! Total number of data transfered on enpoint
+	//! Total number of data transfered on endpoint
 	iram_size_t nb_trans;
 
 	union {
@@ -366,9 +368,9 @@ static void udd_ep_trans_done(udd_ep_id_t ep);
 /**
  * \brief Main interrupt routine for bulk/interrupt/isochronous endpoints
  *
- * This switchs endpoint events to correct sub function.
+ * This switches endpoint events to correct sub function.
  *
- * \return \c 1 if an event about bulk/interrupt/isochronous endpoints has occured, otherwise \c 0.
+ * \return \c 1 if an event about bulk/interrupt/isochronous endpoints has occurred, otherwise \c 0.
  */
 static bool udd_ep_interrupt(void);
 
@@ -379,14 +381,14 @@ static bool udd_ep_interrupt(void);
 /**
  * \brief Function called by USBC interrupt to manage USB device interrupts
  *
- * USB Device interrupt events are splited in three parts:
+ * USB Device interrupt events are split in three parts:
  * - USB line events (SOF, reset, suspend, resume, wakeup)
  * - control endpoint events (setup reception, end of data transfer, underflow, overflow, stall)
  * - bulk/interrupt/isochronous endpoints events (end of data transfer)
  *
  * Note:
  * Here, the global interrupt mask is not clear when an USB interrupt is enabled
- * because this one can not be occured during the USB ISR (=during INTX is masked).
+ * because this one can not be occurred during the USB ISR (=during INTX is masked).
  * See Technical reference $3.8.3 Masking interrupt requests in peripheral modules.
  */
 #ifdef UHD_ENABLE
@@ -531,7 +533,7 @@ void udd_enable(void)
 #endif
 			udd_interrupt, AVR32_USBC_IRQ, UDD_USB_INT_LEVEL);
 
-	// Always authorize asynchrone USB interrupts to exit of sleep mode
+	// Always authorize asynchronous USB interrupts to exit of sleep mode
 	pm_asyn_wake_up_enable(AVR32_PM_AWEN_USBCWEN_MASK);
 #endif
 
@@ -647,7 +649,7 @@ void udd_attach(void)
 	udd_enable_wake_up_interrupt();
 	udd_enable_sof_interrupt();
 
-	// Reset following interupts flag
+	// Reset following interrupts flag
 	udd_ack_reset();
 	udd_ack_sof();
 
@@ -813,7 +815,7 @@ bool udd_ep_clear_halt(udd_ep_id_t ep)
 		udd_disable_stall_handshake(ep);
 		if (Is_udd_stall(ep)) {
 			udd_ack_stall(ep);
-			// The Stall has occured, then reset data toggle
+			// The Stall has occurred, then reset data toggle
 			udd_reset_data_toggle(ep);
 		}
 
@@ -906,8 +908,11 @@ void udd_ep_abort(udd_ep_id_t ep)
 	}
 	ptr_job->busy = false;
 	if (NULL != ptr_job->call_trans) {
-		// It can be a transfert or stall callback
-		ptr_job->call_trans(UDD_EP_TRANSFER_ABORT, ptr_job->nb_trans);
+		if (Is_udd_endpoint_in(ep)) {
+			ep |= USB_EP_DIR_IN;
+		}
+		// It can be a Transfer or stall callback
+		ptr_job->call_trans(UDD_EP_TRANSFER_ABORT, ptr_job->nb_trans, ep);
 	}
 }
 
@@ -934,11 +939,11 @@ bool udd_ep_wait_stall_clear(udd_ep_id_t ep,
 	}
 
 	if (Is_udd_endpoint_stall_requested(ep)) {
-		// Endpoint halted then registes the callback
+		// Endpoint halted then registers the callback
 		ptr_job->busy = true;
 		ptr_job->call_nohalt = callback;
 	} else {
-		// Enpoint not halted then call directly callback
+		// endpoint not halted then call directly callback
 		callback();
 	}
 	return true;
@@ -1083,7 +1088,7 @@ static void udd_ctrl_setup_received(void)
 
 	// Decode setup request
 	if (udc_process_setup() == false) {
-		// Setup request unknow then stall it
+		// Setup request unknown then stall it
 		udd_ctrl_stall_data();
 		udd_ack_setup_received(0);
 		return;
@@ -1140,7 +1145,7 @@ static void udd_ctrl_in_sent(void)
 	nb_remain = udd_g_ctrlreq.payload_size - udd_ctrl_payload_nb_trans;
 	if (0 == nb_remain) {
 		// All content of current buffer payload are sent
-		// Update number of total data sending by previous playlaod buffer
+		// Update number of total data sending by previous payload buffer
 		udd_ctrl_prev_payload_nb_trans += udd_ctrl_payload_nb_trans;
 		if ((udd_g_ctrlreq.req.wLength == udd_ctrl_prev_payload_nb_trans)
 				|| b_shortpacket) {
@@ -1173,7 +1178,7 @@ static void udd_ctrl_in_sent(void)
 	// The IN data don't must be written in endpoint 0 DPRAM during
 	// a next setup reception in same endpoint 0 DPRAM.
 	// Thereby, an OUT ZLP reception must check before IN data write
-	// and if no OUT ZLP is recevied the data must be written quickly (800us)
+	// and if no OUT ZLP is received the data must be written quickly (800us)
 	// before an eventually ZLP OUT and SETUP reception
 	flags = cpu_irq_save();
 	if (Is_udd_out_received(0)) {
@@ -1209,8 +1214,8 @@ static void udd_ctrl_out_received(void)
 				(UDD_EPCTRL_HANDSHAKE_WAIT_OUT_ZLP == udd_ep_control_state)) {
 			// End of SETUP request:
 			// - Data IN Phase aborted,
-			// - or last Data IN Phase hidden by ZLP OUT sending quiclky,
-			// - or ZLP OUT received normaly.
+			// - or last Data IN Phase hidden by ZLP OUT sending quickly,
+			// - or ZLP OUT received normally.
 			udd_ctrl_endofrequest();
 		} else {
 			// Protocol error during SETUP request
@@ -1237,8 +1242,8 @@ static void udd_ctrl_out_received(void)
 			(udd_ctrl_prev_payload_nb_trans + udd_ctrl_payload_nb_trans)))
 	{
 		// End of reception because it is a short packet
-		// Before send ZLP, call intermediat calback
-		// in case of data receiv generate a stall
+		// Before send ZLP, call intermediate callback
+		// in case of data receive generate a stall
 		udd_g_ctrlreq.payload_size = udd_ctrl_payload_nb_trans;
 		if (NULL != udd_g_ctrlreq.over_under_run) {
 			if (!udd_g_ctrlreq.over_under_run()) {
@@ -1259,7 +1264,7 @@ static void udd_ctrl_out_received(void)
 	if (udd_g_ctrlreq.payload_size == udd_ctrl_payload_nb_trans) {
 		// Overrun then request a new payload buffer
 		if (!udd_g_ctrlreq.over_under_run) {
-			// No callback availabled to request a new payload buffer
+			// No callback available to request a new payload buffer
 			udd_ctrl_stall_data();
 
 			// Ack reception of OUT to replace NAK by a STALL
@@ -1516,7 +1521,7 @@ static void udd_ep_trans_done(udd_ep_id_t ep)
 		udd_ack_out_received(ep_num);
 		udd_ack_fifocon(ep_num);
 
-		// Can be necessary to copy data receiv from cache buffer to user buffer
+		// Can be necessary to copy data receive from cache buffer to user buffer
 		if (ptr_job->b_use_out_cache_buffer) {
 			memcpy(&ptr_job->buf[ptr_job->nb_trans],
 					udd_ep_out_cache_buffer[ep_num - 1],
@@ -1530,7 +1535,7 @@ static void udd_ep_trans_done(udd_ep_id_t ep)
 		}
 
 		// If all previous data requested are received and user buffer not full
-		// then need to receiv other data
+		// then need to receive other data
 		if ((nb_trans == udd_udesc_get_buf0_size(ep_num))
 			&& (ptr_job->nb_trans != ptr_job->buf_size)) {
 			next_trans = ptr_job->buf_size - ptr_job->nb_trans;
@@ -1570,7 +1575,10 @@ static void udd_ep_trans_done(udd_ep_id_t ep)
 	// Job complete then call callback
 	ptr_job->busy = false;
 	if (NULL != ptr_job->call_trans) {
-		ptr_job->call_trans(UDD_EP_TRANSFER_OK, ptr_job->nb_trans);
+		if (Is_udd_endpoint_in(ep_num)) {
+			ep_num |= USB_EP_DIR_IN;
+		}
+		ptr_job->call_trans(UDD_EP_TRANSFER_OK, ptr_job->nb_trans, ep_num);
 	}
 	return;
 }

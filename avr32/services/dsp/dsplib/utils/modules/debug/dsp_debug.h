@@ -2,13 +2,15 @@
  *
  * \file
  *
- * \brief DSP library debbuging functions
+ * \brief DSP library debugging functions
  *
  * This file defines a useful set of debugging functions for the DSP library
  *
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -64,13 +66,13 @@
 /***********************************************************************
  * File: dsp_debug_setup_XXX_XXX.c
  * This file is used to make an abstraction of the driver used to control
- * the debugging periferal.
+ * the debugging peripheral.
  ***********************************************************************/
 
 /*! \anchor Peripheral
  * \name Peripheral function
  * \brief These function are used to make an abstraction of the driver used to control
- * the debugging periferal.
+ * the debugging peripheral.
  */
 //! \{
 /*! \brief This function permits to initialize the peripheral that is used to debug. It is automatically called

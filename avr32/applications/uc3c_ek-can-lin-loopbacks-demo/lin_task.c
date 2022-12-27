@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -52,7 +54,7 @@
 #include "lin_task.h"
 #include "conf_demo.h"
 
-// Local defintion of start scheduler fonction
+// Local definition of start scheduler function
 void start_scheduler(void);
 
 // Lin Master Task linked to the transmission of the message with the ID 0x12
@@ -92,7 +94,7 @@ volatile avr32_tc_t *tc = TC_INSTANCE;
  */
 void start_scheduler(void)
 {
-	// Options for waveform genration.
+	// Options for waveform generation.
 	static const tc_waveform_opt_t WAVEFORM_OPT = {
 		.channel  = TC_CHANNEL,         // Channel selection.
 		.bswtrg   = TC_EVT_EFFECT_NOOP, // Software trigger effect on TIOB.

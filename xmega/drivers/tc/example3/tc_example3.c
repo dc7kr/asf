@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -97,7 +99,7 @@ uint16_t ccb_pwm_index;
 /**
  * \brief Compare/Capture detection interrupt callback function
  *
- * This function is called when an interrupt has occured on a Compare A channel.
+ * This function is called when an interrupt has occurred on a Compare A channel.
  * It increments the CC detection level and thus modify the duty-cycle.
  */
 static void example_cca_interrupt_callback(void)
@@ -110,7 +112,7 @@ static void example_cca_interrupt_callback(void)
 /**
  * \brief Compare/Capture detection interrupt callback function
  *
- * This function is called when an interrupt has occured on a Compare B channel.
+ * This function is called when an interrupt has occurred on a Compare B channel.
  * It decrements the CC detection level and thus modify the duty-cycle.
  */
 static void example_ccb_interrupt_callback(void)
@@ -128,7 +130,7 @@ int main(void)
 	sleepmgr_init();
 	cpu_irq_enable();
 
-	/* Enables the Timer defined in conf_example.h : TCE0 inthis example */
+	/* Enables the Timer defined in conf_example.h : TCE0 in this example */
 	tc_enable(&TIMER_EXAMPLE);
 
 	/* Configures the interrupt level of CCA and CCB modules : low */

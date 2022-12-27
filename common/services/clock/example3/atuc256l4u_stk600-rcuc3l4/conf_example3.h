@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -44,7 +46,7 @@
 //! \note This is the pin for the onboard WAKE button, corresponding to PA11.
 #define NEXT_BUTTON     GPIO_PUSH_BUTTON_0
 
-//! \note This is the LED that will be toggeled in this example
+//! \note This is the LED that will be toggled in this example
 #define LED_EXAMPLE_OUTPUT     LED3_GPIO
 
 /* There is some issue with getting the internal osc to run on this example

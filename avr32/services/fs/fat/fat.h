@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -149,7 +151,7 @@
 //! @}
 
 
-//! \name Constante used to sign a MBR or PBR sectors
+//! \name Constants used to sign a MBR or PBR sectors
 //! @{
 #define  FS_BR_SIGNATURE_LOW     0x55
 #define  FS_BR_SIGNATURE_HIGH    0xAA
@@ -272,7 +274,7 @@ typedef union
    } seg;                              //!< For FAT 12 & 16, it is a segment (no cluster list)
 } Fs_rootdir;
 
-//! Struture to save the variables frequently used by file system mounted
+//! Structure to save the variables frequently used by file system mounted
 typedef struct
 {
    uint8_t    u8_lun;                       //!< Number of logical driver
@@ -298,19 +300,19 @@ typedef struct
    uint16_t   u16_flat_pos_offset;          //!< Offset in flat list of the directory
 } Fs_management;
 
-//! Struture to save the variables very frequently used by file system mounted
+//! Structure to save the variables very frequently used by file system mounted
 typedef struct
 {
    uint8_t    u8_type_fat;                  //!< FAT type (default = no mounted = FS_TYPE_FAT_UNM)
    uint16_t   u16_entry_pos_sel_file;       //!< Entry file position in directory (unit = FS_SIZE_FILE_ENTRY) (see value FS_NO_SEL & FS_END_FIND)
 } Fs_management_fast;
 
-//! Struture to save the frequently variables of file system mounted
+//! Structure to save the frequently variables of file system mounted
 typedef struct
 {
    uint8_t    u8_open_mode;                 //!< open mode of selected file
    uint8_t    u8_txt_format;                //!< format of text used in selected file (only for reader_txt module)
-   uint8_t    u8_attr;                      //!< Attribut of the selected file
+   uint8_t    u8_attr;                      //!< Attribute of the selected file
    uint32_t   u32_cluster;                  //!< First cluster of the selected file
    uint32_t   u32_size;                     //!< Size of selected file (unit Bytes)
    uint32_t   u32_pos_in_file;              //!< Current position in file (unit Bytes)
@@ -318,16 +320,16 @@ typedef struct
 //! @}
 
 
-//! \name Main sructures
+//! \name Main structures
 //! @{
 
-//! Struture to define a segment
+//! Structure to define a segment
 typedef struct {
    uint32_t  u32_addr;                      //!< segment address (unit 512B), or cluster number
    uint32_t  u32_size_or_pos;               //!< segment size (unit 512B), or position in cluster list (unit 512B)
 } Fs_segment;
 
-//! Struture to store cluster information
+//! Structure to store cluster information
 typedef struct st_fs_cluster
 {
    uint32_t   u32_pos;                      //!< cluster position
@@ -337,7 +339,7 @@ typedef struct st_fs_cluster
 //! @}
 
 
-//! Struture to store the cluster list cache
+//! Structure to store the cluster list cache
 typedef struct {
    bool  b_cache_file;                 //!< Signal a cluster cache from file cluster list or directory cluster list
    uint8_t    u8_level_use;                 //!< Cache level, 0 for the last used and up to FS_NB_CACHE_CLUSLIST-1 for the old access (ignore if FS_NB_CACHE_CLUSLIST=1)
@@ -349,7 +351,7 @@ typedef struct {
 } Fs_clusterlist_cache;
 
 
-//! Struture to store the information about sector cache (=last sector read or write on disk)
+//! Structure to store the information about sector cache (=last sector read or write on disk)
 typedef struct {
    uint8_t    u8_lun;                       //!< LUN of sector
    uint32_t   u32_addr;                     //!< Sector address (unit 512B)
@@ -374,7 +376,7 @@ typedef struct {
 //! \name Value used in "Fs_management_fast.u16_entry_pos_sel_file"
 //! @{
 #define  FS_NO_SEL         0xFFFF      //!< Signal that a file entry isn't selected
-#define  FS_END_FIND       0xFFFE      //!< Signal that a file entry is the last file entry accessibled by system
+#define  FS_END_FIND       0xFFFE      //!< Signal that a file entry is the last file entry accessible by system
 //! @}
 
 
@@ -398,7 +400,7 @@ _GLOBEXT_                     bool                 g_b_string_length;
 //! Variables to enable/disable the disk check before each action on disk
 _GLOBEXT_                     bool                 g_b_no_check_disk;
 
-//! \name Variables initialised in drive_mount()
+//! \name Variables initialized in drive_mount()
 //! @{
 _GLOBEXT_   _MEM_TYPE_SLOW_   Fs_management        fs_g_nav;
 _GLOBEXT_   _MEM_TYPE_FAST_   Fs_management_fast   fs_g_nav_fast;
@@ -423,7 +425,7 @@ _GLOBEXT_   _MEM_TYPE_SLOW_   uint32_t                  fs_g_u32_last_mod_fat;  
 //! @{
 _GLOBEXT_   _MEM_TYPE_SLOW_   uint8_t                   fs_g_sector[ FS_CACHE_SIZE ];
 _GLOBEXT_   _MEM_TYPE_SLOW_   Fs_sector_cache      fs_g_sectorcache;
-_GLOBEXT_   _MEM_TYPE_SLOW_   uint32_t                  fs_gu32_addrsector;     //!< Store the address of futur cache (unit 512B)
+_GLOBEXT_   _MEM_TYPE_SLOW_   uint32_t                  fs_gu32_addrsector;     //!< Store the address of future cache (unit 512B)
 typedef uint8_t  _MEM_TYPE_SLOW_   * PTR_CACHE;
 //!}@
 

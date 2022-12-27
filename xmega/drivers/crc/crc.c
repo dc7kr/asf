@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -201,7 +203,7 @@ static inline uint32_t crc_checksum_read(void)
  *
  * The selected source is locked until either the CRC generation is completed
  * or the CRC module is reset.
- * CRC generation complete is generated and signaled from the selected source
+ * CRC generation complete is generated and signalled from the selected source
  * when used with the DMA controller or flash memory.
  * To disable the CRC module, use CRC_SOURCE_DISABLE_gc as source.
  *

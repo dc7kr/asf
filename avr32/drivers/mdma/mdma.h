@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -201,7 +203,7 @@ extern void mdma_single_mode_xfert_init(volatile avr32_mdma_t *mdma, U32 channel
  *
  * \param mdma             Pointer to the MDMA instance to access.
  * \param channel          MDMA Channel To configure
- * \param start_adress     Start adress of the buffer
+ * \param start_adress     Start address of the buffer
  *
  */
 extern void mdma_descriptor_mode_xfert_init(volatile avr32_mdma_t *mdma, U32 channel, U32* start_adress);

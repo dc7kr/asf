@@ -4,11 +4,13 @@
  * \brief Graphic service settings for the ET024006DHU panel using the HX8347A
  * display controller
  *
- * This files includes the correct header files for the grapics service
+ * This files includes the correct header files for the graphics service
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -62,35 +64,22 @@ void gfx_hx8347a_set_orientation(uint8_t flags)
 
 	/* Switch width and height if XY is switched. */
 	if ((flags & GFX_SWITCH_XY) != 0x00) {
-		gfx_width = GFX_PANELHEIGHT;
-		gfx_height = GFX_PANELWIDTH;
+		gfx_width = HX8347A_SWITCH_XY_WIDTH;
+		gfx_height = HX8347A_SWITCH_XY_HEIGHT;
 	} else {
-		gfx_width = GFX_PANELWIDTH;
-		gfx_height = GFX_PANELHEIGHT;
+		gfx_width = HX8347A_DEFAULT_WIDTH;
+		gfx_height = HX8347A_DEFAULT_HEIGHT;
 	}
 
 #ifdef CONF_GFX_USE_CLIPPING
 	/* Reset clipping region. */
-	gfx_set_clipping(0, 0, gfx_width - 1, gfx_height - 1);
+	gfx_set_clipping(0, 0, gfx_width, gfx_height);
 #endif
 }
 
 gfx_color_t gfx_hx8347a_color(uint8_t r, uint8_t g, uint8_t b)
 {
-	gfx_color_t color;
-	uint16_t red = r >> 3;
-	uint16_t green = g >> 2;
-	uint16_t blue = b >> 3;
-
-	/* Stuff into one 16-bit word. */
-	red <<= (5 + 6);
-	green <<= 5;
-	color = red | green | blue;
-
-	/* Convert to big endian, to fit the display data format. */
-	color = (color >> 8) | (color << 8);
-
-	return color;
+	return GFX_COLOR(r, g, b);
 }
 
 gfx_color_t gfx_hx8347a_get_pixel(gfx_coord_t x, gfx_coord_t y)
@@ -144,16 +133,16 @@ void gfx_hx8347a_draw_line_pixel(gfx_coord_t x, gfx_coord_t y,
 void gfx_hx8347a_init(void)
 {
 	/* initialize globals */
-	gfx_width = GFX_PANELWIDTH;
-	gfx_height = GFX_PANELHEIGHT;
+	gfx_width = HX8347A_DEFAULT_WIDTH;
+	gfx_height = HX8347A_DEFAULT_HEIGHT;
 
 	hx8347a_init();
 	hx8347a_backlight_on();
 
 	/* Set clipping area to whole screen initially */
-	gfx_set_clipping(0, 0, GFX_PANELWIDTH, GFX_PANELHEIGHT);
+	gfx_set_clipping(0, 0, gfx_width, gfx_height);
 
-	gfx_draw_filled_rect(0, 0, GFX_PANELWIDTH, GFX_PANELHEIGHT,
+	gfx_draw_filled_rect(0, 0, gfx_width, gfx_height,
 			GFX_COLOR(0xFF, 0xFF, 0xFF));
 }
 

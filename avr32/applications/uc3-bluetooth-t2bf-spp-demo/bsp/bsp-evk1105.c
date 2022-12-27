@@ -416,12 +416,12 @@ static  void  BSP_PM_GClkSetup (CPU_BOOLEAN pll)
 *
 *              2) Main clock is divided by 2^(xxxSEL + 1)
 *
-*              3) In AT32UC3, HSB shares the source clock with the CPU, thus writting to HSBDIV & HSBSEL
+*              3) In AT32UC3, HSB shares the source clock with the CPU, thus writing to HSBDIV & HSBSEL
 *                 has no effect.
 *
 *              4) The synchronous clock source can be changed on-the-fly.
 *
-*              5) Writting a previous value to xxxDIV and xxxSEL keeps the clock unchanged without halting
+*              5) Writing a previous value to xxxDIV and xxxSEL keeps the clock unchanged without halting
 *                 or disabling the module.
 *
 *              6) Scaling CPU/HSB speed can be implemented according to the required performance, while
@@ -577,8 +577,8 @@ static  void  BSP_INTC_Init (void)
     CPU_INT32U  int_req;
 
 
-    for (int_grp = 0; int_grp < AVR32_INTC_NUM_INT_GRPS; int_grp++) {   /* loop thru all interrupt groups                           */
-                                                                        /* loop thru each interrupt request line inside a group     */
+    for (int_grp = 0; int_grp < AVR32_INTC_NUM_INT_GRPS; int_grp++) {   /* loop through all interrupt groups                        */
+                                                                        /* loop through each interrupt request line inside a group  */
         for (int_req = 0; int_req < BSP_INTC_Handlers[int_grp].num_irqs; int_req++) {
                                                                         /* assign BSP_INTC_IntUnhandled() as default int handler    */
             BSP_INTC_Handlers[int_grp].handlers[int_req] = &BSP_INTC_IntUnhandled;
@@ -1086,7 +1086,7 @@ void  BSP_USART_Init (CPU_INT08U com, CPU_INT32U baud_rate)
 
     //usart->idr      =  0xFFFFFFFF;                                      /* Disable all USART interrupts                             */
 
-    usart->mr       =  0;                                               /* Reset MODE regsiter                                      */
+    usart->mr       =  0;                                               /* Reset MODE register                                      */
     usart->rtor     =  0;                                               /* Reset Receiver Time-out register                         */
     usart->ttgr     =  0;                                               /* Reset Transmitter Timeguard register                     */
 
@@ -1108,7 +1108,7 @@ void  BSP_USART_Init (CPU_INT08U com, CPU_INT32U baud_rate)
         cd          =  pba_freq / (16 * baud_rate);
     }
 
-    usart->brgr     =  cd << AVR32_USART_BRGR_CD_OFFSET;                /* Set CR on Baud Reate Generator register                  */
+    usart->brgr     =  cd << AVR32_USART_BRGR_CD_OFFSET;                /* Set CR on Baud Rate Generator register                   */
                                                                         /* Set normal RS232 mode, no parity bit, 1 stop bit,        */
     usart->mr      |= (AVR32_USART_MR_MODE_NORMAL << AVR32_USART_MR_CHMODE_OFFSET) |
                       (AVR32_USART_MR_PAR_NONE    << AVR32_USART_MR_PAR_OFFSET)    |
@@ -1166,7 +1166,7 @@ void  BSP_USART_Init (CPU_INT08U com, CPU_INT32U baud_rate) {
 
     usart->idr      =  0xFFFFFFFF;                                      /* Disable all USART interrupts                             */
 
-    usart->mr       =  0;                                               /* Reset MODE regsiter                                      */
+    usart->mr       =  0;                                               /* Reset MODE register                                      */
     usart->rtor     =  0;                                               /* Reset Receiver Time-out register                         */
     usart->ttgr     =  0;                                               /* Reset Transmitter Timeguard register                     */
 
@@ -1195,7 +1195,7 @@ void  BSP_USART_Init (CPU_INT08U com, CPU_INT32U baud_rate) {
     cd              =  cd_fp >> AVR32_USART_BRGR_FP_SIZE;
     fp              =  cd_fp & ((1 << AVR32_USART_BRGR_FP_SIZE) - 1);
 
-    usart->brgr     = (cd << AVR32_USART_BRGR_CD_OFFSET) |              /* Set CR on Baud Reate Generator register                  */
+    usart->brgr     = (cd << AVR32_USART_BRGR_CD_OFFSET) |              /* Set CR on Baud Rate Generator register                   */
                       (fp << AVR32_USART_BRGR_FP_OFFSET);
                                                                         /* Set normal RS232 mode, no parity bit, 1 stop bit,        */
     usart->mr      |= (AVR32_USART_MR_MODE_NORMAL << AVR32_USART_MR_CHMODE_OFFSET) |
@@ -1217,7 +1217,7 @@ void  BSP_USART_Init (CPU_INT08U com, CPU_INT32U baud_rate) {
 *                 also blocks until room is available in the USART for the byte to be sent.
 *
 * Arguments   :   com   USART port: 0..3
-*                 b     byte containing the value of the charcater to output.
+*                 b     byte containing the value of the character to output.
 *
 * Returns     :   None.
 *********************************************************************************************************
@@ -1266,7 +1266,7 @@ void  BSP_USART_ByteWr (CPU_INT08U com, CPU_INT08U b)
 *********************************************************************************************************
 *                                                BSP, USART - Read Byte
 *
-* Description :   This funcion reads a byte from a serial port. This call blocks until a
+* Description :   This function reads a byte from a serial port. This call blocks until a
 *                 character appears at the port. Echo of the byte is also sent to the serial port.
 *
 * Arguments   :   com   USART port: 0..3
@@ -1321,7 +1321,7 @@ CPU_INT08U BSP_USART_ByteRd (CPU_INT08U com)
 *********************************************************************************************************
 *                                                BSP, USART - Write String
 *
-* Description :   This funcion writes a character string to a serial port.
+* Description :   This function writes a character string to a serial port.
 *
 * Arguments   :   com   USART port: 0..3
 *                 s     string of characters
@@ -1346,7 +1346,7 @@ void  BSP_USART_StrWr (CPU_INT08U com, CPU_INT08U *s)
 * Description :   Formatted output to the serial port.
 *
 * Arguments   :   com       USART port: 0..3
-*                 format    string follwing the C format convention.
+*                 format    string following the C format convention.
 *
 * Returns     :   None.
 *********************************************************************************************************
@@ -1469,7 +1469,7 @@ void  BSP_USART_PrintDec (CPU_INT08U com, CPU_INT32U value, CPU_INT08U digits)
 *********************************************************************************************************
 *                                                BSP, USART - Enable Interrupt
 *
-* Description :   This funcion enables interrupt on a serial port.
+* Description :   This function enables interrupt on a serial port.
 *
 * Arguments   :   com      USART port: 0..3
 *                 mask     Interrupt mask
@@ -1517,7 +1517,7 @@ void  BSP_USART_IntEn (CPU_INT08U com, CPU_INT32U mask)
 *********************************************************************************************************
 *                                                BSP, USART - Disable Interrupt
 *
-* Description :   This funcion disables interrupt on a serial port.
+* Description :   This function disables interrupt on a serial port.
 *
 * Arguments   :   com      USART port: 0..3
 *                 mask     Interrupt mask

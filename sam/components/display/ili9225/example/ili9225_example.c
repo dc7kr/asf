@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -72,6 +74,9 @@
  */
 
 #include "asf.h"
+#include "stdio_serial.h"
+#include "conf_board.h"
+#include "conf_clock.h"
 
 struct ili9225_opt_t g_ili9225_display_opt;
 
@@ -84,6 +89,21 @@ void SPI_Handler(void)
 }
 
 /**
+ *  Configure UART console.
+ */
+static void configure_console(void)
+{
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
+}
+
+/**
  * \brief Application entry point for ili9225_spi_lcd example.
  *
  * \return Unused (ANSI-C compatibility).
@@ -92,6 +112,9 @@ int main(void)
 {
 	sysclk_init();
 	board_init();
+
+	/* Initialize debug console */
+	configure_console();
 
 	/* Initialize display parameter */
 	g_ili9225_display_opt.ul_width = BOARD_LCD_WIDTH;

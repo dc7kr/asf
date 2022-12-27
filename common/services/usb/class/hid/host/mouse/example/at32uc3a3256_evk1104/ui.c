@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -305,7 +307,7 @@ void ui_uhi_hid_mouse_move(int8_t x,int8_t y,int8_t scroll)
  *
  * Human interface on EVK1104 :
  * - PWR led is on when power present
- * - Led 0 is on when USB OTG cable is pluged and Vbus is present
+ * - Led 0 is on when USB OTG cable is plugged and Vbus is present
  * - Led 1 is continuously on when a device is connected
  * - Led 1 blinks when a HID mouse is enumerated and USB in idle mode
  *   - The blink is slow (1s) with low speed device
@@ -313,6 +315,6 @@ void ui_uhi_hid_mouse_move(int8_t x,int8_t y,int8_t scroll)
  *   - The blink is fast (0.25s) with high speed device
  * - Led 2 is on when a HID mouse button is pressed
  * - Led 3 is on when the mouse move
- * - Switch SW2 allows to enter the device in suspend mode with remote wakeup feature autorized
+ * - Switch SW2 allows to enter the device in suspend mode with remote wakeup feature authorized
  * - Only a low level on J17.7 will generate to wakeup USB device in suspend mode.
  */

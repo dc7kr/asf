@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -210,7 +212,7 @@ __attribute__((__packed__))
 {
   uint8_t      bLength;              //!< Size of this descriptor in bytes
   uint8_t      bDescriptorType;      //!< DEVICE descriptor type
-  uint16_t     bscUSB;               //!< Binay Coded Decimal Spec. release
+  uint16_t     bscUSB;               //!< Binary Coded Decimal Spec. release
   uint8_t      bDeviceClass;         //!< Class code assigned by the USB
   uint8_t      bDeviceSubClass;      //!< Subclass code assigned by the USB
   uint8_t      bDeviceProtocol;      //!< Protocol code assigned by the USB
@@ -218,9 +220,9 @@ __attribute__((__packed__))
   uint16_t     idVendor;             //!< Vendor ID. ATMEL = 0x03EB
   uint16_t     idProduct;            //!< Product ID assigned by the manufacturer
   uint16_t     bcdDevice;            //!< Device release number
-  uint8_t      iManufacturer;        //!< Index of manu. string descriptor
-  uint8_t      iProduct;             //!< Index of prod. string descriptor
-  uint8_t      iSerialNumber;        //!< Index of S.N.  string descriptor
+  uint8_t      iManufacturer;        //!< Index of manufacturer string descriptor
+  uint8_t      iProduct;             //!< Index of string descriptor
+  uint8_t      iSerialNumber;        //!< Index of serial number string descriptor
   uint8_t      bNumConfigurations;   //!< Number of possible configurations
 }
 #if (defined __ICCAVR32__)
@@ -243,7 +245,7 @@ __attribute__((__packed__))
   uint8_t      bDescriptorType;      //!< CONFIGURATION descriptor type
   uint16_t     wTotalLength;         //!< Total length of data returned
   uint8_t      bNumInterfaces;       //!< Number of interfaces for this conf.
-  uint8_t      bConfigurationValue;  //!< Value for SetConfiguration resquest
+  uint8_t      bConfigurationValue;  //!< Value for SetConfiguration request
   uint8_t      iConfiguration;       //!< Index of string descriptor
   uint8_t      bmAttributes;         //!< Configuration characteristics
   uint8_t      MaxPower;             //!< Maximum power consumption
@@ -315,7 +317,7 @@ __attribute__((__packed__))
 {
   uint8_t      bLength;              //!< Size of this descriptor in bytes
   uint8_t      bDescriptorType;      //!< Device Qualifier descriptor type
-  uint16_t     bscUSB;               //!< Binay Coded Decimal Spec. release
+  uint16_t     bscUSB;               //!< Binary Coded Decimal Spec. release
   uint8_t      bDeviceClass;         //!< Class code assigned by the USB
   uint8_t      bDeviceSubClass;      //!< Subclass code assigned by the USB
   uint8_t      bDeviceProtocol;      //!< Protocol code assigned by the USB

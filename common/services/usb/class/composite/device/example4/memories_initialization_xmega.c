@@ -2,11 +2,13 @@
  * \file
  *
  * \brief Initialization of memories
- * Specific XMEGA functions to initialiaze the memories
+ * Specific XMEGA functions to initialize the memories
  *
  * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

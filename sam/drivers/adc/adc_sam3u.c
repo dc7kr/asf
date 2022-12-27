@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -387,6 +389,7 @@ void adc12b_set_bias_current(Adc12b *p_adc, const uint8_t uc_ibctl)
  */
 Pdc *adc12b_get_pdc_base(const Adc12b *p_adc)
 {
+	UNUSED(p_adc);
 	return PDC_ADC12B;
 }
 #endif

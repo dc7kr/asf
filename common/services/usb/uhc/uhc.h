@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -170,13 +172,13 @@ typedef enum {
 	//! Device power is not supported.
 	UHC_ENUM_OVERCURRENT,
 
-	//! A problem occured during USB enumeration.
+	//! A problem occurred during USB enumeration.
 	UHC_ENUM_FAIL,
 
 	//! USB hardware can not support it. Not enough free pipes.
 	UHC_ENUM_HARDWARE_LIMIT,
 
-	//! USB software can not support it. Implementaion limit.
+	//! USB software can not support it. Implementation limit.
 	UHC_ENUM_SOFTWARE_LIMIT,
 
 	//! USB software can not support it. Not enough memory.
@@ -238,7 +240,7 @@ uint8_t uhc_get_device_number(void);
 /**
  * \brief Gets the USB string manufacturer from a USB device
  *
- * This function waits the end of setup resquests
+ * This function waits the end of setup requests
  * and the timing can be long (3ms to 15s).
  * Thus, do not call it in an interrupt routine.
  * This function allocates a buffer which must be free by user application.
@@ -253,7 +255,7 @@ char* uhc_dev_get_string_manufacturer(uhc_device_t* dev);
 /**
  * \brief Gets the USB string product from a USB device
  *
- * This function waits the end of setup resquests
+ * This function waits the end of setup requests
  * and the timing can be long (3ms to 15s).
  * Thus, do not call it in an interrupt routine.
  * This function allocates a buffer which must be free by user application.
@@ -268,7 +270,7 @@ char* uhc_dev_get_string_product(uhc_device_t* dev);
 /**
  * \brief Gets the USB string serial from a USB device
  *
- * This function waits the end of setup resquests
+ * This function waits the end of setup requests
  * and the timing can be long (3ms to 15s).
  * Thus, do not call it in an interrupt routine.
  * This function allocates a buffer which must be free by user application.
@@ -282,7 +284,7 @@ char* uhc_dev_get_string_serial(uhc_device_t* dev);
 /**
  * \brief Gets a USB string from a USB device
  *
- * This function waits the end of setup resquests
+ * This function waits the end of setup requests
  * and the timing can be long (3ms to 15s).
  * Thus, do not call it in an interrupt routine.
  * This function allocates a buffer which must be free by user application.
@@ -314,7 +316,7 @@ uhd_speed_t uhc_dev_get_speed(uhc_device_t* dev);
 
 /**
  * \brief Tests if the device supports the USB high speed
- * This function can wait the end of a setup resquest
+ * This function can wait the end of a setup request
  * and the timing can be long (1ms to 5s).
  * Thus, do not call it in an interrupt routine.
  *
@@ -350,4 +352,278 @@ bool uhc_dev_is_high_speed_support(uhc_device_t* dev);
 #ifdef __cplusplus
 }
 #endif
+
+/**
+ * \ingroup uhc_group
+ * \defgroup uhc_basic_use_case_setup_prereq USB Host Controller (UHC) - Prerequisites
+ * Common prerequisites for all USB hosts.
+ *
+ * This module is based on USB host stack full interrupt driven, and supporting
+ * \ref sleepmgr_group sleepmgr and \ref clk_group clock services.
+ *
+ * The following procedure must be executed to setup the project correctly:
+ * - Specify the clock configuration:
+ *   - UC3 and SAM devices without USB high speed support need 48MHz clock input.\n
+ *     You must use a PLL and an external OSC.
+ *   - UC3 and SAM devices with USB high speed support need 12MHz clock input.\n
+ *     You must use an external OSC.
+ *   - UC3 devices with USBC hardware need CPU frequency higher than 25MHz.
+ * - In conf_board.h, the define CONF_BOARD_USB_PORT must be added to enable USB lines.
+ * (Not mandatory for all boards)
+ * - Enable interrupts
+ * - Initialize the clock service
+ *
+ * The usage of \ref sleepmgr_group sleepmgr service is optional, but recommended to reduce power
+ * consumption:
+ * - Initialize the sleep manager service
+ * - Activate sleep mode when the application is in IDLE state
+ *
+ * \subpage uhc_conf_clock.
+ *
+ * Add to the initialization code:
+ * \code
+ *     sysclk_init();
+ *     irq_initialize_vectors();
+ *     cpu_irq_enable();
+ *     board_init();
+ *     sleepmgr_init(); // Optional
+ * \endcode
+ * Add to the main IDLE loop:
+ * \code
+ *     sleepmgr_enter_sleep(); // Optional
+ * \endcode
+ *
+ */
+
+/**
+ * \ingroup uhc_group
+ * \defgroup uhc_basic_use_case_setup_code USB Host Controller (UHC) - Example code
+ * Common example code for all USB hosts.
+ *
+ * Content of conf_usb_host.h:
+ * \code
+ * #define USB_HOST_POWER_MAX  500
+ * \endcode
+ *
+ * Add to application C-file:
+ * \code
+ * void usb_init(void)
+ * {
+ * uhc_start();
+ * }
+ * \endcode
+ */
+
+/**
+ * \ingroup uhc_group
+ * \defgroup uhc_basic_use_case_setup_flow USB Device Controller (UHC) - Workflow
+ * Common workflow for all USB devices.
+ *
+ * -# Ensure that conf_usb_host.h is available and contains the following configuration
+ * which is the main USB device configuration:
+ *   - \code // Maximum current allowed on Vbus (mA) which depends of 5V generator
+ * #define USB_HOST_POWER_MAX  500 // (500mA) \endcode
+ * -# Call the USB host stack start function to enable USB Host stack:
+ *   - \code uhc_start(); \endcode
+ */
+
+/**
+ * \page uhc_conf_clock conf_clock.h examples with USB support
+ *
+ * Content of conf_clock.h for AT32UC3A0, AT32UC3A1, AT32UC3B devices (USBB):
+ * \code
+ * // Configuration based on 12MHz external OSC:
+ * #define CONFIG_PLL1_SOURCE          PLL_SRC_OSC0
+ * #define CONFIG_PLL1_MUL             8
+ * #define CONFIG_PLL1_DIV             2
+ * #define CONFIG_USBCLK_SOURCE        USBCLK_SRC_PLL1
+ * #define CONFIG_USBCLK_DIV           1 // Fusb = Fsys/(2 ^ USB_div)
+ * \endcode
+ *
+ * Content of conf_clock.h for AT32UC3A3, AT32UC3A4 devices (USBB with high speed support):
+ * \code
+ * // Configuration based on 12MHz external OSC:
+ * #define CONFIG_USBCLK_SOURCE        USBCLK_SRC_OSC0
+ * #define CONFIG_USBCLK_DIV           1 // Fusb = Fsys/(2 ^ USB_div)
+ * \endcode
+ *
+ * Content of conf_clock.h for AT32UC3C device (USBC):
+ * \code
+ * // Configuration based on 12MHz external OSC:
+ * #define CONFIG_PLL1_SOURCE          PLL_SRC_OSC0
+ * #define CONFIG_PLL1_MUL             8
+ * #define CONFIG_PLL1_DIV             2
+ * #define CONFIG_USBCLK_SOURCE        USBCLK_SRC_PLL1
+ * #define CONFIG_USBCLK_DIV           1 // Fusb = Fsys/(2 ^ USB_div)
+ * // CPU clock need of clock > 25MHz to run with USBC
+ * #define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_PLL1
+ * \endcode
+ * 
+ * Content of conf_clock.h for SAM3X, SAM3A devices (UOTGHS: USB OTG High Speed):
+ * \code
+ * // USB Clock Source fixed at UPLL.
+ * #define CONFIG_USBCLK_SOURCE        USBCLK_SRC_UPLL
+ * #define CONFIG_USBCLK_DIV           1
+ * \endcode
+ */
+
+/**
+ * \page uhc_use_case_1 Enable USB high speed support
+ *
+ * In this use case, the USB host is used to support USB high speed.
+ *
+ * \section uhc_use_case_1_setup Setup steps
+ *
+ * Prior to implement this use case, be sure to have already 
+ * apply the UDI module "basic use case".
+ *
+ * \section uhc_use_case_1_usage Usage steps
+ *
+ * \subsection uhc_use_case_1_usage_code Example code
+ * Content of conf_usb_host.h:
+ * \code
+ * #define USB_HOST_HS_SUPPORT
+ * \endcode
+ *
+ * \subsection uhc_use_case_1_usage_flow Workflow
+ * -# Ensure that conf_usb_host.h is available and contains the following parameters
+ * required for a USB device high speed (480Mbit/s):
+ *   - \code #define  USB_HOST_HS_SUPPORT \endcode
+ */
+
+/**
+ * \page uhc_use_case_2 Multiple classes support
+ *
+ * In this use case, the USB host is used to support several USB classes.
+ *
+ * \section uhc_use_case_2_setup Setup steps
+ *
+ * Prior to implement this use case, be sure to have already 
+ * apply the UDI module "basic use case".
+ *
+ * \section uhc_use_case_2_usage Usage steps
+ *
+ * \subsection uhc_use_case_2_usage_code Example code
+ * Content of conf_usb_host.h:
+ * \code
+ * #define USB_HOST_UHI   UHI_HID_MOUSE, UHI_MSC, UHI_CDC
+ * \endcode
+ *
+ * \subsection uhc_use_case_2_usage_flow Workflow
+ * -# Ensure that conf_usb_host.h is available and contains the following parameters:
+ *   - \code #define USB_HOST_UHI   UHI_HID_MOUSE, UHI_MSC, UHI_CDC \endcode
+ *     \note USB_HOST_UHI defines the list of UHI supported by USB host.
+ *     Here, you must add all classes that you want to support.
+ */
+
+/**
+ * \page uhc_use_case_3 Dual roles support
+ *
+ * In this use case, the USB host and USB device are enabled, it is the dual role.
+ *
+ * Note: On the Atmel boards, the switch of USB role is managed automatically by the
+ * USB stack thank to a USB OTG connector and its USB ID pin.
+ * For a dual role management without OTG connector, please refer to
+ * "AVR4950 section 6.1 Dual roles".
+ *
+ * \section uhc_use_case_3_setup Setup steps
+ *
+ * Prior to implement this use case, be sure to have already 
+ * apply the UDI module "basic use case".
+ *
+ * \section uhc_use_case_3_usage Usage steps
+ *
+ * \subsection uhc_use_case_3_usage_code Example code
+ * Content of conf_usb.h:
+ * \code
+ * #define UDC_VBUS_EVENT(b_vbus_high)   my_callback_device_vbus(b_vbus_high)
+ * extern void my_callback_device_vbus(bool b_vbus_high);
+ * \endcode
+ * Content of conf_usb_host.h:
+ * \code
+ * #define UHC_MODE_CHANGE(b_host_mode)   my_callback_mode_change(b_host_mode)
+ * extern void my_callback_mode_change(bool b_host_mode);
+ * \endcode
+ *
+ * Add to application C-file:
+ * \code
+ * void usb_init(void)
+ * {
+ *   //udc_start();
+ *   uhc_start();
+ * }
+ *
+ * void my_callback_device_vbus(bool b_vbus_high)
+ * {
+ *   if (b_vbus_high) {
+ *     udc_attach();
+ *   } else {
+ *     udc_detach();
+ *   }
+ * }
+ *
+ * bool my_host_mode;
+ * void my_callback_mode_change(bool b_host_mode)
+ * {
+ *   my_host_mode = b_host_mode;
+ * }
+ * 
+ * void my_usb_task(void)
+ * {
+ *   if (my_host_mode) {
+ *     // CALL USB Host task
+ *   } else {
+ *     // CALL USB Device task
+ *   }
+ * }
+ * \endcode
+ *
+ * \subsection uhc_use_case_3_usage_flow Workflow
+ * -# In case of USB dual roles (Device and Host), the USB stack must be enabled
+ * by uhc_start() and the udc_start() must not be called.
+ *   - \code //udc_start();
+ * uhc_start(); \endcode
+ * -# In dual role, the udc_attach() must be called only when the USB device mode
+ * is started and when Vbus is present:
+ *   - Ensure that conf_usb.h contains the following parameters.
+ * \code
+ * #define UDC_VBUS_EVENT(b_vbus_high)   my_callback_device_vbus(b_vbus_high)
+ * extern void my_callback_device_vbus(bool b_vbus_high);
+ * \endcode
+ *   - Ensure that application contains the following code:
+ * \code
+ * void my_callback_device_vbus(bool b_vbus_high)
+ * {
+ *   if (b_vbus_high) {
+ *     udc_attach();
+ *   } else {
+ *     udc_detach();
+ *   }
+ * \endcode
+ * -# In dual role, to known the current USB mode, the callback to notify the
+ * mode changes can be used.
+ *   - Ensure that conf_usb_host.h contains the following parameters.
+ * \code
+ * #define UHC_MODE_CHANGE(b_host_mode)   my_callback_mode_change(b_host_mode)
+ * extern void my_callback_mode_change(bool b_host_mode);
+ * \endcode
+ *   - Ensure that application contains the following code:
+ * \code
+ * bool my_host_mode;
+ * void my_callback_mode_change(bool b_host_mode)
+ * {
+ *   my_host_mode = b_host_mode;
+ * }
+ * 
+ * void my_usb_task(void)
+ * {
+ *   if (my_host_mode) {
+ *     // CALL USB Host task
+ *   } else {
+ *     // CALL USB Device task
+ *   }
+ * }
+ * \endcode
+ */
+
 #endif // _UHC_H_

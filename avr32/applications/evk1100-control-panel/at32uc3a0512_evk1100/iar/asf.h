@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -66,7 +68,7 @@
 // From module: EBI SDRAM Controller
 #include <sdramc.h>
 
-// From module: EVK1100 board support
+// From module: EVK1100
 #include <led.h>
 
 // From module: FAT file system
@@ -103,7 +105,7 @@
 // From module: INTC - Interrupt Controller
 #include <intc.h>
 
-// From module: IPv4 support in lwIP
+// From module: IPv4 support in lwIP v140
 #include <lwip/autoip.h>
 #include <lwip/icmp.h>
 #include <lwip/igmp.h>
@@ -175,7 +177,7 @@
 // From module: USBB - Universial Serial Bus Interface (ver. 1)
 #include <usb_drv.h>
 
-// From module: lwIP TCP/IP Stack
+// From module: lwIP TCP/IP Stack v140
 #include <lwip/api.h>
 #include <lwip/api_msg.h>
 #include <lwip/arch.h>
@@ -204,10 +206,12 @@
 #include <lwip/stats.h>
 #include <lwip/sys.h>
 #include <lwip/tcp.h>
+#include <lwip/tcp_impl.h>
 #include <lwip/tcpip.h>
+#include <lwip/timers.h>
 #include <lwip/udp.h>
 
-// From module: lwIP port to FreeRTOS on AVR UC3 MACB hardware module.
+// From module: lwIP v140 port to FreeRTOS on AVR UC3 MACB hardware module.
 #include <arch/cc.h>
 #include <arch/perf.h>
 #include <arch/sys_arch.h>

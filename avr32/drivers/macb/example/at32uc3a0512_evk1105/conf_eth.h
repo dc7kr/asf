@@ -6,9 +6,11 @@
  *
  * This file defines configuration for the MACB interface on AVR32 devices.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -99,7 +101,7 @@ to use an MII interface. */
 #define ETHERNET_CONF_NET_MASK3          0
 //! @}
 
-/*! Use Auto Negociation to get speed and duplex */
+/*! Use Auto negotiation to get speed and duplex */
 #define ETHERNET_CONF_AN_ENABLE            1
 
 /*! Use auto cross capability. Used by default. */
@@ -111,7 +113,7 @@ to use an MII interface. */
 #endif
 
 #if !ETHERNET_CONF_AN_ENABLE
-  /*! if not using auto negociation */
+  /*! if not using auto negotiation */
   #define ETHERNET_CONF_USE_100MB          1
   #define ETHERNET_CONF_USE_FULL_DUPLEX    1
 #endif

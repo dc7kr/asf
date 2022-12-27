@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -191,7 +193,7 @@ int main(void)
 		/*
 		 * Switch to the DFLL running at ~50 MHz in Open Loop
 		 * mode, with the CPU running at 25 MHz and PBA at 12.5
-		 * Mhz.
+		 * MHz.
 		 */
 		dfll_config_init_open_loop_mode(&dcfg);
 		dfll_config_tune_for_target_hz(&dcfg, 50000000);

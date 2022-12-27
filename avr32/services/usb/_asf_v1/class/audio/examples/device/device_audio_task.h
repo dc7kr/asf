@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -58,7 +60,7 @@
 
 //_____ D E F I N I T I O N S ______________________________________________
 
-//! Define for each 'feature unit' the max numbers of bmControls
+//! Define for each 'feature unit' the max numbers of bmaControls
 #define MAX_BMA_CONTROLS 4
 
 //typedef struct

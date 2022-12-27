@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -80,9 +82,9 @@
 #include <asf.h>
 
 /**
- * \brief Timer Counter Oveflow interrupt callback function
+ * \brief Timer Counter Overflow interrupt callback function
  *
- * This function is called when an overflow interrupt has occured (50ms) on
+ * This function is called when an overflow interrupt has occurred (50ms) on
  * TIMER_PORT_LED and change PWM duty single generation on TIMER_PORT_LED CCA.
  */
 static void example_overflow_interrupt_callback(void)
@@ -102,9 +104,9 @@ int main(void)
 	* Configure TIMER_EXAMPLE to generate 50ms overflow interrupt
 	* using 500kHz (2us) resolution clock (50ms=25000*2us)
 	*/
-	// Unmask clok for TIMER_EXAMPLE
+	// Unmask clock for TIMER_EXAMPLE
 	tc_enable(&TIMER_EXAMPLE);
-	// Enable overlfow interrupt
+	// Enable overflow interrupt
 	tc_set_overflow_interrupt_level(&TIMER_EXAMPLE, TC_INT_LVL_LO);
 	// Configure TC in normal mode
 	tc_set_wgm(&TIMER_EXAMPLE, TC_WG_NORMAL);
@@ -118,7 +120,7 @@ int main(void)
 	/*
 	* Configure TIMER_PORT_LED to generate 2MHz Single Slope PWM
 	*/
-	// Unmask clok for TIMER_PORT_LED
+	// Unmask clock for TIMER_PORT_LED
 	tc_enable(&TIMER_PORT_LED);
 	// Configure TC in PWM Single Slope PWM
 	tc_set_wgm(&TIMER_PORT_LED, TC_WG_SS);

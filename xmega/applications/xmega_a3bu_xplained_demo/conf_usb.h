@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -63,6 +65,7 @@
 //! USB Device string definitions (Optional)
 #define  USB_DEVICE_MANUFACTURE_NAME        "ATMEL ASF"
 #define  USB_DEVICE_PRODUCT_NAME            "CDC Virtual Com"
+#define  USB_DEVICE_SERIAL_NAME
 #define  USB_DEVICE_GET_SERIAL_NAME_POINTER cdc_serial_number
 #define  USB_DEVICE_GET_SERIAL_NAME_LENGTH  12
 
@@ -107,12 +110,12 @@
  */
 //@{
 //! Interface callback definition
-#define  UDI_CDC_ENABLE_EXT()             true
-#define  UDI_CDC_DISABLE_EXT()
-#define  UDI_CDC_RX_NOTIFY()
-#define  UDI_CDC_SET_CODING_EXT(cfg)
-#define  UDI_CDC_SET_DTR_EXT(set)         cdc_set_dtr(set)
-#define  UDI_CDC_SET_RTS_EXT(set)
+#define  UDI_CDC_ENABLE_EXT(port)             true
+#define  UDI_CDC_DISABLE_EXT(port)
+#define  UDI_CDC_RX_NOTIFY(port)
+#define  UDI_CDC_SET_CODING_EXT(port,cfg)
+#define  UDI_CDC_SET_DTR_EXT(port,set)         cdc_set_dtr(set)
+#define  UDI_CDC_SET_RTS_EXT(port,set)
 
 /**
  * Define it when the transfer CDC Device to Host is a low rate (<512000 bauds)

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -47,7 +49,7 @@
  * \brief Initialize ADC channels for on-board sensors.
  *
  * This will set up the ADC for reading the NTC, light sensor, potentiometer,
- * and external voltade input present on the A3BU-Xplained board.
+ * and external voltage input present on the A3BU-Xplained board.
  */
 void adc_sensors_init(void);
 
@@ -88,7 +90,7 @@ uint16_t adc_sensor_get_light(void);
  * This will read the ADC value of the channel and pin connected to the
  * potentiometer.
  *
- * \return the potentiometer voltage value in milivolt
+ * \return the potentiometer voltage value in millivolt
  */
 uint16_t adc_sensor_get_potentiometer(void);
 
@@ -98,7 +100,7 @@ uint16_t adc_sensor_get_potentiometer(void);
  * This will read the ADC value of the channel and pin connected to the
  * external voltage input.
  *
- * \return the external voltage input value in milivolt
+ * \return the external voltage input value in millivolt
  */
 uint16_t adc_sensor_get_ext_voltage(void);
 

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -49,7 +51,7 @@ typedef Twi *twi_master_t;
 typedef twi_options_t twi_master_options_t;
 typedef twi_packet_t twi_package_t;
 
-static uint32_t twi_master_setup(twi_master_t p_twi,
+static inline uint32_t twi_master_setup(twi_master_t p_twi,
 		twi_master_options_t *p_opt)
 {
 	p_opt->master_clk = sysclk_get_cpu_hz();

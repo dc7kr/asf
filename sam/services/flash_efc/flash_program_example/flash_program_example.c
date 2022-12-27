@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -44,9 +46,13 @@
  *
  * \section Purpose
  *
- * This basic example shows how to use the Flash service available on the Atmel SAM3 
+ * This basic example shows how to use the Flash service available on the Atmel SAM
  * microcontrollers. It details steps required to program the internal flash, and manage secure 
  * and lock bits.
+ *
+ * \section Requirements
+ *
+ * This package can be used with SAM evaluation kits.
  *
  * \section Description
  *
@@ -57,12 +63,12 @@
  * - Lock the last page and check if it has been locked correctly.
  * - Set the security bit.
  *
- * The SAM3 MCU features a security bit, based on a specific General Purpose NVM bit 0.
+ * The SAM MCU features a security bit, based on a specific General Purpose NVM bit 0.
  * When the security bit is enabled, any access to the Flash, SRAM, Core Registers
  * and Internal Peripherals through the ICE interface is forbidden.
  * This example will reproduce this scene.
  *
- * The SAM3 MCU ROM code embeds small In-Application Programming (IAP) Procedure.
+ * The SAM MCU ROM code embeds small In-Application Programming (IAP) Procedure.
  * Since this function is executed from ROM, this allows Flash programming
  * (such as sector write) to be done when code is running out of Flash.
  * We will use IAP function by default in flash driver.
@@ -87,7 +93,7 @@
  * -# Start the application.
  * -# In the terminal window, the following text should appear:
  *    \code
- *     -- Flash Programm Example --
+ *     -- Flash Program Example --
  *     -- xxxxxx-xx
  *     -- Compiled: xxx xx xxxx xx:xx:xx --
  *     -I- Unlocking last page
@@ -108,6 +114,7 @@
  */
 
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_example.h"
@@ -122,29 +129,17 @@
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
+typedef unsigned long UL;
 
 /**
  * Perform initialization and tests on flash.
@@ -158,7 +153,7 @@ int main(void)
 	uint8_t uc_key;
 	uint32_t ul_page_buffer[IFLASH_PAGE_SIZE / sizeof(uint32_t)];
 
-	/* Initialize the SAM3 system */
+	/* Initialize the SAM system */
 	sysclk_init();
 	board_init();
 
@@ -171,7 +166,7 @@ int main(void)
 	/* Initialize flash: 6 wait states for flash writing. */
 	ul_rc = flash_init(FLASH_ACCESS_MODE_128, 6);
 	if (ul_rc != FLASH_RC_OK) {
-		printf("-F- Initialization error %lu\n\r", ul_rc);
+		printf("-F- Initialization error %lu\n\r", (UL)ul_rc);
 		return 0;
 	}
 
@@ -180,7 +175,7 @@ int main(void)
 	ul_rc = flash_unlock(ul_last_page_addr,
 			ul_last_page_addr + IFLASH_PAGE_SIZE - 1, 0, 0);
 	if (ul_rc != FLASH_RC_OK) {
-		printf("-F- Unlock error %lu\n\r", ul_rc);
+		printf("-F- Unlock error %lu\n\r", (UL)ul_rc);
 		return 0;
 	}
 
@@ -195,7 +190,7 @@ int main(void)
 	   erased first. */
 	ul_rc = flash_erase_page(ul_last_page_addr, IFLASH_ERASE_PAGES_4);
 	if (ul_rc != FLASH_RC_OK) {
-		printf("-F- Flash programming error %lu\n\r", ul_rc);
+		printf("-F- Flash programming error %lu\n\r", (UL)ul_rc);
 		return 0;
 	}
 
@@ -206,7 +201,7 @@ int main(void)
 			IFLASH_PAGE_SIZE, 1);
 #endif
 	if (ul_rc != FLASH_RC_OK) {
-		printf("-F- Flash programming error %lu\n\r", ul_rc);
+		printf("-F- Flash programming error %lu\n\r", (UL)ul_rc);
 		return 0;
 	}
 
@@ -226,7 +221,7 @@ int main(void)
 	ul_rc = flash_lock(ul_last_page_addr,
 			ul_last_page_addr + IFLASH_PAGE_SIZE - 1, 0, 0);
 	if (ul_rc != FLASH_RC_OK) {
-		printf("-F- Flash locking error %lu\n\r", ul_rc);
+		printf("-F- Flash locking error %lu\n\r", (UL)ul_rc);
 		return 0;
 	}
 
@@ -235,12 +230,12 @@ int main(void)
 	ul_rc = flash_write(ul_last_page_addr, ul_page_buffer,
 			IFLASH_PAGE_SIZE, 1);
 	if (ul_rc != FLASH_RC_OK) {
-		printf("-I- The page to be programmed belongs to locked region. Error %lu\n\r", ul_rc);
+		printf("-I- The page to be programmed belongs to locked region. Error %lu\n\r", (UL)ul_rc);
 	}
 
 	printf("-I- Please open Segger's JMem program \n\r");
-	printf("-I- Read memory at address 0x%08x to check contents\n\r",
-			ul_last_page_addr);
+	printf("-I- Read memory at address 0x%08lx to check contents\n\r",
+			(UL)ul_last_page_addr);
 	printf("-I- Press any key to continue...\n\r");
 	while (0 != uart_read(CONSOLE_UART, &uc_key));
 
@@ -253,7 +248,7 @@ int main(void)
 	printf("-I- Setting security bit \n\r");
 	ul_rc = flash_enable_security_bit();
 	if (ul_rc != FLASH_RC_OK) {
-		printf("-F- Set security bit error %lu\n\r", ul_rc);
+		printf("-F- Set security bit error %lu\n\r", (UL)ul_rc);
 	}
 
 	printf("-I- All tests done\n\r");

@@ -3,9 +3,11 @@
  *
  * \brief FLIP protocol definitions.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -72,7 +74,7 @@ extern "C" {
  * @{
  */
 
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 /**
  * \brief FLIP message structure
  */
@@ -80,7 +82,7 @@ typedef struct {
 	uint8_t cmd_id;
 	uint8_t arg[5];
 } flip_msg_v1_t;
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
 //! Size of buffer used by FLIP to receive or send data
 #define  FLIP_V1_BUF_TRANS_SIZE  1024
@@ -154,7 +156,7 @@ COMPILER_PACK_RESET();
  * @{
  */
 
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 /**
  * \brief FLIP message structure
  */
@@ -163,7 +165,7 @@ typedef struct {
 	uint8_t cmd_id;
 	uint8_t arg[4];
 } flip_msg_v2_t;
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
 //! Size of buffer used by FLIP to receive or send data
 //! Note:  Write uses 2K and Read uses 1KB

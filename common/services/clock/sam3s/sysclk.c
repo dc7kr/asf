@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -56,7 +58,7 @@ extern "C" {
 
 #if defined(CONFIG_SYSCLK_DEFAULT_RETURNS_SLOW_OSC)
 /**
- * \brief boolean signaling that the sysclk_init is done.
+ * \brief boolean signalling that the sysclk_init is done.
  */
 uint32_t sysclk_initialized = 0;
 #endif
@@ -120,7 +122,7 @@ void sysclk_set_source(uint32_t ul_src)
  * is hidden in this implementation. Use div as div effective value.
  *
  * \param pll_id Source of the USB clock.
- * \param div Actual clock diviser. Must be superior to 0.
+ * \param div Actual clock divisor. Must be superior to 0.
  */
 void sysclk_enable_usb(void)
 {

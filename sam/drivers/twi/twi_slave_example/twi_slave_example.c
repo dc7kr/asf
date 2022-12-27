@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -76,7 +78,7 @@
  * address, the device will start outputting data until a STOP condition is
  * sent by the master.
  * The default address for the TWI slave is fixed to 0x51. If the board has a TWI
- * component with this adress, you can change the define AT24C_ADDRESS in
+ * component with this address, you can change the define AT24C_ADDRESS in
  * twi_eeprom_example.c of twi_eeprom_example project, and the define SLAVE_ADDRESS
  * in twi_slave_example.c of twi_slave_exmaple project.
  *
@@ -203,15 +205,14 @@ void BOARD_TWI_Handler(void)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings = {
-		sysclk_get_cpu_hz(), CONSOLE_BAUD_RATE, UART_MR_PAR_NO
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
 	};
-
-	/* Enable the peripheral clock for console UART */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART peripheral */
-	uart_init(CONSOLE_UART, &uart_console_settings);
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**

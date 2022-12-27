@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -64,7 +66,7 @@
  * of all ADCA pins (PA0-PA7) with internal ground.
  *
  * An ADC interrupt callback function is used to handle the conversion results,
- * each result is stored into an array at the position corresponing to the pin
+ * each result is stored into an array at the position corresponding to the pin
  * number, e.g. PA0 result is stored in adc_scan_results[0].
  *
  * \section compinfo Compilation Info

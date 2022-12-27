@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -39,8 +41,8 @@
  *
  */
 
-#ifndef _CONF_ACCESS_H_
-#define _CONF_ACCESS_H_
+#ifndef CONF_ACCESS_H_INCLUDED
+#define CONF_ACCESS_H_INCLUDED
 
 #include "compiler.h"
 #include "board.h"
@@ -49,11 +51,11 @@
 /*! \name Activation of Logical Unit Numbers
  */
 //! @{
-#define LUN_0                ENABLE    //!< On-Chip Virtual Memory.
+#define LUN_0                DISABLE    //!< On-Board Virtual Memory.
 #define LUN_1                DISABLE   //!< AT45DBX Data Flash.
 #define LUN_2                DISABLE   //!< SD/MMC Card over SPI.
 #define LUN_3                DISABLE   //!< SD/MMC Card over MCI Slot 0.
-#define LUN_4                DISABLE
+#define LUN_4                ENABLE
 #define LUN_5                DISABLE
 #define LUN_6                DISABLE
 #define LUN_7                DISABLE
@@ -74,7 +76,7 @@
 #define Lun_0_usb_write_10                      virtual_usb_write_10
 #define Lun_0_mem_2_ram                         virtual_mem_2_ram
 #define Lun_0_ram_2_mem                         virtual_ram_2_mem
-#define LUN_0_NAME                              "\"On-Chip Virtual Memory\""
+#define LUN_0_NAME                              "\"On-Board Virtual Memory\""
 //! @}
 
 /*! \name LUN 1 Definitions
@@ -128,6 +130,23 @@
 #define LUN_3_NAME                              "\"SD/MMC Card over MCI Slot 0\""
 //! @}
 
+/*! \name LUN 4 Definitions
+ */
+//! @{
+#define NAND_FLASH_MEM                        	LUN_4
+#define LUN_ID_NAND_FLASH_MEM                 	LUN_ID_4
+#define LUN_4_INCLUDE                           "nand_flash_mem.h"
+#define Lun_4_test_unit_ready                   nand_flash_test_unit_ready
+#define Lun_4_read_capacity                     nand_flash_read_capacity
+#define Lun_4_wr_protect                        nand_flash_wr_protect
+#define Lun_4_removal                           nand_flash_removal
+#define Lun_4_usb_read_10                       nand_flash_usb_read_10
+#define Lun_4_usb_write_10                      nand_flash_usb_write_10
+#define Lun_4_mem_2_ram                         nand_flash_mem_2_ram
+#define Lun_4_ram_2_mem                         nand_flash_ram_2_mem
+#define LUN_4_NAME                              "\"nand_flash on EBI\""
+//! @}
+
 /*! \name USB LUNs Definitions
  */
 //! @{
@@ -151,19 +170,19 @@
  * \warning Be careful not to waste time in order not to disturb the functions.
  */
 //! @{
-#define memory_start_read_action(nb_sectors)    ui_start_read()
-#define memory_stop_read_action()               ui_stop_read()
-#define memory_start_write_action(nb_sectors)   ui_start_write()
-#define memory_stop_write_action()              ui_stop_write()
-#include "ui.h"
+#define memory_start_read_action(nb_sectors)
+#define memory_stop_read_action()
+#define memory_start_write_action(nb_sectors)
+#define memory_stop_write_action()
+
 //! @}
 
 /*! \name Activation of Interface Features
  */
 //! @{
 #define ACCESS_USB           true    //!< MEM <-> USB interface.
-#define ACCESS_MEM_TO_RAM    false   //!< MEM <-> RAM interface.
-#define ACCESS_STREAM        false   //!< Streaming MEM <-> MEM interface.
+#define ACCESS_MEM_TO_RAM    true    //!< MEM <-> RAM interface.
+#define ACCESS_STREAM        true    //!< Streaming MEM <-> MEM interface.
 #define ACCESS_STREAM_RECORD false   //!< Streaming MEM <-> MEM interface in record mode.
 #define ACCESS_MEM_TO_MEM    false   //!< MEM <-> MEM interface.
 #define ACCESS_CODEC         false   //!< Codec interface.
@@ -176,4 +195,4 @@
 //! @}
 
 
-#endif // _CONF_ACCESS_H_
+#endif /* CONF_ACCESS_H_INCLUDED */

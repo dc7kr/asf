@@ -3,9 +3,11 @@
  *
  * \brief  This file contains the demo main functions.
  *
- * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -52,8 +54,12 @@
 /*! \name PWMA settings.
  */
 //! @{
-//! Number of period cycles for the PWMA module (0 - 0xff).
-#define PWMA_PERIOD_CYCLES    0xFF
+//! The PWMA frequency is 470588 so that the TOP value is maximum(i.e 0xff)
+#define PWMA_OUTPUT_FREQUENCY  470588
+#define PWMA_GCLK_FREQUENCY    120000000
+//! Define the channel mask for using Interlinked multi mode method as the channel is limited to 4
+#define PWMA_CHANNELS_MASK     ((LED0_PWM<<0)|(LED1_PWM<<8)|(LED2_PWM<<16)|(LED3_PWM<<24))
+
 //! Minimum number of duty cycles for a PWM channel.
 #define PWMA_MIN_DUTY_CYCLES  0
 
@@ -125,14 +131,13 @@ enum
 #define BTN_SENSOR_PLAYPAUSE_MASK (0x10u)
 #define BTN_SENSOR_RIGHT_MASK     (0x20u)
 
-unsigned char duty_cycles_per_led[LED_COUNT] =
+uint16_t duty_cycles_per_led[LED_COUNT] =
 {
   PWMA_DUTY_CYCLE_INIT_VAL,
   PWMA_DUTY_CYCLE_INIT_VAL,
   PWMA_DUTY_CYCLE_INIT_VAL,
   PWMA_DUTY_CYCLE_INIT_VAL,
 };
-unsigned char duty_cycles_per_pwma_chan[LED_COUNT];
 
 // Currently selected LED
 static int current_led = IDX_LED0;  // LED0
@@ -172,7 +177,8 @@ void demo_init_pwma(void)
   //# Enable all the PWMAs to output to all LEDs. LEDs are default turned on by
   //# setting PWM duty cycles to 0.
   //#
-  pwma_config_and_enable( &AVR32_PWMA, LED_PWMA_CHANNELS_MASK, PWMA_PERIOD_CYCLES, PWMA_DUTY_CYCLE_INIT_VAL );
+  pwma_config_enable(&AVR32_PWMA,PWMA_OUTPUT_FREQUENCY,PWMA_GCLK_FREQUENCY,0);
+  pwma_set_channels_value(&AVR32_PWMA,LED_PWMA_CHANNELS_MASK,PWMA_DUTY_CYCLE_INIT_VAL);
 }
 
 
@@ -264,23 +270,6 @@ static int compute_direction(unsigned char previous_position_angle, unsigned cha
   // else angle_diff == 0 => we'll use the default init value of the direction variable.
   return(direction);
 }
-
-
-// Write the pwma channels ordered array with the LEDs ordered array values.
-static void set_duty_per_pwma_chan(void)
-{
-  // Because the LEDs id are not in the same order as the PWMA channels, we must
-  // use an intermediate array ordered according to the PWMA channels.
-  // LED0 is on channel 21
-  duty_cycles_per_pwma_chan[0] = duty_cycles_per_led[IDX_LED0];
-  // LED2 is on channel 25
-  duty_cycles_per_pwma_chan[1] = duty_cycles_per_led[IDX_LED2];
-  // LED3 is on channel 26
-  duty_cycles_per_pwma_chan[2] = duty_cycles_per_led[IDX_LED3];
-  // LED1 is on channel 33
-  duty_cycles_per_pwma_chan[3] = duty_cycles_per_led[IDX_LED1];
-}
-
 
 // The wheel engages the GPIO PWM to create a 256 level "bar" on the 4 LEDs.
 // Rotating clockwise will gradually light up the bottom led in 64 steps, then
@@ -378,10 +367,7 @@ static void process_wheel(void)
     }
   }
   // Update the intensity of all LEDs
-  // Because the LEDs id are not in the same order as the PWMA channels, we must
-  // use an intermediate array ordered according to the PWMA channels.
-  set_duty_per_pwma_chan();
-  pwma_set_multiple_values(&AVR32_PWMA, LED_PWMA_CHANNELS_MASK, duty_cycles_per_pwma_chan);
+  pwma_set_multiple_values(&AVR32_PWMA, PWMA_CHANNELS_MASK, (uint16_t*)duty_cycles_per_led);
 }
 
 
@@ -484,10 +470,7 @@ static void play_auto_running_lights(int speed_changes)
     }
   }
   // Update the intensity of all LEDs
-  // Because the LEDs id are not in the same order as the PWMA channels, we must
-  // use an intermediate array ordered according to the PWMA channels.
-  set_duty_per_pwma_chan();
-  pwma_set_multiple_values(&AVR32_PWMA, LED_PWMA_CHANNELS_MASK, duty_cycles_per_pwma_chan);
+  pwma_set_multiple_values(&AVR32_PWMA, PWMA_CHANNELS_MASK, (uint16_t*)duty_cycles_per_led);
 }
 
 
@@ -580,10 +563,7 @@ static void play_level_bar(int intensity_direction)
     }
   }
   // Update the intensity of all LEDs
-  // Because the LEDs id are not in the same order as the PWMA channels, we must
-  // use an intermediate array ordered according to the PWMA channels.
-  set_duty_per_pwma_chan();
-  pwma_set_multiple_values(&AVR32_PWMA, LED_PWMA_CHANNELS_MASK, duty_cycles_per_pwma_chan);
+  pwma_set_multiple_values(&AVR32_PWMA, PWMA_CHANNELS_MASK,(uint16_t*)duty_cycles_per_led);
 }
 
 

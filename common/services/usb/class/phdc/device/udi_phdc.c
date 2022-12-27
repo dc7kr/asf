@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -64,7 +66,7 @@ void udi_phdc_disable(void);
 bool udi_phdc_setup(void);
 uint8_t udi_phdc_getsetting(void);
 
-//! Global struture which contains standard UDI API for UDC
+//! Global structure which contains standard UDI API for UDC
 UDC_DESC_STORAGE udi_api_t udi_api_phdc = {
 	.enable = udi_phdc_enable,
 	.disable = udi_phdc_disable,
@@ -94,7 +96,7 @@ static le16_t udi_phdc_holding_data;
 //! Flag to signal the state of preample feature
 static uint8_t udi_phdc_preample_feature;
 
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 
 //! Structure to manage the transfer on PHDC IN endpoints
 static struct {
@@ -126,7 +128,7 @@ static struct {
 	void *cntx;
 } udi_phdc_out_trans;
 
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
 //@}
 
@@ -147,7 +149,8 @@ static bool udi_phdc_send_preamplemsg(void);
  * \retval status       Transfer state (UDD_EP_TRANSFER_ABORT/_OK)
  * \retval nb_send  Number of data sent
  */
-void udi_phdc_preamplemsg_ack(udd_ep_status_t status, iram_size_t nb_send);
+static void udi_phdc_preamplemsg_ack(udd_ep_status_t status,
+		iram_size_t nb_send, udd_ep_id_t ep);
 
 /*! \brief This function sends a metadata
  *
@@ -160,7 +163,8 @@ static bool udi_phdc_send_metadata(void);
  * \retval status       Transfer state (UDD_EP_TRANSFER_ABORT/_OK)
  * \retval nb_send  Number of data sent
  */
-void udi_phdc_metadata_ack(udd_ep_status_t status, iram_size_t nb_send);
+static void udi_phdc_metadata_ack(udd_ep_status_t status, iram_size_t nb_send,
+		udd_ep_id_t ep);
 
 /*! \brief This function requests a preample message
  *
@@ -173,8 +177,8 @@ static bool udi_phdc_wait_preamplemsg(void);
  * \retval status       Transfer state (UDD_EP_TRANSFER_ABORT/_OK)
  * \retval nb_received  Number of data received
  */
-void udi_phdc_received_preample(udd_ep_status_t status,
-		iram_size_t nb_received);
+static void udi_phdc_received_preample(udd_ep_status_t status,
+		iram_size_t nb_received, udd_ep_id_t ep);
 
 /*! \brief This function request metadata
  *
@@ -187,8 +191,8 @@ static bool udi_phdc_wait_metadata(void);
  * \retval status       Transfer state (UDD_EP_TRANSFER_ABORT/_OK)
  * \retval nb_received  Number of data received
  */
-void udi_phdc_received_metadata(udd_ep_status_t status,
-		iram_size_t nb_received);
+static void udi_phdc_received_metadata(udd_ep_status_t status,
+		iram_size_t nb_received, udd_ep_id_t ep);
 
 //@}
 
@@ -438,7 +442,8 @@ static bool udi_phdc_send_preamplemsg(void)
 }
 
 
-void udi_phdc_preamplemsg_ack(udd_ep_status_t status, iram_size_t nb_send)
+static void udi_phdc_preamplemsg_ack(udd_ep_status_t status,
+		iram_size_t nb_send, udd_ep_id_t ep)
 {
 	// Preample sending
 	udi_phdc_in_trans.b_run = false;
@@ -483,7 +488,8 @@ static bool udi_phdc_send_metadata(void)
 }
 
 
-void udi_phdc_metadata_ack(udd_ep_status_t status, iram_size_t nb_send)
+static void udi_phdc_metadata_ack(udd_ep_status_t status, iram_size_t nb_send,
+		udd_ep_id_t ep)
 {
 	udd_ep_id_t ep_num;
 
@@ -516,7 +522,8 @@ static bool udi_phdc_wait_preamplemsg(void)
 }
 
 
-void udi_phdc_received_preample(udd_ep_status_t status, iram_size_t nb_received)
+static void udi_phdc_received_preample(udd_ep_status_t status,
+		iram_size_t nb_received, udd_ep_id_t ep)
 {
 	uint8_t sig_tmp[] = METADATA_MESSAGE_SIG;
 
@@ -588,7 +595,8 @@ static bool udi_phdc_wait_metadata(void)
 }
 
 
-void udi_phdc_received_metadata(udd_ep_status_t status, iram_size_t nb_received)
+static void udi_phdc_received_metadata(udd_ep_status_t status,
+		iram_size_t nb_received, udd_ep_id_t ep)
 {
 	if (UDD_EP_TRANSFER_OK == status)
 		udi_phdc_out_trans.b_preample_run = false;

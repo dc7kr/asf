@@ -3,9 +3,11 @@
  *
  * \brief AVR XMEGA Direct Memory Access Controller driver
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -101,7 +103,7 @@ void dma_set_callback(dma_channel_num_t num, dma_callback_t callback)
  *
  * Calls the channel callback with the channel status code. The following
  * status codes are possible:
- * - DMA_CH_TRANSFER_COMPLETED: Transfer comleted successfully
+ * - DMA_CH_TRANSFER_COMPLETED: Transfer completed successfully
  * - DMA_CH_TRANSFER_ERROR: Fault in transfer
  *
  * The optional callback used by the interrupt handler is set by the
@@ -117,7 +119,7 @@ static void dma_interrupt(const dma_channel_num_t num)
 	channel = dma_get_channel_address_from_num(num);
 	status  = dma_get_channel_status(num);
 
-	// Clear all interrups flags to be sure
+	// Clear all interrupt flags to be sure
 	channel->CTRLB |= DMA_CH_TRNIF_bm | DMA_CH_ERRIF_bm;
 
 	if (dma_data[num].callback) {
@@ -177,27 +179,23 @@ void dma_channel_write_config(dma_channel_num_t num,
 	DMA_CH_t        *channel = dma_get_channel_address_from_num(num);
 	irqflags_t      iflags = cpu_irq_save();
 
+#ifdef CONFIG_HAVE_HUGEMEM
 	channel->DESTADDR0 = (uint32_t)config->destaddr;
 	channel->DESTADDR1 = (uint32_t)config->destaddr >> 8;
-#ifdef CONFIG_HAVE_HUGEMEM
 	channel->DESTADDR2 = (uint32_t)config->destaddr >> 16;
 #else
-	/*
-	 * Make sure the third byte of the destination address is zero to avoid
-	 * a runaway DMA transfer.
-	 */
+	channel->DESTADDR0 = (uint32_t)config->destaddr16;
+	channel->DESTADDR1 = (uint32_t)config->destaddr16 >> 8;
 	channel->DESTADDR2 = 0;
 #endif
 
+#ifdef CONFIG_HAVE_HUGEMEM
 	channel->SRCADDR0 = (uint32_t)config->srcaddr;
 	channel->SRCADDR1 = (uint32_t)config->srcaddr >> 8;
-#ifdef CONFIG_HAVE_HUGEMEM
 	channel->SRCADDR2 = (uint32_t)config->srcaddr >> 16;
 #else
-	/*
-	 * Make sure the third byte of the source address is zero to avoid a
-	 * runaway DMA transfer.
-	 */
+	channel->SRCADDR0 = (uint32_t)config->srcaddr16;
+	channel->SRCADDR1 = (uint32_t)config->srcaddr16 >> 8;
 	channel->SRCADDR2 = 0;
 #endif
 

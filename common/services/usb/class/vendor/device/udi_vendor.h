@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -81,7 +83,7 @@ extern "C" {
  * \addtogroup udi_vendor_group_udc
  * @{
  */
-//! Global struture which contains standard UDI interface for UDC
+//! Global structure which contains standard UDI interface for UDC
 extern UDC_DESC_STORAGE udi_api_t udi_api_vendor;
 //@}
 
@@ -95,7 +97,7 @@ extern UDC_DESC_STORAGE udi_api_t udi_api_vendor;
 //@{
 
 /**
- * \name Enpoint descriptors
+ * \name Endpoint descriptors
  * @{
  */
 #if UDI_VENDOR_EPS_SIZE_INT_FS
@@ -181,7 +183,7 @@ extern UDC_DESC_STORAGE udi_api_t udi_api_vendor;
 
 //@}
 
-//! Interface descriptor struture for vendor Class interface
+//! Interface descriptor structure for vendor Class interface
 typedef struct {
 	usb_iface_desc_t iface0;
 	usb_iface_desc_t iface1;
@@ -469,7 +471,7 @@ bool udi_vendor_iso_out_run(uint8_t * buf, iram_size_t buf_size,
  * extern void my_callback_vendor_disable(void); \endcode
  *     \note When the USB device is unplugged or is reset by the USB host, the USB
  *     interface is disabled and the UDI_VENDOR_DISABLE_EXT() callback function
- *     is called. Thus, it is recommended to disable the data Vendor transfert.
+ *     is called. Thus, it is recommended to disable the data Vendor transfer.
  *   - \code #define  UDI_VENDOR_SETUP_OUT_RECEIVED()  my_vendor_setup_out_received()
  * extern bool my_vendor_setup_out_received(void);
  * #define  UDI_VENDOR_SETUP_IN_RECEIVED()   my_vendor_setup_in_received()

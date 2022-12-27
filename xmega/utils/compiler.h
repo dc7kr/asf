@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -78,6 +80,18 @@
 #define __volatile__
 //! @}
 #endif
+
+/**
+ * \def UNUSED
+ * \brief Marking \a v as a unused parameter or value.
+ */
+#define UNUSED(v)          (void)(v)
+
+/**
+ * \def unused
+ * \brief Marking \a v as a unused parameter or value.
+ */
+#define unused(v)          do { (void)(v); } while(0)
 
 /**
  * \def barrier

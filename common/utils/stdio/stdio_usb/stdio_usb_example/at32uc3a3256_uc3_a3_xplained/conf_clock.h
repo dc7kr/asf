@@ -1,11 +1,13 @@
 /**
  * \file
  *
- * \brief Atmel Development Board Clock Configuration (ASF)
+ * \brief Chip-specific system clock manager configuration
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

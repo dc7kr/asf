@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -110,7 +112,7 @@ void main_vbus_action(bool b_high)
  * \section files Application Files
  * The specific files of application are:
  * - main.c: the main file to start clock and USB DFU Device.
- * - sysclk_auto.c: specific system clock management to support automaticaly
+ * - sysclk_auto.c: specific system clock management to support automatically
  * detection of external oscillator
  * - intc.c: specific INTC driver optimized to save code
  * - specific linker script to store the bootloader in RAM at address 0x0 instead of 0x2000.

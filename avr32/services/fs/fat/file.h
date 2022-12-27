@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -57,10 +59,10 @@
 #define  FS_SEEK_SET       0x00  //!< start at the beginning
 #define  FS_SEEK_END       0x01  //!< start at the end of file and rewind
 #define  FS_SEEK_CUR_RE    0x02  //!< start at the current position and rewind
-#define  FS_SEEK_CUR_FW    0x03  //!< start at the current position and foward
+#define  FS_SEEK_CUR_FW    0x03  //!< start at the current position and forward
 //! @}
 
-//! \name Struture to define a physical memory segment
+//! \name Structure to define a physical memory segment
 //! @{
 typedef struct {
    uint8_t   u8_lun;            //!< logical unit(drive) number
@@ -97,7 +99,7 @@ bool  file_open( uint8_t fopen_mode );
 //!
 //! @param     segment  Pointer on the segment structure: <br>
 //!                     ->u32_size_or_pos    IN,   shall contains maximum number of sector to read in file (0 = unlimited) <br>
-//!                     ->u32_size_or_pos    OUT,  containt the segment size (unit sector) <br>
+//!                     ->u32_size_or_pos    OUT,  contain the segment size (unit sector) <br>
 //!                     ->other              IN,   ignored <br>
 //!                     ->other              OUT,  contains the segment position <br>
 //!
@@ -112,7 +114,7 @@ bool  file_open( uint8_t fopen_mode );
 //!
 bool  file_read( Fs_file_segment _MEM_TYPE_SLOW_ *segment );
 
-//! This function copys in a buffer the file data corresponding at the current position
+//! This function copies in a buffer the file data corresponding at the current position
 //!
 //! @param     buffer         buffer to fill
 //! @param     u16_buf_size   buffer size
@@ -124,7 +126,7 @@ uint16_t   file_read_buf( uint8_t _MEM_TYPE_SLOW_ *buffer , uint16_t u16_buf_siz
 
 //! This function returns the next byte of file
 //!
-//! @return    The byte readed
+//! @return    The byte read
 //! @return    EOF, in case of error or end of file
 //!
 uint16_t   file_getc( void );
@@ -154,7 +156,7 @@ bool  file_write( Fs_file_segment _MEM_TYPE_SLOW_ *segment );
 //! @return    true otherwise
 //!
 //! @verbatim
-//! This routine is usualy used after the last file_write() call.
+//! This routine is usually used after the last file_write() call.
 //! The file_write() routine uses the sector unit (512B),
 //! and you can set a specific byte size with a file_seek() call and fiel_set_eof() call.
 //! @endverbatim
@@ -190,10 +192,10 @@ uint32_t   file_getpos( void );
 //!
 //! @param     u32_pos     number of byte to seek
 //! @param     u8_whence   direction of seek <br>
-//!                        FS_SEEK_SET   , start at the beginning and foward <br>
+//!                        FS_SEEK_SET   , start at the beginning and forward <br>
 //!                        FS_SEEK_END   , start at the end of file and rewind <br>
 //!                        FS_SEEK_CUR_RE, start at the current position and rewind <br>
-//!                        FS_SEEK_CUR_FW, start at the current position and foward <br>
+//!                        FS_SEEK_CUR_FW, start at the current position and forward <br>
 //!
 //! @return    false in case of error, see global value "fs_g_status" for more detail
 //! @return    true otherwise
@@ -216,7 +218,7 @@ uint8_t    file_bof( void );
 //!
 uint8_t    file_eof( void );
 
-//! This function flushs the internal cache (file datas and file information)
+//! This function flushes the internal cache (file data and file information)
 //!
 void  file_flush( void );
 

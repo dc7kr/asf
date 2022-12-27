@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -65,13 +67,13 @@
 
 //  These defines are missing from or wrong in the toolchain header file
 #ifndef AVR32_PM_AWEN_CANIF0WEN_MASK
-// Optionnal #undef AVR32_PM_AWEN_CANIF0WEN_MASK if the define values is wrong.
+// Optional #undef AVR32_PM_AWEN_CANIF0WEN_MASK if the define values is wrong.
 #define AVR32_PM_AWEN_CANIF0WEN_MASK  0x02
 #endif
 
 //  These defines are missing from or wrong in the toolchain header file
 #ifndef AVR32_PM_AWEN_CANIF1WEN_MASK
-// Optionnal #undef AVR32_PM_AWEN_CANIF1WEN_MASK if the define values is wrong.
+// Optional #undef AVR32_PM_AWEN_CANIF1WEN_MASK if the define values is wrong.
 #define AVR32_PM_AWEN_CANIF1WEN_MASK  0x04
 #endif
 

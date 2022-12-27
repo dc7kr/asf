@@ -742,7 +742,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1650,7 +1650,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1898,15 +1898,6 @@
 					</group>
 				</group>
 			</group>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
-				</group>
-			</group>
 		</group>
 		<group>
 			<name>drivers</name>
@@ -1914,6 +1905,18 @@
 				<name>uart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../uart/uart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>spi</name>
+				<group>
+					<name>unit_tests</name>
+					<file>
+						<name>$PROJ_DIR$/../../unit_tests.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../spi.c</name>
 				</file>
 			</group>
 			<group>
@@ -1930,18 +1933,6 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
 				</file>
-			</group>
-			<group>
-				<name>spi</name>
-				<file>
-					<name>$PROJ_DIR$/../../../spi.c</name>
-				</file>
-				<group>
-					<name>unit_tests</name>
-					<file>
-						<name>$PROJ_DIR$/../../unit_tests.c</name>
-					</file>
-				</group>
 			</group>
 		</group>
 	</group>

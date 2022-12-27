@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -46,8 +48,12 @@
  * \par Purpose
  *
  * This example demonstrates the Cyclic Redundancy Check Calculation Unit (CRCCU)
- * provided on SAM3S serials' microcontrollers. It shows how to use CRCCU
+ * provided on SAM serials' microcontrollers. It shows how to use CRCCU
  * to compute CRC on a memory area.
+ *
+ * \par Requirements
+ *
+ * This package can be used with SAM3S,SAM3S-EK2 and SAM4S evaluation kits
  *
  * \par Description
  *
@@ -90,7 +96,7 @@
  *    (values depend on the board and chip used):
  *    \code
  *     -- CRCCU Example --
- *     -- SAM3S-EK
+ *     -- SAMXX-EK
  *     -- Compiled: Oct 27 2011 13:33:38 --
  *     ...
  *    \endcode
@@ -99,6 +105,7 @@
 
 #include <string.h>
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
 #include "conf_crccu_example.h"
 
@@ -190,11 +197,11 @@ static uint32_t compute_crc(uint8_t *p_buffer, uint32_t ul_length,
 		/* 16-bits CRC */
 		ul_crc &= 0xFFFF;
 		printf("  CRC of the buffer is 0x%04lu\n\r",
-				(uint32_t)ul_crc);
+				(unsigned long)ul_crc);
 	} else {
 		/* 32-bits CRC */
 		printf("  CRC of the buffer is 0x%08lu\n\r",
-				(uint32_t)ul_crc);
+				(unsigned long)ul_crc);
 	}
 
 	return ul_crc;
@@ -233,27 +240,14 @@ static uint32_t compute_crc_and_compare(uint8_t *p_buffer, uint32_t ul_length,
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**

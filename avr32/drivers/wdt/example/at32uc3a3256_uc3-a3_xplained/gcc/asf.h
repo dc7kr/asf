@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -76,7 +78,7 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: UC3-A3 Xplained board support
+// From module: UC3-A3 Xplained
 #include <led.h>
 
 // From module: WDT Watchdog Timer - UC3 A0/A1/A3/A4/B0/B1 implementation

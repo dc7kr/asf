@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -70,7 +72,8 @@ CSRCS = \
        sam/utils/syscalls/gcc/syscalls.c                  \
        thirdparty/fatfs/example/fatfs_access_example.c    \
        thirdparty/fatfs/example/memories_initialization_sam.c \
-       thirdparty/fatfs/fatfs-port-r0.09/sam/diskio_sam.c \
+       thirdparty/fatfs/fatfs-port-r0.09/diskio.c         \
+       thirdparty/fatfs/fatfs-port-r0.09/sam/fattime.c    \
        thirdparty/fatfs/fatfs-r0.09/src/ff.c              \
        thirdparty/fatfs/fatfs-r0.09/src/option/ccsbcs.c
 

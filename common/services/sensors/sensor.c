@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -536,7 +538,7 @@ bool sensor_get_threshold
  *
  * @param   sensor  The address of an initialized sensor descriptor.
  * @param   cmd     Specifies the IOCTL command.
- * @param   arg     Specifies command paramters (varies by command).
+ * @param   arg     Specifies command parameters (varies by command).
  * @return  bool    true if the call succeeds, else false is returned.
  */
 bool sensor_ioctl(sensor_t *sensor, sensor_command_t cmd, void *arg)
@@ -626,7 +628,7 @@ bool sensor_ioctl(sensor_t *sensor, sensor_command_t cmd, void *arg)
  * @brief Set tap event parameters
  *
  * @param   sensor  Address of an initialized sensor device descriptor.
- * @param   params  Address of a tap paramter structure.
+ * @param   params  Address of a tap parameter structure.
  * @return  bool    true if the call succeeds, else false is returned.
  */
 bool sensor_set_tap(sensor_t *sensor, sensor_tap_params_t *params)

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -147,7 +149,7 @@ void main_msc_disable(void)
 }
 
 /**
- * \mainpage ASF USB Composite Device
+ * \mainpage ASF USB Composite Device Example HID mouse and MSC
  *
  * \section intro Introduction
  * This example shows how to implement a USB Composite Device with HID mouse and
@@ -158,7 +160,7 @@ void main_msc_disable(void)
  * USB Device Mass Storage stack.
  * Also, the example uses the buttons or sensors available on the board
  * to simulate a standard mouse.
- * After loading firmware, connect the board (EVKxx,XPlain,...) to the USB Host.
+ * After loading firmware, connect the board (EVKxx,Xplain,...) to the USB Host.
  * When connected to a USB host system this application allows to display
  * all available memories as a removable disks and provides a mouse in
  * the Unix/Mac/Windows operating systems.

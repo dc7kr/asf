@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -155,7 +157,7 @@ static inline void genclk_config_set_source(struct genclk_config *p_cfg,
 }
 
 static inline void genclk_config_set_divider(struct genclk_config *p_cfg,
-		enum genclk_divider e_divider)
+		uint32_t e_divider)
 {
 	p_cfg->ctrl &= ~PMC_PCK_PRES_Msk;
 	p_cfg->ctrl |= e_divider;	

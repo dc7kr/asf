@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -48,7 +50,7 @@
  *
  * \section files Main Files
  * - at24cxx_example.c: the AT24CXX example
- * - at24cxx.h: the driver inteface for the AT24CXX
+ * - at24cxx.h: the driver interface for the AT24CXX
  *
  * \section compilinfo Compilation Information
  * This software is written for GNU GCC for AVR32 and for IAR Embedded Workbench

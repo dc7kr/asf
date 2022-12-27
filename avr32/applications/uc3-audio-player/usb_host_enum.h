@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -195,7 +197,7 @@ typedef struct
   host_transfer_control(data_stage)\
 )
 
-//! @brief Send an incomplete "get device desriptor" request
+//! @brief Send an incomplete "get device descriptor" request
 //! The descriptor received is stored in the data_stage array.
 //! The received descriptors are limited to the length of the control pipe.
 //! @return Status
@@ -210,7 +212,7 @@ typedef struct
   host_transfer_control(data_stage)\
 )
 
-//! @brief Send a "get device desriptor" request
+//! @brief Send a "get device descriptor" request
 //! The descriptor received is stored in the data_stage array.
 //! @return Status
 #define host_get_device_descriptor() \
@@ -295,7 +297,7 @@ typedef struct
 //! @return bool: Self-powered?
 #define Is_device_self_powered()            (Tst_bits(bmattributes, SELF_POWERED_MASK))
 
-//! @brief Maximal power consumption ot the connected device (unit is 2 mA)
+//! @brief Maximal power consumption of the connected device (unit is 2 mA)
 //! @return uint8_t: Maximal power
 #define Get_maxpower()                      (maxpower)
 

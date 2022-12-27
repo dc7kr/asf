@@ -1,11 +1,13 @@
 /**
  * \file
  *
- * \brief CLZ/CTZ C implemetation.
+ * \brief CLZ/CTZ C implementation.
  *
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

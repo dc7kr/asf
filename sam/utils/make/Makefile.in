@@ -16,6 +16,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -278,8 +280,7 @@ cxxflags-gnu-y  += -ffunction-sections -fdata-sections
 cflags-gnu-y += -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int
 cflags-gnu-y += -Wmain -Wparentheses
 cflags-gnu-y += -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused
-cflags-gnu-y += -Wuninitialized -Wunknown-pragmas -Wfloat-equal
-# -Wundef
+cflags-gnu-y += -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef
 cflags-gnu-y += -Wshadow -Wbad-function-cast -Wwrite-strings
 cflags-gnu-y += -Wsign-compare -Waggregate-return 
 cflags-gnu-y += -Wmissing-declarations

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -83,6 +85,6 @@ void ui_process(uint16_t framenumber)
  * \defgroup UI User Interface
  *
  * Human interface on SAM4S Xplained:
- * - Led 0 (D9) blinks when USB host has checked and enabled vendor interface
- * - Led 1 (D10) is on when loopback is running
+ * - LED D9 blinks when USB host has checked and enabled vendor interface
+ * - LED D10 is on when loopback is running
  */

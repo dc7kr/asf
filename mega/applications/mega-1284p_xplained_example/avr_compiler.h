@@ -17,6 +17,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -103,7 +105,7 @@
  *  interrupt service routine declarations for the IAR compiler.  This
  *  requires the use of the C99 _Pragma() directive (rather than the
  *  old #pragma one that could not be used as a macro replacement), as
- *  well as two different levels of preprocessor concetanations in
+ *  well as two different levels of preprocessor concatanations in
  *  order to do both, assign the correct interrupt vector name, as well
  *  as construct a unique function name for the ISR.
  *

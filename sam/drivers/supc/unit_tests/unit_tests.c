@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -92,13 +94,6 @@
  */
 //@}
 
-/* Pointer to the module instance to use for stdio. */
-#if defined(__GNUC__)
-void (*ptr_get)(void volatile*,int*);
-int (*ptr_put)(void volatile*,int);
-volatile void *volatile stdio_base;
-#endif
-
 #define SLOW_CLK_TIMEOUT 0xFFFFFFFF
 
 /* Systick Counter */
@@ -114,18 +109,6 @@ void SysTick_Handler(void)
 }
 
 /**
- * \brief Delay number of tick Systicks (occurs every 1 ms).
- */
-static void delay_ms(uint32_t ul_dly_ticks)
-{
-	uint32_t ul_cur_ticks;
-
-	ul_cur_ticks = gs_ul_ms_ticks;
-	while ((gs_ul_ms_ticks - ul_cur_ticks) < ul_dly_ticks) {
-	}
-}
-
-/**
  * \brief Test slow clock source switching.
  *
  * This test switches the slow clock on the crystal oscillator output.
@@ -135,7 +118,7 @@ static void delay_ms(uint32_t ul_dly_ticks)
 static void run_supc_test(const struct test_case *test)
 {
 	uint32_t status = 0;
-    uint32_t timeout = 0;
+	uint32_t timeout = 0;
 
 	/* Test: Switch the slow clock on the crystal oscillator output */
 	supc_switch_sclk_to_32kxtal(SUPC, 0);
@@ -143,7 +126,7 @@ static void run_supc_test(const struct test_case *test)
 		status = supc_get_status(SUPC);
 		if (status & SUPC_SR_OSCSEL_CRYST) break;
 	} while (timeout++ < SLOW_CLK_TIMEOUT);
-	printf("PASS: 0x%08x\r\n", status);
+	printf("PASS: 0x%08x\r\n", (unsigned)status);
 	test_assert_true(test, (status & SUPC_SR_OSCSEL_CRYST) == SUPC_SR_OSCSEL_CRYST, "Test: switching slow clock source failed!");
 }
 
@@ -169,10 +152,6 @@ int main(void)
 		while (1) {
 		}
 	}
-
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
 
 	/* Define all the test cases */
 	DEFINE_TEST_CASE(supc_test, NULL, run_supc_test, NULL,

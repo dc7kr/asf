@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -44,7 +46,7 @@
 //! \note With the default setup, this is PB00 connected to the onboard SW0.
 #define NEXT_BUTTON     GPIO_PUSH_BUTTON_SW0
 
-//! \note This is the LED that will be toggeled in this example
+//! \note This is the LED that will be toggled in this example
 #define LED_EXAMPLE_OUTPUT     LED0_GPIO
 
 #endif /* CONF_EXAMPLE3_H_INCLUDED */

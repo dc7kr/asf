@@ -6,9 +6,11 @@
  *
  * This file contains the possible external configuration of the Ethernet module.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -49,7 +51,7 @@
 /*! location of net config file on the file system */
 #define ETHERNET_CONFIG_FILE "A:/CFG/net.txt"
 
-/*! Number of receive buffers. Max ethernet frame size is 1526. A Rx buffer is
+/*! Number of receive buffers. Max Ethernet frame size is 1526. A Rx buffer is
 128 Bytes long. So 12 Rx buffers are necessary to store one max sized frame.
 Multiply that by 2 for performance. */
 #define ETHERNET_CONF_NB_RX_BUFFERS        24
@@ -67,7 +69,7 @@ to use an MII interface. */
 /*! Clock definition */
 #define ETHERNET_CONF_SYSTEM_CLOCK         60000000
 
-/*! Allow Auto Negociation */
+/*! Allow Auto negotiation */
 #define ETHERNET_CONF_AN_ENABLE            1
 
 /*! Use auto cross capability. Used by default. */
@@ -76,7 +78,7 @@ to use an MII interface. */
     ETHERNET_CONF_AUTO_CROSS_ENABLE are enabled. */
 #define ETHERNET_CONF_CROSSED_LINK         0
 
-/* ethernet default parameters */
+/* Ethernet default parameters */
 /*! MAC address definition.  The MAC address must be unique on the network. */
 #define ETHERNET_CONF_ETHADDR0   0x00
 #define ETHERNET_CONF_ETHADDR1   0x04

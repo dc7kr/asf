@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -111,7 +113,7 @@
 #define  USB_DEVICE_NB_INTERFACE       5
 
 //! 7 endpoints used by HID mouse, HID keyboard, CDC and MSC interfaces
-//! but an IN and OUT endpoints can be defined with the same number on xmega, thus 5
+//! but an IN and OUT endpoints can be defined with the same number on XMEGA, thus 5
 // (7 | USB_EP_DIR_IN)  // CDC Notify endpoint
 // (6 | USB_EP_DIR_IN)  // CDC TX
 // (5 | USB_EP_DIR_OUT) // CDC RX
@@ -141,13 +143,17 @@
  * Configuration of CDC interface
  * @{
  */
+
+//! Define two USB communication ports
+#define  UDI_CDC_PORT_NB 1
+
 //! Interface callback definition
-#define  UDI_CDC_ENABLE_EXT()             main_cdc_enable()
-#define  UDI_CDC_DISABLE_EXT()            main_cdc_disable()
-#define  UDI_CDC_RX_NOTIFY()              uart_rx_notify()
-#define  UDI_CDC_SET_CODING_EXT(cfg)      uart_config(cfg)
-#define  UDI_CDC_SET_DTR_EXT(set)         main_cdc_set_dtr(set)
-#define  UDI_CDC_SET_RTS_EXT(set)
+#define  UDI_CDC_ENABLE_EXT(port)         main_cdc_enable(port)
+#define  UDI_CDC_DISABLE_EXT(port)        main_cdc_disable(port)
+#define  UDI_CDC_RX_NOTIFY(port)          uart_rx_notify(port)
+#define  UDI_CDC_SET_CODING_EXT(port,cfg) uart_config(port,cfg)
+#define  UDI_CDC_SET_DTR_EXT(port,set)    main_cdc_set_dtr(port,set)
+#define  UDI_CDC_SET_RTS_EXT(port,set)
 
 //! Define it when the transfer CDC Device to Host is a low rate (<512000 bauds)
 //! to reduce CDC buffers size
@@ -169,13 +175,13 @@
  * @{
  */
 //! Endpoint numbers definition
-#define  UDI_CDC_COMM_EP               (7 | USB_EP_DIR_IN)  // Notify endpoint
-#define  UDI_CDC_DATA_EP_IN            (6 | USB_EP_DIR_IN)  // TX
-#define  UDI_CDC_DATA_EP_OUT           (5 | USB_EP_DIR_OUT) // RX
+#define  UDI_CDC_COMM_EP_0             (7 | USB_EP_DIR_IN)  // Notify endpoint
+#define  UDI_CDC_DATA_EP_IN_0          (6 | USB_EP_DIR_IN)  // TX
+#define  UDI_CDC_DATA_EP_OUT_0         (5 | USB_EP_DIR_OUT) // RX
 
 //! Interface numbers
-#define  UDI_CDC_COMM_IFACE_NUMBER     0
-#define  UDI_CDC_DATA_IFACE_NUMBER     1
+#define  UDI_CDC_COMM_IFACE_NUMBER_0   0
+#define  UDI_CDC_DATA_IFACE_NUMBER_0   1
 //@}
 //@}
 
@@ -272,38 +278,38 @@
  * @{
  */
 //! USB Interfaces descriptor structure
-#define	UDI_COMPOSITE_DESC_T          \
-	usb_iad_desc_t       udi_cdc_iad;   \
-	udi_cdc_comm_desc_t  udi_cdc_comm;  \
-	udi_cdc_data_desc_t  udi_cdc_data;  \
-	udi_msc_desc_t       udi_msc;       \
+#define	UDI_COMPOSITE_DESC_T \
+	usb_iad_desc_t       udi_cdc_iad; \
+	udi_cdc_comm_desc_t  udi_cdc_comm; \
+	udi_cdc_data_desc_t  udi_cdc_data; \
+	udi_msc_desc_t       udi_msc; \
 	udi_hid_mouse_desc_t udi_hid_mouse; \
 	udi_hid_kbd_desc_t   udi_hid_kbd
 
 //! USB Interfaces descriptor value for Full Speed
-#define UDI_COMPOSITE_DESC_FS             \
-	.udi_cdc_iad   = UDI_CDC_IAD_DESC,     \
-	.udi_cdc_comm  = UDI_CDC_COMM_DESC,    \
-	.udi_cdc_data  = UDI_CDC_DATA_DESC_FS, \
-	.udi_msc       = UDI_MSC_DESC_FS,      \
-	.udi_hid_mouse = UDI_HID_MOUSE_DESC,   \
+#define UDI_COMPOSITE_DESC_FS \
+	.udi_cdc_iad   = UDI_CDC_IAD_DESC_0, \
+	.udi_cdc_comm  = UDI_CDC_COMM_DESC_0, \
+	.udi_cdc_data  = UDI_CDC_DATA_DESC_0_FS, \
+	.udi_msc       = UDI_MSC_DESC_FS, \
+	.udi_hid_mouse = UDI_HID_MOUSE_DESC, \
 	.udi_hid_kbd   = UDI_HID_KBD_DESC
 
 //! USB Interfaces descriptor value for High Speed
-#define UDI_COMPOSITE_DESC_HS             \
-	.udi_cdc_iad   = UDI_CDC_IAD_DESC,     \
-	.udi_cdc_comm  = UDI_CDC_COMM_DESC,    \
-	.udi_cdc_data  = UDI_CDC_DATA_DESC_HS, \
-	.udi_msc       = UDI_MSC_DESC_HS,      \
-	.udi_hid_mouse = UDI_HID_MOUSE_DESC,   \
+#define UDI_COMPOSITE_DESC_HS \
+	.udi_cdc_iad   = UDI_CDC_IAD_DESC_0, \
+	.udi_cdc_comm  = UDI_CDC_COMM_DESC_0, \
+	.udi_cdc_data  = UDI_CDC_DATA_DESC_0_HS, \
+	.udi_msc       = UDI_MSC_DESC_HS, \
+	.udi_hid_mouse = UDI_HID_MOUSE_DESC, \
 	.udi_hid_kbd   = UDI_HID_KBD_DESC
 
 //! USB Interface APIs
-#define	UDI_COMPOSITE_API  \
-	&udi_api_cdc_comm,       \
-	&udi_api_cdc_data,       \
-	&udi_api_msc,            \
-	&udi_api_hid_mouse,      \
+#define	UDI_COMPOSITE_API \
+	&udi_api_cdc_comm, \
+	&udi_api_cdc_data, \
+	&udi_api_msc, \
+	&udi_api_hid_mouse, \
 	&udi_api_hid_kbd
 //@}
 

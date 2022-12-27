@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -188,7 +190,7 @@ void filter_task_init(void) {
 
 /*! \brief Filter Task Function:
 *       - Filter signal using Fixed Point Implementation
-*       - FIlter signal using Floating Point Implementation
+*       - Filter signal using Floating Point Implementation
 *       - Rr
 *
 */

@@ -2,14 +2,16 @@
  *
  * \file
  *
- * \brief TWI Master driver for AVR xmega.
+ * \brief TWI Master driver for AVR Xmega.
  *
- * This file defines a useful set of functions for the TWI interface on AVR xmega
+ * This file defines a useful set of functions for the TWI interface on AVR Xmega
  * devices.
  *
  * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

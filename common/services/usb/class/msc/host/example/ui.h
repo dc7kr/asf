@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -83,7 +85,7 @@ void ui_test_flag_reset(void);
 
 /*! \brief Displays the result of the test
  *
- * \param b_success   true, if the test is successfull
+ * \param b_success   true, if the test is successful
  */
 void ui_test_finish(bool b_success);
 

@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -234,7 +236,7 @@ spi_status_t spi_unselectChip(volatile avr32_spi_t *spi, unsigned char chip)
   // Assert all lines; no peripheral is selected.
   spi->mr |= AVR32_SPI_MR_PCS_MASK;
 
-  // Last transfer, so deassert the current NPCS if CSAAT is set.
+  // Last transfer, so de-assert the current NPCS if CSAAT is set.
   spi->cr = AVR32_SPI_CR_LASTXFER_MASK;
 
 #ifdef FREERTOS_USED

@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -267,7 +269,7 @@
 
 /*********************************************************************************************
  * This function is the light main function that permits to compute the numerators coefficients.
- * Algorihm:
+ * Algorithm:
  *   for(n=0; n<vect1_size; n+=4)
  *   {
  *        sum1 = 0;
@@ -302,7 +304,7 @@
  *   r1 = sum3
  *   r0 = sum4
  *   lr = i
- * Conditon: vect3, vect1 and vect2 must be word-align
+ * Condition: vect3, vect1 and vect2 must be word-align
  *********************************************************************************************/
 #define DSP16_CONVPART_KERNEL_X_FCT__(x_num, data)    \
 static void TPASTE2(dsp16_vect_convpart_kernel_x, x_num)(dsp16_t *vect1, dsp16_t *vect2, int vect1_size, dsp16_t *vect3, int vect3_size) \

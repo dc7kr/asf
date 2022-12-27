@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -99,12 +101,12 @@
  * @{
  */
 //! Interface callback definition
-#define  UDI_CDC_ENABLE_EXT()             stdio_usb_enable()
-#define  UDI_CDC_DISABLE_EXT()            stdio_usb_disable()
-#define  UDI_CDC_RX_NOTIFY()
-#define  UDI_CDC_SET_CODING_EXT(cfg)
-#define  UDI_CDC_SET_DTR_EXT(set)
-#define  UDI_CDC_SET_RTS_EXT(set)
+#define  UDI_CDC_ENABLE_EXT(port)             stdio_usb_enable()
+#define  UDI_CDC_DISABLE_EXT(port)            stdio_usb_disable()
+#define  UDI_CDC_RX_NOTIFY(port)
+#define  UDI_CDC_SET_CODING_EXT(port,cfg)
+#define  UDI_CDC_SET_DTR_EXT(port,set)
+#define  UDI_CDC_SET_RTS_EXT(port,set)
 
 //! Default configuration of communication port
 #define  UDI_CDC_DEFAULT_RATE             115200

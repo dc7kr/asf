@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -65,12 +67,12 @@ void ui_wakeup(void)
 	LED_On(LED0_GPIO);
 }
 
-void ui_com_open(void)
+void ui_com_open(uint8_t port)
 {
 	LED_On(LED1_GPIO);
 }
 
-void ui_com_close(void)
+void ui_com_close(uint8_t port)
 {
 	LED_Off(LED1_GPIO);
 }
@@ -121,6 +123,6 @@ void ui_process(uint16_t framenumber)
  * Human interface on SAM3X-EK:
  * - SAM3X USART used UART on J11 connector
  * - Led 0 (D2, blue) blinks when USB Host have checked and enabled CDC interface
- * - Led 1 (D4, green) is on when CDC port is open
- * - Led 2 (D3, amber) is on during data transfer between CDC and UART
+ * - Led 1 (D3, green) is on when CDC port is open
+ * - Led 2 (D4, amber) is on during data transfer between CDC and UART
  */

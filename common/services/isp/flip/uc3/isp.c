@@ -3,9 +3,11 @@
  *
  * \brief In system programming to control security, memories and fuse bits
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -61,8 +63,15 @@
 
 
 /**
- * \defgroup isp In System Programming
- * to manage security, memories and fuse bits
+ * \ingroup isp
+ * \defgroup isp_implementation In System Programming UC3 implementation
+ * This implementation links the UC3 NVM functions to the common isp API.
+ * Also, it manage :
+ * - the flash access security
+ * - the JTAG ID information storage
+ * - the bootloader version storage
+ * - the ISP force flag
+ * - the start appli operation through watchdog reset
  *
  * @{
  */

@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -117,9 +119,9 @@ bm_info_header_s {
   /*! \brief Width of the bitmap in pixels */
   int biWidth;
   /*! \brief Height of the bitmap in pixels
-   *   If this value is positiv -> "bottom-up"-bitmap (picture data starts with the bottom
+   *   If this value is positive -> "bottom-up"-bitmap (picture data starts with the bottom
    * line and ends with the top line)
-   * If this value is negativ ->"top-down"-Bitmap (picture data starts with the top line
+   * If this value is negative ->"top-down"-Bitmap (picture data starts with the top line
    * and ends with the bottom line)
    */
   int biHeight;
@@ -139,7 +141,7 @@ bm_info_header_s {
 
   /*! \brief Image size. This is the size of the raw bitmap data. */
   unsigned int   biSizeImage;
-  /*! \brief Horizontale resolution */
+  /*! \brief Horizontal resolution */
   int   biXPelsPerMeter;
   /*! \brief Vertical resolution */
   int   biYPelsPerMeter;

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -45,14 +47,9 @@
 #include "usb_protocol_cdc.h"
 #include "conf_usb.h"
 
-// Check the number of port
 #ifndef  UDI_CDC_PORT_NB
 # define  UDI_CDC_PORT_NB 1
 #endif
-#if UDI_CDC_PORT_NB > 3
-# error UDI_CDC_PORT_NB must be inferior or equal at 3
-#endif
-
 
 #ifdef __cplusplus
 extern "C" {
@@ -69,61 +66,75 @@ extern "C" {
 #if XMEGA
 /**
  * \name Endpoint configuration on XMEGA
- * The XMEGA supports a IN and OUT endpoint with the same number endpoint.
+ * The XMEGA supports a IN and OUT endpoint with the same number endpoint,
+ * thus XMEGA can support up to 7 CDC interfaces.
  */
 //@{
-//! Endpoints' numbers used by single or first CDC port
-#define  UDI_CDC_DATA_EP_IN            (1 | USB_EP_DIR_IN)  // TX
-#define  UDI_CDC_DATA_EP_OUT           (2 | USB_EP_DIR_OUT) // RX
-#define  UDI_CDC_COMM_EP               (2 | USB_EP_DIR_IN)  // Notify endpoint
-//! Endpoints' numbers used by second CDC port (Optional)
-#define  UDI_CDC_DATA_EP_IN_2          (3 | USB_EP_DIR_IN)  // TX
-#define  UDI_CDC_DATA_EP_OUT_2         (4 | USB_EP_DIR_OUT) // RX
-#define  UDI_CDC_COMM_EP_2             (4 | USB_EP_DIR_IN)  // Notify endpoint
-//! Endpoints' numbers used by third CDC port (Optional)
-#define  UDI_CDC_DATA_EP_IN_3          (5 | USB_EP_DIR_IN)  // TX
-#define  UDI_CDC_DATA_EP_OUT_3         (6 | USB_EP_DIR_OUT) // RX
-#define  UDI_CDC_COMM_EP_3             (6 | USB_EP_DIR_IN)  // Notify endpoint
+#define  UDI_CDC_DATA_EP_IN_0          ( 1 | USB_EP_DIR_IN)  // TX
+#define  UDI_CDC_DATA_EP_OUT_0         ( 2 | USB_EP_DIR_OUT) // RX
+#define  UDI_CDC_COMM_EP_0             ( 2 | USB_EP_DIR_IN)  // Notify endpoint
+#define  UDI_CDC_DATA_EP_IN_1          ( 3 | USB_EP_DIR_IN)  // TX
+#define  UDI_CDC_DATA_EP_OUT_1         ( 4 | USB_EP_DIR_OUT) // RX
+#define  UDI_CDC_COMM_EP_1             ( 4 | USB_EP_DIR_IN)  // Notify endpoint
+#define  UDI_CDC_DATA_EP_IN_2          ( 5 | USB_EP_DIR_IN)  // TX
+#define  UDI_CDC_DATA_EP_OUT_2         ( 6 | USB_EP_DIR_OUT) // RX
+#define  UDI_CDC_COMM_EP_2             ( 6 | USB_EP_DIR_IN)  // Notify endpoint
+#define  UDI_CDC_DATA_EP_IN_3          ( 7 | USB_EP_DIR_IN)  // TX
+#define  UDI_CDC_DATA_EP_OUT_3         ( 8 | USB_EP_DIR_OUT) // RX
+#define  UDI_CDC_COMM_EP_3             ( 8 | USB_EP_DIR_IN)  // Notify endpoint
+#define  UDI_CDC_DATA_EP_IN_4          ( 9 | USB_EP_DIR_IN)  // TX
+#define  UDI_CDC_DATA_EP_OUT_4         (10 | USB_EP_DIR_OUT) // RX
+#define  UDI_CDC_COMM_EP_4             (10 | USB_EP_DIR_IN)  // Notify endpoint
+#define  UDI_CDC_DATA_EP_IN_5          (11 | USB_EP_DIR_IN)  // TX
+#define  UDI_CDC_DATA_EP_OUT_5         (12 | USB_EP_DIR_OUT) // RX
+#define  UDI_CDC_COMM_EP_5             (12 | USB_EP_DIR_IN)  // Notify endpoint
+#define  UDI_CDC_DATA_EP_IN_6          (13 | USB_EP_DIR_IN)  // TX
+#define  UDI_CDC_DATA_EP_OUT_6         (14 | USB_EP_DIR_OUT) // RX
+#define  UDI_CDC_COMM_EP_6             (14 | USB_EP_DIR_IN)  // Notify endpoint
+//! 2 endpoints numbers used per CDC interface
+#define  USB_DEVICE_MAX_EP             (2*UDI_CDC_PORT_NB)
 //@}
 
 #else
 
 /**
  * \name Default endpoint configuration
+ * The USBB, UDP, UDPHS and UOTGHS interfaces can support up to 2 CDC interfaces.
  */
 //@{
-//! Endpoints' numbers used by single or first CDC port
-#define  UDI_CDC_DATA_EP_IN            (1 | USB_EP_DIR_IN)  // TX
-#define  UDI_CDC_DATA_EP_OUT           (2 | USB_EP_DIR_OUT) // RX
-#define  UDI_CDC_COMM_EP               (3 | USB_EP_DIR_IN)  // Notify endpoint
-//! Endpoints' numbers used by second CDC port (Optional)
-#define  UDI_CDC_DATA_EP_IN_2          (4 | USB_EP_DIR_IN)  // TX
-#define  UDI_CDC_DATA_EP_OUT_2         (5 | USB_EP_DIR_OUT) // RX
-#define  UDI_CDC_COMM_EP_2             (6 | USB_EP_DIR_IN)  // Notify endpoint
-//! Endpoints' numbers used by third CDC port (Optional)
-#define  UDI_CDC_DATA_EP_IN_3          (7 | USB_EP_DIR_IN)  // TX
-#define  UDI_CDC_DATA_EP_OUT_3         (8 | USB_EP_DIR_OUT) // RX
-#define  UDI_CDC_COMM_EP_3             (9 | USB_EP_DIR_IN)  // Notify endpoint
+#  if UDI_CDC_PORT_NB > 2
+#    error USBB, UDP, UDPHS and UOTGHS interfaces have not enought endpoints.
+#  endif
+#define  UDI_CDC_DATA_EP_IN_0          (1 | USB_EP_DIR_IN)  // TX
+#define  UDI_CDC_DATA_EP_OUT_0         (2 | USB_EP_DIR_OUT) // RX
+#define  UDI_CDC_COMM_EP_0             (3 | USB_EP_DIR_IN)  // Notify endpoint
+#define  UDI_CDC_DATA_EP_IN_1          (4 | USB_EP_DIR_IN)  // TX
+#define  UDI_CDC_DATA_EP_OUT_1         (5 | USB_EP_DIR_OUT) // RX
+#define  UDI_CDC_COMM_EP_1             (6 | USB_EP_DIR_IN)  // Notify endpoint
+//! 3 endpoints used per CDC interface
+#define  USB_DEVICE_MAX_EP             (3*UDI_CDC_PORT_NB)
 //@}
 
 #endif
 
-//! Interface numbers used by single or first CDC port
-#define  UDI_CDC_COMM_IFACE_NUMBER     0
-#define  UDI_CDC_DATA_IFACE_NUMBER     1
-//! Interface numbers used by second CDC port (Optional)
-#define  UDI_CDC_COMM_IFACE_NUMBER_2   2
-#define  UDI_CDC_DATA_IFACE_NUMBER_2   3
-//! Interface numbers used by third CDC port (Optional)
-#define  UDI_CDC_COMM_IFACE_NUMBER_3   4
-#define  UDI_CDC_DATA_IFACE_NUMBER_3   5
-
 /**
- * \name UDD Configuration
+ * \name Default Interface numbers
  */
 //@{
-//! 3 endpoints used by single CDC interface
-#define  USB_DEVICE_MAX_EP             (3*UDI_CDC_PORT_NB)
+#define  UDI_CDC_COMM_IFACE_NUMBER_0   0
+#define  UDI_CDC_DATA_IFACE_NUMBER_0   1
+#define  UDI_CDC_COMM_IFACE_NUMBER_1   2
+#define  UDI_CDC_DATA_IFACE_NUMBER_1   3
+#define  UDI_CDC_COMM_IFACE_NUMBER_2   4
+#define  UDI_CDC_DATA_IFACE_NUMBER_2   5
+#define  UDI_CDC_COMM_IFACE_NUMBER_3   6
+#define  UDI_CDC_DATA_IFACE_NUMBER_3   7
+#define  UDI_CDC_COMM_IFACE_NUMBER_4   8
+#define  UDI_CDC_DATA_IFACE_NUMBER_4   9
+#define  UDI_CDC_COMM_IFACE_NUMBER_5   10
+#define  UDI_CDC_DATA_IFACE_NUMBER_5   11
+#define  UDI_CDC_COMM_IFACE_NUMBER_6   12
+#define  UDI_CDC_DATA_IFACE_NUMBER_6   13
 //@}
 
 //@}

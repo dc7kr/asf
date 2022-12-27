@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -310,7 +312,7 @@ int main(void)
   // Read the first sectors number 1, 2, 3 of the card
   for(j = 1; j <= 3; j++)
   {
-    // Configure the PDCA channel: the adddress of memory ram_buffer to receive the data at sector address j
+    // Configure the PDCA channel: the address of memory ram_buffer to receive the data at sector address j
     pdca_load_channel( AVR32_PDCA_CHANNEL_SPI_RX,
                      &ram_buffer,
                      512);
@@ -327,7 +329,7 @@ int main(void)
       print_dbg_ulong(j);
       print_dbg(" :\r\n");
 
-      spi_write(SD_MMC_SPI,0xFF); // Write a first dummy data to synchronise transfer
+      spi_write(SD_MMC_SPI,0xFF); // Write a first dummy data to synchronize transfer
       pdca_enable_interrupt_transfer_complete(AVR32_PDCA_CHANNEL_SPI_RX);
       pdca_channelrx =(volatile avr32_pdca_channel_t*) pdca_get_handler(AVR32_PDCA_CHANNEL_SPI_RX); // get the correct PDCA channel pointer
       pdca_channeltx =(volatile avr32_pdca_channel_t*) pdca_get_handler(AVR32_PDCA_CHANNEL_SPI_TX); // get the correct PDCA channel pointer

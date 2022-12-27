@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -52,7 +54,7 @@
  * The ET024006DHU is a RGB LCD display from EDT and it offers a resolution of 240x320 pixels.
  * The driver uses the display in a 16-bit mode however each pixel has a resolution of 18 bits
  * (6 bits for each color). In 16-bit mode red and blue have 5-bit while green has 6-bit resolution.
- * The display offers a parallel and a serial interface currenlty only the parallel mode is implemented in the driver.
+ * The display offers a parallel and a serial interface currently only the parallel mode is implemented in the driver.
  *
  * \{
  */
@@ -122,7 +124,7 @@ int et024006_TestDisplay( void);
  *  from the scrolling and that starts at the top of the display area.
  *  @param vsa Scroll area in rows. This is the actual scroll area.
  *  @param bfa Bottom fixed area in rows. This is a section at the bottom
- *  of the dispaly area that will not be used for scrolling.
+ *  of the display area that will not be used for scrolling.
  *
  */
 void et024006_ScrollAreaSetup(uint16_t tfa, uint16_t vsa, uint16_t bfa);
@@ -159,9 +161,9 @@ void et024006_DrawFilledRect( uint16_t x, uint16_t y, uint16_t width, uint16_t h
 /*!
  * This function draws a filled circle, or parts of it.
  * The radius is the distance from the center to the arc itself, which
- * means that the totalt width or height of a circle will be (radius*2+1).
+ * means that the total width or height of a circle will be (radius*2+1).
  * The quadrantMask parameter is a bitmask that decides which quadrants of the
- * circle to draw. Use the QUADRANT, HALF and WHOLE contants from the
+ * circle to draw. Use the QUADRANT, HALF and WHOLE constants from the
  * header file and OR them together if required.
  * Radius equal to zero gives a single pixel.
  *

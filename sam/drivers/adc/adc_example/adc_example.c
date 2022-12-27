@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -55,8 +57,8 @@
  * of the potentiometer. Please refer to the board schematics for ADVREF
  * jumper configuration.
  *
- * We use "USRPB1" button for ADTGR, so please connect ADTRG to USRPB1 and
- * solder in R9, R10 before running the example.
+ * We use one push button for ADTGR, so please connect ADTRG to relative button pin 
+ *  \copydoc adc_example_pin_defs
  *
  * \section Description
  *
@@ -92,7 +94,7 @@
  * -# In the terminal window, the
  *    following text should appear (values depend on the board and the chip used):
  *    \code
- *     -- ADC12 Example xxx --
+ *     -- ADC Example xxx --
  *     -- xxxxxx-xx
  *     -- Compiled: xxx xx xxxx xx:xx:xx --
  *     =========================================================
@@ -103,7 +105,7 @@
  *     [ ] 2: Set ADC trigger mode: Timer TIOA.
  *     [ ] 3: Set ADC trigger mode: PWM Event Line.
  *     [ ] 4: Set ADC trigger mode: Free run mode.
- *     [E] T: Enable/Disable to tranfer with PDC.
+ *     [E] T: Enable/Disable to transfer with PDC.
  *     [D] S: Enable/Disable to use user sequence mode.
  *     [D] P: Enable/Disable ADC power save mode.
  *     [D] G: Enable/Disable to set gain=2 for potentiometer channel.
@@ -111,7 +113,7 @@
  *         Q: Quit configuration and start ADC.
  *     =========================================================
  *    \endcode
- * -# The application will output converted value to hyperterminal and display
+ * -# The application will output converted value to HyperTerminal and display
  *    a menu for users to set different modes.
  *
  */
@@ -165,7 +167,7 @@
 #endif
 
 #define STRING_EOL    "\r"
-#define STRING_HEADER "-- ADC12 Example --\r\n" \
+#define STRING_HEADER "-- ADC Example --\r\n" \
 		"-- "BOARD_NAME" --\r\n" \
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 #define MENU_HEADER "\n\r" \
@@ -241,7 +243,7 @@ static void display_menu(void)
 	printf("[%c] 4: Set ADC trigger mode: Free run mode.\n\r", uc_char);
 #endif
 	uc_char = (g_adc_test_mode.uc_pdc_en) ? 'E' : 'D';
-	printf("[%c] T: Enable/Disable to tranfer with PDC.\n\r", uc_char);
+	printf("[%c] T: Enable/Disable to transfer with PDC.\n\r", uc_char);
 #if SAM3S || SAM3N || SAM3XA || SAM4S
 	uc_char = (g_adc_test_mode.uc_sequence_en) ? 'E' : 'D';
 	printf("[%c] S: Enable/Disable to use user sequence mode.\n\r", uc_char);
@@ -417,6 +419,9 @@ static void configure_pwm_trigger(void)
 	/* Enable PWMC peripheral clock. */
 	pmc_enable_periph_clk(ID_PWM);
 
+	/* Disable PWM channel 0. */
+	pwm_channel_disable(PWM, PWM_CHANNEL_0);
+
 	gpio_configure_pin(PIN_PWMC_PWMH0_TRIG, PIN_PWMC_PWMH0_TRIG_FLAG);
 
 	/* Set clock A to run at PWM_FREQUENCY * MAX_DUTY_CYCLE (clock B is not used). */
@@ -448,7 +453,7 @@ static void configure_pwm_trigger(void)
 
 
 	/* Enable PWM channel 0. */
-	pwm_channel_enable(PWM, 0);
+	pwm_channel_enable(PWM, PWM_CHANNEL_0);
 	/* Set PWM Event Line 0 trigger. */
 #if SAM3S || SAM3XA || SAM4S
 	adc_configure_trigger(ADC, ADC_TRIG_PWM_EVENT_LINE_0, 0);
@@ -541,9 +546,9 @@ static uint32_t adc_read_buffer(Adc * p_adc, uint16_t * p_s_buffer, uint32_t ul_
  */
 static void start_adc(void)
 {
-	uint32_t i;
 	/* Enable peripheral clock. */
 #if SAM3S || SAM3N || SAM3XA || SAM4S
+	uint32_t i;
 	pmc_enable_periph_clk(ID_ADC);
 #elif SAM3U
 #ifdef ADC_12B
@@ -609,7 +614,7 @@ static void start_adc(void)
 
 		/* Enable channels. */
 		for (i = 0; i < 2; i++) {
-			adc_enable_channel(ADC, i);
+			adc_enable_channel(ADC, (enum adc_channel_num_t)i);
 		}
 		/* Update channel number. */
 		g_adc_sample_data.uc_ch_num[0] = ch_list[0];
@@ -925,32 +930,19 @@ void ADC_Handler(void)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO. */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC. */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART. */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
  *  Wait for the given number of milliseconds (using the dwTimeStamp generated
- *  by the SAM3 microcontrollers' system tick).
+ *  by the SAM microcontrollers' system tick).
  *  \param ul_dly_ticks  Delay to wait for, in milliseconds.
  */
 static void mdelay(uint32_t ul_dly_ticks)
@@ -970,7 +962,7 @@ int main(void)
 {
 	uint32_t i;
 	uint8_t uc_key;
-	/* Initialize the SAM3 system. */
+	/* Initialize the SAM system. */
 	sysclk_init();
 	board_init();
 

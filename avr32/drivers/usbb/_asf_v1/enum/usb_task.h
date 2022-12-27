@@ -25,6 +25,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -218,13 +220,13 @@ extern volatile U8 g_usb_mode;
 //! The aim is to allow the USB connection detection in order to send
 //! the appropriate USB event to the operating mode manager.
 //! Depending on the mode supported (HOST/DEVICE/DUAL_ROLE) the function
-//! calls the corespong USB mode initialization function
+//! calls the corresponding USB mode initialization function
 extern void usb_task_init(void);
 
 //! @brief Entry point of the USB mamnagement
 //!
 //! Depending on the mode supported (HOST/DEVICE/DUAL_ROLE) the function
-//! calls the corespong USB management function
+//! calls the corresponding USB management function
 #ifdef FREERTOS_USED
 extern void usb_task(void *pvParameters);
 #else

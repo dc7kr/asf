@@ -6,6 +6,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -276,7 +278,7 @@ void gfx_mono_spinctrl_init(struct gfx_mono_spinctrl *spinner,
  *
  * This function initializes a spincollection to which spinners can be added.
  *
- * \param collection pointer to gfx_mono_spinctrl_spincollection to initalize
+ * \param collection pointer to gfx_mono_spinctrl_spincollection to Initialize
  */
 void gfx_mono_spinctrl_spincollection_init(struct
 		gfx_mono_spinctrl_spincollection *collection)
@@ -511,7 +513,7 @@ int16_t gfx_mono_spinctrl_process_key(struct gfx_mono_spinctrl *spinner,
  * The choice from the first spinner added to the spincollection will be stored
  * at index 0 in the results array, the second at index 1 and so on.
  * If user has pressed the back button, \ref GFX_MONO_SPINCTRL_EVENT_BACK is
- * returned, signaling that the application should be canceled.
+ * returned, signalling that the application should be cancelled.
  *
  * \param spinners       pointer to initialized
                          gfx_mono_spinctrl_spincollection

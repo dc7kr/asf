@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -207,7 +209,7 @@ int main(void)
   {
     .etrgs = 0,
     .ldrbs = 0,
-    .ldras = 1, // Generate an interrupt upon RA load occurence
+    .ldras = 1, // Generate an interrupt upon RA load occurrence
     .cpcs  = 0,
     .cpbs  = 0,
     .cpas  = 0,

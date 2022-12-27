@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -170,7 +172,7 @@ uint16_t   reader_txt_get_line( bool b_unicode, FS_STRING string , uint16_t u16_
             size_utf8_buf -= size_utf8_dec;
             size_utf8_dec =0;
          }
-         // Complet UTF8 array
+         // Complete UTF8 array
          size_utf8_buf += file_read_buf( &utf8[size_utf8_buf], (UNI_MAX_UTF8_SIZE-size_utf8_buf) );
          // Decode UTF8 to unicode
          size_utf8_dec = utf8_to_unicode( &utf8[0], &u16_unicode );
@@ -220,7 +222,7 @@ uint16_t   reader_txt_get_line( bool b_unicode, FS_STRING string , uint16_t u16_
          u16_str_size--;
       }
    }
-   // HERE, the line is readed
+   // HERE, the line is read
 
    if( UNI_TYPE_UTF8 == fs_g_nav_entry.u8_txt_format )
    {

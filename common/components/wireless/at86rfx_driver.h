@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -112,7 +114,7 @@
 #define WRITE_ACCESS_COMMAND            (0xC0)
 
 /**
- * Read access command to the tranceiver
+ * Read access command to the transceiver
  */
 #define READ_ACCESS_COMMAND             (0x80)
 
@@ -230,7 +232,7 @@ at86rfx_retval_t at86rfx_init(void);
 /**
  * \brief Transmits the frame
  *
- * This function configures the tranceiver in TX mode and transmits
+ * This function configures the transceiver in TX mode and transmits
  * the frame
  *
  * \param[in] frame_tx Pointer to data to be transmitted

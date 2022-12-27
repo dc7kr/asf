@@ -14,6 +14,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -51,7 +53,7 @@
  * Brief description of the module.
  * This module is a central point for commands execution.
  *
- * Detailled description of the module.
+ * Detailed description of the module.
  * It proposes only one interface function, Shell_exec(). This function parses
  * a command line string to:
  *    1) identify the command
@@ -195,7 +197,7 @@ const signed portCHAR *const SHELL_MSG_PERMISSIONDENIED = (signed portCHAR *)"Er
 
 const signed portCHAR *const SHELL_MSG_HELP = (signed portCHAR *)"Commands summary"CRLF"help"CRLF"!!: execute the previous command"CRLF;
 
-/*! Error msg if !! is executed and there is no previous comand. */
+/*! Error msg if !! is executed and there is no previous command. */
 const signed portCHAR *const SHELL_MSG_NOHISTORY = (signed portCHAR *)"Error"CRLF"No previous command"CRLF;
 
 /*! Error msg upon help syntax error. */

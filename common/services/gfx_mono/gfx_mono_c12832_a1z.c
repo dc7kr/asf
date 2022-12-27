@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -110,15 +112,15 @@ void gfx_mono_st7565r_put_framebuffer(void)
  * \param y         Y coordinate of the pixel
  * \param color     Pixel operation
  *
- * The followin will set the pixel at x=10,y=10:
+ * The following will set the pixel at x=10,y=10:
  * \code
  * gfx_mono_st7565r_draw_pixel(10, 10, GFX_PIXEL_SET);
  * \endcode
- * The followin example will clear the pixel at x=10,y=10:
+ * The following example will clear the pixel at x=10,y=10:
  * \code
  * gfx_mono_st7565r_draw_pixel(10, 10, GFX_PIXEL_CLR);
  * \endcode
- * And the follwin will toggle the pixel at x=10,y=10:
+ * And the following will toggle the pixel at x=10,y=10:
  * \code
  * gfx_mono_st7565r_draw_pixel(10, 10, GFX_PIXEL_XOR);
  * \endcode
@@ -204,7 +206,7 @@ uint8_t gfx_mono_st7565r_get_pixel(gfx_coord_t x, gfx_coord_t y)
  * \param width Number of bytes to be written.
  *
  * The following example will write 32 bytes from data_buf to the page 0,
- * column 10. This will place data_buf in the rectange x1=10,y1=0,x2=42,y2=8
+ * column 10. This will place data_buf in the rectangle x1=10,y1=0,x2=42,y2=8
  * (10 pixels from the upper left corner of the screen):
  * \code
  * gfx_mono_st7565r_put_page(data_buf, 0, 10, 32);

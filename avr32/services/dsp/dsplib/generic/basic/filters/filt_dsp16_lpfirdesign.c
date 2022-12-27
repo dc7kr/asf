@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -75,7 +77,7 @@ void dsp16_filt_lpfirdesign(dsp16_t *c, int fc, int fs, int order)
   if (!order)
     return;
 
-  // Calculate normalized cutoff frequency mulitplied by 2
+  // Calculate normalized cutoff frequency multiplied by 2
   n_fc = (((S32) fc) << (DSP16_QB + 1)) / fs;
   num = order / 2 + 1;
 
@@ -96,7 +98,7 @@ void dsp16_filt_lpfirdesign(dsp16_t *c, int fc, int fs, int order)
 
 /** Scilab algorithm:
  *
- * k is choosed so that coef(order/2+1) equals 1.
+ * k is chosen so that coef(order/2+1) equals 1.
  *
  * fc = f_hz / fs_hz;
  * for i=0:(order-1),

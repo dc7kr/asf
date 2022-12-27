@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -54,7 +56,7 @@
  * The test requires the following external connection
  * on the board that runs the tests:
  * - (PA1, PA3, PA5, PA7) connected together (J2 on XMEGA-A1 Xplained board)
- * - (PA0, PA2, PA4, PA6) connected togheter (J2 on XMEGA-A1 Xplained board)
+ * - (PA0, PA2, PA4, PA6) connected together (J2 on XMEGA-A1 Xplained board)
  *
  * The DAC outputs are available on PA2 and PA3, leaving two groups of four
  * ADC pins connected to the two DAC output pins.

@@ -7,6 +7,8 @@
  * 
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -121,7 +123,7 @@ typedef enum
  *
  * \return Status.
  *   \retval 0 Success.
- *   \retval <0 An error occured when trying to set the main clock.
+ *   \retval <0 An error occurred when trying to set the main clock.
  */
 extern long pm_set_mclk_source(pm_clk_src_t src);
 
@@ -138,7 +140,7 @@ extern long pm_set_mclk_source(pm_clk_src_t src);
  *
  * \return Status.
  *   \retval =0 Success.
- *   \retval <0 An error occured.
+ *   \retval <0 An error occurred.
  */
 extern long pm_config_mainclk_safety(bool cfd, bool ocp, bool final);
 
@@ -152,7 +154,7 @@ extern long pm_config_mainclk_safety(bool cfd, bool ocp, bool final);
  *
  * \return Status.
  *   \retval =0 Success.
- *   \retval <0 An error occured.
+ *   \retval <0 An error occurred.
  */
 extern long pm_set_clk_domain_div(pm_clk_domain_t clock_domain, pm_divratio_t divratio);
 
@@ -165,7 +167,7 @@ extern long pm_set_clk_domain_div(pm_clk_domain_t clock_domain, pm_divratio_t di
  *
  * \return Status.
  *   \retval =0 Success.
- *   \retval <0 An error occured.
+ *   \retval <0 An error occurred.
  */
 extern long pm_disable_clk_domain_div(pm_clk_domain_t clock_domain);
 
@@ -210,7 +212,7 @@ extern long pm_wait_for_clk_ready(void);
  *
  * \return Status.
  *   \retval 0  Success.
- *   \retval <0 An error occured.
+ *   \retval <0 An error occurred.
  */
 extern long pm_enable_module(unsigned long module);
 
@@ -222,7 +224,7 @@ extern long pm_enable_module(unsigned long module);
  *
  * \return Status.
  *   \retval 0  Success.
- *   \retval <0 An error occured.
+ *   \retval <0 An error occurred.
  */
 extern long pm_disable_module(unsigned long module);
 

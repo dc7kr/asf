@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -164,7 +166,7 @@ static void test_initialization(const struct test_case *test)
  * \brief Run timeout singleshot test
  *
  * This test start three different singleshot timeouts and verify that
- * they timeout when exprected.
+ * they timeout when expected.
  *
  * \param test Current test case.
  */

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -187,7 +189,7 @@ static inline void uart_putchar(uint8_t data)
 /**
  * \brief Function for getting a char from the UART receive buffer
  *
- * \retval Next data byte in recieve buffer
+ * \retval Next data byte in receive buffer
  */
 static inline uint8_t uart_getchar(void)
 {

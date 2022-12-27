@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -49,7 +51,7 @@
 
 #include "trans_dsp16_twiddle_factors.h"
 
-/* ne pas utiliser r0 r1 r4
+/* Does not use r0 r1 r4
 
  r11 r12 r3
 

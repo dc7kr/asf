@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -49,7 +51,7 @@
  *
  * \section Requirements
  *
- * This package can be used with SAM3 evaluation kits.
+ * This package can be used with SAM evaluation kits.
  *
  * \section Descriptions
  *
@@ -91,6 +93,7 @@
 #include "asf.h"
 #include "conf_board.h"
 #include "led.h"
+#include <stdio.h>
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -164,18 +167,14 @@ static void button_handler(uint32_t id, uint32_t mask)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ SystemCoreClock, CONSOLE_BAUD_RATE, UART_MR_PAR_NO };
-
-	/* Configure PIOs. */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Enable peripheral clock of UART. */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Initialize UART. */
-	uart_init(CONSOLE_UART, &uart_console_settings);
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**

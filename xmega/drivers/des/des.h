@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -48,7 +50,7 @@
  * See \ref xmega_des_quickstart
  *
  * This is a driver for the AVR XMEGA DES core instruction. It provides
- * functions for des, 3des and CBC des encryption and dectyption operations.
+ * functions for des, 3des and CBC des encryption and decryption operations.
  *
  * \section des_satrt_condition DES Start Setting
  * DES is supported by a DES instruction in the AVR XMEGA core. The 8-byte key
@@ -294,7 +296,7 @@ void des_cbc_decrypt(uint8_t *ciphertext, uint8_t *plaintext,
  * \note Only the first key is used in the \ref des_encrypt() function.
  *
  * The encrypted data is now stored in the two variables. We will now decrypt
- * the data in a similar fasion, storing the result in the variables
+ * the data in a similar fashion, storing the result in the variables
  * decrypted_data_des and decrypted_data_3des.
  *
  * Looping through the blocks:

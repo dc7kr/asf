@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -47,6 +49,9 @@
 
 /* Configure ADC example pins */
 #define CONF_BOARD_ADC
+
+/* Enable USB interface (USB) for host mode */
+#define CONF_BOARD_USB_PORT
 
 /*
  * LED pins are not configured for PWM function here.

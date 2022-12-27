@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -43,6 +45,9 @@
 #define CONF_BOARD_H_INCLUDED
 
 #include "system_sam3x.h"
+
+/** Enable Com Port. */
+#define CONF_BOARD_UART_CONSOLE
 
 #define LED0_PIO		PIOB
 #define LED0_MASK		(0x01 << 12)

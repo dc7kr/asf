@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -57,7 +59,7 @@
 //_____ D E F I N I T I O N S ______________________________________________
 
 
-//! \name Store navigator datas no selected
+//! \name Store navigator data no selected
 //! @{
 #if (FS_NB_NAVIGATOR > 1)
 _MEM_TYPE_SLOW_     Fs_management       fs_g_navext[FS_NB_NAVIGATOR-1];
@@ -88,7 +90,7 @@ void  fat_cache_clusterlist_update_select ( void );
 //! @return    false otherwise
 //!
 //! @verbatim
-//! This function updates all navigator datas when the device state change.
+//! This function updates all navigator data when the device state change.
 //! @endverbatim
 //!
 bool  fat_check_device( void )
@@ -117,7 +119,7 @@ bool  fat_check_device( void )
          return true;                              // drive ready
 
       //* HERE error or state change
-      // Clean all navigator datas which use this device
+      // Clean all navigator data which use this device
       fs_g_nav_fast.u8_type_fat = FS_TYPE_FAT_UNM; // By default the fat isn't mounted
       Fat_file_close();                            // By default the file is not open
 #if (FS_NB_NAVIGATOR > 1)
@@ -361,7 +363,7 @@ uint8_t    fat_get_nbpartition( void )
 //!   fs_g_seg.u32_size_or_pos   Start position in the cluster list (unit 512B)
 //! OUT:
 //!   fs_g_seg.u32_addr          The memory segment address corresponding at the beginning of cluster list (only for action FS_CLUST_ACT_SEG & FS_CLUST_ACT_ONE)
-//!   fs_g_seg.u32_size_or_pos   The memory segment size corresponding at cluster list readed or cleared (unit 512B)
+//!   fs_g_seg.u32_size_or_pos   The memory segment size corresponding at cluster list read or cleared (unit 512B)
 //! @endverbatim
 //!
 bool  fat_cluster_list( uint8_t opt_action, bool b_for_file )
@@ -491,7 +493,7 @@ bool  fat_cluster_list( uint8_t opt_action, bool b_for_file )
          {
             u32_tmp = fs_g_seg.u32_size_or_pos;       // Save number of sector remaining
 
-            // Compute the sector address of this last cluster to take time during a futur request with the same cluster list
+            // Compute the sector address of this last cluster to take time during a future request with the same cluster list
             fs_g_cache_clusterlist[fs_g_u8_current_cache].u32_start -= fs_g_seg.u32_size_or_pos;
             fs_g_seg.u32_addr = ((fs_g_cluster.u32_pos - 2) * fs_g_nav.u8_BPB_SecPerClus)
                               + fs_g_nav.u32_ptr_fat + fs_g_nav.u32_offset_data;
@@ -517,7 +519,7 @@ bool  fat_cluster_list( uint8_t opt_action, bool b_for_file )
                fs_g_cluster.u32_val = FS_CLUST_VAL_EOL;
                if( !fat_cluster_val( FS_CLUST_VAL_WRITE ))
                   return false;
-               fs_g_cluster.u32_val = fs_g_seg.u32_addr; // Resotre the next cluster
+               fs_g_cluster.u32_val = fs_g_seg.u32_addr; // Restore the next cluster
                // !!!! It isn't necessary to reinit MSB0( fs_g_seg.u32_addr ) to 0xFF,
                // !!!! fs_g_seg.u32_addr will be modified at the beginning of main loop
             }
@@ -550,7 +552,7 @@ bool  fat_cluster_list( uint8_t opt_action, bool b_for_file )
             }
             if( !fat_cluster_val( FS_CLUST_VAL_WRITE ))
                return false;
-            fs_g_cluster.u32_val = fs_g_seg.u32_addr;    // Resotre the next cluster
+            fs_g_cluster.u32_val = fs_g_seg.u32_addr;    // Restore the next cluster
             // !!!! It isn't necessary to reinit MSB0( fs_g_seg.u32_addr ) at 0xFF,
             // !!!! because it isn't possible that MSB0( fs_g_cluster.val ) = 0xFF.
          }
@@ -584,7 +586,7 @@ bool  fat_cluster_list( uint8_t opt_action, bool b_for_file )
 _MEM_TYPE_FAST_ uint16_t   fs_g_u16_pos_fat;
 
 
-//! This function returns or modifys a cluster value in FAT
+//! This function returns or modifies a cluster value in FAT
 //!
 //! @param     b_mode   false, to read a cluster value <br>
 //!                     true,  to write a cluster value
@@ -598,7 +600,7 @@ _MEM_TYPE_FAST_ uint16_t   fs_g_u16_pos_fat;
 //!   fs_g_cluster.u32_pos    cluster number to read or write
 //!   fs_g_cluster.u32_val    value to write
 //! OUT:
-//!   fs_g_cluster.u32_val    value readed
+//!   fs_g_cluster.u32_val    value ready
 //!   fs_g_u16_pos_fat        position in FAT of the cluster to read or write
 //!                           value init in case of the fat_cluster_readnext() routine is used after
 //! @endverbatim
@@ -710,12 +712,12 @@ bool  fat_cluster_val( bool b_mode )
          if ( Is_fat12 )
          {
             if ( 0x01 & LSB0(fs_g_cluster.u32_pos) )
-            {  // Readed cluster is ODD
+            {  // Read cluster is ODD
                LSB0( fs_g_cluster.u32_val ) = (LSB1( fs_g_cluster.u32_val ) <<4 ) + (LSB0( fs_g_cluster.u32_val ) >>4 );
                LSB1( fs_g_cluster.u32_val ) =  LSB1( fs_g_cluster.u32_val ) >>4 ;
             }
             else
-            {  // Readed cluster is EVEN
+            {  // Read cluster is EVEN
                LSB1( fs_g_cluster.u32_val ) &= 0x0F;
             }
          }
@@ -790,8 +792,8 @@ bool  fat_cluster_val( bool b_mode )
 //! IN :
 //!   fs_g_u16_pos_fat        previous cluster position in FAT
 //! OUT:
-//!   fs_g_u16_pos_fat        readed cluster position in FAT
-//!   fs_g_cluster.u32_val    value of cluster readed
+//!   fs_g_u16_pos_fat        read cluster position in FAT
+//!   fs_g_cluster.u32_val    value of cluster read
 //! @endverbatim
 //!
 bool  fat_cluster_readnext( void )
@@ -884,7 +886,7 @@ void  fat_cache_clusterlist_reset( void )
    fs_g_u8_current_cache=0;
    for( u8_i=0; u8_i<(FS_NB_CACHE_CLUSLIST*2); u8_i++ )
    {
-      // The cache list is splited in two cache (file cluster list and directory cluster list)
+      // The cache list is split in two cache (file cluster list and directory cluster list)
       fs_g_cache_clusterlist[u8_i].b_cache_file = (u8_i<FS_NB_CACHE_CLUSLIST)?true:false;
       fs_g_cache_clusterlist[u8_i].u8_lun = 0xFF;
       fs_g_cache_clusterlist[u8_i].u8_level_use = 0xFF;
@@ -912,7 +914,7 @@ void  fat_cache_clusterlist_update_start( bool b_for_file )
    }
    fs_g_u8_current_cache = u8_i;
    fs_g_cache_clusterlist[fs_g_u8_current_cache].b_cache_file = b_for_file;
-   fs_g_cache_clusterlist[fs_g_u8_current_cache].u8_lun       = 0xFF;                     // unvalid cache
+   fs_g_cache_clusterlist[fs_g_u8_current_cache].u8_lun       = 0xFF;                     // invalid cache
    fs_g_cache_clusterlist[fs_g_u8_current_cache].u32_cluster  = fs_g_cluster.u32_pos;
    fs_g_cache_clusterlist[fs_g_u8_current_cache].u32_start    = fs_g_seg.u32_size_or_pos;
 }
@@ -953,7 +955,7 @@ void  fat_cache_clusterlist_update_select( void )
 }
 
 
-//! This function searchs a cluster list in cluster list caches
+//! This function searches a cluster list in cluster list caches
 //!
 //! @param     b_for_file  If true then it is a file cluster list else a directory cluster list  <br>
 //!
@@ -985,9 +987,9 @@ bool  fat_cache_clusterlist_update_read( bool b_for_file )
                   return true;   // the segment is in cluster list cache
                }else{
                   //** It is after the cache then get cache information and continue to read the cluster list in FAT
-                  // Store the resultat in this cache
+                  // Store the result in this cache
                   fs_g_u8_current_cache = u8_i;
-                  fs_g_cache_clusterlist[fs_g_u8_current_cache].u8_lun       = 0xFF;   // unvalid cache
+                  fs_g_cache_clusterlist[fs_g_u8_current_cache].u8_lun       = 0xFF;   // invalid cache
                   // fs_g_cache_clusterlist[fs_g_u8_current_cache].u32_cluster  = fs_g_cluster.u32_pos;  // It is the same cluster start
 
                   // Get cache information to take time during the next FAT access
@@ -1006,7 +1008,7 @@ bool  fat_cache_clusterlist_update_read( bool b_for_file )
          }
       }
    }
-   // No found in cache then read FAT and store the resultat in cache
+   // No found in cache then read FAT and store the result in cache
    fat_cache_clusterlist_update_start(b_for_file);
    return false;
 }
@@ -1044,7 +1046,7 @@ bool  fat_read_file( uint8_t mode )
       &&  (fs_g_sectorcache.u32_clusterlist_start  == fs_g_nav_entry.u32_cluster )
       &&  (fs_g_sectorcache.u32_clusterlist_pos    == u32_sector_pos ) )
       {
-         return true;      // The internal cache contains the sector ascked
+         return true;      // The internal cache contains the sector requested
       }
    }
    else
@@ -1099,7 +1101,7 @@ bool  fat_read_file( uint8_t mode )
 //! This function gets and eventually allocs a cluster list at the current position in the selected file
 //!
 //! @param     mode                 Choose action <br>
-//!            FS_CLUST_ACT_SEG     Get and eventuelly alloc a cluster list <br>
+//!            FS_CLUST_ACT_SEG     Get and eventually alloc a cluster list <br>
 //!            FS_CLUST_ACT_ONE     Get and eventually alloc a cluster list for one sector, and load this sector in internal cache <br>
 //! @param     u32_nb_sector_write  maximum number of sector to get and eventually to alloc for the selected file (ignored if mode = FS_CLUST_ACT_ONE)
 //!
@@ -1127,7 +1129,7 @@ bool  fat_write_file( uint8_t mode , uint32_t u32_nb_sector_write )
    else
    {
       if( fat_read_file( mode ) )
-         return true;      // A segment is availabled (no alloc necessary)
+         return true;      // A segment is available (no alloc necessary)
 
       if( FS_ERR_OUT_LIST != fs_g_status )
       {
@@ -1136,7 +1138,7 @@ bool  fat_write_file( uint8_t mode , uint32_t u32_nb_sector_write )
       // fat_read_file is outsize the list then the current cluster list cache contains the last cluster
 
       // Initialize cluster list caches before alloc routine
-      fs_g_cache_clusterlist[fs_g_u8_current_cache].u8_lun       = 0xFF;                     // unvalid cache
+      fs_g_cache_clusterlist[fs_g_u8_current_cache].u8_lun       = 0xFF;                     // invalid cache
       // fs_g_cache_clusterlist[fs_g_u8_current_cache].u32_cluster  = fs_g_cluster.u32_pos;  // it is the same
       fs_g_cache_clusterlist[fs_g_u8_current_cache].u32_start += fs_g_nav.u8_BPB_SecPerClus; // Position of next cluster (the first new)
    }
@@ -1158,7 +1160,7 @@ bool  fat_write_file( uint8_t mode , uint32_t u32_nb_sector_write )
    if( 0 == fs_g_nav_entry.u32_cluster )
    {
       // It is the first cluster list of file, then update following values in cluster list cache
-      // fs_g_seg.u32_addr = already contzins the first cluster of the file (see alloc_free_space())
+      // fs_g_seg.u32_addr = already contains the first cluster of the file (see alloc_free_space())
       fs_g_cache_clusterlist[fs_g_u8_current_cache].u32_cluster = fs_g_seg.u32_addr;
       // Update file entry
       fs_g_nav_entry.u32_cluster = fs_g_seg.u32_addr;
@@ -1202,7 +1204,7 @@ bool  fat_read_dir( void )
    &&  (fs_g_sectorcache.u32_clusterlist_start  == fs_g_nav.u32_cluster_sel_dir )
    &&  (fs_g_sectorcache.u32_clusterlist_pos    == u32_cluster_pos ) )
    {
-         return true;      // The internal cache contains the sector ascked
+         return true;      // The internal cache contains the sector asked
    }
 
    // Get sector address corresponding at cluster list position
@@ -1260,7 +1262,7 @@ bool  fat_entry_check( bool b_type )
    if ( ('.'  == u8_first_byte)
    &&   ('.'  == u8_seconde_byte) )          { return false;   } // current dir ".."
 
-   // Check attribut
+   // Check Attribute
    u8_attribut = u8_ptr_entry[11];
    if ( FS_ATTR_VOLUME_ID & u8_attribut )    { return false;   } // volume id
    // Optimization, this line isn't necessary because the next test control this case
@@ -1355,7 +1357,7 @@ void  fat_get_entry_info( void )
 
    ptr_entry = fat_get_ptr_entry();
 
-   // Get attribut
+   // Get Attribute
    ptr_entry+= 11;
    fs_g_nav_entry.u8_attr = ptr_entry[0];
 
@@ -1430,7 +1432,7 @@ void  fat_write_entry_file( void )
          fs_g_nav_entry.u32_cluster = 0;
    }
 
-   //! Write the attribut
+   //! Write the Attribute
    ptr_entry+= 11;
    ptr_entry[0] = fs_g_nav_entry.u8_attr;
 
@@ -1496,7 +1498,7 @@ bool  fat_entry_shortname( FS_STRING sz_name , uint8_t u8_size_max , bool b_mode
       else
       {
          u8_entry_char = ptr_entry[ u8_pos_entry ];
-         if( ((FS_SIZE_SFNAME_WITHOUT_EXT == u8_pos_entry) && b_extension_nostart)  // end of name and '.' character no writed
+         if( ((FS_SIZE_SFNAME_WITHOUT_EXT == u8_pos_entry) && b_extension_nostart)  // end of name and '.' character not written
          ||  ( ' ' == u8_entry_char) )
          {
             // end of name or extension
@@ -1539,7 +1541,7 @@ bool  fat_entry_shortname( FS_STRING sz_name , uint8_t u8_size_max , bool b_mode
          if( Is_unicode
          && (0 != MSB(((FS_STR_UNICODE)sz_name)[0])) )
          {
-            // The UNICODE is not possibled in short name
+            // The UNICODE is not possible in short name
             return false;
          }
 
@@ -1550,7 +1552,7 @@ bool  fat_entry_shortname( FS_STRING sz_name , uint8_t u8_size_max , bool b_mode
             u8_szname_char = sz_name[0];
          }
          if ('*' == u8_szname_char)
-         {  // end of filter name which authorise all next character
+         {  // end of filter name which authorize all next character
             return true;   //*** The name is correct ***
          }
 
@@ -1672,7 +1674,7 @@ bool  fat_entry_longname( FS_STRING sz_name , uint8_t u8_size_max , bool b_mode 
          }
          // Check the name
          if( '*' == u16_unicode_szname )
-         {  // end of filter name which authorise all next character
+         {  // end of filter name which authorize all next character
             return true;   //*** The name is correct ***
          }
 
@@ -1851,7 +1853,7 @@ void  fat_cache_mark_sector_as_dirty( void )
 #endif  // FS_LEVEL_FEATURES
 
 
-//! This function flushs the sector cache on the memory if necessary
+//! This function flushes the sector cache on the memory if necessary
 //!
 //! @return    false in case of error, see global value "fs_g_status" for more detail
 //! @return    true otherwise
@@ -1881,8 +1883,8 @@ bool  fat_cache_flush( void )
 #if (FS_NB_NAVIGATOR > 1)
 //! This function checks write access
 //!
-//! @return    true,    write access on disk possibled
-//! @return    false,   File open then write access not possibled
+//! @return    true,    write access on disk possible
+//! @return    false,   File open then write access not possible
 //!
 bool  fat_check_nav_access_disk( void )
 {
@@ -1899,7 +1901,7 @@ bool  fat_check_nav_access_disk( void )
       if( fs_g_navext_entry[i].u8_open_mode!=0 )
       {
          fs_g_status = FS_ERR_FILE_OPEN;
-         return false;  // File opened then write access not possibled
+         return false;  // File opened then write access not possible
       }
    }
    return true;
@@ -1942,7 +1944,7 @@ bool  fat_check_nav_access_file( bool mode )
             if( fs_g_navext_entry[i].u8_open_mode!=0 )
             {
                fs_g_status = FS_ERR_FILE_OPEN;
-               return false;  // File opened then write access not possibled
+               return false;  // File opened then write access not possible
             }
          }
          else
@@ -1951,7 +1953,7 @@ bool  fat_check_nav_access_file( bool mode )
             if( fs_g_navext_entry[i].u8_open_mode & FOPEN_WRITE_ACCESS )
             {
                fs_g_status = FS_ERR_FILE_OPEN_WR;
-               return false;  // File opened in write mode then read access not possibled
+               return false;  // File opened in write mode then read access not possible
             }
          }
       }
@@ -1986,7 +1988,7 @@ void  fat_invert_nav( uint8_t u8_idnav )
 }
 
 
-//! This function copys the main navigator to another navigator
+//! This function copies the main navigator to another navigator
 //!
 //! @param     u8_idnav    Id navigator to fill
 //!

@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -149,7 +151,7 @@ Ctrl_status sd_mmc_spi_test_unit_ready(void)
 
 Ctrl_status sd_mmc_spi_read_capacity(uint32_t *nb_sector)
 {
-//   sd_mmc_spi_check_presence();   // ommited because creates interferences with "sd_mmc_spi_test_unit_ready()" function
+//   sd_mmc_spi_check_presence();   // omitted because creates interferences with "sd_mmc_spi_test_unit_ready()" function
    Sd_mmc_spi_access_signal_on();
 
    if (!sd_mmc_spi_init_done)
@@ -351,7 +353,7 @@ sd_mmc_spi_mem_2_ram_fail:
 }
 
 
-//! This fonction initialises the memory for a write operation
+//! This function initializes the memory for a write operation
 //! from ram buffer to SD/MMC (1 sector)
 //!
 //!         DATA FLOW is: RAM => SD/MMC

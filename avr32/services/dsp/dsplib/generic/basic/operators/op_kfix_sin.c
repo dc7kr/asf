@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -46,13 +48,13 @@
 // Input angle from -pi/4 to pi/4
 dsp16_t dsp16_op_kernel_sinfix(dsp16_t angle)
 {
-  // Coefficients of the 5th order Tchebychev polynom to calculate a sine.
+  // Coefficients of the 5th order Tchebychev polynomial to calculate a sine.
   const dsp16_t s1 = DSP16_Q(0.785369873046875);
   const dsp16_t s3 = DSP16_Q(0.322784423828125);
   const dsp16_t s5 = DSP16_Q(0.03875732421875);
   S32 z, suma;
 
-  // Computation of the polynom
+  // Computation of the polynomial
   z = (angle*angle) >> (DSP16_QB - 3);
   suma = s3 - ((z*s5) >> (DSP16_QB + 1));
   suma = s1 - ((z*suma) >> (DSP16_QB + 1));
@@ -63,7 +65,7 @@ dsp16_t dsp16_op_kernel_sinfix(dsp16_t angle)
 // Input angle from -pi/4 to pi/4
 dsp32_t dsp32_op_kernel_sinfix(dsp32_t angle)
 {
-  // Coefficients of the 13th order Tchebychev polynom to calculate a sinus.
+  // Coefficients of the 13th order Tchebychev polynomial to calculate a sinus.
   const dsp32_t S0 = DSP32_Q(0.78539816340);    //pi/4;
   const dsp32_t S1 = DSP32_Q(-0.64596411675);   //-1.6666667163e-01*pi^3/8;
   const dsp32_t S2 = DSP32_Q(0.31877052162);    //8.3333337680e-03*pi^5/8;
@@ -73,7 +75,7 @@ dsp32_t dsp32_op_kernel_sinfix(dsp32_t angle)
   const dsp32_t S6 = DSP32_Q(0.00005769937);    //1.5896910177e-10*pi^13/8;
   long long z, v, suma, produ;
 
-  // Computation of the polynom
+  // Computation of the polynomial
   z = (long long) angle;
   z = (z*z) >> DSP32_QB;
   v = (long long) angle;

@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -127,7 +129,7 @@ const S_usb_user_configuration_descriptor usb_conf_desc =
  }
  ,
 
- //* Desccriptors for speaker
+ //* Descriptors for speaker
  // Class-Specific Input Terminal Descriptor
  { sizeof(S_usb_in_ter_descriptor)
  ,DESCRIPTOR_AUDIO_INTERFACE
@@ -163,7 +165,7 @@ const S_usb_user_configuration_descriptor usb_conf_desc =
  ,SPEAKER_OUTPUT_TERMINAL_NAME_ID
  }
  ,
- //* Desccriptors for micro
+ //* Descriptors for micro
  // Class-Specific Input Terminal Descriptor
  { sizeof(S_usb_in_ter_descriptor)
  ,DESCRIPTOR_AUDIO_INTERFACE
@@ -280,7 +282,7 @@ const S_usb_user_configuration_descriptor usb_conf_desc =
  }
  ,
 
- //** The thirh interface is the Audio Stream Interface for Micro (with two alternate interface)
+ //** The third interface is the Audio Stream Interface for Micro (with two alternate interface)
  // Standard AS Interface Descriptor (Alternate 0 without endpoint)
  { sizeof(S_usb_interface_descriptor)
  ,INTERFACE_DESCRIPTOR

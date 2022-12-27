@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -260,7 +262,7 @@ uint8_t host_ms_request_sense(void)
 }
 
 
-//! This fonction returns the number of LUNs of the connected mass-storage device
+//! This function returns the number of LUNs of the connected mass-storage device
 //! @return uint8_t: Number of logical units of the device
 uint8_t host_get_lun(void)
 {
@@ -536,7 +538,7 @@ bool host_removal(void)
 
 #if ACCESS_MEM_TO_RAM == true
 
-//! This function tranfers 1 data sector from memory to RAM
+//! This function transfers 1 data sector from memory to RAM
 //! sector = 512 bytes
 //! @param addr         Sector address to start read
 //! @param ram          Address of RAM buffer
@@ -641,7 +643,7 @@ Ctrl_status host_read_10_ram(uint32_t addr, void *ram)
 }
 
 
-//! This function tranfers 1 data sector from memory to RAM
+//! This function transfers 1 data sector from memory to RAM
 //! sector = 512 bytes
 //! @param addr         Sector address to start read
 //! @param ram          Address of RAM buffer
@@ -747,7 +749,7 @@ Ctrl_status host_read_10_extram(uint32_t addr, void *ram, uint8_t nb_sector)
 
 
 
-//! This function terminates the tranfer of a physical sector from memory to RAM
+//! This function terminates the transfer of a physical sector from memory to RAM
 //! @return                            Ctrl_status
 //!   It is ready                ->    CTRL_GOOD
 //!   Memory unplug              ->    CTRL_NO_PRESENT
@@ -775,7 +777,7 @@ Ctrl_status host_read_10_ram_stop(void)
 }
 
 
-//! This function tranfers 1 data sector from RAM to memory
+//! This function transfers 1 data sector from RAM to memory
 //! sector = 512 bytes
 //! @param addr         Sector address to start write
 //! @param ram          Address of RAM buffer
@@ -789,7 +791,7 @@ Ctrl_status host_write_10_ram(uint32_t addr, const void *ram)
    return host_write_10_extram(addr, ram, 1);
 }
 
-//! This function tranfers 1 data sector from RAM to memory
+//! This function transfers 1 data sector from RAM to memory
 //! sector = 512 bytes
 //! @param addr         Sector address to start write
 //! @param ram          Address of RAM buffer

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -92,7 +94,7 @@ typedef struct twi_packet {
 	//! Length of the TWI data address segment (1-3 bytes).
 	uint32_t addr_length;
 	//! Where to find the data to be transferred.
-	uint8_t *buffer;
+	void *buffer;
 	//! How many bytes do we want to transfer.
 	uint32_t length;
 	//! TWI chip address to communicate with.

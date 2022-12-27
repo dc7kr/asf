@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -96,7 +98,7 @@ void board_init(void)
 		{AVR32_TWI_SCL_0_0_PIN, AVR32_TWI_SCL_0_0_FUNCTION},
 	};
 
-	// TWI gpio pins cofiguration
+	// TWI gpio pins configuration
 	gpio_enable_module(TWI_GPIO_MAP,
 			sizeof(TWI_GPIO_MAP) / sizeof(TWI_GPIO_MAP[0]));
 #endif

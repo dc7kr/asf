@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -112,7 +114,7 @@ typedef void (*uhd_callback_reset_t)(void);
  * \brief Data setup transfer callback function type.
  * Registered by uhd_setup_request()
  * Called during DATA phase when the (payload) buffer is full or empty.
- * Then the setup request is holded.
+ * Then the setup request is halted.
  * A new buffer can be provided to continue the DATA phase or
  * abort DATA phase.
  *
@@ -220,7 +222,7 @@ void uhd_resume(void);
  * \brief Add a setup request in the control endpoint setup queue.
  * Note: Request timeout is 5s.
  *
- * \param add           USB address of control enpoint
+ * \param add           USB address of control endpoint
  * \param req           Setup request definition
  * \param payload       Buffer to use in setup DATA phase
  * \param payload_size  Size of buffer used in DATA phase
@@ -351,6 +353,7 @@ void uhd_test_mode_packet(void);
  */
 //@{
 
+#ifndef _UHC_H_ /* uhc.h is not included before */
 /**
  * \brief Starts the host mode
  */
@@ -360,6 +363,7 @@ extern void uhc_start(void);
  * \brief Stops the host mode
  */
 extern void uhc_stop(bool b_id_stop);
+#endif
 
 /**
  * \brief Notify device connection or disconnection
@@ -377,7 +381,7 @@ extern void uhc_notify_sof(bool b_micro);
 
 /**
  * \brief Notify that a resume bus occurs
- * A resume can occur ater a downstream or an upstream resume.
+ * A resume can occur after a downstream or an upstream resume.
  */
 extern void uhc_notify_resume(void);
 

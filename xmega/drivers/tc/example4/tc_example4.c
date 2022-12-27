@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -72,7 +74,7 @@
  *
  * \section contactinfo Contact Information
  * For further information, visit
- * <A href="tp://www.atmel.com/">Atmel</A>.\n
+ * <A href="http://www.atmel.com/">Atmel</A>.\n
  */
 #include <conf_example.h>
 #include <asf.h>

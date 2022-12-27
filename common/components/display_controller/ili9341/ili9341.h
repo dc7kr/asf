@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -80,7 +82,7 @@ extern "C" {
  * An example conf_ili9341.h file for the XMEGA could look like:
  * \code
  * #define CONF_ILI9341_USART_SPI     &USARTC0
- * #define CONF_ILI9341_CLOCK_SPEED   500000UL
+ * #define CONF_ILI9341_CLOCK_SPEED   8000000UL
  *
  * #define CONF_ILI9341_CS_PIN        IOPORT_CREATE_PIN(PORTC, 5)
  * #define CONF_ILI9341_DC_PIN        IOPORT_CREATE_PIN(PORTC, 4)
@@ -98,7 +100,7 @@ extern "C" {
  */
 
 /** This macro generates a 16-bit native color for the display from a
- *  24-bit RGB value
+ *  24-bit RGB value.
  */
 #define ILI9341_COLOR(r, g, b)\
 	Swap16((((uint16_t)b) >> 3) |\
@@ -185,7 +187,7 @@ void ili9341_init(void);
  * \note It is up to the user application if other means of controlling this pin
  * should be used, e.g. a PWM signal to be able to dim the display.
  */
-__always_inline static void ili9341_backlight_on(void)
+static inline void ili9341_backlight_on(void)
 {
 	ioport_set_pin_level(CONF_ILI9341_BACKLIGHT_PIN, true);
 }
@@ -196,7 +198,7 @@ __always_inline static void ili9341_backlight_on(void)
  * Use this function to simply set the pin controlling the back light low to
  * turn off the back light.
  */
-__always_inline static void ili9341_backlight_off(void)
+static inline void ili9341_backlight_off(void)
 {
 	ioport_set_pin_level(CONF_ILI9341_BACKLIGHT_PIN, false);
 }
@@ -234,7 +236,7 @@ __always_inline static void ili9341_backlight_off(void)
  *
  * Your application should configure the display SPI, reset, command/data and
  * backlight pins as appropriate. If you are using the mXT143E Xplained kit,
- * this can be achieved by definining:
+ * this can be achieved by defining:
  * \code
  * #define CONF_BOARD_MXT143E_XPLAINED
  * \endcode

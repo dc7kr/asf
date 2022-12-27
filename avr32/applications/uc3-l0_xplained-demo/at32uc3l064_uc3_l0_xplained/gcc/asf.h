@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -60,7 +62,7 @@
 #include <compiler.h>
 #include <status_codes.h>
 
-// From module: FLASH Controller Double-Word
+// From module: FLASH Controller Double-Word (FLASHCDW)
 #include <flashcdw.h>
 
 // From module: GPIO - General-Purpose Input/Output
@@ -97,7 +99,7 @@
 // From module: TC - Timer/Counter
 #include <tc.h>
 
-// From module: UC3-L0 Xplained board support
+// From module: UC3-L0 Xplained
 #include <led.h>
 
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter

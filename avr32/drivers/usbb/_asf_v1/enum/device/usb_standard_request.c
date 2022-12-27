@@ -16,6 +16,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -697,7 +699,7 @@ void usb_set_interface(void)
    // Find interface selected
    if( wIndex >= ((S_usb_configuration_descriptor*)pbuffer)->bNumInterfaces )
    {
-      // Interface number unknow
+      // Interface number unknown
       Usb_enable_stall_handshake(EP_CONTROL);
       Usb_ack_setup_received_free();
       return;
@@ -706,7 +708,7 @@ void usb_set_interface(void)
    {
       if( data_to_transfer <= ((S_usb_interface_descriptor*)pbuffer)->bLength )
       {
-         // Interface unknow
+         // Interface unknown
          Usb_enable_stall_handshake(EP_CONTROL);
          Usb_ack_setup_received_free();
          return;

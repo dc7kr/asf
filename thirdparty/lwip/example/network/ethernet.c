@@ -4,9 +4,11 @@
  *
  * \brief Ethernet management for the Standalone lwIP example.
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -60,7 +62,11 @@
 #include "lwip/dns.h"
 #include "lwip/stats.h"
 #include "lwip/init.h"
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
 #include "netif/loopif.h"
+#else
+#include "lwip/inet.h"
+#endif
 #include "netif/etharp.h"
 #include "netif/ethernetif.h"
 

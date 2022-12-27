@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -159,7 +161,7 @@ static void file_load_segment_value( Fs_file_segment _MEM_TYPE_SLOW_ *segment )
 //!
 //! @param     segment  Pointer on the segment structure: <br>
 //!                     ->u32_size_or_pos    IN,   shall contains maximum number of sector to read in file (0 = unlimited) <br>
-//!                     ->u32_size_or_pos    OUT,  containt the segment size (unit sector) <br>
+//!                     ->u32_size_or_pos    OUT,  contain the segment size (unit sector) <br>
 //!                     ->other              IN,   ignored <br>
 //!                     ->other              OUT,  contains the segment position <br>
 //!
@@ -241,7 +243,7 @@ bool  file_read( Fs_file_segment _MEM_TYPE_SLOW_ *segment )
 }
 
 
-//! This function copys in a buffer the file data corresponding at the current position
+//! This function copies in a buffer the file data corresponding at the current position
 //!
 //! @param     buffer         buffer to fill
 //! @param     u16_buf_size   buffer size
@@ -309,7 +311,7 @@ uint16_t   file_read_buf( uint8_t _MEM_TYPE_SLOW_ *buffer , uint16_t u16_buf_siz
             fs_g_seg.u32_size_or_pos = u16_nb_read_tmp;
          }
 
-         // Directly data tranfert from memory to buffer
+         // Directly data transfers from memory to buffer
          while( 0 != fs_g_seg.u32_size_or_pos )
          {
             if( CTRL_GOOD != memory_2_ram( fs_g_nav.u8_lun  , fs_g_seg.u32_addr, buffer))
@@ -328,7 +330,7 @@ uint16_t   file_read_buf( uint8_t _MEM_TYPE_SLOW_ *buffer , uint16_t u16_buf_siz
       {
          // The file data can't been directly transfer from memory to buffer, the internal cache must be used
 
-         // Tranfer data from memory to internal cache
+         // Transfer data from memory to internal cache
          if( !fat_read_file( FS_CLUST_ACT_ONE ))
          {
             if( FS_ERR_OUT_LIST == fs_g_status )
@@ -345,7 +347,7 @@ uint16_t   file_read_buf( uint8_t _MEM_TYPE_SLOW_ *buffer , uint16_t u16_buf_siz
          if( u16_nb_read_tmp > u16_buf_size )
             u16_nb_read_tmp = u16_buf_size;
 
-         // Tranfer data from internal cache to buffer
+         // Transfer data from internal cache to buffer
          memcpy_ram2ram( buffer , &fs_g_sector[ u16_pos_in_sector ], u16_nb_read_tmp );
          buffer += u16_nb_read_tmp;
       }
@@ -360,7 +362,7 @@ uint16_t   file_read_buf( uint8_t _MEM_TYPE_SLOW_ *buffer , uint16_t u16_buf_siz
 
 //! This function returns the next byte of file
 //!
-//! @return    The byte readed
+//! @return    The byte read
 //! @return    EOF, in case of error or end of file
 //!
 uint16_t   file_getc( void )
@@ -393,7 +395,7 @@ uint16_t   file_getc( void )
       fs_g_nav_entry.u32_pos_in_file++;
       return u16_byte;
    }
-   return FS_EOF;   // No data readed
+   return FS_EOF;   // No data read
 }
 
 
@@ -455,7 +457,7 @@ bool  file_write( Fs_file_segment _MEM_TYPE_SLOW_ *segment )
 //! @return    true otherwise
 //!
 //! @verbatim
-//! This routine is usualy used after the last file_write() call.
+//! This routine is usually used after the last file_write() call.
 //! The file_write() routine uses the sector unit (512B),
 //! and you can set a specific byte size with a file_seek() call and fiel_set_eof() call.
 //! @endverbatim
@@ -530,7 +532,7 @@ uint16_t   file_write_buf( uint8_t _MEM_TYPE_SLOW_ *buffer , uint16_t u16_buf_si
             u16_nb_write_tmp = fs_g_seg.u32_size_or_pos;
          }
 
-         // Directly data tranfert from buffer to memory
+         // Directly data transfers from buffer to memory
          while( 0 != fs_g_seg.u32_size_or_pos )
          {
             if( CTRL_GOOD != ram_2_memory( fs_g_nav.u8_lun  , fs_g_seg.u32_addr, buffer))
@@ -549,7 +551,7 @@ uint16_t   file_write_buf( uint8_t _MEM_TYPE_SLOW_ *buffer , uint16_t u16_buf_si
       {
          // The file data can't been directly transfer from buffer to memory, the internal cache must be used
 
-         // Tranfer and eventually alloc a data sector from internal cache to memory
+         // Transfer and eventually alloc a data sector from internal cache to memory
          if((fs_g_nav_entry.u32_pos_in_file == fs_g_nav_entry.u32_size)
          && (0==u16_pos_in_sector) )
          {
@@ -558,7 +560,7 @@ uint16_t   file_write_buf( uint8_t _MEM_TYPE_SLOW_ *buffer , uint16_t u16_buf_si
                return false;
             // Update the cache
             fs_gu32_addrsector = fs_g_seg.u32_addr;
-            if( !fat_cache_read_sector( false ))         // The memory is not readed because it is a new sector
+            if( !fat_cache_read_sector( false ))         // The memory is not read because it is a new sector
                return false;
          }else{
             // The sector must existed then alloc no necessary
@@ -574,7 +576,7 @@ uint16_t   file_write_buf( uint8_t _MEM_TYPE_SLOW_ *buffer , uint16_t u16_buf_si
          if( u16_nb_write_tmp > u16_buf_size )
             u16_nb_write_tmp = u16_buf_size;
 
-         // Tranfer data from buffer to internal cache
+         // Transfer data from buffer to internal cache
          memcpy_ram2ram( &fs_g_sector[ u16_pos_in_sector ], buffer , u16_nb_write_tmp );
          buffer += u16_nb_write_tmp;
       }
@@ -588,7 +590,7 @@ uint16_t   file_write_buf( uint8_t _MEM_TYPE_SLOW_ *buffer , uint16_t u16_buf_si
          fs_g_nav_entry.u32_size = fs_g_nav_entry.u32_pos_in_file;
       }
    }
-   return u16_nb_write;  // All buffer is writed
+   return u16_nb_write;  // All buffer is written
 }
 
 
@@ -645,10 +647,10 @@ uint32_t   file_getpos( void )
 //!
 //! @param     u32_pos     number of byte to seek
 //! @param     u8_whence   direction of seek <br>
-//!                        FS_SEEK_SET   , start at the beginning and foward <br>
+//!                        FS_SEEK_SET   , start at the beginning and forward <br>
 //!                        FS_SEEK_END   , start at the end of file and rewind <br>
 //!                        FS_SEEK_CUR_RE, start at the current position and rewind <br>
-//!                        FS_SEEK_CUR_FW, start at the current position and foward <br>
+//!                        FS_SEEK_CUR_FW, start at the current position and forward <br>
 //!
 //! @return    false in case of error, see global value "fs_g_status" for more detail
 //! @return    true otherwise
@@ -734,7 +736,7 @@ uint8_t    file_eof( void )
 }
 
 
-//! This function flushs the internal cache (file datas and file information)
+//! This function flushes the internal cache (file data and file information)
 //!
 void  file_flush( void )
 {

@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -89,39 +91,41 @@ CSRCS = \
        thirdparty/freertos/source/queue.c                 \
        thirdparty/freertos/source/tasks.c                 \
        thirdparty/freertos/source/timers.c                \
-       thirdparty/lwip/lwip-1.3.2/src/api/api_lib.c       \
-       thirdparty/lwip/lwip-1.3.2/src/api/api_msg.c       \
-       thirdparty/lwip/lwip-1.3.2/src/api/err.c           \
-       thirdparty/lwip/lwip-1.3.2/src/api/netbuf.c        \
-       thirdparty/lwip/lwip-1.3.2/src/api/netdb.c         \
-       thirdparty/lwip/lwip-1.3.2/src/api/netifapi.c      \
-       thirdparty/lwip/lwip-1.3.2/src/api/sockets.c       \
-       thirdparty/lwip/lwip-1.3.2/src/api/tcpip.c         \
-       thirdparty/lwip/lwip-1.3.2/src/core/dhcp.c         \
-       thirdparty/lwip/lwip-1.3.2/src/core/dns.c          \
-       thirdparty/lwip/lwip-1.3.2/src/core/init.c         \
-       thirdparty/lwip/lwip-1.3.2/src/core/ipv4/autoip.c  \
-       thirdparty/lwip/lwip-1.3.2/src/core/ipv4/icmp.c    \
-       thirdparty/lwip/lwip-1.3.2/src/core/ipv4/igmp.c    \
-       thirdparty/lwip/lwip-1.3.2/src/core/ipv4/inet.c    \
-       thirdparty/lwip/lwip-1.3.2/src/core/ipv4/inet_chksum.c \
-       thirdparty/lwip/lwip-1.3.2/src/core/ipv4/ip.c      \
-       thirdparty/lwip/lwip-1.3.2/src/core/ipv4/ip_addr.c \
-       thirdparty/lwip/lwip-1.3.2/src/core/ipv4/ip_frag.c \
-       thirdparty/lwip/lwip-1.3.2/src/core/mem.c          \
-       thirdparty/lwip/lwip-1.3.2/src/core/memp.c         \
-       thirdparty/lwip/lwip-1.3.2/src/core/netif.c        \
-       thirdparty/lwip/lwip-1.3.2/src/core/pbuf.c         \
-       thirdparty/lwip/lwip-1.3.2/src/core/raw.c          \
-       thirdparty/lwip/lwip-1.3.2/src/core/stats.c        \
-       thirdparty/lwip/lwip-1.3.2/src/core/sys.c          \
-       thirdparty/lwip/lwip-1.3.2/src/core/tcp.c          \
-       thirdparty/lwip/lwip-1.3.2/src/core/tcp_in.c       \
-       thirdparty/lwip/lwip-1.3.2/src/core/tcp_out.c      \
-       thirdparty/lwip/lwip-1.3.2/src/core/udp.c          \
-       thirdparty/lwip/lwip-1.3.2/src/netif/etharp.c      \
-       thirdparty/lwip/lwip-port-1.3.2/at32uc3/netif/ethernetif.c \
-       thirdparty/lwip/lwip-port-1.3.2/at32uc3/sys_arch.c
+       thirdparty/lwip/lwip-1.4.0/src/api/api_lib.c       \
+       thirdparty/lwip/lwip-1.4.0/src/api/api_msg.c       \
+       thirdparty/lwip/lwip-1.4.0/src/api/err.c           \
+       thirdparty/lwip/lwip-1.4.0/src/api/netbuf.c        \
+       thirdparty/lwip/lwip-1.4.0/src/api/netdb.c         \
+       thirdparty/lwip/lwip-1.4.0/src/api/netifapi.c      \
+       thirdparty/lwip/lwip-1.4.0/src/api/sockets.c       \
+       thirdparty/lwip/lwip-1.4.0/src/api/tcpip.c         \
+       thirdparty/lwip/lwip-1.4.0/src/core/def.c          \
+       thirdparty/lwip/lwip-1.4.0/src/core/dhcp.c         \
+       thirdparty/lwip/lwip-1.4.0/src/core/dns.c          \
+       thirdparty/lwip/lwip-1.4.0/src/core/init.c         \
+       thirdparty/lwip/lwip-1.4.0/src/core/ipv4/autoip.c  \
+       thirdparty/lwip/lwip-1.4.0/src/core/ipv4/icmp.c    \
+       thirdparty/lwip/lwip-1.4.0/src/core/ipv4/igmp.c    \
+       thirdparty/lwip/lwip-1.4.0/src/core/ipv4/inet.c    \
+       thirdparty/lwip/lwip-1.4.0/src/core/ipv4/inet_chksum.c \
+       thirdparty/lwip/lwip-1.4.0/src/core/ipv4/ip.c      \
+       thirdparty/lwip/lwip-1.4.0/src/core/ipv4/ip_addr.c \
+       thirdparty/lwip/lwip-1.4.0/src/core/ipv4/ip_frag.c \
+       thirdparty/lwip/lwip-1.4.0/src/core/lwip_timers_140.c \
+       thirdparty/lwip/lwip-1.4.0/src/core/mem.c          \
+       thirdparty/lwip/lwip-1.4.0/src/core/memp.c         \
+       thirdparty/lwip/lwip-1.4.0/src/core/netif.c        \
+       thirdparty/lwip/lwip-1.4.0/src/core/pbuf.c         \
+       thirdparty/lwip/lwip-1.4.0/src/core/raw.c          \
+       thirdparty/lwip/lwip-1.4.0/src/core/stats.c        \
+       thirdparty/lwip/lwip-1.4.0/src/core/sys.c          \
+       thirdparty/lwip/lwip-1.4.0/src/core/tcp.c          \
+       thirdparty/lwip/lwip-1.4.0/src/core/tcp_in.c       \
+       thirdparty/lwip/lwip-1.4.0/src/core/tcp_out.c      \
+       thirdparty/lwip/lwip-1.4.0/src/core/udp.c          \
+       thirdparty/lwip/lwip-1.4.0/src/netif/etharp.c      \
+       thirdparty/lwip/lwip-port-1.4.0/at32uc3/netif/ethernetif.c \
+       thirdparty/lwip/lwip-port-1.4.0/at32uc3/sys_arch.c
 
 # List of assembler source files.
 ASSRCS = \
@@ -160,9 +164,9 @@ INC_PATH = \
        thirdparty/freertos/demo/lwip_avr32_uc3_example/network/basicweb \
        thirdparty/freertos/source/include                 \
        thirdparty/freertos/source/portable/gcc/avr32_uc3  \
-       thirdparty/lwip/lwip-1.3.2/src/include             \
-       thirdparty/lwip/lwip-1.3.2/src/include/ipv4        \
-       thirdparty/lwip/lwip-port-1.3.2/at32uc3/include \
+       thirdparty/lwip/lwip-1.4.0/src/include             \
+       thirdparty/lwip/lwip-1.4.0/src/include/ipv4        \
+       thirdparty/lwip/lwip-port-1.4.0/at32uc3/include \
        ./thirdparty/freertos/demo/lwip_avr32_uc3_dhcp_example/at32uc3a0512_evk1100/gcc
 
 # Additional search paths for libraries.

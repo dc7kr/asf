@@ -3,9 +3,11 @@
  *
  * \brief Serial USART service configuration
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -47,7 +49,7 @@
 //! USART initialize with the CONFIG_PBA_HZ
 extern int usart_ready;
 
-static inline int usart_write_char_buf(volatile avr32_usart_t *usart, int c)
+static inline int usart_write_char_buf(volatile avr32_usart_t *usart, char c)
 {
 	static int c_count;
 	static unsigned char c_buf[OUT_BUFFER_LENGTH];

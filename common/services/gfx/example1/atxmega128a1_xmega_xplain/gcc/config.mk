@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -126,7 +128,6 @@ CFLAGS =
 CPPFLAGS = \
        -D BOARD=XPLAIN                                    \
        -D CONF_GFX_HX8347A_ET024006DHU=1                  \
-       -D GFX_INITIALIZED=1                               \
        -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking

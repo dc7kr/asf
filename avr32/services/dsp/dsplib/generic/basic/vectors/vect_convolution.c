@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -51,7 +53,7 @@ void dsp16_vect_conv(dsp16_t *vect1, dsp16_t *vect2, int vect2_size, dsp16_t *ve
 {
   if (vect2_size >= vect3_size)
     {
-        // Zero-pads the begining of the vector
+        // Zero-pads the beginning of the vector
       dsp16_vect_zeropad(vect1, vect3_size-1, vect3_size-1);
         // Copy the rest of the vector
       dsp16_vect_copy(&vect1[vect3_size-1], vect2, vect2_size);
@@ -62,7 +64,7 @@ void dsp16_vect_conv(dsp16_t *vect1, dsp16_t *vect2, int vect2_size, dsp16_t *ve
     }
   else
     {
-        // Zero-pads the begining of the vector
+        // Zero-pads the beginning of the vector
       dsp16_vect_zeropad(vect1, vect2_size-1, vect2_size-1);
         // Copy the rest of the vector
       dsp16_vect_copy(&vect1[vect2_size-1], vect3, vect3_size);
@@ -83,7 +85,7 @@ void dsp32_vect_conv(dsp32_t *vect1, dsp32_t *vect2, int vect2_size, dsp32_t *ve
 {
   if (vect2_size >= vect3_size)
     {
-        // Zero-pads the begining of the vector
+        // Zero-pads the beginning of the vector
       dsp32_vect_zeropad(vect1, vect3_size-1, vect3_size-1);
         // Copy the rest of the vector
       dsp32_vect_copy(&vect1[vect3_size-1], vect2, vect2_size);
@@ -94,7 +96,7 @@ void dsp32_vect_conv(dsp32_t *vect1, dsp32_t *vect2, int vect2_size, dsp32_t *ve
     }
   else
     {
-        // Zero-pads the begining of the vector
+        // Zero-pads the beginning of the vector
       dsp32_vect_zeropad(vect1, vect2_size-1, vect2_size-1);
         // Copy the rest of the vector
       dsp32_vect_copy(&vect1[vect2_size-1], vect3, vect3_size);

@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -71,7 +73,7 @@ typedef volatile avr32_usart_t *usart_if;
  * \param usart       Base address of the USART instance.
  * \param opt         Options needed to set up RS232 communication (see
  *                    \ref usart_options_t).
- * \retval true if the inititialization was successfull
+ * \retval true if the initialization was successful
  * \retval false if initialization failed (error in baud rate calculation)
  */
 static inline bool usart_serial_init(volatile avr32_usart_t *usart,
@@ -154,7 +156,7 @@ status_code_t usart_serial_write_packet(usart_if usart, const uint8_t *data,
 		size_t len);
 
 /**
- * \brief Reveive a sequence of bytes to a USART device
+ * \brief Receive a sequence of bytes to a USART device
  *
  * \param usart Base address of the USART instance.
  * \param data   data buffer to write

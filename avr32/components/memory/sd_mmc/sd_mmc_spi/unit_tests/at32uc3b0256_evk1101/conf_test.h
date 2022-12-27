@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -59,7 +61,7 @@
 #define CONF_TEST_PARITY     USART_NO_PARITY
 //! \note No extra stopbit, i.e., use 1
 #define CONF_TEST_STOPBITS   USART_1_STOPBIT
-//! Number of sectors to be read during the mutliple sectors access test
+//! Number of sectors to be read during the multiple sectors access test
 #define CONF_TEST_NB_SECTORS 10
 
 /*! \brief Initializes SD/MMC resources: SPI and SD/MMC.

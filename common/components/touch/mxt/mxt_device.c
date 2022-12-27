@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -499,7 +501,7 @@ status_code_t mxt_init_device(struct mxt_device *device,
 		return (status_code_t)status;
 	}
 
-	/* Fix possible endian issues between proticol and cpu */
+	/* Fix possible endian issues between protocol and cpu */
 	mxt_info_le_to_cpu(device);
 
 	/* Create map of the report ID's and put it into mxt_device struct */
@@ -576,7 +578,7 @@ status_code_t mxt_read_config_object(struct mxt_device *device,
  *
  * \param *device Pointer to mxt_device instance
  * \param memory_adr Memory address to the register
- * \param *value Ponter to a 1 byte buffer to store the data in
+ * \param *value Pointer to a 1 byte buffer to store the data in
  * \result Operation result status code
  */
 status_code_t mxt_read_config_reg(struct mxt_device *device,

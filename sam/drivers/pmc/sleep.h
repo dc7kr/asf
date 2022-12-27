@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -153,6 +155,8 @@ static inline void pmc_restore_clock_setting(
 		PMC->CKGR_UCKR = pll1_setting;
 		while (!(PMC->PMC_SR & PMC_SR_LOCKU));
 	}
+#else
+	UNUSED(pll1_setting);
 #endif
 	/* Switch to faster clock */
 	mckr = PMC->PMC_MCKR;

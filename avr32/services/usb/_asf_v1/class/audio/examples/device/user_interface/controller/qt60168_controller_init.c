@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -79,7 +81,7 @@ void rtc_irq(void)
         update_delay=0;
         //gpio_tgl_gpio_pin(LED2_GPIO);
         Old_status = New_status;
-        New_status = all_key; // The one that has just benn read
+        New_status = all_key; // The one that has just been read
         if(Old_status != New_status) {
           update_joystick_status( New_status);
         }

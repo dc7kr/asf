@@ -17,6 +17,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -64,7 +66,7 @@
 _MEM_TYPE_SLOW_   Navauto_mode   g_navauto_exp_mode = NAVAUTO_MODE_DISKS;     //!< Define the directory limitation of the file list (ignored if g_navauto_b_playlist = true )
 _MEM_TYPE_SLOW_   Navauto_rand   g_navauto_rand = NAVAUTO_RAND_OFF;           //!< Flag the random state
 _MEM_TYPE_SLOW_   uint16_t       g_navauto_u16_nb = 0;                        //!< Number of file included in file list (correct only if define FS_NAV_AUTOMATIC_NBFILE enabled)
-_MEM_TYPE_SLOW_   uint16_t       g_navauto_u16_pos;                           //!< Position of selected file in fiel list
+_MEM_TYPE_SLOW_   uint16_t       g_navauto_u16_pos;                           //!< Position of selected file in file list
 _MEM_TYPE_SLOW_   uint16_t       g_navauto_u16_dir_level;                     //!< Directory level of selected file (if play list file used then always 0)
 _MEM_TYPE_SLOW_   uint16_t       g_navauto_u16_dir_level_root;
 _MEM_TYPE_SLOW_   FS_STRING      g_navauto_filter;                            //!< File extension filter used to create the file list (ignored if g_navauto_b_playlist = true )
@@ -376,7 +378,7 @@ bool  navauto_open( bool b_playlist , uint16_t pos )
       index = nav_getindex();
 
       // Compute the size of file list and search the position of selected file
-      navauto_mov_explorer_reset();                // Go to begining of loop
+      navauto_mov_explorer_reset();                // Go to beginning of loop
       // Note: the number of file is updated in navauto_mov_explorer() routine when the end of list is detected
 
       while( navauto_mov_explorer( FS_FIND_NEXT, NAVAUTO_MOV_OPTS_NONE ).status == NAVAUTO_MOV_OK )
@@ -543,7 +545,7 @@ uint16_t   navauto_getpos( void )
 }
 
 
-//! This function selects a new position in fiel list
+//! This function selects a new position in file list
 //!
 //! @param u16_pos   new position to select
 //!
@@ -597,7 +599,7 @@ Navauto_mov_state   navauto_mov( bool b_direction, navauto_mov_options_t options
 //! @param b_direction  direction of navigation (FS_FIND_NEXT or FS_FIND_PREV)
 //!
 //! @return     true if a file is selected
-//!             false otherwize
+//!             false otherwise
 //!
 static navauto_mov_explorer_rec_t navauto_mov_explorer_limit(bool b_direction)
 {
@@ -607,7 +609,7 @@ static navauto_mov_explorer_rec_t navauto_mov_explorer_limit(bool b_direction)
   while(navauto_mov_explorer_updir(b_direction) != NAVAUTO_MOV_EXPLORER_ERROR);
   // Update directory level
   g_navauto_u16_dir_level = g_navauto_u16_dir_level_root;
-  // Call back the recusrive function
+  // Call back the recursive function
   return NAVAUTO_MOV_EXPLORER_RECURSIVE;
 }
 //! This function selects the first or the last playable file on the current folder
@@ -615,7 +617,7 @@ static navauto_mov_explorer_rec_t navauto_mov_explorer_limit(bool b_direction)
 //! @param b_direction  direction of navigation (FS_FIND_NEXT or FS_FIND_PREV)
 //!
 //! @return     true if a file is selected
-//!             false otherwize
+//!             false otherwise
 //!
 static navauto_mov_explorer_rec_t navauto_mov_explorer_select_limit_file_cur_folder(bool b_direction)
 {
@@ -693,7 +695,7 @@ static __inline__ uint8_t navauto_mov_ok_loop(bool b_direction, navauto_mov_opti
 {
   bool b_ok_loop = false;
 
-  // If mode DiskS, it should go to the next/previous disk
+  // If mode Disks, it should go to the next/previous disk
   if (g_navauto_exp_mode == NAVAUTO_MODE_DISKS)
   {
     // Mount the next/previous disk
@@ -952,9 +954,9 @@ Navauto_mov_state   navauto_mov_explorer( bool b_direction, navauto_mov_options_
       else
         g_navauto_u16_pos = g_navauto_u16_nb - 1;
 
-      // Means it reached the tail or the begining of the playlist.
+      // Means it reached the tail or the beginning of the playlist.
       // Then set the pointer to a limit of the "playlist"
-      // should be at the begining for a NEXT and at end for a PREVIOUS command.
+      // should be at the beginning for a NEXT and at end for a PREVIOUS command.
       switch(limit_process_fct[(b_direction == FS_FIND_NEXT)?1:0](b_direction))
       {
 

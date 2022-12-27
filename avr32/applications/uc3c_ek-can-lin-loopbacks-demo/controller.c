@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -48,7 +50,7 @@
 
 #define JOYSTICK_KEY_DEBOUNCE_MS    200
 
-// Local definition of touch detect fonction
+// Local definition of touch detect function
 void touch_detect_callback(void);
 
 volatile bool touch_detect = false;

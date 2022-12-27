@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -62,9 +64,42 @@
 
 void memories_initialization(void)
 {
-#if UC3A3
-	// Hmatrix bus configuration
+	//-- Hmatrix bus configuration
 	// This improve speed performance
+#ifdef AVR32_HMATRIXB
+	union {
+		unsigned long scfg;
+		avr32_hmatrixb_scfg_t SCFG;
+	} u_avr32_hmatrixb_scfg;
+
+	sysclk_enable_pbb_module(SYSCLK_HMATRIX);
+
+	// For the internal-flash HMATRIX slave, use last master as default.
+	u_avr32_hmatrixb_scfg.scfg =
+			AVR32_HMATRIXB.scfg[AVR32_HMATRIXB_SLAVE_FLASH];
+	u_avr32_hmatrixb_scfg.SCFG.defmstr_type =
+			AVR32_HMATRIXB_DEFMSTR_TYPE_LAST_DEFAULT;
+	AVR32_HMATRIXB.scfg[AVR32_HMATRIXB_SLAVE_FLASH] =
+			u_avr32_hmatrixb_scfg.scfg;
+	// For the internal-SRAM HMATRIX slave, use last master as default.
+	u_avr32_hmatrixb_scfg.scfg =
+			AVR32_HMATRIXB.scfg[AVR32_HMATRIXB_SLAVE_SRAM];
+	u_avr32_hmatrixb_scfg.SCFG.defmstr_type =
+			AVR32_HMATRIXB_DEFMSTR_TYPE_LAST_DEFAULT;
+	AVR32_HMATRIXB.scfg[AVR32_HMATRIXB_SLAVE_SRAM] =
+			u_avr32_hmatrixb_scfg.scfg;
+# ifdef AVR32_HMATRIXB_SLAVE_EBI
+	// For the EBI HMATRIX slave, use last master as default.
+	u_avr32_hmatrixb_scfg.scfg =
+			AVR32_HMATRIXB.scfg[AVR32_HMATRIXB_SLAVE_EBI];
+	u_avr32_hmatrixb_scfg.SCFG.defmstr_type =
+			AVR32_HMATRIXB_DEFMSTR_TYPE_LAST_DEFAULT;
+	AVR32_HMATRIXB.scfg[AVR32_HMATRIXB_SLAVE_EBI] =
+			u_avr32_hmatrixb_scfg.scfg;
+# endif
+#endif
+
+#ifdef AVR32_HMATRIX
 	union {
 		unsigned long scfg;
 		avr32_hmatrix_scfg_t SCFG;
@@ -78,6 +113,47 @@ void memories_initialization(void)
 	u_avr32_hmatrix_scfg.SCFG.defmstr_type =
 			AVR32_HMATRIX_DEFMSTR_TYPE_LAST_DEFAULT;
 	AVR32_HMATRIX.scfg[AVR32_HMATRIX_SLAVE_FLASH] =
+			u_avr32_hmatrix_scfg.scfg;
+	// For the internal-SRAM HMATRIX slave, use last master as default.
+	u_avr32_hmatrix_scfg.scfg =
+			AVR32_HMATRIX.scfg[AVR32_HMATRIX_SLAVE_SRAM];
+	u_avr32_hmatrix_scfg.SCFG.defmstr_type =
+			AVR32_HMATRIX_DEFMSTR_TYPE_LAST_DEFAULT;
+	AVR32_HMATRIX.scfg[AVR32_HMATRIX_SLAVE_SRAM] =
+			u_avr32_hmatrix_scfg.scfg;
+# ifdef AVR32_HMATRIX_SLAVE_EBI
+	// For the EBI HMATRIX slave, use last master as default.
+	u_avr32_hmatrix_scfg.scfg =
+			AVR32_HMATRIX.scfg[AVR32_HMATRIX_SLAVE_EBI];
+	u_avr32_hmatrix_scfg.SCFG.defmstr_type =
+			AVR32_HMATRIX_DEFMSTR_TYPE_LAST_DEFAULT;
+	AVR32_HMATRIX.scfg[AVR32_HMATRIX_SLAVE_EBI] =
+			u_avr32_hmatrix_scfg.scfg;
+# endif
+#endif
+
+#ifdef AVR32_HMATRIX_MASTER_USBB_DMA
+	union {
+		unsigned long                 mcfg;
+		avr32_hmatrix_mcfg_t          MCFG;
+	} u_avr32_hmatrix_mcfg;
+ 
+	// For the USBB DMA HMATRIX master, use infinite length burst.
+	u_avr32_hmatrix_mcfg.mcfg =
+			AVR32_HMATRIX.mcfg[AVR32_HMATRIX_MASTER_USBB_DMA];
+	u_avr32_hmatrix_mcfg.MCFG.ulbt =
+			AVR32_HMATRIX_ULBT_INFINITE;
+	AVR32_HMATRIX.mcfg[AVR32_HMATRIX_MASTER_USBB_DMA] =
+			u_avr32_hmatrix_mcfg.mcfg;
+	
+	// For the USBB DPRAM HMATRIX slave, use the USBB DMA as fixed default master.
+	u_avr32_hmatrix_scfg.scfg =
+			AVR32_HMATRIX.scfg[AVR32_HMATRIX_SLAVE_USBB_DPRAM];
+	u_avr32_hmatrix_scfg.SCFG.fixed_defmstr =
+			AVR32_HMATRIX_MASTER_USBB_DMA;
+	u_avr32_hmatrix_scfg.SCFG.defmstr_type =
+			AVR32_HMATRIX_DEFMSTR_TYPE_FIXED_DEFAULT;
+	AVR32_HMATRIX.scfg[AVR32_HMATRIX_SLAVE_USBB_DPRAM] =
 			u_avr32_hmatrix_scfg.scfg;
 #endif
 

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -47,5 +49,8 @@
 
 // USB pins are used
 #define CONF_BOARD_USB_PORT
+
+/** Support NAND */
+#define CONF_BOARD_NAND
 
 #endif /* CONF_BOARD_H_INCLUDED */

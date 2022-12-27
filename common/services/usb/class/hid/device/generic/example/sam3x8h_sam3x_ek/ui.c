@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -141,7 +143,7 @@ void ui_led_change(uint8_t *report)
  *
  * Human interface on SAM3X-EK :
  * - Led 0 (D2, blue) blinks when USB host has checked and enabled HID generic interface
- * - Led 1 and 2 (D4, green and D3, amber) are linked on HID events LED1 and LED2
+ * - Led 1 and 2 (D3, green and D4, amber) are linked on HID events LED1 and LED2
  * - Event buttons are linked to LEFT CLICK (BP5) and RIGHT CLICK (BP4)
  *
  */

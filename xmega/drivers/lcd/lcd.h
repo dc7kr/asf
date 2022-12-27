@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -191,7 +193,7 @@ static inline void lcd_connection_init(bool com_swp, bool seg_swp,
  *
  * This function enables the LCD timing.
  *
- * The function sets the prescaler, the dividor and the duty cycle of the LCD.
+ * The function sets the prescaler, the divider and the duty cycle of the LCD.
  *
  * \param  lcd_pres    prescaler of the clock source.
  * \param  lcd_clkdiv  Divider of the prescaled clock source.
@@ -551,12 +553,12 @@ bool lcd_get_pixel(uint8_t pix_com, uint8_t pix_seg);
  * function:
  *   - \code lcd_connection_init(false, false, 40, false); \endcode
  *   - \note This allows to define if the COM or SEG line are swapped (PCB layout constraints)
- * , the numer of SEG line used and if and external bias source is used. 
+ * , the number of SEG line used and if and external bias source is used. 
  * -# Define the LCD waveform timing generation using function:
  *   - \code lcd_timing_init(LCD_PRESC_16_gc, LCD_CLKDIV_DivBy4_gc,
  *                        LCD_LP_WAVE_ENABLE_gc, 4); \endcode
  *   - \note Enabling Low Power Waveform type is recommended to save power consumption.
- * refresh the glass while CPU core halted and main oscillator stoped (power save mode).
+ * refresh the glass while CPU core halted and main oscillator stopped (power save mode).
  *   - \note The LCD duty to be used is specific to the glass type.
  * -# Configure blink rate frequency:
  *   - \code lcd_blinkrate_init(LCD_BLINKRATE_2Hz_gc); \endcode

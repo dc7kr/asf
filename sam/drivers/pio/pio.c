@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -396,7 +398,7 @@ uint32_t pio_configure(Pio *p_pio, const pio_type_t ul_type,
  * \param ul_mask Bitmask of one or more pin(s).
  *
  * \retval 1 At least one PIO is configured to output a high level.
- * \retval 0 All PIOs are configued to output a low level.
+ * \retval 0 All PIOs are configured to output a low level.
  */
 uint32_t pio_get_output_data_status(const Pio *p_pio,
 		const uint32_t ul_mask)
@@ -804,7 +806,8 @@ uint32_t pio_configure_pin(uint32_t ul_pin, const uint32_t ul_flags)
 	case PIO_TYPE_PIO_OUTPUT_0:
 	case PIO_TYPE_PIO_OUTPUT_1:
 		pio_set_output(p_pio, (1 << (ul_pin & 0x1F)),
-				(ul_flags & PIO_TYPE_PIO_OUTPUT_1),
+				((ul_flags & PIO_TYPE_PIO_OUTPUT_1)
+				== PIO_TYPE_PIO_OUTPUT_1) ? 1 : 0,
 				(ul_flags & PIO_OPENDRAIN) ? 1 : 0,
 				(ul_flags & PIO_PULLUP) ? 1 : 0);
 		break;
@@ -898,7 +901,8 @@ uint32_t pio_configure_pin_group(Pio *p_pio,
 	case PIO_TYPE_PIO_OUTPUT_0:
 	case PIO_TYPE_PIO_OUTPUT_1:
 		pio_set_output(p_pio, ul_mask,
-				(ul_flags & PIO_TYPE_PIO_OUTPUT_1),
+				((ul_flags & PIO_TYPE_PIO_OUTPUT_1)
+				== PIO_TYPE_PIO_OUTPUT_1) ? 1 : 0,
 				(ul_flags & PIO_OPENDRAIN) ? 1 : 0,
 				(ul_flags & PIO_PULLUP) ? 1 : 0);
 		break;

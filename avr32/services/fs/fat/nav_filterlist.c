@@ -13,6 +13,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -214,7 +216,7 @@ bool  nav_filterlist_findname( const FS_STRING sz_name , bool b_match_case )
 //!                           FL_FILE To check the file presence.
 //!
 //! @param      sz_filterext  Extension filter (ASCII format, e.g.: "txt" or "txt,d*,wk" ). <br>
-//!                           If this argument in NULL, then it uses the defautl filter used by the filterlist. <br>
+//!                           If this argument in NULL, then it uses the default filter used by the filterlist. <br>
 //!                           This argument is also ignored for b_type == FS_DIR.
 //!
 //! @return     number of files and/or directories present in filtered file list.
@@ -248,12 +250,12 @@ static bool update_counter(uint8_t *counter)
 //!                           FL_FILE To check the file presence.
 //!
 //! @param      sz_filterext  Extension filter (ASCII format, e.g.: "txt" or "txt,d*,wk" ). <br>
-//!                           If this argument in NULL, then it uses the defautl filter used by the filterlist. <br>
+//!                           If this argument in NULL, then it uses the default filter used by the filterlist. <br>
 //!                           This argument is also ignored for b_type == FS_DIR.
 //! @param      p_total       Pointer to the result which will be updated by the function (added).
-//!                           Initialization shall be done before untering into this  function.
+//!                           Initialization shall be done before entering into this function.
 //! @param      retry         Number of files seen before leaving the function. 0 means that the
-//!                           function is blocking untill the result is known.
+//!                           function is blocking until the result is known.
 //!
 //! @return     number of files and/or directories present in filtered file list.
 //!

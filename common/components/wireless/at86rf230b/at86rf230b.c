@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -91,7 +93,7 @@ static trx_retval_t trx_init(void);
 /**
  * \brief Internal TAL reset function
  *
- * \return TRX_SUCCESS if the transceiver was successfully resetted
+ * \return TRX_SUCCESS if the transceiver was successfully reset
  *         TRX_FAILURE otherwise
  */
 static trx_retval_t internal_tal_reset(void);
@@ -426,7 +428,7 @@ void tx_frame_config(void)
 {
 	tal_trx_status_t trx_status;
 
-	/* Set trx to PLL_ON state to intiate transmission procedure */
+	/* Set trx to PLL_ON state to initiate transmission procedure */
 	do {
 		trx_status = set_trx_state(CMD_PLL_ON);
 	}

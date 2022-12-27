@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -104,29 +106,29 @@ void main_sof_action(void)
 	ui_process(udd_get_frame_number());
 }
 
-bool main_cdc_enable(void)
+bool main_cdc_enable(uint8_t port)
 {
 	main_b_cdc_enable = true;
 	// Open communication
-	uart_open();
+	uart_open(port);
 	return true;
 }
 
-void main_cdc_disable(void)
+void main_cdc_disable(uint8_t port)
 {
 	main_b_cdc_enable = false;
 	// Close communication
-	uart_close();
+	uart_close(port);
 }
 
-void main_cdc_set_dtr(bool b_enable)
+void main_cdc_set_dtr(uint8_t port, bool b_enable)
 {
 	if (b_enable) {
 		// Host terminal has open COM
-		ui_com_open();
+		ui_com_open(port);
 	}else{
 		// Host terminal has close COM
-		ui_com_close();
+		ui_com_close(port);
 	}
 }
 
@@ -160,9 +162,9 @@ void main_cdc_set_dtr(bool b_enable)
  * - Connect the application to a USB host (e.g. a PC)
  *   with a mini-B (embedded side) to A (PC host side) cable.
  * The application will behave as a virtual COM (see Windows Device Manager).
- * - Open a hyperterminal on both COM ports (RS232 and Virtual COM)
+ * - Open a HyperTerminal on both COM ports (RS232 and Virtual COM)
  * - Select the same configuration for both COM ports up to 115200 baud.
- * - Type a character in one hyperterminal and it will echo in the other.
+ * - Type a character in one HyperTerminal and it will echo in the other.
  *
  * \note
  * On the first connection of the board on the PC,

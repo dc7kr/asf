@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -228,13 +230,13 @@
 #define ILI9225_VERTICAL_SCROLL_CTRL3_SST_MSK    (0xffu << ILI9225_VERTICAL_SCROLL_CTRL3_SST_POS)
 #define ILI9225_VERTICAL_SCROLL_CTRL3_SST(value) ((ILI9225_VERTICAL_SCROLL_CTRL3_SST_MSK & ((value) << ILI9225_VERTICAL_SCROLL_CTRL3_SST_POS)))
 
-/* -------- ILI9225_PARTIAL_DRIVING_POS1 : (Offset: 0x34) Partial Driving Positon 1 Register -------- */
+/* -------- ILI9225_PARTIAL_DRIVING_POS1 : (Offset: 0x34) Partial Driving Position 1 Register -------- */
 #define ILI9225_PARTIAL_DRIVING_POS1            (0x34u)
 #define ILI9225_PARTIAL_DRIVING_POS1_SE1_POS    0
 #define ILI9225_PARTIAL_DRIVING_POS1_SE1_MSK    (0xffu << ILI9225_PARTIAL_DRIVING_POS1_SE1_POS)
 #define ILI9225_PARTIAL_DRIVING_POS1_SE1(value) ((ILI9225_PARTIAL_DRIVING_POS1_SE1_MSK & ((value) << ILI9225_PARTIAL_DRIVING_POS1_SE1_POS)))
 
-/* -------- ILI9225_PARTIAL_DRIVING_POS2 : (Offset: 0x35) Partial Driving Positon 2 Register -------- */
+/* -------- ILI9225_PARTIAL_DRIVING_POS2 : (Offset: 0x35) Partial Driving Position 2 Register -------- */
 #define ILI9225_PARTIAL_DRIVING_POS2            (0x35u)
 #define ILI9225_PARTIAL_DRIVING_POS2_SS1_POS    0
 #define ILI9225_PARTIAL_DRIVING_POS2_SS1_MSK    (0xffu << ILI9225_PARTIAL_DRIVING_POS2_SS1_POS)
@@ -381,7 +383,7 @@
 #define ILI9225_NV_MEM_PROTECTION_KEY_KEY_MSK    (0xffffu << ILI9225_NV_MEM_PROTECTION_KEY_KEY_POS)
 #define ILI9225_NV_MEM_PROTECTION_KEY_KEY(value) ((ILI9225_NV_MEM_PROTECTION_KEY_KEY_MSK & ((value) << ILI9225_NV_MEM_PROTECTION_KEY_KEY_POS)))
 
-/* -------- ILI9225_ID_CODE : (Offset: 0x65) LCM Vender Code -------- */
+/* -------- ILI9225_ID_CODE : (Offset: 0x65) LCM Vendor Code -------- */
 #define ILI9225_ID_CODE           (0x65u)
 #define ILI9225_ID_CODE_ID_POS    0
 #define ILI9225_ID_CODE_ID_MSK    (0xfu << ILI9225_ID_CODE_ID_POS)

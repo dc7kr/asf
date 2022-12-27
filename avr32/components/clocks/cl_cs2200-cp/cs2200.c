@@ -20,6 +20,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -111,7 +113,7 @@ bool cs2200_setup(uint32_t out_freq, uint32_t fosc)
   if (!nb_tries)
     return false;
 
-  // Freeze chip during the programmation
+  // Freeze chip during the programming sequence
   CS2200_WRITE_GLOBAL_CFG(1<<3);
 
   CS2200_WRITE_DEVICE_CTRL(0x00); // AUX_OUT output driver enabled. CLK_OUT output driver enabled.

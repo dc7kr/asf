@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -160,9 +162,9 @@ void main_cdc_set_dtr(uint8_t port, bool b_enable)
  * - Connect the application to a USB host (e.g. a PC)
  *   with a mini-B (embedded side) to A (PC host side) cable.
  * The application will behave as two virtual COMs (see Windows Device Manager).
- * - Open a hyperterminal on COM ports (two RS232 ports and two virtual COMs)
+ * - Open a HyperTerminal on COM ports (two RS232 ports and two virtual COMs)
  * - Select the same configuration for a couple RS232 ports and virtual COM up to 115200 bauds.
- * - Type a character in one hyperterminal and it will echo in the other.
+ * - Type a character in one HyperTerminal and it will echo in the other.
  *
  * \note
  * On the first connection of the board on the PC,

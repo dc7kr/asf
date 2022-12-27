@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -68,7 +70,7 @@
 		((*(volatile unsigned long*)(&AVR32_USBB.TPASTE2(reg,SET)) =\
 		TPASTE5(AVR32_USBB_,reg,SET_,bit,S_MASK)))
 
-//! \ingroup uhd_group
+//! \ingroup usb_group
 //! \defgroup otg_usbb_group USBB OTG Driver
 //! USBB low-level driver for OTG features
 //!
@@ -109,7 +111,7 @@ void otg_dual_disable(void);
 //! @name USBB OTG ID pin management
 //! The ID pin come from the USB OTG connector (A and B receptable) and
 //! allows to select the USB mode host or device.
-//! The USBB hardware can manage it automaticaly. This feature is optional.
+//! The USBB hardware can manage it automatically. This feature is optional.
 //! When otg_ID_PIN equals true in conf_usb_host.h, the USB_ID must be defined in board.h.
 //!
 //! @{
@@ -206,7 +208,7 @@ void otg_dual_disable(void);
 //! Get the dual-role device state of the internal USB finite state machine of the USBB controller
 #define  otg_get_fsm_drd_state()             USBB_RD_BITFIELD(USBFSM,DRDSTATE)
 
-//! Host Negociation Protocol
+//! Host negotiation Protocol
 //! @{
 #define  otg_device_initiate_hnp()            USBB_SET_BITS(USBCON,HNPREQ)
 #define  otg_host_accept_hnp()                USBB_SET_BITS(USBCON,HNPREQ)

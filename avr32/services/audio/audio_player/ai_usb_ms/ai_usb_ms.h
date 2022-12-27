@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -141,7 +143,7 @@ uint8_t    ai_usb_ms_nav_drive_get( ai_async_status_t *cmd_ai_status );
 //! @verbatim
 //! If the option FS_MULTI_PARTITION is disable
 //! then the mount routine select the first partition supported by file system. <br>
-//! After mount, the file list corresponding at the files and directorys present in ROOT directory
+//! After mount, the file list corresponding at the files and directories present in ROOT directory
 //! @endverbatim
 //!
 bool  ai_usb_ms_nav_drive_mount( ai_async_status_t *cmd_ai_status );
@@ -171,7 +173,7 @@ bool  ai_usb_ms_nav_dir_root( ai_async_status_t *cmd_ai_status );
 //! @return  true otherwise
 //!
 //! @verbatim
-//! After this routine the file list change and containt the files of new current directory,
+//! After this routine the file list change and contains the files of new current directory,
 //! also no file is selected
 //! @endverbatim
 //!
@@ -183,9 +185,9 @@ bool  ai_usb_ms_nav_dir_cd( ai_async_status_t *cmd_ai_status );
 //! @return  true otherwise
 //!
 //! @verbatim
-//! After, the file list change and containt the files of parent directory,
+//! After, the file list change and contains the files of parent directory,
 //! also the file selected is the old directory.
-//! "Filter list" is a list of files filtered and directorys present in current directory
+//! "Filter list" is a list of files filtered and directories present in current directory
 //! @endverbatim
 //!
 bool  ai_usb_ms_nav_dir_gotoparent( ai_async_status_t *cmd_ai_status );
@@ -217,7 +219,7 @@ bool  ai_usb_ms_nav_file_previous( ai_async_status_t *cmd_ai_status );
 //! @return    true otherwise
 //!
 //! @verbatim
-//! "Filter list" is a list of files filtered and directorys present in current directory
+//! "Filter list" is a list of files filtered and directories present in current directory
 //! @endverbatim
 //!
 bool  ai_usb_ms_nav_file_goto( uint32_t u32_newpos, ai_async_status_t *cmd_ai_status );
@@ -228,7 +230,7 @@ bool  ai_usb_ms_nav_file_goto( uint32_t u32_newpos, ai_async_status_t *cmd_ai_st
 //! @return    FS_NO_SEL, in case of no file selected
 //!
 //! @verbatim
-//! "Filter list" is a list of files filtered and directorys present in current directory
+//! "Filter list" is a list of files filtered and directories present in current directory
 //! @endverbatim
 //!
 uint32_t   ai_usb_ms_nav_file_pos( ai_async_status_t *cmd_ai_status );
@@ -361,15 +363,15 @@ bool  ai_usb_ms_nav_getplayfile      ( ai_async_status_t *cmd_ai_status );
 //!
 bool  ai_usb_ms_audio_nav_playfile   ( ai_async_status_t *cmd_ai_status );
 
-//! Give complet audio context (player state, play time, repeat, shuffle, file played, explorer mode )
-//! @note May be interresting before a power OFF.
+//! Give complete audio context (player state, play time, repeat, shuffle, file played, explorer mode )
+//! @note May be interesting before a power OFF.
 //!
 //! @return    ctx   structure with all information about the current context
 //!
 void *ai_usb_ms_audio_context_save( uint8_t *status, uint16_t *size, ai_async_status_t *cmd_ai_status );
 
 //! Restore a audio context (eventualy restart play).
-//! @note May be interresting after a power ON.
+//! @note May be interesting after a power ON.
 //!
 //! @param     ctx   structure with all information about context to restore
 //!

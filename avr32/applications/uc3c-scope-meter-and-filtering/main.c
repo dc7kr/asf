@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -68,7 +70,7 @@
  * - noise_task.c: Noise Task Management;
  * - filter_task.c: Filter Task Management;
  * - remote_task.c: Remote Task Management;
- * - controller.c: Qtouch Controller Management;
+ * - controller.c: QTouch Controller Management;
  * - gui.c: GUI Display Management;
  *
  * \section compilinfo Compilation Information

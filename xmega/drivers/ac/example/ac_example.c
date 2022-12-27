@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -135,7 +137,7 @@ static struct ac_config aca0_config = {
 /**
  * \brief Analog comparator A channel 1 configuration.
  *
- * This struct configures the an analog comaprator channel with the following
+ * This struct configures the an analog comparator channel with the following
  * settings:
  * - Falling edge interrupt mode
  * - Medium interrupt level
@@ -163,7 +165,7 @@ static struct ac_config acb_config;
  * \brief Update LEDs used for feedback from analog comparator channel in
  *        single trigger level mode
  *
- * This function will set the LEDs appropriatly for the \a channel that caused
+ * This function will set the LEDs appropriately for the \a channel that caused
  * the interrupt. See the \ref example_description section for additional
  * details.
  *
@@ -196,7 +198,7 @@ static void example_ac_update_single_leds(uint8_t channel,
 /**
  * \brief Update LEDs used for feedback from analog comparator in window mode
  *
- * This function will set the LEDs appropriatly \a status of the window. See
+ * This function will set the LEDs appropriately \a status of the window. See
  * the \ref example_description section for additional details.
  *
  * \param status Analog comparator window status given by a \ref ac_status_t
@@ -223,7 +225,7 @@ static void example_ac_update_window_leds(enum ac_status_t status)
 /**
  * \brief Analog comparator A interrupt callback function
  *
- * This function is called when an interrupt has occured on a channel in analog
+ * This function is called when an interrupt has occurred on a channel in analog
  * comparator A.
  *
  * \param ac Pointer to the analog comparator (AC) base address which caused
@@ -241,7 +243,7 @@ static void example_aca_interrupt_callback(AC_t *ac, uint8_t channel,
 /**
  * \brief Analog comparator B interrupt callback function
  *
- * This function is called when an interrupt has occured on a channel in analog
+ * This function is called when an interrupt has occurred on a channel in analog
  * comparator B.
  *
  * \param ac Pointer to the analog comparator (AC) base address which caused

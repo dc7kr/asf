@@ -3,11 +3,13 @@
  *
  * \brief Generic graphic primitive routines
  *
- * This files includes the correct header files for the grapics service
+ * This files includes the correct header files for the graphics service
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -166,6 +168,13 @@ __always_inline static inline void gfx_generic_draw_bitmap(
 		gfx_coord_t y)
 {
 	gfx_put_bitmap(bmp, 0, 0, x, y, bmp->width, bmp->height);
+}
+
+/*! Generic implementation of gfx_sync(). */
+__always_inline static inline void gfx_generic_sync(
+		void)
+{
+	
 }
 
 /*! @} */

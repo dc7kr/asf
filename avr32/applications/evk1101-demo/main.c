@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -154,7 +156,7 @@ int main(void)
 	init_dbg_rs232(FOSC0);
 
 #if (AT45DBX_MEM==ENABLE) &&( EVK1101_CTRL_PANEL_PID==EVK1101_CTRL_PANEL_DEMO_HID_MS_PID )
-	// This ressource is used by the mass storage device task
+	// This resource is used by the mass storage device task
 	at45dbx_resources_init();
 #endif
 

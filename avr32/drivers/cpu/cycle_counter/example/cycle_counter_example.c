@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -63,7 +65,7 @@
  * are displayed on USART1. This delay is equal to (1/fCPU)*NB_CLOCK_CYCLE_DELAY_SHORT
  * in case NB_CLOCK_CYCLE_DELAY_SHORT value is reloaded (83.3ms) or (1/fCPU)*NB_CLOCK_CYCLE_DELAY_LONG
  * in case NB_CLOCK_CYCLE_DELAY_LONG value is reloaded (1.67s)
- * - Then the program infinitly loops, using the COUNT & COMPARE interrupt mechanism
+ * - Then the program infinitely loops, using the COUNT & COMPARE interrupt mechanism
  * with a longer delay. Messages are displayed on USART1 and one of Led 1 through Led4
  * is on upon each COUNT & COMPARE match (Led1 -> Led2 -> Led3 -> Led4 -> Led1 ...and so on).
  *

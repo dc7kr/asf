@@ -14,6 +14,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -51,7 +53,7 @@
  * Brief description of the module.
  * This module provides a set of shell commands to interface with the file system.
  *
- * Detailled description of the module.
+ * Detailed description of the module.
  * TODO
  */
 
@@ -188,7 +190,7 @@ const signed portCHAR *const FSCMDS_ERRMSG_FORMAT_SYNTAXERROR     = (signed port
 const signed portCHAR *const FSCMDS_ERRMSG_TOUCH_SYNTAXERROR      = (signed portCHAR *)ERROR_CRLF"Usage: touch filename"CRLF;
 
 /*! Error msg upon out of memory event. */
-const signed portCHAR *const FSCMDS_ERRMSG_OUTOFMEM               = (signed portCHAR *)ERROR_CRLF"Operation canceled: out of memory"CRLF;
+const signed portCHAR *const FSCMDS_ERRMSG_OUTOFMEM               = (signed portCHAR *)ERROR_CRLF"Operation cancelled: out of memory"CRLF;
 
 /*! Error msg upon incorrect file name format error. */
 const signed portCHAR *const FSCMDS_ERRMSG_INCORRECTNAME          = (signed portCHAR *)ERROR_CRLF"Incorrect name, this must be not contain char \\/:*?\"<>|"CRLF;
@@ -1761,7 +1763,7 @@ eExecStatus e_fscmds_shell_mv( eModId xModId, signed short FsNavId,
       }
 
    }
-   // The previous check was successfull.
+   // The previous check was successful.
    nav_gotoindex( &sav_index ); // Restore the nav to point on the src.
 
    fsaccess_give_mutex(); // Release the fs resource.
@@ -1772,7 +1774,7 @@ eExecStatus e_fscmds_shell_mv( eModId xModId, signed short FsNavId,
 
 /*!
  *  \brief Check the FAT module global var fs_g_status to get the error that
- *         occured in the FAT module.
+ *         occurred in the FAT module.
  *
  *  \return a status translation of the FAT module error status.
  */

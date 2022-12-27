@@ -4,9 +4,11 @@
  *
  * \brief Basic WEB Server for AVR32 UC3.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -80,14 +82,17 @@
 #include "lwip/tcpip.h"
 #include "lwip/memp.h"
 #include "lwip/stats.h"
+#include "lwip/init.h"
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
 #include "netif/loopif.h"
+#endif
 
 /* FAT includes */
 #include "ctrl_access.h"
 #include "fsaccess.h"
 #include "config_file.h"
 
-/* ethernet includes */
+/* Ethernet includes */
 #include "ethernet.h"
 
 /* shell includes */
@@ -261,8 +266,15 @@ portTASK_FUNCTION( vBasicWEBServer, pvParameters )
   // Loop forever
   for( ;; )
   {
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
     /* Wait for a first connection. */
     pxNewConnection = netconn_accept(pxHTTPListener);
+#else
+    while(netconn_accept(pxHTTPListener, &pxNewConnection) != ERR_OK)
+    {
+		vTaskDelay( webSHORT_DELAY );
+	}
+#endif
     if(pxNewConnection != NULL)
     {
       /* read the nb of connection, no need to use Mutex */
@@ -340,6 +352,7 @@ portTASK_FUNCTION( vBasicWEBServer, pvParameters )
           xSemaphoreGive( xMutexNbHTTPConn );
       }// end if task not created
     }// end if new connection
+
   }// end infinite loop
 }
 
@@ -501,10 +514,22 @@ portCHAR *file;
 portCHAR *path;
 portCHAR *protocol;
 unsigned portSHORT Length;
+#if ( (LWIP_VERSION) != ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
+err_t    err_recv;
+#endif
 
-
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
   /* We expect to immediately get data. */
   pxRxBuffer = netconn_recv( pxNetCon );
+#else
+  err_recv = netconn_recv( pxNetCon, &pxRxBuffer);
+  if (err_recv != ERR_OK)
+  {
+    if (pxRxBuffer != NULL)
+        goto delete_buffer;
+    return;
+  }
+#endif
 
   if( pxRxBuffer != NULL )
   {
@@ -517,7 +542,7 @@ unsigned portSHORT Length;
       prvweb_SendErrorPage( pxNetCon, 400, "", "Wrong request : no action submitted." );
       goto delete_buffer;
     }
-    /* get first occurence of space char or \t or \n or \r */
+    /* get first occurrence of space char or \t or \n or \r */
     path = strpbrk( pcRxString, " \t\n\r" );
     if ( path == (char*) 0 )
     {
@@ -591,6 +616,8 @@ unsigned portSHORT Length;
   {
     NAKED_TRACE_COM2( "ParseHTMLRequest(): nothing rxed" );
   }
+
+
 delete_buffer: // netbuf_delete() handles the case when pxRxBuffer == NULL
   netbuf_delete( pxRxBuffer );
 }

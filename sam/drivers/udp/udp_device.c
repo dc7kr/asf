@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -55,7 +57,7 @@
 #endif
 
 #ifndef UDD_USB_INT_LEVEL
-#  define UDD_USB_INT_LEVEL 0 // By default USB interrupt have low priority
+#  define UDD_USB_INT_LEVEL 5 // By default USB interrupt have low priority
 #endif
 
 /**
@@ -67,7 +69,7 @@
  * file of the application.
  *
  * UDD_USB_INT_LEVEL<br>
- * Option to change the interrupt priority (0 to 3) by default 0 (recommended).
+ * Option to change the interrupt priority (0 to 15) by default 5 (recommended).
  *
  * UDD_USB_INT_FUN<br>
  * Option to fit interrupt function to what defined in exception table.
@@ -166,7 +168,7 @@ static void udd_sleep_mode(bool b_idle)
 /**
  * \name Control endpoint low level management routine.
  *
- * This function performs control endpoint mangement.
+ * This function performs control endpoint management.
  * It handle the SETUP/DATA/HANDSHAKE phases of a control transaction.
  */
 //@{
@@ -207,16 +209,16 @@ static void udd_reset_ep_ctrl(void);
  */
 static void udd_ctrl_init(void);
 
-//! \brief Managed reception of SETUP packet on control enpoint
+//! \brief Managed reception of SETUP packet on control endpoint
 static void udd_ctrl_setup_received(void);
 
-//! \brief Managed reception of IN packet on control enpoint
+//! \brief Managed reception of IN packet on control endpoint
 static void udd_ctrl_in_sent(void);
 
-//! \brief Managed reception of OUT packet on control enpoint
+//! \brief Managed reception of OUT packet on control endpoint
 static void udd_ctrl_out_received(void);
 
-//! \brief Managed stall event of IN/OUT packet on control enpoint
+//! \brief Managed stall event of IN/OUT packet on control endpoint
 static void udd_ctrl_stall_data(void);
 
 //! \brief Send a ZLP IN on control endpoint
@@ -232,9 +234,9 @@ static void udd_ctrl_endofrequest(void);
 /**
  * \brief Main interrupt routine for control endpoint
  *
- * This switchs control endpoint events to correct sub function.
+ * This switches control endpoint events to correct sub function.
  *
- * \return \c 1 if an event about control endpoint is occured, otherwise \c 0.
+ * \return \c 1 if an event about control endpoint is occurred, otherwise \c 0.
  */
 static bool udd_ctrl_interrupt(void);
 
@@ -245,7 +247,7 @@ static bool udd_ctrl_interrupt(void);
  * \name Management of bulk/interrupt/isochronous endpoints
  *
  * The UDD manages the data transfer on endpoints:
- * - Start data tranfer on endpoint with USB Device DMA
+ * - Start data transfer on endpoint with USB Device DMA
  * - Send a ZLP packet if requested
  * - Call callback registered to signal end of transfer
  * The transfer abort and stall feature are supported.
@@ -266,7 +268,7 @@ typedef struct {
 	uint8_t *buf;
 	//! Size of buffer to send or fill
 	iram_size_t buf_size;
-	//! Total number of data transfered on enpoint
+	//! Total number of data transfered on endpoint
 	iram_size_t buf_cnt;
 	//! Maximum packet size for the endpoint
 	uint32_t size:10;
@@ -297,7 +299,7 @@ static void udd_ep_job_table_kill(void);
 /**
  * \brief Fill banks and send them
  *
- * \param ep         endpoint number wihtout direction flag
+ * \param ep         endpoint number without direction flag
  * \param b_tx       true if data is ready to send
  *
  * \return true if data buffer is in transmitting
@@ -307,7 +309,7 @@ static bool udd_ep_in_sent(udd_ep_id_t ep, bool b_tx);
 /**
  * \brief Store received banks
  *
- * \param ep         endpoint number wihtout direction flag
+ * \param ep         endpoint number without direction flag
  */
 static void udd_ep_out_received(udd_ep_id_t ep);
 
@@ -324,21 +326,22 @@ static void udd_ep_abort_job(udd_ep_id_t ep);
  * \param ptr_job  job to complete
  * \param status   job status
  */
-static void udd_ep_finish_job(udd_ep_job_t * ptr_job, int status);
+static void udd_ep_finish_job(udd_ep_job_t * ptr_job, int status,
+		uint8_t ep_num);
 
 /**
  * \brief Ack OUT received event.
  *
  * This acks the right bank when multiple banks are used.
  *
- * \param ep         endpoint number wihtout direction flag
+ * \param ep         endpoint number without direction flag
  */
 static void udd_ep_ack_out_received(udd_ep_id_t ep);
 
 /**
  * \brief Fill transmit data into FIFO
  *
- * \param ep         endpoint number wihtout direction flag
+ * \param ep         endpoint number without direction flag
  *
  * \return true if a short packet has been written
  */
@@ -347,9 +350,9 @@ static bool udd_ep_write_fifo(udd_ep_id_t ep);
 /**
  * \brief Main interrupt routine for bulk/interrupt/isochronous endpoints
  *
- * This switchs endpoint events to correct sub function.
+ * This switches endpoint events to correct sub function.
  *
- * \return \c 1 if an event about bulk/interrupt/isochronous endpoints has occured, otherwise \c 0.
+ * \return \c 1 if an event about bulk/interrupt/isochronous endpoints has occurred, otherwise \c 0.
  */
 static bool udd_ep_interrupt(void);
 
@@ -364,7 +367,7 @@ static bool udd_ep_interrupt(void);
  * \internal
  * \brief Function called by UDP interrupt to manage USB Device interrupts
  *
- * USB Device interrupt events are splited in three parts:
+ * USB Device interrupt events are split in three parts:
  * - USB line events (SOF, reset, suspend, resume, wakeup)
  * - control endpoint events (setup reception, end of data transfer, underflow, overflow, stall)
  * - bulk/interrupt/isochronous endpoints events (end of data transfer)
@@ -396,9 +399,9 @@ ISR(UDD_USB_INT_FUN)
 	}
 #endif
 
-	if (Is_udd_wake_up_interrupt_enabled() && Is_udd_wake_up() ||
-		Is_udd_resume_interrupt_enabled() && Is_udd_resume() ||
-		Is_udd_ext_resume_interrupt_enabled() && Is_udd_ext_resume()) {
+	if ((Is_udd_wake_up_interrupt_enabled() && Is_udd_wake_up()) ||
+		(Is_udd_resume_interrupt_enabled() && Is_udd_resume()) ||
+		(Is_udd_ext_resume_interrupt_enabled() && Is_udd_ext_resume())) {
 		// Ack wakeup interrupt and enable suspend interrupt
 		udd_ack_wake_up();
 		udd_ack_resume();
@@ -486,7 +489,7 @@ void udd_enable(void)
 	udd_ep_job_table_reset();
 #endif
 
-	// Always authorize asynchrone USB interrupts to exit of sleep mode
+	// Always authorize asynchronous USB interrupts to exit of sleep mode
 	pmc_set_fast_startup_input(PMC_FSMR_USBAL);
 
 #ifndef UDD_NO_SLEEP_MGR
@@ -659,20 +662,20 @@ bool udd_ep_alloc(udd_ep_id_t ep, uint8_t bmAttributes,
 
 void udd_ep_free(udd_ep_id_t ep)
 {
-	uint8_t index = ep & USB_EP_ADDR_MASK;
-	if (USB_DEVICE_MAX_EP < index) {
+	uint8_t ep_index = ep & USB_EP_ADDR_MASK;
+	if (USB_DEVICE_MAX_EP < ep_index) {
 		return;
 	}
-	udd_disable_endpoint(index);
+	udd_disable_endpoint(ep_index);
 	udd_ep_abort_job(ep);
 }
 
 
 bool udd_ep_is_halted(udd_ep_id_t ep)
 {
-	uint8_t index = ep & USB_EP_ADDR_MASK;
-	udd_ep_job_t *ptr_job = &udd_ep_job[index - 1];
-	if (USB_DEVICE_MAX_EP < index) {
+	uint8_t ep_index = ep & USB_EP_ADDR_MASK;
+	udd_ep_job_t *ptr_job = &udd_ep_job[ep_index - 1];
+	if (USB_DEVICE_MAX_EP < ep_index) {
 		return false;
 	}
 	return ptr_job->b_stall_requested ||
@@ -683,24 +686,24 @@ bool udd_ep_is_halted(udd_ep_id_t ep)
 bool udd_ep_set_halt(udd_ep_id_t ep)
 {
 	bool b_dir_in = ep & USB_EP_DIR_IN;
-	uint8_t index = ep & USB_EP_ADDR_MASK;
-	udd_ep_job_t *ptr_job = &udd_ep_job[index - 1];
+	uint8_t ep_index = ep & USB_EP_ADDR_MASK;
+	udd_ep_job_t *ptr_job = &udd_ep_job[ep_index - 1];
 	irqflags_t flags;
-	if (USB_DEVICE_MAX_EP < index) {
+	if (USB_DEVICE_MAX_EP < ep_index) {
 		return false;
 	}
 	flags = cpu_irq_save();
-	if (b_dir_in && (Is_udd_transmit_ready(index)
+	if (b_dir_in && (Is_udd_transmit_ready(ep_index)
 				|| ptr_job->bank > 1)) {
 		// Halt until banks sent
 		ptr_job->b_stall_requested = true;
-		udd_enable_endpoint_interrupt(index);
+		udd_enable_endpoint_interrupt(ep_index);
 		cpu_irq_restore(flags);
 		return true;
 	} else {
 		// Stall endpoint
-		udd_enable_stall_handshake(index);
-		udd_enable_endpoint_interrupt(index);
+		udd_enable_stall_handshake(ep_index);
+		udd_enable_endpoint_interrupt(ep_index);
 		cpu_irq_restore(flags);
 	}
 	return true;
@@ -855,11 +858,11 @@ bool udd_ep_wait_stall_clear(udd_ep_id_t ep,
 
 	if (Is_udd_endpoint_stall_requested(ep)
 			|| ptr_job->b_stall_requested) {
-		// Endpoint halted then registes the callback
+		// Endpoint halted then registers the callback
 		ptr_job->busy = true;
 		ptr_job->call_nohalt = callback;
 	} else {
-		// Enpoint not halted then call directly callback
+		// endpoint not halted then call directly callback
 		callback();
 	}
 	return true;
@@ -924,7 +927,7 @@ static void udd_ctrl_setup_received(void)
 
 	// Decode setup request
 	if (udc_process_setup() == false) {
-		// Setup request unknow then stall it
+		// Setup request unknown then stall it
 		udd_ctrl_stall_data();
 		udd_ack_setup_received(0);
 		return;
@@ -977,7 +980,7 @@ static void udd_ctrl_in_sent(void)
 	nb_remain = udd_g_ctrlreq.payload_size - udd_ctrl_payload_nb_trans;
 	if (0 == nb_remain) {
 		// All content of current buffer payload are sent
-		// Update number of total data sending by previous playlaod buffer
+		// Update number of total data sending by previous payload buffer
 		udd_ctrl_prev_payload_nb_trans += udd_ctrl_payload_nb_trans;
 		if ((udd_g_ctrlreq.req.wLength == udd_ctrl_prev_payload_nb_trans)
 				|| b_shortpacket) {
@@ -1013,7 +1016,7 @@ static void udd_ctrl_in_sent(void)
 	// The IN data don't must be written in endpoint 0 DPRAM during
 	// a next setup reception in same endpoint 0 DPRAM.
 	// Thereby, an OUT ZLP reception must check before IN data write
-	// and if no OUT ZLP is recevied the data must be written quickly (800us)
+	// and if no OUT ZLP is received the data must be written quickly (800us)
 	// before an eventually ZLP OUT and SETUP reception
 	flags = cpu_irq_save();
 	if (Is_udd_bank0_received(0)) {
@@ -1049,8 +1052,8 @@ static void udd_ctrl_out_received(void)
 				udd_ep_control_state)) {
 			// End of SETUP request:
 			// - Data IN Phase aborted,
-			// - or last Data IN Phase hidden by ZLP OUT sending quiclky,
-			// - or ZLP OUT received normaly.
+			// - or last Data IN Phase hidden by ZLP OUT sending quickly,
+			// - or ZLP OUT received normally.
 			udd_ctrl_endofrequest();
 		} else {
 			// Protocol error during SETUP request
@@ -1079,8 +1082,8 @@ static void udd_ctrl_out_received(void)
 			(udd_ctrl_prev_payload_nb_trans +
 			udd_ctrl_payload_nb_trans))) {
 		// End of reception because it is a short packet
-		// Before send ZLP, call intermediat calback
-		// in case of data receiv generate a stall
+		// Before send ZLP, call intermediate callback
+		// in case of data receive generate a stall
 		udd_g_ctrlreq.payload_size = udd_ctrl_payload_nb_trans;
 		if (NULL != udd_g_ctrlreq.over_under_run) {
 			if (!udd_g_ctrlreq.over_under_run()) {
@@ -1100,7 +1103,7 @@ static void udd_ctrl_out_received(void)
 	if (udd_g_ctrlreq.payload_size == udd_ctrl_payload_nb_trans) {
 		// Overrun then request a new payload buffer
 		if (!udd_g_ctrlreq.over_under_run) {
-			// No callback availabled to request a new payload buffer
+			// No callback available to request a new payload buffer
 			udd_ctrl_stall_data();
 			// Ack reception of OUT to replace NAK by a STALL
 			udd_ack_bank0_received(0);
@@ -1212,7 +1215,7 @@ static void udd_ep_job_table_kill(void)
 
 	// For each endpoint, kill job
 	for (i = 0; i < USB_DEVICE_MAX_EP; i++) {
-		udd_ep_finish_job(&udd_ep_job[i], UDD_EP_TRANSFER_ABORT);
+		udd_ep_finish_job(&udd_ep_job[i], UDD_EP_TRANSFER_ABORT, i + 1);
 	}
 }
 
@@ -1222,11 +1225,12 @@ static void udd_ep_abort_job(udd_ep_id_t ep)
 	ep &= USB_EP_ADDR_MASK;
 
 	// Abort job on endpoint
-	udd_ep_finish_job(&udd_ep_job[ep - 1], UDD_EP_TRANSFER_ABORT);
+	udd_ep_finish_job(&udd_ep_job[ep - 1], UDD_EP_TRANSFER_ABORT, ep);
 }
 
 
-static void udd_ep_finish_job(udd_ep_job_t * ptr_job, int status)
+static void udd_ep_finish_job(udd_ep_job_t * ptr_job, int status,
+		uint8_t ep_num)
 {
 	if (ptr_job->busy == false) {
 		return; // No on-going job
@@ -1235,8 +1239,11 @@ static void udd_ep_finish_job(udd_ep_job_t * ptr_job, int status)
 	if (NULL == ptr_job->call_trans) {
 		return; // No callback linked to job
 	}
+	if (Is_udd_endpoint_in(ep_num)) {
+		ep_num |= USB_EP_DIR_IN;
+	}	
 	ptr_job->call_trans((status == UDD_EP_TRANSFER_ABORT) ?
-		UDD_EP_TRANSFER_ABORT : UDD_EP_TRANSFER_OK, ptr_job->buf_size);
+		UDD_EP_TRANSFER_ABORT : UDD_EP_TRANSFER_OK, ptr_job->buf_size, ep_num);
 }
 
 
@@ -1373,7 +1380,7 @@ static void udd_ep_out_received(udd_ep_id_t ep)
 			!Is_udd_endpoint_stall_requested(ep)) {
 		udd_disable_endpoint_interrupt(ep);
 		ptr_job->buf_size = ptr_job->buf_cnt; // buf_size is passed to callback as XFR count
-		udd_ep_finish_job(ptr_job, UDD_EP_TRANSFER_OK);
+		udd_ep_finish_job(ptr_job, UDD_EP_TRANSFER_OK, ep);
 	}
 }
 
@@ -1422,7 +1429,7 @@ static bool udd_ep_interrupt(void)
 			if (ptr_job->b_buf_end) {
 				ptr_job->b_buf_end = false;
 				ptr_job->buf_size = ptr_job->buf_cnt; // buf_size is passed to callback as XFR count
-				udd_ep_finish_job(ptr_job, UDD_EP_TRANSFER_OK);
+				udd_ep_finish_job(ptr_job, UDD_EP_TRANSFER_OK, ep);
 			}
 			if (ptr_job->buf_cnt >= ptr_job->buf_size &&
 					!ptr_job->b_shortpacket &&
@@ -1445,7 +1452,7 @@ static bool udd_ep_interrupt(void)
 				if (!udd_ep_in_sent(ep, true)) {
 					ptr_job->b_buf_end = false;
 					ptr_job->buf_size = ptr_job->buf_cnt; // buf_size is passed to callback as XFR count
-					udd_ep_finish_job(ptr_job, UDD_EP_TRANSFER_OK);
+					udd_ep_finish_job(ptr_job, UDD_EP_TRANSFER_OK, ep);
 				}
 				udd_ack_in_sent(ep);
 				udd_ep_in_sent(ep, false);

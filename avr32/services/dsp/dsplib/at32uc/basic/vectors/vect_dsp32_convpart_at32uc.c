@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -227,7 +229,7 @@
 
 
 /*********************************************************************************************
- * Algorihm:
+ * Algorithm:
  *   for(n=0; n<vect1_size; n++)
  *   {
  *        sum = 0;
@@ -252,7 +254,7 @@
  *   r1 = sum:t
  *   r0 = sum:b
  *   lr = i
- * Conditon: h, vect1 and vect2 must be word-align
+ * Condition: h, vect1 and vect2 must be word-align
  *********************************************************************************************/
 
 #if __GNUC__

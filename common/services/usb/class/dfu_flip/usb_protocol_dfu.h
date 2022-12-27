@@ -3,9 +3,11 @@
  *
  * \brief USB Device Firmware Upgrade (DFU) protocol definitions.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -143,7 +145,7 @@ enum usb_dfu_functional_attributes {
 //! Value for fields bcdDFU(Version)
 #define  USB_DFU_V1_0    0x0100	//!< USB DFU Specification version 1.0
 
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 
 /**
  * \brief DFU Descriptor
@@ -183,7 +185,7 @@ typedef struct {
 	//!< Either FFFFh or a BCD firmware release or version number.
 } dfu_file_suffix_t;
 
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
 //@}
 

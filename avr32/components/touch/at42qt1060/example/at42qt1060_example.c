@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -48,7 +50,7 @@
  *
  * \section files Main Files
  * - at42qt1060_example.c: the AT42QT1060 example
- * - at42qt1060.h: the driver inteface for the AT42QT1060
+ * - at42qt1060.h: the driver interface for the AT42QT1060
  *
  * \section compilinfo Compilation Information
  * This software is written for GNU GCC for AVR32 and for IAR Embedded Workbench

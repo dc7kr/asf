@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -103,19 +105,19 @@ static uint32_t pwm_clocks_generate(uint32_t ul_frequency, uint32_t ul_mck)
 {
 	uint32_t ul_divisors[PWM_CLOCK_PRE_MAX] =
 			{ 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024 };
-	uint32_t pre = 0;
-	uint32_t div;
+	uint32_t ul_pre = 0;
+	uint32_t ul_div;
 
 	/* Find prescaler and divisor values */
-	div = (ul_mck / ul_divisors[pre]) / ul_frequency;
-	while ((div > PWM_CLOCK_DIV_MAX) && (pre < PWM_CLOCK_PRE_MAX)) {
-		pre++;
-		div = (ul_mck / ul_divisors[pre]) / ul_frequency;
+	ul_div = (ul_mck / ul_divisors[ul_pre]) / ul_frequency;
+	while ((ul_div > PWM_CLOCK_DIV_MAX) && (ul_pre < PWM_CLOCK_PRE_MAX)) {
+		ul_pre++;
+		ul_div = (ul_mck / ul_divisors[ul_pre]) / ul_frequency;
 	}
 
 	/* Return result */
-	if (pre < PWM_CLOCK_PRE_MAX) {
-		return div | (pre << 8);
+	if (ul_pre < PWM_CLOCK_PRE_MAX) {
+		return ul_div | (ul_pre << 8);
 	} else {
 		return PWM_INVALID_ARGUMENT;
 	}

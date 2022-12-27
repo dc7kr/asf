@@ -9,9 +9,11 @@
  *
  * To use this board, define BOARD=EVK1104.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -355,6 +357,20 @@
 #endif
 #define NF_RDYBSY_PIN             AVR32_PIN_PA01
 #define NF_WP_PIN                 AVR32_PIN_PA07
+
+/** Address for transferring command bytes to the nandflash. */
+#define BOARD_NF_COMMAND_ADDR   (AVR32_EBI_CS3_ADDRESS + 0x00200000)
+/** Address for transferring address bytes to the nandflash. */
+#define BOARD_NF_ADDRESS_ADDR   (AVR32_EBI_CS3_ADDRESS + 0x00400000)
+/** Address for transferring data bytes to the nandflash. */
+#define BOARD_NF_DATA_ADDR      AVR32_EBI_CS3_ADDRESS
+
+/** Nandflash chip enable pin definition. */
+#define PIN_NF_CE_IDX    NF_DEV_0_CS_PIN
+
+/** Nandflash ready/busy pin definition. */
+#define PIN_NF_RB_IDX    NF_RDYBSY_PIN
+
 //! @}
 
 

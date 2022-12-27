@@ -3,9 +3,11 @@
  *
  * \brief XMEGA-A1 Xplained demo application
  *
- * Copyright (c) 2010-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -86,7 +88,6 @@
 #include <conf_example.h>
 
 #include "sound.h"
-#include "snd_samples.h"
 
 #define F_CPU sysclk_get_cpu_hz()
 
@@ -612,7 +613,7 @@ void load_gamedata(void)
  * \brief Timer/counter overflow interrupt callback function.
  *
  * This updates the variable for the save timeout and stops its timer/counter
- * once timeout has occured.
+ * once timeout has occurred.
  *
  * \note Modifies global variable save_timeout.
  */

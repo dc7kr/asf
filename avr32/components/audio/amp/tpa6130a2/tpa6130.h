@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -70,7 +72,7 @@
 #define TPA6130_MODE_MONO_R 3
 */
 /* Set TPA6130_SIG to:
- * TPA6130_SIG_DIFF, both, normal and inverted, signales are used from the DAC
+ * TPA6130_SIG_DIFF, both, normal and inverted, signals are used from the DAC
  * TPA6130_SIG_POS, uses only the positive signals from the DAC
  */
 
@@ -154,7 +156,7 @@ extern void tpa6130_dac_flush(void);
 extern void tpa6130_dac_stop(void);
 
 /*! \brief Sets the volume of the amplifier.
- *  Valid values are between 0 (min -59dB) and 63 (max 4dB) altough
+ *  Valid values are between 0 (min -59dB) and 63 (max 4dB) although
  *  the function takes care of any values higher than that by setting
  *  it to max.
  */

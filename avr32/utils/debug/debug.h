@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -57,10 +59,10 @@
 
 /*! \brief These macros are used to add traces memory.
  *
- * First, initialise the trace with Uc3_trace_init(pointer), giving the start address
+ * First, initialize the trace with Uc3_trace_init(pointer), giving the start address
  * of the memory location where will be stored the trace.
  * Use Uc3_trace(something) to store "something" into the memory. The end of the trace
- * is signaled by the "0xdeadbeef" pattern.
+ * is signalled by the "0xdeadbeef" pattern.
  */
 #define Uc3_trace_init(debug_addr)   \
       *(U32*)(debug_addr)=debug_addr+4
@@ -92,7 +94,7 @@ U32 get_heap_curr_used_size( void );
 
 /*! \brief Returns the number of free bytes in the HEAP.
  *
- * This funtion tries to allocate the maximum number of bytes by dichotomical method.
+ * This function tries to allocate the maximum number of bytes by dichotomical method.
  *
  * \retval number of free bytes.
  */
@@ -111,7 +113,7 @@ void uc3_round_trace_init(void* buf, U32 size);
 
 /*! \brief Trace a data in the round buffer.
  *
- * The end of the trace is signaled by the "0xdeadbeef" pattern.
+ * The end of the trace is signalled by the "0xdeadbeef" pattern.
  * \param val   Data to trace;
  */
 void uc3_round_trace(U32 val);

@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -44,7 +46,7 @@
 
 // Read Modify Write opcode is implemented after IAR AVR 5.51
 #ifdef __ICCAVR__
-#  if (__VER__ <= 551 || XMEGA_A1U)
+#  if (__VER__ <= 551 || (__VER__ <= 611 && XMEGA_A1U) )
 #    undef   USB_WORKAROUND_DO_NOT_USE_RMW
 #    define  USB_WORKAROUND_DO_NOT_USE_RMW
 #  endif
@@ -86,7 +88,7 @@
  * by default USB_INTLVL_LO_gc (recommended).
  *
  * \section Callbacks management
- * The USB driver is fully managed by interrupt and does not request periodique
+ * The USB driver is fully managed by interrupt and does not request periodic
  * task. Thereby, the USB events use callbacks to transfer the information.
  * The callbacks are declared in static during compilation or in variable during
  * code execution.
@@ -203,7 +205,7 @@ struct udd_sram_data {
 #if XMEGA_A1U
 COMPILER_ALIGNED(16)
 #else
-COMPILER_ALIGNED(4) //! Caution seems GCC does not handle 2 alignement properly
+COMPILER_ALIGNED(4) //! Caution seems GCC does not handle 2 alignment properly
 #endif
 static volatile struct udd_sram_data udd_sram;
 #define UDD_EP_t  USB_EP_t volatile
@@ -218,7 +220,7 @@ static volatile struct udd_sram_data udd_sram;
  * \brief Configures and enables an endpoint
  *
  * \param ep               Endpoint number including direction (USB_EP_DIR_IN/USB_EP_DIR_OUT).
- * \param bmAttributes     Attribut of endpoint declared in descriptor.
+ * \param bmAttributes     Attribute of endpoint declared in descriptor.
  * \param MaxEndpointSize  Endpoint size maximum
  */
 static void udd_ep_init(udd_ep_id_t ep, uint8_t bmAttributes,
@@ -238,7 +240,7 @@ static UDD_EP_t *udd_ep_get_ctrl(udd_ep_id_t ep);
 /**
  * \name Control endpoint low level management routine.
  *
- * This function performs control endpoint mangement.
+ * This function performs control endpoint management.
  * It handle the SETUP/DATA/HANDSHAKE phases of a control transaction.
  */
 //@{
@@ -278,26 +280,26 @@ static uint8_t udd_ctrl_buffer[USB_DEVICE_EP_CTRL_SIZE];
  */
 static void udd_ctrl_init(void);
 
-//! \brief Managed reception of SETUP packet on control enpoint
+//! \brief Managed reception of SETUP packet on control endpoint
 static void udd_ctrl_setup_received(void);
 
-//! \brief Managed reception of IN packet on control enpoint
+//! \brief Managed reception of IN packet on control endpoint
 static void udd_ctrl_in_sent(void);
 
-//! \brief Managed reception of OUT packet on control enpoint
+//! \brief Managed reception of OUT packet on control endpoint
 static void udd_ctrl_out_received(void);
 
-//! \brief Managed underflow event of IN packet on control enpoint
+//! \brief Managed underflow event of IN packet on control endpoint
 //! It is used to detect a DATA phase stopped by the host via a ZLP request.
 //! This is mandatory for chapter 8 compliance
 static void udd_ctrl_underflow(void);
 
-//! \brief Managed overflow event of OUT packet on control enpoint
+//! \brief Managed overflow event of OUT packet on control endpoint
 //! It is used to detect a DATA phase stopped by the host via a ZLP request.
 //! This is mandatory for chapter 8 compliance
 static void udd_ctrl_overflow(void);
 
-//! \brief Managed stall event of IN/OUT packet on control enpoint
+//! \brief Managed stall event of IN/OUT packet on control endpoint
 static void udd_ctrl_stall_data(void);
 
 //! \brief Send a ZLP IN on control endpoint
@@ -312,14 +314,14 @@ static void udd_ctrl_endofrequest(void);
 /**
  * \brief Sub interrupt routine to manage error on control endpoint
  *
- * \return \c 1 if an error about control endpoint is occured, otherwise \c 0.
+ * \return \c 1 if an error about control endpoint is occurred, otherwise \c 0.
  */
 static bool udd_ctrl_interrupt_error(void);
 
 /**
- * \brief Sub interrupt routine to manage a SETUP transfer complet on control endpoint
+ * \brief Sub interrupt routine to manage a SETUP transfer complete on control endpoint
  *
- * \return \c 1 if an SETUP transfer complet about control endpoint is occured,
+ * \return \c 1 if an SETUP transfer complete about control endpoint is occurred,
  * otherwise \c 0.
  */
 static bool udd_ctrl_interrupt_tc_setup(void);
@@ -331,7 +333,7 @@ static bool udd_ctrl_interrupt_tc_setup(void);
  * \name Management of bulk/interrupt/isochronous endpoints
  *
  * The UDD manages the data transfer on endpoints:
- * - Start data tranfer on endpoint with USB Device DMA
+ * - Start data transfer on endpoint with USB Device DMA
  * - Send a ZLP packet if requested
  * - Call callback registered to signal end of transfer
  * The transfer abort and stall feature are supported.
@@ -351,7 +353,7 @@ typedef struct {
 	uint8_t *buf;
 	//! Size of buffer to send or fill
 	iram_size_t buf_size;
-	//! Total number of data transfered on enpoint
+	//! Total number of data transfered on endpoint
 	iram_size_t nb_trans;
 	union {
 		//! Callback to call at the end of transfer
@@ -388,7 +390,7 @@ static uint8_t udd_ep_out_cache_buffer[USB_DEVICE_MAX_EP][64];
 bool udd_ep_is_valid(udd_ep_id_t ep);
 
 /**
- * \brief Manages transfer complet on bulk/interrupt/isochronous endpoints
+ * \brief Manages transfer complete on bulk/interrupt/isochronous endpoints
  *
  * \param ep   endpoint number to manage
  */
@@ -445,8 +447,8 @@ void udd_enable(void)
 
 // The XMEGA_A1U does not support the RC calibration through Keepalive (Low speed).
 #if (!defined USB_DEVICE_LOW_SPEED) || (!XMEGA_A1U)
-# ifdef CONFIG_OSC_AUTOCAL
-#   if CONFIG_OSC_AUTOCAL_REF_OSC == OSC_ID_USBSOF
+# ifdef CONFIG_OSC_AUTOCAL_RC32MHZ_REF_OSC
+#   if CONFIG_OSC_AUTOCAL_RC32MHZ_REF_OSC == OSC_ID_USBSOF
 	// The SOF calibration can be enabled
 	DFLLRC32M.CTRL = DFLL_ENABLE_bm;
 #   endif
@@ -494,8 +496,8 @@ void udd_disable(void)
 	flags = cpu_irq_save();
 	udd_detach_device();
 	// Disable interface
-	USB_INTCTRLA = 0;
-	USB_INTCTRLB = 0;
+	USB_CTRLA = 0;
+	USB_CTRLB = 0;
 	sysclk_disable_usb();
 	udd_sleep_mode(false);
 #ifndef UDD_NO_SLEEP_MGR
@@ -733,7 +735,8 @@ void udd_ep_abort(udd_ep_id_t ep)
 		ptr_job->call_trans(UDD_EP_TRANSFER_ABORT,
 				(ep & USB_EP_DIR_IN) ?
 				udd_endpoint_in_nb_sent(ep_ctrl)
-				: udd_endpoint_out_nb_receiv(ep_ctrl));
+				: udd_endpoint_out_nb_receiv(ep_ctrl),
+				ep);
 	}
 }
 
@@ -755,7 +758,7 @@ bool udd_ep_wait_stall_clear(udd_ep_id_t ep,
 		ptr_job->busy = true;
 		ptr_job->call_nohalt = callback;
 	} else {
-		// Enpoint not halted then call directly callback
+		// endpoint not halted then call directly callback
 		callback();
 	}
 	return true;
@@ -835,9 +838,9 @@ udd_interrupt_bus_event_end:
 
 /**
  * \internal
- * \brief Function called by USB transfer complet interrupt
+ * \brief Function called by USB transfer complete interrupt
  *
- * USB transfer complet interrupt includes events about endpoint transfer on all endpoints.
+ * USB transfer complete interrupt includes events about endpoint transfer on all endpoints.
  */
 ISR(USB_TRNCOMPL_vect)
 {
@@ -860,7 +863,7 @@ ISR(USB_TRNCOMPL_vect)
 		}
 		Assert(false);
 	}
-	// Check IN/OUT transfer complet on all endpoints
+	// Check IN/OUT transfer complete on all endpoints
 	udd_ack_tc_event();
 
 #if (0!=USB_DEVICE_MAX_EP)
@@ -892,7 +895,7 @@ ISR(USB_TRNCOMPL_vect)
 		goto udd_interrupt_tc_end; // Interrupt acked by control endpoint managed
 	}
 	Assert(udd_ep_is_valid(ep));
-	// Manage end of transfert on endpoint bulk/interrupt/isochronous
+	// Manage end of transfer on endpoint bulk/interrupt/isochronous
 	udd_ep_trans_complet(ep);
 
 #else
@@ -922,7 +925,7 @@ static void udd_ep_init(udd_ep_id_t ep, uint8_t bmAttributes,
 	UDD_EP_t *ep_ctrl;
 
 #if (0!=USB_DEVICE_MAX_EP)
-	// Translate USB attribut to hardware defines
+	// Translate USB attribute to hardware defines
 	switch (bmAttributes & USB_EP_TYPE_MASK) {
 	case USB_EP_TYPE_CONTROL:
 		type = USB_EP_TYPE_CONTROL_gc;
@@ -996,7 +999,7 @@ static void udd_ctrl_init(void)
 	udd_disable_overflow_interrupt();
 	udd_disable_underflow_interrupt();
 
-	// Clear status flag from control endpointS
+	// Clear status flag from control endpoints
 	// Mandatory for ATxmega128A1 Rev. K
 	udd_control_in_set_NACK0();
 	udd_control_in_set_bytecnt(0);
@@ -1017,7 +1020,7 @@ static void udd_ctrl_setup_received(void)
 		if ((UDD_EPCTRL_HANDSHAKE_WAIT_IN_ZLP == udd_ep_control_state)
 				|| (UDD_EPCTRL_HANDSHAKE_WAIT_OUT_ZLP == udd_ep_control_state)) {
 			// Accept that ZLP event can be hidden by setup packet event
-			// in case of setup packet sending quiclky after a ZLP
+			// in case of setup packet sending quickly after a ZLP
 			udd_ctrl_endofrequest();
 		}
 		// Reinitializes control endpoint management
@@ -1034,7 +1037,7 @@ static void udd_ctrl_setup_received(void)
 
 	// Decode setup request
 	if (udc_process_setup() == false) {
-		// Setup request unknow then stall it
+		// Setup request unknown then stall it
 		udd_ctrl_stall_data();
 		return;
 	}
@@ -1076,7 +1079,7 @@ static void udd_ctrl_in_sent(void)
 
 	nb_remain = udd_g_ctrlreq.payload_size - udd_ctrl_payload_nb_trans;
 	if (0 == nb_remain) {
-		// Update number of total data sending by previous playlaod buffer
+		// Update number of total data sending by previous playload buffer
 		udd_ctrl_prev_payload_nb_trans += udd_ctrl_payload_nb_trans;
 		if ((udd_g_ctrlreq.req.wLength == udd_ctrl_prev_payload_nb_trans)
 				|| b_shortpacket) {
@@ -1086,7 +1089,7 @@ static void udd_ctrl_in_sent(void)
 			udd_ctrl_send_zlp_out();
 			return;
 		}
-		// Need of new buffer because the data phase is not complet
+		// Need of new buffer because the data phase is not complete
 		if ((!udd_g_ctrlreq.over_under_run)
 				|| (!udd_g_ctrlreq.over_under_run())) {
 			// Underrun then send zlp on IN
@@ -1119,7 +1122,7 @@ static void udd_ctrl_out_received(void)
 	uint16_t nb_data;
 
 	if (UDD_EPCTRL_HANDSHAKE_WAIT_OUT_ZLP == udd_ep_control_state) {
-		// Valids end of setup request
+		// Valid end of setup request
 		udd_ctrl_endofrequest();
 		// Reinitializes control endpoint management
 		udd_ctrl_init();
@@ -1145,8 +1148,8 @@ static void udd_ctrl_out_received(void)
 		// End of reception because it is a short packet
 		// or all data are transfered
 
-		// Before send ZLP, call intermediat calback
-		// in case of data receiv generate a stall
+		// Before send ZLP, call intermediate callback
+		// in case of data receive generate a stall
 		udd_g_ctrlreq.payload_size = udd_ctrl_payload_nb_trans;
 		if (NULL != udd_g_ctrlreq.over_under_run) {
 			if (!udd_g_ctrlreq.over_under_run()) {
@@ -1163,7 +1166,7 @@ static void udd_ctrl_out_received(void)
 	if (udd_g_ctrlreq.payload_size == udd_ctrl_payload_nb_trans) {
 		// Overrun then request a new payload buffer
 		if (!udd_g_ctrlreq.over_under_run) {
-			// No callback availabled to request a new payload buffer
+			// No callback available to request a new payload buffer
 			udd_ctrl_stall_data();
 			return;
 		}
@@ -1345,7 +1348,7 @@ static void udd_ep_trans_complet(udd_ep_id_t ep)
 	ep_size = udd_ep_get_size(ep_ctrl);
 
 	if (USB_EP_DIR_IN == (ep & USB_EP_DIR_IN)) {
-		// Transfer complet on IN
+		// Transfer complete on IN
 		nb_trans = udd_endpoint_in_nb_sent(ep_ctrl);
 
 		// Update number of data transfered
@@ -1382,10 +1385,10 @@ static void udd_ep_trans_complet(udd_ep_id_t ep)
 	}
 	else
 	{
-		// Transfer complet on OUT
+		// Transfer complete on OUT
 		nb_trans = udd_endpoint_out_nb_receiv(ep_ctrl);
 
-		// Can be necessary to copy data receiv from cache buffer to user buffer
+		// Can be necessary to copy data receive from cache buffer to user buffer
 		if (ptr_job->b_use_out_cache_buffer) {
 			memcpy(&ptr_job->buf[ptr_job->nb_trans]
 				, udd_ep_out_cache_buffer[ep - 1]
@@ -1399,7 +1402,7 @@ static void udd_ep_trans_complet(udd_ep_id_t ep)
 		}
 
 		// If all previous data requested are received and user buffer not full
-		// then need to receiv other data
+		// then need to receive other data
 		if ((nb_trans == udd_endpoint_out_get_nbbyte_requested(ep_ctrl))
 			&& (ptr_job->nb_trans != ptr_job->buf_size)) {
 			next_trans = ptr_job->buf_size - ptr_job->nb_trans;
@@ -1417,7 +1420,7 @@ static void udd_ep_trans_complet(udd_ep_id_t ep)
 				// Use the cache buffer for Bulk or Interrupt size endpoint
 				ptr_job->b_use_out_cache_buffer = true;
 				udd_endpoint_set_buf( ep_ctrl,
-					udd_ep_out_cache_buffer[((ep & USB_EP_ADDR_MASK) - 1)]);
+					udd_ep_out_cache_buffer[ep - 1]);
 				udd_endpoint_out_set_nbbyte(ep_ctrl, ep_size);
 			} else {
 				// Link the user buffer directly on USB hardware DMA
@@ -1430,12 +1433,13 @@ static void udd_ep_trans_complet(udd_ep_id_t ep)
 		}
 	}
 
-	// Job complet then call callback
+	// Job complete then call callback
 	if (ptr_job->busy) {
 		ptr_job->busy = false;
 		if (NULL != ptr_job->call_trans) {
 			ptr_job->call_trans(UDD_EP_TRANSFER_OK,
-				ptr_job->nb_trans);
+				ptr_job->nb_trans,
+				ep);
 		}
 	}
 	return;

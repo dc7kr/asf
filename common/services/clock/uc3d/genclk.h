@@ -7,6 +7,8 @@
  * 
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -70,7 +72,7 @@ enum genclk_source {
 	GENCLK_SRC_CLK_HSB      = 6,    //!< High Speed Bus clock
 	GENCLK_SRC_CLK_PBA      = 7,    //!< Peripheral Bus A clock
 	GENCLK_SRC_CLK_PBB      = 8,    //!< Peripheral Bus B clock
-	GENCLK_SRC_RC120M       = 9     //!< Clcok from Oscillator 120Mhz
+	GENCLK_SRC_RC120M       = 9     //!< Clock from Oscillator 120Mhz
 
 };
 

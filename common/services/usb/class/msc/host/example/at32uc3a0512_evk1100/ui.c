@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -294,7 +296,7 @@ void ui_stop_write(void)
  *
  * Human interface on EVK1100 :
  * - PWR led is on when power present
- * - Led 0 is on when USB OTG cable is pluged
+ * - Led 0 is on when USB OTG cable is plugged
  * - Led 1 is on when Vbus is present
  * - Led 2 is on when a device is connected
  * - Led 3 blinks when the device is enumerated and USB in idle mode
@@ -304,7 +306,7 @@ void ui_stop_write(void)
  * - Led 4 green is on when a read access is on going
  * - Led 4 red is on when a write access is on going
  * - Led 5 green is on when a LUN test is success
- * - Led 5 red is on when a LUN test is unsuccess
+ * - Led 5 red is on when a LUN test is unsuccessful
  * - Switch PB0 allows to enter the device in suspend mode
  * - Only Push joystick button can be used to wakeup USB device in suspend mode
  *

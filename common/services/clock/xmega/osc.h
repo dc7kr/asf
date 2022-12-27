@@ -3,9 +3,11 @@
  *
  * \brief Chip-specific oscillator management functions
  *
- * Copyright (c) 2010-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -105,7 +107,7 @@
 
 /**
  * \def CONFIG_XOSC_RANGE
- * \brief Board-dependent value that sets the frequencye range of the external
+ * \brief Board-dependent value that sets the frequency range of the external
  * oscillator. This is written to the FRQRANGE field of OSC.XOSCCTRL.
  *
  * \note This is automatically computed from BOARD_XOSC_HZ if it is not manually
@@ -313,6 +315,7 @@ static inline void osc_enable_autocalibration(uint8_t id, uint8_t ref_id)
 		Assert((ref_id == OSC_ID_RC32KHZ) || (ref_id == OSC_ID_XOSC));
 
 		if (ref_id == OSC_ID_XOSC) {
+			osc_enable(OSC_ID_RC32KHZ);
 			OSC.DFLLCTRL |= OSC_RC2MCREF_bm;
 		} else {
 			OSC.DFLLCTRL &= ~(OSC_RC2MCREF_bm);
@@ -329,7 +332,11 @@ static inline void osc_enable_autocalibration(uint8_t id, uint8_t ref_id)
 		OSC.DFLLCTRL &= ~(OSC_RC32MCREF_gm);
 
 		if (ref_id == OSC_ID_XOSC) {
+			osc_enable(OSC_ID_RC32KHZ);
 			OSC.DFLLCTRL |= OSC_RC32MCREF_XOSC32K_gc;
+		}
+		else if (ref_id == OSC_ID_RC32KHZ) {
+			OSC.DFLLCTRL |= OSC_RC32MCREF_RC32K_gc;
 		}
 		else if (ref_id == OSC_ID_USBSOF) {
 			/*
@@ -340,23 +347,15 @@ static inline void osc_enable_autocalibration(uint8_t id, uint8_t ref_id)
 			DFLLRC32M.COMP2 = 0xBB;
 			OSC.DFLLCTRL |= OSC_RC32MCREF_USBSOF_gc;
 		}
-		else if (ref_id == OSC_ID_RC32KHZ) {
-			/*
-			 * Calibrate 32MRC at 48MHz using USB SOF
-			 * 48MHz / 1kHz = 0xBB80
-			 */
-			DFLLRC32M.COMP1 = 0x80;
-			DFLLRC32M.COMP2 = 0xBB;
-			osc_enable(OSC_ID_RC32KHZ);
-			OSC.DFLLCTRL |= OSC_RC32MCREF_RC32K_gc;
-		}
 #else
-		Assert((ref_id == OSC_ID_RC32KHZ) || (ref_id == OSC_ID_XOSC));
+		Assert((ref_id == OSC_ID_RC32KHZ) ||
+				(ref_id == OSC_ID_XOSC));
 
 		if (ref_id == OSC_ID_XOSC) {
+			osc_enable(OSC_ID_RC32KHZ);
 			OSC.DFLLCTRL |= OSC_RC32MCREF_bm;
 		}
-		else {
+		else if (ref_id == OSC_ID_RC32KHZ) {
 			OSC.DFLLCTRL &= ~(OSC_RC32MCREF_bm);
 		}
 #endif

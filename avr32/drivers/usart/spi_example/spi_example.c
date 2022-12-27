@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -65,7 +67,7 @@
  *
  * \section configinfo Configuration Information
  * This example has been tested with the following configuration:
- * - EVK1100 evaluation kit or EVK1101 evalutation kit or STK600+RCUC3D routing card;
+ * - EVK1100 evaluation kit or EVK1101 evaluation kit or STK600+RCUC3D routing card;
  * - CPU clock: 12 MHz;
  * - USART1 connected to a PC serial port via a standard RS232 DB9 cable;
  * - PC terminal settings:

@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -100,7 +102,7 @@
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the vector additon function.
+/*! \brief 16-bit fixed point version of the vector addition function.
  * \ingroup group_vectors
  * \param vect1 A pointer on the 16-bit real vector that will received the result of the addition.
  * \param vect2 A pointer on the 16-bit real vector that will be added with the other input vector (vect3).
@@ -108,7 +110,7 @@
  * \param size The size of the input buffers.
  */
 void dsp16_vect_add(dsp16_t *vect1, dsp16_t *vect2, dsp16_t *vect3, int size);
-/*! \brief 32-bit fixed point version of the vector additon function.
+/*! \brief 32-bit fixed point version of the vector addition function.
  * \ingroup group_vectors
  * \param vect1 A pointer on the 32-bit real vector that will received the result of the addition.
  * \param vect2 A pointer on the 32-bit real vector that will be added with the other input vector (vect3).
@@ -131,7 +133,7 @@ void dsp32_vect_add(dsp32_t *vect1, dsp32_t *vect2, dsp32_t *vect3, int size);
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the vector additon function.
+/*! \brief 16-bit fixed point version of the vector addition function.
  * \ingroup group_vectors
  * \param vect1 A pointer on the 16-bit real vector that will received the result of the addition.
  * \param vect2 A pointer on the 16-bit real vector that will be added with the other input vector (vect3).
@@ -139,7 +141,7 @@ void dsp32_vect_add(dsp32_t *vect1, dsp32_t *vect2, dsp32_t *vect3, int size);
  * \param size The size of the input buffers.
  */
 void dsp16_vect_add_and_sat(dsp16_t *vect1, dsp16_t *vect2, dsp16_t *vect3, int size);
-/*! \brief 32-bit fixed point version of the vector additon function.
+/*! \brief 32-bit fixed point version of the vector addition function.
  * \ingroup group_vectors
  * \param vect1 A pointer on the 32-bit real vector that will received the result of the addition.
  * \param vect2 A pointer on the 32-bit real vector that will be added with the other input vector (vect3).
@@ -698,7 +700,7 @@ void dsp32_vect_conv(dsp32_t *vect1, dsp32_t *vect2, int vect2_size, dsp32_t *ve
  * \endhtmlonly
  */
 
-/*! \brief 16-bit fixed point version of the complex vector additon function.
+/*! \brief 16-bit fixed point version of the complex vector addition function.
  * \ingroup group_vectors
  * \param vect1 A pointer on the 16-bit complex vector that will received the result of the addition.
  * \param vect2 A pointer on the 16-bit complex vector that will be added with the other input vector (vect3).
@@ -706,7 +708,7 @@ void dsp32_vect_conv(dsp32_t *vect1, dsp32_t *vect2, int vect2_size, dsp32_t *ve
  * \param size The size of the input buffers.
  */
 void dsp16_vect_complex_add(dsp16_complex_t *vect1, dsp16_complex_t *vect2, dsp16_complex_t *vect3, int size);
-/*! \brief 32-bit fixed point version of the complex vector additon function.
+/*! \brief 32-bit fixed point version of the complex vector addition function.
  * \ingroup group_vectors
  * \param vect1 A pointer on the 32-bit complex vector that will received the result of the addition.
  * \param vect2 A pointer on the 32-bit complex vector that will be added with the other input vector (vect3).

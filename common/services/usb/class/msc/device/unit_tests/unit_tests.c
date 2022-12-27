@@ -3,9 +3,11 @@
  *
  * \brief Main functions for MSC unit test
  *
- * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -129,22 +131,22 @@ static void run_usb_msc_read_test(const struct test_case *test)
 
 static void run_usb_vbus_test(const struct test_case *test)
 {
-	test_assert_true(test, main_b_vbus_event, "Event vbus not receiv");
+	test_assert_true(test, main_b_vbus_event, "Event vbus not receive");
 }
 
 static void run_usb_resume_test(const struct test_case *test)
 {
-	test_assert_true(test, main_b_resume_event, "Event resume not receiv");
+	test_assert_true(test, main_b_resume_event, "Event resume not receive");
 }
 
 static void run_usb_suspend_test(const struct test_case *test)
 {
-	test_assert_true(test, main_b_suspend_event, "Event suspend not receiv");
+	test_assert_true(test, main_b_suspend_event, "Event suspend not receive");
 }
 
 static void run_usb_sof_test(const struct test_case *test)
 {
-	test_assert_true(test, main_b_sof_event, "Event sof not receiv");
+	test_assert_true(test, main_b_sof_event, "Event sof not receive");
 }
 
 
@@ -172,15 +174,7 @@ int main(void)
 
 	board_init();
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-#if (defined(__GNUC__) && defined(__AVR32__)) ||\
-		(defined(__GNUC__) && SAM)
-	// This unit test will be launched on a test-server, using avr32program.
-	// The reset is done through the OCD. The 'setbuf' command allows to make the
-	// application starts correctly: it will not execute the 'breakpoint'
-	// instruction in _fstat_host (used by printf) and the core will not stay
-	// blocked on the 'breakpoint' instruction (executed in the debug mode).
-	setbuf(stdout, NULL);
-#endif
+
 	// Define all the timestamp to date test cases
 	DEFINE_TEST_CASE(usb_msc_test, NULL,
 			run_usb_msc_test, NULL,

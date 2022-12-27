@@ -3,9 +3,11 @@
  *
  * \brief USART IrDA example configuration.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -37,6 +39,16 @@
  *
  * \asf_license_stop
  *
+ */
+
+/**
+ * \defgroup usart_irda_example_pin_defs
+ *  - <b> SAM3N-EK  --  IrDA transceiver </b>
+ *   - 3V3 -- VCC
+ *   - TXD(PA6) -- TXD
+ *   - RXD(PA5) -- RXD
+ *   - CTS(PA8) -- SD
+ *   - GND -- GND
  */
 
 #ifndef CONF_EXAMPLE_H_INCLUDED

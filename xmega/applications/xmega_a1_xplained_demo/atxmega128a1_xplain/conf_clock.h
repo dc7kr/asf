@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -41,7 +43,7 @@
 #ifndef CONF_CLOCK_H
 #define CONF_CLOCK_H
 
-//! Use the 32 MHz RC oscilaltor as PLL reference
+//! Use the 32 MHz RC oscillator as PLL reference
 #define CONFIG_PLL0_SOURCE      PLL_SRC_RC32MHZ
 //! Divide by 4 (and multiply by 8) to produce a 64 MHz clock
 #define CONFIG_PLL0_DIV         4

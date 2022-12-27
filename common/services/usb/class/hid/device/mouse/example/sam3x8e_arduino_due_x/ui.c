@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -99,7 +101,7 @@ void ui_wakeup_enable(void)
 	// Enable interrupt for button pin
 	pio_configure_pin(WAKEUP_PIN, WAKEUP_PIO_ATTR);
 	pio_enable_pin_interrupt(WAKEUP_PIN);
-	// Enable fastwakeup for button pin
+	// Enable fast wakeup for button pin
 	pmc_set_fast_startup_input(WAKEUP_PMC_FSTT);
 }
 
@@ -107,7 +109,7 @@ void ui_wakeup_disable(void)
 {
 	// Disable interrupt for button pin
 	pio_disable_pin_interrupt(WAKEUP_PIN);
-	// Disable fastwakeup for button pin
+	// Disable fast wakeup for button pin
 	pmc_clr_fast_startup_input(WAKEUP_PMC_FSTT);
 }
 

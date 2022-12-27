@@ -4,9 +4,11 @@
  *
  * \brief Basic SMTP Client for AVR32 UC3.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -71,7 +73,10 @@
 #include "lwip/arch.h"
 #include "lwip/sys.h"
 #include "lwip/sockets.h"
+#include "lwip/init.h"
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
 #include "netif/loopif.h"
+#endif
 
 //! SMTP default port
 #define SMTP_PORT     25

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -162,7 +164,7 @@ Ctrl_status uhi_msc_mem_read_10_ram(uint32_t addr, void *ram)
 	uhi_msc_lun_t *lun_desc;
 
 	while (!uhi_msc_is_available());
-	// uhi_msc_mem_lun already slected by a previous command
+	// uhi_msc_mem_lun already selected by a previous command
 	lun_desc = uhi_msc_get_lun_desc(uhi_msc_mem_lun);
 	if (lun_desc == NULL) {
 		return CTRL_FAIL;
@@ -189,7 +191,7 @@ Ctrl_status uhi_msc_mem_write_10_ram(uint32_t addr, const void *ram)
 	uhi_msc_lun_t *lun_desc;
 
 	while (!uhi_msc_is_available());
-	// uhi_msc_mem_lun already slected by a previous command
+	// uhi_msc_mem_lun already selected by a previous command
 	lun_desc = uhi_msc_get_lun_desc(uhi_msc_mem_lun);
 	if (lun_desc == NULL) {
 		return CTRL_FAIL;

@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -118,7 +120,7 @@ bool  fat_mount( void )
    fs_g_nav_fast.u8_type_fat = FS_TYPE_FAT_UNM;
    fs_gu32_addrsector = 0;    // Start read at the beginning of memory
 
-   // Check if the drive is availabled
+   // Check if the drive is available
    if( !fat_check_device() )
       return false;
 
@@ -178,7 +180,7 @@ bool  fat_mount( void )
 
          // No MBR found then check PBR
 #if (FS_MULTI_PARTITION == true)
-         // The device don't have mutli partition, but only one
+         // The device don't have multi partition, but only one
          if ( 0 != fs_g_nav.u8_partition )
          {
             fs_g_status = FS_ERR_NO_PART;
@@ -385,7 +387,7 @@ bool  fat_format( uint8_t u8_fat_type )
 
 
 
-//! \name Struture for the tables format
+//! \name Structure for the tables format
 typedef struct st_fs_format_table {
    uint32_t   u32_disk_size;
    uint8_t    u8_SecPerClusVal;
@@ -497,7 +499,7 @@ bool  fat_select_filesystem( uint8_t u8_fat_type , bool b_MBR )
       }
    }
 
-   //** Verify the FAT type choosed
+   //** Verify the FAT type chosen
    if(FS_FORMAT_FAT == u8_fat_type )
    {
       if( (((uint32_t)2*1024*1024)/FS_512B) >= fs_s_u32_size_partition  )
@@ -639,7 +641,7 @@ bool  fat_write_MBR( void )
    fs_g_sector[FS_MBR_OFFSET_PART_ENTRY(0) +2] = 2;                     // The sector (2=next to MBR) and the cylinder (0) where the partition starts
    //fs_g_sector[FS_MBR_OFFSET_PART_ENTRY(0) +3] = 0;
 
-   // Write patition type
+   // Write partition type
    if( Is_fat32 )
    {  // FAT 32
       u8_i = FS_PART_TYPE_FAT32;
@@ -680,7 +682,7 @@ bool  fat_write_MBR( void )
    return true;
 }
 
-//! \name Constante for fat_write_PBR() routine
+//! \name Constants for fat_write_PBR() routine
 _CONST_TYPE_ uint8_t const_header_pbr[] = {
    0xEB,0,0x90,                                       // offset 00-02, Add jump boot flag
    'M','S','W','I','N','4','.','1',                   // offset 03-11, No add OEM name
@@ -694,7 +696,7 @@ _CONST_TYPE_ uint8_t const_header_pbr[] = {
    0,0,
    0x3F,0,                                            // offset 24-25, Sector per track (must be egal to MBR information, also maximum sector per head = 0x3F = 6bits)
    0,0,                                               // offset 26-27, Number of header
-   1                                                  // offset 28-31, Number of hidden setors
+   1                                                  // offset 28-31, Number of hidden sectors
    };
 _CONST_TYPE_ uint8_t const_tail_pbr[] = {           // offset 36 on FAT 16, offset 64 on FAT 32
    FS_PART_HARD_DISK,                                 // Driver number
@@ -706,7 +708,7 @@ _CONST_TYPE_ uint8_t const_tail_pbr[] = {           // offset 36 on FAT 16, offs
    };
 
 
-//! \name Constante of "FAT32 FSInfo Sector"
+//! \name Constants of "FAT32 FSInfo Sector"
 //! @{
 _CONST_TYPE_ uint8_t const_FSI_LeadSig[] = {
    0x52,0x52,0x61,0x41                                //! offset 00-04, This lead signature
@@ -791,7 +793,7 @@ bool  fat_write_PBR( bool b_MBR )
       // FAT 12 or 16
       // offset 14-15, Add Number of reserved sector, FAT = 1 sector
       fs_g_sector[14] = 1;
-      // offset 17-18, Add Number of root entry, FAT = 512 entrys
+      // offset 17-18, Add Number of root entry, FAT = 512 entries
       //fs_g_sector[17] = 512&0xFF;
       fs_g_sector[18] = 512>>8;
 
@@ -951,7 +953,7 @@ bool  fat_clean_zone( bool b_MBR )
    }
    else
    {  // FAT 12 or 16
-      // root size = 512 entrys = 32 sectors AND reserved zone = 1 - 1(PBR)
+      // root size = 512 entries = 32 sectors AND reserved zone = 1 - 1(PBR)
       u16_nb_sector_clean = 32;
    }
    u16_nb_sector_clean += ((uint16_t)fs_g_nav.u32_fat_size*2);  // Add FAT size
@@ -980,7 +982,7 @@ bool  fat_clean_zone( bool b_MBR )
 }
 
 
-//! \name Constante for fat_initialize_fat() function
+//! \name Constants for fat_initialize_fat() function
 //! @{
 _CONST_TYPE_ uint8_t const_header_fat12[] = {
    0xF8,0xFF,0xFF                            // reserved clusters 0 & 1
@@ -1053,7 +1055,7 @@ bool  fat_serialnumber( bool b_action , uint8_t _MEM_TYPE_SLOW_ *a_u8_sn )
    if( !fat_cache_read_sector( true ))
       return false;
 
-   // The serial is storaged at invert
+   // The serial is stored at invert
    if( b_action == FS_SN_READ )
    {
       // Read serial number
@@ -1111,7 +1113,7 @@ bool  fat_entry_label( bool b_action , FS_STRING sz_label )
             u8_char = 0;
          *sz_label = u8_char;
          if( 0 == u8_char )
-            return true;                           // Label readed
+            return true;                           // Label read
          ptr_entry++;
          sz_label++;
       }
@@ -1172,7 +1174,7 @@ bool  fat_entry_label( bool b_action , FS_STRING sz_label )
 //! IN :
 //!   fs_g_seg.u32_addr          cluster value of a directory
 //! OUT:
-//!   update the sector cache with init directory datas
+//!   update the sector cache with init directory data
 //! @endverbatim
 //!
 bool  fat_initialize_dir( void )
@@ -1214,7 +1216,7 @@ bool  fat_initialize_dir( void )
 //!
 //! @param     type_date         choose the date type (FS_DATE_LAST_WRITE or FS_DATE_CREATION)
 //! @param     sz_date           table to store the date <br>
-//!                              storage format (ASCII) = "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, seconde, miliseconde
+//!                              storage format (ASCII) = "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, second, millisecond
 //!
 void  fat_get_date( FS_STRING sz_date , bool type_date )
 {
@@ -1235,7 +1237,7 @@ void  fat_get_date( FS_STRING sz_date , bool type_date )
 //! This function translates a date FAT value to ascii string
 //!
 //! @param     sz_date           table to store the date information <br>
-//!                              storage format (ASCII) = "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, seconde, miliseconde
+//!                              storage format (ASCII) = "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, second, millisecond
 //! @param     ptr_date          pointer on date in internal cache
 //! @param     enable_ms         true, translate the millisecond field
 //!
@@ -1259,7 +1261,7 @@ void  fat_translatedate_number_to_ascii( FS_STRING sz_date , PTR_CACHE ptr_date 
    ptr_date++;
    msb_date = *ptr_date;
 
-   // Initialise the string with "1980000000000000" (Year = 1980 and other at 0)
+   // Initialize the string with "1980000000000000" (Year = 1980 and other at 0)
    ptr_string_date = sz_date;
    *ptr_string_date = '1';
    ptr_string_date++;
@@ -1288,16 +1290,16 @@ void  fat_translatedate_number_to_ascii( FS_STRING sz_date , PTR_CACHE ptr_date 
    // Get the minute
    fat_translate_number_to_ascii( &sz_date[10] , 2 , ((msb_time & 0x07)<<3) + (lsb_time>>5) );
 
-   // Get the seconde
+   // Get the second
    fat_translate_number_to_ascii( &sz_date[12] , 2 , (lsb_time & 0x1F)<<1 );
    if( 99 < u8_ms )
    {
-     // Add one seconde
+     // Add one second
      fat_translate_number_to_ascii( &sz_date[12] , 2 , 1 );
      u8_ms -= 100;
    }
 
-   // Get the miliseconde
+   // Get the millisecond
    fat_translate_number_to_ascii( &sz_date[14] , 2 , u8_ms );
 }
 
@@ -1337,7 +1339,7 @@ void  fat_translate_number_to_ascii( FS_STRING sz_ascii_number, uint8_t u8_size_
 //!
 //! @param     type_date         choose date field (FS_DATE_LAST_WRITE or FS_DATE_CREATION)
 //! @param     sz_date           table with date information <br>
-//!                              storage format (ASCII) = "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, seconde, miliseconde
+//!                              storage format (ASCII) = "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, second, millisecond
 //!
 //! @verbatim
 //! OUT, update cache sector with the new date
@@ -1364,7 +1366,7 @@ void  fat_set_date( const FS_STRING sz_date , bool type_date )
 //! This function translates a date ascii string to date FAT value
 //!
 //! @param     sz_date        table with date information  <br>
-//!                           storage format (ASCII) = "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, seconde, miliseconde
+//!                           storage format (ASCII) = "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, second, millisecond
 //! @param     ptr_date       pointer on date in internal cache
 //! @param     enable_ms      true, translate the millisecond field
 //!
@@ -1396,21 +1398,21 @@ void  fat_translatedate_ascii_to_number( const FS_STRING sz_date , PTR_CACHE ptr
    msb_time |= (u8_tmp >> 3);
    lsb_time  = (u8_tmp << 5);
 
-   // Set the seconde
+   // Set the second
    u8_tmp    = (uint8_t)fat_translate_ascii_to_number( &sz_date[12] , 2 );
    lsb_time |= (u8_tmp >> 1);
 
-   // Set the miliseconde
+   // Set the millisecond
    if( enable_ms )
    {
-      // check if the seconde time is %2
+      // check if the second time is %2
       if( u8_tmp & 0x01 )
       {  // it isn't %2
-         u8_tmp = 100;  // add one seconde
+         u8_tmp = 100;  // add one second
       }
       else
       {
-         u8_tmp = 0;    // no more seconde
+         u8_tmp = 0;    // no more second
       }
       *ptr_date = u8_tmp + (uint8_t)fat_translate_ascii_to_number( &sz_date[14] , 2 );
       ptr_date++;
@@ -1504,7 +1506,7 @@ bool  fat_create_entry_file_name( FS_STRING sz_name )
    if( 0 == u8_nb_entry )
       return false;
 
-   // Search a unik short entry
+   // Search a unique short entry
    u8_nb = fat_find_short_entry_name( sz_name  );
    if( 0 == u8_nb )
    {
@@ -1512,7 +1514,7 @@ bool  fat_create_entry_file_name( FS_STRING sz_name )
       return false;  // All short name exist
    }
 
-   // Alloc a space for entrys
+   // Alloc a space for entries
    if( !fat_alloc_entry_free( u8_nb_entry ))
       return false;
    // Remark: here the pointer of entry is on the last free entry of new space allocated
@@ -1567,7 +1569,7 @@ void  fat_create_long_name_entry( FS_STRING sz_name , uint8_t u8_crc , uint8_t u
       // fields with no character
       if( 11 == u8_id)
       {
-         *ptr_entry = FS_ATTR_LFN_ENTRY;  // attribut field
+         *ptr_entry = FS_ATTR_LFN_ENTRY;  // Attribute field
          continue;
       }
       if( (12 == u8_id)
@@ -1755,7 +1757,7 @@ uint8_t    fat_create_short_entry_name( FS_STRING sz_name , FS_STRING short_name
 }
 
 
-//! This function searchs an unique short name
+//! This function searches an unique short name
 //!
 //! @param     sz_name     original name
 //!
@@ -1829,7 +1831,7 @@ _CONST_TYPE_ uint8_t fs_s_tab_incorrect_char[]={':','*','?','"','<','>','|'};
 //!
 //! @param     sz_name     original name to create
 //!
-//! @return    number of entry file to strore the name (short + long name) <br>
+//! @return    number of entry file to store the name (short + long name) <br>
 //!            if name incorrect then 0 is returned.
 //!
 uint8_t    fat_check_name( FS_STRING sz_name  )
@@ -1912,7 +1914,7 @@ uint8_t    fat_translate_char_shortname( uint8_t character )
 //! @return    true otherwise
 //!
 //! @verbatim
-//! OUT: Initialise the system on the last alloced free entry
+//! OUT: Initialize the system on the last alloced free entry
 //! @endverbatim
 //!
 bool  fat_alloc_entry_free( uint8_t u8_nb_entry )
@@ -1993,7 +1995,7 @@ bool  fat_alloc_entry_free( uint8_t u8_nb_entry )
 }
 
 
-//! This function remove the entry delected in the directory to clean it
+//! This function remove the entry selected in the directory to clean it
 //!
 //! @return    false in case of error, see global value "fs_g_status" for more detail
 //! @return    true otherwise
@@ -2286,14 +2288,14 @@ endof_fat_getfreespace_percent:
 //!   fs_g_seg.u32_size_or_pos   Maximum size of cluster list to alloc (unit sector)
 //! OUT:
 //!   fs_g_seg.u32_addr          Return the first cluster value of the new cluster list
-//!   fs_g_seg.u32_size_or_pos   The number of sector remainning (no allocated sectors, because disk fragmented or disk full)
+//!   fs_g_seg.u32_size_or_pos   The number of sector remaining (no allocated sectors, because disk fragmented or disk full)
 //! @endverbatim
 //!
 bool  fat_allocfreespace( void )
 {
    // Flag to signal the first step which search the first free cluster of the new list
    bool first_cluster_free_is_found = false;
-   // If true then use a quick procedure but don't scan all FAT else use a slow proceudre but scan all FAT
+   // If true then use a quick procedure but don't scan all FAT else use a slow procedure but scan all FAT
    bool b_quick_find = true;
 
    if( Is_fat32 )
@@ -2404,7 +2406,7 @@ fat_allocfreespace_start:
    {
       if( b_quick_find )
       {
-         // Retry in normal mode to scann all FAT (= no quick mode)
+         // Retry in normal mode to scan all FAT (= no quick mode)
          b_quick_find = false;
          goto fat_allocfreespace_start;
       }
@@ -2429,7 +2431,7 @@ void  fat_clear_info_fat_mod( void )
 
 
 #if (FS_LEVEL_FEATURES > FSFEATURE_READ)
-//! This function copys the modifications of the first FAT to the second FAT
+//! This function copies the modifications of the first FAT to the second FAT
 //!
 //! @return    false in case of error, see global value "fs_g_status" for more detail
 //! @return    true otherwise
@@ -2484,7 +2486,7 @@ bool  fat_clear_cluster( void )
    ;     fs_g_nav.u8_BPB_SecPerClus != u8_loop
    ;     u8_loop++ )
    {
-      // Update internal cache with cluster sector inforamtion but don't read data from memory
+      // Update internal cache with cluster sector information but don't read data from memory
       if( !fat_cache_read_sector( false ))
          return false;
 

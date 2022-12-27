@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -142,7 +144,7 @@
 
 //! Just define here the NF part-number to support
 //! The firmware will be adapted for the selected NF.
-//! Do not define the partnumber if you want an
+//! Do not define the part number if you want an
 //! auto-detection. For that, please use NF_AUTO_DETECT_2KB
 //! or NF_AUTO_DETECT_512B below...
 #define NF_TYPE_MT29F2G08AACWP

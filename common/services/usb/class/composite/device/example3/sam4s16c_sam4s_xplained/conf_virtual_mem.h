@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -46,7 +48,7 @@
 #ifndef _CONF_VIRTUAL_MEM_H_
 #define _CONF_VIRTUAL_MEM_H_
 
-// Start addres of Virtual Memory if it's on external SRAM
+// Start address of Virtual Memory if it's on external SRAM
 #define VMEM_ADDRESS   EBI_CS0_ADDR
 //! Size of Virtual Memory (unit 512B)
 #define VMEM_NB_SECTOR 1024 // External PSRAM 512KB, should > 20KB or PC can not format it)

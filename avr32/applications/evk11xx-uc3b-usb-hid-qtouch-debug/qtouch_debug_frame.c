@@ -2,13 +2,15 @@
  *
  * \file
  *
- * \brief file for Qtouch debug frame.
+ * \brief file for QTouch debug frame.
  *
- * These files contain two functions that are used to decode or encode the Qtouch debug message
+ * These files contain two functions that are used to decode or encode the QTouch debug message
  *
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -76,10 +78,10 @@ int get_message(struct hid_frames frame)
   // Store incoming packet in tx_frame_structure
   hid_tx_frame[tx_index++]=frame;
 
-  // if we have a full packet, this can be transmitted the Qtouch device
+  // if we have a full packet, this can be transmitted the QTouch device
   if(frame.packetCount==frame.packetNumber) {
 
-    // rebuild and send message to Qtouch device
+    // rebuild and send message to QTouch device
     for(i=0;i<frame.packetCount;i++) {
        for(j=0;j<PAYLOAD_SIZE;j++) {
             serial_tx_frame[index++]=hid_tx_frame[i].payload[j];

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -108,7 +110,7 @@ static void mdelay(uint32_t ul_dly_ticks)
 }
 
 /**
- * \brief Handler for Sytem Tick interrupt.
+ * \brief Handler for System Tick interrupt.
  *
  * Process System Tick Event and increments the ul_ms_ticks counter.
  */

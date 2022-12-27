@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -61,7 +63,7 @@
 
 
 /*! \name Speaker sampling rate frequency.
- * Please choose beetween:
+ * Please choose between:
  * - 44100    In KHz. The OSC1 frequency must be 11289600 Hz.
  * - 48000    In KHz. The OSC1 frequency must be 12288000 Hz.
  */

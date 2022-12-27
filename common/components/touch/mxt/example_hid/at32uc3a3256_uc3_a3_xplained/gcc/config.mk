@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -164,7 +166,6 @@ CFLAGS =
 CPPFLAGS = \
        -D BOARD=UC3_A3_XPLAINED                           \
        -D CONF_GFX_ILI9341_SDT028ATFT=1                   \
-       -D GFX_INITIALIZED=1                               \
        -D UDD_ENABLE
 
 # Extra flags to use when linking

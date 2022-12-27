@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -420,7 +422,7 @@ static void dsp16_resampling_polynomial_interpolation(dsp16_t y[4], dsp16_t outp
 
   f_x0_x1_x2_x3 = (f_x1_x2_x3 - f_x0_x1_x2) / (x3 - x0);
 
-  // The polynom equals:
+  // The polynomialial equals:
   // P = x0 + f_x0_x1 * e1(x) + f_x0_x1_x2 * e2(x) + f_x0_x1_x2_x3 * e3(x)
   // Where:
   // e1(x) = (x - x0)

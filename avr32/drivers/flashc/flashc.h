@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -993,7 +995,7 @@ extern volatile void *flashc_memcpy(volatile void *dst, const void *src, size_t 
 
 #if UC3C
 
-/*! \brief Depednding to the CPU frequency, set the wait states of flash read
+/*! \brief Depending to the CPU frequency, set the wait states of flash read
  *         accesses and enable or disable the High speed read mode.
  *
  * \param cpu_f_hz The CPU frequency

@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -172,7 +174,7 @@
 #define ADVERTISE_1000XPSE_ASYM 0x0100  //!< Try for 1000BASE-X asym pause
 #define ADVERTISE_100BASE4      0x0200  //!< Try for 100mbps 4k packets
 #define ADVERTISE_PAUSE_CAP     0x0400  //!< Try for pause
-#define ADVERTISE_PAUSE_ASYM    0x0800  //!< Try for asymetric pause
+#define ADVERTISE_PAUSE_ASYM    0x0800  //!< Try for asymmetric pause
 #define ADVERTISE_RESV          0x1000  //!< Unused...
 #define ADVERTISE_RFAULT        0x2000  //!< Say we can detect faults
 #define ADVERTISE_LPACK         0x4000  //!< Ack link partners response
@@ -197,7 +199,7 @@
 #define LPA_1000XPAUSE_ASYM     0x0100  //!< Can do 1000BASE-X pause asym
 #define LPA_100BASE4            0x0200  //!< Can do 100mbps 4k packets
 #define LPA_PAUSE_CAP           0x0400  //!< Can pause
-#define LPA_PAUSE_ASYM          0x0800  //!< Can pause asymetrically
+#define LPA_PAUSE_ASYM          0x0800  //!< Can pause asymmetrically
 #define LPA_RESV                0x1000  //!< Unused...
 #define LPA_RFAULT              0x2000  //!< Link partner faulted
 #define LPA_LPACK               0x4000  //!< Link partner acked us
@@ -279,10 +281,10 @@ typedef struct _AVR32_TxTdDescriptor {
 /*! Mask for frame used. */
 #define AVR32_OWNERSHIP_BIT   0x00000001
 
-/*! Receive status defintion.
+/*! Receive status definition.
  */
 //! @{
-#define AVR32_BROADCAST_ADDR  ((unsigned int) (1 << 31))  //* Broadcat address detected
+#define AVR32_BROADCAST_ADDR  ((unsigned int) (1 << 31))  //* Broadcast address detected
 #define AVR32_MULTICAST_HASH  ((unsigned int) (1 << 30))  //* MultiCast hash match
 #define AVR32_UNICAST_HASH    ((unsigned int) (1 << 29))  //* UniCast hash match
 #define AVR32_EXTERNAL_ADDR   ((unsigned int) (1 << 28))  //* External Address match
@@ -333,7 +335,7 @@ extern unsigned long ulReadMDIO(volatile avr32_macb_t *macb, unsigned short usAd
 extern void vWriteMDIO(volatile avr32_macb_t *macb, unsigned short usAddress, unsigned short usValue);
 
 /**
- * \brief Initialise the MACB driver.
+ * \brief initialize the MACB driver.
  *
  * \param *macb Base address of the MACB
  *
@@ -377,7 +379,7 @@ extern void vMACBRead(void *pvTo, unsigned long ulSectionLength, unsigned long u
 extern void vClearMACBTxBuffer(void);
 
 /**
- * \brief Wait for new ethernet data.
+ * \brief Wait for new Ethernet data.
  *
  * - FreeRTOS implementation: Suspend on a semaphore waiting either for the
  * semaphore to be obtained or a timeout. The semaphore is used by the MACB ISR

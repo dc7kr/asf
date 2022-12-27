@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -43,6 +45,7 @@
 #include "board.h"
 #include "conf_board.h"
 #include "gpio.h"
+#include "pmc.h"
 
 void board_init(void)
 {
@@ -174,16 +177,29 @@ void board_init(void)
 	pio_configure_pin(PIN_EBI_ADDR_BUS_A18, PIN_EBI_ADDR_BUS_FLAG2);
 #endif
 
+#ifdef CONF_BOARD_MMA7341L
+	/* Configure MMA7341L mode set control pin */
+	gpio_configure_pin(PIN_MMA7341L_MODE, PIN_MMA7341L_MODE_FLAG);
+	/* Configure MMA7341L x,y,z axis output voltage pin */
+	gpio_configure_pin(PIN_MMA7341L_X_AXIS, PIN_MMA7341L_X_AXIS_FLAG);
+	gpio_configure_pin(PIN_MMA7341L_Y_AXIS, PIN_MMA7341L_Y_AXIS_FLAG);
+	gpio_configure_pin(PIN_MMA7341L_Z_AXIS, PIN_MMA7341L_Z_AXIS_FLAG);
+#endif
+
 #if defined(CONF_BOARD_ENABLE_MXT143E_XPLAINED)
 	pio_configure_pin(MXT143E_XPLAINED_MISO, SPI_MISO_FLAGS);
 	pio_configure_pin(MXT143E_XPLAINED_MOSI, SPI_MOSI_FLAGS);
 	pio_configure_pin(MXT143E_XPLAINED_SCK, SPI_SPCK_FLAGS);
 	pio_configure_pin(MXT143E_XPLAINED_CS, (PIO_OUTPUT_0 | PIO_DEFAULT));
-	pio_configure_pin(MXT143E_XPLAINED_CHG, (PIO_INPUT | PIO_DEFAULT));
+	pio_configure_pin(MXT143E_XPLAINED_CHG, (PIO_INPUT | PIO_PULLUP));
 	pio_configure_pin(MXT143E_XPLAINED_DC, (PIO_OUTPUT_0 | PIO_DEFAULT));
 	#ifndef MXT143E_XPLAINED_BACKLIGHT_DISABLE
 	pio_configure_pin(MXT143E_XPLAINED_BACKLIGHT, (PIO_OUTPUT_0 | PIO_DEFAULT));
 	#endif
 	pio_configure_pin(MXT143E_XPLAINED_LCD_RESET, (PIO_OUTPUT_0 | PIO_DEFAULT));
+	pio_configure_pin(MXT143E_XPLAINED_SDA, TWI0_DATA_FLAGS);
+	pio_configure_pin(MXT143E_XPLAINED_SCL, TWI0_CLK_FLAGS);
+
+	pmc_enable_periph_clk(ID_PIOB);
 #endif
 }

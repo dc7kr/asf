@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -82,7 +84,7 @@
  * \brief Port to output clock signal on
  *
  * This is the configuration for the clock output port, and must be defined as
- * one of the \c PORTCFG_CLKOUT_t settings of the device headerfile.
+ * one of the \c PORTCFG_CLKOUT_t settings of the device header file.
  *
  * \note It is only possible to select the port, not the pin: the clock signal
  * will be output on pin 7 of the configured port.

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -45,20 +47,20 @@
 /*! \brief Called by CDC interface
  * Callback running when CDC device have received data
  */
-void uart_rx_notify(void);
+void uart_rx_notify(uint8_t port);
 
 /*! \brief Configures communication line
  *
  * \param cfg      line configuration
  */
-void uart_config(usb_cdc_line_coding_t * cfg);
+void uart_config(uint8_t port, usb_cdc_line_coding_t * cfg);
 
 /*! \brief Opens communication line
  */
-void uart_open(void);
+void uart_open(uint8_t port);
 
 /*! \brief Closes communication line
  */
-void uart_close(void);
+void uart_close(uint8_t port);
 
 #endif // _UART_H_

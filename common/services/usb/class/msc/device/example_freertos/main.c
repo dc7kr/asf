@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -172,7 +174,7 @@ void main_msc_disable(void)
  * \section startup Startup
  * The example uses all memories available on the board and connects these to
  * USB Device Mass Storage stack. After loading firmware, connect hardware board
- * (EVKxx,XPlain,...) to the USB Host. When connected to a USB host system
+ * (EVKxx,Xplain,...) to the USB Host. When connected to a USB host system
  * this application allows to display all available memories as a
  * removable disks in the Unix/Mac/Windows operating systems.
  * \note

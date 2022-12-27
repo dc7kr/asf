@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -49,10 +51,10 @@
  */
 
 volatile void *volatile stdio_base;
-int (*ptr_put)(void volatile*,int);
+int (*ptr_put)(void volatile*, char);
 
 
-#if ( defined(__ICCAVR32__) || defined(__ICCAVR__))
+#if ( defined(__ICCAVR32__) || defined(__ICCAVR__) || defined(__ICCARM__))
 
 #include <yfuns.h>
 
@@ -77,7 +79,7 @@ size_t __write(int handle, const unsigned char *buffer, size_t size)
 {
 	size_t nChars = 0;
 
-	if (buffer == 0){
+	if (buffer == 0) {
 		// This means that we should flush internal buffers.
 		return 0;
 	}
@@ -94,8 +96,7 @@ size_t __write(int handle, const unsigned char *buffer, size_t size)
 		}
 		++nChars;
 	}
-
-  return nChars;
+	return nChars;
 }
 
 _STD_END
@@ -103,14 +104,19 @@ _STD_END
 
 #elif (defined(__GNUC__) && !XMEGA)
 
+int _write (int file, char * ptr, int len); // Remove GCC compiler warning
+
+int __attribute__((weak))
+_write (int file, char * ptr, int len);
+
 int __attribute__((weak))
 _write (int file, char * ptr, int len)
 {
 	int nChars = 0;
 
-	if ( (file != 1)
-		&& (file != 2) && (file!=3))
-	return -1;
+	if ((file != 1) && (file != 2) && (file!=3)) {
+		return -1;
+	}
 
 	for (; len != 0; --len) {
 		if (ptr_put(stdio_base, *ptr++) < 0) {
@@ -123,19 +129,18 @@ _write (int file, char * ptr, int len)
 
 #elif (defined(__GNUC__) && XMEGA)
 
-int _write (char c, int *f); // Remove GCC compiler warning
+int _write (char c, int *f);
 
 int _write (char c, int *f)
 {
-	if (ptr_put(stdio_base,c) < 0)
-	{
+	if (ptr_put(stdio_base, c) < 0) {
 		return -1;
 	}
 	return 1;
 }
+#endif
 
 /**
  * \}
  */
 
-#endif

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -159,7 +161,7 @@ void ui_wakeup_enable(void)
 	pio_configure_pin(WAKEUP_PIN, WAKEUP_PIO_ATTR);
 	// Enable interrupt for PA15
 	pio_enable_pin_interrupt(WAKEUP_PIN);
-	// Enable fastwakeup for button pin (WKUP14 for PA15)
+	// Enable fast wakeup for button pin (WKUP14 for PA15)
 	pmc_set_fast_startup_input(WAKEUP_PMC_FSTT);
 }
 
@@ -167,7 +169,7 @@ void ui_wakeup_disable(void)
 {
 	// Disable interrupt for button pin
 	pio_disable_pin_interrupt(WAKEUP_PIN);
-	// Disable fastwakeup for button pin (WKUP14 for PA15)
+	// Disable fast wakeup for button pin (WKUP14 for PA15)
 	pmc_clr_fast_startup_input(WAKEUP_PMC_FSTT);
 }
 
@@ -176,11 +178,11 @@ void ui_wakeup(void)
 	LED_On(LED0_GPIO);
 }
 
-void ui_com_open(void)
+void ui_com_open(uint8_t port)
 {
 }
 
-void ui_com_close(void)
+void ui_com_close(uint8_t port)
 {
 }
 
@@ -317,7 +319,7 @@ void ui_kbd_led(uint8_t value)
  *
  * Human interface on SAM3S-EK:
  * - Led 0 (D2, blue) blinks when USB host has checked and enabled HID and MSC interface
- * - Led 1 (D4, green) is on during read/write operation
+ * - Led 1 (D3, green) is on during read/write operation
  * - No mouse buttons are linked
  * - USRPB1 (BP2) and USRPB2 (BP3) are used to move mouse left and right
  * - Only both buttons down opens a notepad application on Windows O.S.

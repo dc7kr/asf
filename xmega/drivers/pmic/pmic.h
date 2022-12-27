@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -243,7 +245,7 @@ static inline void pmic_set_vector_location(enum pmic_vector vector)
  * \subsection pmic_basic_use_case_setup_prereq Prerequisites
  * For the setup code of this use case to work, the following must
  * be added to the project:
- * -# Interrupts for the module requiering the PMIC module have to be 
+ * -# Interrupts for the module requiring the PMIC module have to be 
  *    enabled.
  * -# An Interrupt Service Routine (ISR) for a given interrupt vector has to be 
  *    defined, where the interrupt vectors available are defined by toolchain and 
@@ -294,7 +296,7 @@ static inline void pmic_set_vector_location(enum pmic_vector vector)
  * \subsection pmic_basic_use_case_setup_prereq Prerequisites
  * For the setup code of this use case to work, the following must
  * be added to the project:
- * -# Interrupts for the module requiering the PMIC module have to be 
+ * -# Interrupts for the module requiring the PMIC module have to be 
  *    enabled.
  * -# An Interrupt Service Routine (ISR) for a given interrupt vector has to be 
  *    defined, where the interrupt vectors available are defined by toolchain and 

@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -237,7 +239,7 @@ static void usb_mass_storage_csw(void)
     if (Is_usb_setup_received()) usb_process_request();
   }
 
-  // MSC Compliance - Free BAD out receiv during SCSI command
+  // MSC Compliance - Free BAD out receive during SCSI command
   while( Is_usb_out_received(EP_MS_OUT) ) {
     Usb_ack_out_received_free(EP_MS_OUT);
   }
@@ -261,7 +263,7 @@ static void usb_mass_storage_csw(void)
 
   Usb_ack_in_ready_send(EP_MS_IN);
 
-  // MSC Compliance - Wait end of all transmitions on USB line
+  // MSC Compliance - Wait end of all transmissions on USB line
   while( 0 != Usb_nb_busy_bank(EP_MS_IN) )
   {
     if (Is_usb_setup_received()) usb_process_request();

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -70,7 +72,7 @@
  *
  * First it uses the function \ref ili9341_duplicate_pixel to draw a color to
  * the screen 20 times. Then it uses \ref ili9341_copy_pixels_to_screen to copy
- * a 40 x 40 single color pixmap to the screen at differnet locations.
+ * a 40 x 40 single color pixmap to the screen at different locations.
  *
  * For any advanced drawing of graphics please use the higher level GFX
  * service.

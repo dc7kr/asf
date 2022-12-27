@@ -735,7 +735,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1636,7 +1636,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1803,36 +1803,6 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>common</name>
-		<group>
-			<name>services</name>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>example1</name>
-					<file>
-						<name>$PROJ_DIR$/../../clock_example1_sam.c</name>
-					</file>
-				</group>
-				<group>
-					<name>sam4s</name>
-					<file>
-						<name>$PROJ_DIR$/../../../sam4s/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-			</group>
-		</group>
-	</group>
-	<group>
 		<name>sam</name>
 		<group>
 			<name>drivers</name>
@@ -1884,15 +1854,6 @@
 					</group>
 				</group>
 			</group>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../sam/utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
-				</group>
-			</group>
 		</group>
 		<group>
 			<name>boards</name>
@@ -1900,6 +1861,36 @@
 				<name>sam4s_ek</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/boards/sam4s_ek/init.c</name>
+				</file>
+			</group>
+		</group>
+	</group>
+	<group>
+		<name>common</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam4s</name>
+					<file>
+						<name>$PROJ_DIR$/../../../sam4s/sysclk.c</name>
+					</file>
+				</group>
+				<group>
+					<name>example1</name>
+					<file>
+						<name>$PROJ_DIR$/../../clock_example1_sam.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
 				</file>
 			</group>
 		</group>

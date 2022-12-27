@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -54,8 +56,8 @@
  * - \ref conf_mxt.h
  * - \ref conf_sysfont.h
  * - \ref conf_twim.h
- * - \ref conf_spi_master.h
- * - \ref conf_usart_spi.h
+ * - UC3 and SAM only: \ref conf_spi_master.h
+ * - XMEGA only: \ref conf_usart_spi.h
  *
  * \section device_info Device Info
  * This example has been tested with the mXT143E Xplained on the following
@@ -65,6 +67,7 @@
  * - XMEGA-A1 Xplained
  * - XMEGA-B1 Xplained
  * - XMEGA-A3BU Xplained
+ * - SAM4S Xplained
  *
  * \section exampledescription Description of the example
  * This example can track the movement and pressure of fingers on the display,
@@ -137,13 +140,15 @@ uint8_t selected_pallet_color = 0;
 /**
  * \brief Set maXTouch configuration
  *
- * This function writes a set of predefined, optimal maXTouch configuration
- * data to the mXT143E Xplained.
+ * This function writes a set of predefined, optimal maXTouch configuration data
+ * to the mXT143E Xplained.
  *
  * \param device Pointer to mxt_device struct
  */
-static void mxt_set_config(struct mxt_device *device)
+static void mxt_init(struct mxt_device *device)
 {
+	enum status_code status;
+
 	/* T8 configuration object data */
 	uint8_t t8_object[] = {
 		0x10, 0x05, 0x0a, 0x14, 0x64, 0x00, 0x05,
@@ -171,6 +176,29 @@ static void mxt_set_config(struct mxt_device *device)
 		0x00, 0x00, 0x00, 0x00, 0x00
 	};
 
+	/* TWI configuration */
+	twi_master_options_t twi_opt = {
+		.speed = MXT_TWI_SPEED,
+		.chip  = MAXTOUCH_TWI_ADDRESS,
+	};
+
+	status = twi_master_setup(TWI_INTERFACE, &twi_opt);
+	Assert(status == STATUS_OK);
+
+	/* Initialize the maXTouch device */
+	status = mxt_init_device(device, TWI_INTERFACE,
+			MAXTOUCH_TWI_ADDRESS, MXT143E_XPLAINED_CHG);
+	Assert(status == STATUS_OK);
+
+	/* Issue soft reset of maXTouch device by writing a non-zero value to
+	 * the reset register */
+	mxt_write_config_reg(device, mxt_get_object_address(device,
+			MXT_GEN_COMMANDPROCESSOR_T6, 0)
+			+ MXT_GEN_COMMANDPROCESSOR_RESET, 0x01);
+
+	/* Wait for the reset of the device to complete */
+	delay_ms(MXT_RESET_TIME);
+
 	/* Write data to configuration registers in T7 configuration object */
 	mxt_write_config_reg(device, mxt_get_object_address(device,
 			MXT_GEN_POWERCONFIG_T7, 0) + 0, 0xff);
@@ -186,12 +214,18 @@ static void mxt_set_config(struct mxt_device *device)
 			MXT_TOUCH_MULTITOUCHSCREEN_T9, 0), &t9_object);
 	mxt_write_config_object(device, mxt_get_object_address(device,
 			MXT_PROCG_TOUCHSUPPRESSION_T48, 0), &t48_object);
+
+	/* Issue recalibration command to maXTouch device by writing a non-zero
+	 * value to the calibrate register */
+	mxt_write_config_reg(device, mxt_get_object_address(device,
+			MXT_GEN_COMMANDPROCESSOR_T6, 0)
+			+ MXT_GEN_COMMANDPROCESSOR_CALIBRATE, 0x01);
 }
 
 /**
  * \brief Draws a text string to the display centered in a rectangular area
  *
- * This function draws a given ASCII string to the display in the sytem font,
+ * This function draws a given ASCII string to the display in the system font,
  * centered around a given rectangular area.
  *
  * \param text    Text to write to the display
@@ -312,7 +346,7 @@ static void draw_paint_pallet(void)
 /**
  * \brief Compute the next rainbow color for multi-color drawing mode
  *
- * This function handles the color mixing algoritm needed to produce a sequence
+ * This function handles the color mixing algorithm needed to produce a sequence
  * of colors in the RGB spectrum. Each time it is called, the next color in the
  * sequence is returned.
  *
@@ -457,22 +491,14 @@ static void mxt_handler(struct mxt_device *device)
  */
 int main(void)
 {
-	/* Temporary status code container */
-	enum status_code status;
-
 	/* maXTouch data structure */
 	static struct mxt_device device;
-
-	/* TWI configuration */
-	twi_master_options_t twi_opt = {
-		.speed = MXT_TWI_SPEED,
-		.chip  = MAXTOUCH_TWI_ADDRESS,
-	};
 
 	/* Basic init routines */
 	board_init();
 	sysclk_init();
 	gfx_init();
+	mxt_init(&device);
 
 	/* Set screen orientation to landscape mode */
 	gfx_set_orientation(GFX_SWITCH_XY | GFX_FLIP_Y);
@@ -493,33 +519,6 @@ int main(void)
 			"Select CLR to clear the display.",
 			0, 0, gfx_get_width(),
 			gfx_get_height() - PALLET_HEIGHT, COLOR_WHITE);
-
-	/* Set up TWI master to communicate with maXTouch device */
-	status = twi_master_setup(TWI_INTERFACE, &twi_opt);
-	Assert(status == STATUS_OK);
-
-	/* Initialize the maXTouch device */
-	status = mxt_init_device(&device, TWI_INTERFACE,
-			MAXTOUCH_TWI_ADDRESS, MXT143E_XPLAINED_CHG);
-	Assert(status == STATUS_OK);
-
-	/* Issue soft reset of maXTouch device by writing a non-zero value to
-	 * the reset register */
-	mxt_write_config_reg(&device, mxt_get_object_address(&device,
-			MXT_GEN_COMMANDPROCESSOR_T6, 0)
-			+ MXT_GEN_COMMANDPROCESSOR_RESET, 0x01);
-
-	/* Wait for the reset of the device to complete */
-	delay_ms(MXT_RESET_TIME);
-
-	/* Set configuration */
-	mxt_set_config(&device);
-
-	/* Issue recalibration command to maXTouch device by writing a non-zero
-	 * value to the calibrate register */
-	mxt_write_config_reg(&device, mxt_get_object_address(&device,
-			MXT_GEN_COMMANDPROCESSOR_T6, 0)
-			+ MXT_GEN_COMMANDPROCESSOR_CALIBRATE, 0x01);
 
 	while (true) {
 		/* Check for any pending messages and run message handler if any

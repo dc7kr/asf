@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -167,7 +169,7 @@ extern void dacifb_get_calibration_data(  volatile avr32_dacifb_t * dacifb,
  *
  * \param *dacifb      Base address of the DACIFB
  * \param *p_dacifb_opt Structure for the DACIFB core configuration
- * \param pb_hz        Periphal Bus frequency
+ * \param pb_hz        Peripheral Bus frequency
  * \return U8          DACIFB_CONFIGURATION_REFUSED or DACIFB_CONFIGURATION_ACCEPTED
  */
 extern U8 dacifb_configure(volatile avr32_dacifb_t * dacifb,
@@ -220,7 +222,7 @@ extern void dacifb_set_value(volatile avr32_dacifb_t * dacifb,
 /*! \brief Reload Timer for Automatic Trigger on DAC
  *  \param *dacifb  Base address of the DACIFB
  *  \param channel  DACIFB_CHANNEL_SELECTION_NONE / DACIFB_CHANNEL_SELECTION_A / DACIFB_CHANNEL_SELECTION_B / DACIFB_CHANNEL_SELECTION_AB
- * \param  timer_us Timer Value in Microsecondes
+ * \param  timer_us Timer Value in Microseconds
  * \param  prescaler_clock_hz     Prescaler Clock in Hertz (should be > 500000Hz)
 */
 extern void dacifb_reload_timer(volatile avr32_dacifb_t * dacifb,

@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -322,7 +324,7 @@ bool sd_mmc_mci_init(unsigned char card_slot, long pbb_hz, long cpu_hz)
   g_pbb_hz = pbb_hz;
   g_cpu_hz = cpu_hz;
 
-  // Init MCI controler
+  // Init MCI controller
   if (mci_init(mci, card_slot, pbb_hz)!=MCI_SUCCESS)
     return false;
 
@@ -451,13 +453,13 @@ sd_mmc_init_step2:
   }
   if (SD_CARD & g_card_type[slot])
   {
-    // For SD  card, you receiv address of card
+    // For SD  card, you receive address of card
     g_card_rca[slot] = mci_read_response(mci) & RCA_MSK_ADR ;
   }
 
 
   //-- (CMD9)
-  // Read & analyse CSD register
+  // Read & analyze CSD register
   if (sd_mmc_mci_get_csd(slot)!=true)
     return false;
 
@@ -613,7 +615,7 @@ sd_mmc_init_step2:
 
       /* A 8 cycle delay is required after switch command
        * @ 200KHz clock this should be 40 uS, but we use
-       * 80 to handle unprecise clock setting.
+       * 80 to handle imprecise clock setting.
        */
       cpu_delay_us(80, g_cpu_hz);
 
@@ -634,7 +636,7 @@ sd_mmc_init_step2:
       mci_wait_busy_signal(mci);// read busy state on DAT0
 
       //-- (CMD9)
-      // Read & analyse CSD register
+      // Read & analyze CSD register
       if (sd_mmc_mci_get_csd(slot)!=true)
         return false;
 

@@ -1,9 +1,11 @@
 /**
- * \file
+ * \file Smiley icon for the ILI9341 display controller
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -93,4 +95,5 @@ PROGMEM_DECLARE(gfx_color_t, smiley_data[400]) = {
 };
 struct gfx_bitmap smiley = {
 	.width = 20, .height = 20 , .type = GFX_BITMAP_PROGMEM,
-	.data.progmem = (gfx_color_t PROGMEM_PTR_T)smiley_data};
+	.data.progmem = (gfx_color_t PROGMEM_PTR_T)smiley_data
+};

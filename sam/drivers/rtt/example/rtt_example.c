@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -45,7 +47,7 @@
  * \section Purpose
  *
  * This example demonstrates the Real-Time Timer (RTT) provided on
- * SAM3 microcontrollers. It enables the user to set an alarm and watch
+ * SAM microcontrollers. It enables the user to set an alarm and watch
  * it being triggered when the timer reaches the corresponding value.
  *
  * \section Requirements
@@ -80,7 +82,7 @@
  *     -- RTT Example --
  *     -- xxxxxx-xx
  *     -- Compiled: xxx xx xxxx xx:xx:xx --
- *     Time: 0
+ *     Time: 1
  *     Menu:
  *     r - Reset timer
  *     s - Set alarm
@@ -89,6 +91,7 @@
  */
 
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 
@@ -113,7 +116,7 @@ volatile uint8_t g_uc_state;
 /** New alarm time being currently entered. */
 volatile uint32_t g_ul_new_alarm;
 
-/** Indicate that an alarm has occured but has not been cleared. */
+/** Indicate that an alarm has occurred but has not been cleared. */
 volatile uint8_t g_uc_alarmed;
 
 /**
@@ -145,7 +148,7 @@ static void refresh_display(void)
 		if (g_uc_state == STATE_SET_ALARM) {
 			puts("Enter alarm time: ");
 			if (g_ul_new_alarm != 0) {
-				printf("%u", g_ul_new_alarm);
+				printf("%u", (unsigned)g_ul_new_alarm);
 			}
 		}
 	}
@@ -179,27 +182,14 @@ static void configure_rtt(void)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**

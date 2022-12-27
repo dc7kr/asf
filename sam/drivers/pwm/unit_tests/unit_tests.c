@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -91,16 +93,9 @@
 //@{
 /**
  * \def CONF_TEST_PWM
- * \brief Start PWM, check peroid, comparison and PDC transfer interrupt.
+ * \brief Start PWM, check period, comparison and PDC transfer interrupt.
  */
 //@}
-
-/* Pointer to the module instance to use for stdio. */
-#if defined(__GNUC__)
-void (*ptr_get)(void volatile*,int*);
-int (*ptr_put)(void volatile*,int);
-volatile void *volatile stdio_base;
-#endif
 
 /** PWM frequency in Hz */
 #define PWM_FREQUENCY  50
@@ -218,7 +213,7 @@ static void run_pwm_test(const struct test_case *test)
 	pwm_cmp_t comparison_unit = {
 		.unit = PWM_UNIT_TEST_CMP,     /* Use PWM_UNIT_TEST_CMP as comparison unit */
 		.b_enable = 1,                 /* Enable the comparison unit */
-		.ul_value = PERIOD_VALUE - 1   /* Comparison vaule = Period value - 1 */
+		.ul_value = PERIOD_VALUE - 1   /* Comparison value = Period value - 1 */
 	};
 
 	/* Initialize PWM comparison unit */
@@ -298,10 +293,6 @@ int main(void)
 		while (1) {
 		}
 	}
-
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
 
 	/* Define all the test cases */
 	DEFINE_TEST_CASE(pwm_test, NULL, run_pwm_test, NULL,

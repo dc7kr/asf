@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -117,8 +119,8 @@ extern bool adc_check_eoc(volatile avr32_adc_t * adc, unsigned short channel);
  *
  * \param *adc Base address of the ADC
  * \param  channel   channel to check (0 to 7)
- * \return bool      FAIL if an error occured
- *                   PASS if no error occured
+ * \return bool      FAIL if an error occurred
+ *                   PASS if no error occurred
  */
 extern bool adc_check_ovr(volatile avr32_adc_t * adc, unsigned short channel);
 
@@ -126,7 +128,7 @@ extern bool adc_check_ovr(volatile avr32_adc_t * adc, unsigned short channel);
  *
  * \param *adc Base address of the ADC
  * \param  channel   channel to handle (0 to 7)
- * \return The value aquired (unsigned long)
+ * \return The value acquired (unsigned long)
  */
 extern unsigned long adc_get_value(volatile avr32_adc_t * adc, unsigned short channel);
 

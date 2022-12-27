@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -72,7 +74,7 @@ void ntc_sensor_application(void)
 	char temperature_string[15];
 	// Variable to hold the image thermometer scale
 	uint8_t temp_scale;
-	// Variable for holding the actual temperature in celcius
+	// Variable for holding the actual temperature in Celsius
 	int16_t temperature;
 
 	// Initiate a temperature sensor reading
@@ -115,10 +117,10 @@ void ntc_sensor_application(void)
 		gfx_mono_draw_filled_rect(X_POS + 2, 3, 2, temp_scale,
 				GFX_PIXEL_CLR);
 
-		snprintf(temperature_string, sizeof(temperature_string), "%3i Celcius",
+		snprintf(temperature_string, sizeof(temperature_string), "%3i Celsius",
 				temperature);
 
-		// Draw the celcius string
+		// Draw the Celsius string
 		gfx_mono_draw_string(temperature_string, X_POS + 12, 13, &sysfont);
 
 		// Convert the temperature to Fahrenheit

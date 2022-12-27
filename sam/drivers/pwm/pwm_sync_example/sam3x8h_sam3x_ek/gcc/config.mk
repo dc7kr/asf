@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -45,20 +47,23 @@ PART = sam3x8h
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = pwm_pwm_pdc_example_flash.elf
-TARGET_SRAM = pwm_pwm_pdc_example_sram.elf
+TARGET_FLASH = pwm_pwm_sync_example_flash.elf
+TARGET_SRAM = pwm_pwm_sync_example_sram.elf
 
 # List of C source files.
 CSRCS = \
        common/services/clock/sam3x/sysclk.c               \
+       common/services/serial/usart_serial.c              \
        common/utils/interrupt/interrupt_sam_nvic.c        \
+       common/utils/stdio/read.c                          \
+       common/utils/stdio/write.c                         \
        sam/boards/sam3x_ek/init.c                         \
        sam/drivers/pdc/pdc.c                              \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/pwm/pwm.c                              \
-       sam/drivers/pwm/pwm_sync_example/pwm_pdc_example.c \
+       sam/drivers/pwm/pwm_sync_example/pwm_sync_example.c \
        sam/drivers/uart/uart.c                            \
        sam/utils/cmsis/sam3x/source/templates/exceptions.c \
        sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.c \
@@ -73,7 +78,10 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/serial                             \
+       common/services/serial/sam_uart                    \
        common/utils                                       \
+       common/utils/stdio/stdio_serial                    \
        sam/boards                                         \
        sam/boards/sam3x_ek                                \
        sam/drivers/pdc                                    \

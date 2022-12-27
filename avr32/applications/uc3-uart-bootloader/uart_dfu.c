@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -1169,7 +1171,7 @@ static void write_mem(req_header_t *req_header, U8 *checksum)
   }
 
   if(!address_range_nb_bytes)
-  {   // All datas have been received
+  {   // All data has been received
     // Change dfu_state if all data have been received (will be done by
     // dump_dfu_packet_and_reset_dfu_state()).
     // Write to the memory.

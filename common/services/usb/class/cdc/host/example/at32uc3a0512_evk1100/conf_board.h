@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -42,7 +44,7 @@
 #ifndef CONF_BOARD_H_INCLUDED
 #define CONF_BOARD_H_INCLUDED
 
-// Enable UART Port
+/* Enable UART Port */
 #define CONF_BOARD_COM_PORT
 
 #endif /* CONF_BOARD_H_INCLUDED */

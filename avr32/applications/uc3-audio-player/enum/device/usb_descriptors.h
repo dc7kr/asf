@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -165,13 +167,13 @@
 #define  ALT0_AS_OUT_INTERFACE_INDEX         0x00                             // Index of Std AS interface Alt0
 #define  ALT0_AS_OUT_NB_ENDPOINT             0x00                             // Nb od endpoints for alt0 interface
 #define  ALT0_AS_OUT_INTERFACE_CLASS         AUDIO_CLASS                      // Audio class
-#define  ALT0_AS_OUT_INTERFACE_SUB_CLASS     AUDIOSTREAMING_SUBCLASS          // Audio streamn sub class
+#define  ALT0_AS_OUT_INTERFACE_SUB_CLASS     AUDIOSTREAMING_SUBCLASS          // Audio streaming sub class
 #define  ALT0_AS_OUT_INTERFACE_PROTOCOL      NO_PROTOCOL                      // Unused
              //Alternate 1 Audio Streaming (AS) interface descriptor
 #define  ALT1_AS_OUT_INTERFACE_INDEX         0x01                             // Index of Std AS interface Alt1
 #define  ALT1_AS_OUT_NB_ENDPOINT             0x01                             // Nb od endpoints for alt1 interface
 #define  ALT1_AS_OUT_INTERFACE_CLASS         AUDIO_CLASS                      // Audio class
-#define  ALT1_AS_OUT_INTERFACE_SUB_CLASS     AUDIOSTREAMING_SUBCLASS          // Audio streamn sub class
+#define  ALT1_AS_OUT_INTERFACE_SUB_CLASS     AUDIOSTREAMING_SUBCLASS          // Audio streaming sub class
 #define  ALT1_AS_OUT_INTERFACE_PROTOCOL      NO_PROTOCOL                      // Unused
              //AS general Interface descriptor
 #define  AS_OUT_TERMINAL_LINK                SPEAKER_INPUT_TERMINAL_ID        // Unit Id of the output terminal
@@ -197,7 +199,7 @@
 
 #define  OUT_FORMAT_MSBYTE_SAMPLE_FREQ       0x00                             // MsByte
              //Audio endpoint specific descriptor field
-#define  AUDIO_EP_OUT_ATRIBUTES              0x01                             // Sampling freq control, no pitch, no pading
+#define  AUDIO_EP_OUT_ATRIBUTES              0x01                             // Sampling freq control, no pitch, no padding
 #define  AUDIO_EP_OUT_DELAY_UNIT             0x00                             // Unused
 #define  AUDIO_EP_OUT_LOCK_DELAY             0x0000                           // Unused
 
@@ -208,13 +210,13 @@
 #define  ALT0_AS_IN_INTERFACE_INDEX          0x00                             // Index of Std AS interface Alt0
 #define  ALT0_AS_IN_NB_ENDPOINT              0x00                             // Nb od endpoints for alt0 interface
 #define  ALT0_AS_IN_INTERFACE_CLASS          AUDIO_CLASS                      // Audio class
-#define  ALT0_AS_IN_INTERFACE_SUB_CLASS      AUDIOSTREAMING_SUBCLASS          // Audio streamn sub class
+#define  ALT0_AS_IN_INTERFACE_SUB_CLASS      AUDIOSTREAMING_SUBCLASS          // Audio streaming sub class
 #define  ALT0_AS_IN_INTERFACE_PROTOCOL       NO_PROTOCOL                      // Unused
              //Alternate 1 Audio Streaming (AS) interface descriptor
 #define  ALT1_AS_IN_INTERFACE_INDEX          0x01                             // Index of Std AS interface Alt1
 #define  ALT1_AS_IN_NB_ENDPOINT              0x01                             // Nb od endpoints for alt1 interface
 #define  ALT1_AS_IN_INTERFACE_CLASS          AUDIO_CLASS                      // Audio class
-#define  ALT1_AS_IN_INTERFACE_SUB_CLASS      AUDIOSTREAMING_SUBCLASS          // Audio streamn sub class
+#define  ALT1_AS_IN_INTERFACE_SUB_CLASS      AUDIOSTREAMING_SUBCLASS          // Audio streaming sub class
 #define  ALT1_AS_IN_INTERFACE_PROTOCOL       NO_PROTOCOL                      // Unused
              //AS general Interface descriptor
 #define  AS_IN_TERMINAL_LINK                 MICRO_OUTPUT_TERMINAL_ID         // Unit Id of the output terminal
@@ -233,7 +235,7 @@
 #endif
 #define  IN_FORMAT_MSBYTE_SAMPLE_FREQ        0x00                             // MsByte of 0x001F40
              //Audio endpoint specific descriptor field
-#define  AUDIO_EP_IN_ATRIBUTES               0x00                             // No sampling freq, no pitch, no pading
+#define  AUDIO_EP_IN_ATRIBUTES               0x00                             // No sampling freq, no pitch, no padding
 #define  AUDIO_EP_IN_DELAY_UNIT              0x00                             // Unused
 #define  AUDIO_EP_IN_LOCK_DELAY              0x0000                           // Unused
 
@@ -376,9 +378,9 @@ __attribute__((__packed__))
    uint16_t   idVendor;            //!< Vendor ID. ATMEL = 0x03EB
    uint16_t   idProduct;           //!< Product ID assigned by the manufacturer
    uint16_t   bcdDevice;           //!< Device release number
-   uint8_t    iManufacturer;       //!< Index of manu. string descriptor
-   uint8_t    iProduct;            //!< Index of prod. string descriptor
-   uint8_t    iSerialNumber;       //!< Index of S.N.  string descriptor
+   uint8_t    iManufacturer;       //!< Index of manufacturer string descriptor
+   uint8_t    iProduct;            //!< Index of product string descriptor
+   uint8_t    iSerialNumber;       //!< Index of serial number string descriptor
    uint8_t    bNumConfigurations;  //!< Number of possible configurations
 }
 #if (defined __ICCAVR32__)
@@ -401,7 +403,7 @@ __attribute__((__packed__))
    uint8_t    bDescriptorType;     //!< CONFIGURATION descriptor type
    uint16_t   wTotalLength;        //!< Total length of data returned
    uint8_t    bNumInterfaces;      //!< Number of interfaces for this conf.
-   uint8_t    bConfigurationValue; //!< Value for SetConfiguration resquest
+   uint8_t    bConfigurationValue; //!< Value for SetConfiguration request
    uint8_t    iConfiguration;      //!< Index of string descriptor
    uint8_t    bmAttributes;        //!< Configuration characteristics
    uint8_t    MaxPower;            //!< Maximum power consumption
@@ -823,7 +825,7 @@ __attribute__((__packed__))
 {
   uint8_t  bLength;               /* Size of this descriptor in bytes */
   uint8_t  bDescriptorType;       /* HID descriptor type */
-  uint16_t bscHID;                /* Binay Coded Decimal Spec. release */
+  uint16_t bscHID;                /* Binary Coded Decimal Spec. release */
   uint8_t  bCountryCode;          /* Hardware target country */
   uint8_t  bNumDescriptors;       /* Number of HID class descriptors to follow */
   uint8_t  bRDescriptorType;      /* Report descriptor type */

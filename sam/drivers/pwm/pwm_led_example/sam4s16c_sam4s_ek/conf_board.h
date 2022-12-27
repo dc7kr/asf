@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -48,7 +50,7 @@
 /** Configure UART on board */
 #define CONF_BOARD_UART_CONSOLE
 
-/** Configure PWM pins used to controll LEDs on board */
+/** Configure PWM pins used to control LEDs on board */
 #define CONF_BOARD_PWM_LED0
 #define CONF_BOARD_PWM_LED1
 

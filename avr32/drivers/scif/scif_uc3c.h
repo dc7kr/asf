@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -184,9 +186,9 @@ typedef struct
   unsigned int    mul;
   //! PLL DIV in the PLL formula
   unsigned int    div;
-  //! PLL lockount
+  //! PLL lockcount
   unsigned int    lockcount;
-  //! Specify the scillator input.
+  //! Specify the oscillator input.
   unsigned char   osc;
 } scif_pll_opt_t;
 
@@ -317,7 +319,7 @@ static inline unsigned long scif_get_pclk_status(void)
  *  SCIF_POLL_TIMEOUT times.
  *
  * \return Status.
- *   \retval 0   Oscillator start successfull.
+ *   \retval 0   Oscillator start successful.
  *   \retval <0  Error starting the oscillator.
  */
 extern long int scif_start_osc(scif_osc_t osc, const scif_osc_opt_t *opt, bool wait_for_ready);
@@ -338,7 +340,7 @@ extern bool scif_is_osc_ready(scif_osc_t osc);
  *
  * \return Status.
  *   \retval 0 Oscillator successfully stopped.
- *   \retval <0 An error occured when stopping the oscillator.
+ *   \retval <0 An error occurred when stopping the oscillator.
  */
 extern long int scif_stop_osc(scif_osc_t osc);
 
@@ -446,7 +448,7 @@ extern long int scif_wait_for_pll_locked(scif_pll_t pll);
  *       SCIF_POLL_TIMEOUT times.
  *
  * \return Status.
- *   \retval 0   Oscillator start successfull.
+ *   \retval 0   Oscillator start successful.
  *   \retval <0  Error starting the oscillator.
  */
 extern long int scif_start_osc32(const scif_osc32_opt_t *opt, bool wait_for_ready);
@@ -470,7 +472,7 @@ static inline bool scif_is_osc32_ready(void)
  *
  * \return Status.
  *   \retval 0 Oscillator successfully stopped.
- *   \retval <0 An error occured when stopping the oscillator.
+ *   \retval <0 An error occurred when stopping the oscillator.
  */
 extern long int scif_stop_osc32(void);
 
@@ -648,7 +650,7 @@ extern void scif_stop_rc120M(void);
  *
  * \return Status.
  *   \retval 0 Success.
- *   \retval <0 An error occured.
+ *   \retval <0 An error occurred.
  */
 extern long int scif_start_gclk(unsigned int gclk, const scif_gclk_opt_t *opt);
 
@@ -677,7 +679,7 @@ extern long int scif_stop_gclk(unsigned int gclk);
  *
  * \return Status.
  *   \retval 0 Success.
- *   \retval <0 An error occured.
+ *   \retval <0 An error occurred.
  */
 extern long int scif_gc_setup(unsigned int gclk, scif_gcctrl_oscsel_t clk_src, unsigned int diven, unsigned int divfactor);
 
@@ -687,7 +689,7 @@ extern long int scif_gc_setup(unsigned int gclk, scif_gcctrl_oscsel_t clk_src, u
  *
  * \return Status.
  *   \retval 0 Success.
- *   \retval <0 An error occured.
+ *   \retval <0 An error occurred.
  */
 extern long int scif_gc_enable(unsigned int gclk);
 

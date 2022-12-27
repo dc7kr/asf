@@ -3,9 +3,11 @@
  *
  * \brief USB Mass Storage Class (MSC) protocol definitions.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -59,7 +61,7 @@
 
 /**
  * \name Possible SubClass value
- * \note In practice, most devices should use
+ * \note In practise, most devices should use
  * #MSC_SUBCLASS_TRANSPARENT and specify the actual command set in
  * the standard INQUIRY data block, even if the MSC spec indicates
  * otherwise. In particular, RBC is not supported by certain major
@@ -94,7 +96,7 @@ enum usb_reqid_msc {
 };
 
 
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 
 /**
  * \name A Command Block Wrapper (CBW).
@@ -135,7 +137,7 @@ struct usb_msc_csw {
 #define  USB_CSW_STATUS_PE          0x02	//!< Phase Error
 //@}
 
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
 //@}
 

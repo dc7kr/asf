@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -47,7 +49,7 @@
  * Brief description of the module.
  * This module is in charge of a command line shell on COM1.
  *
- * Detailled description of the module.
+ * Detailed description of the module.
  * Creation of one task that is in charge of getting a command line from COM1,
  * launching the execution of the command and giving feedback of this execution
  * to COM1.

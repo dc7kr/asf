@@ -19,6 +19,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -59,7 +61,7 @@
 
 #define PKT_XMIT_DELAY  2       /* delay after sending ADV packet (msec) */
 
-COMPILER_PACK_SET(1);           /* pack all structures (no padding) */
+COMPILER_PACK_SET(1)            /* pack all structures (no padding) */
 
 /*! \brief Write data buffer via USB or serial port.
  *

@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -66,7 +68,7 @@
 /**
  * \def CONFIG_SYSCLK_SOURCE
  * \brief DFLL using internal RCSYS as source. Clock source used by
- *        sysclk_init() to intialize system clock.\n
+ *        sysclk_init() to initialize system clock.\n
  *        Defined in conf_clock.h
  */
 
@@ -339,7 +341,7 @@ int main(void)
 	/* Initialize the AST peripheral */
 	if (ast_init() != STATUS_OK) {
 #if DEBUG_MESSAGES
-		print_dbg("\r Error intializing AST module \n");
+		print_dbg("\r Error initializing AST module \n");
 #endif
 		/* Error initializing the AST peripheral */
 		while (1) {
@@ -594,7 +596,7 @@ static void power_save_measures_init()
  *    peripherals in sleep modes. It allows the UC3L Event System to handle
  *    asynchronous events in various sleep modes by requesting a module local
  *    clock for the duration of the Event processing. When the event processing
- *    ends, the clock request is disserted and the module goes back to sleep.\n
+ *    ends, the clock request is dis-asserted and the module goes back to sleep.\n
  *
  *  - Sleepwalking with ADCIFB Module in AT32UC3L devices : \n
  *    The given example demonstrates the use of ADCIFB using SleepWalking

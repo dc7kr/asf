@@ -3,9 +3,11 @@
  *
  * \brief In System Programming API
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -50,15 +52,14 @@ extern "C" {
 
 /**
  * \defgroup isp In System Programming API
- * to manage security, memories and fuses
  *
  * @{
  */
 
 /**
- * \name Miscellaneous functions of the In System Programming module
+ * \name Main In System Programming functions
+ * @{
  */
-//@{
 
 /**
  * \brief Initializes the ISP interface
@@ -83,7 +84,7 @@ bool isp_is_security(void);
 void isp_force_boot_isp(bool force);
 
 /**
- * \brief Erase the applciation flash area and eventually the eeprom
+ * \brief Erase the application flash area and eventually the eeprom
  *
  * \return \c 1 if function was successfully done, otherwise \c 0.
  */
@@ -112,12 +113,8 @@ bool isp_erase_chip_split(void);
  * or a software reset to restart the CPU.
  */
 void isp_start_appli(void);
-//@}
+//! @}
 
-/**
- * \name Interfaces to control memories
- */
-//@{
 
 //! Data type for holding flash memory addresses
 #ifdef ISP_SMALL_MEMORY_SIZE
@@ -136,10 +133,11 @@ typedef struct {
 	void (*fnct_write) (isp_addr_t dst, const void *src, uint16_t nbytes);
 } isp_mem_t;
 
-/*
- * \name Memory units field values
+/**
+ * \name Memory units index values
+ * Used to access at a memory through \ref isp_memories list.
+ * @{
  */
-//@{
 #define ISP_MEM_FLASH                        0x00
 #define ISP_MEM_EEPROM                       0x01
 #define ISP_MEM_SECURITY                     0x02
@@ -157,10 +155,10 @@ typedef struct {
 #define ISP_MEM_EXT_MEM_CS6                  0x0E
 #define ISP_MEM_EXT_MEM_CS7                  0x0F
 #define ISP_MEM_EXT_MEM_DF                   0x10
-#define ISP_MEM_COUNT                        0x11	// Number of memory units
-//@}
+#define ISP_MEM_COUNT                        0x11 // Number of memory units
+//! @}
 
-//! \name Memories list structure
+//! Memories list structure
 typedef union {
 	isp_mem_t const *mem[ISP_MEM_COUNT];
 	struct {
@@ -184,14 +182,12 @@ typedef union {
 	}list;
 } isp_mems_t;
 
-//! \name Memories list declaration
+//! Memories list declaration
 extern const isp_mems_t isp_memories;
 
+COMPILER_PACK_SET(1) // alignment requested to simulate a memory
 
-// alignment requested to simulate a memory
-COMPILER_PACK_SET(1);
-
-//! \name Memory signature structure to store JTAG ID
+//! Memory signature structure to store JTAG ID
 typedef union {
 	uint8_t mem[4];
 	struct {
@@ -203,8 +199,8 @@ typedef union {
 } isp_mem_signature_t;
 
 
-/*
- * \name Memory bootloader structure
+/**
+ * Memory bootloader structure
  *
  * In the FLIP protocol, this structure is used to store medium
  * and minor bootloader versions:
@@ -219,11 +215,9 @@ typedef struct {
 	uint8_t id2;
 } isp_mem_bootloader_t;
 
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
-//@}
-
-//@}
+//! @}
 
 #ifdef __cplusplus
 }

@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -100,7 +102,7 @@
 #define EXT_VIN_SIGNAL_PIN         IOPORT_CREATE_PIN(PORTB,3)
 //! @}
 
-/*! \name Commonn ADC module used for on-board sensor.
+/*! \name Common ADC module used for on-board sensor.
  */
 //! @{
 #define BOARD_SENSOR_ADC_MODULE         ADCB

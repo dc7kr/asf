@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -94,7 +96,7 @@
  * There are different functions for starting a timer:
  * - tc_timeout_start_singleshot(): Start a singleshot timeout.
  * - tc_timeout_start_periodic(): Start a periodic timeout.
- * - tc_timeout_start_offset(): Start a periodic timeout with a specifc start
+ * - tc_timeout_start_offset(): Start a periodic timeout with a specific start
  *                              offset.
  *
  * Polling for timer status can be done with
@@ -117,7 +119,7 @@
  * Then the timeout internals need to be set up by calling:
  * \code tc_timeout_init(); \endcode
  *
- * For simple usage starting a singleshot timout for timeout id 0 and a timeout
+ * For simple usage starting a singleshot timeout for timeout id 0 and a timeout
  * value of 100 ticks:
  * \code
  * tc_timeout_start_singleshot(0, 100);

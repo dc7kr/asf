@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -51,7 +53,7 @@
  * - example2.c example application
  *
  * \section device_info Device Info
- * This example is made specificly for XMEGA-A1 Xplained. However, any XMEGA
+ * This example is made specifically for XMEGA-A1 Xplained. However, any XMEGA
  * board with LEDs connected to PE0 and PE4 may be used.
  *
  * \section exampledescription Description of the example

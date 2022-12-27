@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -86,7 +88,7 @@ void sysclk_auto_init(void)
 		u_avr32_scif_oscctrl0_t   u_avr32_scif_oscctrl0 = {AVR32_SCIF.oscctrl0};
 
 		// Modify : Configure the oscillator mode to crystal and set the gain according to the
-		// cyrstal frequency.
+		// crystal frequency.
 		u_avr32_scif_oscctrl0.OSCCTRL0.mode = SCIF_OSC_MODE_2PIN_CRYSTAL;
 		u_avr32_scif_oscctrl0.OSCCTRL0.gain =
 			(16000000 <  900000) ? AVR32_SCIF_OSCCTRL0_GAIN_G0 :
@@ -172,7 +174,7 @@ void sysclk_auto_init(void)
 /**
  * \brief Enable the USB generic clock
  *
- * \pre The USB generick clock must be configurated to 48MHz.
+ * \pre The USB generic clock must be configured to 48MHz.
  */
 void sysclk_auto_enable_usb(void)
 {

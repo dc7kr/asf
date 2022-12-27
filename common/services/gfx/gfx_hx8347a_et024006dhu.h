@@ -4,11 +4,13 @@
  * \brief Graphic service settings for the ET024006DHU panel using the HX8347A
  * display controller
  *
- * This files includes the correct header files for the grapics service
+ * This files includes the correct header files for the graphics service
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -49,10 +51,11 @@
 extern "C" {
 #endif
 
+#include "hx8347a.h"
+
 /**
  * \ingroup gfx_group
- * \defgroup gfx_hx8347a_et024006dhu ET024006DHU display using HX8347A display
- * controller
+ * \defgroup gfx_hx8347a_et024006dhu ET024006DHU display using HX8347A display controller
  *
  * This is hardware specific configuration that configures the graphical
  * service for use with the HX8347A display controller and the ET024006DHU
@@ -64,21 +67,13 @@ extern "C" {
  * @{
  */
 
-/* Panel information */
-#define GFX_PANELWIDTH 240
-#define GFX_PANELHEIGHT 320
-
 typedef uint16_t gfx_color_t;
 typedef int16_t gfx_coord_t;
 
 /* This macro generates a 16-bit native color for the display from a
  * 24-bit RGB value
  */
-#define GFX_COLOR(r, g, b)\
-	((((uint16_t)r) & 0x00f8) |\
-	((((uint16_t)b) << 5) & 0x1f00) |\
-	((((uint16_t)g) >> 5) & 0x0007) |\
-	((((uint16_t)g) << 11) & 0xe000))
+#define GFX_COLOR(r, g, b)      HX8347A_COLOR(r, g, b)
 
 /**
  * It is not possible to define a color that is outside the color spectrum for
@@ -92,7 +87,7 @@ typedef int16_t gfx_coord_t;
  * \brief Initialize the hx8347a display controller
  *
  * This function will be called when calling \ref gfx_init.
- * It will draw a black bacground to the display and enable the
+ * It will draw a black background to the display and enable the
  * display backlight if available.
  */
 void gfx_hx8347a_init(void);
@@ -251,7 +246,7 @@ void gfx_hx8347a_set_orientation(uint8_t flags);
  * HX8347A display driver specific function, see
  * \ref hx8347a_duplicate_pixel
  */
-#define gfx_duplicate_pixel(color, count) hx8347a_duplicate_pixel(color, count);
+#define gfx_duplicate_pixel(color, count) hx8347a_duplicate_pixel(color, count)
 
 /**
  * HX8347A display driver specific function, see
@@ -276,19 +271,19 @@ void gfx_hx8347a_set_orientation(uint8_t flags);
  * HX8347A display driver specific function, see
  * \ref hx8347a_set_top_left_limit
  */
-#define  gfx_set_top_left_limit(x, y) hx8347a_set_top_left_limit(x, y)
+#define gfx_set_top_left_limit(x, y) hx8347a_set_top_left_limit(x, y)
 
 /**
  * HX8347A display driver specific function, see
  * \ref hx8347a_set_bottom_right_limit
  */
-#define  gfx_set_bottom_right_limit(x, y) hx8347a_set_bottom_right_limit(x, y)
+#define gfx_set_bottom_right_limit(x, y) hx8347a_set_bottom_right_limit(x, y)
 
 /**
  * HX8347A display driver specific function, see
  * \ref hx8347a_set_limits
  */
-#define  gfx_set_limits(x1, y1, x2, y2) hx8347a_set_limits(x1, y1, x2, y2)
+#define gfx_set_limits(x1, y1, x2, y2) hx8347a_set_limits(x1, y1, x2, y2)
 
 /**
  * HX8347A display driver specific function, see
@@ -329,7 +324,13 @@ void gfx_hx8347a_set_orientation(uint8_t flags);
  */
 #define gfx_init() gfx_hx8347a_init()
 
-/*! @} */
+/**
+ * HX8347A display driver uses generic gfx implementation for this function. See
+ * \ref gfx_generic_sync
+ */
+#define gfx_sync() gfx_generic_sync()
+
+/** @} */
 
 #ifdef __cplusplus
 }

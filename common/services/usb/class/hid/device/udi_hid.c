@@ -3,9 +3,11 @@
  *
  * \brief USB Device Human Interface Device (HID) interface.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -47,14 +49,10 @@
 
 
 /**
- * \addtogroup udi_hid_group
+ * \ingroup udi_hid_group
+ * \defgroup udi_hid_group_internal Implementation of HID common library
  * @{
  */
-
-/**
- * \name Internal routines
- */
-//@{
 
 /**
  * \brief Send the specific descriptors requested by SETUP request
@@ -62,8 +60,6 @@
  * \retval true if the descriptor is supported
  */
 static bool udi_hid_reqstdifaceget_descriptor(uint8_t *report_desc);
-
-//@}
 
 bool udi_hid_setup( uint8_t *rate, uint8_t *protocol, uint8_t *report_desc, bool (*set_report)(void) )
 {

@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -283,7 +285,7 @@
 
 /*********************************************************************************************
  * This function is the light main function that permits to compute the numerators coefficients.
- * Algorihm:
+ * Algorithm:
  *   for(n=0; n<vect1_size; n+=4)
  *   {
  *        sum1 = 0;
@@ -318,7 +320,7 @@
  *   r1 = sum3
  *   r0 = sum4
  *   lr = i
- * Conditon: vect3, vect1 and vect2 must be word-align
+ * Condition: vect3, vect1 and vect2 must be word-align
  *********************************************************************************************/
 #define DSP16_IIRPART_KERNEL_NUM_X_FCT__(x_num, data)    \
 static void TPASTE2(dsp16_filt_iirpart_kernel_num_x, x_num)(dsp16_t *vect1, dsp16_t *vect2, int vect1_size, dsp16_t *vect3, int vect3_size, int prediv) \
@@ -478,7 +480,7 @@ static void TPASTE2(dsp16_filt_iirpart_kernel_num_x, x_num)(dsp16_t *vect1, dsp1
 #define DSP16_COMPUT_TAP_DEN_8_7  DSP16_COMPUT_TAP_DEN_8_ODD
 
 /********************************************************************************************
- * Idem, execpt that the starting values we need for r_vect1 are NOT 32-bits aligned
+ * Idem, except that the starting values we need for r_vect1 are NOT 32-bits aligned
  * but 16-bits aligned
  ********************************************************************************************/
 /*
@@ -842,7 +844,7 @@ static void TPASTE2(dsp16_filt_iirpart_kernel_num_x, x_num)(dsp16_t *vect1, dsp1
 
 /*********************************************************************************************
  * This function is the main function that permits to compute the denominator coefficients.
- * Algorihm:
+ * Algorithm:
  *   for(n=0; n<vect1_size; n++)
  *   {
  *        sum = 0;
@@ -857,7 +859,7 @@ static void TPASTE2(dsp16_filt_iirpart_kernel_num_x, x_num)(dsp16_t *vect1, dsp1
  *        vect1[n] -= sum >> (DSP16_QB - prediv);
  *   }
  *  Note:
- *   The two symetrical routines inside the main loop are here to make sure vect2 is always aligned on 32 bits
+ *   The two symmetrical routines inside the main loop are here to make sure vect2 is always aligned on 32 bits
  *   at the top of the loop.
  *********************************************************************************************/
 #define DSP16_IIRPART_KERNEL_DEN_X_FCT__(x_num, data)    \
@@ -976,7 +978,7 @@ DSP16_IIRPART_KERNEL_DEN_X_FCT(7, "")
 
 /*********************************************************************************************
  * This function is the light main function that permits to compute the denominator coefficients.
- * Algorihm:
+ * Algorithm:
  *   for(n=0; n<vect1_size; n++)
  *   {
  *        sum = 0;

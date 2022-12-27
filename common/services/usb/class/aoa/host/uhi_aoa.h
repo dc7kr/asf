@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -82,7 +84,7 @@ extern "C" {
 /** Index of serialnumber */
 #define AOA_STRING_INDEX_SERIAL        5
 
-/** Global struture which contains standard UHI API for UHC */
+/** Global structure which contains standard UHI API for UHC */
 #define UHI_AOA { \
 		.install = uhi_aoa_install, \
 		.enable = uhi_aoa_enable, \

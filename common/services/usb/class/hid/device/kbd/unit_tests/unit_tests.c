@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -50,7 +52,7 @@
  *
  * \section intro Introduction
  * This example implement an USB Device HID keyboard enumeration
- * but the keyboard events to move and clic are not linked.
+ * but the keyboard events to move and click are not linked.
  * It is to validated the HID keyboard enumeration
  * and USB core callback (VBus presence, resume, suspend and SOF).
  * This example uses the native HID driver for these operating systems.
@@ -115,28 +117,28 @@ static void run_usb_keyboard_test(const struct test_case *test)
 
 static void run_usb_keyboard_led_test(const struct test_case *test)
 {
-	test_assert_true(test, main_b_keyboard_led, "Event keybaord led not receiv");
+	test_assert_true(test, main_b_keyboard_led, "Event keyboard led not receive");
 }
 
 
 static void run_usb_vbus_test(const struct test_case *test)
 {
-	test_assert_true(test, main_b_vbus_event, "Event vbus not receiv");
+	test_assert_true(test, main_b_vbus_event, "Event vbus not receive");
 }
 
 static void run_usb_resume_test(const struct test_case *test)
 {
-	test_assert_true(test, main_b_resume_event, "Event resume not receiv");
+	test_assert_true(test, main_b_resume_event, "Event resume not receive");
 }
 
 static void run_usb_suspend_test(const struct test_case *test)
 {
-	test_assert_true(test, main_b_suspend_event, "Event suspend not receiv");
+	test_assert_true(test, main_b_suspend_event, "Event suspend not receive");
 }
 
 static void run_usb_sof_test(const struct test_case *test)
 {
-	test_assert_true(test, main_b_sof_event, "Event sof not receiv");
+	test_assert_true(test, main_b_sof_event, "Event sof not receive");
 }
 
 /**
@@ -163,15 +165,7 @@ int main(void)
 
 	board_init();
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-#if (defined(__GNUC__) && defined(__AVR32__)) ||\
-		(defined(__GNUC__) && SAM)
-	// This unit test will be launched on a test-server, using avr32program.
-	// The reset is done through the OCD. The 'setbuf' command allows to make the
-	// application starts correctly: it will not execute the 'breakpoint'
-	// instruction in _fstat_host (used by printf) and the core will not stay
-	// blocked on the 'breakpoint' instruction (executed in the debug mode).
-	setbuf(stdout, NULL);
-#endif
+
 	// Define all the timestamp to date test cases
 	DEFINE_TEST_CASE(usb_keyboard_test, NULL,
 			run_usb_keyboard_test, NULL,
@@ -268,6 +262,7 @@ void main_keyboard_disable(void)
 
 void main_keyboard_led(uint8_t value)
 {
+	UNUSED(value);
 	main_b_keyboard_led = true;
 }
 

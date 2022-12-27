@@ -13,6 +13,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -218,7 +220,7 @@ eExecStatus e_cptime_RecordScheduledCmd( char *pcDate, int CmdId,
       return( SHELL_EXECSTATUS_KO );
    }
 
-   // First implem: the timevalue is an offset in seconds.
+   // First implementation: the timevalue is an offset in seconds.
    xTimeOffsetSec = xcptime_LocalTime + atoi( pcDate );
    if( xTimeOffsetSec < ( xcptime_LocalTime +3 ) )
    {
@@ -454,7 +456,7 @@ eExecStatus e_cptime_cmd_get_config( eModId xModId, signed short FsNavId,
       // Get the broken-down representation of the current date.
       pxDate = gmtime( &xcptime_LocalTime );
 
-      // WARNING: pxDate->tm_year == nunmber of years since 1900.
+      // WARNING: pxDate->tm_year == number of years since 1900.
       // For years >= 2000, we'll display the last 2 digits only.
       if( pxDate->tm_year >= 100 )  pxDate->tm_year -= 100;
       sprintf( (char *)*ppcStringReply, "curtime=%02d/%02d/%02d  %02d:%02d:%02d\r\n",

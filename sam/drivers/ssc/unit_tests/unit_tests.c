@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -71,6 +73,8 @@
  * - sam3sd8c_sam3s_ek2
  * - sam3u4e_sam3u_ek
  * - sam3x8h_sam3x_ek
+ * - sam4s16c_sam4s_ek
+ * - sam4s16c_sam4s_xplained
  *
  * \section compinfo Compilation info
  * This software was written for the GNU GCC and IAR for ARM. Other compilers
@@ -88,13 +92,6 @@
  * \brief Check the SSC receive and transmit function.
  */
 //@}
-
-/* Pointer to the module instance to use for stdio. */
-#if defined(__GNUC__)
-void (*ptr_get)(void volatile*,int*);
-int (*ptr_put)(void volatile*,int);
-volatile void *volatile stdio_base;
-#endif
 
 /** Transmitter and receiver buffer size. */
 #define BUFFER_SIZE            10
@@ -129,9 +126,11 @@ uint8_t g_uc_tx_index = 0;
  */
 void SSC_Handler(void)
 {
+	uint32_t ul_data;
 	ssc_get_status(SSC);
-	
-	ssc_read(SSC, (uint32_t *)&g_uc_rx_buff[g_uc_rx_index++]);
+
+	ssc_read(SSC, &ul_data);
+	g_uc_rx_buff[g_uc_rx_index++] = ul_data;
 
 	if (BUFFER_SIZE == g_uc_rx_index) {
 		g_uc_rx_done = 1;
@@ -154,7 +153,7 @@ static void run_ssc_test(const struct test_case *test)
 	data_frame_opt_t rx_data_frame_option;
 	data_frame_opt_t tx_data_frame_option;
 	
-	/* Initialize the local varible. */
+	/* Initialize the local variable. */
 	ul_mck = 0;
 	memset((uint8_t *)&rx_clk_option, 0, sizeof(clock_opt_t));
 	memset((uint8_t *)&rx_data_frame_option, 0, sizeof(data_frame_opt_t));
@@ -247,10 +246,6 @@ int main(void)
 
 	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
 
 	/* Define all the test cases. */
 	DEFINE_TEST_CASE(ssc_test, NULL, run_ssc_test, NULL,

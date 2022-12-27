@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -63,7 +65,7 @@
 // From module: External oscillator frequency detection
 #include <freq_detect.h>
 
-// From module: FLASH Controller Double-Word
+// From module: FLASH Controller Double-Word (FLASHCDW)
 #include <flashcdw.h>
 
 // From module: GPIO - General-Purpose Input/Output

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -157,7 +159,7 @@ void adc_sensors_init(void)
 	adc_read_configuration(&ADCA, &adc_conf);
 	adcch_read_configuration(&ADCA, ADC_CH0, &adc_ch_conf);
 
-	/* configure tha ADCA module:
+	/* configure the ADCA module:
 	- signed, 12-bit resolution
 	- VCC / 1.6 reference
 	- 31 kHz max clock rate
@@ -195,7 +197,7 @@ void adc_sensors_init(void)
 /**
  * \brief Read the NTC value from the ADC
  *
- * This wil read the ADC value of the channel and pin connected to the NTC
+ * This will read the ADC value of the channel and pin connected to the NTC
  * on the A3BU-Xplained.
  *
  * \retval the raw ADC value from the current ntc_sensor_sample
@@ -208,13 +210,13 @@ int16_t ntc_get_raw_value(void)
 /**
  * \brief Read the actual temperature from the NTC
  *
- * This function returns the temperature in celcius by piecewise linearisation
- * of the complex tranfer function between NTC resistance and ADC codes. The
+ * This function returns the temperature in Celsius by piecewise linearisation
+ * of the complex transfer function between NTC resistance and ADC codes. The
  * accuracy of the temperature is somewhat limited.
  *
  * \note The result is inaccurate for temperatures outside 5-45 degrees.
  *
- * \retval the temperature in celcius
+ * \retval the temperature in Celsius
  */
 int8_t ntc_get_temperature(void)
 {

@@ -1,11 +1,13 @@
 /**
- * \file qdebug.h
+ * \file QDebug.h
  *
- * \brief API of the Qdebug module
+ * \brief API of the QDebug module
  *
  * Copyright (c) 2010 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

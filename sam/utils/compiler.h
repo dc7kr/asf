@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -84,6 +86,18 @@
 #endif
 
 /**
+ * \def UNUSED
+ * \brief Marking \a v as a unused parameter or value.
+ */
+#define UNUSED(v)          (void)(v)
+
+/**
+ * \def unused
+ * \brief Marking \a v as a unused parameter or value.
+ */
+#define unused(v)          do { (void)(v); } while(0)
+
+/**
  * \def barrier
  * \brief Memory barrier
  */
@@ -141,7 +155,7 @@
 #if defined(__CC_ARM)
 #       define __always_inline   __forceinline
 #elif (defined __GNUC__)
-#	define __always_inline   __attribute__((__always_inline__))
+#	define __always_inline   __attribute__((__always_inline__)) inline
 #elif (defined __ICCARM__)
 #	define __always_inline   _Pragma("inline=forced")
 #endif

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -54,6 +56,9 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: FatFS file system
 #include <diskio.h>
 #include <ff.h>
@@ -69,8 +74,21 @@
 // From module: Interrupt management - SAM3 implementation
 #include <interrupt.h>
 
+// From module: MATRIX - Bus Matrix
+#include <matrix.h>
+
 // From module: Memory Control Access Interface
 #include <ctrl_access.h>
+
+// From module: NAND Flash on EBI
+#include <nand_flash_common.h>
+#include <nand_flash_ecc.h>
+#include <nand_flash_management.h>
+#include <nand_flash_mem.h>
+#include <nand_flash_model.h>
+#include <nand_flash_raw.h>
+#include <nand_flash_spare_scheme.h>
+#include <nand_flash_translation.h>
 
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
@@ -91,10 +109,13 @@
 // From module: SAM4S startup code
 #include <exceptions.h>
 
+// From module: SMC - Static Memory Controller
+#include <smc.h>
+
 // From module: Standard serial I/O (stdio) - SAM implementation
 #include <stdio_serial.h>
 
-// From module: Supported ports of FatFS 
+// From module: Supported ports of FatFS
 #include <diskio.h>
 
 // From module: System Clock Control - SAM4S implementation
@@ -108,9 +129,6 @@
 
 // From module: USART - Serial interface
 #include <serial.h>
-
-// From module: Virtual Memory in RAM
-#include <virtual_mem.h>
 
 // From module: pio_handler support enabled
 #include <pio_handler.h>

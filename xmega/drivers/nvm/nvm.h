@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -141,7 +143,7 @@ static inline void nvm_issue_command(NVM_CMD_t nvm_command)
  * \note Interrupts should be disabled before running this function
  *       if program memory/NVM controller is accessed from ISRs.
  *
- * \param nvm_cmd NVM commad to load before running LPM
+ * \param nvm_cmd NVM command to load before running LPM
  * \param address Byte offset into the signature row
  */
 uint8_t nvm_read_byte(uint8_t nvm_cmd, uint16_t address);
@@ -723,7 +725,7 @@ void nvm_user_sig_write_buffer(flash_addr_t address, const void *buf,
  * \brief Erase the user calibration section page
  *
  * Erase the user calibration section page. There is only one page, so no
- * paramaters are needed.
+ * parameters are needed.
  */
 static inline void nvm_flash_erase_user_section(void)
 {
@@ -734,10 +736,10 @@ static inline void nvm_flash_erase_user_section(void)
 /**
  * \brief Write the user calibration section page
  *
- * Write a the user calibratino section page with the data stored in the
+ * Write a the user calibration section page with the data stored in the
  * page buffer. The page needs to be erased before the write to avoid
  * corruption of the data written. There is only one page, so no
- * paramaters are needed.
+ * parameters are needed.
  */
 static inline void nvm_flash_write_user_page(void)
 {

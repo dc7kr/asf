@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -223,7 +225,7 @@ __attribute__((__packed__))
 {
   uint8_t      bLength;              //!< Size of this descriptor in bytes
   uint8_t      bDescriptorType;      //!< DEVICE descriptor type
-  uint16_t     bscUSB;               //!< Binay Coded Decimal Spec. release
+  uint16_t     bscUSB;               //!< Binary Coded Decimal Spec. release
   uint8_t      bDeviceClass;         //!< Class code assigned by the USB
   uint8_t      bDeviceSubClass;      //!< Subclass code assigned by the USB
   uint8_t      bDeviceProtocol;      //!< Protocol code assigned by the USB
@@ -328,7 +330,7 @@ __attribute__((__packed__))
 {
   uint8_t      bLength;              //!< Size of this descriptor in bytes
   uint8_t      bDescriptorType;      //!< Device Qualifier descriptor type
-  uint16_t     bscUSB;               //!< Binay Coded Decimal Spec. release
+  uint16_t     bscUSB;               //!< Binary Coded Decimal Spec. release
   uint8_t      bDeviceClass;         //!< Class code assigned by the USB
   uint8_t      bDeviceSubClass;      //!< Subclass code assigned by the USB
   uint8_t      bDeviceProtocol;      //!< Protocol code assigned by the USB

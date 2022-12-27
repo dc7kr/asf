@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -42,7 +44,7 @@
 #ifndef CONF_TEST_H
 #define CONF_TEST_H
 
-/** USART Interface  : Consol UARG */
+/** USART Interface  : Console UART */
 #define CONF_TEST_USART      CONSOLE_UART
 /** Baudrate setting : 115200 */
 #define CONF_TEST_BAUDRATE   115200

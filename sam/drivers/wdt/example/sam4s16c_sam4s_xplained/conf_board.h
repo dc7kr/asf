@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -42,11 +44,14 @@
 #ifndef CONF_BOARD_H_INCLUDED
 #define CONF_BOARD_H_INCLUDED
 
+/** Enable Com Port. */
+#define CONF_BOARD_UART_CONSOLE
+
 /** Usart Hw ID used by the console (UART0). */
 #define CONSOLE_UART_ID          ID_UART0
 
 /** Push button definition */
-#define PUSHBUTTON_STRING	"USRPB1"
+#define PUSHBUTTON_STRING	PUSHBUTTON_1_NAME
 #define PUSHBUTTON_IRQn		PIOA_IRQn
 #define PUSHBUTTON_MASK		PIN_PUSHBUTTON_1_MASK
 #define PUSHBUTTON_PIO		PIN_PUSHBUTTON_1_PIO

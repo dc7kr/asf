@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -1111,7 +1113,7 @@ void usb_pipe_interrupt(U8 pipe)
     }
     else                            // End of transfer
     {
-      it_pipe_str[pipe].enable = false; // Tranfer end
+      it_pipe_str[pipe].enable = false; // transfer end
       it_pipe_str[pipe].status = PIPE_GOOD; // Status OK
       Host_reset_pipe(pipe);
       callback = true;

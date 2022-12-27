@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -65,7 +67,7 @@
  * is disabled.
  *
  * For the best demonstration it's recommended to run this in a debug session
- * and single step thru the different operations.
+ * and single step through the different operations.
  *
  * \section compinfo Compilation Info
  * This software was written for the <A href="http://gcc.gnu.org/">GNU GCC</A>
@@ -180,7 +182,7 @@ int main(void)
 	sei();
 
 	/* Busy loop, and a breakpoint can be used in the interrupt handler to
-	 * see interrupts beeing triggered by SW0.
+	 * see interrupts being triggered by SW0.
 	 */
 	while (true);
 }

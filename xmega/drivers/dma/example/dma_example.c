@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -140,7 +142,7 @@ static bool verify_pattern(uint8_t *buffer, size_t len)
  */
 static void example_dma_transfer_done(enum dma_channel_status status)
 {
-	// Check DMA tranfer status
+	// Check DMA transfer status
 	if (status == DMA_CH_TRANSFER_COMPLETED)
 		gpio_set_pin_low(LED1_GPIO);
 	else

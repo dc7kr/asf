@@ -3,9 +3,11 @@
  *
  * \brief Application CDC Implementation
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -43,7 +45,7 @@
 #include "cdc.h"
 
 //! USBID position in user signature row
-#define USER_SIGNATURE_USBID_POS   4
+#define USER_SIGNATURE_USBID_POS   8
 //! USBID size in user signature row
 #define USER_SIGNATURE_USBID_SIZE 12
 

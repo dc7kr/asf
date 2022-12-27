@@ -1,12 +1,13 @@
 /**
  * \file
  *
- * \brief Initialization of memories.
- * Specific SAM functions to initialize the memories.
+ * \brief Initialization of memories (SAM)
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -44,7 +45,7 @@
 #include "sysclk.h"
 #include "conf_board.h"
 #include "conf_access.h"
-#include "memories_initialization_sam.h"
+#include "memories_initialization.h"
 
 #ifdef CONF_BOARD_AT45DBX
 #include "at45dbx.h"

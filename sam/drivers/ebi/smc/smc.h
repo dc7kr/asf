@@ -3,9 +3,11 @@
  *
  * \brief Static Memory Controller (SMC) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -74,23 +76,20 @@ uint32_t smc_get_writeprotect_status(Smc *p_smc);
 #define   NFCADDR_CMD_ACYCLE_THREE   (0x3u << 19) /* Three address cycles */
 #define   NFCADDR_CMD_ACYCLE_FOUR    (0x4u << 19) /* Four address cycles */
 #define   NFCADDR_CMD_ACYCLE_FIVE    (0x5u << 19) /* Five address cycles */
-#define NFCADDR_CMD_CSID      (0x7u << 22)  /* Chip Select Identifier */
-#define   NFCADDR_CMD_CSID_0         (0x0u << 22) /* CS0 */
-#define   NFCADDR_CMD_CSID_1         (0x1u << 22) /* CS1 */
-#define   NFCADDR_CMD_CSID_2         (0x2u << 22) /* CS2 */
-#define   NFCADDR_CMD_CSID_3         (0x3u << 22) /* CS3 */
-#define   NFCADDR_CMD_CSID_4         (0x4u << 22) /* CS4 */
-#define   NFCADDR_CMD_CSID_5         (0x5u << 22) /* CS5 */
-#define   NFCADDR_CMD_CSID_6         (0x6u << 22) /* CS6 */
-#define   NFCADDR_CMD_CSID_7         (0x7u << 22) /* CS7 */
+#define NFCADDR_CMD_CSID_Pos 22
+#define NFCADDR_CMD_CSID_Msk (0x7u << NFCADDR_CMD_CSID_Pos) /* Chip Select Identifier */
+#define NFCADDR_CMD_CSID(value) ((NFCADDR_CMD_CSID_Msk & ((value) << NFCADDR_CMD_CSID_Pos)))
 #define NFCADDR_CMD_NFCEN     (0x1u << 25)  /* NFC Enable */
-#define NFCADDR_CMD_NFCWR     (0x1u << 26)  /* NFC Write Enable */
+#define NFCADDR_CMD_NFC_READ     (0x0u << 26)  /* NFC Write Enable */
+#define NFCADDR_CMD_NFC_WIRTE    (0x1u << 26)  /* NFC Write Enable */
 #define NFCADDR_CMD_NFCCMD    (0x1u << 27)  /* NFC Command Enable */
 
 #define NFC_BUSY_FLAG    0x8000000
 #define ECC_STATUS_MASK   0x07
 
-void smc_nfc_init(Smc *p_smc, uint32_t ul_page_size, uint32_t ul_write_spare_flag, uint32_t ul_read_spare_flag);
+void smc_set_nand_timing(Smc * p_smc, uint32_t ul_cs,
+		uint32_t ul_nand_timing);
+void smc_nfc_init(Smc *p_smc, uint32_t ul_config);
 void smc_nfc_set_page_size(Smc *p_smc, uint32_t ul_page_size);
 void smc_nfc_enable_spare_read(Smc *p_smc);
 void smc_nfc_disable_spare_read(Smc *p_smc);

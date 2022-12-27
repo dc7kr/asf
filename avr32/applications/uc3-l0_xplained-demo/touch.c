@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -122,7 +124,7 @@ static volatile bool autonomous_qtouch_in_touch = false;
 static led_pwm_channel_t rgb_led = PWM_CHANNEL_RED;
 
 /**
- * The below data is required for the qtouch library. Do not alter these here
+ * The below data is required for the QTouch library. Do not alter these here
  * since they are usually configured via the touch_config_at32uc3l.h
  */
 //! @{
@@ -416,9 +418,9 @@ static void init_timer(void)
 }
 
 /**
- * \brief handles errors during touch aquisition in the touch library.
+ * \brief handles errors during touch acquisition in the touch library.
  *
- * Write debug messages to the debug USART to indicate the problem that ocurred.
+ * Write debug messages to the debug USART to indicate the problem that occurred.
  */
 void handle_touch_error(touch_ret_t touch_error)
 {
@@ -451,7 +453,7 @@ void handle_touch_error(touch_ret_t touch_error)
 }
 
 /**
- * \brief Initializes the touch library ready for aquisition of touch data.
+ * \brief Initializes the touch library ready for acquisition of touch data.
  *
  * Sets up all required hardware and initializes the touch library.
  */

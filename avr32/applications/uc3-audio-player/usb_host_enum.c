@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -186,7 +188,7 @@ bool host_check_class(void)
 #endif
 
       // Found an interface descriptor
-      // Get charateristics of this interface
+      // Get characteristics of this interface
       device_class    = descriptor[OFFSET_FIELD_CLASS];
       device_subclass = descriptor[OFFSET_FIELD_SUB_CLASS];
       device_protocol = descriptor[OFFSET_FIELD_PROTOCOL];

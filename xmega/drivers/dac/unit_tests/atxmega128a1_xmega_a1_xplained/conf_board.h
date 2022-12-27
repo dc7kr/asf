@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -41,7 +43,7 @@
 #ifndef CONF_BOARD_H
 #define CONF_BOARD_H
 
-//! Enable USART0 on PORTC routed thru board controller to USB
+//! Enable USART0 on PORTC routed through board controller to USB
 #define CONF_BOARD_ENABLE_USARTC0
 
 #endif

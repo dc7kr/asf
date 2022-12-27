@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -1579,7 +1581,7 @@ uint32_t usart_get_writeprotect_status(Usart *p_usart)
  *
  * \param p_usart Pointer to a USART instance.
  *
- * \return The number of errors that occured.
+ * \return The number of errors that occurred.
  */
 uint8_t usart_get_error_number(Usart *p_usart)
 {

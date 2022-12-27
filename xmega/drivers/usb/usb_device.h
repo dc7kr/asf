@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -190,7 +192,7 @@ static inline void usb_pad_init(void)
  * Read modify write new instructions for Xmega
  * inline asm implementation with R16 register.
  * This should be removed later on when the new instructions
- * will be available whithin the compiler.
+ * will be available within the compiler.
  *
  */
 // Load and Clear

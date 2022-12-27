@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -45,7 +47,7 @@
 #include "main.h"
 #include "ui.h"
 
-void uart_config(usb_cdc_line_coding_t * cfg)
+void uart_config(uint8_t port, usb_cdc_line_coding_t * cfg)
 {
 	uint8_t reg_ctrlc;
 
@@ -101,7 +103,7 @@ void uart_config(usb_cdc_line_coding_t * cfg)
 			/ ((uint32_t) le32_to_cpu(cfg->dwDTERate) * 8)) + 1) >> 1) - 1);
 }
 
-void uart_open(void)
+void uart_open(uint8_t port)
 {
 	sysclk_enable_module(USART_PORT_SYSCLK, USART_SYSCLK);
 	// Open UART communication
@@ -115,7 +117,7 @@ void uart_open(void)
 			USART_DREINTLVL_OFF_gc;
 }
 
-void uart_close(void)
+void uart_close(uint8_t port)
 {
 	sysclk_disable_module(USART_PORT_SYSCLK, USART_SYSCLK);
 	// Disable interrupts
@@ -124,7 +126,7 @@ void uart_close(void)
 	USART.CTRLB = 0;
 }
 
-void uart_rx_notify(void)
+void uart_rx_notify(uint8_t port)
 {
 	// If UART is open
 	if (USART.CTRLA!=0) {

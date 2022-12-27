@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -70,7 +72,7 @@ typedef struct
 {
   //!  Mode I2S-mode \n
   //!   - \ref IISC_MODE_MASTER Two output channels.\n
-  //!   - \ref IISC_MODE_SLAVE Two output channels sampled with an xternal
+  //!   - \ref IISC_MODE_SLAVE Two output channels sampled with an external
   //!   clock received from the RX_CLOCK line.\n
   //!   - \ref IISC_MODE_TDM_MASTER TDM Master Mode.\n
   //!   - \ref IISC_MODE_TDM_SLAVE TDM Slave Mode.\n

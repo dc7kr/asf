@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -82,8 +84,19 @@
 #define __inline__          inline
 #define __volatile__
 //! @}
-
 #endif
+
+/**
+ * \def UNUSED
+ * \brief Marking \a v as a unused parameter or value.
+ */
+#define UNUSED(v)          (void)(v)
+
+/**
+ * \def unused
+ * \brief Marking \a v as a unused parameter or value.
+ */
+#define unused(v)          do { (void)(v); } while(0)
 
 /**
  * \def barrier
@@ -518,7 +531,7 @@ typedef struct
  *
  * "sub pc, pc, -4" (or "sub pc, -2") forces the IF stage to wait until the result
  * of the calculation before it can fetch the next instruction. This makes sure
- * there are nothing stuck in the LS pipe when you start a new iteration and guarante
+ * there are nothing stuck in the LS pipe when you start a new iteration and guarantee
  * to flush the pipeline without having any other effect.
  * (A nop doesn't have any effect on the IF stage.)
  */

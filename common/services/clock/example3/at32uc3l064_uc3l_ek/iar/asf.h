@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -60,7 +62,7 @@
 // From module: Delay routines
 #include <delay.h>
 
-// From module: FLASH Controller Double-Word
+// From module: FLASH Controller Double-Word (FLASHCDW)
 #include <flashcdw.h>
 
 // From module: GPIO - General-Purpose Input/Output
@@ -78,7 +80,7 @@
 // From module: System Clock Control - UC3 L0 implementation
 #include <sysclk.h>
 
-// From module: UC3L-EK board support
+// From module: UC3L-EK
 #include <led.h>
 
 #endif // ASF_H

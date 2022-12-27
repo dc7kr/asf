@@ -3,9 +3,11 @@
  *
  * \brief Unit tests for MT48LC16m16a2tg7 SDRAM component.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -112,12 +114,7 @@ static struct ebi_test_params params = {
 	.size = (uint32_t)SDRAM_SIZE,
 };
 
-//! Pointer to the module instance to use for stdio.
-#if defined(__GNUC__)
-void (*ptr_get)(void volatile*,int*);
-int (*ptr_put)(void volatile*,int);
-volatile void *volatile stdio_base;
-#endif
+
 /**
  * \brief Run unit tests for MT48LC16m16a2tg7 SDRAM
  * \return 0  which should never occur.
@@ -135,10 +132,6 @@ int main (void)
 	board_init();
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
 	sdramc_init(sysclk_get_cpu_hz());
-
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
 
 	// Define all the test cases
 	DEFINE_TEST_CASE(data_integrity_test, NULL, run_data_integrity_test,

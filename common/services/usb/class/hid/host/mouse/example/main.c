@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -77,7 +79,7 @@ int main(void)
  * The application note AVR4953 provides information about this implementation.
  *
  * \section startup Startup
- * After loading firmware, connect the board (EVKxx,XPlain,...) to a USB device mouse.
+ * After loading firmware, connect the board (EVKxx,Xplain,...) to a USB device mouse.
  *
  * \copydoc UI
  *

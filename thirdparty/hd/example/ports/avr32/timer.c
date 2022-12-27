@@ -34,6 +34,10 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #endif
+#include "lwip/init.h"
+#if ( (LWIP_VERSION) != ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
+#include "lwip/sys.h"
+#endif
 
 struct timeout_t {
         U32 tick;
@@ -227,3 +231,14 @@ int timer_interval_passed(U32 old, U32 new, U32 diff) {
         }
         return 0;
 }
+
+#if ( (LWIP_VERSION) != ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
+/* See lwip/sys.h for more information
+   Returns number of milliseconds expired
+   since lwip is initialized
+*/
+U32 sys_now(void)
+{
+	return (timer_get_ms());
+}
+#endif

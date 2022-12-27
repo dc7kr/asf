@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -51,7 +53,7 @@
  */
 void main_usb_mode_change(bool b_host_mode);
 
-/*! \brief Notify that a Vbus transition has occured
+/*! \brief Notify that a Vbus transition has occurred
  * Available only in USB hardware with Vbus monitoring.
  *
  * \param b_vbus_present true, if Vbus is high.

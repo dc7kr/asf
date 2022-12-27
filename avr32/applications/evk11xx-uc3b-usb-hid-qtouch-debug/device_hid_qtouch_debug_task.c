@@ -2,13 +2,15 @@
  *
  * \file
  *
- * \brief Management of the USB device generic HID Qtouch debug task.
+ * \brief Management of the USB device generic HID QTouch debug task.
  *
- * This file manages the USB device generic HID Qtouch debug task.
+ * This file manages the USB device generic HID QTouch debug task.
  *
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -107,7 +109,7 @@ static void hid_report_in   (void);
 
 struct hid_frames out_buffer; //sizeof must be EP_OUT_LENGTH
 
-static int recieved_data=0; // Number of data recieved from USART
+static int recieved_data=0; // Number of data received from USART
 
 
 extern int jump_bootloader;
@@ -231,7 +233,7 @@ void device_generic_hid_task_init(void)
 }
 
 //! @brief Entry point of the HID generic communication task
-//! This function manages IN/OUT repport management.
+//! This function manages IN/OUT report management.
 //!
 void device_generic_hid_task(void)
 {
@@ -313,7 +315,7 @@ void hid_report_out(void)
 
    if(Is_usb_out_received(EP_HID_GENERIC_OUT))
    {
-      // data recieved
+      // data received
       gpio_tgl_gpio_pin(RX_LED);
       Usb_reset_endpoint_fifo_access(EP_HID_GENERIC_OUT);
       none_read_byte = usb_read_ep_rxpacket(EP_HID_GENERIC_OUT, ptr_cram, EP_OUT_LENGTH, (void**)&ptr_cram);
@@ -327,7 +329,7 @@ void hid_report_out(void)
         else if(get_message(out_buffer)==MESSAGE_READY) {
            pdca_load_channel(PDCA_CHANNEL_USART, (void *)serial_tx_frame,((serial_tx_frame[1]<<8)| serial_tx_frame[2])+1 );
            pdca_enable(PDCA_CHANNEL_USART);
-           // Store packet Cound in send_ack, this will be use to send ack.
+           // Store packet Count in send_ack, this will be use to send ack.
            send_ack = out_buffer.packetCount;
         }
       }
@@ -385,7 +387,7 @@ void hid_report_in(void)
   // Send ack message if send_ack flag is not equal to Zero
   // The send_ack value is the packet number of message to be acknowledged
   else if (send_ack != 0) {
-    // Send Ack Message only if PDCA transfert is done
+    // Send Ack Message only if PDCA transfer is done
     if((pdca_get_transfer_status(PDCA_CHANNEL_USART)&PDCA_TRANSFER_COMPLETE)==0) {
       ack_message.spare_byte2  = ACK_MESSAGE;
       ack_message.packetNumber = send_ack;
@@ -409,7 +411,7 @@ void usb_write_message(void* ptr_cram)
     }
 }
 
-//! @brief Send data report to USB HIDHost
+//! @brief Send data report to USB HID Host
 //!
 void fill_tx_buffer(void)
 {
@@ -439,7 +441,7 @@ void fill_tx_buffer(void)
     }
   }
 
-  //can send messge until previous is not fully sent
+  //can send message until previous is not fully sent
   if((recieved_data>=size)&&(write_hid_message==false)) {
     send_message(serial_rx_frame,size);
     write_hid_message=true;

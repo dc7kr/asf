@@ -2,13 +2,15 @@
  *
  * \file
  *
- * \brief Management of the USB device generic HID Qtouch debug task.
+ * \brief Management of the USB device generic HID QTouch debug task.
  *
- * This file manages the USB device generic HID Qtouch debug task.
+ * This file manages the USB device generic HID QTouch debug task.
  *
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

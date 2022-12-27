@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -57,13 +59,7 @@
  */
 
 //! Two interfaces for a CDC device
-#if UDI_CDC_PORT_NB == 1
-# define  USB_DEVICE_NB_INTERFACE       2
-#elif UDI_CDC_PORT_NB == 2
-# define  USB_DEVICE_NB_INTERFACE       4
-#elif UDI_CDC_PORT_NB == 3
-# define  USB_DEVICE_NB_INTERFACE       6
-#endif
+#define  USB_DEVICE_NB_INTERFACE       (2*UDI_CDC_PORT_NB)
 
 //! USB Device Descriptor
 COMPILER_WORD_ALIGNED
@@ -122,28 +118,22 @@ UDC_DESC_STORAGE usb_dev_qual_desc_t udc_device_qual = {
 #endif
 
 //! Structure for USB Device Configuration Descriptor
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 typedef struct {
 	usb_conf_desc_t conf;
 #if UDI_CDC_PORT_NB == 1
-	udi_cdc_comm_desc_t udi_cdc_comm;
-	udi_cdc_data_desc_t udi_cdc_data;
-#endif
-#if UDI_CDC_PORT_NB > 1
-	usb_iad_desc_t      udi_cdc_iad;
-	udi_cdc_comm_desc_t udi_cdc_comm;
-	udi_cdc_data_desc_t udi_cdc_data;
-	usb_iad_desc_t      udi_cdc_iad_2;
-	udi_cdc_comm_desc_t udi_cdc_comm_2;
-	udi_cdc_data_desc_t udi_cdc_data_2;
-#endif
-#if UDI_CDC_PORT_NB > 2
-	usb_iad_desc_t      udi_cdc_iad_3;
-	udi_cdc_comm_desc_t udi_cdc_comm_3;
-	udi_cdc_data_desc_t udi_cdc_data_3;
+	udi_cdc_comm_desc_t udi_cdc_comm_0;
+	udi_cdc_data_desc_t udi_cdc_data_0;
+#else
+#  define UDI_CDC_DESC_STRUCTURE(index, unused) \
+	usb_iad_desc_t      udi_cdc_iad_##index; \
+	udi_cdc_comm_desc_t udi_cdc_comm_##index; \
+	udi_cdc_data_desc_t udi_cdc_data_##index;
+	MREPEAT(UDI_CDC_PORT_NB, UDI_CDC_DESC_STRUCTURE, ~)
+#  undef UDI_CDC_DESC_STRUCTURE
 #endif
 } udc_desc_t;
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
 //! USB Device Configuration Descriptor filled for full and high speed
 COMPILER_WORD_ALIGNED
@@ -156,18 +146,16 @@ UDC_DESC_STORAGE udc_desc_t udc_desc_fs = {
 	.conf.iConfiguration       = 0,
 	.conf.bmAttributes         = USB_CONFIG_ATTR_MUST_SET | USB_DEVICE_ATTR,
 	.conf.bMaxPower            = USB_CONFIG_MAX_POWER(USB_DEVICE_POWER),
-	.udi_cdc_comm              = UDI_CDC_COMM_DESC,
-	.udi_cdc_data              = UDI_CDC_DATA_DESC_FS,
-#if UDI_CDC_PORT_NB > 1
-	.udi_cdc_iad               = UDI_CDC_IAD_DESC,
-	.udi_cdc_iad_2             = UDI_CDC_IAD_DESC_2,
-	.udi_cdc_comm_2            = UDI_CDC_COMM_DESC_2,
-	.udi_cdc_data_2            = UDI_CDC_DATA_DESC_2_FS,
-#endif
-#if UDI_CDC_PORT_NB > 2
-	.udi_cdc_iad_3             = UDI_CDC_IAD_DESC_3,
-	.udi_cdc_comm_3            = UDI_CDC_COMM_DESC_3,
-	.udi_cdc_data_3            = UDI_CDC_DATA_DESC_3_FS,
+#if UDI_CDC_PORT_NB == 1
+	.udi_cdc_comm_0            = UDI_CDC_COMM_DESC_0,
+	.udi_cdc_data_0            = UDI_CDC_DATA_DESC_0_FS,
+#else
+#  define UDI_CDC_DESC_FS(index, unused) \
+	.udi_cdc_iad_##index             = UDI_CDC_IAD_DESC_##index,\
+	.udi_cdc_comm_##index            = UDI_CDC_COMM_DESC_##index,\
+	.udi_cdc_data_##index            = UDI_CDC_DATA_DESC_##index##_FS,
+	MREPEAT(UDI_CDC_PORT_NB, UDI_CDC_DESC_FS, ~)
+#  undef UDI_CDC_DESC_FS
 #endif
 };
 
@@ -182,18 +170,16 @@ UDC_DESC_STORAGE udc_desc_t udc_desc_hs = {
 	.conf.iConfiguration       = 0,
 	.conf.bmAttributes         = USB_CONFIG_ATTR_MUST_SET | USB_DEVICE_ATTR,
 	.conf.bMaxPower            = USB_CONFIG_MAX_POWER(USB_DEVICE_POWER),
-	.udi_cdc_comm              = UDI_CDC_COMM_DESC,
-	.udi_cdc_data              = UDI_CDC_DATA_DESC_HS,
-#if UDI_CDC_PORT_NB > 1
-	.udi_cdc_iad               = UDI_CDC_IAD_DESC,
-	.udi_cdc_iad_2             = UDI_CDC_IAD_DESC_2,
-	.udi_cdc_comm_2            = UDI_CDC_COMM_DESC_2,
-	.udi_cdc_data_2            = UDI_CDC_DATA_DESC_2_HS,
-#endif
-#if UDI_CDC_PORT_NB > 2
-	.udi_cdc_iad_3             = UDI_CDC_IAD_DESC_3,
-	.udi_cdc_comm_3            = UDI_CDC_COMM_DESC_3,
-	.udi_cdc_data_3            = UDI_CDC_DATA_DESC_3_HS,
+#if UDI_CDC_PORT_NB == 1
+	.udi_cdc_comm_0            = UDI_CDC_COMM_DESC_0,
+	.udi_cdc_data_0            = UDI_CDC_DATA_DESC_0_HS,
+#else
+#  define UDI_CDC_DESC_HS(index, unused) \
+	.udi_cdc_iad_##index             = UDI_CDC_IAD_DESC_##index, \
+	.udi_cdc_comm_##index            = UDI_CDC_COMM_DESC_##index, \
+	.udi_cdc_data_##index            = UDI_CDC_DATA_DESC_##index##_HS,
+	MREPEAT(UDI_CDC_PORT_NB, UDI_CDC_DESC_HS, ~)
+#  undef UDI_CDC_DESC_HS
 #endif
 };
 #endif
@@ -205,16 +191,11 @@ UDC_DESC_STORAGE udc_desc_t udc_desc_hs = {
 
 //! Associate an UDI for each USB interface
 UDC_DESC_STORAGE udi_api_t *udi_apis[USB_DEVICE_NB_INTERFACE] = {
-	&udi_api_cdc_comm,
+#  define UDI_CDC_API(index, unused) \
+	&udi_api_cdc_comm, \
 	&udi_api_cdc_data,
-#if UDI_CDC_PORT_NB > 1
-	&udi_api_cdc_comm_2,
-	&udi_api_cdc_data_2,
-#endif
-#if UDI_CDC_PORT_NB > 2
-	&udi_api_cdc_comm_3,
-	&udi_api_cdc_data_3,
-#endif
+	MREPEAT(UDI_CDC_PORT_NB, UDI_CDC_API, ~)
+#  undef UDI_CDC_API
 };
 
 //! Add UDI with USB Descriptors FS & HS

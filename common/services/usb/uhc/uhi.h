@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -92,7 +94,7 @@ typedef struct {
 	void (*uninstall)(uhc_device_t*);
 
 	/**
-	 * \brief Signal that a SOF has occured
+	 * \brief Signal that a SOF has occurred
 	 */
 	void (*sof_notify)(bool b_micro);
 } uhi_api_t;

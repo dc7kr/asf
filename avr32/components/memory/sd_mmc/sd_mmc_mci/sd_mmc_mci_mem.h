@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -147,7 +149,7 @@ extern bool sd_mmc_mci_removal_1(void);
  */
 //! @{
 
-/*! \brief Tranfers data from the memory to USB.
+/*! \brief Transfers data from the memory to USB.
  *
  * \param slot SD/MMC Slot Card Selected.
  * \param addr      Address of first memory sector to read.
@@ -161,7 +163,7 @@ extern Ctrl_status sd_mmc_mci_usb_read_10_0(uint32_t addr, uint16_t nb_sector);
 //! Instance Declaration for sd_mmc_mci_usb_read_10 Slot 1
 extern Ctrl_status sd_mmc_mci_usb_read_10_1(uint32_t addr, uint16_t nb_sector);
 
-/*! \brief Tranfers data from USB to the memory.
+/*! \brief Transfers data from USB to the memory.
  *
  * \param slot SD/MMC Slot Card Selected.
  * \param addr      Address of first memory sector to write.

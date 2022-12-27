@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -78,7 +80,7 @@ static uint8_t timeout_expired;
  * The function executes when the RTC compare interrupt occurs and loop
  * through all timeout channels. The timeout_array[channel_index] which
  * contains the remaining ticks before timeout is decremented and the timeout
- * active/expred masks are updated.
+ * active/expired masks are updated.
  */
 static void tick_handler(uint32_t time)
 {
@@ -139,10 +141,10 @@ void timeout_init(void)
  */
 void timeout_start_offset(timeout_id_t id, uint16_t period, uint16_t offset)
 {
-	// Chech that ID within the TIMEOUT_COUNT range
+	// Check that ID within the TIMEOUT_COUNT range
 	if ( id < TIMEOUT_COUNT ) {
 
-		// Disable interupts before tweaking the bitmasks
+		// Disable interrupts before tweaking the bitmasks
 		irqflags_t flags;
 		flags = cpu_irq_save();
 
@@ -154,7 +156,7 @@ void timeout_start_offset(timeout_id_t id, uint16_t period, uint16_t offset)
 		timeout_active |= 1 << id;
 		timeout_expired &= ~(1 << id);
 
-		// Restore interupts
+		// Restore interrupts
 		cpu_irq_restore(flags);
 	}
 }
@@ -190,7 +192,7 @@ void timeout_start_periodic(timeout_id_t id, uint16_t period)
  */
 bool timeout_test_and_clear_expired(timeout_id_t id)
 {
-	// Chech that ID within the TIMEOUT_COUNT range
+	// Check that ID within the TIMEOUT_COUNT range
 	if (id < TIMEOUT_COUNT) {
 
 		irqflags_t flags;

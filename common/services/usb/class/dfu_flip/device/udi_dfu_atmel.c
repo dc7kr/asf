@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -488,12 +490,12 @@ static bool udi_dfu_flip_msg_decode(void)
 			CAT_CMD( FLIP_V2_CMD_GRP_SELECT, FLIP_V2_CMD_SELECT_MEMORY)) {
 		return udi_dfu_atmel_select_memory();
 	}
-	return false; // Unknow command
+	return false; // Unknown command
 }
 
 static bool udi_dfu_atmel_program(void)
 {
-	// Check list before start memory programmation
+	// Check list before start memory programming
 	if (udi_dfu_atmel_security && udi_dfu_atmel_mem_b_protected) {
 		// Security enabled
 		return udi_dfu_atmel_mem_protected();
@@ -693,7 +695,7 @@ static bool udi_dfu_flip_msg_decode(void)
 			udi_dfu_flip_msg.msg.arg[1]);
 		return true;
 
-	// Commands to read Chip indentification
+	// Commands to read Chip identification
 	case CAT_CMD(FLIP_V1_CMD_READ_ID,
 			FLIP_V1_CMD_READ_ID_ARG_SIGNATURE):
 		switch (udi_dfu_flip_msg.msg.arg[1]) {
@@ -713,7 +715,7 @@ static bool udi_dfu_flip_msg_decode(void)
 		return true;
 	}
 
-	return false;  // Unknow command
+	return false;  // Unknown command
 }
 
 static bool udi_dfu_atmel_progstart(uint8_t mem)

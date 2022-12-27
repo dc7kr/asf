@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -64,21 +66,21 @@ extern "C" {
  *
  * \par Purpose
  *
- * The Power Management Controller (PMC) optimizes power consumption by controlling 
- * all system and user peripheral clocks. The PMC enables/disables the clock inputs 
+ * The Power Management Controller (PMC) optimizes power consumption by controlling
+ * all system and user peripheral clocks. The PMC enables/disables the clock inputs
  * to many of the peripherals and the Cortex-M Processor.
  *
  * @{
  */
 
 /**
- * \brief Set the prescaler of the MCK. 
+ * \brief Set the prescaler of the MCK.
  *
  * \param ul_pres Prescaler value.
  */
 void pmc_mck_set_prescaler(uint32_t ul_pres)
 {
-	PMC->PMC_MCKR = 
+	PMC->PMC_MCKR =
 			(PMC->PMC_MCKR & (~PMC_MCKR_PRES_Msk)) | ul_pres;
 	while (!(PMC->PMC_SR & PMC_SR_MCKRDY));
 }
@@ -90,7 +92,7 @@ void pmc_mck_set_prescaler(uint32_t ul_pres)
  */
 void pmc_mck_set_source(uint32_t ul_source)
 {
-	PMC->PMC_MCKR = 
+	PMC->PMC_MCKR =
 			(PMC->PMC_MCKR & (~PMC_MCKR_CSS_Msk)) | ul_source;
 	while (!(PMC->PMC_SR & PMC_SR_MCKRDY));
 }
@@ -175,7 +177,7 @@ uint32_t pmc_switch_mck_to_pllack(uint32_t ul_pres)
 			return 1;
 		}
 	}
-	
+
 	PMC->PMC_MCKR = (PMC->PMC_MCKR & (~PMC_MCKR_CSS_Msk)) |
 			PMC_MCKR_CSS_PLLA_CLK;
 
@@ -259,7 +261,7 @@ uint32_t pmc_switch_mck_to_upllck(uint32_t ul_pres)
 
 /**
  * \brief Switch slow clock source selection to external 32k (Xtal or Bypass).
- * 
+ *
  * \note This function disables the PLLs.
  *
  * \note Switching SCLK back to 32krc is only possible by shutting down the VDDIO
@@ -322,7 +324,7 @@ void pmc_switch_mainck_to_fastrc(uint32_t ul_moscrcf)
 	/* Switch to Fast RC */
 	PMC->CKGR_MOR = (PMC->CKGR_MOR & ~CKGR_MOR_MOSCSEL) | PMC_CKGR_MOR_KEY_VALUE;
 
-	// BUG FIX : clock_example3_sam3s does not switch sclk->mainck with XT disabled.
+	/* Disable xtal oscillator */
 	if (ul_needXTEN) {
 		PMC->CKGR_MOR = (PMC->CKGR_MOR & ~CKGR_MOR_MOSCXTEN) |
 				PMC_CKGR_MOR_KEY_VALUE;
@@ -349,12 +351,13 @@ void pmc_osc_enable_fastrc(uint32_t ul_rc)
 void pmc_osc_disable_fastrc(void)
 {
 	/* Disable Fast RC oscillator */
-	PMC->CKGR_MOR = (PMC->CKGR_MOR & ~CKGR_MOR_MOSCRCEN) | PMC_CKGR_MOR_KEY_VALUE;
+	PMC->CKGR_MOR = (PMC->CKGR_MOR & ~CKGR_MOR_MOSCRCEN & ~CKGR_MOR_MOSCRCF_Msk)
+					| PMC_CKGR_MOR_KEY_VALUE;
 }
 
 /**
- * \brief Switch main clock source selection to external Xtal/Bypass. 
- * The function may switch MCK to SCLK if MCK source is MAINCK to avoid any 
+ * \brief Switch main clock source selection to external Xtal/Bypass.
+ * The function may switch MCK to SCLK if MCK source is MAINCK to avoid any
  * system crash.
  *
  * \note If used in Xtal mode, the Xtal is automatically enabled.
@@ -420,8 +423,8 @@ uint32_t pmc_osc_is_ready_mainck(void)
  */
 void pmc_enable_pllack(uint32_t mula, uint32_t pllacount, uint32_t diva)
 {
-	pmc_disable_pllack(); // Hardware BUG FIX : first disable the PLL to unlock the lock! 
-	// It occurs when re-enabling the PLL with the same parameters.
+	/* first disable the PLL to unlock the lock!*/
+	pmc_disable_pllack();
 
 	PMC->CKGR_PLLAR = CKGR_PLLAR_ONE | CKGR_PLLAR_DIVA(diva) |
 			CKGR_PLLAR_PLLACOUNT(pllacount) | CKGR_PLLAR_MULA(mula);
@@ -457,8 +460,9 @@ uint32_t pmc_is_locked_pllack(void)
  */
 void pmc_enable_pllbck(uint32_t mulb, uint32_t pllbcount, uint32_t divb)
 {
-	pmc_disable_pllbck(); // Hardware BUG FIX : first disable the PLL to unlock the lock! 
-	// It occurs when re-enabling the PLL with the same parameters.
+	/* first disable the PLL to unlock the lock!*/
+	pmc_disable_pllbck();
+
 	PMC->CKGR_PLLBR =
 			CKGR_PLLBR_DIVB(divb) | CKGR_PLLBR_PLLBCOUNT(pllbcount)
 			| CKGR_PLLBR_MULB(mulb);
@@ -545,7 +549,7 @@ uint32_t pmc_enable_periph_clk(uint32_t ul_id)
 		}
 #endif
 	}
-	
+
 	return 0;
 }
 
@@ -601,7 +605,7 @@ void pmc_disable_all_periph_clk(void)
 {
 	PMC->PMC_PCDR0 = PMC_MASK_STATUS0;
 	while ((PMC->PMC_PCSR0 & PMC_MASK_STATUS0) != 0);
-	
+
 #if (SAM3S || SAM3XA || SAM4S)
 	PMC->PMC_PCDR1 = PMC_MASK_STATUS1;
 	while ((PMC->PMC_PCSR1 & PMC_MASK_STATUS1) != 0);
@@ -913,7 +917,7 @@ void pmc_disable_udpck(void)
 }
 #endif
 
-/** 
+/**
  * \brief Enable PMC interrupts.
  *
  * \param ul_sources Interrupt sources bit map.
@@ -923,7 +927,7 @@ void pmc_enable_interrupt(uint32_t ul_sources)
 	PMC->PMC_IER = ul_sources;
 }
 
-/** 
+/**
  * \brief Disable PMC interrupts.
  *
  * \param ul_sources Interrupt sources bit map.
@@ -933,7 +937,7 @@ void pmc_disable_interrupt(uint32_t ul_sources)
 	PMC->PMC_IDR = ul_sources;
 }
 
-/** 
+/**
  * \brief Get PMC interrupt mask.
  *
  * \return The interrupt mask value.
@@ -960,7 +964,7 @@ uint32_t pmc_get_status(void)
  */
 void pmc_set_fast_startup_input(uint32_t ul_inputs)
 {
-	ul_inputs &= (~ PMC_FAST_STARTUP_Msk);
+	ul_inputs &= PMC_FAST_STARTUP_Msk;
 	PMC->PMC_FSMR |= ul_inputs;
 }
 
@@ -971,7 +975,7 @@ void pmc_set_fast_startup_input(uint32_t ul_inputs)
  */
 void pmc_clr_fast_startup_input(uint32_t ul_inputs)
 {
-	ul_inputs &= (~ PMC_FAST_STARTUP_Msk);
+	ul_inputs &= PMC_FAST_STARTUP_Msk;
 	PMC->PMC_FSMR &= ~ul_inputs;
 }
 
@@ -994,7 +998,7 @@ void pmc_enable_sleepmode(uint8_t uc_type)
 }
 
 /**
- * \brief Enable Wait Mode. 
+ * \brief Enable Wait Mode.
  * Enter condition: WFE + (SLEEPDEEP bit = 0) + (LPM bit = 1)
  */
 void pmc_enable_waitmode(void)
@@ -1015,7 +1019,7 @@ void pmc_enable_waitmode(void)
 }
 
 /**
- * \brief Enable Backup Mode. 
+ * \brief Enable Backup Mode.
  * Enter condition: WFE + (SLEEPDEEP bit = 1)
  */
 void pmc_enable_backupmode(void)
@@ -1024,7 +1028,27 @@ void pmc_enable_backupmode(void)
 	__WFE();
 }
 
-/** 
+/**
+ * \brief Enable Clock Failure Detector.
+ */
+void pmc_enable_clock_failure_detector(void)
+{
+	uint32_t ul_reg = PMC->CKGR_MOR;
+
+	PMC->CKGR_MOR = PMC_CKGR_MOR_KEY_VALUE | CKGR_MOR_CFDEN | ul_reg;
+}
+
+/**
+ * \brief Disable Clock Failure Detector.
+ */
+void pmc_disable_clock_failure_detector(void)
+{
+	uint32_t ul_reg = PMC->CKGR_MOR & (~CKGR_MOR_CFDEN);
+
+	PMC->CKGR_MOR = PMC_CKGR_MOR_KEY_VALUE | ul_reg;
+}
+
+/**
  * \brief Enable or disable write protect of PMC registers.
  *
  * \param ul_enable 1 to enable, 0 to disable.
@@ -1038,7 +1062,7 @@ void pmc_set_writeprotect(uint32_t ul_enable)
 	}
 }
 
-/** 
+/**
  * \brief Return write protect status.
  *
  * \retval 0 Protection disabled.

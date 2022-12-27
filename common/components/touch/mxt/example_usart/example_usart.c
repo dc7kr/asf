@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -60,19 +62,19 @@
  * - conf_twim.h: configuration of TWI driver
  * - conf_usart_serial.h: configuration of USART driver
  *
- * \section apiinfo maXTouch lowlevel compnent API
+ * \section apiinfo maXTouch low level component API
  * The maXTouch component API can be found \ref mxt_group "here".
  *
  * \section deviceinfo Device Info
- * All UC3 and XMega devices with a TWI module can be used with this component
+ * All UC3 and Xmega devices with a TWI module can be used with this component
  *
  * \section exampledescription Description of the example
  * This example will read data from the connected maXTouch explained board
- * over TWI. This data is then processed and sendt over a USART data line
+ * over TWI. This data is then processed and sent over a USART data line
  * to the board controller. The board controller will create a USB CDC class
- * object on the host computer and repeat the incomming USART data from the
+ * object on the host computer and repeat the incoming USART data from the
  * main controller to the host. On the host this object should appear as a
- * serial port object (COMx on windows, /dev/ttyxxx on your chosen linux flavour).
+ * serial port object (COMx on windows, /dev/ttyxxx on your chosen Linux flavour).
  *
  * Connect a terminal application to the serial port object with the settings
  * Baud: 57600
@@ -102,12 +104,17 @@
 #define USART_TX_MAX_LENGTH     0xff
 
 /**
- * \brief Setting predefined maXTouch configuration
+ * \brief Set maXTouch configuration
  *
- * \ param *device Pointer to mxt_device struct
-*/
-static void mxt_set_config(struct mxt_device *device)
+ * This function writes a set of predefined, optimal maXTouch configuration data
+ * to the mXT143E Xplained.
+ *
+ * \param device Pointer to mxt_device struct
+ */
+static void mxt_init(struct mxt_device *device)
 {
+	enum status_code status;
+
 	/* T8 configuration object data */
 	uint8_t t8_object[] = {
 		0x10, 0x05, 0x0a, 0x14, 0x64, 0x00, 0x05,
@@ -135,8 +142,30 @@ static void mxt_set_config(struct mxt_device *device)
 		0x00, 0x00, 0x00, 0x00, 0x00
 	};
 
-	/* Writing data to configuration register in T7 configuration
-	 * object */
+	/* TWI configuration */
+	twi_master_options_t twi_opt = {
+		.speed = MXT_TWI_SPEED,
+		.chip  = MAXTOUCH_TWI_ADDRESS,
+	};
+
+	status = twi_master_setup(MAXTOUCH_TWI_INTERFACE, &twi_opt);
+	Assert(status == STATUS_OK);
+
+	/* Initialize the maXTouch device */
+	status = mxt_init_device(device, MAXTOUCH_TWI_INTERFACE,
+			MAXTOUCH_TWI_ADDRESS, MXT143E_XPLAINED_CHG);
+	Assert(status == STATUS_OK);
+
+	/* Issue soft reset of maXTouch device by writing a non-zero value to
+	 * the reset register */
+	mxt_write_config_reg(device, mxt_get_object_address(device,
+			MXT_GEN_COMMANDPROCESSOR_T6, 0)
+			+ MXT_GEN_COMMANDPROCESSOR_RESET, 0x01);
+
+	/* Wait for the reset of the device to complete */
+	delay_ms(MXT_RESET_TIME);
+
+	/* Write data to configuration registers in T7 configuration object */
 	mxt_write_config_reg(device, mxt_get_object_address(device,
 			MXT_GEN_POWERCONFIG_T7, 0) + 0, 0xff);
 	mxt_write_config_reg(device, mxt_get_object_address(device,
@@ -144,13 +173,19 @@ static void mxt_set_config(struct mxt_device *device)
 	mxt_write_config_reg(device, mxt_get_object_address(device,
 			MXT_GEN_POWERCONFIG_T7, 0) + 2, 0x32);
 
-	/* Writing configuration data to configuration objects */
+	/* Write predefined configuration data to configuration objects */
 	mxt_write_config_object(device, mxt_get_object_address(device,
 			MXT_GEN_ACQUISITIONCONFIG_T8, 0), &t8_object);
 	mxt_write_config_object(device, mxt_get_object_address(device,
 			MXT_TOUCH_MULTITOUCHSCREEN_T9, 0), &t9_object);
 	mxt_write_config_object(device, mxt_get_object_address(device,
 			MXT_PROCG_TOUCHSUPPRESSION_T48, 0), &t48_object);
+
+	/* Issue recalibration command to maXTouch device by writing a non-zero
+	 * value to the calibrate register */
+	mxt_write_config_reg(device, mxt_get_object_address(device,
+			MXT_GEN_COMMANDPROCESSOR_T6, 0)
+			+ MXT_GEN_COMMANDPROCESSOR_CALIBRATE, 0x01);
 }
 
 static void mxt_handler(struct mxt_device *device)
@@ -204,60 +239,18 @@ int main(void)
 		.stopbits     = USART_SERIAL_STOP_BIT
 	};
 
-	/* TWI configuration */
-	twi_master_options_t twi_opt = {
-		.speed = MXT_TWI_SPEED,
-		.chip  = MAXTOUCH_DEVICE_ADR
-	};
-
 	sysclk_init(); /* Initialize system clocks */
 	board_init();  /* Initialize board */
 
-	/* Setup TWI master to communicate to maXTouch device */
-	if (twi_master_setup(MAXTOUCH_TWI_INTERFACE, &twi_opt) != STATUS_OK) {
-		Assert(false);
-	}
-
-	/* Check if the maXTouch device is available on MAXTOUCH_TWI_INTERFACE bus
-	 * and MAXTOUCH_DEVICE_ADR address */
-	if (mxt_probe_device(MAXTOUCH_TWI_INTERFACE, MAXTOUCH_DEVICE_ADR) != STATUS_OK) {
-		Assert(false);
-	}
-
-	/* Initialize the maXTouch device */
-	if (mxt_init_device(&device, MAXTOUCH_TWI_INTERFACE, MAXTOUCH_DEVICE_ADR,
-			MAXTOUCH_CHG_PIN) != STATUS_OK) {
-		Assert(false);
-	}
-
+	/* Initialize the mXT touch device */
+	mxt_init(&device);
+	
 	/* Initialize stdio on USART */
 	stdio_serial_init(USART_SERIAL_EXAMPLE, &usart_serial_options);
 
-#if (defined(__GNUC__) && defined(__AVR32__))
-	setbuf(stdout, NULL);
-#endif
-
 	printf("\n\rmaXTouch data USART transmitter\n\r");
 
-	/* Reset maXTouch device */
-	mxt_write_config_reg(&device, mxt_get_object_address(&device,
-			MXT_GEN_COMMANDPROCESSOR_T6, 0) + MXT_GEN_COMMANDPROCESSOR_RESET, 1);
-
-	/* Wait for reset sequence to complete */
-	delay_ms(MXT_RESET_TIME);
-
-	/* Set maXTouch configuration */
-	mxt_set_config(&device);
-
-	/* Enable CHG mode 1, CHG pin will stay low until message queue is empty */
-	mxt_write_config_reg(&device, mxt_get_object_address(&device,
-			MXT_SPT_COMMSCONFIG_T18, 0),
-			MXT_COMMSCONFIG_T18_CHG_MODE_bp << 1);
-
-	/* Re-calibrate device (send non-zero value to the defined offset */
-	mxt_write_config_reg(&device, mxt_get_object_address(&device,
-			MXT_GEN_COMMANDPROCESSOR_T6, 0) +
-			MXT_GEN_COMMANDPROCESSOR_CALIBRATE, 0x1);
+	
 
 	while (true) {
 		/* Check for any pending messages and run message handler if any

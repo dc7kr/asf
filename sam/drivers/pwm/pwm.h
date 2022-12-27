@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -531,12 +533,12 @@ void pwm_stepper_motor_init(Pwm *p_pwm, pwm_stepper_motor_pair_t pair,
  *   - \code void PWM_Handler(void); \endcode
  * -# In PWM_Handler(), get PWM interrupt status:
  *   - \code ul_status = pwm_channel_get_interrupt_status(PWM); \endcode
- * -# In PWM_Handler(), check whether the PWM channel 0 interrupt has occured:
+ * -# In PWM_Handler(), check whether the PWM channel 0 interrupt has occurred:
  *   - \code
  *    if ((ul_status & PWM_CHANNEL_0) == PWM_CHANNEL_0) {
  *    }
  *   \endcode
- * -# In PWM_Handler(), if the PWM channel 0 interrupt has occured, update the ul_duty value:
+ * -# In PWM_Handler(), if the PWM channel 0 interrupt has occurred, update the ul_duty value:
  *   - \code
  *    uc_count++;
  *    if (uc_count == 10) {

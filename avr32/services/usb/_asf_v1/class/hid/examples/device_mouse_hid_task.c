@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -173,7 +175,7 @@ bool is_usb_mouse_event( void )
 #if BOARD == EVK1101
    signed int res;
 
-   // Get accelerometer acquisition and process datas
+   // Get accelerometer acquisition and process data
    acc_update();
 
    // Look joystick activity for the Wheel events

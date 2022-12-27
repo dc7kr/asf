@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -81,12 +83,15 @@
  */
 #include <asf.h>
 
-#define HX8347A_BLACK GFX_COLOR(0  ,   0,   0)
-#define HX8347A_RED   GFX_COLOR(255,   0,   0)
-#define HX8347A_BLUE  GFX_COLOR(0  ,   0, 255)
-#define HX8347A_GREEN GFX_COLOR(0  , 255,   0)
-#define HX8347A_WHITE GFX_COLOR(255, 255, 255)
-#define HX8347A_GRAY  GFX_COLOR(128, 128, 128)
+#define HX8347A_BLACK   HX8347A_COLOR(0  ,   0,   0)
+#define HX8347A_RED     HX8347A_COLOR(255,   0,   0)
+#define HX8347A_BLUE    HX8347A_COLOR(0  ,   0, 255)
+#define HX8347A_GREEN   HX8347A_COLOR(0  , 255,   0)
+#define HX8347A_WHITE   HX8347A_COLOR(255, 255, 255)
+#define HX8347A_GRAY    HX8347A_COLOR(128, 128, 128)
+
+/** Number of pixels for full screen */
+#define TOTAL_PIXELS ((uint32_t)HX8347A_DEFAULT_WIDTH * HX8347A_DEFAULT_HEIGHT)
 
 /**
  * \brief The main application routine
@@ -106,9 +111,9 @@ int main(void)
 	/* Blank the screen by drawing a black background. Notice how the
 	 * drawing boundaries/limits are set to the entire screen */
 	hx8347a_set_top_left_limit(0, 0);
-	hx8347a_set_bottom_right_limit(240, 320);
+	hx8347a_set_bottom_right_limit(HX8347A_DEFAULT_WIDTH, HX8347A_DEFAULT_HEIGHT);
 
-	hx8347a_duplicate_pixel(HX8347A_BLACK, 76800);
+	hx8347a_duplicate_pixel(HX8347A_BLACK, TOTAL_PIXELS);
 
 	/* Draw five squares in different colors to generate a test pattern for
 	 * the screen */

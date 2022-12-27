@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -435,7 +437,7 @@ extern void test_case_fail(const struct test_case *test, int result,
  					"Assertion failed: %s", #expr); \
  		} else { \
  			if (!(expr)) { \
- 				dbg_error("Assertion '%s' failed at %s:%u\r\n", \
+ 				dbg_error("Assertion '%s' failed at %s:%d\r\n", \
  						#expr, __FILE__, __LINE__); \
 				while (true); \
  			} \

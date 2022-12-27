@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -53,7 +55,7 @@
  * \section exampledescription Brief description of the example application
  * The example application set up the correct clock setting to use the
  * libc delay functions. The only thing this application will do is to
- * demonstarte how to call the libc delay functions. There are no output
+ * demonstrate how to call the libc delay functions. There are no output
  * in form of leds. To verify operation of this example it is recommended
  * to use debugging and break on different lines.
  *

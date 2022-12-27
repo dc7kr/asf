@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -222,7 +224,7 @@ enum gfx_mono_bitmap_type {
  *
  * The octant_mask parameter is a bitmask that decides which octants of
  * the circle to draw. Use the GFX_OCTANTn, GFX_QUADRANTn, GFX_xHALF and
- * GFX_WHOLE contants and OR them together if required. Radius equal to
+ * GFX_WHOLE constants and OR them together if required. Radius equal to
  * zero gives a single pixel.
  *
  * \param  x           X coordinate of center.
@@ -242,7 +244,7 @@ enum gfx_mono_bitmap_type {
  *
  * The quadrant_mask parameter is a bitmask that decides which quadrants
  * of the circle to draw. Use the GFX_QUADRANTn, GFX_xHALF and
- * GFX_WHOLE contants and OR them together if required. Radius equal to
+ * GFX_WHOLE constants and OR them together if required. Radius equal to
  * zero gives a single pixel.
  *
  * \note This function only supports quadrants while gfx_draw_circle()

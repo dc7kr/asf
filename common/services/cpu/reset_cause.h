@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -77,7 +79,7 @@
 
 /*
  * Sanity check of reset causes, define undefined reset causes to 0. Hence they
- * will always return false when querried.
+ * will always return false when queried.
  */
 #ifndef CHIP_RESET_CAUSE_BOD_CPU
 /**

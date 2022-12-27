@@ -20,6 +20,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -141,7 +143,7 @@
  * \subsection EVK1100
  * This demo was designed to run on the EVK1100 evaluation kit. The content of
  * the EVK1100 board is:
- *   - an ethernet connection (RJ45),
+ *   - an Ethernet connection (RJ45),
  *   - a USB mini A/B connector (thus allowing the board to behave as a USB device
  *   or as a USB reduced-host),
  *   - 1 SD/MMC card slot,
@@ -175,13 +177,13 @@
  * \subsubsection RemoteUserToolkit Remote users toolkit
  * A remote user is a user that cannot physically interact with the Control Panel
  * (i.e. it is not in the same room as the EVK1100 board).
- * - an ethernet cable: to communicate with the Control Panel, a remote user should
+ * - an Ethernet cable: to communicate with the Control Panel, a remote user should
  * have a PC and run a web browser to access the Control Panel embedded web server.
  *
  * \subsubsection LocalUserToolkit Local users toolkit
  * A local user is a user that can physically interact with the Control Panel (i.e.
  * it is in the same room as the EVK1100 board).
- * - an ethernet cable: a local user may proceed like a remote user and directly
+ * - an Ethernet cable: a local user may proceed like a remote user and directly
  * plug an Ethernet cable between the Control Panel Ethernet connector and its PC
  * Ethernet port.
  * - a miniB plug to STD-A plug USB cable: to connect the Control Panel to a PC USB

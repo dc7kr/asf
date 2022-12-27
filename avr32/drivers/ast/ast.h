@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -124,7 +126,7 @@ typedef struct ast_calendar_t {
 		 *          uint32_t hour            : 5;
 		 *          //! Field Minute
 		 *          uint32_t min             : 6;
-		 *          //! Field Seconde
+		 *          //! Field Second
 		 *          uint32_t sec             : 6;
 		 *  } avr32_ast_calv_t;
 		 *

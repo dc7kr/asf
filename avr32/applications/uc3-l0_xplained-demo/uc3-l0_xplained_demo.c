@@ -4,9 +4,11 @@
  * \brief UC3-L0 Xplained demo application that reads the board temperature
  * sensor and changes the color of the board RGB LED based on touch input.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -46,7 +48,7 @@
  * \section intro Introduction
  *
  * This application demonstrates the QMatrix functionality of the UC3-L0
- * Xplained board. On poweron, the board will initialize the required touch
+ * Xplained board. On power-on, the board will initialize the required touch
  * libraries, showing the current touch state of the slider and touch button on
  * the board LEDs. The temperature sensor data will be sent to the USART connected
  * to the board USB Virtual Com Port.
@@ -146,8 +148,9 @@ static void init_pwm(void)
 
 	// Enable RGB LED PWM.
 	sysclk_enable_peripheral_clock(&AVR32_PWMA);
-	pwma_config_and_enable(&AVR32_PWMA, PWM_CHANNEL_RED | PWM_CHANNEL_BLUE
-			| PWM_CHANNEL_GREEN, 255, 255);
+	pwma_config_enable(&AVR32_PWMA,EXAMPLE_PWMA_FREQUENCY,EXAMPLE_PWMA_GCLK_FREQUENCY,0); 
+	pwma_set_channels_value(&AVR32_PWMA,PWM_CHANNEL_RED | PWM_CHANNEL_BLUE| PWM_CHANNEL_GREEN,255);
+
 }
 
 /**

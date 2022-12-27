@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -108,14 +110,14 @@ static inline void ethernet_phy_setup_rmii(volatile avr32_macb_t *macb)
     vWriteMDIO(macb, PHY_TEST, mode);
     mode = ulReadMDIO(macb, PHY_TEST);
 }
-/*! \brief Setup auto-negociation for the Phy.
+/*! \brief Setup auto-negotiation for the Phy.
  *
  */
-static inline void ethernet_phy_setup_auto_negociation(volatile avr32_macb_t *macb , volatile unsigned long *config)
+static inline void ethernet_phy_setup_auto_negotiation(volatile avr32_macb_t *macb , volatile unsigned long *config)
 {
 
 #if ETHERNET_CONF_AN_ENABLE
-    // reset auto-negociation capability
+    // reset auto-negotiation capability
     *config |= (BMCR_ANRESTART | BMCR_ANENABLE);
 #else
 

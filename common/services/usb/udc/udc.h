@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -252,6 +254,7 @@ usb_iface_desc_t UDC_DESC_STORAGE *udc_get_interface_desc(void);
  * The following procedure must be executed to setup the project correctly:
  * - Specify the clock configuration:
  *   - XMEGA USB devices need 48MHz clock input.\n
+ *     XMEGA USB devices need CPU frequency higher than 12MHz.\n
  *     You can use either an internal RC48MHz auto calibrated by Start of Frames
  *     or an external OSC.
  *   - UC3 and SAM devices without USB high speed support need 48MHz clock input.\n
@@ -259,6 +262,8 @@ usb_iface_desc_t UDC_DESC_STORAGE *udc_get_interface_desc(void);
  *   - UC3 and SAM devices with USB high speed support need 12MHz clock input.\n
  *     You must use an external OSC.
  *   - UC3 devices with USBC hardware need CPU frequency higher than 25MHz.
+ * - In conf_board.h, the define CONF_BOARD_USB_PORT must be added to enable USB lines.
+ * (Not mandatory for all boards)
  * - Enable interrupts
  * - Initialize the clock service
  *
@@ -292,11 +297,14 @@ usb_iface_desc_t UDC_DESC_STORAGE *udc_get_interface_desc(void);
  * Content of conf_usb.h:
  * \code
  * #define USB_DEVICE_VENDOR_ID 0x03EB
- * #define USB_DEVICE_PRODUCT_ID 0x0000
+ * #define USB_DEVICE_PRODUCT_ID 0xXXXX
  * #define USB_DEVICE_MAJOR_VERSION 1
  * #define USB_DEVICE_MINOR_VERSION 0
  * #define USB_DEVICE_POWER 100
  * #define USB_DEVICE_ATTR USB_CONFIG_ATTR_BUS_POWERED
+ *
+ * #define  UDC_VBUS_EVENT(b_vbus_high)      my_vbus_action(b_vbus_high)
+ * extern void my_vbus_action(bool b_high);
  * \endcode
  *
  * Add to application C-file:
@@ -304,7 +312,17 @@ usb_iface_desc_t UDC_DESC_STORAGE *udc_get_interface_desc(void);
  * void usb_init(void)
  * {
  * udc_start();
- * udc_attach();
+ * }
+ *
+ * void my_vbus_action(bool b_high)
+ * {
+ *   if (b_high) {
+ *     // Attach USB Device
+ *     udc_attach();
+ *   } else {
+ *     // Vbus not present
+ *     udc_detach();
+ *   }
  * }
  * \endcode
  */
@@ -319,7 +337,7 @@ usb_iface_desc_t UDC_DESC_STORAGE *udc_get_interface_desc(void);
  *   - \code // Vendor ID provided by USB org (ATMEL 0x03EB)
  * #define USB_DEVICE_VENDOR_ID 0x03EB // Type Word
  * // Product ID (Atmel PID referenced in usb_atmel.h)
- * #define USB_DEVICE_PRODUCT_ID 0x0000 // Type Word
+ * #define USB_DEVICE_PRODUCT_ID 0xXXXX // Type Word
  * // Major version of the device
  * #define USB_DEVICE_MAJOR_VERSION 1 // Type Byte
  * // Minor version of the device
@@ -328,10 +346,25 @@ usb_iface_desc_t UDC_DESC_STORAGE *udc_get_interface_desc(void);
  * #define USB_DEVICE_POWER 100 // Type 9-bits
  * // USB attributes to enable features
  * #define USB_DEVICE_ATTR USB_CONFIG_ATTR_BUS_POWERED // Flags \endcode
+ *   - \code #define  UDC_VBUS_EVENT(b_vbus_high)      my_vbus_action(b_vbus_high)
+ * extern void my_vbus_action(bool b_high); \endcode
+ *     \note This callback is called when USB Device cable is plugged or unplugged.
  * -# Call the USB device stack start function to enable stack:
  *   - \code udc_start(); \endcode
- * -# Connect USB device:
- *   - \code udc_attach(); \endcode
+ *     \note In case of USB dual roles (Device and Host) managed through USB OTG connector
+ * (USB ID pin), the call of udc_start() must be removed and replaced by uhc_start().
+ * SeRefer to "AVR4950 section 6.1 Dual roles" for further information about dual roles.
+ * -# Connect or disconnect USB device according to Vbus state:
+ *   - \code void my_vbus_action(bool b_high)
+ * {
+ *   if (b_high) {
+ *     // Attach USB Device
+ *     udc_attach();
+ *   } else {
+ *     // Vbus not present
+ *     udc_detach();
+ *   }
+ * } \endcode
  */
 
 /**
@@ -340,13 +373,17 @@ usb_iface_desc_t UDC_DESC_STORAGE *udc_get_interface_desc(void);
  * Content of XMEGA conf_clock.h:
  * \code
  * // Configuration based on internal RC:
+ * // USB clock need of 48Mhz
  * #define CONFIG_USBCLK_SOURCE        USBCLK_SRC_RCOSC
  * #define CONFIG_OSC_RC32_CAL         48000000UL
- * #define CONFIG_OSC_AUTOCAL          OSC_ID_RC32MHZ
- * #define CONFIG_OSC_AUTOCAL_REF_OSC  OSC_ID_USBSOF
+ * #define CONFIG_OSC_AUTOCAL_RC32MHZ_REF_OSC  OSC_ID_USBSOF
+ * // CPU clock need of clock > 12MHz to run with USB (Here 24MHz)
+ * #define CONFIG_SYSCLK_SOURCE     SYSCLK_SRC_RC32MHZ
+ * #define CONFIG_SYSCLK_PSADIV     SYSCLK_PSADIV_2
+ * #define CONFIG_SYSCLK_PSBCDIV    SYSCLK_PSBCDIV_1_1
  * \endcode
  *
- * Content of conf_clock.h for AT32UC3 version USBB without high speed support:
+ * Content of conf_clock.h for AT32UC3A0, AT32UC3A1, AT32UC3B devices (USBB):
  * \code
  * // Configuration based on 12MHz external OSC:
  * #define CONFIG_PLL1_SOURCE          PLL_SRC_OSC0
@@ -356,14 +393,14 @@ usb_iface_desc_t UDC_DESC_STORAGE *udc_get_interface_desc(void);
  * #define CONFIG_USBCLK_DIV           1 // Fusb = Fsys/(2 ^ USB_div)
  * \endcode
  *
- * Content of conf_clock.h for AT32UC3 version USBB with high speed support:
+ * Content of conf_clock.h for AT32UC3A3, AT32UC3A4 devices (USBB with high speed support):
  * \code
  * // Configuration based on 12MHz external OSC:
  * #define CONFIG_USBCLK_SOURCE        USBCLK_SRC_OSC0
  * #define CONFIG_USBCLK_DIV           1 // Fusb = Fsys/(2 ^ USB_div)
  * \endcode
  *
- * Content of conf_clock.h for AT32UC3 version USBC without high speed support:
+ * Content of conf_clock.h for AT32UC3C, ATUCXXD, ATUCXXL3U, ATUCXXL4U devices (USBC):
  * \code
  * // Configuration based on 12MHz external OSC:
  * #define CONFIG_PLL1_SOURCE          PLL_SRC_OSC0
@@ -375,7 +412,7 @@ usb_iface_desc_t UDC_DESC_STORAGE *udc_get_interface_desc(void);
  * #define CONFIG_SYSCLK_SOURCE        SYSCLK_SRC_PLL1
  * \endcode
  *
- * Content of conf_clock.h for SAM without high speed support:
+ * Content of conf_clock.h for SAM3S, SAM3SD, SAM4S devices (UPD: USB Peripheral Device):
  * \code
  * // PLL1 (B) Options   (Fpll = (Fclk * PLL_mul) / PLL_div)
  * #define CONFIG_PLL1_SOURCE          PLL_SRC_MAINCK_XTAL
@@ -386,12 +423,12 @@ usb_iface_desc_t UDC_DESC_STORAGE *udc_get_interface_desc(void);
  * #define CONFIG_USBCLK_DIV           2
  * \endcode
  * 
- * Content of conf_clock.h for SAM3U with USB high speed support:
+ * Content of conf_clock.h for SAM3U device (UPDHS: USB Peripheral Device High Speed):
  * \code
  * // USB Clock Source fixed at UPLL.
  * \endcode
  * 
- * Content of conf_clock.h for SAM3X with USB high speed support:
+ * Content of conf_clock.h for SAM3X, SAM3A devices (UOTGHS: USB OTG High Speed):
  * \code
  * // USB Clock Source fixed at UPLL.
  * #define CONFIG_USBCLK_SOURCE        USBCLK_SRC_UPLL
@@ -610,7 +647,7 @@ usb_iface_desc_t UDC_DESC_STORAGE *udc_get_interface_desc(void);
  * }
  * void user_callback_resume_action(void)
  * {
- *    // Renable hardware component
+ *    // Re-enable hardware component
  * }
  * \endcode
  *
@@ -666,11 +703,11 @@ usb_iface_desc_t UDC_DESC_STORAGE *udc_get_interface_desc(void);
  *
  * \subsection udc_use_case_6_usage_flow Workflow
  * -# Ensure that conf_usb.h is available and contains the following parameters
- * required to enable a USB serial number strings dynamicaly:
+ * required to enable a USB serial number strings dynamically:
  *   - \code #define  USB_DEVICE_SERIAL_NAME // Define this empty
  * #define  USB_DEVICE_GET_SERIAL_NAME_POINTER serial_number // Give serial array pointer
  * #define  USB_DEVICE_GET_SERIAL_NAME_LENGTH  12 // Give size of serial array
- * extern uint8_t serial_number[]; // Declare external serial arra \endcode
+ * extern uint8_t serial_number[]; // Declare external serial array \endcode
  * -# Before start USB stack, initialize the serial array
  *   - \code
  * uint8_t serial_number[USB_DEVICE_GET_SERIAL_NAME_LENGTH];

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -197,13 +199,6 @@
 volatile bool g_b_spi_interrupt_tx_ready = false;
 /** RX interrupt occurred */
 volatile bool g_b_spi_interrupt_rx_ready = false;
-
-/* Pointer to the module instance to use for stdio. */
-#if defined(__GNUC__)
-void (*ptr_get)(void volatile*,int*);
-int (*ptr_put)(void volatile*,int);
-volatile void *volatile stdio_base;
-#endif
 
 /**
  * \brief Test SPI interrupt handler.
@@ -892,10 +887,6 @@ int main(void)
 
 	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
 
 	/* Define all the test cases */
 	DEFINE_TEST_CASE(spi_ctrl_test, NULL, run_spi_ctrl_test, NULL,

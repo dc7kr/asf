@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -46,7 +48,7 @@
 /**
  * \brief Call this to schedule a ADC reading of the temperature sensor
  *
- * Calling this will trigger the ADC to perfom a reading of the on board NTC,
+ * Calling this will trigger the ADC to perform a reading of the on board NTC,
  * the ADC will automatically recall this function the number of times
  * specified for averaging.
  */

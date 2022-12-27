@@ -4,6 +4,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -139,7 +141,7 @@ int WINAPI WinMain(HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpszA
   return messages.wParam;
 }
 
-// In order to retreive data from the file
+// In order to retrieve data from the file
 void get_data(char *_path)
 {
      int n;
@@ -168,7 +170,7 @@ void get_data(char *_path)
         return;
      }
 
-     // Else set the file pointer at the previous posistion
+     // Else set the file pointer at the previous position
      fseek(_file, file_pointer, SEEK_SET);
 
      // Read the new information from the file

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -247,6 +249,7 @@ static uint32_t twi_mk_addr(const uint8_t *addr, int len)
 uint32_t twi_master_read(Twi *p_twi, twi_packet_t *p_packet)
 {
 	uint32_t status, cnt = p_packet->length;
+	uint8_t *buffer = p_packet->buffer;
 
 	/* Check argument */
 	if (cnt == 0) {
@@ -280,7 +283,7 @@ uint32_t twi_master_read(Twi *p_twi, twi_packet_t *p_packet)
 		if (!(status & TWI_SR_RXRDY)) {
 			continue;
 		}
-		*p_packet->buffer++ = p_twi->TWI_RHR;
+		*buffer++ = p_twi->TWI_RHR;
 
 		cnt--;
 	}
@@ -296,7 +299,7 @@ uint32_t twi_master_read(Twi *p_twi, twi_packet_t *p_packet)
 /**
  * \brief Write multiple bytes to a TWI compatible slave device.
  *
- * \note This function will NOT return until all data has been written or error occured.
+ * \note This function will NOT return until all data has been written or error occurred.
  *
  * \param p_twi Pointer to a TWI instance.
  * \param p_packet Packet information and data (see \ref twi_packet_t).
@@ -306,6 +309,7 @@ uint32_t twi_master_read(Twi *p_twi, twi_packet_t *p_packet)
 uint32_t twi_master_write(Twi *p_twi, twi_packet_t *p_packet)
 {
 	uint32_t status, cnt = p_packet->length;
+	uint8_t *buffer = p_packet->buffer;
 
 	/* Check argument */
 	if (cnt == 0) {
@@ -332,7 +336,7 @@ uint32_t twi_master_write(Twi *p_twi, twi_packet_t *p_packet)
 		if (!(status & TWI_SR_TXRDY)) {
 			continue;
 		}
-		p_twi->TWI_THR = *p_packet->buffer++;
+		p_twi->TWI_THR = *buffer++;
 
 		cnt--;
 	};

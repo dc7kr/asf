@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -409,7 +411,7 @@ static inline void bma222_sleep_en(sensor_hal_t *hal, bool sleep)
  *
  *      3. Enable interrupt controller and evaluate interrupt conditions.
  *         Once interrupt conditions are evaluated and no interrupt has
- *         occured, the chip goes back to sleep.  If no interrupts are enabled,
+ *         occurred, the chip goes back to sleep.  If no interrupts are enabled,
  *         acceleration for all three axes are converted once before the chip
  *         goes back to sleep.
  *

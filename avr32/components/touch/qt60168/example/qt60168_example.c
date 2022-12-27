@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -52,7 +54,7 @@
  *
  * \section files Main Files
  * - qt60168_example.c: the example
- * - qt60168.h: the components inteface for the QT60168
+ * - qt60168.h: the components interface for the QT60168
  * - CONF/conf_qt60168.h : The configuration file
  *
  * \section compilinfo Compilation Information

@@ -6,9 +6,11 @@
  *
  * This file contains the USBB low-level driver definitions.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -360,11 +362,11 @@
   //! tests if VBus activation has been requested
 #define Is_usb_vbus_enabled()         (Tst_bits(AVR32_USBB_usbsta, AVR32_USBB_USBSTA_VBUSRQ_MASK))
 
-  //! initiates a Host Negociation Protocol
+  //! initiates a Host negotiation Protocol
 #define Usb_device_initiate_hnp()     (Set_bits(AVR32_USBB_usbcon, AVR32_USBB_USBCON_HNPREQ_MASK))
-  //! accepts a Host Negociation Protocol
+  //! accepts a Host negotiation Protocol
 #define Usb_host_accept_hnp()         (Set_bits(AVR32_USBB_usbcon, AVR32_USBB_USBCON_HNPREQ_MASK))
-  //! rejects a Host Negociation Protocol
+  //! rejects a Host negotiation Protocol
 #define Usb_host_reject_hnp()         (Clr_bits(AVR32_USBB_usbcon, AVR32_USBB_USBCON_HNPREQ_MASK))
   //! initiates a Session Request Protocol
 #define Usb_device_initiate_srp()     (Set_bits(AVR32_USBB_usbcon, AVR32_USBB_USBCON_SRPREQ_MASK))
@@ -999,7 +1001,7 @@
 #ifdef AVR32_USBB_UHCON_SPDCONF
   //! Force device full speed mode (i.e. disable high speed)
 #define Host_force_full_speed_mode()	        (Wr_bitfield(AVR32_USBB_uhcon, AVR32_USBB_UHCON_SPDCONF_MASK, 3))
-  //! Enable hihgh speed mode
+  //! Enable high speed mode
 #define Host_enable_high_speed_mode()	        (Wr_bitfield(AVR32_USBB_uhcon, AVR32_USBB_UHCON_SPDCONF_MASK, 0))
 #endif
 
@@ -1027,9 +1029,9 @@
   //! tests if host wake-up detected
 #define Is_host_hwup()                          (Tst_bits(AVR32_USBB_uhint, AVR32_USBB_UHINT_HWUPI_MASK))
 
-  //! enables host down stream rsm sent interrupt detection
+  //! enables host down stream resume sent interrupt detection
 #define Host_enable_down_stream_resume_interrupt()            (AVR32_USBB_uhinteset = AVR32_USBB_UHINTESET_RSMEDIES_MASK)
-  //! disables host down stream rsm sent interrupt detection
+  //! disables host down stream resume sent interrupt detection
 #define Host_disable_down_stream_resume_interrupt()           (AVR32_USBB_uhinteclr = AVR32_USBB_UHINTECLR_RSMEDIEC_MASK)
 #define Is_host_down_stream_resume_interrupt_enabled()        (Tst_bits(AVR32_USBB_uhinte, AVR32_USBB_UHINTE_RSMEDIE_MASK))
   //! acks host down stream resume sent

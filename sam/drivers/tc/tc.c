@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -67,6 +69,14 @@ extern "C" {
  * \param p_tc Pointer to a TC instance.
  * \param ul_channel Channel to configure.
  * \param ul_mode Control mode register value to set.
+ *
+ * \attention If the TC is configured for waveform generation, the external
+ * event selection (EEVT) should only be set to \c TC_CMR_EEVT_TIOB or the
+ * equivalent value \c 0 if it really is the intention to use TIOB as an
+ * external event trigger.\n
+ * This is because the setting forces TIOB to be an input even if the
+ * external event trigger has not been enabled with \c TC_CMR_ENETRG, and
+ * thus prevents normal operation of TIOB.
  */
 void tc_init(Tc * p_tc, uint32_t ul_channel, uint32_t ul_mode)
 {

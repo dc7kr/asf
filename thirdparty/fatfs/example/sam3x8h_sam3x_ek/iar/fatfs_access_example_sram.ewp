@@ -745,7 +745,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1656,7 +1656,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1854,18 +1854,18 @@
 		<group>
 			<name>utils</name>
 			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+			</group>
+			<group>
 				<name>stdio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/utils/stdio/write.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/utils/stdio/read.c</name>
-				</file>
-			</group>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
 				</file>
 			</group>
 		</group>
@@ -1946,15 +1946,6 @@
 					</group>
 				</group>
 			</group>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../sam/utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
-				</group>
-			</group>
 		</group>
 		<group>
 			<name>boards</name>
@@ -1975,9 +1966,12 @@
 				<group>
 					<name>sam</name>
 					<file>
-						<name>$PROJ_DIR$/../../../fatfs-port-r0.09/sam/diskio_sam.c</name>
+						<name>$PROJ_DIR$/../../../fatfs-port-r0.09/sam/fattime.c</name>
 					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../fatfs-port-r0.09/diskio.c</name>
+				</file>
 			</group>
 			<group>
 				<name>example</name>

@@ -7,9 +7,11 @@
  * This file defines a useful set of functions for the MACB interface on
  * AVR32 devices.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -174,7 +176,7 @@ static long prvPHY_ISR_NonNakedBehaviour(void);
 
 
 /*
- * Initialise both the Tx and Rx descriptors used by the MACB.
+ * initialize both the Tx and Rx descriptors used by the MACB.
  */
 static void prvSetupDescriptors(volatile avr32_macb_t *macb);
 
@@ -194,7 +196,7 @@ static void prvSetupMACAddress(volatile avr32_macb_t *macb);
 static void prvSetupMACBInterrupt(volatile avr32_macb_t *macb);
 
 /*
- * Some initialisation functions.
+ * Some initialization functions.
  */
 static bool prvProbePHY(volatile avr32_macb_t *macb);
 
@@ -202,7 +204,7 @@ static bool prvProbePHY(volatile avr32_macb_t *macb);
 /* The semaphore used by the MACB ISR to wake the MACB task. */
 static xSemaphoreHandle xSemaphore = NULL;
 #else
-/* Variable incremented everytime a new frame has been received and decremented
+/* Variable incremented every time a new frame has been received and decremented
    when a frame has been read. */
 static volatile int DataToRead = 0;
 #endif
@@ -601,7 +603,7 @@ static void prvSetupDescriptors(volatile avr32_macb_t *macb)
   unsigned long xIndex;
   unsigned long ulAddress;
 
-  // Initialise xRxDescriptors descriptor.
+  // initialize xRxDescriptors descriptor.
   for( xIndex = 0; xIndex < ETHERNET_CONF_NB_RX_BUFFERS; ++xIndex )
   {
     // Calculate the address of the nth buffer within the array.
@@ -618,7 +620,7 @@ static void prvSetupDescriptors(volatile avr32_macb_t *macb)
   // to the first buffer.
   xRxDescriptors[ ETHERNET_CONF_NB_RX_BUFFERS - 1 ].addr |= RX_WRAP_BIT;
 
-  // Initialise xTxDescriptors.
+  // initialize xTxDescriptors.
   for( xIndex = 0; xIndex < ETHERNET_CONF_NB_TX_BUFFERS; ++xIndex )
   {
     // Calculate the address of the nth buffer within the array.
@@ -824,8 +826,8 @@ static bool prvProbePHY(volatile avr32_macb_t *macb)
     // read Control register
     config = ulReadMDIO(macb, PHY_BMCR);
 
-    // setup auto negociation
-    ethernet_phy_setup_auto_negociation(macb, &config);
+    // setup auto negotiation
+    ethernet_phy_setup_auto_negotiation(macb, &config);
 
     // update ctrl register
     vWriteMDIO(macb, PHY_BMCR, config);
@@ -873,7 +875,7 @@ static bool prvProbePHY(volatile avr32_macb_t *macb)
 bool vMACBWaitForInput(unsigned long ulTimeOut)
 {
 #ifdef FREERTOS_USED
-  // Just wait until we are signaled from an ISR that data is available, or
+  // Just wait until we are signalled from an ISR that data is available, or
   // we simply time out.
   xSemaphoreTake( xSemaphore, ulTimeOut );
   return true;

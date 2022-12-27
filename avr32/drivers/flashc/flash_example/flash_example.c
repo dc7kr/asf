@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -70,12 +72,12 @@
  *
  * \section configinfo Configuration Information
  * This example has been tested with the following configuration:
- *   - EVK1100, EVK1101, UC3C_EK or EVK1104 or EVK1105 evalutation kit;
+ *   - EVK1100, EVK1101, UC3C_EK or EVK1104 or EVK1105 evaluation kit;
  *     Note: this example doesn't work on AT32UC3A0512 before revJ.
  *     Check the application note AVR32749 on www.atmel.com for a workaround.
  *   - CPU clock:
  *        -- 12 MHz : EVK1100, EVK1101, EVK1104, EVK1105 evaluation kits
- *        -- 16 Mhz : UC3C_EK
+ *        -- 16 MHz : UC3C_EK
  *   - USART1 (on EVK1100 or EVK1101) connected to a PC serial port via a
  *     standard RS232 DB9 cable, or USART0 (on EVK1105) or USART1 (on EVK1104)
  *     or USART2 (on UC3C_EK) abstracted with a USB CDC connection to a PC;
@@ -128,7 +130,7 @@ __no_init
 // batchisp and a bootloader. Else, IAR will set this variable as
 // loadable and batchisp will err because this variable is out of the
 // flash memory range (it's in the user page).
-// GCC will init this variable at run time not during the programmation
+// GCC will init this variable at run time not during the programming
 // of the application.
 #endif
 static nvram_data_t user_nvram_data

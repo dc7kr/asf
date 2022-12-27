@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -146,7 +148,7 @@ enum {
 	SSC_AUDIO_MONO_LEFT = (SSC_AUDIO_CH_LEFT),
 	//! Mono, right channel enabled.
 	SSC_AUDIO_MONO_RIGHT = (SSC_AUDIO_CH_RIGHT),
-	//! Stero, two channels.
+	//! Stereo, two channels.
 	SSC_AUDIO_STERO = (SSC_AUDIO_CH_LEFT | SSC_AUDIO_CH_RIGHT)
 };
 

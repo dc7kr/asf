@@ -13,6 +13,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -140,7 +142,7 @@
 //! @{
 // Number maximum of file include in each random (Unit 8 files)
 #define  NAVAUTO_MAX_RANGE_RAND  8     // 8*8= 64 file
-// Random value methode (byte value)
+// Random value method (byte value)
 #include "cycle_counter.h"
 #define NAVAUTO_GET_RAND()       (Get_sys_count())
 
@@ -155,7 +157,7 @@
 //! @}
 
 //! This define enables or disables the use of non-blocking functions for
-//! playlist mangement.
+//! playlist management.
 #define PLAYLIST_USE_NON_BLOCKING_FUNCTION_SET  false
 
 //! \name Cache feature

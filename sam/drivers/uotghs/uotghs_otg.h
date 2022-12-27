@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -42,39 +44,22 @@
 #ifndef UOTGHS_OTG_H_INCLUDED
 #define UOTGHS_OTG_H_INCLUDED
 
-/**
- * \defgroup sam_uotghs_otg_group USB On-The-Go High-speed (UOTGHS)
- *
- * \par Purpose
- *
- * This driver offers API to access SAM UOTGHS registers.
- *
- * \par Usage
- *
- *
- * \sa \ref Uotghs : SAM UOTGHS registers.
- *
- * \section dependencies Dependencies
- *
- *
- * @{
- */
-
-
 #include "compiler.h"
-//#include "preprocessor.h"
 
-/// @cond 0
-/**INDENT-OFF**/
 #ifdef __cplusplus
 extern "C" {
 #endif
-/**INDENT-ON**/
-/// @endcond
+
+
+//! \ingroup usb_group
+//! \defgroup otg_group UOTGHS OTG Driver
+//! UOTGHS low-level driver for OTG features
+//!
+//! @{
 
 /**
  * \brief Initialize the dual role
- * This function is implemented in usbb_host.c file.
+ * This function is implemented in uotghs_host.c file.
  *
  * \return \c true if the ID pin management has been started, otherwise \c false.
  */
@@ -82,41 +67,18 @@ bool otg_dual_enable(void);
 
 /**
  * \brief Uninitialize the dual role
- * This function is implemented in usbb_host.c file.
+ * This function is implemented in uotghs_host.c file.
  */
 void otg_dual_disable(void);
 
 
-//! @name UOTGHS IP properties
-//! These macros give access to IP properties (not defined in 3X)
-//! @{
-   //! Get IP name part 1 or 2
-#define otg_get_ip_name()                   (((uint64_t)AVR32_USBB.uname2<<32)|(uint64_t)AVR32_USBB.uname1)
-   //! Instruction to access at a peripheral register after interrupt clear, see AVR32002 - AVR32UC Technical reference $6.6 Memory barriers
-#define otg_data_memory_barrier()           //UOTGHS->UOTGHS_IPVERSION  //(AVR32_USBB.uvers)
-   //! Get IP version
-#define otg_get_ip_version()                USBB_RD_BITFIELD(UVERS,VERSION_NUM)
-   //! Get DPRAM size (FIFO maximal size) in bytes
-#define otg_get_dpram_size()                (128 << USBB_RD_BITFIELD(UFEATURES,FIFO_MAX_SIZE))
-   //! Get size of USBB PB address space
-#define otg_get_ip_paddress_size()          (AVR32_USBB.uaddrsize)
-//! @}
-
 //! @name UOTGHS OTG ID pin management
 //! The ID pin come from the USB OTG connector (A and B receptable) and
 //! allows to select the USB mode host or device.
-//! The USBB hardware can manage it automaticaly. This feature is optional.
-//! When otg_ID_PIN equals true in conf_usb_host.h, the USB_ID must be defined in board.h.
+//! The UOTGHS hardware can manage it automatically. This feature is optional.
+//! When USB_ID_GPIO is defined (in board.h), this feature is enabled.
 //!
 //! @{
-   //! PIO, PIO ID and MASK for USB_ID according to configuration from OTG_ID
-#define OTG_ID_PIN                          USB_ID_GPIO
-#define OTG_ID_FUNCTION                     USB_ID_FLAGS
-   //! Input USB_ID from its pin
-#define otg_input_id_pin() do {                     \
-    pio_configure_pin(OTG_ID_PIN, OTG_ID_FUNCTION); \
-} while (0)
-
    //! Enable external OTG_ID pin (listened to by USB)
 #define otg_enable_id_pin()                 (Set_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_UIDE))
    //! Disable external OTG_ID pin (ignored by USB)
@@ -144,8 +106,9 @@ void otg_dual_disable(void);
 #define otg_raise_id_transition()           (UOTGHS->UOTGHS_SFR = UOTGHS_SFR_IDTIS)
 #define Is_otg_id_transition()              (Tst_bits(UOTGHS->UOTGHS_SR, UOTGHS_SR_IDTI))
 //! @}
+//! @}
 
-//! @name USBB OTG Vbus management
+//! @name OTG Vbus management
 //! @{
 #define otg_enable_vbus_interrupt()         (Set_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_VBUSTE))
 #define otg_disable_vbus_interrupt()        (Clr_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_VBUSTE))
@@ -183,14 +146,14 @@ void otg_dual_disable(void);
 
   //! Configure time-out of specified OTG timer
 #define otg_configure_timeout(timer, timeout) (Set_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_UNLOCK),\
-                                             Wr_bitfield(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_TIMPAGE_Msk, timer),\
-                                             Wr_bitfield(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_TIMVALUE_Msk, timeout),\
-                                             Clr_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_UNLOCK))
+		Wr_bitfield(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_TIMPAGE_Msk, timer),\
+		Wr_bitfield(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_TIMVALUE_Msk, timeout),\
+		Clr_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_UNLOCK))
   //! Get configured time-out of specified OTG timer
 #define otg_get_timeout(timer)              (Set_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_UNLOCK),\
-                                             Wr_bitfield(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_TIMPAGE_Msk, timer),\
-                                             Clr_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_UNLOCK),\
-                                             Rd_bitfield(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_TIMVALUE_Msk))
+		Wr_bitfield(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_TIMPAGE_Msk, timer),\
+		Clr_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_UNLOCK),\
+		Rd_bitfield(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_TIMVALUE_Msk))
 
 
   //! Get the dual-role device state of the internal USB finite state machine of the UOTGHS controller
@@ -200,11 +163,11 @@ void otg_dual_disable(void);
 //! @name UOTGHS OTG hardware protocol
 //! These macros manages the hardware OTG protocol
 //! @{
-  //! Initiates a Host Negociation Protocol
+  //! Initiates a Host negotiation Protocol
 #define otg_device_initiate_hnp()             (Set_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_HNPREQ))
-  //! Accepts a Host Negociation Protocol
+  //! Accepts a Host negotiation Protocol
 #define otg_host_accept_hnp()                 (Set_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_HNPREQ))
-  //! Rejects a Host Negociation Protocol
+  //! Rejects a Host negotiation Protocol
 #define otg_host_reject_hnp()                 (Clr_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_HNPREQ))
   //! initiates a Session Request Protocol
 #define otg_device_initiate_srp()             (Set_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_SRPREQ))
@@ -243,7 +206,7 @@ void otg_dual_disable(void);
   //! Tests if a role exchange occurs
 #define Is_otg_role_exchange_interrupt()          (Tst_bits(UOTGHS->UOTGHS_SR, UOTGHS_SR_ROLEEXI))
 
-  //! Eenables SRP interrupt
+  //! Enables SRP interrupt
 #define otg_enable_srp_interrupt()          (Set_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_SRPE))
   //! Disables SRP interrupt
 #define otg_disable_srp_interrupt()         (Clr_bits(UOTGHS->UOTGHS_CTRL, UOTGHS_CTRL_SRPE))
@@ -258,14 +221,9 @@ void otg_dual_disable(void);
 
 //! @}
 
-/// @cond 0
-/**INDENT-OFF**/
 #ifdef __cplusplus
 }
 #endif
-/**INDENT-ON**/
-/// @endcond
 
-//@}
 
 #endif /* UOTGHS_OTG_H_INCLUDED */

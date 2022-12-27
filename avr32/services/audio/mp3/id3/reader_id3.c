@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -569,7 +571,7 @@ static bool reader_id3_v1_track( FS_STRING sz_track , uint8_t u8_size_max  )
       track = file_getc();
    }  // else version 1.00, no track
 
-   if( 3 < u8_size_max ) // Chekc size of buffer
+   if( 3 < u8_size_max ) // Check size of buffer
    {
       sprintf( (char*) sz_track , "%u", track );
    }
@@ -815,7 +817,7 @@ static bool reader_id3_v2_picture(St_id3ver ver, FS_STRING mime_type,
       break;
    }
    // Here u32_size_tag = size of string (unit char format),
-   // execpted UTF8 because unknow size but a null terminator must be include in TAG
+   // except UTF8 because unknown size but a null terminator must be include in TAG
 
    // Let's start by reading the mime_type
    if( g_b_string_length )
@@ -909,7 +911,7 @@ static bool reader_id3_v2_string( St_id3ver ver, char* tag, FS_STRING sz_string 
       break;
    }
    // Here u32_size_tag = size of string (unit char format),
-   // execpted UTF8 because unknow size but a null terminator must be include in TAG
+   // execept UTF8 because unknown size but a null terminator must be include in TAG
 
    if( g_b_string_length )
    {

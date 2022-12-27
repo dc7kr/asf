@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -188,7 +190,7 @@ long int scif_configure_osc_crystalmode(scif_osc_t osc, unsigned int fcrystal)
   u_avr32_scif_oscctrl0_t   u_avr32_scif_oscctrl0 = {AVR32_SCIF.oscctrl0};
 
   // Configure the oscillator mode to crystal and set the gain according to the
-  // cyrstal frequency.
+  // crystal frequency.
   u_avr32_scif_oscctrl0.OSCCTRL0.mode = SCIF_OSC_MODE_2PIN_CRYSTAL;
   u_avr32_scif_oscctrl0.OSCCTRL0.gain = (fcrystal <  900000) ? AVR32_SCIF_OSCCTRL0_GAIN_G0 :
                                         (fcrystal < 3000000) ? AVR32_SCIF_OSCCTRL0_GAIN_G1 :
@@ -212,7 +214,7 @@ long int scif_configure_osc_extmode(scif_osc_t osc)
       // Read Register
     u_avr32_scif_oscctrl0.OSCCTRL0 = AVR32_SCIF.OSCCTRL0 ;
     // Modify : Configure the oscillator mode to crystal and set the gain according to the
-    // cyrstal frequency.
+    // crystal frequency.
     u_avr32_scif_oscctrl0.OSCCTRL0.mode = SCIF_OSC_MODE_EXT_CLK;
     AVR32_ENTER_CRITICAL_REGION( );
     // Unlock the write-protected OSCCTRL0 register
@@ -422,7 +424,7 @@ long int scif_dfll0_openloop_start_auto(unsigned long TargetFreqkHz)
   DeltaFreq = TargetFreqkHz - CoarseFreq;
   // Compute the FINE value.
   // Fine = ((DeltaFreq*SCIF_DFLL_FINE_MAX)*10/CoarseFreq) + SCIF_DFLL_FINE_HALF;
-  // Theorical equation don't work on silicon: the best was to use X=5/2 to
+  // Theoretical equation don't work on silicon: the best was to use X=5/2 to
   // find FINE, then do FINE/4.
   Fine = ((DeltaFreq*SCIF_DFLL_FINE_MAX)*2/CoarseFreq*5) + SCIF_DFLL_FINE_HALF;
   Fine >>=2;
@@ -799,7 +801,7 @@ void scif_disable_rc32out(void)
   unsigned long temp;
   AVR32_ENTER_CRITICAL_REGION( );
   temp = AVR32_PM.ppcr & (~AVR32_PM_PPCR_FRC32_MASK);
-  // Unforce the RC32 signal from being output on the dedicated pin (PA20).
+  // Un-force the RC32 signal from being output on the dedicated pin (PA20).
   AVR32_PM.unlock = 0xAA000000 | AVR32_PM_PPCR;
   AVR32_PM.ppcr = temp;
   AVR32_LEAVE_CRITICAL_REGION( );

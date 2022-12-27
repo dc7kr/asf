@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -154,7 +156,8 @@ static bool ak8975_device_id(sensor_hal_t *hal, sensor_data_t *data)
  */
 static inline bool ak8975_check_overflow(const vector3_t *data)
 {
-	static scalar_t const MEASURE_MAX = (1 << (AK8975_DATA_RESOLUTION - 1));
+	static scalar_t const MEASURE_MAX = (1 << (AK8975_DATA_RESOLUTION - 1)) /
+			MICRO_TESLA_PER_COUNT;
 
 	/* \todo Use register instead of calculating overflow?
 	 * return (AK8975_HOFL & sensor_bus_get(hal, AK8975_REG_ST2));

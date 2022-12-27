@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -142,7 +144,7 @@ static void set_buffer(uint16_t *buffer, uint16_t value)
 /**
  * \brief Fill page buffer with a sequence of numbers
  *
- * The function fills the flash page buffer with a seqence of number,
+ * The function fills the flash page buffer with a sequence of number,
  * and stores the same numbers in a buffer in SRAM. The buffer is used
  * to verify that the flash has been programmed correctly. A seed number
  * is used to ensure that different pages always will be different.
@@ -171,7 +173,7 @@ static void fill_flash_page_buffer(uint16_t *buffer,
  * - Erase and write page to application table section
  * - Verify each byte written correctly by comparing each word in flash
  *
- * \return STATUS_OK if test succeded, otherwise ERR_BAD_DATA
+ * \return STATUS_OK if test succeeded, otherwise ERR_BAD_DATA
  */
 static status_code_t test_atomic_write_app_table(void)
 {
@@ -200,7 +202,7 @@ static status_code_t test_atomic_write_app_table(void)
  * - Write page to application table section
  * - Verify each byte written correctly by comparing each word in flash
  *
- * \return STATUS_OK if test succeded, otherwise ERR_BAD_DATA
+ * \return STATUS_OK if test succeeded, otherwise ERR_BAD_DATA
  */
 static status_code_t test_split_write_app_table(void)
 {
@@ -233,7 +235,7 @@ static status_code_t test_split_write_app_table(void)
  * - Erase and write page to bootloader section
  * - Verify each byte written correctly by comparing each word in flash
  *
- * \return STATUS_OK if test succeded, otherwise ERR_BAD_DATA
+ * \return STATUS_OK if test succeeded, otherwise ERR_BAD_DATA
  */
 static status_code_t test_atomic_write_boot(void)
 {
@@ -262,7 +264,7 @@ static status_code_t test_atomic_write_boot(void)
  * - Write page to boot section
  * - Verify each byte written correctly by comparing each word in flash
  *
- * \return STATUS_OK if test succeded, otherwise ERR_BAD_DATA
+ * \return STATUS_OK if test succeeded, otherwise ERR_BAD_DATA
  */
 static status_code_t test_split_write_boot(void)
 {

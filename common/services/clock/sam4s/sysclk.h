@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -116,7 +118,7 @@
  * This section will present a more advanced use case for the System Clock Management service.
  * This use case will configure the main system clock to 120MHz, using an internal PLL
  * module to multiply the frequency of a crystal attached to the microcontroller. The USB clock
- * will be configured via a seperate PLL module.
+ * will be configured via a separate PLL module.
  *
  * \subsection sysclk_quickstart_use_case_2_prereq Prerequisites
  *  - None
@@ -373,7 +375,7 @@ static inline uint32_t sysclk_get_main_hz(void)
 static inline uint32_t sysclk_get_cpu_hz(void)
 {
 	/* CONFIG_SYSCLK_PRES is the register value for setting the expected */
-	/* prescaler, not an immediat value. */
+	/* prescaler, not an immediate value. */
 	return sysclk_get_main_hz() / ((CONFIG_SYSCLK_PRES >> PMC_MCKR_PRES_Pos) + 1);
 }
 
@@ -385,7 +387,7 @@ static inline uint32_t sysclk_get_cpu_hz(void)
 static inline uint32_t sysclk_get_peripheral_hz(void)
 {
 	/* CONFIG_SYSCLK_PRES is the register value for setting the expected */
-	/* prescaler, not an immediat value. */
+	/* prescaler, not an immediate value. */
 	return sysclk_get_main_hz() / ((CONFIG_SYSCLK_PRES >> PMC_MCKR_PRES_Pos) + 1);
 }
 

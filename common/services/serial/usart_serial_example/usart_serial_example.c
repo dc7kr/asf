@@ -1,15 +1,14 @@
-/*****************************************************************************
+/**
  *
  * \file
  *
  * \brief Example of usage of the USART Serial.
  *
- ******************************************************************************/
-
-/**
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -93,17 +92,17 @@ int main(void)
 	// USART options.
 	static usart_serial_options_t USART_SERIAL_OPTIONS =
 	{
-		 .baudrate     = USART_SERIAL_EXAMPLE_BAUDRATE,
-		 .charlength   = USART_SERIAL_CHAR_LENGTH,
-		 .paritytype   = USART_SERIAL_PARITY,
-		 .stopbits     = USART_SERIAL_STOP_BIT
+		.baudrate   = USART_SERIAL_EXAMPLE_BAUDRATE,
+		.charlength = USART_SERIAL_CHAR_LENGTH,
+		.paritytype = USART_SERIAL_PARITY,
+		.stopbits   = USART_SERIAL_STOP_BIT
 	};
 
 	sysclk_init();
 
 	// Initialize the board.
-	// The board-specific conf_board.h file contains the configuration of the board
-	// initialization.
+	// The board-specific conf_board.h file contains the
+	// configuration of the board initialization.
 	board_init();
 
 	// Initialize Serial Interface using Stdio Library
@@ -114,12 +113,14 @@ int main(void)
 
 	// Get and echo a character forever, specific '\r' processing.
 	while (true) {
-	    usart_serial_read_packet(USART_SERIAL_EXAMPLE, rx_buf, 1);
+		usart_serial_read_packet(USART_SERIAL_EXAMPLE, rx_buf, 1);
 		if (rx_buf[0] == '\r') {
-            usart_serial_write_packet(USART_SERIAL_EXAMPLE, tx_buf, tx_len);
-        } else {
-            usart_serial_write_packet(USART_SERIAL_EXAMPLE, rx_buf, 1);
-        }
-    }
+			usart_serial_write_packet(USART_SERIAL_EXAMPLE,
+					tx_buf, tx_len);
+		} else {
+			usart_serial_write_packet(USART_SERIAL_EXAMPLE,
+					rx_buf, 1);
+		}
+	}
 }
 

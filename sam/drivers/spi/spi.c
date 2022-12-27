@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -334,7 +336,7 @@ void spi_set_delay_between_chip_select(Spi *p_spi, uint32_t ul_delay)
 
 /**
  * \brief Read the received data and it's peripheral chip select value.
- * While SPI works in fixed peripheral select mode, the peripheral chip selsect
+ * While SPI works in fixed peripheral select mode, the peripheral chip select
  * value is meaningless.
  *
  * \param p_spi Pointer to an SPI instance.

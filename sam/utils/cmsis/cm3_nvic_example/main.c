@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -141,6 +143,7 @@
 
 #include "asf.h"
 #include "conf_board.h"
+#include "stdio_serial.h"
 
 /* Systick Counter. */
 volatile uint32_t g_ul_ms_ticks = 0;
@@ -305,21 +308,18 @@ static void configure_buttons(void)
 }
 
 /**
- *  Configure UART console.
+ *  \brief Configure the Console UART.
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ BOARD_MCK, 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO. */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK, PINS_UART_ATTR);
-
-	/* Configure PMC. */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART. */
-	uart_init(CONSOLE_UART, &uart_console_settings);
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -347,7 +347,7 @@ int main(void)
 {
 	uint8_t uc_key;
 
-	/* Initilize the SAM3 system */
+	/* Initialize the SAM3 system */
 	SystemInit();
 	board_init();
 

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -38,10 +40,10 @@
  * \asf_license_stop
  *
  */
- #include "asf.h"
-
-#include "string.h"
+#include <asf.h>
+#include <string.h>
 #include "conf_test.h"
+#include "memories_initialization.h"
 
 /**
  * \mainpage
@@ -71,6 +73,7 @@
  * - sam3x8h_sam3x_ek
  * - sam4s16c_sam4s_ek
  * - sam4s16c_sam4s_xplained
+ * - XMEGA-A1 Xplained
  *
  * \section compinfo Compilation info
  * This software was written for the GNU GCC and IAR for ARM. Other compilers
@@ -90,13 +93,6 @@
  */
 /* @} */
 
-/* Pointer to the module instance to use for stdio. */
-#if defined(__GNUC__)
-void (*ptr_get)(void volatile *, int *);
-int (*ptr_put)(void volatile *, int);
-volatile void *volatile stdio_base;
-#endif
-
 /* FatFS mount root directory*/
 #define STR_ROOT_DIRECTORY ""
 
@@ -106,17 +102,14 @@ volatile void *volatile stdio_base;
 /** Test settings: Number of bytes to test */
 #define TEST_SIZE   (4 * 1024)
 
-/** Wait key input time when the disk is formatted */
-#define TEST_WAIT_TIME 2000
-
 /** Logical disk device number */
-#define DISK_DEV_NUM    LUN_ID_VIRTUAL_MEM
+#define DISK_DEV_NUM    LUN_ID_0
 
 /* Read/write buffer */
 static uint8_t data_buffer[DATA_SIZE];
 
 /* File name to be validated */
-const int8_t *file_name = STR_ROOT_DIRECTORY "Basic.bin";
+const char *file_name = STR_ROOT_DIRECTORY "Basic.bin";
 
 /**
  * \brief Do FatFS tests.
@@ -126,14 +119,18 @@ const int8_t *file_name = STR_ROOT_DIRECTORY "Basic.bin";
 static void run_fatfs_test(const struct test_case *test)
 {
 	uint32_t i;
-	uint32_t byte_to_read;
-	uint32_t byte_read;
-	uint32_t byte_written;
+	UINT byte_to_read;
+	UINT byte_read;
+	UINT byte_written;
 
 	FRESULT res;
 	DIR dirs;
-	FATFS fs;
-	FIL file_object;
+
+	/* Declare these as static to avoid stack usage.
+	 * They each contain an array of maximum sector size.
+	 */
+	static FATFS fs;
+	static FIL file_object;
 
 	/* Clear file system object */
 	memset(&fs, 0, sizeof(FATFS));
@@ -145,7 +142,7 @@ static void run_fatfs_test(const struct test_case *test)
 	/* Test if the disk is formated */
 	res = f_opendir(&dirs, STR_ROOT_DIRECTORY);
 
-	if (res == FR_NO_FILESYSTEM) {
+	if ((res == FR_OK) || (res == FR_NO_FILESYSTEM)) {
 		/* Format disk */
 		res = f_mkfs(DISK_DEV_NUM, /* Drv */
 				0, /* FDISK partition */
@@ -155,7 +152,7 @@ static void run_fatfs_test(const struct test_case *test)
 			test_assert_true(test, 0,
 					"FatFS make file system error!");
 		}
-	} else {
+	} else if (res != FR_OK) {
 		test_assert_true(test, 0, "FatFS opendir error!");
 	}
 
@@ -232,7 +229,7 @@ int main(void)
 	const usart_serial_options_t usart_serial_options = {
 		.baudrate   = CONF_TEST_BAUDRATE,
 		.paritytype = CONF_TEST_PARITY,
-#ifndef SAM
+#if !SAM
 		.charlength = CONF_TEST_CHARLENGTH,
 		.stopbits   = CONF_TEST_STOPBITS,
 #endif
@@ -243,14 +240,13 @@ int main(void)
 	board_init();
 
 	/* Enable the debug uart */
-#ifdef SAM
+#if SAM
 	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
 #endif
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
 
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
+	/* Intialize the memory device */
+	memories_initialization();
 
 	/* Define all the test cases */
 	DEFINE_TEST_CASE(fatfs_test, NULL, run_fatfs_test, NULL,

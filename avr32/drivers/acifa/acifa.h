@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -137,7 +139,7 @@
  * \param comp_sel   Comparator Selection
  * \param input_p    Input Positive Selection
  * \param input_n    Input Negative Selection
- * \param pb_hz      Periphal Bus frequency
+ * \param pb_hz      Peripheral Bus frequency
  */
 extern void acifa_configure(volatile avr32_acifa_t * acifa,
                             U8 comp_sel,
@@ -151,7 +153,7 @@ extern void acifa_configure(volatile avr32_acifa_t * acifa,
  * \param input_p         Input Positive Selection for window mode
  * \param input_n         Input Negative Selection for window mode
  * \param common_input    Common Input Selection for window mode
- * \param pb_hz           Periphal Bus frequency
+ * \param pb_hz           Peripheral Bus frequency
  */
 void acifa_configure_window( volatile avr32_acifa_t * acifa,
                              U8 input_p,

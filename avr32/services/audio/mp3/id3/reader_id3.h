@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -114,7 +116,7 @@ extern uint32_t  reader_id3_duration ( void );
 //  @u8_size_max specifies the maximum string to get for mime_type
 //
 //  @picture_type specifies what kind of picture it is
-//  (e.g. 0x03 for fron cover) more types are listed in the ID3 specification.
+//  (e.g. 0x03 for front cover) more types are listed in the ID3 specification.
 //
 //  @offset is the offset of the raw picture data from the file beginning
 //

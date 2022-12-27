@@ -13,12 +13,12 @@
  * The Audio Interface can be used in 2 different ways:
  *
  * - Using "asynchronous" functions, i.e. which result/effect may
- *   not be produced immediatly. Using these functions usually leads to the use of
+ *   not be produced immediately. Using these functions usually leads to the use of
  *   state-machines in the user firmware (since we must wait for the completion of
  *   a command before launching a new one), but has the advantage of reducing the
  *   risks of audio "blips".
  *
- * - Using "synchronous" functions, i.e. which are executed immediatly. This drastically
+ * - Using "synchronous" functions, i.e. which are executed immediately. This drastically
  *   simplifies the user firmware architecture (we do not have to use state-machines since
  *   the synchronous AI functions are immediately executed) but *may* produce audio
  *   "blips" since the execution time of these functions can lead to audio underrun.
@@ -34,6 +34,8 @@
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -538,7 +540,7 @@ char*   ai_async_cmd_out_PtrArrayU8   ( void );
 //!
 void  ai_async_cmd_out_free_ArrayU8( void );
 
-//! This routine may be use to send directly a command values from a communication port to audio interfcae
+//! This routine may be use to send directly a command values from a communication port to audio interface
 //! @note you can use the ai_async_cmd_put() routine or ai_async_X() MACRO to send a asynchronous command
 //!
 bool ai_async_cmd_put(cmd_ai_id_t cmd_id, uint32_t u32_in, uint16_t u16_arg_size, char* u8_arg_in, bool need_extra_buffer);
@@ -1027,7 +1029,7 @@ static inline bool  ai_async_audio_nav_playfile( void )
 }
 
 //! Gives the full audio context (player state, play time, repeat, shuffle, file played, explorer mode )
-//! @note May be interresting before a power OFF.
+//! @note May be interesting before a power OFF.
 //!
 //! @return    cmd_out_SizeArrayU8 - size of St_audio_ctx structure
 //! @return    cmd_out_PtrArrayU8  - pointer on St_audio_ctx structure
@@ -1042,7 +1044,7 @@ static inline bool ai_async_audio_context_save( void )
 }
 
 //! Restores an audio context (possibly restart play).
-//! @note May be interresting after a power ON.
+//! @note May be interesting after a power ON.
 //!
 //! @param     ctx   structure with all information about context to restore
 //!
@@ -1288,7 +1290,7 @@ static inline bool  ai_async_audio_nav_file_info_artist( void )
   return ai_async_cmd_put( CMD_AI_AUDIO_NAV_INFO_ARTIST , 0, 0, 0, true);
 }
 
-//! Returns the album nameof current selected file.
+//! Returns the album name of current selected file.
 //!
 //! @return    cmd_out_SizeArrayU8 - number of character (unit 2B for UNICODE) allocated
 //! @return    cmd_out_PtrArrayU8  - pointer on string allocated by the routine
@@ -1576,7 +1578,7 @@ uint8_t    ai_nav_drive_get( void );
 //! @verbatim
 //! If the option FS_MULTI_PARTITION is disable
 //! then the mount routine select the first partition supported by file system. <br>
-//! After mount, the file list corresponding at the files and directorys present in ROOT directory
+//! After mount, the file list corresponding at the files and directories present in ROOT directory
 //! @endverbatim
 //!
 bool  ai_nav_drive_mount( void );
@@ -1606,7 +1608,7 @@ bool  ai_nav_dir_root( void );
 //! @return  true otherwise
 //!
 //! @verbatim
-//! After this routine the file list change and containt the files of new current directory,
+//! After this routine the file list change and contains the files of new current directory,
 //! also no file is selected
 //! @endverbatim
 //!
@@ -1618,9 +1620,9 @@ bool  ai_nav_dir_cd( void );
 //! @return  true otherwise
 //!
 //! @verbatim
-//! After, the file list change and containt the files of parent directory,
+//! After, the file list change and contains the files of parent directory,
 //! also the file selected is the old directory.
-//! "Filter list" is a list of files filtered and directorys present in current directory
+//! "Filter list" is a list of files filtered and directories present in current directory
 //! @endverbatim
 //!
 bool  ai_nav_dir_gotoparent( void );
@@ -1652,7 +1654,7 @@ bool  ai_nav_file_previous( void );
 //! @return    true otherwise
 //!
 //! @verbatim
-//! "Filter list" is a list of files filtered and directorys present in current directory
+//! "Filter list" is a list of files filtered and directories present in current directory
 //! @endverbatim
 //!
 bool  ai_nav_file_goto( uint32_t u32_newpos );
@@ -1663,7 +1665,7 @@ bool  ai_nav_file_goto( uint32_t u32_newpos );
 //! @return    FS_NO_SEL, in case of no file selected
 //!
 //! @verbatim
-//! "Filter list" is a list of files filtered and directorys present in current directory
+//! "Filter list" is a list of files filtered and directories present in current directory
 //! @endverbatim
 //!
 uint16_t   ai_nav_file_pos( void );
@@ -1797,15 +1799,15 @@ bool  ai_nav_getplayfile      ( void );
 //!
 bool  ai_audio_nav_playfile   ( void );
 
-//! Give complet audio context (player state, play time, repeat, shuffle, file played, explorer mode )
-//! @note May be interresting before a power OFF.
+//! Give complete audio context (player state, play time, repeat, shuffle, file played, explorer mode )
+//! @note May be interesting before a power OFF.
 //!
 //! @return    ctx   structure with all information about the current context
 //!
 void *ai_audio_context_save( uint8_t *status, uint16_t *size );
 
 //! Restore a audio context (eventualy restart play).
-//! @note May be interresting after a power ON.
+//! @note May be interesting after a power ON.
 //!
 //! @param     ctx   structure with all information about context to restore
 //!

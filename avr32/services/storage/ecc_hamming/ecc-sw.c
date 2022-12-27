@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -154,7 +156,7 @@ void ecc_make_block_256b(unsigned long *ecc, unsigned char *data)
  *  \param corrected_value Pointer to a variable to store the corrected byte
  *                         if a single bit error was detected.
  *
- *  \return 0 on success, an error number elsewise.
+ *  \return 0 on success, an error number otherwise.
  */
 int ecc_compare_block_256b(unsigned long *ecc1, unsigned long *ecc2,
 				unsigned char *data,

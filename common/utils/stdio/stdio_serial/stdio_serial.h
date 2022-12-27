@@ -1,15 +1,17 @@
-/*****************************************************************************
+/**
  *
  * \file
  *
- * \brief Common Stdio Serial Management.
+ * \brief Common Standard I/O Serial Management.
  *
  * This file defines a useful set of functions for the Stdio Serial interface on AVR
- * devices.
+ * and SAM devices.
  *
  * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -52,7 +54,7 @@
  * \ingroup group_common_utils_stdio
  *
  * Common standard serial I/O management driver that
- * implements a stdio serial interface on AVR devices.
+ * implements a stdio serial interface on AVR and SAM devices.
  *
  * \{
  */
@@ -71,9 +73,9 @@
 //! Pointer to the base of the USART module instance to use for stdio.
 extern volatile void *volatile stdio_base;
 //! Pointer to the external low level write function.
-extern int (*ptr_put)(void volatile*,int);
+extern int (*ptr_put)(void volatile*, char);
 //! Pointer to the external low level read function.
-extern void (*ptr_get)(void volatile*,int*);
+extern void (*ptr_get)(void volatile*, char*);
 
 /*! \brief Initializes the stdio in Serial Mode.
  *
@@ -84,19 +86,34 @@ extern void (*ptr_get)(void volatile*,int*);
 static inline void stdio_serial_init(volatile void *usart, const usart_serial_options_t *opt)
 {
 	stdio_base = (void *)usart;
-	ptr_put = (int (*)(void volatile*,int))&usart_serial_putchar;
-	ptr_get = (void (*)(void volatile*,int*))&usart_serial_getchar;
-	#if XMEGA
-		usart_serial_init((USART_t *)usart,opt);
-	#elif UC3
-		usart_serial_init(usart,(usart_serial_options_t *)opt);
-	#else
-		usart_serial_init((Uart *)usart,(usart_serial_options_t *)opt);
-	#endif
-	// For AVR GCC libc print redirection uses fdevopen
-	#if XMEGA && defined(__GNUC__)
-		fdevopen((int (*)(char, FILE*))(_write),(int (*)(FILE*))(_read)); //for printf redirection
-	#endif
+	ptr_put = (int (*)(void volatile*,char))&usart_serial_putchar;
+	ptr_get = (void (*)(void volatile*,char*))&usart_serial_getchar;
+#if XMEGA
+	usart_serial_init((USART_t *)usart,opt);
+#elif UC3
+	usart_serial_init(usart,(usart_serial_options_t *)opt);
+#elif SAM
+	usart_serial_init((Uart *)usart,(usart_serial_options_t *)opt);
+#else
+# error Unsupported chip type
+#endif
+
+#if defined(__GNUC__)
+# if XMEGA
+	// For AVR GCC libc print redirection uses fdevopen.
+	fdevopen((int (*)(char, FILE*))(_write),(int (*)(FILE*))(_read));
+# endif
+# if UC3 || SAM
+	// For AVR32 and SAM GCC
+	// Specify that stdout and stdin should not be buffered.
+	setbuf(stdout, NULL);
+	setbuf(stdin, NULL);
+	// Note: Already the case in IAR's Normal DLIB default configuration
+	// and AVR GCC library:
+	// - printf() emits one character at a time.
+	// - getchar() requests only 1 byte to exit.
+# endif
+#endif
 }
 
 /**

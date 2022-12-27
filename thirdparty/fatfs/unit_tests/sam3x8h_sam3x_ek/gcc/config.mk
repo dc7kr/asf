@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -50,15 +52,22 @@ TARGET_SRAM = fatfs_unit_tests_sram.elf
 
 # List of C source files.
 CSRCS = \
-       common/components/memory/virtual_mem/virtual_mem.c \
+       common/components/memory/nand_flash/nand_flash_ebi/nand_flash_ecc_sw.c \
+       common/components/memory/nand_flash/nand_flash_ebi/nand_flash_model.c \
+       common/components/memory/nand_flash/nand_flash_ebi/nand_flash_raw_nfc.c \
+       common/components/memory/nand_flash/nand_flash_ebi/nand_flash_spare_scheme.c \
        common/services/clock/sam3x/sysclk.c               \
+       common/services/delay/sam/cycle_counter.c          \
        common/services/serial/usart_serial.c              \
        common/services/storage/ctrl_access/ctrl_access.c  \
+       common/services/storage/ecc_hamming/ecc-sw.c       \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c                     \
        sam/boards/sam3x_ek/init.c                         \
+       sam/drivers/dmac/dmac.c                            \
+       sam/drivers/ebi/smc/smc.c                          \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
@@ -68,9 +77,11 @@ CSRCS = \
        sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.c \
        sam/utils/cmsis/sam3x/source/templates/system_sam3x.c \
        sam/utils/syscalls/gcc/syscalls.c                  \
-       thirdparty/fatfs/fatfs-port-r0.09/sam/diskio_sam.c \
+       thirdparty/fatfs/fatfs-port-r0.09/diskio.c         \
+       thirdparty/fatfs/fatfs-port-r0.09/sam/fattime.c    \
        thirdparty/fatfs/fatfs-r0.09/src/ff.c              \
        thirdparty/fatfs/fatfs-r0.09/src/option/ccsbcs.c   \
+       thirdparty/fatfs/unit_tests/memories_initialization_sam.c \
        thirdparty/fatfs/unit_tests/unit_tests.c
 
 # List of assembler source files.
@@ -79,16 +90,21 @@ ASSRCS =
 # List of include paths.
 INC_PATH = \
        common/boards                                      \
-       common/components/memory/virtual_mem               \
+       common/components/memory/nand_flash/nand_flash_ebi \
+       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/gpio                               \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
        common/services/storage/ctrl_access                \
+       common/services/storage/ecc_hamming                \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
        sam/boards                                         \
        sam/boards/sam3x_ek                                \
+       sam/drivers/dmac                                   \
+       sam/drivers/ebi/smc                                \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/rtc                                    \
@@ -106,10 +122,12 @@ INC_PATH = \
        ./thirdparty/fatfs/unit_tests/sam3x8h_sam3x_ek/gcc
 
 # Additional search paths for libraries.
-LIB_PATH = 
+LIB_PATH =  \
+       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/gcc
 
 # List of libraries to use during linking.
-LIBS = 
+LIBS =  \
+       _nand_flash_cortexm3                              
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3x/sam3x8/gcc/flash.ld
@@ -151,7 +169,6 @@ CFLAGS =
 CPPFLAGS = \
        -D BOARD=SAM3X_EK                                  \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
-       -D VIRTUAL_MEMORY_ENABLE                           \
        -D _ASSERT_ENABLE_                                 \
        -D __SAM3X8H__
 

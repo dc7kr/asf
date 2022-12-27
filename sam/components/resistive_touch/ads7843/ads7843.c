@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -100,7 +102,7 @@ static uint32_t ads7843_send_cmd(uint8_t uc_cmd)
 	volatile uint32_t i;
 	uint8_t data;
 
-	/* (volatile declaration needed for code optimisation by compiler) */
+	/* (volatile declaration needed for code optimization by compiler) */
 	volatile uint8_t bufferRX[ADS7843_BUFSIZE];
 	volatile uint8_t bufferTX[ADS7843_BUFSIZE];
 
@@ -159,7 +161,7 @@ void rtouch_get_raw_point(rtouch_point_t *p_point)
 	pio_enable_interrupt(RTOUCH_PIN_TSC_IRQ_PIO, RTOUCH_PIN_TSC_IRQ_MASK);
 }
 
-/* Frequence rate for sending one bit */
+/* frequency rate for sending one bit */
 #define ADS7843_SPI_BAUDRATE 1000000
 
 /**

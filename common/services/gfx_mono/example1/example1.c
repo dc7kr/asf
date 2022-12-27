@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -129,7 +131,7 @@ int main(void){
 	// Draw a whole circle at x=50,y=16 with radios=8 and all octants drawn
 	gfx_mono_draw_circle(50, 16, 8, GFX_PIXEL_SET,GFX_WHOLE);
 
-	// Draw a filled circle with all quadreant drawn
+	// Draw a filled circle with all quadrant drawn
 	gfx_mono_draw_filled_circle(80, 16, 10, GFX_PIXEL_SET, GFX_WHOLE);
 
 	while(true) {

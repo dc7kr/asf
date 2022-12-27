@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -53,13 +55,13 @@
  * \section algo Conception
  * The code is based on two interrupts, the PWM interrupt and the PDCA interrupt.\n
  * At the beginning, the program will send a 'S' character on the USART line to tell
- * the host that it is ready to start the data acquisistion. The host will send first initialization
+ * the host that it is ready to start the data acquisition. The host will send first initialization
  * parameters like the size of a block and the bit rate of the sound. Once the application
  * acknowledge those data, the data block acquisition can start.\n
- * At the begining of the process, the application fills all its buffers before playing
+ * At the beginning of the process, the application fills all its buffers before playing
  * any data. Then, it can start playing a data block on the PWMs. Each time a data block is
- * read, it will check if the next one is available, if not it will wait until it is completly filled.
- * Equaly, each time a data block is filled, it will check if the next data block as already been
+ * read, it will check if the next one is available, if not it will wait until it is completely filled.
+ * Equally, each time a data block is filled, it will check if the next data block as already been
  * played or not. If not it will wait, else it will start the next data block acquisition process.\n
  *
  * You will find in section "Protocol" the whole protocol description of the data block transfer.
@@ -137,7 +139,7 @@
 //! The main buffer
 A_ALIGNED char buffer[BUFFER_SIZE];
 
-//! A pointer on the current writting block
+//! A pointer on the current writing block
 char *pbuffer_w;
 //! A pointer on the current reading block
 char *pbuffer_r;
@@ -149,7 +151,7 @@ volatile int get_sample = 0;
 
 //! The offset of the current reading buffer
 int cur_i_read_buffer = 0;
-//! The offset of the current writting buffer
+//! The offset of the current writing buffer
 int cur_i_buffer = 0;
 //! The size of a block
 int block_size;
@@ -207,7 +209,7 @@ void print_fct(char *str)
   usart_write_line(EXAMPLE_USART, str);
 }
 
-//! this function intializes the USART module at 115200 bauds
+//! this function initializes the USART module at 115200 bauds
 void init_usart()
 {
   static const gpio_map_t USART_GPIO_MAP =
@@ -330,7 +332,7 @@ static void pdca_interrupt_handler(void)
   if (pbuffer_w + block_size >= buffer + BUFFER_SIZE)
     pbuffer_w = buffer;
 
-  // If the next buffer is invalid, make an aquisition of the new data
+  // If the next buffer is invalid, make an acquisition of the new data
   if (!*((unsigned int *) pbuffer_w))
   {
     // If the buffer is invalidate, fill it with new data;
@@ -366,7 +368,7 @@ void init_pdca()
 //! To set the clock frequency to 48MHz
 void sys_cpu_48MHz(void)
 {
-  // Swith to external Oscillator 0
+  // Switch to external Oscillator 0
   pm_switch_to_osc0(&AVR32_PM, FOSC0, OSC0_STARTUP);
 
   // Set PLL1 @ 96 MHz from Osc0
@@ -429,7 +431,7 @@ int main(int argc, char *argv[])
 
   /*! \brief Enable pdca transfer interrupt when completed*/
   pdca_enable_interrupt_transfer_complete(pdca_channel_usart);
-  /*! \brief add the adddress of memory buffer*/
+  /*! \brief add the address of memory buffer*/
   pdca_reload_channel(pdca_channel_usart, pbuffer_w + 4, 8);
   /* enable the transfer */
   pdca_enable(pdca_channel_usart);
@@ -467,7 +469,7 @@ int main(int argc, char *argv[])
 
   for(i=0; i<nb_buffers; i++)
   {
-    /*! \brief add the adddress of memory buffer*/
+    /*! \brief add the address of memory buffer*/
     pdca_reload_channel(pdca_channel_usart, pbuffer_w + 4, block_size-4);
     /* enable the transfer */
     pdca_enable(pdca_channel_usart);
@@ -541,7 +543,7 @@ int main(int argc, char *argv[])
     if (get_new_block)
     {
 
-      /*! \brief add the adddress of memory buffer*/
+      /*! \brief add the address of memory buffer*/
       pdca_reload_channel(pdca_channel_usart, pbuffer_w + 4, block_size-4);
       /* enable the transfer */
       pdca_enable(pdca_channel_usart);

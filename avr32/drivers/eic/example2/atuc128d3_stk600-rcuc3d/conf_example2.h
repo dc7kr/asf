@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -52,7 +54,7 @@
  * in the table "GPIO Controller Function Multiplexing", we see that the NMI is
  * mapped on GPIO 13 (i.e. PA13). On the STK600 using the RCUC3D, it is require
  * to connect PORTB.PB5 on SWITCHES.SW0. Thus, a low level on SW01 will generate
- * an NMI. The External Interrupt number 0 is the NMI. It is also requidre to
+ * an NMI. The External Interrupt number 0 is the NMI. It is also required to
  * connect PORTA.PA to LEDS.LEDS0
  */
 

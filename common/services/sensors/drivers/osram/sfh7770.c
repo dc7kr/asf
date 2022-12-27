@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -242,7 +244,7 @@ bool sfh7770_init(sensor_t *sensor, int resvd)
  *
  * This is the common interrupt service routine for all enabled SFH7770
  * interrupt events.  Three different types of interrupts can be programmed:
- * high light level, low light level, and near proxmity.  All share the
+ * high light level, low light level, and near proximity.  All share the
  * same interrupt pin and therefore the same ISR entry.
  *
  * @param arg       The address of the driver sensor_hal_t descriptor.

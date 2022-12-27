@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -45,7 +47,7 @@
  * \brief Initialize the hardware interface
  *
  * Depending on what interface used for interfacing the LCD controller this
- * function will initialize the neccesary hardware.
+ * function will initialize the necessary hardware.
  */
 static void st7565r_interface_init(void)
 {

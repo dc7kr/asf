@@ -17,6 +17,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -84,7 +86,7 @@
 
 // Data Structure Definitions
 
-COMPILER_PACK_SET(1);       // pack structures (1-byte align all fields)
+COMPILER_PACK_SET(1)        // pack structures (1-byte align all fields)
 
 
 //! \brief Atmel Data Visualizer start-of-configuration packet
@@ -216,7 +218,7 @@ typedef struct {
 // @}
 
 
-COMPILER_PACK_RESET();              // reset to default structure packing
+COMPILER_PACK_RESET()               // reset to default structure packing
 
 
 /*! \brief Write Atmel Data Visualizer data buffer via USB or serial port.

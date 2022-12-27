@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -63,7 +65,7 @@
 // From module: Interrupt management - SAM3 implementation
 #include <interrupt.h>
 
-// From module: PDC - Peripheral DMA Controller
+// From module: PDC - Peripheral DMA Controller Example
 #include <pdc.h>
 
 // From module: PIO - Parallel Input/Output Controller
@@ -85,10 +87,16 @@
 // From module: SAM4S startup code
 #include <exceptions.h>
 
+// From module: Standard serial I/O (stdio) - SAM implementation
+#include <stdio_serial.h>
+
 // From module: System Clock Control - SAM4S implementation
 #include <sysclk.h>
 
 // From module: UART - Univ. Async Rec/Trans
 #include <uart.h>
+
+// From module: USART - Serial interface
+#include <serial.h>
 
 #endif // ASF_H

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -45,7 +47,7 @@
  * 
  * \par Purpose
  *
- * The CHIPID Example will help new users get familiar with Atmel's AT91SAM
+ * The CHIPID Example will help new users get familiar with Atmel's SAM
  * microcontrollers. This example application shows how to read chip Id
  * information data.
  *
@@ -82,14 +84,14 @@
  *    (values depend on the board and chip used):
  *    \code
  *     -- CHIPID Example --
- *     -- SAM3U-EK
- *     -- Compiled: Oct 27 2011 13:33:38 --
+ *     -- xxxxx-xx
+ *     -- Compiled: xxx xx xxxx xx:xx:xx --
  *     Version                                   0x0.
- *     Embedded Processor                        Cortex-M3.
- *     Nonvolatile program memory size           256K bytes.
+ *     Embedded Processor                        Cortex-xx.
+ *     Nonvolatile program memory size           xxx bytes.
  *     Second nonvolatile program memory size    None.
- *     Internal SRAM size                        48K bytes.
- *     Architecture identifier                   ATSAM3UxE Series.
+ *     Internal SRAM size                        xxx bytes.
+ *     Architecture identifier                   xxxxxxxx Series.
  *     Nonvolatile program memory type           Embedded Flash Memory.
  *     ...
  *    \endcode
@@ -98,6 +100,7 @@
 
 #include <string.h>
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
 
 /// @cond 0
@@ -272,7 +275,7 @@ chipid_data_t g_chipid_data;
 /**
  *  \brief The function finds chipid from specific list according to ul_id
  *  
- *  \param p_cid_types  Poniter to the chipid list.
+ *  \param p_cid_types  Pointer to the chipid list.
  *  \param ul_size      chipid list size
  *  \param ul_id        chipid number
  *  \param p_cid_type   pointer to chipid type
@@ -296,7 +299,7 @@ static bool chipid_find(const chipidtype_t *p_cid_types,
 /**
  *  \brief The function prints specific chipid data structure.
  *  
- *  \param p_chipid_data  Poniter to the chipid data.
+ *  \param p_chipid_data  Pointer to the chipid data.
  */
 static void chipid_print(chipid_data_t *p_chipid_data)
 {
@@ -304,8 +307,8 @@ static void chipid_print(chipid_data_t *p_chipid_data)
 	chipidtype_t cid_type;
 
 	// Version
-	printf("Version                                   0x%x.\r\n",
-		p_chipid_data->ul_version);
+	printf("Version                                   0x%lx.\r\n",
+		(unsigned long)p_chipid_data->ul_version);
 
 	// Find Embedded Processor
 	b_found = chipid_find(chipid_eproc, CHIPID_EPROC_SIZE,
@@ -351,8 +354,8 @@ static void chipid_print(chipid_data_t *p_chipid_data)
 	}
 	// Find extension flag
 	if (p_chipid_data->ul_extflag) {
-		printf("Extended chip ID is                       0x%x. \r\n",
-			p_chipid_data->ul_extid);
+		printf("Extended chip ID is                       0x%lx. \r\n",
+			(unsigned long)p_chipid_data->ul_extid);
 	} else {
 		puts("Extended chip ID does not exist. \r");
 	}
@@ -364,27 +367,14 @@ static void chipid_print(chipid_data_t *p_chipid_data)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-		{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-		          PINS_UART_ATTR);
-
-	/* Configure PMC */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**

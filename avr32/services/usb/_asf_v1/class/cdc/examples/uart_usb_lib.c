@@ -5,11 +5,13 @@
  * \brief This file controls the UART USB functions.
  *
  * These functions allow to use en USB endpoint as we would do using an UART.
- * This is particurly well suited for USB CDC class.
+ * This is particularly well suited for USB CDC class.
  *
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

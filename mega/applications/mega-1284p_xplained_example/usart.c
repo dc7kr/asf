@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -56,7 +58,7 @@
  */
 uint8_t usart1_getchar(void)
 {
-	// Wait for incomming data
+	// Wait for incoming data
 	while (!(UCSR1A & (1 << RXC1)));
 
 	// Return the read data
@@ -77,7 +79,7 @@ int usart1_putchar(int c)
 	// Wait for empty transmit buffer
 	while (!(UCSR1A & (1 << UDRE1)));
 
-	// Start transmittion
+	// Start transmission
 	return (UDR1 = c);
 }
 

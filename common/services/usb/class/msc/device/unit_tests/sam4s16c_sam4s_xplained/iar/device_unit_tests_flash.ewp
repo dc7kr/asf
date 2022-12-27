@@ -758,7 +758,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1682,7 +1682,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1863,9 +1863,6 @@
 							<file>
 								<name>$PROJ_DIR$/../../../udi_msc_desc.c</name>
 							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../udi_msc.c</name>
-							</file>
 							<group>
 								<name>unit_tests</name>
 								<file>
@@ -1875,6 +1872,9 @@
 									<name>$PROJ_DIR$/../../memories_initialization_sam.c</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../udi_msc.c</name>
+							</file>
 						</group>
 					</group>
 				</group>
@@ -1984,24 +1984,9 @@
 					</group>
 				</group>
 			</group>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../sam/utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
-				</group>
-			</group>
 		</group>
 		<group>
 			<name>drivers</name>
-			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart/uart.c</name>
-				</file>
-			</group>
 			<group>
 				<name>ebi</name>
 				<group>
@@ -2030,6 +2015,12 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart/uart.c</name>
 				</file>
 			</group>
 		</group>

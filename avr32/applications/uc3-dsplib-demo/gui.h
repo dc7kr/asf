@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -111,7 +113,7 @@
 #define GUI_FONT_WIDTH        8
 #define GUI_FONT_HEIGHT       8
 
-//! This does not takje care of the buffer overflow, so make sure this value is big enough
+//! This does not take care of the buffer overflow, so make sure this value is big enough
 #define GUI_TEXT_BUFFER_SIZE  256
 
 #define GUI_BOXES                         \

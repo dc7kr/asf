@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -51,7 +53,7 @@
 #define EXAMPLE_ADCIFB_FUNCTION      AT32UC3L_EK_VBAT_FUNCTION
 #define EXAMPLE_ADCIFB_CHANNEL       AT32UC3L_EK_VBAT_ADC_CHANNEL
 
-/* Alternate - Acclerometer X Axis Connect input to PA16 -> J15.18 in UC3L_EK */
+/* Alternate - Accelerometer X Axis Connect input to PA16 -> J15.18 in UC3L_EK */
 
 /*
  * #define EXAMPLE_ADCIFB_PIN           ADC_ACC_X_PIN

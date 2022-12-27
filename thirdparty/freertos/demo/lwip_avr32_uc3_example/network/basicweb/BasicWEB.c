@@ -4,9 +4,11 @@
  *
  * \brief Basic WEB Server for AVR32 UC3.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -74,7 +76,10 @@
 #include "lwip/tcpip.h"
 #include "lwip/memp.h"
 #include "lwip/stats.h"
+#include "lwip/init.h"
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
 #include "netif/loopif.h"
+#endif
 
 /* ethernet includes */
 #include "ethernet.h"
@@ -131,8 +136,15 @@ struct netconn *pxHTTPListener, *pxNewConnection;
 	/* Loop forever */
 	for( ;; )
 	{
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
 		/* Wait for a first connection. */
 		pxNewConnection = netconn_accept(pxHTTPListener);
+#else
+        while(netconn_accept(pxHTTPListener, &pxNewConnection) != ERR_OK)
+        {
+            vTaskDelay( webSHORT_DELAY );
+		}
+#endif
 		vParTestSetLED(webCONN_LED, pdTRUE);
 
 		if(pxNewConnection != NULL)
@@ -159,9 +171,16 @@ portCHAR *pcRxString;
 unsigned portSHORT usLength;
 static unsigned portLONG ulPageHits = 0;
 
+
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
 	/* We expect to immediately get data. */
 	pxRxBuffer = netconn_recv( pxNetCon );
-
+#else
+    while(netconn_recv( pxNetCon, &pxRxBuffer) != ERR_OK)
+    {
+		vTaskDelay( webSHORT_DELAY );
+	}
+#endif
 	if( pxRxBuffer != NULL )
 	{
 		/* Where is the data? */
@@ -199,6 +218,7 @@ static unsigned portLONG ulPageHits = 0;
 
 	netconn_close( pxNetCon );
 	netconn_delete( pxNetCon );
+
 }
 
 #endif

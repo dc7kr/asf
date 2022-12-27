@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -54,6 +56,8 @@ extern "C" {
 
 /**
  * \defgroup adc_group Analog to Digital Converter (ADC)
+ *
+ * See \ref adc_quickstart.
  *
  * This is a driver for the AVR XMEGA ADC. It provides functions for enabling,
  * disabling and configuring the ADC modules and their individual channels.
@@ -151,7 +155,7 @@ typedef struct ADC_CH_tmpfix_struct {
  * \def ADC_NR_OF_CHANNELS
  * \brief Number of channels per ADC
  */
-#if XMEGA_A || XMEGA_AU
+#if XMEGA_A || XMEGA_AU || defined(__DOXYGEN__)
 #  define ADC_NR_OF_CHANNELS    4
 #elif XMEGA_B || XMEGA_C || XMEGA_D
 #  define ADC_NR_OF_CHANNELS    1
@@ -349,7 +353,7 @@ __always_inline ADC_CH_tmpfix_t *adc_get_channel(ADC_t *adc, uint8_t ch_mask)
 
 	Assert(ch_mask & ((1 << ADC_NR_OF_CHANNELS) - 1));
 
-	/* Use a conditional inline ctz for optimzation. */
+	/* Use a conditional inline ctz for optimization. */
 #if ADC_NR_OF_CHANNELS > 4
 	if (!(ch_mask & 0x0f)) {
 		index += 4;
@@ -946,7 +950,7 @@ enum adc_gainstage_impmode {
  * \brief Set ADC gain stage impedance mode
  *
  * \param conf Pointer to ADC module configuration.
- * \param mode Gain stage impedance mode.
+ * \param impmode Gain stage impedance mode.
  *
  * \note Not all device families feature this setting.
  */
@@ -1381,6 +1385,7 @@ static inline void adcch_set_input(struct adc_channel_config *ch_conf,
  * current input pin. The offset is incremented for each conversion, and is
  * reset to 0 once a conversion with the maximum offset is done.
  *
+ * \param ch_conf Pointer to the ADC channel configuration structure
  * \param start_offset Initial offset to start pin scan at
  * \arg \c 0 - \c max_offset
  * \param max_offset Maximum offset for the pin scan
@@ -1446,5 +1451,610 @@ static inline void adcch_disable_interrupt(struct adc_channel_config *ch_conf)
 #ifdef __cplusplus
 }
 #endif
+
+/**
+ * \page adc_quickstart Quick start guide for XMEGA ADC
+ *
+ * This is the quick start guide for the \ref adc_group, with step-by-step
+ * instructions on how to configure and use the driver in a selection of use
+ * cases.
+ *
+ * The use cases are described with "setup" and "usage" sections, which each
+ * have "example code" and "workflow" subsections. This documentation first
+ * presents code fragments and function definitions along with instructions on
+ * where they can be placed, e.g., into the application C-file or the main()
+ * function, then follows up with explanations for all the lines of code.
+ *
+ * \section adc_use_cases Use cases
+ *
+ * In addition to the basic use case below, refer to the following use cases for
+ * demonstrations of the ADC's features:
+ * - \subpage adc_use_case_1
+ * - \subpage adc_use_case_2
+ *
+ * We recommend reading all the use cases for the sake of all the notes on
+ * considerations, limitations and other helpful details.
+ *
+ * \section adc_basic_use_case Basic use case
+ *
+ * In this basic use case, ADCA is configured for:
+ * - sampling on a single channel (0)
+ *    - I/O pin as single-ended input (PA0)
+ * - unsigned conversions
+ * - 12-bit resolution
+ * - internal 1V reference
+ * - manual conversion triggering
+ * - polled operation (no interrupts)
+ *
+ * Completed conversions are detected by waiting for the relevant interrupt flag
+ * to get set. The ADC result is then stored in a local variable.
+ *
+ * \section adc_basic_use_case_setup Setup steps
+ *
+ * \subsection adc_basic_use_case_setup_code Example code
+ *
+ * Add to application C-file:
+ * \code
+ * #define MY_ADC    ADCA
+ * #define MY_ADC_CH ADC_CH0
+ *
+ * static void adc_init(void)
+ * {
+ *     struct adc_config adc_conf;
+ *     struct adc_channel_config adcch_conf;
+ *
+ *     adc_read_configuration(&MY_ADC, &adc_conf);
+ *     adcch_read_configuration(&MY_ADC, MY_ADC_CH, &adcch_conf);
+ *
+ *     adc_set_conversion_parameters(&adc_conf, ADC_SIGN_OFF, ADC_RES_12,
+ *             ADC_REF_BANDGAP);
+ *     adc_set_conversion_trigger(&adc_conf, ADC_TRIG_MANUAL, 1, 0);
+ *     adc_set_clock_rate(&adc_conf, 200000UL);
+ *
+ *     adcch_set_input(&adcch_conf, ADCCH_POS_PIN0, ADCCH_NEG_NONE, 1);
+ *
+ *     adc_write_configuration(&MY_ADC, &adc_conf);
+ *     adcch_write_configuration(&MY_ADC, MY_ADC_CH, &adcch_conf);
+ * }
+ * \endcode
+ *
+ * Add to \c main():
+ * \code
+ * sysclk_init();
+ * adc_init();
+ * \endcode
+ *
+ * \subsection adc_basic_use_case_setup_flow Workflow
+ *
+ * -# Add macros for the ADC and its channel to use, so they are easy to change:
+ *     - \code
+ * #define MY_ADC    ADCA
+ * #define MY_ADC_CH ADC_CH0
+ *       \endcode
+ * -# Create a function \c adc_init() to intialize the ADC:
+ *     - \code
+ * static void adc_init(void)
+ * {
+ *     // ...
+ * }
+ *       \endcode
+ * -# Allocate configuration structs for the ADC and its channel:
+ *     - \code
+ * struct adc_config adc_conf;
+ * struct adc_channel_config adcch_conf;
+ *       \endcode
+ * -# Initialize the structs:
+ *     - \code
+ * adc_read_configuration(&MY_ADC, &adc_conf);
+ * adcch_read_configuration(&MY_ADC, MY_ADC_CH, &adcch_conf);
+ *       \endcode
+ *     \attention This step must not be skipped because uninitialized structs
+ * may contain invalid configurations, thus giving unpredictable behavior.
+ * -# Set conversion parameters to unsigned, 12-bit and internal 1V reference:
+ *     - \code
+ * adc_set_conversion_parameters(&adc_conf, ADC_SIGN_OFF, ADC_RES_12,
+ *         ADC_REF_BANDGAP);
+ *       \endcode
+ *     \note Only single-ended input is possible with unsigned conversions.
+ * -# Set conversion trigger to manual triggering:
+ *     - \code
+ * adc_set_conversion_trigger(&adc_conf, ADC_TRIG_MANUAL, 1, 0);
+ *       \endcode
+ *     \note The number of channels to trigger (1) and base event channel (0)
+ * don't affect operation in this trigger mode, but sane values should still be
+ * supplied.
+ * -# Set ADC clock rate to 200 KHz or less:
+ *     - \code
+ * adc_set_clock_rate(&adc_conf, 200000UL);
+ *       \endcode
+ *     \note The driver attempts to set the ADC clock rate to the fastest
+ * possible without exceeding the specified limit. Refer to the applicable
+ * device datasheet and manual for details on maximum ADC clock rate.
+ * -# Set pin 0 on the associated port as the single-ended input:
+ *     - \code
+ * adcch_set_input(&adcch_conf, ADCCH_POS_PIN0, ADCCH_NEG_NONE, 1);
+ *       \endcode
+ *     \note For single-ended input, the negative input must be none and the
+ * gain must be unity (1x).
+ * -# Write the configurations to ADC and channel:
+ *     - \code
+ * adc_write_configuration(&MY_ADC, &adc_conf);
+ * adcch_write_configuration(&MY_ADC, MY_ADC_CH, &adcch_conf);
+ *       \endcode
+ * -# Initialize the clock system:
+ *      - \code sysclk_init(); \endcode
+ *      \note The ADC driver requires the system clock driver to be
+ * initialized in order to compute the correct ADC clock rate in step 6.
+ * -# Call our ADC init function:
+ *      - \code adc_init(); \endcode
+ *
+ * \section adc_basic_use_case_usage Usage steps
+ *
+ * \subsection adc_basic_use_case_usage_code Example code
+ *
+ * Add to, e.g., main-loop in application C-file:
+ * \code
+ * uint16_t result;
+ *
+ * adc_enable(&MY_ADC);
+ *
+ * adc_start_conversion(&MY_ADC, MY_ADC_CH);
+ * adc_wait_for_interrupt_flag(&MY_ADC, MY_ADC_CH);
+ *
+ * result = adc_get_result(&MY_ADC, MY_ADC_CH);
+ * \endcode
+ *
+ * \subsection adc_basic_use_case_usage_flow Workflow
+ *
+ * -# Allocate a variable to contain the ADC result:
+ *     - \code uint16_t result; \endcode
+ * -# Enable the configured ADC:
+ *     - \code adc_enable(&MY_ADC); \endcode
+ * -# Trigger a single conversion on the ADC channel:
+ *     - \code adc_start_conversion(&MY_ADC, MY_ADC_CH); \endcode
+ * -# Wait for the channel's interrupt flag to get set, indicating a completed
+ * conversion:
+ *     - \code adc_wait_for_interrupt_flag(&MY_ADC, MY_ADC_CH); \endcode
+ *     \note The interrupt flags are set even if the interrupts are disabled.
+ * Further, this function will clear the interrupt flag after it has been set,
+ * so we do not need to clear it manually.
+ * -# Read out the result of the ADC channel:
+ *     - \code result = adc_get_result(&MY_ADC, MY_ADC_CH); \endcode
+ * -# To do more conversions, go back to step 3.
+ */
+
+/**
+ * \page adc_use_case_1 Free-running conversions with interrupt
+ *
+ * In this use case, ADCA is configured for:
+ * \li sampling on two channels (0 and 1) with respective inputs:
+ *     - I/O pin as single-ended input (PA0)
+ *     - two I/O pins as differential input w/ 2x gain (PA1 and PA5)
+ * \li signed conversions
+ * \li 12-bit resolution
+ * \li internal 1V reference
+ * \li free-running conversions
+ * \li interrupt-based conversion handling
+ *
+ * The ADC results are handled in an interrupt callback function which simply
+ * stores the result in one of two channel-specific, global variables.
+ *
+ * \note This use case assumes that the device has multiple ADC channels. Refer
+ * to the applicable device datasheet for information about the number of ADC
+ * channels.
+ *
+ * \section adc_use_case_1_setup Setup steps
+ *
+ * \subsection adc_use_case_1_setup_code Example code
+ *
+ * Ensure that \ref conf_adc.h contains:
+ * \code
+ * #define CONFIG_ADC_CALLBACK_ENABLE
+ * #define CONFIG_ADC_CALLBACK_TYPE int16_t
+ * \endcode
+ *
+ * Add to application C-file:
+ * \code
+ * #define MY_ADC   ADCA
+ *
+ * int16_t ch0_result;
+ * int16_t ch1_result;
+ *
+ * static void adc_handler(ADC_t *adc, uint8_t ch_mask, adc_result_t result)
+ * {
+ *     switch (ch_mask) {
+ *     case ADC_CH0:
+ *         ch0_result = result;
+ *         break;
+ *
+ *     case ADC_CH1:
+ *         ch1_result = result;
+ *         break;
+ *
+ *     default:
+ *         break;
+ *     }
+ * }
+ *
+ * static void adc_init(void)
+ * {
+ *     struct adc_config adc_conf;
+ *     struct adc_channel_config adcch_conf;
+ *
+ *     adc_read_configuration(&MY_ADC, &adc_conf);
+ *     adcch_read_configuration(&MY_ADC, ADC_CH0, &adcch_conf);
+ *
+ *     adc_set_conversion_parameters(&adc_conf, ADC_SIGN_ON, ADC_RES_12,
+ *             ADC_REF_BANDGAP);
+ *     adc_set_conversion_trigger(&adc_conf, ADC_TRIG_FREERUN_SWEEP, 2, 0);
+ *     adc_set_clock_rate(&adc_conf, 5000UL);
+ *     adc_set_callback(&MY_ADC, &adc_handler);
+ *     adc_write_configuration(&MY_ADC, &adc_conf);
+ *
+ *     adcch_enable_interrupt(&adcch_conf);
+ *     adcch_set_input(&adcch_conf, ADCCH_POS_PIN0, ADCCH_NEG_NONE, 1);
+ *     adcch_write_configuration(&MY_ADC, ADC_CH0, &adcch_conf);
+ *
+ *     adcch_set_input(&adcch_conf, ADCCH_POS_PIN1, ADCCH_NEG_PIN5, 2);
+ *     adcch_write_configuration(&MY_ADC, ADC_CH1, &adcch_conf);
+ * }
+ * \endcode
+ *
+ * Add to \c main():
+ * \code
+ * sysclk_init();
+ * adc_init();
+ * pmic_init();
+ * \endcode
+ *
+ * \subsection adc_use_case_1_setup_flow Workflow
+ *
+ * -# Define a macro for the ADC to use, in case we want to change it later:
+ *     - \code #define MY_ADC   ADCA \endcode
+ * -# Define global variables to contain the ADC result of each channel:
+ *     - \code
+ * int16_t ch0_result;
+ * int16_t ch1_result;
+ *       \endcode
+ * -# Create an ADC interrupt callback function that stores the results in the
+ * channels' respective global variables:
+ *     - \code
+ * static void adc_handler(ADC_t *adc, uint8_t ch_mask, adc_result_t result)
+ * {
+ *     switch (ch_mask) {
+ *     case ADC_CH0:
+ *         ch0_result = result;
+ *         break;
+ *
+ *     case ADC_CH1:
+ *         ch1_result = result;
+ *         break;
+ *
+ *     default:
+ *         break;
+ *     }
+ * }
+ *       \endcode
+ *       \note Refer to \ref adc_callback_t for documentation on the interrupt
+ * callback function type.
+ * -# Create a function \c adc_init() to intialize the ADC:
+ *     - \code
+ * static void adc_init(void)
+ * {
+ *     // ...
+ * }
+ *       \endcode
+ * -# Allocate configuration structs for ADC and channel, then initialize them:
+ *     - \code
+ * struct adc_config adc_conf;
+ * struct adc_channel_config adcch_conf;
+ *
+ * adc_read_configuration(&MY_ADC, &adc_conf);
+ * adcch_read_configuration(&MY_ADC, ADC_CH0, &adcch_conf);
+ *     \endcode
+ * -# Set signed, 12-bit conversions with internal 1V voltage reference:
+ *     - \code
+ * adc_set_conversion_parameters(&adc_conf, ADC_SIGN_ON, ADC_RES_12,
+ *         ADC_REF_BANDGAP);
+ *     \endcode
+ *     \note With signed, 12-bit conversion, 1 bit is used to indicate
+ * sign/polarity, so the resolution is halved in terms of Volt per LSB.
+ * -# Set free-running conversions on the first two ADC channels:
+ *     - \code
+ * adc_set_conversion_trigger(&adc_conf, ADC_TRIG_FREERUN_SWEEP, 2, 0);
+ *       \endcode
+ *     \note The base event channel (0) does not affect operation in this
+ * mode.
+ * -# Set ADC clock rate to maximum 5 KHz:
+ *     - \code adc_set_clock_rate(&adc_conf, 5000UL); \endcode
+ *     \note In free-running mode, it is wise to reduce the ADC clock so that
+ * the device has time to handle the results, e.g., channel 0 does not complete
+ * a new conversion before channel 1's result has been handled.
+ * -# Set the interrupt callback function to use for the ADC:
+ *     - \code adc_set_callback(&MY_ADC, &adc_handler); \endcode
+ * -# Write the configuration to the ADC:
+ *     - \code adc_write_configuration(&MY_ADC, &adc_conf); \endcode
+ * -# Enable interrupts for the ADC channels:
+ *     - \code adcch_enable_interrupt(&adcch_conf); \endcode
+ * -# Set up single-ended input from pin 0 on port A, then write the config to
+ * the first channel (0):
+ *     - \code
+ * adcch_set_input(&adcch_conf, ADCCH_POS_PIN0, ADCCH_NEG_NONE, 1);
+ * adcch_write_configuration(&MY_ADC, ADC_CH0, &adcch_conf);
+ *       \endcode
+ * -# Set up differential input from pins 1 and 5 on port A, with 2x gain, then
+ * write the config to the second channel (1):
+ *     - \code
+ * adcch_set_input(&adcch_conf, ADCCH_POS_PIN1, ADCCH_NEG_PIN5, 2);
+ * adcch_write_configuration(&MY_ADC, ADC_CH1, &adcch_conf);
+ *       \endcode
+ *     \note Not all input and gain combinations are valid. Refer to
+ * \ref adcch_set_input() for documentation on the restrictions.
+ * -# Initialize the clock system, the ADC, and the PMIC since we will be using
+ * interrupts:
+ *     - \code
+ * sysclk_init();
+ * adc_init();
+ * pmic_init();
+ *       \endcode
+ *     \note The call to \ref pmic_init() does not enable interrupts globally,
+ * which must be done explicitly with \ref cpu_irq_enable().
+ *
+ * \section adc_use_case_1_usage Usage steps
+ *
+ * \subsection adc_use_case_1_usage_code Example code
+ *
+ * Add to \c main.c():
+ * \code
+ * cpu_irq_enable();
+ * adc_enable(&MY_ADC);
+ *
+ * do {
+ * } while (true);
+ * \endcode
+ *
+ * \subsection adc_use_case_1_usage_flow Workflow
+ * -# Enable interrupts globally to allow the ADC interrupts to be handled:
+ *     - \code cpu_irq_enable(); \endcode
+ * -# Enable the ADC to start conversions:
+ *     - \code adc_enable(&MY_ADC); \endcode
+ *     \note When configured for free-running conversions, the ADC will start
+ * doing conversions as soon as it is enabled, so we do not need to do it
+ * manually.
+ * -# Enter a busy-loop while interrupts handle the ADC results:
+ *     - \code
+ * do {
+ * } while (true);
+ *       \endcode
+ */
+
+/**
+ * \page adc_use_case_2 Event-triggered conversions
+ *
+ * In this use case, ADCA is configured for:
+ * \li sampling on two channels (0 and 1) with respective inputs:
+ *     - internal temperature sensor
+ *     - internal bandgap reference
+ * \li unsigned conversions
+ * \li 12-bit resolution
+ * \li VCC/1.6 as voltage reference
+ * \li event-triggered conversions
+ * \li polled conversion handling
+ *
+ * Completed conversions are detected via non-blocking polling of the interrupt
+ * flags. The ADC results are stored into local variables as soon as they are
+ * available.
+ *
+ * A Timer/Counter is used to generate events that trigger the conversions.
+ *
+ * \note This use case assumes that the device has multiple ADC channels. Refer
+ * to the applicable device datasheet for information about the number of ADC
+ * channels.
+ *
+ * \section adc_use_case_2_setup Setup steps
+ *
+ * \subsection adc_use_case_2_setup_prereq Prerequisites
+ *
+ * This use case requires that the Timer/Counter driver is added to the project.
+ *
+ * \subsection adc_use_case_2_setup_code Example code
+ *
+ * Add to application C-file:
+ * \code
+ * #define MY_ADC    ADCA
+ * #define MY_TIMER  TCC0
+ *
+ * static void evsys_init(void)
+ * {
+ *     sysclk_enable_module(SYSCLK_PORT_GEN, SYSCLK_EVSYS);
+ *     EVSYS.CH3MUX = EVSYS_CHMUX_TCC0_OVF_gc;
+ * }
+ *
+ * static void tc_init(void)
+ * {
+ *     tc_enable(&MY_TIMER);
+ *     tc_set_wgm(&MY_TIMER, TC_WG_NORMAL);
+ *     tc_write_period(&MY_TIMER, 200);
+ *     tc_set_resolution(&MY_TIMER, 2000);
+ * }
+ *
+ * static void adc_init(void)
+ * {
+ *     struct adc_config adc_conf;
+ *     struct adc_channel_config adcch_conf;
+ *
+ *     adc_read_configuration(&MY_ADC, &adc_conf);
+ *     adcch_read_configuration(&MY_ADC, ADC_CH0, &adcch_conf);
+ *
+ *     adc_set_conversion_parameters(&adc_conf, ADC_SIGN_OFF, ADC_RES_12,
+ *             ADC_REF_VCC);
+ *     adc_set_conversion_trigger(&adc_conf, ADC_TRIG_EVENT_SWEEP, 2, 3);
+ *     adc_enable_internal_input(&adc_conf, ADC_INT_BANDGAP
+ *             | ADC_INT_TEMPSENSE);
+ *     adc_set_clock_rate(&adc_conf, 200000UL);
+ *     adc_write_configuration(&MY_ADC, &adc_conf);
+ *
+ *     adcch_set_input(&adcch_conf, ADCCH_POS_TEMPSENSE, ADCCH_NEG_NONE, 1);
+ *     adcch_write_configuration(&MY_ADC, ADC_CH0, &adcch_conf);
+ *
+ *     adcch_set_input(&adcch_conf, ADCCH_POS_BANDGAP, ADCCH_NEG_NONE, 1);
+ *     adcch_write_configuration(&MY_ADC, ADC_CH1, &adcch_conf);
+ * }
+ * \endcode
+ *
+ * Add to \c main():
+ * \code
+ * sysclk_init();
+ * evsys_init();
+ * tc_init();
+ * adc_init();
+ * \endcode
+ *
+ * \subsection adc_use_case_2_setup_flow Workflow
+ *
+ * -# Add macros for the ADC and the conversion trigger timer to use, so they
+ *    are easy to change:
+ *     - \code
+ * #define MY_ADC    ADCA
+ * #define MY_TIMER  TCC0
+ *       \endcode
+ * -# Create a function \c evsys_init() to intialize the event system clocks and
+ *    to link the conversion timer to the correct event channel:
+ *     - \code
+ * static void evsys_init(void)
+ * {
+ *     // ...
+ * }
+ *       \endcode
+ * -# Use the sysclk service to enable the clock to the event system:
+ *     - \code sysclk_enable_module(SYSCLK_PORT_GEN, SYSCLK_EVSYS); \endcode
+ * -# Connect the TCC0 overflow event to event channel 3:
+ *     - \code EVSYS.CH3MUX = EVSYS_CHMUX_TCC0_OVF_gc; \endcode
+ *    \note If the ADC trigger timer is changed from TCC0, the \c EVSYS_CHMUX_*
+ *          mask here will also need to be altered.
+ * -# Create a function \c tc_init() to intialize the ADC trigger timer:
+ *     - \code
+ * static void tc_init(void)
+ * {
+ *     // ...
+ * }
+ *       \endcode
+ * -# Enable the clock to the ADC trigger timer:
+ *     - \code tc_enable(&MY_TIMER); \endcode
+ * -# Configure the ADC trigger timer in normal Waveform Generation mode:
+ *     - \code tc_set_wgm(&MY_TIMER, TC_WG_NORMAL); \endcode
+ * -# Configure the ADC trigger timer period to overflow at 200 counts:
+ *     - \code tc_write_period(&MY_TIMER, 200); \endcode
+ * -# Configure the ADC trigger timer resolution (frequency) for 2KHz:
+ *     - \code tc_set_resolution(&MY_TIMER, 2000); \endcode
+ * -# Create a function \c adc_init() to intialize the ADC ready for
+ *    conversions on channels 0 and 1, triggered by the event system:
+ *     - \code
+ * static void adc_init(void)
+ * {
+ *     // ...
+ * }
+ *       \endcode
+ * -# Allocate configuration structs for ADC and channel, then initialize them:
+ *     - \code
+ * struct adc_config adc_conf;
+ * struct adc_channel_config adcch_conf;
+ *
+ * adc_read_configuration(&MY_ADC, &adc_conf);
+ * adcch_read_configuration(&MY_ADC, ADC_CH0, &adcch_conf);
+ *     \endcode
+ * -# Set unsigned, 12-bit conversions with internal VCC/1.6 voltage reference:
+ *     - \code
+ * adc_set_conversion_parameters(&adc_conf, ADC_SIGN_OFF, ADC_RES_12, ADC_REF_VCC);
+ *     \endcode
+ * -# Set event system triggered conversions on the first two ADC channels,
+ *    with conversions triggered by event system channel 3:
+ *     - \code
+ * adc_set_conversion_trigger(&adc_conf, ADC_TRIG_EVENT_SWEEP, 2, 3);
+ *       \endcode
+ * \note The event system channel used here must match the channel linked to the
+ *       conversion trigger timer set up earlier in \c tc_init().
+ * -# Turn on the internal bandgap and temperature sensor ADC inputs:
+ *     - \code
+ * adc_enable_internal_input(&adc_conf, ADC_INT_BANDGAP | ADC_INT_TEMPSENSE);
+ *       \endcode
+ * -# Set ADC clock rate to maximum 200 KHz:
+ *     - \code adc_set_clock_rate(&adc_conf, 200000UL); \endcode
+ * -# Write the configuration to the ADC:
+ *     - \code adc_write_configuration(&MY_ADC, &adc_conf); \endcode
+ * -# Set up single-ended input from the internal temperature sensor, then write
+ *    the config to the first channel (0):
+ *     - \code
+ * adcch_set_input(&adcch_conf, ADCCH_POS_TEMPSENSE, ADCCH_NEG_NONE, 1);
+ * adcch_write_configuration(&MY_ADC, ADC_CH0, &adcch_conf);
+ *       \endcode
+ * -# Set up single-ended input from the internal bandgap voltage, then write
+ *    the config to the second channel (1):
+ *     - \code
+ * adcch_set_input(&adcch_conf, ADCCH_POS_BANDGAP, ADCCH_NEG_NONE, 1);
+ * adcch_write_configuration(&MY_ADC, ADC_CH1, &adcch_conf);
+ *       \endcode
+ * -# Initialize the clock system, event system, ADC trigger timer, and the ADC:
+ *     - \code
+ * sysclk_init();
+ * evsys_init();
+ * tc_init();
+ * adc_init();
+ *       \endcode
+ *
+ * \section adc_use_case_2_usage Usage steps
+ *
+ * \subsection adc_use_case_2_usage_code Example code
+ *
+ * Add to \c main():
+ * \code
+ * adc_enable(&MY_ADC);
+ *
+ * do {
+ *     uint16_t tmp_result;
+ *     uint16_t bg_result;
+ *
+ *     if (adc_get_interrupt_flag(&MY_ADC, ADC_CH0 | ADC_CH1)
+ *             == (ADC_CH0 | ADC_CH1)) {
+ *         tmp_result = adc_get_result(&MY_ADC, ADC_CH0);
+ *         bg_result = adc_get_result(&MY_ADC, ADC_CH1);
+ *
+ *         adc_clear_interrupt_flag(&MY_ADC, ADC_CH0 | ADC_CH1);
+ *     }
+ * } while (true);
+ * \endcode
+ *
+ * \subsection adc_use_case_2_usage_flow Workflow
+ *
+ * -# Enable the configured ADC module, so that it will begin conversions when
+ *    triggered:
+ *     - \code adc_enable(&MY_ADC); \endcode
+ * -# Create an infinite loop so that conversions will be processed forever:
+ *     - \code
+ * do {
+ *    // ...
+ * } while (true);
+ *       \endcode
+ * -# Within the loop, create local variables to contain the ADC result of each
+ *    channel (internal temperature sensor and internal bandgap voltage):
+ *     - \code
+ * int16_t temp_result;
+ * int16_t bg_result;
+ *       \endcode
+ * -# Test if both ADC channel 0 and channel 1 have completed a conversion by
+ *    testing the respective channel conversion complete interrupt flags:
+ *     - \code
+ * if (adc_get_interrupt_flag(&MY_ADC, ADC_CH0 | ADC_CH1)
+ *         == (ADC_CH0 | ADC_CH1)) {
+ *       \endcode
+ * -# Store the channel result values into the local variables created earlier:
+ *     - \code
+ *      tmp_result = adc_get_result(&MY_ADC, ADC_CH0);
+ *      bg_result = adc_get_result(&MY_ADC, ADC_CH1);
+ *       \endcode
+ * -# Clear both ADC channel conversion complete interrupt flags, so that we can
+ *    detect future conversions at a later stage:
+ *     - \code adc_clear_interrupt_flag(&MY_ADC, ADC_CH0 | ADC_CH1); \endcode
+ */
 
 #endif /* ADC_H */

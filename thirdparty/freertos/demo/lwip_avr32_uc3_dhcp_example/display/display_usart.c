@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -45,13 +47,6 @@
 #include "delay.h"
 #include "stdio_usb.h"
 
-//! Pointer to the module instance to use for stdio.
-#if defined(__GNUC__) && defined(__AVR32__)
-void (*ptr_get)(void volatile*,int*);
-int (*ptr_put)(void volatile*,int);
-volatile void *volatile stdio_base;
-#endif
-
 /*!
  * \brief Initialize Display function
  *          - Initializa stdio interface using the USB CDC Interface,
@@ -60,17 +55,10 @@ volatile void *volatile stdio_base;
  */
 void display_init(uint32_t fcpu_hz)
 {
-
  	/* Start and attach USB CDC device interface for devices with
  	 * integrated USB interfaces.
  	 */
 	stdio_usb_init(NULL);
-
-	// Specify that stdout and stdin should not be buffered.
-
-#if defined(__GNUC__) && defined(__AVR32__)
-	setbuf(stdout, NULL);
-#endif
 
 	// Display default message.
 	puts("\x1B[5;1H");

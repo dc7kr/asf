@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -78,7 +80,7 @@
  * \name Initial module clock masks
  *
  * These are the mask values written to the xxxMASK registers during
- * initialization if the user has overriden the default behaviour of all clocks
+ * initialization if the user has overridden the default behavior of all clocks
  * left enabled. These values assume that:
  *   - Debugging should be possible
  *   - The program may be running from flash
@@ -119,7 +121,7 @@ static uint8_t sysclk_pbb_refcount;
 
 #if defined(CONFIG_SYSCLK_DEFAULT_RETURNS_SLOW_OSC)
 /**
- * \brief boolean signaling that the sysclk_init is done.
+ * \brief boolean signalling that the sysclk_init is done.
  */
 bool sysclk_initialized = false;
 #endif
@@ -281,7 +283,7 @@ void sysclk_set_source(uint_fast8_t src)
 /**
  * \brief Enable the USB generic clock
  *
- * \pre The USB generick clock must be configued to 48MHz.
+ * \pre The USB generic clock must be configured to 48MHz.
  * CONFIG_USBCLK_SOURCE and CONFIG_USBCLK_DIV must be defined with proper
  * configuration. The selected clock source must also be configured.
  */

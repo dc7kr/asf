@@ -3,11 +3,13 @@
  *
  * \brief Generic graphic primitive routines
  *
- * This files includes the correct header files for the grapics service
+ * This files includes the correct header files for the graphics service
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -42,11 +44,6 @@
  */
 #include "gfx.h"
 #include "compiler.h"
-
-extern gfx_coord_t gfx_height;
-extern gfx_coord_t gfx_width;
-extern gfx_coord_t gfx_min_x, gfx_min_y;
-extern gfx_coord_t gfx_max_x, gfx_max_y;
 
 /* This function is documented in gfx.h */
 void gfx_set_clipping(gfx_coord_t min_x, gfx_coord_t min_y,

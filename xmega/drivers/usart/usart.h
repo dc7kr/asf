@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -56,7 +58,7 @@ extern "C" {
  *
  * See \ref xmega_usart_quickstart.
  *
- * This is a driver for configuring, enablig, disabling and use of the on-chip
+ * This is a driver for configuring, enabling, disabling and use of the on-chip
  * USART.
  *
  * \section dependencies Dependencies
@@ -326,7 +328,7 @@ static inline void usart_clear_rx_complete(USART_t *usart)
  * \brief Write a data to the USART data register.
  *
  * \param usart The USART module.
- * \param txdata The data to be transmited.
+ * \param txdata The data to be transmitted.
  */
 static inline void usart_put(USART_t * usart, uint8_t txdata)
 {
@@ -349,7 +351,7 @@ static inline uint8_t usart_get(USART_t * usart)
  * \brief Performs a data transfer on the USART in SPI mode.
  *
  * \param usart The USART module.
- * \param txdata The data to be transmited.
+ * \param txdata The data to be transmitted.
  *
  * \return The received data
  */
@@ -544,7 +546,7 @@ void usart_spi_set_baudrate(USART_t * usart, uint32_t baud, uint32_t cpu_hz);
  * \endcode
  *
  * \subsection usart_use_case_1_usage_flow Workflow
- * -# Wait for receival of a character:
+ * -# Wait for reception of a character:
  *   - \code received_byte = usart_getchar(USART_SERIAL); \endcode
  * -# Echo the character back:
  *   - \code usart_putchar(USART_SERIAL, received_byte); \endcode

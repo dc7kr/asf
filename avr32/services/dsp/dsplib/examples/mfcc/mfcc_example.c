@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -120,7 +122,7 @@ dsp16_t *mfcc_pre_emphasis(dsp16_t *buffer, int size)
   static dsp16_t last_sample = DSP16_Q(0.);
   // Apply a high-pass filter to the signal
   //   s2(n) = s(n) - a*s(n-1)
-  // Unfortunatly the FIR filter form the DSPLib cannot be used in this example
+  // Unfortunately the FIR filter form the DSPLib cannot be used in this example
   // because it needs at least a 8-tap filter coefficients.
   // That's not much a problem since the compiler will optimize quite well the
   // for loop if we use only 1-tap FIR filter anyway.
@@ -257,13 +259,13 @@ void mfcc_mel_scale_filter_bank_init()
   }
 }
 // The result of this function is a dsp16_t type coded on 32-bits.
-// The MSBs are defining the interger part of the number.
+// The MSBs are defining the integer part of the number.
 S32 *mfcc_mel_scale_filter_bank(dsp16_t *buffer, int size)
 {
   int i;
   S32 *mel_power;
 
-  // Set a pointer where to store the poweer of the signal
+  // Set a pointer where to store the power of the signal
   mel_power = (S32 *) &buffer[256];
 
   // Process the filters
@@ -332,8 +334,8 @@ S32 *mfcc_dct_13_pts(S32 *buffer, int size)
       // ok because the result is modulo 1. -> that's how the cosinus function works.
       temp = (dsp16_t) ((S32) cst * ((n + 1 / 2) * k));
       // buffer[n] is never lower than -16 because log(1/2^15) = -10.xxx
-      // So it is ok to shift buffer[n] by 4 to avoid overlows when we do the
-      // mutliplication
+      // So it is ok to shift buffer[n] by 4 to avoid overflows when we do the
+      // multiplication
       sum += (((buffer[n] >> 4) * dsp16_op_cos(temp)) >> (DSP16_QB - 4));
     }
     dct_result[k] = sum;
@@ -406,7 +408,7 @@ void mfcc_process()
   cc_hamming = Get_sys_count();
   working_buffer = mfcc_hamming_window(working_buffer, INPUT_FRAME_NB_SAMPLES);
   cc_hamming = Get_sys_count() - cc_hamming;
-  // Fast Fourier Transform -> 512 points ouptput
+  // Fast Fourier Transform -> 512 points output
   cc_fft = Get_sys_count();
   working_buffer = mfcc_fft_512pts(working_buffer, INPUT_FRAME_NB_SAMPLES);
   cc_fft = Get_sys_count() - cc_fft;

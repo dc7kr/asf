@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -70,7 +72,7 @@
  * define the properties of the filter used and must be generated first.\n
  * There are different ways to do it:
  * - By using a dedicated software, many of them can be easily found on the web.
- * - By using a digital signal software which provides the capabilty to do it
+ * - By using a digital signal software which provides the capability to do it
  * such as Matlab (http://www.mathworks.com/) or Scilab
  * (http://www.scilab.org/) (Scilab is a free tool similar to Matlab).
  * - By using a dedicated DSP Library function such as \ref lp_FIR_design.
@@ -149,7 +151,7 @@ inline static void dsp32_filt_fir(dsp32_t *vect1, dsp32_t *vect2, int size, dsp3
  * \param y A pointer on a 16-bit fixed-point vector of size elements corresponding to the output buffer.
  *          The den_size previous elements correspond to values of old output samples and have to be set to 0 at the initialization (y-1, y-2, ...).
  * \param x A pointer on a 16-bit fixed-point vector of size elements corresponding to the input buffer.
- *          The num_size previous elements correspond to old samples intput samples have to be set to 0 at the initialization (x-1, x-2, ...).
+ *          The num_size previous elements correspond to old samples input samples have to be set to 0 at the initialization (x-1, x-2, ...).
  * \param size The length of the input buffer.
  * \param num A pointer on a 16-bit fixed-point vector of num_size elements corresponding to the buffer containing the numerator's coefficients of the filter.
  * \param num_size The length of the numerator's coefficients of the filter (must be a multiple of 2).
@@ -168,7 +170,7 @@ void dsp16_filt_iir(dsp16_t *y, dsp16_t *x, int size, dsp16_t *num, int num_size
  * \param y A pointer on a 32-bit fixed-point vector of size elements corresponding to the output buffer.
  *          The den_size previous elements correspond to values of old output samples and have to be set to 0 at the initialization (y-1, y-2, ...).
  * \param x A pointer on a 32-bit fixed-point vector of size elements corresponding to the input buffer.
- *          The num_size previous elements correspond to old samples intput samples have to be set to 0 at the initialization (x-1, x-2, ...).
+ *          The num_size previous elements correspond to old samples input samples have to be set to 0 at the initialization (x-1, x-2, ...).
  * \param size The length of the input buffer.
  * \param num A pointer on a 32-bit fixed-point vector of num_size elements corresponding to the buffer containing the numerator's coefficients of the filter.
  * \param num_size The length of the numerator's coefficients of the filter (must be a multiple of 2).
@@ -260,7 +262,7 @@ void dsp32_filt_iirpart(dsp32_t *vect1, dsp32_t *vect2, int size, dsp32_t *num, 
 /*! \brief 16-bit fixed point version of the LMS filter.
  * \ingroup group_filters
  * \param x A pointer on a 16-bit fixed-point vector of (size) elements that acts as a circular buffer, filled with the input samples. Its elements
- *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions whithout filling any of its values.
+ *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions without filling any of its values.
  * \param w A pointer on a 16-bit fixed-point vector of size elements corresponding to the coefficients of the filter. Just initialize its elements
  *          to zero and after several  iterations, this buffer will be filled with the actual coefficients of the filter.
  * \param size The length of the circular buffer (x) and of the coefficient's buffer (w). It must be a multiple of 4.
@@ -274,7 +276,7 @@ void dsp16_filt_lms(dsp16_t *x, dsp16_t *w, int size, dsp16_t new_x, dsp16_t d, 
 /*! \brief 32-bit fixed point version of the LMS filter.
  * \ingroup group_filters
  * \param x A pointer on a 32-bit fixed-point vector of (size) elements that acts as a circular buffer, filled with the input samples. Its elements
- *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions whithout filling any of its values.
+ *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions without filling any of its values.
  * \param w A pointer on a 32-bit fixed-point vector of size elements corresponding to the coefficients of the filter. Just initialize its elements
  *          to zero and after several  iterations, this buffer will be filled with the actual coefficients of the filter.
  * \param size The length of the circular buffer (x) and of the coefficient's buffer (w).
@@ -309,7 +311,7 @@ void dsp32_filt_lms_fir(dsp32_t *x, dsp32_t *w, int size, dsp32_t *y, int i);
 /*! \brief 16-bit fixed point version of the NLMS filter.
  * \ingroup group_filters
  * \param x A pointer on a 16-bit fixed-point vector of (size) elements that acts as a circular buffer, filled with the input samples. Its elements
- *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions whithout filling any of its values.
+ *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions without filling any of its values.
  * \param w A pointer on a 16-bit fixed-point vector of size elements corresponding to the coefficients of the filter. Just initialize its elements
  *          to zero and after several  iterations, this buffer will be filled with the actual coefficients of the filter.
  * \param size The length of the circular buffer (x) and of the coefficient's buffer (w). It must be a multiple of 4.
@@ -323,7 +325,7 @@ void dsp16_filt_nlms(dsp16_t *x, dsp16_t *w, int size, dsp16_t new_x, dsp16_t d,
 /*! \brief 32-bit fixed point version of the NLMS filter.
  * \ingroup group_filters
  * \param x A pointer on a 32-bit fixed-point vector of (size) elements that acts as a circular buffer, filled with the input samples. Its elements
- *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions whithout filling any of its values.
+ *          have to be initialized to zero and then you just need to reinject this vector each time you call this functions without filling any of its values.
  * \param w A pointer on a 32-bit fixed-point vector of size elements corresponding to the coefficients of the filter. Just initialize its elements
  *          to zero and after several  iterations, this buffer will be filled with the actual coefficients of the filter.
  * \param size The length of the circular buffer (x) and of the coefficient's buffer (w).

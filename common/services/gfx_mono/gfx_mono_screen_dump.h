@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -56,7 +58,7 @@ extern "C" {
  * using the XPM file format.
  *
  * Before using the screen dump function one should make sure that one has
- * perfomed initialization of this service by calling
+ * performed initialization of this service by calling
  * \ref gfx_mono_screen_dump_init() to set up which USART to use. One should
  * also make sure that one has initialized the gfx mono driver
  * \ref gfx_mono_init() which will produce the screen buffer that is dumped
@@ -109,9 +111,9 @@ static inline void gfx_mono_screen_dump_init(dump_usart_t *usart,
 }
 
 /**
- * \brief Function for dumping a LCD frambuffer
+ * \brief Function for dumping a LCD framebuffer
  *
- * This function will dump a frambuffer to a UART in XPM file format.
+ * This function will dump a framebuffer to a UART in XPM file format.
  */
 static inline void gfx_mono_screen_dump(void)
 {

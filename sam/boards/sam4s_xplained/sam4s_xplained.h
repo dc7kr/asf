@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -125,9 +127,6 @@
  * - \ref PIN_LED_1
  * - \ref PINS_LEDS
  *
- * MCI
- * - \ref PINS_MCI
- *
  * Push buttons
  * - \ref PIN_PUSHBUTTON_1
  * - \ref PINS_PUSHBUTTONS
@@ -198,7 +197,7 @@
 #define ADC_STARTUP_TIME_MAX       15
 /** Track and hold Acquisition Time min (in ns) */
 #define ADC_TRACK_HOLD_TIME_MIN  1200
-/** ADC clock frequence */
+/** ADC clock frequency */
 #define BOARD_ADC_FREQ     (6000000)
 
 /** UART pins (UTXD0 and URXD0) definitions, PA9,10. */
@@ -283,7 +282,7 @@
 #define LED_BLUE_2    1
 
 /** LED #0 pin definition (BLUE#1). */
-#define LED_0_NAME           "blue LED D9"
+#define LED_0_NAME           "LED D9"
 #define PIN_LED_0   {PIO_PC10, PIOC, ID_PIOC, PIO_OUTPUT_1, PIO_DEFAULT}
 #define PIN_LED_0_MASK PIO_PC10
 #define PIN_LED_0_PIO PIOC
@@ -295,7 +294,7 @@
 #define LED0_FLAGS (PIO_OUTPUT_1 | PIO_DEFAULT)
 
 /** LED #1 pin definition (Blue#2). */
-#define LED_1_NAME           "blue LED D10"
+#define LED_1_NAME           "LED D10"
 #define PIN_LED_1   {PIO_PC17, PIOC, ID_PIOC, PIO_OUTPUT_1, PIO_DEFAULT}
 #define PIN_LED_1_MASK PIO_PC17
 #define PIN_LED_1_PIO PIOC
@@ -307,7 +306,13 @@
 #define LED1_FLAGS (PIO_OUTPUT_1 | PIO_DEFAULT)
 
 /** Push button #0 definition. Attributes = pull-up + debounce + interrupt on rising edge. */
-#define PUSHBUTTON_1_NAME    "BP1"
+#ifdef BOARD_REV_A
+#define PUSHBUTTON_1_NAME    "SW1"
+#endif
+
+#ifdef BOARD_REV_B
+#define PUSHBUTTON_1_NAME    "BP2"
+#endif
 #define GPIO_PUSH_BUTTON_1   (PIO_PA5_IDX)
 #define GPIO_PUSH_BUTTON_1_FLAGS    (PIO_INPUT | PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_RISE_EDGE)
 
@@ -404,6 +409,8 @@
 #define MXT143E_XPLAINED_DC             (PIO_PB3_IDX)
 #define MXT143E_XPLAINED_BACKLIGHT      (PIO_PA17_IDX)
 #define MXT143E_XPLAINED_LCD_RESET      (PIO_PC13_IDX)
+#define MXT143E_XPLAINED_SDA            (PIO_PA3_IDX)
+#define MXT143E_XPLAINED_SCL            (PIO_PA4_IDX)
 //@}
 
 /** SSC pin Transmitter Data (TD) */
@@ -510,6 +517,22 @@
 #define PIN_USART1_SCK_IDX        (PIO_PA23_IDX)
 #define PIN_USART1_SCK_FLAGS      (PIO_PERIPH_A | PIO_DEFAULT)
 
+/** Definition of MMA7341L x,y,z axis channel number */
+#define MMA7341L_ADC_CHANNEL_X  2
+#define MMA7341L_ADC_CHANNEL_Y  6
+#define MMA7341L_ADC_CHANNEL_Z  7
+
+/** MMA7341L mode set pin definition. */
+#define PIN_MMA7341L_MODE                PIO_PC13_IDX
+#define PIN_MMA7341L_MODE_FLAG       PIO_OUTPUT_1 | PIO_DEFAULT
+
+/** MMA7341L X,Y,Z axis pin definition. */
+#define PIN_MMA7341L_X_AXIS                PIO_PB3_IDX
+#define PIN_MMA7341L_X_AXIS_FLAG       PIO_INPUT | PIO_DEFAULT
+#define PIN_MMA7341L_Y_AXIS                PIO_PC17_IDX
+#define PIN_MMA7341L_Y_AXIS_FLAG       PIO_INPUT | PIO_DEFAULT
+#define PIN_MMA7341L_Z_AXIS                PIO_PC18_IDX
+#define PIN_MMA7341L_Z_AXIS_FLAG       PIO_INPUT | PIO_DEFAULT
 /*----------------------------------------------------------------------------*/
 /**
  * \page sam4s_xplained_chipdef "SAM4S-XPLAINED - Individual chip definition"

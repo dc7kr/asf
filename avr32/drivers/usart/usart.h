@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -115,7 +117,7 @@
 //! @{
 #define USART_LIN_PUBLISH_ACTION      AVR32_USART_LINMR_NACT_PUBLISH    //!< The USART transmits the response.
 #define USART_LIN_SUBSCRIBE_ACTION    AVR32_USART_LINMR_NACT_SUBSCRIBE  //!< The USART receives the response.
-#define USART_LIN_IGNORE_ACTION       AVR32_USART_LINMR_NACT_IGNORE     //!< The USART does not transmit and does not receive the reponse.
+#define USART_LIN_IGNORE_ACTION       AVR32_USART_LINMR_NACT_IGNORE     //!< The USART does not transmit and does not receive the response.
 //! @}
 
 /*! \name LIN Checksum Types
@@ -177,7 +179,7 @@ typedef struct
   //! Disable successive NACKs.
   //! Successive parity errors are counted up to the value in the \ref max_iterations field.
   //! These parity errors generate a NACK on the ISO line. As soon as this value is reached,
-  //! no addititional NACK is sent on the ISO line. The ITERATION flag is asserted.
+  //! no additional NACK is sent on the ISO line. The ITERATION flag is asserted.
   int dis_suc_nack;
 
   //! Max number of repetitions (0 to 7).
@@ -826,7 +828,7 @@ static inline int usart_test_hit(volatile avr32_usart_t *usart)
  *
  * \retval USART_SUCCESS  The character was read successfully.
  * \retval USART_RX_EMPTY The RX buffer was empty.
- * \retval USART_RX_ERROR An error was deteceted.
+ * \retval USART_RX_ERROR An error was detected.
  */
 extern int usart_read_char(volatile avr32_usart_t *usart, int *c);
 

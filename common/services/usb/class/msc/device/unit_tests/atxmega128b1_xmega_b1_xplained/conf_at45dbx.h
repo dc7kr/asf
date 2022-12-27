@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -55,7 +57,7 @@
 //! Number of AT45DBX components to manage.
 #define AT45DBX_MEM_CNT             1
 
-//! Select the SPI module AT45DBX is conntected to
+//! Select the SPI module AT45DBX is connected to
 #define AT45DBX_SPI_MODULE          AT45DBX_SPI
 
 //! SPI master speed in Hz.

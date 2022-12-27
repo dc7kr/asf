@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -171,7 +173,7 @@ typedef struct {
 } avr32_acc_t ;
 
 
-/*! \brief Initialise Accelerometer driver. Mandatory to call.
+/*! \brief Initialize Accelerometer driver. Mandatory to call.
  */
 void acc_init(void);
 

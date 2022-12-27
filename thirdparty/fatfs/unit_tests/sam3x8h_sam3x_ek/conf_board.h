@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -46,5 +48,8 @@
 
 /** Enable debug uart pins */
 #define CONF_BOARD_UART_CONSOLE
+
+/** Support NAND */
+#define CONF_BOARD_NAND
 
 #endif /* CONF_BOARD_H_INCLUDED */

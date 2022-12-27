@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -134,7 +136,7 @@ static void init_sys_clocks(void)
 }
 #endif
 
-/* \brief Initialise board.
+/* \brief Initialize board.
  *
  */
 void init_board(void)

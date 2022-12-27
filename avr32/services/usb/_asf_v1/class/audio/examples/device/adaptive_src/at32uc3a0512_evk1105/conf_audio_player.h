@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -71,7 +73,7 @@
 #define WDT_TIMEOUT_PERIOD_US                   15000000
 
 /*! \name Default DAC Settings
- * Please choose beetween:
+ * Please choose between:
  * - AUDIO_MIXER_DAC_AIC23B (external DAC mounted on EVK1105 board)
  * - AUDIO_MIXER_DAC_ABDAC  (internal ABDAC with external amplifier tap6130
  *   on EVK1105 and EVK1104)
@@ -90,7 +92,7 @@
 //! Add/remove samples on the fly.
 #define USB_RESYNC_METHOD_SOFT_ADD_DEL_SAMPLES  1
 
-//! Pseudo adaptif Sampling Rate Conversion.
+//! Pseudo adaptive Sampling Rate Conversion.
 #define USB_RESYNC_METHOD_SOFT_ADAPTIF_SRC      2
 
 //! Use of an external clock synthesizer (e.g. the CL CS2200).
@@ -98,9 +100,9 @@
 //! @}
 
 /*! \name Method used for the USB resynchronization
- * Please choose beetween:
+ * Please choose between:
  * - USB_RESYNC_METHOD_SOFT_ADD_DEL_SAMPLES  (Add/remove samples on the fly)
- * - USB_RESYNC_METHOD_SOFT_ADAPTIF_SRC      (Pseudo adaptif Sampling Rate Conversion)
+ * - USB_RESYNC_METHOD_SOFT_ADAPTIF_SRC      (Pseudo adaptive Sampling Rate Conversion)
  * - USB_RESYNC_METHOD_EXT_CLOCK_SYNTHESIZER (Use of an external clock synthesizer (e.g. the CL CS2200))
  */
 #define USB_RESYNC_METHOD  USB_RESYNC_METHOD_SOFT_ADAPTIF_SRC

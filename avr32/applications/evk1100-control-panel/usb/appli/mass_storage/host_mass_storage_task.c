@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -311,7 +313,7 @@ bool host_mass_storage_task_copy_tree( const char *pcdir_name, U8 sync_direction
             }
             return( false );
          }
-         // here, the folder is created and the navigatorS has entered in this dir
+         // here, the folder is created and the navigator has entered in this dir
       }
       else
       {              // File found - copy file

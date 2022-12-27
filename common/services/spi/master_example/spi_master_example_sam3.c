@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -117,7 +119,7 @@ static bool spi_at25df_mem_check(void)
 	// Send the Status Register Read command followed by a dummy data.
 	spi_write_packet(SPI_EXAMPLE, data, 1);
 	
-	// Receive the manufactory and device id.
+	// Receive the manufacturer and device id.
 	spi_read_packet(SPI_EXAMPLE, data, DATA_BUFFER_SIZE);
 
 	// data[1] contains device id part1, which has the density code.

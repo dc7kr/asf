@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -300,7 +302,7 @@ void nvm_eeprom_load_page_to_buffer(const uint8_t *values)
 	NVM.ADDR2 = 0x00;
 	NVM.ADDR1 = 0x00;
 
-	// Load multible bytes into page buffer
+	// Load multiple bytes into page buffer
 	uint8_t i;
 	for (i = 0; i < EEPROM_PAGE_SIZE; ++i) {
 		NVM.ADDR0 = i;
@@ -402,7 +404,7 @@ void nvm_eeprom_fill_buffer_with_value(uint8_t value)
 	NVM.ADDR2 = 0x00;
 	NVM.ADDR1 = 0x00;
 
-	// Load multible bytes into page buffer
+	// Load multiple bytes into page buffer
 	uint8_t i;
 	for (i = 0; i < EEPROM_PAGE_SIZE; ++i) {
 		NVM.ADDR0 = i;

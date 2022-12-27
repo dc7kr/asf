@@ -3,9 +3,11 @@
  *
  * \brief AT45dbx DataFlash Component Unit Test.
  *
- * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -195,7 +197,7 @@ static void run_byte_access_test(const struct test_case *test)
 	bool status;
 	uint8_t byte;
 
-	/* Write bytes one by one to the 2 first continious sectors
+	/* Write bytes one by one to the 2 first continuous sectors
 	 */
 	status = at45dbx_write_byte_open(0);
 	test_assert_true(test, status == true,
@@ -279,7 +281,7 @@ static void run_sector_access_test(const struct test_case *test)
 }
 
 /**
- * \brief Test the read and write mutliple sector operations on the DataFlash
+ * \brief Test the read and write multiple sector operations on the DataFlash
  *
  * This function will test the read and write functionalities of the DataFlash
  * using multiple sector access. It will first fill the 10 first DataFlash
@@ -378,19 +380,9 @@ int main(void)
 	sysclk_init();
 	board_init();
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-
-#if defined(__GNUC__) && defined(__AVR32__)
-	// This unit test will be launched on a test-server, using avr32program.
-	// The reset is done through the OCD. The 'setbuf' command allows to make the
-	// application starts correctly: it will not execute the 'breakpoint'
-	// instruction in _fstat_host (used by printf) and the core will not stay
-	// blocked on the 'breakpoint' instruction (executed in the debug mode).
-	setbuf(stdout, NULL);
-#endif
-
 	at45dbx_init();
 
-        // Define all the test cases
+	// Define all the test cases
 	DEFINE_TEST_CASE(memory_check_test, NULL, run_memory_check_test, NULL,
 			"Memory check");
 	DEFINE_TEST_CASE(byte_access_test, NULL, run_byte_access_test, NULL,

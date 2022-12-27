@@ -5,9 +5,11 @@
  *
  * Do not include this file directly, but rather <hugemem.h>.
  *
- * Copyright (c) 2009-2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -43,6 +45,7 @@
 #ifndef AVR8_HUGEMEM_H_INCLUDED
 #define AVR8_HUGEMEM_H_INCLUDED
 
+#include <stdlib.h>
 #include "conf_board.h"
 
 /**
@@ -148,6 +151,9 @@ static inline void hugemem_write32(hugemem_ptr_t to, uint_fast32_t val)
 	*(__huge uint32_t *)to = val;
 }
 # endif /* __ICCAVR__ */
+
+void hugemem_read_block(void *to, const hugemem_ptr_t from, size_t size);
+void hugemem_write_block(hugemem_ptr_t to, const void *from, size_t size);
 
 #else
 # include <generic/hugemem.h>

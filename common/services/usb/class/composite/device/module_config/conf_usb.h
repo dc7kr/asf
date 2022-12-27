@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -86,12 +88,18 @@
  * @{
  */
 // #define  UDC_VBUS_EVENT(b_vbus_high)      user_callback_vbus_action(b_vbus_high)
+// extern void user_callback_vbus_action(bool b_vbus_high);
 // #define  UDC_SOF_EVENT()                  user_callback_sof_action()
+// extern void user_callback_sof_action(void);
 // #define  UDC_SUSPEND_EVENT()              user_callback_suspend_action()
+// extern void user_callback_suspend_action(void);
 // #define  UDC_RESUME_EVENT()               user_callback_resume_action()
+// extern void user_callback_resume_action(void);
 //! Mandatory when USB_DEVICE_ATTR authorizes remote wakeup feature
 // #define  UDC_REMOTEWAKEUP_ENABLE()        user_callback_remotewakeup_enable()
+// extern void user_callback_remotewakeup_enable(void);
 // #define  UDC_REMOTEWAKEUP_DISABLE()       user_callback_remotewakeup_disable()
+// extern void user_callback_remotewakeup_disable(void);
 //! When a extra string descriptor must be supported
 //! other than manufacturer, product and serial string
 // #define  UDC_GET_EXTRA_STRING()
@@ -111,7 +119,7 @@
 
 //! Total endpoint used by all interfaces
 //! Note:
-//! It is possible to define an IN and OUT endpoints with the same number on xmega product only
+//! It is possible to define an IN and OUT endpoints with the same number on XMEGA product only
 //! E.g. MSC class can be have IN endpoint 0x81 and OUT endpoint 0x01
 #define  USB_DEVICE_MAX_EP             1 // 0 to max endpoint requested by interfaces
 //@}
@@ -133,12 +141,26 @@
 #define  UDI_CDC_PORT_NB 1
 
 //! Interface callback definition
-#define  UDI_CDC_ENABLE_EXT()             true
-#define  UDI_CDC_DISABLE_EXT()
-#define  UDI_CDC_RX_NOTIFY()
-#define  UDI_CDC_SET_CODING_EXT(cfg)
-#define  UDI_CDC_SET_DTR_EXT(set)
-#define  UDI_CDC_SET_RTS_EXT(set)
+#define  UDI_CDC_ENABLE_EXT(port)             true
+#define  UDI_CDC_DISABLE_EXT(port)
+#define  UDI_CDC_RX_NOTIFY(port)
+#define  UDI_CDC_SET_CODING_EXT(port,cfg)
+#define  UDI_CDC_SET_DTR_EXT(port,set)
+#define  UDI_CDC_SET_RTS_EXT(port,set)
+/*
+ * #define UDI_CDC_ENABLE_EXT(port) my_callback_cdc_enable()
+ * extern bool my_callback_cdc_enable(void);
+ * #define UDI_CDC_DISABLE_EXT(port) my_callback_cdc_disable()
+ * extern void my_callback_cdc_disable(void);
+ * #define  UDI_CDC_RX_NOTIFY(port) my_callback_rx_notify(port)
+ * extern void my_callback_rx_notify(uint8_t port);
+ * #define  UDI_CDC_SET_CODING_EXT(port,cfg) my_callback_config(port,cfg)
+ * extern void my_callback_config(uint8_t port, usb_cdc_line_coding_t * cfg); 
+ * #define  UDI_CDC_SET_DTR_EXT(port,set) my_callback_cdc_set_dtr(port,set)
+ * extern void my_callback_cdc_set_dtr(uint8_t port, bool b_enable);
+ * #define  UDI_CDC_SET_RTS_EXT(port,set) my_callback_cdc_set_rts(port,set)
+ * extern void my_callback_cdc_set_rts(uint8_t port, bool b_enable); 
+ */
 
 //! Define it when the transfer CDC Device to Host is a low rate (<512000 bauds)
 //! to reduce CDC buffers size
@@ -157,9 +179,9 @@
  * @{
  */
 //! Endpoints' numbers used by single or first CDC port
-#define  UDI_CDC_DATA_EP_IN            (1 | USB_EP_DIR_IN)  // TX
-#define  UDI_CDC_DATA_EP_OUT           (2 | USB_EP_DIR_OUT) // RX
-#define  UDI_CDC_COMM_EP               (3 | USB_EP_DIR_IN)  // Notify endpoint
+#define  UDI_CDC_DATA_EP_IN_0          (1 | USB_EP_DIR_IN)  // TX
+#define  UDI_CDC_DATA_EP_OUT_0         (2 | USB_EP_DIR_OUT) // RX
+#define  UDI_CDC_COMM_EP_0             (3 | USB_EP_DIR_IN)  // Notify endpoint
 //! Endpoints' numbers used by second CDC port (Optional)
 #define  UDI_CDC_DATA_EP_IN_2          (4 | USB_EP_DIR_IN)  // TX
 #define  UDI_CDC_DATA_EP_OUT_2         (5 | USB_EP_DIR_OUT) // RX
@@ -170,8 +192,8 @@
 #define  UDI_CDC_COMM_EP_3             (9 | USB_EP_DIR_IN)  // Notify endpoint
 
 //! Interface numbers used by single or first CDC port
-#define  UDI_CDC_COMM_IFACE_NUMBER     0
-#define  UDI_CDC_DATA_IFACE_NUMBER     1
+#define  UDI_CDC_COMM_IFACE_NUMBER_0   0
+#define  UDI_CDC_DATA_IFACE_NUMBER_0   1
 //! Interface numbers used by second CDC port (Optional)
 #define  UDI_CDC_COMM_IFACE_NUMBER_2   2
 #define  UDI_CDC_DATA_IFACE_NUMBER_2   3
@@ -196,6 +218,14 @@
 #define  UDI_MSC_ENABLE_EXT()          true
 #define  UDI_MSC_DISABLE_EXT()
 #define  UDI_MSC_NOTIFY_TRANS_EXT()
+/*
+ * #define UDI_MSC_ENABLE_EXT() my_callback_msc_enable()
+ * extern bool my_callback_msc_enable(void);
+ * #define UDI_MSC_DISABLE_EXT() my_callback_msc_disable()
+ * extern void my_callback_msc_disable(void);
+ * #define  UDI_MSC_NOTIFY_TRANS_EXT()    msc_notify_trans()
+ * extern void msc_notify_trans(void) {
+ */
 
 /**
  * USB MSC low level configuration
@@ -220,6 +250,10 @@
 //! Interface callback definition
 #define  UDI_HID_MOUSE_ENABLE_EXT()       true
 #define  UDI_HID_MOUSE_DISABLE_EXT()
+// #define UDI_HID_MOUSE_ENABLE_EXT() my_callback_mouse_enable()
+// extern bool my_callback_mouse_enable(void);
+// #define UDI_HID_MOUSE_DISABLE_EXT() my_callback_mouse_disable()
+// extern void my_callback_mouse_disable(void);
 
 /**
  * USB HID Mouse low level configuration
@@ -243,7 +277,13 @@
 //! Interface callback definition
 #define  UDI_HID_KBD_ENABLE_EXT()       true
 #define  UDI_HID_KBD_DISABLE_EXT()
+// #define UDI_HID_KBD_ENABLE_EXT() my_callback_keyboard_enable()
+// extern bool my_callback_keyboard_enable(void);
+// #define UDI_HID_KBD_DISABLE_EXT() my_callback_keyboard_disable()
+// extern void my_callback_keyboard_disable(void);
 #define  UDI_HID_KBD_CHANGE_LED(value)
+// #define  UDI_HID_KBD_CHANGE_LED(value) my_callback_keyboard_led(value)
+// extern void my_callback_keyboard_led(uint8_t value)
 
 /**
  * USB HID Keyboard low level configuration
@@ -269,7 +309,16 @@
 #define  UDI_HID_GENERIC_DISABLE_EXT()
 #define  UDI_HID_GENERIC_REPORT_OUT(ptr)
 #define  UDI_HID_GENERIC_SET_FEATURE(f)
-
+/*
+ * #define UDI_HID_GENERIC_ENABLE_EXT() my_callback_generic_enable()
+ * extern bool my_callback_generic_enable(void);
+ * #define UDI_HID_GENERIC_DISABLE_EXT() my_callback_generic_disable()
+ * extern void my_callback_generic_disable(void);
+ * #define  UDI_HID_GENERIC_REPORT_OUT(ptr) my_callback_generic_report_out(ptr)
+ * extern void my_callback_generic_report_out(uint8_t *report);
+ * #define  UDI_HID_GENERIC_SET_FEATURE(f) my_callback_generic_set_feature(f)
+ * extern void my_callback_generic_set_feature(uint8_t *report_feature);
+ */
 #define  UDI_HID_REPORT_IN_SIZE             64
 #define  UDI_HID_REPORT_OUT_SIZE            64
 #define  UDI_HID_REPORT_FEATURE_SIZE        4
@@ -355,13 +404,24 @@
 #define  UDI_VENDOR_DISABLE_EXT()
 #define  UDI_VENDOR_SETUP_OUT_RECEIVED()  false
 #define  UDI_VENDOR_SETUP_IN_RECEIVED()   false
+/*
+ * #define UDI_VENDOR_ENABLE_EXT() my_callback_vendor_enable()
+ * extern bool my_callback_vendor_enable(void);
+ * #define UDI_VENDOR_DISABLE_EXT() my_callback_vendor_disable()
+ * extern void my_callback_vendor_disable(void);
+ *
+ * #define  UDI_VENDOR_SETUP_OUT_RECEIVED()  my_vendor_setup_out_received()
+ * extern bool my_vendor_setup_out_received(void);
+ * #define  UDI_VENDOR_SETUP_IN_RECEIVED()   my_vendor_setup_in_received()
+ * extern bool my_vendor_setup_in_received(void);
+ */
 
-//! Enpoints size for full speed
+//! endpoints size for full speed
 #define  UDI_VENDOR_EPS_SIZE_INT_FS    64
 #define  UDI_VENDOR_EPS_SIZE_BULK_FS   64
 #define  UDI_VENDOR_EPS_SIZE_ISO_FS   256
 
-//! Enpoints size for high speed
+//! endpoints size for high speed
 #define  UDI_VENDOR_EPS_SIZE_INT_HS    64
 #define  UDI_VENDOR_EPS_SIZE_BULK_HS  512
 #define  UDI_VENDOR_EPS_SIZE_ISO_HS    64
@@ -417,17 +477,17 @@
 
 //! USB Interfaces descriptor value for Full Speed
 #define UDI_COMPOSITE_DESC_FS \
-	.udi_cdc_iad               = UDI_CDC_IAD_DESC, \
-	.udi_cdc_comm              = UDI_CDC_COMM_DESC, \
-	.udi_cdc_data              = UDI_CDC_DATA_DESC_FS, \
+	.udi_cdc_iad               = UDI_CDC_IAD_DESC_0, \
+	.udi_cdc_comm              = UDI_CDC_COMM_DESC_0, \
+	.udi_cdc_data              = UDI_CDC_DATA_DESC_0_FS, \
 	.udi_msc                   = UDI_MSC_DESC_FS, \
 	.udi_hid_mouse             = UDI_HID_MOUSE_DESC
 
 //! USB Interfaces descriptor value for High Speed
 #define UDI_COMPOSITE_DESC_HS \
-	.udi_cdc_iad               = UDI_CDC_IAD_DESC, \
-	.udi_cdc_comm              = UDI_CDC_COMM_DESC, \
-	.udi_cdc_data              = UDI_CDC_DATA_DESC_HS, \
+	.udi_cdc_iad               = UDI_CDC_IAD_DESC_0, \
+	.udi_cdc_comm              = UDI_CDC_COMM_DESC_0, \
+	.udi_cdc_data              = UDI_CDC_DATA_DESC_0_HS, \
 	.udi_msc                   = UDI_MSC_DESC_HS, \
 	.udi_hid_mouse             = UDI_HID_MOUSE_DESC
 

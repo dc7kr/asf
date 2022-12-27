@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -124,7 +126,7 @@ extern void udc_start(void);
  * or dynamically during code execution.
  *
  * \section Power mode management
- * The driver uses the sleepmngr service to manage the different sleep modes.
+ * The driver uses the sleepmgr service to manage the different sleep modes.
  * The sleep mode depends on USB driver state (uhd_usbb_state_enum).
  * @{
  */
@@ -226,17 +228,17 @@ static uhd_callback_reset_t uhd_reset_callback = NULL;
 /**
  * \name Control endpoint low level management routine.
  *
- * This function performs control endpoint mangement.
+ * This function performs control endpoint management.
  * It handles the SETUP/DATA/HANDSHAKE phases of a control transaction.
  */
 //@{
 
 /**
- * \brief Struture to store the high level setup request
+ * \brief Structure to store the high level setup request
  */
 
 struct uhd_ctrl_request_t {
-	//! USB address of control enpoint
+	//! USB address of control endpoint
 	usb_add_t add;
 
 	//! Setup request definition
@@ -262,7 +264,7 @@ struct uhd_ctrl_request_t {
 struct uhd_ctrl_request_t *uhd_ctrl_request_first;
 struct uhd_ctrl_request_t *uhd_ctrl_request_last;
 
-//! Remaing time for on-going setup request (No request on-going if equal 0)
+//! Remaining time for on-going setup request (No request on-going if equal 0)
 volatile uint16_t uhd_ctrl_request_timeout;
 
 //! Number of transfered byte on DATA phase of current setup request
@@ -297,7 +299,7 @@ uhd_ctrl_request_phase_t uhd_ctrl_request_phase;
  * \name Management of bulk/interrupt/isochronous endpoints
  *
  * The UHD manages the data transfer on endpoints:
- * - Start data tranfer on endpoint with USB DMA
+ * - Start data transfer on endpoint with USB DMA
  * - Send a ZLP packet if requested
  * - Call registered callback to signal end of transfer
  * The transfer abort and stall feature are supported.
@@ -321,7 +323,7 @@ typedef struct {
 	//! Size of buffer to send or fill
 	iram_size_t buf_size;
 
-	//! Total number of transfered data on enpoint
+	//! Total number of transfered data on endpoint
 	iram_size_t nb_trans;
 
 	//! Callback to call at the end of transfer
@@ -367,7 +369,7 @@ static void uhd_pipe_finish_job(uint8_t pipe, uhd_trans_status_t status);
  *
  * Note:
  * Here, the global interrupt mask is not cleared when an USB interrupt
- * is enabled because this one can not occured during the USB ISR
+ * is enabled because this one can not occurred during the USB ISR
  * (=during INTX is masked).
  * See Technical reference $3.8.3 Masking interrupt requests
  * in peripheral modules.
@@ -585,7 +587,7 @@ void uhd_disable(bool b_id_stop)
 #ifdef USB_ID
 	uhd_sleep_mode(UHD_STATE_WAIT_ID_HOST);
 	if (!b_id_stop) {
-		return; // No need to disable host, it is done automaticaly by hardware
+		return; // No need to disable host, it is done automatically by hardware
 	}
 #endif
 
@@ -687,7 +689,7 @@ bool uhd_ep0_alloc(usb_add_t add, uint8_t ep_size)
 	uhd_enable_pipe(0);
 	uhd_configure_pipe(0, // Pipe 0
 			0, // No frequency
-			0, // Enpoint 0
+			0, // endpoint 0
 			AVR32_USBB_UECFG0_EPTYPE_CONTROL,
 			AVR32_USBB_UPCFG0_PTOKEN_SETUP,
 #ifdef USB_HOST_HUB_SUPPORT
@@ -729,7 +731,7 @@ bool uhd_ep_alloc(usb_add_t add, usb_ep_desc_t * ep_desc)
 				AVR32_USBB_UPCFG0_PTOKEN_IN:
 				AVR32_USBB_UPCFG0_PTOKEN_OUT,
 		ep_type = ep_desc->bmAttributes&USB_EP_TYPE_MASK;
-		// Bank choise
+		// Bank choice
 		switch(ep_type) {
 		case USB_EP_TYPE_ISOCHRONOUS:
 			bank = UHD_ISOCHRONOUS_NB_BANK;
@@ -871,7 +873,7 @@ bool uhd_setup_request(
 	cpu_irq_restore(flags);
 
 	if (b_start_request) {
-		// Start immediatly request
+		// Start immediately request
 		uhd_ctrl_phase_setup();
 	}
 	return true;
@@ -1060,7 +1062,7 @@ static void uhd_interrupt(void)
 			// Is_uhd_upstream_resume() can be not detected
 			// because the USB clock are not available.
 
-			// In High speed mode a donwstream resume must be sent
+			// In High speed mode a downstream resume must be sent
 			// after a upstream to avoid a disconnection.
 			if (Is_uhd_high_speed_mode()) {
 				uhd_send_resume();
@@ -1606,7 +1608,7 @@ static void uhd_pipe_trans_complet(uint8_t pipe)
 	}
 
 	if (ptr_job->nb_trans != ptr_job->buf_size) {
-		// Need to send or receiv other data
+		// Need to send or receive other data
 		next_trans = ptr_job->buf_size - ptr_job->nb_trans;
 		max_trans = UHD_PIPE_MAX_TRANS;
 		if (uhd_is_pipe_in(pipe)) {
@@ -1622,7 +1624,7 @@ static void uhd_pipe_trans_complet(uint8_t pipe)
 		}
 
 		if (next_trans == UHD_PIPE_MAX_TRANS) {
-			// Set 0 to tranfer the maximum
+			// Set 0 to transfer the maximum
 			uhd_dma_ctrl = (0 <<
 					AVR32_USBB_UHDMA1_CONTROL_CH_BYTE_LENGTH_OFFSET)
 					& AVR32_USBB_UHDMA1_CONTROL_CH_BYTE_LENGTH_MASK;
@@ -1672,7 +1674,7 @@ static void uhd_pipe_trans_complet(uint8_t pipe)
 			return;
 		}
 		cpu_irq_restore(flags);
-		// Here a ZLP has been recieved
+		// Here a ZLP has been received
 		// and the DMA transfer must be not started.
 		// It is the end of transfer
 		ptr_job->buf_size = ptr_job->nb_trans;
@@ -1727,17 +1729,17 @@ static void uhd_pipe_interrupt_dma(uint8_t pipe)
 
 	if (uhd_is_pipe_out(pipe)) {
 		// Wait that all banks are free to freeze clock of OUT endpoint
-		// and call calback
+		// and call callback
 		uhd_enable_bank_interrupt(pipe);
 	} else {
 		if (!Is_uhd_pipe_frozen(pipe)) {
 			// Pipe is not freeze in case of :
-			// - incomplet transfer when the request number INRQ is not complete.
+			// - incomplete transfer when the request number INRQ is not complete.
 			// - low USB speed and with a high CPU frequency,
 			// a ACK from host can be always running on USB line.
 
 			if (nb_remaining) {
-				// Freeze pipe in case of incomplet transfer
+				// Freeze pipe in case of incomplete transfer
 				uhd_freeze_pipe(pipe);
 			} else {
 				// Wait freeze in case of ASK on going
@@ -1801,7 +1803,7 @@ static void uhd_ep_abort_pipe(uint8_t pipe, uhd_trans_status_t status)
 	// Stop transfer
 	uhd_reset_pipe(pipe);
 
-	// Autoswitch bank and interrupts has been reseted, then renable it
+	// Autoswitch bank and interrupts has been reseted, then re-enable it
 	uhd_enable_pipe_bank_autoswitch(pipe);
 	uhd_enable_stall_interrupt(pipe);
 	uhd_enable_pipe_error_interrupt(pipe);

@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -150,7 +152,7 @@ void backlight_stop_pwm()
 void backlight_start_pwm()
 {
 	// Backlight PWM init
-	// Unmask clok for TIMER_EXAMPLE
+	// Unmask clock for TIMER_EXAMPLE
 	tc_enable(&BACKLIGHT_TIMER);
 	// Configure TC in PWM Single Slope PWM
 	BACKLIGHTPORT.REMAP |= PORT_TC0B_bm;

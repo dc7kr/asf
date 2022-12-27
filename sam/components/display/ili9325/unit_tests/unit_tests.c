@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -108,13 +110,6 @@
  */
 //@}
 
-/* Pointer to the module instance to use for stdio. */
-#if defined(__GNUC__)
-void (*ptr_get) (void volatile*, int*);
-int (*ptr_put) (void volatile*, int);
-volatile void *volatile stdio_base;
-#endif
-
 /* Chip select number to be set */
 #define ILI9325_LCD_CS      1
 
@@ -128,7 +123,7 @@ struct ili9325_opt_t g_ili9325_display_opt;
  *
  * \param reg Register address.
  *
- * \return Readed data.
+ * \return Read data.
  */
 static uint16_t ili9325_read_register(uint8_t uc_reg)
 {
@@ -165,52 +160,52 @@ static void run_test_init(const struct test_case *test)
 	register_value = ili9325_read_register(ILI9325_DISP_CTRL1);
 	test_assert_true(test, register_value == (ILI9325_DISP_CTRL1_GON |
 			ILI9325_DISP_CTRL1_DTE | ILI9325_DISP_CTRL1_D(0x03)),
-			"R07H initlization setting failed!");
+			"R07H initialization setting failed!");
 	register_value = ili9325_read_register(ILI9325_DRIVER_OUTPUT_CTRL1);
 	test_assert_true(test, register_value == ILI9325_DRIVER_OUTPUT_CTRL1_SS,
-			"R01H initlization setting failed!");
+			"R01H initialization setting failed!");
 	register_value = ili9325_read_register(ILI9325_LCD_DRIVING_CTRL);
 	test_assert_true(test, register_value == 0x0700,
-			"R02H initlization setting failed!");
+			"R02H initialization setting failed!");
 	register_value = ili9325_read_register(ILI9325_DISP_CTRL2);
 	test_assert_true(test, register_value == 0x0207,
-			"R08H initlization setting failed!");
+			"R08H initialization setting failed!");
 	register_value = ili9325_read_register(ILI9325_POWER_CTRL2);
 	test_assert_true(test, register_value == 0x0227,
-			"R11H initlization setting failed!");
+			"R11H initialization setting failed!");
 	register_value = ili9325_read_register(ILI9325_POWER_CTRL3);
 	test_assert_true(test, register_value == 0x001B,
-			"R12H initlization setting failed!");
+			"R12H initialization setting failed!");
 	register_value = ili9325_read_register(ILI9325_POWER_CTRL4);
 	test_assert_true(test, register_value == 0x1100,
-			"R13H initlization setting failed!");
+			"R13H initialization setting failed!");
 	register_value = ili9325_read_register(ILI9325_POWER_CTRL7);
 	test_assert_true(test, register_value == 0x0019,
-			"R29H initlization setting failed!");
+			"R29H initialization setting failed!");
 	register_value = ili9325_read_register(ILI9325_FRAME_RATE_AND_COLOR_CTRL);
 	test_assert_true(test, register_value == 0x000D,
-			"R2BH initlization setting failed!");
+			"R2BH initialization setting failed!");
 	register_value = ili9325_read_register(ILI9325_ENTRY_MODE);
 	test_assert_true(test, register_value == (ILI9325_ENTRY_MODE_TRI |
 					ILI9325_ENTRY_MODE_DFM | ILI9325_ENTRY_MODE_ID(0x03) |
 					ILI9325_ENTRY_MODE_BGR),
-			"R03H initlization setting failed!");
+			"R03H initialization setting failed!");
 	register_value = ili9325_read_register(ILI9325_DRIVER_OUTPUT_CTRL2);
 	test_assert_true(test,
 			register_value == (ILI9325_DRIVER_OUTPUT_CTRL2_GS | ILI9325_DRIVER_OUTPUT_CTRL2_NL(0x27)),
-			"R60H initlization setting failed!");
+			"R60H initialization setting failed!");
 	register_value = ili9325_read_register(ILI9325_BASE_IMG_DISP_CTRL);
 	test_assert_true(test, register_value == 0x0001,
-			"R61H initlization setting failed!");
+			"R61H initialization setting failed!");
 	register_value = ili9325_read_register(ILI9325_PANEL_INTERFACE_CTRL1);
 	test_assert_true(test, register_value == 0x0010,
-			"R90H initlization setting failed!");
+			"R90H initialization setting failed!");
 	register_value = ili9325_read_register(ILI9325_PANEL_INTERFACE_CTRL2);
 	test_assert_true(test, register_value == 0x0600,
-			"R92H initlization setting failed!");
+			"R92H initialization setting failed!");
 	register_value = ili9325_read_register(ILI9325_PANEL_INTERFACE_CTRL4);
 	test_assert_true(test, register_value == 0x0110,
-			"R95H initlization setting failed!");
+			"R95H initialization setting failed!");
 
 }
 
@@ -269,10 +264,6 @@ int main(void)
 
 	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
 
 	/* Enable peripheral clock */
 	pmc_enable_periph_clk(ID_SMC);

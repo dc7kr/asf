@@ -44,6 +44,9 @@ for y in range(0, height):
 		elif (display_controller == "ili9341"):
 			color_val = ((r >> 3) << 11) | ((b >> 3) << 0) | ((g >> 2) << 5)
 			color_val = ((color_val << 8) | (color_val >> 8)) & 0xFFFF;
+		else:
+			print "Unknown display controller \"%s\"" % display_controller
+			sys.exit()
 		
 		if col == 7 :
 			data_string += "0x%04x," % (color_val)

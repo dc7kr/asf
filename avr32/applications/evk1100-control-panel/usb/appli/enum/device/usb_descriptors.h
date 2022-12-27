@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -214,7 +216,7 @@ __attribute__((__packed__))
 {
   U8      bLength;              //!< Size of this descriptor in bytes
   U8      bDescriptorType;      //!< DEVICE descriptor type
-  U16     bscUSB;               //!< Binay Coded Decimal Spec. release
+  U16     bscUSB;               //!< Binary Coded Decimal Spec. release
   U8      bDeviceClass;         //!< Class code assigned by the USB
   U8      bDeviceSubClass;      //!< Subclass code assigned by the USB
   U8      bDeviceProtocol;      //!< Protocol code assigned by the USB
@@ -222,9 +224,9 @@ __attribute__((__packed__))
   U16     idVendor;             //!< Vendor ID. ATMEL = 0x03EB
   U16     idProduct;            //!< Product ID assigned by the manufacturer
   U16     bcdDevice;            //!< Device release number
-  U8      iManufacturer;        //!< Index of manu. string descriptor
-  U8      iProduct;             //!< Index of prod. string descriptor
-  U8      iSerialNumber;        //!< Index of S.N.  string descriptor
+  U8      iManufacturer;        //!< Index of manufacturer string descriptor
+  U8      iProduct;             //!< Index of product string descriptor
+  U8      iSerialNumber;        //!< Index of serial number string descriptor
   U8      bNumConfigurations;   //!< Number of possible configurations
 }
 #ifdef __ICCAVR32__
@@ -319,7 +321,7 @@ __attribute__((__packed__))
 {
   U8      bLength;              //!< Size of this descriptor in bytes
   U8      bDescriptorType;      //!< Device Qualifier descriptor type
-  U16     bscUSB;               //!< Binay Coded Decimal Spec. release
+  U16     bscUSB;               //!< Binary Coded Decimal Spec. release
   U8      bDeviceClass;         //!< Class code assigned by the USB
   U8      bDeviceSubClass;      //!< Subclass code assigned by the USB
   U8      bDeviceProtocol;      //!< Protocol code assigned by the USB

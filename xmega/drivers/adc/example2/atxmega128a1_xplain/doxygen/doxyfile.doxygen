@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../pmic ../../../../../../common/services/clock ../../.. ../../../../../../common/boards ../../../../../utils/preprocessor ../../../../../utils ../../../../../../common/services/ioport ../../../../../../common/services/gpio .. ../../../../../../common/utils ../../../../../boards ../../../../nvm ../../../../../../common/services/sleepmgr ../../../../sleep ../../../../../boards/xplain ../../../../cpu
+INCLUDE_PATH           =  ../../../../../../common/services/gpio ../../../../pmic ../../../../../../common/services/clock ../../../../cpu ../../../../../../common/boards ../../../../../utils/preprocessor ../../../../../utils ../../../../../../common/services/ioport ../../../../sleep .. ../../../../../boards ../../../../nvm ../../../../../../common/services/sleepmgr ../../../../../../common/utils ../../../../../boards/xplain ../../..
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

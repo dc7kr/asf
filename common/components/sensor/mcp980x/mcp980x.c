@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -85,7 +87,7 @@ static uint32_t mcp980x_read_register(uint32_t ul_reg_index,
 {
 	twi_package_t rx = {
 		.chip = BOARD_MCP980X_ADDR,
-		.addr = ul_reg_index,
+		.addr = {ul_reg_index},
 		.addr_length = 1,
 		.buffer = p_reg_value
 	};
@@ -112,7 +114,7 @@ static uint32_t mcp980x_write_register(uint32_t ul_reg_index,
 {
 	twi_package_t tx = {
 		.chip = BOARD_MCP980X_ADDR,
-		.addr = ul_reg_index,
+		.addr = {ul_reg_index},
 		.addr_length = 1,
 		.buffer = p_reg_value
 	};

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -55,11 +57,11 @@
 //
 #define BOOTLOADER_VERSION   0x00  // 1.0.0
 
-// If all memories (flash,eeprom,...) do not exced 64KB.
+// If all memories (flash,eeprom,...) do not exceed 64KB.
 // then the ISP interface can be optimized to save CODE.
 #define ISP_SMALL_MEMORY_SIZE
 
-// Definition of hardware condition to enter in ISP mode on AVR xmega devices
+// Definition of hardware condition to enter in ISP mode on AVR Xmega devices
 #define ISP_PORT_DIR      PORTX_DIR
 #define ISP_PORT_PINCTRL  PORTX_PIN5CTRL
 #define ISP_PORT_IN       PORTX_IN

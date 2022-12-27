@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -117,7 +119,7 @@
  *
  * The following functions are available on all platforms, but there may
  * be variations in the function signature (i.e. parameters) and
- * behaviour. These functions are typically called by platform-specific
+ * behavior. These functions are typically called by platform-specific
  * parts of drivers, and applications that aren't intended to be
  * portable:
  *   - sysclk_enable_peripheral_clock()

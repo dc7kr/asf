@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -52,7 +54,7 @@
  * highest possible PWM frequency is CPU frequency / 100.
  *
  * \param config Pointer to PWM configuration.
- * \param freq_hz Wanted PWM frequenzy in Hz.
+ * \param freq_hz Wanted PWM frequency in Hz.
  */
 void pwm_set_frequency(struct pwm_config *config, uint16_t freq_hz)
 {
@@ -63,7 +65,7 @@ void pwm_set_frequency(struct pwm_config *config, uint16_t freq_hz)
 	/* Avoid division by zero. */
 	Assert(freq_hz != 0);
 
-	/* Calculate the smallest dividor for the requested frequency
+	/* Calculate the smallest divider for the requested frequency
 	   related to the CPU frequency */
 	smallest_div = cpu_hz / freq_hz / 0xFFFF;
 	if (smallest_div < 1) {
@@ -89,7 +91,7 @@ void pwm_set_frequency(struct pwm_config *config, uint16_t freq_hz)
 		config->clk_sel = PWM_CLK_DIV1024;
 	}
 
-	/* Calculate the period from the just found dividor */
+	/* Calculate the period from the just found divider */
 	config->period = cpu_hz / dividor / freq_hz;
 
 	/* Make sure our period is at least 100 ticks so we are able to provide
@@ -205,7 +207,7 @@ void pwm_init(struct pwm_config *config, enum pwm_tc_t tc,
 		break;
 	}
 
-	/* Enable peripherial clock for this TC */
+	/* Enable peripheral clock for this TC */
 	tc_enable(config->tc);
 
 	/* Set this TC's waveform generator in single slope mode */

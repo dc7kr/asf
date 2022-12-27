@@ -19,6 +19,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -83,7 +85,7 @@ unsigned long abdac_set_dac_hz(volatile avr32_abdac_t *abdac,
   unsigned short div;
 
   // Use OSC0
-  pm->GCCTRL[ABDAC_GCLK].pllsel=0;// Oscilator source
+  pm->GCCTRL[ABDAC_GCLK].pllsel=0;// Oscillator source
   pm->GCCTRL[ABDAC_GCLK].oscsel=0;// OSC0
 
   if (bus_hz < (256 * dac_hz)) {
@@ -141,15 +143,15 @@ bool abdac_set_dac_sample_rate(const unsigned long dac_hz)
 {
   // This function set the ABDAC Generic clock using sample
   // rate of the current song.
-  // Here is the value of the oscilators and the PLLs
+  // Here is the value of the oscillators and the PLLs
   // OSC0       12000000
   // OSC1       11289600
   // PLL0       62092800 (OSC1*5.5)
   // PLL1       48000000 (OSC0*4)
   //
-  // The folowing table show the relative error given when
+  // The following table show the relative error given when
   // selecting one of the 4 frequency
-  // (*) is the chosen OSC or PLL for the Genreic clock
+  // (*) is the chosen OSC or PLL for the Generic clock
   //      settings for this application
   //                 ----------------------------------
   //                |        | Relative Error (%)      |
@@ -181,7 +183,7 @@ bool abdac_set_dac_sample_rate(const unsigned long dac_hz)
     case 11025:// OSC1/4/256
          pm->GCCTRL[ABDAC_GCLK].div= 1;  // div by 2*(1+1)=4
          pm->GCCTRL[ABDAC_GCLK].diven=1; // Div Enable
-         pm->GCCTRL[ABDAC_GCLK].pllsel=0;// Oscilator source
+         pm->GCCTRL[ABDAC_GCLK].pllsel=0;// Oscillator source
          pm->GCCTRL[ABDAC_GCLK].oscsel=1;// OSC1
         break;
     case 12000:// PLL0/20/256
@@ -199,7 +201,7 @@ bool abdac_set_dac_sample_rate(const unsigned long dac_hz)
     case 22050:// OSC1/2/256
          pm->GCCTRL[ABDAC_GCLK].div= 0;  // div by 2*(0+1)=2
          pm->GCCTRL[ABDAC_GCLK].diven=1; // div Enable
-         pm->GCCTRL[ABDAC_GCLK].pllsel=0;// Oscilator source
+         pm->GCCTRL[ABDAC_GCLK].pllsel=0;// Oscillator source
          pm->GCCTRL[ABDAC_GCLK].oscsel=1;// OSC1
         break;
     case 24000:// PLL0/10/256
@@ -217,7 +219,7 @@ bool abdac_set_dac_sample_rate(const unsigned long dac_hz)
     case 44100:// OSC1/256
          pm->GCCTRL[ABDAC_GCLK].div= 0;  // No Div factor
          pm->GCCTRL[ABDAC_GCLK].diven=0; // div disable
-         pm->GCCTRL[ABDAC_GCLK].pllsel=0;// Oscilator source
+         pm->GCCTRL[ABDAC_GCLK].pllsel=0;// Oscillator source
          pm->GCCTRL[ABDAC_GCLK].oscsel=1;// OSC1
         break;
     case 48000:// PLL1/4/256

@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -130,7 +132,6 @@ CPPFLAGS = \
        -D BOARD=XMEGA_A3BU_XPLAINED                       \
        -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA       \
        -D CONF_GFX_ILI9341_SDT028ATFT=1                   \
-       -D GFX_INITIALIZED=1                               \
        -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking

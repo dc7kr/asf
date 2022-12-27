@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -92,7 +94,7 @@ void uhi_aoa_mode_enable_step3(usb_add_t, uhd_trans_status_t, uint16_t);
 /*! \brief Function to enable the Accessory Mode on Android Devices
  *  - Called when the process of trying to start the device in Accessory Mode
  *    is finished.
- *  - Determines whether the process of starting in Accessory Mode was succesful
+ *  - Determines whether the process of starting in Accessory Mode was successful
  *  - Does NOT check if the device is in Accessory Mode. That happens later
  */
 void uhi_aoa_mode_enable_complete(usb_add_t, uhd_trans_status_t, uint16_t);

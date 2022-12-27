@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -53,7 +55,7 @@
 /*
  * These defines correspond to the limit values
  * before which the result saturate.
- * It has been calcutate by the following formula:
+ * It has been calculate by the following formula:
  * log(2^(QA-1))
  * Where QA is the
  */

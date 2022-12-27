@@ -14,6 +14,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -265,7 +267,7 @@ bool  nav_flat_goto( uint16_t u16_newpos )
 }
 
 
-//! This function searchs a file name in file list FLAT
+//! This function searches a file name in file list FLAT
 //!
 //! @param     sz_name        name to search (UNICODE or ASCII) <br>
 //!                           It must be terminated by NULL or '*' value

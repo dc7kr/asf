@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -578,7 +580,7 @@ void et024006_Init( unsigned long cpu_hz, unsigned long hsb_hz )
  *  from the scrolling and that starts at the top of the display area.
  *  @param vsa Scroll area in rows. This is the actual scroll area.
  *  @param bfa Bottom fixed area in rows. This is a section at the bottom
- *  of the dispaly area that will not be used for scrolling.
+ *  of the display area that will not be used for scrolling.
  *
  */
 void et024006_ScrollAreaSetup(uint16_t tfa, uint16_t vsa, uint16_t bfa)
@@ -818,9 +820,9 @@ void et024006_DrawFilledRect( uint16_t x, uint16_t y, uint16_t width, uint16_t h
 /*!
  * This function draws a filled circle, or parts of it.
  * The radius is the distance from the center to the arc itself, which
- * means that the totalt width or height of a circle will be (radius*2+1).
+ * means that the total width or height of a circle will be (radius*2+1).
  * The quadrantMask parameter is a bitmask that decides which quadrants of the
- * circle to draw. Use the QUADRANT, HALF and WHOLE contants from the
+ * circle to draw. Use the QUADRANT, HALF and WHOLE constants from the
  * header file and OR them together if required.
  * Radius equal to zero gives a single pixel.
  *
@@ -1733,13 +1735,13 @@ static void et024006_ResetDisplay( void )
  *
  * Test value 16-bit 0xAAAA -> R=0b10101, G=0b010101, B=0b01010
  * Internal values are 18-bit -> R=0b101011, G=0b010101, B=0b010100
- * Opon read 8-bit values are returned R=0xAC, G=0x54, B=0x50
+ * Upon read 8-bit values are returned R=0xAC, G=0x54, B=0x50
  *
  * Test value 16-bit 0x5555 -> R=0b01010, G=0b101010, B=0b10101
  * Internal values are 18-bit -> R=0b010100, G=0b101010, B=0b101011
  * Upon read 8-bit values are returned R=0x50, G=0xA8, B=0xAC
  *
- * \returns 0 if test was successfull
+ * \returns 0 if test was successful
  * \returns -1 if one of the test pattern that was written to the internal
  * RAM of the display is not read back correctly. This test only applies if the
  * display is connected to the EBI.
@@ -1866,7 +1868,7 @@ static void et024006_AdjustSleepingGamma( void )
 
 /*! \brief General display settings.
  *
- * This are settings provided by EDT and are optimised for the display.
+ * This are settings provided by EDT and are optimized for the display.
  */
 static void et024006_GeneralSettings(void)
 {

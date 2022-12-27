@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -101,7 +103,7 @@ bool sau_configure_channels(const sau_map_t sau_map, uint32_t size)
 	//when all channels are configured, return to normal mode
 	sau_exit_setup();
 	
-	//ebable all channels
+	//enable all channels
 	sau_map--;
 	for (i = 0; i < size; i++) {
 		sau_enable_channel(sau_map->channel_num);

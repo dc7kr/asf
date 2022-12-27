@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -579,7 +581,7 @@ static void draw_background(int image_id, int offset_x, int offset_y)
 #define VERSION_POS_Y           230
 #define VERSION_FONT_COLOR      WHITE
 
-/*! \brief Draw the statup image on the display.
+/*! \brief Draw the startup image on the display.
  */
 static bool draw_startup(int offset_x, int offset_y)
 {
@@ -963,7 +965,7 @@ static bool draw_play_view_print_artist(struct file_info *current_file_info)
 
   strncpy(string, (const char *) current_file_info->artist, ARTIST_CHARS_MAX);
   string[ARTIST_CHARS_MAX+1] = '\0';
-  // draw background behing the text
+  // draw background behind the text
   if(ram_files[AUDIO_PLAYER_IMAGE].start_addr)
     et024006_PutPixmap(ram_files[AUDIO_PLAYER_IMAGE].start_addr,
                        ET024006_WIDTH, ARTIST_POS_X, ARTIST_POS_Y,
@@ -983,7 +985,7 @@ static bool draw_play_view_print_file(struct file_info *current_file_info)
 
   strncpy(string, (const char *) current_file_info->name, NAME_CHARS_MAX);
   string[NAME_CHARS_MAX+1] = '\0';
-  // draw background behing the text
+  // draw background behind the text
   if(ram_files[AUDIO_PLAYER_IMAGE].start_addr)
     et024006_PutPixmap(ram_files[AUDIO_PLAYER_IMAGE].start_addr,
                        ET024006_WIDTH, FILE_NAME_POS_X, FILE_NAME_POS_Y,
@@ -1003,7 +1005,7 @@ static bool draw_play_view_print_title(struct file_info *current_file_info)
 
   strncpy(string, (const char *) current_file_info->title, TITLE_CHARS_MAX);
   string[TITLE_CHARS_MAX+1] = '\0';
-  // draw background behing the text
+  // draw background behind the text
   if(ram_files[AUDIO_PLAYER_IMAGE].start_addr)
     et024006_PutPixmap(ram_files[AUDIO_PLAYER_IMAGE].start_addr,
                        ET024006_WIDTH, TITLE_POS_X, TITLE_POS_Y,
@@ -1034,7 +1036,7 @@ static bool draw_play_view_print_total_time(struct file_info *current_file_info)
   tmp %= 1000 * 60;
   seconds = tmp / 1000;
   sprintf(time_string, "%02u:%02u:%02u", (unsigned int) hours, (unsigned int) minutes, (unsigned int) seconds);
-  // Draw background behing the text.
+  // Draw background behind the text.
   if(ram_files[AUDIO_PLAYER_IMAGE].start_addr)
     et024006_PutPixmap(ram_files[AUDIO_PLAYER_IMAGE].start_addr,
                        ET024006_WIDTH, TOTAL_TIME_POS_X, TOTAL_TIME_POS_Y, TOTAL_TIME_POS_X, TOTAL_TIME_POS_Y, TOTAL_TIME_WIDTH, TOTAL_TIME_HEIGHT);
@@ -1045,7 +1047,7 @@ static bool draw_play_view_print_total_time(struct file_info *current_file_info)
 
 /*! \brief Draws the song progress bar on the screen.
  *
- * \param init If true the progress bar is initialised which should be done after a song change
+ * \param init If true the progress bar is initialized which should be done after a song change
  * or after a new draw of the play view. If the progress bar should just be updated call with false
  * \param ptime Current play time in milliseconds.
  * \param current_file_info contains the total play time length
@@ -1084,7 +1086,7 @@ static bool draw_playtime_update(struct file_info *current_file_info)
   seconds = tmp / 1000;
   sprintf(time_elapsed,"%02lu:%02lu:%02lu",hours, minutes, seconds);
 
-  // draw background behing the play time
+  // draw background behind the play time
   if(ram_files[AUDIO_PLAYER_IMAGE].start_addr)
   {
     et024006_PutPixmap(ram_files[AUDIO_PLAYER_IMAGE].start_addr,

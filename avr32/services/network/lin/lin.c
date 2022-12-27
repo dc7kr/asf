@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -71,7 +73,7 @@ volatile U16  lin_error_number_node0 = 0;
 volatile U16  lin_error_number_node1 = 0;
 #endif
 
-// Last error[n]: lin_handle | status - lenght = 4
+// Last error[n]: lin_handle | status - length = 4
 volatile U16  lin_last_errors_node0[LIN_LAST_ERR_LENGHT];
 #ifdef USART_LIN_NODE1_INSTANCE
 volatile U16  lin_last_errors_node1[LIN_LAST_ERR_LENGHT];

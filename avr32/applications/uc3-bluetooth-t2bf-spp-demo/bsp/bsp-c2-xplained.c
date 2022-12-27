@@ -270,33 +270,6 @@ static  void    BSP_USARTRxTxISR (void);
 *********************************************************************************************************
 */
 
-/**
- * \brief Specify the MCU serial I/O interface
- *
- * A constant like this is, ideally, defined in a separate configuration header
- * file along with other configurable parameters describing a particular part
- * or board configuration.
- */
-#define CONFIG_USART_IF (AVR32_USART2)
-
-/**
- * \brief Initialize USB CDC support for C-Library Standard I/O functions
- */
-static void sio_init (void)
-{
- 	/* Start and attach USB CDC device interface for devices with
- 	 * integrated USB interfaces.
- 	 */
-	stdio_usb_init(&CONFIG_USART_IF);
-
-	// Specify that stdout and stdin should not be buffered.
-
-#if defined(__GNUC__) && defined(__AVR32__)
-	setbuf(stdout, NULL);
-	setbuf(stdin,  NULL);
-#endif
-}
-
 void  BSP_Init (void)
 {
 
@@ -311,7 +284,8 @@ void  BSP_Init (void)
 
     BSP_TmrInit();                                                      /* Initialize OS periodical time source                     */
 
-    sio_init();
+    // Initialize USB CDC support for C-Library Standard I/O functions
+    stdio_usb_init();
 }
 
 /*$PAGE*/
@@ -1021,7 +995,7 @@ void  BSP_USART_Init (CPU_INT08U com, CPU_INT32U baud_rate) {
 *                 also blocks until room is available in the USART for the byte to be sent.
 *
 * Arguments   :   com   USART port: 0..3
-*                 b     byte containing the value of the charcater to output.
+*                 b     byte containing the value of the character to output.
 *
 * Returns     :   None.
 *********************************************************************************************************
@@ -1070,7 +1044,7 @@ void  BSP_USART_ByteWr (CPU_INT08U com, CPU_INT08U b)
 *********************************************************************************************************
 *                                                BSP, USART - Read Byte
 *
-* Description :   This funcion reads a byte from a serial port. This call blocks until a
+* Description :   This function reads a byte from a serial port. This call blocks until a
 *                 character appears at the port. Echo of the byte is also sent to the serial port.
 *
 * Arguments   :   com   USART port: 0..3
@@ -1125,7 +1099,7 @@ CPU_INT08U BSP_USART_ByteRd (CPU_INT08U com)
 *********************************************************************************************************
 *                                                BSP, USART - Write String
 *
-* Description :   This funcion writes a character string to a serial port.
+* Description :   This function writes a character string to a serial port.
 *
 * Arguments   :   com   USART port: 0..3
 *                 s     string of characters
@@ -1273,7 +1247,7 @@ void  BSP_USART_PrintDec (CPU_INT08U com, CPU_INT32U value, CPU_INT08U digits)
 *********************************************************************************************************
 *                                                BSP, USART - Enable Interrupt
 *
-* Description :   This funcion enables interrupt on a serial port.
+* Description :   This function enables interrupt on a serial port.
 *
 * Arguments   :   com      USART port: 0..3
 *                 mask     Interrupt mask
@@ -1321,7 +1295,7 @@ void  BSP_USART_IntEn (CPU_INT08U com, CPU_INT32U mask)
 *********************************************************************************************************
 *                                                BSP, USART - Disable Interrupt
 *
-* Description :   This funcion disables interrupt on a serial port.
+* Description :   This function disables interrupt on a serial port.
 *
 * Arguments   :   com      USART port: 0..3
 *                 mask     Interrupt mask

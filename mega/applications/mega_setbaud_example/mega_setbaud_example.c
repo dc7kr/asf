@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -52,14 +54,14 @@
  * \section exampledescription Brief description of the example application
  * This application will set up the UART according to the settings in the
  * conf_uart.h file, baudrate is calculated using the avr libc setbaud utility.
- * When initialisation of the UART is done the application sends the letter 'A'
+ * When initialization of the UART is done the application sends the letter 'A'
  * on the UART and expect to receive the same letter, hence the hardware must
  * be set up so that the TX and RX pin is shorted to create a loop back.
  *
  * The util/setbaud tool is a tool offered by the avr libc library, and is
  * a function for compile time calculation of the baudrate register of values.
  * In application where run-time baudrate change is not needed this is a tool
- * which easily calcualtes the best baudrate register settings while keeping the
+ * which easily calculates the best baudrate register settings while keeping the
  * flash footprint at a minimum.
  *
  * A common way of using the setbaud tool is:
@@ -68,7 +70,7 @@
  * #define F_CPU 1000000UL
  * // Define the target baudrate, e.g. 9600bps
  * #define BAUD 9600
- * // Set the acsepted tolerance, e.g. 2%
+ * // Set the accepted tolerance, e.g. 2%
  * #define BAUD_TOL 2
  *
  * // Load the calculated values into the correct registers
@@ -76,7 +78,7 @@
  * UBRR0L = UBRRL_VALUE;
  *
  * //Then we need to take into account that we may need to set the 2X bit in
- * //the UART control register to atchieve the correct baudrate.
+ * //the UART control register to achieve the correct baudrate.
  * #ifdef USE_2X
  * UCSR0A |= (1 << U2X0);
  * #endif
@@ -124,7 +126,7 @@ static void uart_init(void)
 #error "Device is not supported by the driver"
 #endif
 
-	/* Check if the setbaud tool requre that the 2x speed bit has to be set in
+	/* Check if the setbaud tool require that the 2x speed bit has to be set in
 	order to reach the specified baudrate. */
 #if USE_2X
 	UCSR0A |= (1 << U2X0);
@@ -183,7 +185,7 @@ static uint8_t uart_getchar(void)
  * \brief Example application on how to use the libc setbaud utility.
  *
  * This application shows how to use the avr libc setbaud utility to get the
- * correct values for the baud rate registers. It also performes a test where
+ * correct values for the baud rate registers. It also performs a test where
  * it sends a character on the UART and check if the same char is received
  * back.
  *

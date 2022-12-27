@@ -162,7 +162,6 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>ACCESS_USB_ENABLED</state>
 					<state>UDD_ENABLE</state>
@@ -299,30 +298,35 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
 					<state>$PROJ_DIR$/../../../../../../../serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/dmac</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3x_ek</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../../../serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
-					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi</state>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi/ftl_lib</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../storage/ecc_hamming</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -473,7 +477,6 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>ACCESS_USB_ENABLED</state>
 					<state>UDD_ENABLE</state>
@@ -755,7 +758,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1083,7 +1086,6 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>ACCESS_USB_ENABLED</state>
 					<state>UDD_ENABLE</state>
@@ -1220,30 +1222,35 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
 					<state>$PROJ_DIR$/../../../../../../../serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/dmac</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3x_ek</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../../../serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
-					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi</state>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi/ftl_lib</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../storage/ecc_hamming</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1394,7 +1401,6 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>ACCESS_USB_ENABLED</state>
 					<state>UDD_ENABLE</state>
@@ -1676,7 +1682,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1845,6 +1851,39 @@
 	<group>
 		<name>common</name>
 		<group>
+			<name>components</name>
+			<group>
+				<name>memory</name>
+				<group>
+					<name>nand_flash</name>
+					<group>
+						<name>nand_flash_ebi</name>
+						<group>
+							<name>ftl_lib</name>
+							<group>
+								<name>iar</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi/ftl_lib/iar/lib_nand_flash_cortexm3.a</name>
+								</file>
+							</group>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi/nand_flash_spare_scheme.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi/nand_flash_ecc_sw.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi/nand_flash_model.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi/nand_flash_raw_nfc.c</name>
+						</file>
+					</group>
+				</group>
+			</group>
+		</group>
+		<group>
 			<name>services</name>
 			<group>
 				<name>usb</name>
@@ -1880,15 +1919,6 @@
 				</group>
 			</group>
 			<group>
-				<name>storage</name>
-				<group>
-					<name>ctrl_access</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../storage/ctrl_access/ctrl_access.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>sleepmgr</name>
 				<group>
 					<name>sam</name>
@@ -1902,6 +1932,30 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../serial/usart_serial.c</name>
 				</file>
+			</group>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../delay/sam/cycle_counter.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>storage</name>
+				<group>
+					<name>ctrl_access</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../storage/ctrl_access/ctrl_access.c</name>
+					</file>
+				</group>
+				<group>
+					<name>ecc_hamming</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../storage/ecc_hamming/ecc-sw.c</name>
+					</file>
+				</group>
 			</group>
 			<group>
 				<name>clock</name>
@@ -1937,18 +1991,6 @@
 				</file>
 			</group>
 		</group>
-		<group>
-			<name>components</name>
-			<group>
-				<name>memory</name>
-				<group>
-					<name>virtual_mem</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem/virtual_mem.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
 	</group>
 	<group>
 		<name>sam</name>
@@ -1967,6 +2009,21 @@
 				<name>uart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart/uart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>ebi</name>
+				<group>
+					<name>smc</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/ebi/smc/smc.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>dmac</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/dmac/dmac.c</name>
 				</file>
 			</group>
 			<group>
@@ -2015,15 +2072,6 @@
 							</file>
 						</group>
 					</group>
-				</group>
-			</group>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../sam/utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
 				</group>
 			</group>
 		</group>

@@ -89,14 +89,6 @@ int main( void )
     // Initialize Serial Interface using Stdio Library
     stdio_serial_init(USART_SERIAL_EXAMPLE,&USART_SERIAL_OPTIONS);
 
-	// Specify that stdout should not be buffered.
-#if (defined(__GNUC__) && defined(__AVR32__))
-	setbuf(stdout, NULL);
-#else // __ICCAVR32__
-	// Already the case in IAR's Normal DLIB default configuration: printf()
-	// emits one character at a time.
-#endif
-
     printf( "Start Benchmark\n");
 
 #if defined(POLARSSL_ARC4_C)

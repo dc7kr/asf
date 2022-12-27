@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -312,7 +314,7 @@
 
 #define  udd_get_endpoint_status_byte_count(status)    (Rd_bitfield(status, UDP_CSR_RXBYTECNT_Msk))
 
-//! @name UDP Device endpoint configguration
+//! @name UDP Device endpoint configuration
 //! @{
   //! enables the selected endpoint
 #define  udd_enable_endpoint(ep)                   (Set_bits(UDP->UDP_CSR[ep], UDP_CSR_EPEDS))
@@ -348,10 +350,10 @@
 		udp_write_csr(ep,                         \
 		              (UDP_CSR_EPTYPE_Msk          \
 		               |UDP_CSR_DIR|UDP_CSR_EPEDS), \
-		              ((type << UDP_CSR_EPTYPE_Pos)\
-				       & UDP_CSR_EPTYPE_Msk)\
-		               |((dir << 7) & UDP_CSR_DIR) \
-		               |(UDP_CSR_EPEDS));          \
+		              ((((type) << UDP_CSR_EPTYPE_Pos)\
+				         & UDP_CSR_EPTYPE_Msk)\
+		                |(((dir) << 7) & UDP_CSR_DIR) \
+		                |(UDP_CSR_EPEDS)));          \
 	} while(0)
 
   //! tests if current endpoint is configured (=enabled)
@@ -365,7 +367,7 @@
 
 
 //! @name UDP Device control endpoint
-//! These macros contorl the endpoints.
+//! These macros control the endpoints.
 //! @{
 
 //! @name UDP Device control endpoint interrupts

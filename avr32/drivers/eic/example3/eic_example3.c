@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -128,7 +130,7 @@
  * - EVK1104 evaluation kit
  *
  * \section setupinfo Setup Information
- * CPU speed: <i> Switch to oscillator external OSC0 = 12 Mhz. </i>
+ * CPU speed: <i> Switch to oscillator external OSC0 = 12 MHz. </i>
  *
  * \section contactinfo Contact Information
  * For further information, visit

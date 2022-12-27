@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -173,7 +175,8 @@ static bool udi_hid_kbd_send_report(void);
  *
  * \return \c 1 if function was successfully done, otherwise \c 0.
  */
-void udi_hid_kbd_report_sent(udd_ep_status_t status, iram_size_t nb_sent);
+static void udi_hid_kbd_report_sent(udd_ep_status_t status, iram_size_t nb_sent,
+		udd_ep_id_t ep);
 
 /**
  * \brief Callback called to update report from USB host
@@ -243,7 +246,7 @@ bool udi_hid_kbd_modifier_up(uint8_t modifier_id)
 	irqflags_t flags = cpu_irq_save();
 
 	// Fill report
-	udi_hid_kbd_report[0] &= ~modifier_id;
+	udi_hid_kbd_report[0] &= ~(unsigned)modifier_id;
 	udi_hid_kbd_b_report_valid = true;
 
 	// Send report
@@ -362,8 +365,11 @@ static bool udi_hid_kbd_send_report(void)
 	return udi_hid_kbd_b_report_trans_ongoing;
 }
 
-void udi_hid_kbd_report_sent(udd_ep_status_t status, iram_size_t nb_sent)
+static void udi_hid_kbd_report_sent(udd_ep_status_t status, iram_size_t nb_sent,
+		udd_ep_id_t ep)
 {
+	UNUSED(status);
+	UNUSED(nb_sent);
 	udi_hid_kbd_b_report_trans_ongoing = false;
 	if (udi_hid_kbd_b_report_valid) {
 		udi_hid_kbd_send_report();

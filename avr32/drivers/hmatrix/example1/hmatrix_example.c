@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -44,9 +46,9 @@
  * \section intro Introduction
  *
  * This example demonstrates how to use the HMATRIX module.
- * This example show number of cycle save between two configration.
+ * This example show number of cycle save between two configuration.
  * In the present example, function is called NB_TOGGLE time and
- *    the number of cycle is mesured.
+ *    the number of cycle is measured.
  *  The first test is done with Slave Default Master Type configured with default value.
  *  The second test is done with Slave Default Master Type configured with Last Default Master.
  *
@@ -75,7 +77,7 @@
  * - STK600+RCUC3D routing card with the following configuration :
  *     - connect STK600.PA4 to STK600.LEDS.LED0
  * - CPU clock:
- *     -- 12 Mhz : EVK1100, EVK1101, EVK1104, EVK1105, UC3L_EK, STK600+RCUC3D evaluation kit;
+ *     -- 12 MHz : EVK1100, EVK1101, EVK1104, EVK1105, UC3L_EK, STK600+RCUC3D evaluation kit;
  *     -- 16 MHz : UC3C_EK evaluation kit;
  * - USART :
  *     -- USART2 (on EVK1100, EVK1101) connected to a PC serial port ;

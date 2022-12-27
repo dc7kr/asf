@@ -6,9 +6,11 @@
  * This module implements Atmel Sensor API platform interfaces for XMEGA and
  * UC3 microcontrollers.
  *
- * Copyright (c) 2011 - 2012  Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -121,7 +123,7 @@ uint32_t sensor_timestamp(void)
 	 *
 	 * Implement this interface in terms of XMEGA and UC3 timer/counter (TC)
 	 * facilities exposed through ASF drivers.  A free running counter with
-	 * microsecond resolution is desireable.  Ideally, the counter value
+	 * microsecond resolution is desirable.  Ideally, the counter value
 	 * should be updated without using interrupts and attached to a clock
 	 *that
 	 * will be available while the MCU is in lower power modes.
@@ -329,7 +331,7 @@ bool sensor_platform_init(void)
 	 * integrated USB interfaces.
 	 */
 
-	stdio_usb_init(&CONFIG_USART_IF);
+	stdio_usb_init();
 #  elif defined(CONF_STDIO_SERIAL)
 
 	/* Assume the USART is mapped to an appropriate phy in the board
@@ -345,13 +347,6 @@ bool sensor_platform_init(void)
 	};
 
 	stdio_serial_init(&CONFIG_USART_IF, &USART_SERIAL_OPTIONS);
-#  endif
-
-#  if defined(__GNUC__) && UC3
-	/* Specify that stdout and stdin should not be buffered. */
-
-	setbuf(stdout, NULL);
-	setbuf(stdin, NULL);
 #  endif
 #endif  /* defined(CONF_STDIO_REDIRECT) */
 

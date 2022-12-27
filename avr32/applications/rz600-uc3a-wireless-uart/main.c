@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -82,7 +84,7 @@
 
 
 /*
- * Buffer size for application to accomodate USB bytes and frame to be
+ * Buffer size for application to accommodate USB bytes and frame to be
  * transmitted.
 */
 #define BUFFER_SIZE       (200)
@@ -131,9 +133,9 @@ int main(void)
 	/* IRQs init. */
 	irq_initialize_vectors();
 
-	/* Tranceiver init. */
+	/* Transceiver init. */
 	if (at86rfx_init() != AT86RFX_SUCCESS) {
-		Assert("Transceiver intialization failed" == 0);
+		Assert("Transceiver initialization failed" == 0);
 	}
 
 	/* Interrupt enabled before USB init as it uses IRQ for enumeration. */
@@ -152,7 +154,7 @@ int main(void)
 
 void at86rfx_tal_rx_frame_cb(uint8_t * rx_frame_array)
 {
-	/* Frame received from transceiver is sent to terminal thro' USB. */
+	/* Frame received from transceiver is sent to terminal through USB. */
 	udi_cdc_write_buf((const int *)&rx_frame_array[1],
 			rx_frame_array[0] - FCS_LEN);
 	/* LED indication for frame reception. */

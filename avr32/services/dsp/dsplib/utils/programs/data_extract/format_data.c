@@ -4,6 +4,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -206,7 +208,7 @@ int format_data_get_data(char *_input, char *_pattern, int n_arg)
                    }
              }
          }
-         // If no error occured, print the number on the default output
+         // If no error occurred, print the number on the default output
          if (!stop)
             printf("%.10f\r\n", value_to_print);
     }

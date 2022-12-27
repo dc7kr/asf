@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -53,8 +55,8 @@
 #ifndef  UDI_CDC_PORT_NB
 # define  UDI_CDC_PORT_NB 1
 #endif
-#if UDI_CDC_PORT_NB > 3
-# error UDI_CDC_PORT_NB must be inferior or equal to 3
+#if (UDI_CDC_PORT_NB < 1) || (UDI_CDC_PORT_NB > 7)
+# error UDI_CDC_PORT_NB must be between 1 and 7
 #endif
 
 #ifdef __cplusplus
@@ -66,13 +68,9 @@ extern "C" {
  * @{
  */
 
-//! Global struture which contains standard UDI API for UDC
+//! Global structure which contains standard UDI API for UDC
 extern UDC_DESC_STORAGE udi_api_t udi_api_cdc_comm;
 extern UDC_DESC_STORAGE udi_api_t udi_api_cdc_data;
-extern UDC_DESC_STORAGE udi_api_t udi_api_cdc_comm_2;
-extern UDC_DESC_STORAGE udi_api_t udi_api_cdc_data_2;
-extern UDC_DESC_STORAGE udi_api_t udi_api_cdc_comm_3;
-extern UDC_DESC_STORAGE udi_api_t udi_api_cdc_data_3;
 //@}
 
 /**
@@ -121,61 +119,48 @@ typedef struct {
 } udi_cdc_data_desc_t;
 
 
-//! CDC communication enpoints size for all speeds
+//! CDC communication endpoints size for all speeds
 #define UDI_CDC_COMM_EP_SIZE        64
-//! CDC data enpoints size for FS speed (8B, 16B, 32B, 64B)
+//! CDC data endpoints size for FS speed (8B, 16B, 32B, 64B)
 #define UDI_CDC_DATA_EPS_FS_SIZE    64
-//! CDC data enpoints size for HS speed (512B only)
+//! CDC data endpoints size for HS speed (512B only)
 #define UDI_CDC_DATA_EPS_HS_SIZE    512
 
 /**
- * \name Content of interface descriptors for single or first com port
+ * \name Content of interface descriptors
+ * Up to 7 CDC interfaces can be implemented on a USB device.
  */
 //@{
 //! By default no string associated to these interfaces
-#ifndef UDI_CDC_IAD_STRING_ID
-#define UDI_CDC_IAD_STRING_ID   0
+#ifndef UDI_CDC_IAD_STRING_ID_0
+#define UDI_CDC_IAD_STRING_ID_0   0
 #endif
-#ifndef UDI_CDC_COMM_STRING_ID
-#define UDI_CDC_COMM_STRING_ID   0
+#ifndef UDI_CDC_COMM_STRING_ID_0
+#define UDI_CDC_COMM_STRING_ID_0   0
 #endif
-#ifndef UDI_CDC_DATA_STRING_ID
-#define UDI_CDC_DATA_STRING_ID   0
+#ifndef UDI_CDC_DATA_STRING_ID_0
+#define UDI_CDC_DATA_STRING_ID_0   0
 #endif
-#  define UDI_CDC_IAD_DESC {\
-   UDI_CDC_IAD_DESC_COMMON \
-   .bFirstInterface              = UDI_CDC_COMM_IFACE_NUMBER, \
-   .iFunction                    = UDI_CDC_IAD_STRING_ID,\
-   }
-#  define UDI_CDC_COMM_DESC {\
-  UDI_CDC_COMM_DESC_COMMON \
-   .ep_notify.bEndpointAddress   = UDI_CDC_COMM_EP,\
-   .iface.bInterfaceNumber       = UDI_CDC_COMM_IFACE_NUMBER,\
-   .call_mgmt.bDataInterface     = UDI_CDC_DATA_IFACE_NUMBER,\
-   .union_desc.bMasterInterface  = UDI_CDC_COMM_IFACE_NUMBER,\
-   .union_desc.bSlaveInterface0  = UDI_CDC_DATA_IFACE_NUMBER,\
-   .iface.iInterface             = UDI_CDC_COMM_STRING_ID,\
-   }
-#  define UDI_CDC_DATA_DESC_FS {\
-  UDI_CDC_DATA_DESC_COMMON_FS \
-   .ep_in.bEndpointAddress       = UDI_CDC_DATA_EP_IN,\
-   .ep_out.bEndpointAddress      = UDI_CDC_DATA_EP_OUT,\
-   .iface.bInterfaceNumber       = UDI_CDC_DATA_IFACE_NUMBER,\
-   .iface.iInterface             = UDI_CDC_DATA_STRING_ID,\
-   }
-#  define UDI_CDC_DATA_DESC_HS {\
-  UDI_CDC_DATA_DESC_COMMON_HS \
-   .ep_in.bEndpointAddress       = UDI_CDC_DATA_EP_IN,\
-   .ep_out.bEndpointAddress      = UDI_CDC_DATA_EP_OUT,\
-   .iface.bInterfaceNumber       = UDI_CDC_DATA_IFACE_NUMBER,\
-   .iface.iInterface             = UDI_CDC_DATA_STRING_ID,\
-   }
-//@}
+#define UDI_CDC_IAD_DESC_0      UDI_CDC_IAD_DESC(0)
+#define UDI_CDC_COMM_DESC_0     UDI_CDC_COMM_DESC(0)
+#define UDI_CDC_DATA_DESC_0_FS  UDI_CDC_DATA_DESC_FS(0)
+#define UDI_CDC_DATA_DESC_0_HS  UDI_CDC_DATA_DESC_HS(0)
 
-/**
- * \name Content of interface descriptors for second com port
- */
-//@{
+//! By default no string associated to these interfaces
+#ifndef UDI_CDC_IAD_STRING_ID_1
+#define UDI_CDC_IAD_STRING_ID_1  0
+#endif
+#ifndef UDI_CDC_COMM_STRING_ID_1
+#define UDI_CDC_COMM_STRING_ID_1 0
+#endif
+#ifndef UDI_CDC_DATA_STRING_ID_1
+#define UDI_CDC_DATA_STRING_ID_1 0
+#endif
+#define UDI_CDC_IAD_DESC_1      UDI_CDC_IAD_DESC(1)
+#define UDI_CDC_COMM_DESC_1     UDI_CDC_COMM_DESC(1)
+#define UDI_CDC_DATA_DESC_1_FS  UDI_CDC_DATA_DESC_FS(1)
+#define UDI_CDC_DATA_DESC_1_HS  UDI_CDC_DATA_DESC_HS(1)
+
 //! By default no string associated to these interfaces
 #ifndef UDI_CDC_IAD_STRING_ID_2
 #define UDI_CDC_IAD_STRING_ID_2   0
@@ -186,40 +171,11 @@ typedef struct {
 #ifndef UDI_CDC_DATA_STRING_ID_2
 #define UDI_CDC_DATA_STRING_ID_2   0
 #endif
-#  define UDI_CDC_IAD_DESC_2 {\
-   UDI_CDC_IAD_DESC_COMMON \
-   .bFirstInterface              = UDI_CDC_COMM_IFACE_NUMBER_2, \
-   .iFunction                    = UDI_CDC_IAD_STRING_ID_2,\
-   }
-#  define UDI_CDC_COMM_DESC_2 {\
-  UDI_CDC_COMM_DESC_COMMON \
-   .ep_notify.bEndpointAddress   = UDI_CDC_COMM_EP_2,\
-   .iface.bInterfaceNumber       = UDI_CDC_COMM_IFACE_NUMBER_2,\
-   .call_mgmt.bDataInterface     = UDI_CDC_DATA_IFACE_NUMBER_2,\
-   .union_desc.bMasterInterface  = UDI_CDC_COMM_IFACE_NUMBER_2,\
-   .union_desc.bSlaveInterface0  = UDI_CDC_DATA_IFACE_NUMBER_2,\
-   .iface.iInterface             = UDI_CDC_COMM_STRING_ID_2,\
-   }
-#  define UDI_CDC_DATA_DESC_2_FS {\
-  UDI_CDC_DATA_DESC_COMMON_FS \
-   .ep_in.bEndpointAddress       = UDI_CDC_DATA_EP_IN_2,\
-   .ep_out.bEndpointAddress      = UDI_CDC_DATA_EP_OUT_2,\
-   .iface.bInterfaceNumber       = UDI_CDC_DATA_IFACE_NUMBER_2,\
-   .iface.iInterface             = UDI_CDC_DATA_STRING_ID_2,\
-   }
-#  define UDI_CDC_DATA_DESC_2_HS {\
-  UDI_CDC_DATA_DESC_COMMON_HS \
-   .ep_in.bEndpointAddress       = UDI_CDC_DATA_EP_IN_2,\
-   .ep_out.bEndpointAddress      = UDI_CDC_DATA_EP_OUT_2,\
-   .iface.bInterfaceNumber       = UDI_CDC_DATA_IFACE_NUMBER_2,\
-   .iface.iInterface             = UDI_CDC_DATA_STRING_ID_2,\
-   }
-//@}
+#define UDI_CDC_IAD_DESC_2      UDI_CDC_IAD_DESC(2)
+#define UDI_CDC_COMM_DESC_2     UDI_CDC_COMM_DESC(2)
+#define UDI_CDC_DATA_DESC_2_FS  UDI_CDC_DATA_DESC_FS(2)
+#define UDI_CDC_DATA_DESC_2_HS  UDI_CDC_DATA_DESC_HS(2)
 
-/**
- * \name Content of interface descriptors for third com port
- */
-//@{
 //! By default no string associated to these interfaces
 #ifndef UDI_CDC_IAD_STRING_ID_3
 #define UDI_CDC_IAD_STRING_ID_3   0
@@ -230,48 +186,72 @@ typedef struct {
 #ifndef UDI_CDC_DATA_STRING_ID_3
 #define UDI_CDC_DATA_STRING_ID_3   0
 #endif
-#  define UDI_CDC_IAD_DESC_3 {\
-   UDI_CDC_IAD_DESC_COMMON \
-   .bFirstInterface              = UDI_CDC_COMM_IFACE_NUMBER_3, \
-   .iFunction                    = UDI_CDC_IAD_STRING_ID_3,\
-   }
-#  define UDI_CDC_COMM_DESC_3 {\
-  UDI_CDC_COMM_DESC_COMMON \
-   .ep_notify.bEndpointAddress   = UDI_CDC_COMM_EP_3,\
-   .iface.bInterfaceNumber       = UDI_CDC_COMM_IFACE_NUMBER_3,\
-   .call_mgmt.bDataInterface     = UDI_CDC_DATA_IFACE_NUMBER_3,\
-   .union_desc.bMasterInterface  = UDI_CDC_COMM_IFACE_NUMBER_3,\
-   .union_desc.bSlaveInterface0  = UDI_CDC_DATA_IFACE_NUMBER_3,\
-   .iface.iInterface             = UDI_CDC_COMM_STRING_ID_3,\
-   }
-#  define UDI_CDC_DATA_DESC_3_FS {\
-  UDI_CDC_DATA_DESC_COMMON_FS \
-   .ep_in.bEndpointAddress       = UDI_CDC_DATA_EP_IN_3,\
-   .ep_out.bEndpointAddress      = UDI_CDC_DATA_EP_OUT_3,\
-   .iface.bInterfaceNumber       = UDI_CDC_DATA_IFACE_NUMBER_3,\
-   .iface.iInterface             = UDI_CDC_DATA_STRING_ID_3,\
-   }
-#  define UDI_CDC_DATA_DESC_3_HS {\
-  UDI_CDC_DATA_DESC_COMMON_HS \
-   .ep_in.bEndpointAddress       = UDI_CDC_DATA_EP_IN_3,\
-   .ep_out.bEndpointAddress      = UDI_CDC_DATA_EP_OUT_3,\
-   .iface.bInterfaceNumber       = UDI_CDC_DATA_IFACE_NUMBER_3,\
-   .iface.iInterface             = UDI_CDC_DATA_STRING_ID_3,\
-   }
+#define UDI_CDC_IAD_DESC_3      UDI_CDC_IAD_DESC(3)
+#define UDI_CDC_COMM_DESC_3     UDI_CDC_COMM_DESC(3)
+#define UDI_CDC_DATA_DESC_3_FS  UDI_CDC_DATA_DESC_FS(3)
+#define UDI_CDC_DATA_DESC_3_HS  UDI_CDC_DATA_DESC_HS(3)
+
+//! By default no string associated to these interfaces
+#ifndef UDI_CDC_IAD_STRING_ID_4
+#define UDI_CDC_IAD_STRING_ID_4   0
+#endif
+#ifndef UDI_CDC_COMM_STRING_ID_4
+#define UDI_CDC_COMM_STRING_ID_4   0
+#endif
+#ifndef UDI_CDC_DATA_STRING_ID_4
+#define UDI_CDC_DATA_STRING_ID_4   0
+#endif
+#define UDI_CDC_IAD_DESC_4      UDI_CDC_IAD_DESC(4)
+#define UDI_CDC_COMM_DESC_4     UDI_CDC_COMM_DESC(4)
+#define UDI_CDC_DATA_DESC_4_FS  UDI_CDC_DATA_DESC_FS(4)
+#define UDI_CDC_DATA_DESC_4_HS  UDI_CDC_DATA_DESC_HS(4)
+
+//! By default no string associated to these interfaces
+#ifndef UDI_CDC_IAD_STRING_ID_5
+#define UDI_CDC_IAD_STRING_ID_5   0
+#endif
+#ifndef UDI_CDC_COMM_STRING_ID_5
+#define UDI_CDC_COMM_STRING_ID_5   0
+#endif
+#ifndef UDI_CDC_DATA_STRING_ID_5
+#define UDI_CDC_DATA_STRING_ID_5   0
+#endif
+#define UDI_CDC_IAD_DESC_5      UDI_CDC_IAD_DESC(5)
+#define UDI_CDC_COMM_DESC_5     UDI_CDC_COMM_DESC(5)
+#define UDI_CDC_DATA_DESC_5_FS  UDI_CDC_DATA_DESC_FS(5)
+#define UDI_CDC_DATA_DESC_5_HS  UDI_CDC_DATA_DESC_HS(5)
+
+//! By default no string associated to these interfaces
+#ifndef UDI_CDC_IAD_STRING_ID_6
+#define UDI_CDC_IAD_STRING_ID_6   0
+#endif
+#ifndef UDI_CDC_COMM_STRING_ID_6
+#define UDI_CDC_COMM_STRING_ID_6   0
+#endif
+#ifndef UDI_CDC_DATA_STRING_ID_6
+#define UDI_CDC_DATA_STRING_ID_6   0
+#endif
+#define UDI_CDC_IAD_DESC_6      UDI_CDC_IAD_DESC(6)
+#define UDI_CDC_COMM_DESC_6     UDI_CDC_COMM_DESC(6)
+#define UDI_CDC_DATA_DESC_6_FS  UDI_CDC_DATA_DESC_FS(6)
+#define UDI_CDC_DATA_DESC_6_HS  UDI_CDC_DATA_DESC_HS(6)
 //@}
 
 
 //! Content of CDC IAD interface descriptor for all speeds
-#define UDI_CDC_IAD_DESC_COMMON \
+#define UDI_CDC_IAD_DESC(port) { \
    .bLength                      = sizeof(usb_iad_desc_t),\
    .bDescriptorType              = USB_DT_IAD,\
    .bInterfaceCount              = 2,\
    .bFunctionClass               = CDC_CLASS_COMM,\
    .bFunctionSubClass            = CDC_SUBCLASS_ACM,\
-   .bFunctionProtocol            = CDC_PROTOCOL_V25TER,
+   .bFunctionProtocol            = CDC_PROTOCOL_V25TER,\
+   .bFirstInterface              = UDI_CDC_COMM_IFACE_NUMBER_##port,\
+   .iFunction                    = UDI_CDC_IAD_STRING_ID_##port,\
+   }
 
 //! Content of CDC COMM interface descriptor for all speeds
-#define UDI_CDC_COMM_DESC_COMMON \
+#define UDI_CDC_COMM_DESC(port) { \
    .iface.bLength                = sizeof(usb_iface_desc_t),\
    .iface.bDescriptorType        = USB_DT_INTERFACE,\
    .iface.bAlternateSetting      = 0,\
@@ -299,7 +279,14 @@ typedef struct {
    .ep_notify.bDescriptorType    = USB_DT_ENDPOINT,\
    .ep_notify.bmAttributes       = USB_EP_TYPE_INTERRUPT,\
    .ep_notify.wMaxPacketSize     = LE16(UDI_CDC_COMM_EP_SIZE),\
-   .ep_notify.bInterval          = 0x10,
+   .ep_notify.bInterval          = 0x10,\
+   .ep_notify.bEndpointAddress   = UDI_CDC_COMM_EP_##port,\
+   .iface.bInterfaceNumber       = UDI_CDC_COMM_IFACE_NUMBER_##port,\
+   .call_mgmt.bDataInterface     = UDI_CDC_DATA_IFACE_NUMBER_##port,\
+   .union_desc.bMasterInterface  = UDI_CDC_COMM_IFACE_NUMBER_##port,\
+   .union_desc.bSlaveInterface0  = UDI_CDC_DATA_IFACE_NUMBER_##port,\
+   .iface.iInterface             = UDI_CDC_COMM_STRING_ID_##port,\
+   }
 
 //! Content of CDC DATA interface descriptors
 #define UDI_CDC_DATA_DESC_COMMON \
@@ -319,15 +306,25 @@ typedef struct {
    .ep_out.bmAttributes          = USB_EP_TYPE_BULK,\
    .ep_out.bInterval             = 0,
 
-#define UDI_CDC_DATA_DESC_COMMON_FS \
+#define UDI_CDC_DATA_DESC_FS(port) { \
    UDI_CDC_DATA_DESC_COMMON \
    .ep_in.wMaxPacketSize         = LE16(UDI_CDC_DATA_EPS_FS_SIZE),\
-   .ep_out.wMaxPacketSize        = LE16(UDI_CDC_DATA_EPS_FS_SIZE),
+   .ep_out.wMaxPacketSize        = LE16(UDI_CDC_DATA_EPS_FS_SIZE),\
+   .ep_in.bEndpointAddress       = UDI_CDC_DATA_EP_IN_##port,\
+   .ep_out.bEndpointAddress      = UDI_CDC_DATA_EP_OUT_##port,\
+   .iface.bInterfaceNumber       = UDI_CDC_DATA_IFACE_NUMBER_##port,\
+   .iface.iInterface             = UDI_CDC_DATA_STRING_ID_##port,\
+   }
 
-#define UDI_CDC_DATA_DESC_COMMON_HS \
+#define UDI_CDC_DATA_DESC_HS(port) { \
    UDI_CDC_DATA_DESC_COMMON \
    .ep_in.wMaxPacketSize         = LE16(UDI_CDC_DATA_EPS_HS_SIZE),\
-   .ep_out.wMaxPacketSize        = LE16(UDI_CDC_DATA_EPS_HS_SIZE),
+   .ep_out.wMaxPacketSize        = LE16(UDI_CDC_DATA_EPS_HS_SIZE),\
+   .ep_in.bEndpointAddress       = UDI_CDC_DATA_EP_IN_##port,\
+   .ep_out.bEndpointAddress      = UDI_CDC_DATA_EP_OUT_##port,\
+   .iface.bInterfaceNumber       = UDI_CDC_DATA_IFACE_NUMBER_##port,\
+   .iface.iInterface             = UDI_CDC_DATA_STRING_ID_##port,\
+   }
 
 //@}
 
@@ -395,18 +392,18 @@ int udi_cdc_getc(void);
 /**
  * \brief Reads a RAM buffer on CDC line
  *
- * \param buf       Values readed
- * \param size      Number of value readed
+ * \param buf       Values read
+ * \param size      Number of value read
  *
  * \return the number of data remaining
  */
-iram_size_t udi_cdc_read_buf(int* buf, iram_size_t size);
+iram_size_t udi_cdc_read_buf(void* buf, iram_size_t size);
 
 /**
  * \brief This function checks if a new character sent is possible
  * The type int is used to support scanf redirection from compiler LIB.
  *
- * \return \c 1 if a new chracter can be sent
+ * \return \c 1 if a new character can be sent
  */
 bool udi_cdc_is_tx_ready(void);
 
@@ -428,7 +425,7 @@ int udi_cdc_putc(int value);
  *
  * \return the number of data remaining
  */
-iram_size_t udi_cdc_write_buf(const int* buf, iram_size_t size);
+iram_size_t udi_cdc_write_buf(const void* buf, iram_size_t size);
 //@}
 
 /**
@@ -495,12 +492,12 @@ int udi_cdc_multi_getc(uint8_t port);
  * \brief Reads a RAM buffer on CDC line
  *
  * \param port       Communication port number to manage
- * \param buf       Values readed
- * \param size      Number of value readed
+ * \param buf       Values read
+ * \param size      Number of values read
  *
  * \return the number of data remaining
  */
-iram_size_t udi_cdc_multi_read_buf(uint8_t port, int* buf, iram_size_t size);
+iram_size_t udi_cdc_multi_read_buf(uint8_t port, void* buf, iram_size_t size);
 
 /**
  * \brief This function checks if a new character sent is possible
@@ -508,7 +505,7 @@ iram_size_t udi_cdc_multi_read_buf(uint8_t port, int* buf, iram_size_t size);
  *
  * \param port       Communication port number to manage
  *
- * \return \c 1 if a new chracter can be sent
+ * \return \c 1 if a new character can be sent
  */
 bool udi_cdc_multi_is_tx_ready(uint8_t port);
 
@@ -532,7 +529,7 @@ int udi_cdc_multi_putc(uint8_t port, int value);
  *
  * \return the number of data remaining
  */
-iram_size_t udi_cdc_multi_write_buf(uint8_t port, const int* buf, iram_size_t size);
+iram_size_t udi_cdc_multi_write_buf(uint8_t port, const void* buf, iram_size_t size);
 //@}
 
 //@}
@@ -540,14 +537,14 @@ iram_size_t udi_cdc_multi_write_buf(uint8_t port, const int* buf, iram_size_t si
 /**
  * \page udi_cdc_quickstart Quick start guide for USB device Communication Class Device module (UDI CDC)
  *
- * This is the quick start guide for the \ref udi_cdc_group 
- * "USB device interface CDC module (UDI CDC)" with step-by-step instructions on 
+ * This is the quick start guide for the \ref udi_cdc_group
+ * "USB device interface CDC module (UDI CDC)" with step-by-step instructions on
  * how to configure and use the modules in a selection of use cases.
  *
  * The use cases contain several code fragments. The code fragments in the
  * steps for setup can be copied into a custom initialization function, while
  * the steps for usage can be copied into, e.g., the main application function.
- * 
+ *
  * \section udi_cdc_basic_use_case Basic use case
  * In this basic use case, the "USB CDC (Single Interface Device)" module is used
  * with only one communication port.
@@ -567,9 +564,9 @@ iram_size_t udi_cdc_multi_write_buf(uint8_t port, const int* buf, iram_size_t si
  * \subsection udi_cdc_basic_use_case_usage_code Example code
  * Content of conf_usb.h:
  * \code
- * #define UDI_CDC_ENABLE_EXT() my_callback_cdc_enable()
+ * #define UDI_CDC_ENABLE_EXT(port) my_callback_cdc_enable()
  * extern bool my_callback_cdc_enable(void);
- * #define UDI_CDC_DISABLE_EXT() my_callback_cdc_disable()
+ * #define UDI_CDC_DISABLE_EXT(port) my_callback_cdc_disable()
  * extern void my_callback_cdc_disable(void);
  * #define  UDI_CDC_LOW_RATE
  *
@@ -608,14 +605,14 @@ iram_size_t udi_cdc_multi_write_buf(uint8_t port, const int* buf, iram_size_t si
  * which is the USB device CDC configuration:
  *   - \code #define USB_DEVICE_SERIAL_NAME  "12...EF" // Disk SN for CDC \endcode
  *     \note The USB serial number is mandatory when a CDC interface is used.
- *   - \code #define UDI_CDC_ENABLE_EXT() my_callback_cdc_enable()
+ *   - \code #define UDI_CDC_ENABLE_EXT(port) my_callback_cdc_enable()
  * extern bool my_callback_cdc_enable(void); \endcode
  *     \note After the device enumeration (detecting and identifying USB devices),
- *     the USB host starts the device configuration. When the USB CDC interface 
+ *     the USB host starts the device configuration. When the USB CDC interface
  *     from the device is accepted by the host, the USB host enables this interface and the
  *     UDI_CDC_ENABLE_EXT() callback function is called and return true.
- *     Thus, when this event is received, the data transfer on CDC interface are autorized.
- *   - \code #define UDI_CDC_DISABLE_EXT() my_callback_cdc_disable()
+ *     Thus, when this event is received, the data transfer on CDC interface are authorized.
+ *   - \code #define UDI_CDC_DISABLE_EXT(port) my_callback_cdc_disable()
  * extern void my_callback_cdc_disable(void); \endcode
  *     \note When the USB device is unplugged or is reset by the USB host, the USB
  *     interface is disabled and the UDI_CDC_DISABLE_EXT() callback function
@@ -656,7 +653,7 @@ iram_size_t udi_cdc_multi_write_buf(uint8_t port, const int* buf, iram_size_t si
  * In this use case, the "USB CDC (Composite Device)" module is used to
  * create a USB composite device. Thus, this USB module can be associated with
  * another "Composite Device" module, like "USB HID Mouse (Composite Device)".
- * 
+ *
  * Also, you can refer to application note
  * <A href="http://www.atmel.com/dyn/resources/prod_documents/doc8445.pdf">
  * AVR4902 ASF - USB Composite Device</A>.
@@ -674,11 +671,11 @@ iram_size_t udi_cdc_multi_write_buf(uint8_t port, const int* buf, iram_size_t si
  * #define USB_DEVICE_NB_INTERFACE (X+2)
  * #define USB_DEVICE_MAX_EP (X+3)
  *
- * #define  UDI_CDC_DATA_EP_IN            (1 | USB_EP_DIR_IN)  // TX
- * #define  UDI_CDC_DATA_EP_OUT           (2 | USB_EP_DIR_OUT) // RX
- * #define  UDI_CDC_COMM_EP               (3 | USB_EP_DIR_IN)  // Notify endpoint
- * #define  UDI_CDC_COMM_IFACE_NUMBER     X+0
- * #define  UDI_CDC_DATA_IFACE_NUMBER     X+1
+ * #define  UDI_CDC_DATA_EP_IN_0          (1 | USB_EP_DIR_IN)  // TX
+ * #define  UDI_CDC_DATA_EP_OUT_0         (2 | USB_EP_DIR_OUT) // RX
+ * #define  UDI_CDC_COMM_EP_0             (3 | USB_EP_DIR_IN)  // Notify endpoint
+ * #define  UDI_CDC_COMM_IFACE_NUMBER_0   X+0
+ * #define  UDI_CDC_DATA_IFACE_NUMBER_0   X+1
  *
  * #define UDI_COMPOSITE_DESC_T \
  *    usb_iad_desc_t udi_cdc_iad; \
@@ -686,14 +683,14 @@ iram_size_t udi_cdc_multi_write_buf(uint8_t port, const int* buf, iram_size_t si
  *    udi_cdc_data_desc_t udi_cdc_data; \
  *    ...
  * #define UDI_COMPOSITE_DESC_FS \
- *    .udi_cdc_iad               = UDI_CDC_IAD_DESC, \
- *    .udi_cdc_comm              = UDI_CDC_COMM_DESC, \
- *    .udi_cdc_data              = UDI_CDC_DATA_DESC_FS, \
+ *    .udi_cdc_iad               = UDI_CDC_IAD_DESC_0, \
+ *    .udi_cdc_comm              = UDI_CDC_COMM_DESC_0, \
+ *    .udi_cdc_data              = UDI_CDC_DATA_DESC_0_FS, \
  *    ...
  * #define UDI_COMPOSITE_DESC_HS \
- *    .udi_cdc_iad               = UDI_CDC_IAD_DESC, \
- *    .udi_cdc_comm              = UDI_CDC_COMM_DESC, \
- *    .udi_cdc_data              = UDI_CDC_DATA_DESC_HS, \
+ *    .udi_cdc_iad               = UDI_CDC_IAD_DESC_0, \
+ *    .udi_cdc_comm              = UDI_CDC_COMM_DESC_0, \
+ *    .udi_cdc_data              = UDI_CDC_DATA_DESC_0_HS, \
  *    ...
  * #define UDI_COMPOSITE_API \
  *    &udi_api_cdc_comm,       \
@@ -719,12 +716,12 @@ iram_size_t udi_cdc_multi_write_buf(uint8_t port, const int* buf, iram_size_t si
  * composite device:
  *   - \code // The endpoint numbers chosen by you for the CDC.
  * // The endpoint numbers starting from 1.
- * #define  UDI_CDC_DATA_EP_IN            (1 | USB_EP_DIR_IN)  // TX
- * #define  UDI_CDC_DATA_EP_OUT           (2 | USB_EP_DIR_OUT) // RX
- * #define  UDI_CDC_COMM_EP               (3 | USB_EP_DIR_IN)  // Notify endpoint
+ * #define  UDI_CDC_DATA_EP_IN_0            (1 | USB_EP_DIR_IN)  // TX
+ * #define  UDI_CDC_DATA_EP_OUT_0           (2 | USB_EP_DIR_OUT) // RX
+ * #define  UDI_CDC_COMM_EP_0               (3 | USB_EP_DIR_IN)  // Notify endpoint
  * // The interface index of an interface starting from 0
- * #define  UDI_CDC_COMM_IFACE_NUMBER     X+0
- * #define  UDI_CDC_DATA_IFACE_NUMBER     X+1 \endcode
+ * #define  UDI_CDC_COMM_IFACE_NUMBER_0     X+0
+ * #define  UDI_CDC_DATA_IFACE_NUMBER_0     X+1 \endcode
  * -# Ensure that conf_usb.h contains the following parameters
  * required for a USB composite device configuration:
  *   - \code // USB Interfaces descriptor structure
@@ -737,16 +734,16 @@ iram_size_t udi_cdc_multi_write_buf(uint8_t port, const int* buf, iram_size_t si
  * // USB Interfaces descriptor value for Full Speed
  * #define UDI_COMPOSITE_DESC_FS \
  *    ...
- *    .udi_cdc_iad               = UDI_CDC_IAD_DESC, \
- *    .udi_cdc_comm              = UDI_CDC_COMM_DESC, \
- *    .udi_cdc_data              = UDI_CDC_DATA_DESC_FS, \
+ *    .udi_cdc_iad               = UDI_CDC_IAD_DESC_0, \
+ *    .udi_cdc_comm              = UDI_CDC_COMM_DESC_0, \
+ *    .udi_cdc_data              = UDI_CDC_DATA_DESC_0_FS, \
  *    ...
  * // USB Interfaces descriptor value for High Speed
  * #define UDI_COMPOSITE_DESC_HS \
  *    ...
- *    .udi_cdc_iad               = UDI_CDC_IAD_DESC, \
- *    .udi_cdc_comm              = UDI_CDC_COMM_DESC, \
- *    .udi_cdc_data              = UDI_CDC_DATA_DESC_HS, \
+ *    .udi_cdc_iad               = UDI_CDC_IAD_DESC_0, \
+ *    .udi_cdc_comm              = UDI_CDC_COMM_DESC_0, \
+ *    .udi_cdc_data              = UDI_CDC_DATA_DESC_0_HS, \
  *    ...
  * // USB Interface APIs
  * #define UDI_COMPOSITE_API \

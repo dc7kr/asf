@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -53,7 +55,7 @@
  * - macb.c : MACB driver
  * - macb.h : MACB header file
  * - macb_example.c : MACB code example
- * - conf_eth.h : ethernet configuration (useful options : Use interrupts, HW and IP address, etc)
+ * - conf_eth.h : Ethernet configuration (useful options : Use interrupts, HW and IP address, etc)
  *
  * \section compinfo Compilation Info
  * This software was written for the GNU GCC for AVR32 and IAR Systems compiler

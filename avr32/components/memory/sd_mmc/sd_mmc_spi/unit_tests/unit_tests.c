@@ -3,9 +3,11 @@
  *
  * \brief Unit Tests of the SD/MMC SPI Component.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -244,7 +246,7 @@ static void run_sector_access_test(const struct test_case *test)
 }
 
 /**
- * \brief Test the read and write mutliple sector operations on the SD/MMC card
+ * \brief Test the read and write multiple sector operations on the SD/MMC card
  *
  * This function will test the read and write functionalities of the SD/MMC SPI
  * component using multiple sector access. It will first fill the \ref CONF_TEST_NB_SECTORS
@@ -349,15 +351,6 @@ int main(void)
 	sysclk_init();
 	board_init();
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-
-#if defined(__GNUC__) && defined(__AVR32__)
-	// This unit test will be launched on a test-server, using avr32program.
-	// The reset is done through the OCD. The 'setbuf' command allows to make the
-	// application starts correctly: it will not execute the 'breakpoint'
-	// instruction in _fstat_host (used by printf) and the core will not stay
-	// blocked on the 'breakpoint' instruction (executed in the debug mode).
-	setbuf(stdout, NULL);
-#endif
 
 	// Initialize SD/MMC driver resources: SPI and SD/MMC.
 	sd_mmc_spi_board_init();

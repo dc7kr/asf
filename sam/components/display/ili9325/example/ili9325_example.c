@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -49,7 +51,7 @@
  *
  * \section Requirements
  *
- * This package can be used with SAM3S evaluation kits.
+ * This package can be used with SAM3S, SAM3S-EK2 and SAM4S evaluation kits.
  *
  * \section Description
  *
@@ -72,11 +74,29 @@
  */
 
 #include "asf.h"
+#include "stdio_serial.h"
+#include "conf_board.h"
+#include "conf_clock.h"
 
 /* Chip select number to be set */
 #define ILI9325_LCD_CS      1
 
 struct ili9325_opt_t g_ili9325_display_opt;
+
+/**
+ *  Configure UART console.
+ */
+static void configure_console(void)
+{
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
+}
 
 /**
  * \brief Application entry point for smc_lcd example.
@@ -87,6 +107,9 @@ int main(void)
 {
 	sysclk_init();
 	board_init();
+	
+	/* Initialize debug console */
+	configure_console();
 
 	/* Enable peripheral clock */
 	pmc_enable_periph_clk(ID_SMC);

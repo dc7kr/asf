@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -123,9 +125,9 @@ void ui_led_change(uint8_t *report)
 /**
  * \defgroup UI User Interface
  *
- * Human interface on SAM4S Xplained:
- * - Led 0 (D2) blinks when USB host has checked and enabled HID generic interface
- * - Led 1 (D3) is linked on HID events LED1
- * - Event buttons are linked to SW1/BP1
+ * Human interface on SAM4S-Xplained:
+ * - LED D9  blinks when USB host has checked and enabled HID generic interface
+ * - LED D10 is linked on HID events LED1
+ * - Event buttons are linked to SW1(BOARD REV A) or BP2(BOARD REV B)
  *
  */

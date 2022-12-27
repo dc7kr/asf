@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -67,7 +69,7 @@
 
 
 //!
-//! @brief This fonction replace a (or many) line(s) in a file.
+//! @brief This function replace a (or many) line(s) in a file.
 //!        Syntax of the line should be : \verbatim field=value\r\n \endverbatim
 //!
 //! @param filename Input. The filename to write into.
@@ -210,7 +212,7 @@ int fd;
   {
     /* get the file size */
     size = fsaccess_file_get_size(fd);
-    /* if size is consistant */
+    /* if size is consistent */
     if ((size > 0) && (size <= MAX_CONFIG_FILE_SIZE))
     {
 #ifdef FREERTOS_USED

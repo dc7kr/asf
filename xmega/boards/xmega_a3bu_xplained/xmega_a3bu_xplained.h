@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -98,6 +100,7 @@
 //@}
 
 //! \name QTouch button
+//! This button requires the software QTouch library
 //@{
 #define QTOUCH_BUTTON_SNS               IOPORT_CREATE_PIN(PORTF, 6)
 #define QTOUCH_BUTTON_SNSK              IOPORT_CREATE_PIN(PORTF, 7)
@@ -244,10 +247,10 @@
  * The lower half of port A is connected to the lower pins of J3 and the upper
  * half of port B is connected to the upper pins of J3.
  *
- * Follwing pins are shared with on-board functionality:
+ * Following pins are shared with on-board functionality:
  *  - J3_PIN0 Light sensor output (can be disconnected via scratch pad)
  *  - J3_PIN1 NTC sensor output (can be disconnected via scratch pad)
- *  - J3_PIN2 Filter ouptput (can be disconnected via scratch pad)
+ *  - J3_PIN2 Filter output (can be disconnected via scratch pad)
  *  - J3_PIN3 Display reset input (can't be used when display is in use)
  *  - J3_PIN4 JTAG TMS (pin can't be used while JTAG device connected)
  *  - J3_PIN5 JTAG TDI (pin can't be used while JTAG device connected)

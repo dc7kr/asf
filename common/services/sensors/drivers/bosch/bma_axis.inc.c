@@ -7,7 +7,7 @@
  * used in multiple Bosch sensor drivers, including BMA020, BMA150, BMA180,
  * BMA220, BMA222, and BMA250 devices.
  *
- * The module relies upon conditially compiled types and functions to
+ * The module relies upon conditionally compiled types and functions to
  * generate functions specialized for a particular driver module. Driver
  * source modules include this module directly via the C-preprocessor
  * with a #include directive.
@@ -15,6 +15,8 @@
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -235,10 +237,10 @@ static void local_start_highfreq_clock(void)
   scif_wait_for_pll_locked(SCIF_PLL0) ;
 
   /* Divide PBA clock by 2 from main clock (PBA clock = 48MHz/2 = 24MHz).
-     Pheripheral Bus A clock divisor enable = 1
-     Pheripheral Bus A select = 0
-     Pheripheral Bus B clock divisor enable = 0
-     Pheripheral Bus B select = 0
+     Peripheral Bus A clock divisor enable = 1
+     Peripheral Bus A select = 0
+     Peripheral Bus B clock divisor enable = 0
+     Peripheral Bus B select = 0
      High Speed Bus clock divisor enable = 0
      High Speed Bus select = 0
   */
@@ -298,10 +300,10 @@ static void local_start_highfreq_clock(void)
   pm_wait_for_pll0_locked(pm) ;
 
   /* Divide PBA clock by 2 from main clock (PBA clock = 48MHz/2 = 24MHz).
-     Pheripheral Bus A clock divisor enable = 1
-     Pheripheral Bus A select = 0
-     Pheripheral Bus B clock divisor enable = 0
-     Pheripheral Bus B select = 0
+     Peripheral Bus A clock divisor enable = 1
+     Peripheral Bus A select = 0
+     Peripheral Bus B clock divisor enable = 0
+     Peripheral Bus B select = 0
      High Speed Bus clock divisor enable = 0
      High Speed Bus select = 0
   */

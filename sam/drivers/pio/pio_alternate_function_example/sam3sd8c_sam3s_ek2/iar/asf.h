@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -88,11 +90,17 @@
 // From module: SAM3SD8 startup code
 #include <exceptions.h>
 
+// From module: Standard serial I/O (stdio) - SAM implementation
+#include <stdio_serial.h>
+
 // From module: System Clock Control - SAM3SD implementation
 #include <sysclk.h>
 
 // From module: UART - Univ. Async Rec/Trans
 #include <uart.h>
+
+// From module: USART - Serial interface
+#include <serial.h>
 
 // From module: pio_handler support enabled
 #include <pio_handler.h>

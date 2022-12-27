@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -63,12 +65,12 @@ void ui_wakeup(void)
 	LED_On(LED0);
 }
 
-void ui_com_open(void)
+void ui_com_open(uint8_t port)
 {
 	LED_On(LED2);
 }
 
-void ui_com_close(void)
+void ui_com_close(uint8_t port)
 {
 	LED_Off(LED2);
 	LED_Off(LED3);
@@ -129,5 +131,5 @@ void ui_process(uint16_t framenumber)
  * - Led 1 blinks when USB host has checked and enabled CDC interface
  * - Led 2 is on when the COM is open by USB Host
  * - Led 3 is on during data transfer
- * - Switch 0 launchs the performance test
+ * - Switch 0 launches the performance test
  */

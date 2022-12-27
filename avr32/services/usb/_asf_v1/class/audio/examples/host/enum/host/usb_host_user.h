@@ -13,6 +13,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -69,12 +71,12 @@
 //! @defgroup host_user USB host specific requests
 //! @{
 
-//! Initialisation
+//! Initialization
 //!
 extern void host_user_check_class_init(void);
 
 //! This function is called by the standard USB host_check_class() function when
-//! the Host is analysing the configuration descriptor previously sent by a USB Device.
+//! the Host is analyzing the configuration descriptor previously sent by a USB Device.
 //! The function will be called for each descriptor found in the configuration descriptor.
 //!
 extern bool host_user_check_class(const uint8_t *);

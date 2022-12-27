@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -44,6 +46,9 @@
 
 /** ADC example definition for pin */
 #define CONF_BOARD_ADC
+
+/** Enable Com Port. */
+#define CONF_BOARD_UART_CONSOLE
 
 /** Pins description corresponding to Rxd,Txd, (UART pins) */
 #define CONSOLE_PINS        {PINS_UART}

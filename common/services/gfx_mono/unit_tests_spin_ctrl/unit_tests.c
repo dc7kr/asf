@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -388,7 +390,7 @@ static void run_three_spinners_spincollection_test(const struct test_case
 
 /**
  * \internal
- * \brief Test spinning through a spincollection and canceling
+ * \brief Test spinning through a spincollection and cancelling
  *
  * This test checks that spinning in a spincollection with two spinners
  * and pressing the back button results in the correct event.

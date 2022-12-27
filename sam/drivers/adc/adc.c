@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -460,7 +462,8 @@ void adc_disable_tag(Adc *p_adc)
  */
 enum adc_channel_num_t adc_get_tag(const Adc *p_adc)
 {
-	return (enum adc_channel_num_t)((p_adc->ADC_LCDR & ADC_LCDR_CHNB_Msk) >> ADC_LCDR_CHNB_Pos);
+	return (enum adc_channel_num_t)
+			((p_adc->ADC_LCDR & ADC_LCDR_CHNB_Msk) >> ADC_LCDR_CHNB_Pos);
 }
 #endif
 
@@ -913,7 +916,7 @@ void adc_check(Adc *p_adc, const uint32_t ul_mck)
  */
 Pdc *adc_get_pdc_base(const Adc *p_adc)
 {
-	p_adc = p_adc;
+	UNUSED(p_adc);
 	return PDC_ADC;
 }
 

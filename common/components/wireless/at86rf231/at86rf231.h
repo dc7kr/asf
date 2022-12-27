@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -68,7 +70,7 @@
 #define TRX_IRQ_DELAY_US                    (9)
 #define IRQ_PROCESSING_DLY_US               (32)
 /*
- * CSMA timimg parameters
+ * CSMA timing parameters
  */
 #define CCA_DETECTION_TIME_SYM          (8)
 #define CCA_PROCESS_TIME_SYM            (1)

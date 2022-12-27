@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -50,10 +52,10 @@ extern "C" {
 /**
  * \defgroup at45dbx_group AT45dbx DataFlash component driver.
  *
- * This is a driver for the AT45dbX serie DataFlash memories.
+ * This is a driver for the AT45dbX series DataFlash memories.
  * It provides functions for initialization, read and write operations at
  * byte or sector level.
- * The DataFlash driver can be used either with SPI Master Sevice or
+ * The DataFlash driver can be used either with SPI Master Service or
  * USART_SPI Service. The SPI service configuration depends on
  * AT45DBX_USES_SPI_MASTER_SERVICE or AT45DBX_USES_USART_SPI_SERVICE
  * defined in conf_at45dbx.h.
@@ -151,7 +153,7 @@ extern bool at45dbx_write_sector_open(uint32_t sector);
 
 /*! \brief This function opens a DataFlash memory in write mode at a given address.
  *
- * \param ad  Start addres.
+ * \param ad  Start address.
  *
  * \retval true Success.
  * \retval false Failure.

@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -75,7 +77,7 @@ extern "C" {
  * \addtogroup udi_phdc_group_udc
  * @{
  */
-//! Global struture which contains standard UDI API for UDC
+//! Global structure which contains standard UDI API for UDC
 extern UDC_DESC_STORAGE udi_api_t udi_api_phdc;
 //@}
 
@@ -88,7 +90,7 @@ extern UDC_DESC_STORAGE udi_api_t udi_api_phdc;
  */
 //@{
 
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 
 //! Just for compile size but not used and removed by compiler
 static le16_t tmp_wDevSpecializations[] = UDI_PHDC_SPECIALIZATION;
@@ -129,7 +131,7 @@ typedef struct {
 #endif
 
 
-//! Interface descriptor struture for PHDC
+//! Interface descriptor structure for PHDC
 typedef struct {
 	usb_iface_desc_t iface;
 	usb_phdc_classfnct_desc_t classfnct;
@@ -158,7 +160,7 @@ typedef struct {
 #endif
 } udi_phdc_desc_t;
 
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
 
 //! By default no string associated to this interface

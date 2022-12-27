@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -52,8 +54,8 @@
  * - \ref conf_clock.h
  * - \ref conf_usart_spi.h
  * - \ref example1.c
- *   \ref atmel_logo.h
- *   \ref smiley.h
+ * - \ref atmel_logo.h
+ * - \ref smiley.h
  *
  * \section device_info Device Info
  * This example has been tested with the following setup:
@@ -66,7 +68,7 @@
  *
  * \section exampledescription Description of the example
  * This example will demonstrate all the graphic primitives available in the
- * graphics service on a connectd LCD panel. It steps down the y-axis while
+ * graphics service on a connected LCD panel. It steps down the y-axis while
  * drawing the different primitives from left to right on the x-axis.
  * Finally it will display an Atmel logo centered at the bottom of the screen.
  *

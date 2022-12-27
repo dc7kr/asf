@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -51,7 +53,11 @@ void board_init(void)
 	WDT->WDT_MR = WDT_MR_WDDIS;
 #endif
 
-	/* Configure LED pins */
+	/* Configure Power LED */
+	gpio_configure_pin(LED3_GPIO, LED3_FLAGS);
+	gpio_set_pin_high(LED3_GPIO); /* Turned on by default */
+
+	/* Configure User LED pins */
 	gpio_configure_pin(LED0_GPIO, LED0_FLAGS);
 	gpio_configure_pin(LED1_GPIO, LED1_FLAGS);
 	gpio_configure_pin(LED2_GPIO, LED2_FLAGS);
@@ -305,6 +311,15 @@ void board_init(void)
 			USB_OVERCURRENT_DETECT_FLAGS);
 #endif
 
+#ifdef CONF_BOARD_MMA7341L
+	/* Configure MMA7341L mode set control pin */
+	gpio_configure_pin(PIN_MMA7341L_MODE, PIN_MMA7341L_MODE_FLAG);
+	/* Configure MMA7341L x,y,z axis output voltage pin */
+	gpio_configure_pin(PIN_MMA7341L_X_AXIS, PIN_MMA7341L_X_AXIS_FLAG);
+	gpio_configure_pin(PIN_MMA7341L_Y_AXIS, PIN_MMA7341L_Y_AXIS_FLAG);
+	gpio_configure_pin(PIN_MMA7341L_Z_AXIS, PIN_MMA7341L_Z_AXIS_FLAG);
+#endif
+
 #ifdef CONF_BOARD_ISO7816_RST
 	/* Configure ISO7816 card reset pin */
 	gpio_configure_pin(PIN_ISO7816_RST_IDX, PIN_ISO7816_RST_FLAG);
@@ -332,5 +347,77 @@ void board_init(void)
 	/* Configure the transiver1 RS & EN pins. */
 	gpio_configure_pin(PIN_CAN1_TR_RS_IDX, PIN_CAN1_TR_RS_FLAGS);
 	gpio_configure_pin(PIN_CAN1_TR_EN_IDX, PIN_CAN1_TR_EN_FLAGS);
+#endif
+
+#ifdef CONF_BOARD_SDRAMC
+	gpio_configure_pin(PIN_SDRAM_SDCKE, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDCS, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_RAS, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_CAS, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_BA0, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_BA1, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDWE, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_NBS0, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_NBS1, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA0, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA1, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA2, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA3, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA4, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA5, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA6, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA7, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA8, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA9, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA10, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA11, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA12, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA13, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA14, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_DATA15, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDA0, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDA1, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDA2, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDA3, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDA4, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDA5, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDA6, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDA7, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDA8, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDA9, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDA10, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDA11, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_SDA12, PIN_SDRAM_FLAGS);
+	gpio_configure_pin(PIN_SDRAM_EN, PIN_SDRAM_EN_FLAGS);
+#endif
+
+#ifdef CONF_BOARD_EMAC
+	gpio_configure_pin(PIN_EEMAC_EREFCK, PIN_EMAC_FLAGS);
+	gpio_configure_pin(PIN_EMAC_ETX0, PIN_EMAC_FLAGS);
+	gpio_configure_pin(PIN_EMAC_ETX1, PIN_EMAC_FLAGS);
+	gpio_configure_pin(PIN_EMAC_ETXEN, PIN_EMAC_FLAGS);
+	gpio_configure_pin(PIN_EMAC_ECRSDV, PIN_EMAC_FLAGS);
+	gpio_configure_pin(PIN_EMAC_ERX0, PIN_EMAC_FLAGS);
+	gpio_configure_pin(PIN_EMAC_ERX1, PIN_EMAC_FLAGS);
+	gpio_configure_pin(PIN_EMAC_ERXER, PIN_EMAC_FLAGS);
+	gpio_configure_pin(PIN_EMAC_EMDC, PIN_EMAC_FLAGS);
+	gpio_configure_pin(PIN_EMAC_EMDIO, PIN_EMAC_FLAGS);
+#endif
+
+#ifdef CONF_BOARD_NAND
+	gpio_configure_pin(PIN_EBI_NANDOE, PIN_EBI_NANDOE_FLAGS);
+	gpio_configure_pin(PIN_EBI_NANDWE, PIN_EBI_NANDWE_FLAGS);
+	gpio_configure_pin(PIN_EBI_NANDCLE, PIN_EBI_NANDCLE_FLAGS);
+	gpio_configure_pin(PIN_EBI_NANDALE, PIN_EBI_NANDALE_FLAGS);
+	gpio_configure_pin(PIN_EBI_NANDIO_0, PIN_EBI_NANDIO_0_FLAGS);
+	gpio_configure_pin(PIN_EBI_NANDIO_1, PIN_EBI_NANDIO_1_FLAGS);
+	gpio_configure_pin(PIN_EBI_NANDIO_2, PIN_EBI_NANDIO_2_FLAGS);
+	gpio_configure_pin(PIN_EBI_NANDIO_3, PIN_EBI_NANDIO_3_FLAGS);
+	gpio_configure_pin(PIN_EBI_NANDIO_4, PIN_EBI_NANDIO_4_FLAGS);
+	gpio_configure_pin(PIN_EBI_NANDIO_5, PIN_EBI_NANDIO_5_FLAGS);
+	gpio_configure_pin(PIN_EBI_NANDIO_6, PIN_EBI_NANDIO_6_FLAGS);
+	gpio_configure_pin(PIN_EBI_NANDIO_7, PIN_EBI_NANDIO_7_FLAGS);
+	gpio_configure_pin(PIN_NF_CE_IDX, PIN_NF_CE_FLAGS);
+	gpio_configure_pin(PIN_NF_RB_IDX, PIN_NF_RB_FLAGS);
 #endif
 }

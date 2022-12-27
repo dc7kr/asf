@@ -247,7 +247,6 @@
 					<name>CCDefines</name>
 					<state></state>
 					<state>CONF_GFX_HX8347A_ET024006DHU=1</state>
-					<state>GFX_INITIALIZED=1</state>
 					<state>BOARD=XPLAIN</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
@@ -554,7 +553,6 @@
 				<option>
 					<name>ADefines</name>
 					<state>CONF_GFX_HX8347A_ET024006DHU=1</state>
-					<state>GFX_INITIALIZED=1</state>
 					<state>BOARD=XPLAIN</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
@@ -1272,7 +1270,6 @@
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
 					<state>CONF_GFX_HX8347A_ET024006DHU=1</state>
-					<state>GFX_INITIALIZED=1</state>
 					<state>BOARD=XPLAIN</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
@@ -1579,7 +1576,6 @@
 				<option>
 					<name>ADefines</name>
 					<state>CONF_GFX_HX8347A_ET024006DHU=1</state>
-					<state>GFX_INITIALIZED=1</state>
 					<state>BOARD=XPLAIN</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>

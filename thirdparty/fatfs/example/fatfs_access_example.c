@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -76,16 +78,7 @@
  *
  *  \section Usage
  *
- *  -# Build the program and download it into the evaluation board. Please
- *     refer to the
- *     <a href="http://www.atmel.com/dyn/resources/prod_documents/6421B.pdf">
- *     SAM-BA User Guide</a>, the
- *     <a href="http://www.atmel.com/dyn/resources/prod_documents/doc6310.pdf">
- *     GNU-Based Software Development</a>
- *     application note or the
- *     <a href="http://www.iar.com/website1/1.0.1.0/78/1/">
- *     IAR EWARM User and reference guides</a>,
- *     depending on the solutions that users choose.
+ *  -# Build the program and download it into the evaluation board.
  *  -# On the computer, open and configure a terminal application
  *     (e.g., HyperTerminal on Microsoft Windows) with these settings:
  *    - 115200 bauds
@@ -109,7 +102,7 @@
  */
 
 #include <asf.h>
-#include "memories_initialization_sam.h"
+#include "memories_initialization.h"
 
 /* FatFS mount root directory*/
 #define STR_ROOT_DIRECTORY ""
@@ -125,6 +118,9 @@
 
 /** Example header */
 #define STRING_EOL    "\r"
+#ifndef BOARD_NAME
+# define BOARD_NAME "Undefined"
+#endif
 #define STRING_HEADER "-- FatFS Example --\r\n"\
 	"-- "BOARD_NAME " --\r\n"\
 	"-- Compiled: "__DATE__ " "__TIME__ " --"STRING_EOL
@@ -135,32 +131,32 @@
 static uint8_t data_buffer[DATA_SIZE];
 
 /* File name to be validated */
-const int8_t *file_name = STR_ROOT_DIRECTORY "Basic.bin";
+const char *file_name = STR_ROOT_DIRECTORY "Basic.bin";
 
 /**
- * *\brief Scan files under a certain path.
+ * \brief Scan files under a certain path.
  *
  * \param path Folder path.
  *
  * \return Scan result, 1: success.
  */
-static FRESULT scan_files(int8_t *path)
+static FRESULT scan_files(char *path)
 {
 	FRESULT res;
 	FILINFO fno;
 	DIR dir;
 	int32_t i;
-	int8_t *pc_fn;
+	char *pc_fn;
 #if _USE_LFN
-	int8_t c_lfn[_MAX_LFN + 1];
-	fno.lfname = (char *)c_lfn;
+	char c_lfn[_MAX_LFN + 1];
+	fno.lfname = c_lfn;
 	fno.lfsize = sizeof(c_lfn);
 #endif
 
 	/* Open the directory */
-	res = f_opendir(&dir, (char const *)path);
+	res = f_opendir(&dir, path);
 	if (res == FR_OK) {
-		i = strlen((char const *)path);
+		i = strlen(path);
 		for (;;) {
 			res = f_readdir(&dir, &fno);
 			if (res != FR_OK || fno.fname[0] == 0) {
@@ -168,7 +164,7 @@ static FRESULT scan_files(int8_t *path)
 			}
 
 #if _USE_LFN
-			pc_fn = (int8_t *)(*fno.lfname ? fno.lfname : fno.fname);
+			pc_fn = *fno.lfname ? fno.lfname : fno.fname;
 #else
 			pc_fn = fno.fname;
 #endif
@@ -178,7 +174,7 @@ static FRESULT scan_files(int8_t *path)
 
 			/* Check if it is a directory type */
 			if (fno.fattrib & AM_DIR) {
-				sprintf((char *)&path[i], "/%s", pc_fn);
+				sprintf(&path[i], "/%s", pc_fn);
 				res = scan_files(path);
 				if (res != FR_OK) {
 					break;
@@ -202,16 +198,20 @@ static FRESULT scan_files(int8_t *path)
 static uint8_t run_fatfs_test(void)
 {
 	uint32_t i;
-	uint32_t byte_to_read;
-	uint32_t byte_read;
+	UINT byte_to_read;
+	UINT byte_read;
 #if _FS_TINY == 0
-	uint32_t byte_written;
+	UINT byte_written;
 #endif
 
 	FRESULT res;
 	DIR dirs;
-	FATFS fs;
-	FIL file_object;
+
+	/* Declare these as static to avoid stack usage.
+	 * They each contain an array of maximum sector size.
+	 */
+	static FATFS fs;
+	static FIL file_object;
 
 	/* Mount disk*/
 	printf("-I- Mount disk %d\n\r", DISK_DEV_NUM);
@@ -231,7 +231,8 @@ static uint8_t run_fatfs_test(void)
 
 		/* Display the file tree */
 		puts("-I- Display files contained in the memory :\r");
-		scan_files(STR_ROOT_DIRECTORY);
+		strcpy((char *)data_buffer, STR_ROOT_DIRECTORY);
+		scan_files((char *)data_buffer);
 
 #if _FS_TINY == 0
 		puts("-I- The disk will be re-formatted.\r");
@@ -258,6 +259,9 @@ static uint8_t run_fatfs_test(void)
 		puts("-I- Please run Full version FAT FS test first\r");
 		return 0;
 #endif
+	} else {
+		printf("-E- f_opendir pb: 0x%X\n\r", res);
+		return 0;
 	}
 
 #if _FS_TINY == 0
@@ -334,9 +338,9 @@ static uint8_t run_fatfs_test(void)
 				(data_buffer[i] == (i & 0xAA)))) {
 			printf(
 					"Invalid data at data[%u] (expected 0x%02X, read 0x%02X)\n\r",
-					i,
-					((i & 1) == 0) ? (i & 0x55) : (i & 0xAA),
-					data_buffer[i]);
+					(unsigned int)i,
+					(unsigned int)(((i & 1) == 0) ? (i & 0x55) : (i & 0xAA)),
+					(unsigned int)data_buffer[i]);
 		}
 	}
 	puts("-I- File data Ok !\r");
@@ -352,7 +356,7 @@ int main(void)
 	const usart_serial_options_t usart_serial_options = {
 		.baudrate   = CONF_TEST_BAUDRATE,
 		.paritytype = CONF_TEST_PARITY,
-#ifndef SAM
+#if !SAM
 		.charlength = CONF_TEST_CHARLENGTH,
 		.stopbits   = CONF_TEST_STOPBITS,
 #endif
@@ -361,7 +365,11 @@ int main(void)
 	sysclk_init();
 	board_init();
 
-#ifdef SAM
+#if XMEGA
+	rtc_init();
+#endif
+
+#if SAM
 	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
 #endif
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);

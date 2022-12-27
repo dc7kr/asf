@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -121,10 +123,10 @@ static uhc_sof_timeout_callback_t uhc_sof_timeout_callback;
 //! Number of SOF remaining before call uhc_sof_timeout_callback callback
 uint8_t uhc_sof_timeout;
 
-//! Array of all UHI availables
+//! Array of all UHI available
 static uhi_api_t uhc_uhis[] = {USB_HOST_UHI};
 
-//! Number of UHI availables
+//! Number of UHI available
 #define UHC_NB_UHI  (sizeof(uhc_uhis)/sizeof(uhc_uhis[0]))
 
 //! Volatile flag to pool the end of Get USB string setup request
@@ -260,7 +262,7 @@ static void uhc_connection_tree(bool b_plug, uhc_device_t* dev)
 			// Eventually stop enumeration timeout on-going on this device
 			uhc_sof_timeout = 0;
 		}
-		// Abort all tranfers (endpoint control and other) and free pipe(s)
+		// Abort all transfers (endpoint control and other) and free pipe(s)
 		uhd_ep_free(dev->address, 0xFF);
 
 		// Disable all USB interfaces (this includes HUB interface)
@@ -327,7 +329,7 @@ static void uhc_enumeration_step4(void)
  * \brief Device enumeration step 5
  * Requests the USB device descriptor.
  * This setup request can be aborted
- * because the control endpoint size is unknow.
+ * because the control endpoint size is unknown.
  */
 static void uhc_enumeration_step5(void)
 {
@@ -478,7 +480,7 @@ static void uhc_enumeration_step10(
 /**
  * \brief Device enumeration step 11
  * Updates USB host pipe with the new USB address.
- * Requests a complet USB device descriptor.
+ * Requests a complete USB device descriptor.
  */
 static void uhc_enumeration_step11(void)
 {
@@ -562,7 +564,7 @@ static void uhc_enumeration_step12(
 
 /**
  * \brief Device enumeration step 13
- * Requests a complet Get configuration descriptor.
+ * Requests a complete Get configuration descriptor.
  *
  * \param add           USB address of the setup request
  * \param status        Transfer status
@@ -608,7 +610,7 @@ static void uhc_enumeration_step13(
 		// USB interfaces consumption too high
 		UHC_ENUM_EVENT(uhc_dev_enum, UHC_ENUM_OVERCURRENT);
 
-		// Abort emuneration, set line in suspend mode
+		// Abort enumeration, set line in suspend mode
 		uhc_enumeration_suspend();
 		return;
 	}
@@ -617,7 +619,7 @@ static void uhc_enumeration_step13(
 	uhc_power_running += bus_power;
 #endif
 
-	// Save informatio about USB configuration descriptor size
+	// Save information about USB configuration descriptor size
 	conf_size = le16_to_cpu(uhc_dev_enum->conf_desc->wTotalLength);
 	conf_num = uhc_dev_enum->conf_desc->bConfigurationValue;
 	Assert(conf_num);
@@ -687,7 +689,7 @@ static void uhc_enumeration_step14(
 			uhd_ep_free(UHC_DEVICE_ENUM_ADD,0xFF);
 			UHC_ENUM_EVENT(uhc_dev_enum,UHC_ENUM_HARDWARE_LIMIT);
 
-			// Abort emuneration, set line in suspend mode
+			// Abort enumeration, set line in suspend mode
 			uhc_enumeration_suspend();
 			return;
 		}
@@ -696,7 +698,7 @@ static void uhc_enumeration_step14(
 		// No USB interface supported
 		UHC_ENUM_EVENT(uhc_dev_enum, UHC_ENUM_UNSUPPORTED);
 
-		// Abort emuneration, set line in suspend mode
+		// Abort enumeration, set line in suspend mode
 		uhc_enumeration_suspend();
 		return;
 	}
@@ -751,7 +753,7 @@ static void uhc_enumeration_step15(
 /**
  * \brief Manage error during device enumeration
  *
- * \param status        Enumeration error occured
+ * \param status        Enumeration error occurred
  */
 static void uhc_enumeration_error(uhc_enum_status_t status)
 {
@@ -768,13 +770,13 @@ static void uhc_enumeration_error(uhc_enum_status_t status)
 	}
 	uhc_dev_enum->address = 0;
 	if (uhc_enum_try++ < UHC_ENUM_NB_TRY) {
-		// Restart enumeration at begining
+		// Restart enumeration at beginning
 		uhc_enumeration_step1();
 		return;
 	}
-	// Abort emuneration, set line in suspend mode
+	// Abort enumeration, set line in suspend mode
 	uhc_enumeration_suspend();
-	UHC_ENUM_EVENT(uhc_dev_enum, UHC_ENUM_FAIL);
+	UHC_ENUM_EVENT(uhc_dev_enum, status);
 	uhc_enum_try = 0;
 }
 
@@ -972,7 +974,7 @@ char *uhc_dev_get_string_manufacturer(uhc_device_t * dev)
 char *uhc_dev_get_string_product(uhc_device_t * dev)
 {
 	if (!dev->dev_desc.iProduct) {
-		return NULL; // No porduct string available
+		return NULL; // No product string available
 	}
 	return uhc_dev_get_string(dev, dev->dev_desc.iProduct);
 }

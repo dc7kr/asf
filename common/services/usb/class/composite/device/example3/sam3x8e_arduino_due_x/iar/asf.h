@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -49,6 +51,9 @@
  * The file is automatically generated and will be re-written when
  * running the ASF driver selector tool. Any changes will be discarded.
  */
+
+// From module: Arduino Due/X LED support enabled
+#include <led.h>
 
 // From module: Common SAM compiler driver
 #include <compiler.h>

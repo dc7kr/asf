@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -247,7 +249,7 @@ void timezone_init(void)
  *
  * This application will show a menu with available timezone offset and set
  * the selected timezone to be used by the date&time application. If the
- * timezone seting differs from the already stored setting in EEPROM, the
+ * timezone setting differs from the already stored setting in EEPROM, the
  * EEPROM value will be updated with the new selection.
  */
 void timezone_select_application(void)

@@ -4,8 +4,8 @@
 * \brief STK600 with the RCUC3D routing card board header file.
  *
  * This file contains definitions and services related to the features of the
- * STK600 board. As the STK600 Leds, switches, clocks are configurables (hardware
- * through connectors and software through AVR Studio), the proposed definitions
+ * STK600 board. As the STK600 Leds, switches, clocks are configurable
+ * through connectors and software through Atmel Studio, the proposed definitions
  * below should be considered as examples and may be modified for a given application.
  *
  * To use this board, define BOARD=STK600_UC3D.
@@ -13,6 +13,8 @@
  * Copyright (c) 2011 Atmel Corporation. All rights reserved.
  * 
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -49,7 +51,7 @@
 #include "sysfont.h"
 
 /* Use macro from conf_sysfont.h to define font glyph data. */
-SYSFONT_DEFINE_GLYPHS;
+SYSFONT_DEFINE_GLYPHS
 
 /**
  * \brief Initialize a basic system font

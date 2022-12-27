@@ -4,6 +4,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -36,7 +38,7 @@
  *
  */
 /*!
- * \defgroup group_dsplib_printcomplexvect Complex Vector Visualizator
+ * \defgroup group_dsplib_printcomplexvect Complex Vector Visualizer
  * \ingroup group_dsplib_tools
  * \brief This script is used to visualize a fixed-length data buffer from the serial port formatted as follow:
  * \code 1.	0.265445	+ 0.586624i

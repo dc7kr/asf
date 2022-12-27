@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -282,7 +284,7 @@ bool  jpeg_lib_decode(int offset)
 	/* Establish the setjmp return context for my_error_exit to use. */
 	if (setjmp(jerr->setjmp_buffer))
 	{
-	    /* If we get here, the JPEG code has signaled an error.
+	    /* If we get here, the JPEG code has signalled an error.
 	     * We need to clean up the JPEG object, close the input file, and return.
 	     */
 	    jpeg_abort_decompress(cinfo);

@@ -1,11 +1,13 @@
 /**
  * \file
  *
- * \brief PWM PDC example for SAM.
+ * \brief PWM SYNC example for SAM.
  *
  * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -40,18 +42,18 @@
  */
 
 /**
- * \mainpage PWM PDC Example
+ * \mainpage PWM SYNC Example
  *
  * \par Purpose
  *
- * This example demonstrates a simple configuration of 2 PWM synchronous 
- * channels to generate variable duty cycle signals. The duty cycle values are 
- * updated automatically by the Peripheral DMA Controller (PDC), which makes 2 
+ * This example demonstrates a simple configuration of 2 PWM synchronous
+ * channels to generate variable duty cycle signals. The duty cycle values are
+ * updated automatically by the Peripheral DMA Controller (PDC), which makes 2
  * on-board LEDs glow repeatedly.
  *
  * \section Requirements
  *
- * This example can be used on any SAM3/4 boards. The 2 required leds need to 
+ * This example can be used on any SAM3/4 boards. The 2 required leds need to
  * be connected to PWM output pins, else consider probing the PWM output pins
  * with an oscilloscope.
  *
@@ -59,10 +61,9 @@
  *
  * -# Initialize system clock and pins setting on board
  * -# Initialize PWM clock
- * -# Configure PIN_PWM_LED0_CHANNEL
- * -# Configure PIN_PWM_LED1_CHANNEL
+ * -# Configure PIN_PWM_LED0_CHANNEL and PIN_PWM_LED1_CHANNEL
  * -# Configure PDC transfer for PWM duty cycle update
- * -# Enable interrupt of PDC Tx end and PIN_PWM_LED0_CHANNEL
+ * -# Enable interrupt of PDC Tx end and PWM_CHANNEL_0
  * -# Update synchronous period, dead time and override output via UART Console
  * -# Restart PDC transfer in ISR
  *
@@ -89,7 +90,7 @@
 #define DUTY_BUFFER_LENGTH      ((PERIOD_VALUE - INIT_DUTY_VALUE + 1) * 3)
 
 #define STRING_EOL    "\r"
-#define STRING_HEADER "-- PWM PDC Example --\r\n" \
+#define STRING_HEADER "-- PWM SYNC Example --\r\n" \
 		"-- "BOARD_NAME" --\r\n" \
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 
@@ -170,27 +171,14 @@ void PWM_Handler(void)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), CONSOLE_BAUD_RATE, UART_MR_PAR_NO };
-
-	/* Configure PIO */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -208,7 +196,7 @@ int main(void)
 	sysclk_init();
 	board_init();
 
-	/* Configure the console uart for debug infomation */
+	/* Configure the console uart for debug information */
 	configure_console();
 
 	/* Output example information */
@@ -217,7 +205,7 @@ int main(void)
 	/* Enable PWM peripheral clock */
 	pmc_enable_periph_clk(ID_PWM);
 
-	/* Disable PWM channel 0 and 1 */
+	/* Disable PWM channels for LED0 and LED1 */
 	pwm_channel_disable(PWM, PIN_PWM_LED0_CHANNEL);
 	pwm_channel_disable(PWM, PIN_PWM_LED1_CHANNEL);
 
@@ -250,28 +238,28 @@ int main(void)
 		.output_selection.b_override_pwml = false  /* Disable override PWML outputs */
 	};
 
-	/* Initialize PWM channel 1 */
-	sync_channel.channel = PIN_PWM_LED1_CHANNEL;
+	/* Initialize the PWM channel for LED0 */
+	sync_channel.channel = PIN_PWM_LED0_CHANNEL;
 	pwm_channel_init(PWM, &sync_channel);
 
-	/* Initialize PWM channel 0 */
-	sync_channel.channel = PIN_PWM_LED0_CHANNEL;
+	/* Initialize the PWM channel for LED1 */
+	sync_channel.channel = PIN_PWM_LED1_CHANNEL;
 	pwm_channel_init(PWM, &sync_channel);
 
 	/*
 	 * Initialize PWM synchronous channels
-	 * Synchronous Update Mode: Automatic update duty cycle value by the PDC 
-	 * and automatic update of synchronous channels. The update occurs when 
+	 * Synchronous Update Mode: Automatic update duty cycle value by the PDC
+	 * and automatic update of synchronous channels. The update occurs when
 	 * the Update Period elapses (MODE 2).
 	 * Synchronous Update Period = MAX_SYNC_UPDATE_PERIOD.
 	 */
 	pwm_sync_init(PWM, PWM_SYNC_UPDATE_MODE_2, MAX_SYNC_UPDATE_PERIOD);
 
 	/*
-	 * Request PDC transfer as soon as the synchronous update period elapses 
+	 * Request PDC transfer as soon as the synchronous update period elapses
 	 * (comparison unit is ignored).
 	 */
-	pwm_pdc_set_request_mode(PWM, PWM_PDC_UPDATE_PERIOD_ELAPSED, (1 << 0));
+	pwm_pdc_set_request_mode(PWM, PWM_PDC_UPDATE_PERIOD_ELAPSED, PWM_CMP_UNIT_0);
 
 	/* Configure interrupt for PDC transfer */
 	NVIC_DisableIRQ(PWM_IRQn);
@@ -295,7 +283,7 @@ int main(void)
 	pdc_enable_transfer(PDC_PWM, PERIPH_PTCR_TXTEN);
 
 	/* Enable all synchronous channels by enabling channel 0 */
-	pwm_channel_enable(PWM, PIN_PWM_LED0_CHANNEL);
+	pwm_channel_enable(PWM, PWM_CHANNEL_0);
 
 	while (1) {
 		display_menu();
@@ -336,7 +324,7 @@ int main(void)
 			break;
 		case 'o':
 		case 'O':
-			if (channel_output.b_override_pwmh 
+			if (channel_output.b_override_pwmh
 					&& channel_output.b_override_pwml) {
 				/* Disable override outputs of channel 0 synchronously */
 				channel_output.b_override_pwmh = false;
@@ -356,7 +344,7 @@ int main(void)
 			}
 			break;
 		default:
-			puts("Unknow input!\r\n");
+			puts("Unknown input!\r\n");
 			break;
 		}
 	}

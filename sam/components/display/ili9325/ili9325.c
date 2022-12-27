@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -304,7 +306,7 @@ static void ili9325_write_ram(ili9325_color_t ul_color)
 }
 
 /**
- * \brief Write mutiple data in buffer to LCD controller.
+ * \brief Write multiple data in buffer to LCD controller.
  *
  * \param p_ul_buf data buffer.
  * \param ul_size size in pixels.
@@ -455,7 +457,7 @@ static void ili9325_check_box_coordinates(uint32_t *p_ul_x1, uint32_t *p_ul_y1,
  * 1. ILI9325 related Pins have been initialized correctly. \n
  * 2. SMC has been configured correctly for access ILI9325 (8-bit system interface for now). \n
  *
- * \param p_opt pointer to ILI9325 option stucture.
+ * \param p_opt pointer to ILI9325 option structure.
  *
  * \return 0 if initialization succeeds, otherwise fails.
  */

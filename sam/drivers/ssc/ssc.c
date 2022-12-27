@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -94,7 +96,7 @@ uint32_t ssc_set_clock_divider(Ssc *p_ssc, uint32_t ul_bitrate,
  * \param p_ssc Pointer to an SSC instance.
  * \param ul_mode Working mode, SSC_I2S_MASTER_OUT or SSC_I2S_SLAVE_OUT.
  * \param ul_cks Source clock selection while working in SSC_I2S_SLAVE_OUT mode.
- * \param ul_ch_mode Channel mode, stero or mono.
+ * \param ul_ch_mode Channel mode, stereo or mono.
  * \param ul_datlen Data length for one channel.
  */
 void ssc_i2s_set_transmitter(Ssc *p_ssc, uint32_t ul_mode,
@@ -120,7 +122,7 @@ void ssc_i2s_set_transmitter(Ssc *p_ssc, uint32_t ul_mode,
 		break;
 	}
 	if (ul_mode & SSC_I2S_MASTER_OUT) {
-		/* Stero has 2 data words, and mono has only one data word. */
+		/* Stereo has 2 data words, and mono has only one data word. */
 		if (SSC_AUDIO_STERO == ul_ch_mode) {
 			tx_data_frame_option.ul_datnb = 1;
 		} else {
@@ -174,7 +176,7 @@ void ssc_i2s_set_transmitter(Ssc *p_ssc, uint32_t ul_mode,
  * \param p_ssc Pointer to an SSC instance.
  * \param ul_mode Working mode, SSC_I2S_MASTER_IN or SSC_I2S_SLAVE_IN.
  * \param ul_cks Source clock selection while working in SSC_I2S_SLAVE_IN mode.
- * \param ul_ch_mode Channel mode, stero or mono.
+ * \param ul_ch_mode Channel mode, stereo or mono.
  * \param ul_datlen Data length for one channel.
  */
 void ssc_i2s_set_receiver(Ssc *p_ssc, uint32_t ul_mode,
@@ -200,7 +202,7 @@ void ssc_i2s_set_receiver(Ssc *p_ssc, uint32_t ul_mode,
 		break;
 	}
 	if (ul_mode & SSC_I2S_MASTER_IN) {
-		/* Stero has 2 data words, and mono has only one data word. */
+		/* Stereo has 2 data words, and mono has only one data word. */
 		if (SSC_AUDIO_STERO == ul_ch_mode) {
 			rx_data_frame_option.ul_datnb = 1;
 		} else {

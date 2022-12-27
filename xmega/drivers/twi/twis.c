@@ -41,6 +41,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -171,7 +173,7 @@ void TWI_SlaveInterruptHandler(TWI_Slave_t *twi)
 
 /*! \brief TWI address match interrupt handler.
  *
- *  Prepares TWI module for transaction when an address match occures.
+ *  Prepares TWI module for transaction when an address match occurs.
  *
  *  \param twi The TWI_Slave_t struct instance.
  */

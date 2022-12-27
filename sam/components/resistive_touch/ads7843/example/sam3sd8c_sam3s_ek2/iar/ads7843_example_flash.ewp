@@ -292,12 +292,14 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../common/services/spi/sam_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/ebi/smc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
@@ -305,6 +307,7 @@
 					<state>$PROJ_DIR$/../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../display/aat31xx</state>
+					<state>$PROJ_DIR$/../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../boards/sam3s_ek2</state>
 					<state>$PROJ_DIR$/../../../../../../../common/services/gpio</state>
@@ -742,7 +745,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1200,12 +1203,14 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../common/services/spi/sam_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/ebi/smc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
@@ -1213,6 +1218,7 @@
 					<state>$PROJ_DIR$/../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../display/aat31xx</state>
+					<state>$PROJ_DIR$/../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../boards/sam3s_ek2</state>
 					<state>$PROJ_DIR$/../../../../../../../common/services/gpio</state>
@@ -1650,7 +1656,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1824,18 +1830,18 @@
 				<name>resistive_touch</name>
 				<group>
 					<name>ads7843</name>
-					<group>
-						<name>example</name>
-						<file>
-							<name>$PROJ_DIR$/../../ads7843_example.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../rtouch_calibrate.c</name>
-						</file>
-					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../ads7843.c</name>
 					</file>
+					<group>
+						<name>example</name>
+						<file>
+							<name>$PROJ_DIR$/../../rtouch_calibrate.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../ads7843_example.c</name>
+						</file>
+					</group>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../rtouch.c</name>
@@ -1844,15 +1850,15 @@
 			<group>
 				<name>display</name>
 				<group>
-					<name>ili9325</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../display/ili9325/ili9325.c</name>
-					</file>
-				</group>
-				<group>
 					<name>aat31xx</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../display/aat31xx/aat31xx.c</name>
+					</file>
+				</group>
+				<group>
+					<name>ili9325</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../display/ili9325/ili9325.c</name>
 					</file>
 				</group>
 			</group>
@@ -1860,12 +1866,24 @@
 		<group>
 			<name>drivers</name>
 			<group>
+				<name>spi</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/spi/spi.c</name>
+				</file>
+			</group>
+			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/uart/uart.c</name>
+				</file>
+			</group>
+			<group>
 				<name>pio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/pio/pio.c</name>
+					<name>$PROJ_DIR$/../../../../../../drivers/pio/pio_handler.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/pio/pio_handler.c</name>
+					<name>$PROJ_DIR$/../../../../../../drivers/pio/pio.c</name>
 				</file>
 			</group>
 			<group>
@@ -1878,21 +1896,9 @@
 				</group>
 			</group>
 			<group>
-				<name>spi</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/spi/spi.c</name>
-				</file>
-			</group>
-			<group>
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/uart/uart.c</name>
 				</file>
 			</group>
 		</group>
@@ -1913,22 +1919,13 @@
 								</file>
 							</group>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/exceptions.c</name>
+								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/system_sam3sd8.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/system_sam3sd8.c</name>
+								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/exceptions.c</name>
 							</file>
 						</group>
 					</group>
-				</group>
-			</group>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
 				</group>
 			</group>
 		</group>
@@ -1947,6 +1944,15 @@
 		<group>
 			<name>utils</name>
 			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/utils/stdio/read.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/utils/stdio/write.c</name>
+				</file>
+			</group>
+			<group>
 				<name>interrupt</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
@@ -1963,6 +1969,12 @@
 						<name>$PROJ_DIR$/../../../../../../../common/services/clock/sam3s/sysclk.c</name>
 					</file>
 				</group>
+			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
 			</group>
 			<group>
 				<name>spi</name>

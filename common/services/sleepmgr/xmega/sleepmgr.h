@@ -3,9 +3,11 @@
  *
  * \brief AVR XMEGA Sleep manager implementation
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -78,15 +80,11 @@ enum sleepmgr_mode {
 #if defined(CONFIG_SLEEPMGR_ENABLE) || defined(__DOXYGEN__)
 //! Sleep mode lock counters
 extern uint8_t sleepmgr_locks[];
-#  ifndef __DOXYGEN__
-PROGMEM_DECLARE(extern enum SLEEP_SMODE_enum, sleepmgr_configs[]);
-#  else
 /**
  * \brief Look-up table with sleep mode configurations
  * \note This is located in program memory (Flash) as it is constant.
  */
 extern enum SLEEP_SMODE_enum sleepmgr_configs[];
-#  endif /* __DOXYGEN__ */
 #endif /* CONFIG_SLEEPMGR_ENABLE */
 //! @}
 
@@ -94,7 +92,7 @@ static inline void sleepmgr_sleep(const enum sleepmgr_mode sleep_mode)
 {
 	Assert(sleep_mode != SLEEPMGR_ACTIVE);
 #ifdef CONFIG_SLEEPMGR_ENABLE
-	sleep_set_mode(PROGMEM_READ_BYTE(&sleepmgr_configs[sleep_mode-1]));
+	sleep_set_mode(sleepmgr_configs[sleep_mode-1]);
 	sleep_enable();
 
 	cpu_irq_enable();

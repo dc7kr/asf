@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -59,13 +61,13 @@
 //! cpu_set_timeout() function.
 typedef struct
 {
-  //! The cycle count at the begining of the timeout.
+  //! The cycle count at the beginning of the timeout.
   unsigned long delay_start_cycle;
 
   //! The cycle count at the end of the timeout.
   unsigned long delay_end_cycle;
 
-  //! Enable/disable the timout detection
+  //! Enable/disable the timeout detection
   unsigned char timer_state;
   #define CPU_TIMER_STATE_STARTED 0
   #define CPU_TIMER_STATE_REACHED 1
@@ -178,7 +180,7 @@ static inline void cpu_set_timeout(unsigned long delay, t_cpu_time *cpu_time)
  *
  * \param  cpu_time:   (input) internal information used by the timer API.
  *
- * \return true if timeout occured, otherwise false.
+ * \return true if timeout occurred, otherwise false.
  */
 #if (defined __GNUC__)
 __attribute__((__always_inline__))
@@ -190,7 +192,7 @@ static inline unsigned long cpu_is_timeout(t_cpu_time *cpu_time)
   if( cpu_time->timer_state==CPU_TIMER_STATE_STOPPED )
     return false;
 
-  // Test if the timeout as already occured.
+  // Test if the timeout as already occurred.
   else if (cpu_time->timer_state == CPU_TIMER_STATE_REACHED)
     return true;
 

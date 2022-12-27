@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -271,8 +273,8 @@ bool adcifb_is_drdy(volatile avr32_adcifb_t *adcifb)
  *
  * \param *adcifb Base address of the ADCIFB module
  *
- * \return bool   true if an overrun has occured
- *                false if no overrun occured
+ * \return bool   true if an overrun has occurred
+ *                false if no overrun occurred
  */
 bool adcifb_is_ovre(volatile avr32_adcifb_t *adcifb)
 {

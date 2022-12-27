@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -138,7 +140,7 @@ static bool is_user_sig_equal_to_buffer(flash_addr_t address, uint8_t *buffer, u
  * - Write to user signature row with automatic erasing enabled
  * - Verify contents is equal to buffer
  *
- * \return STATUS_OK if test succeded, otherwise ERR_BAD_DATA
+ * \return STATUS_OK if test succeeded, otherwise ERR_BAD_DATA
  */
 static status_code_t test_write_and_erase(void)
 {
@@ -169,7 +171,7 @@ static status_code_t test_write_and_erase(void)
  * - Write other values to user signature row with automatic erasing disabled
  * - Verify contents is NOT equal to buffer
  *
- * \return STATUS_OK if test succeded, otherwise ERR_BAD_DATA
+ * \return STATUS_OK if test succeeded, otherwise ERR_BAD_DATA
  */
 static status_code_t test_write_no_erase(void)
 {
@@ -213,7 +215,7 @@ static status_code_t test_write_no_erase(void)
  * - Read back with nvm_user_sig_read_buffer().
  * - Verify contents
  *
- * \return STATUS_OK if test succeded, otherwise ERR_BAD_DATA
+ * \return STATUS_OK if test succeeded, otherwise ERR_BAD_DATA
  */
 static status_code_t test_read(void)
 {

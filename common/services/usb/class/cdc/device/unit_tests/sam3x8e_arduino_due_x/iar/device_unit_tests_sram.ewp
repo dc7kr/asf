@@ -1928,6 +1928,12 @@
 				</file>
 			</group>
 			<group>
+				<name>uotghs</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs/uotghs_device.c</name>
+				</file>
+			</group>
+			<group>
 				<name>uart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart/uart.c</name>
@@ -1937,12 +1943,6 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>uotghs</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs/uotghs_device.c</name>
 				</file>
 			</group>
 		</group>
@@ -1970,15 +1970,6 @@
 							</file>
 						</group>
 					</group>
-				</group>
-			</group>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../sam/utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
 				</group>
 			</group>
 		</group>

@@ -1,11 +1,13 @@
 /**
  * \file
  *
- * \brief Ethernet Phy Management for a dummy ethernet phy component
+ * \brief Ethernet Phy Management for a dummy Ethernet phy component
  *
  * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -52,12 +54,12 @@
 #warning Set a default value : #define EXTPHY_PHY_ADDR 0x01
 #endif 
 
-/*! Phy Identifier for a dummy ethernet phy */
+/*! Phy Identifier for a dummy Ethernet phy */
 #define EXTPHY_PHY_ID               0xFFFFFFFF
 
 
 
-/*! \name Extended registers for a dummy ethernet phy
+/*! \name Extended registers for a dummy Ethernet phy
  */
 //! @{
 #define PHY_RBR             0x17        //!< RMII Bypass reg
@@ -116,10 +118,10 @@ static inline void ethernet_phy_sw_reset(volatile avr32_macb_t *macb) {}
  */
 static inline void ethernet_phy_setup_rmii(volatile avr32_macb_t *macb) {}
 
-/*! \brief Setup auto-negociation for the Phy.
+/*! \brief Setup auto-negotiation for the Phy.
  *
  */
-static inline void ethernet_phy_setup_auto_negociation(volatile avr32_macb_t *macb, volatile unsigned long *config) {}
+static inline void ethernet_phy_setup_auto_negotiation(volatile avr32_macb_t *macb, volatile unsigned long *config) {}
 
 
 #endif /* DUMMY_PHY_H_INCLUDED */

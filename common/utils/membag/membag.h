@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -80,12 +82,24 @@
 
 /**
  * Macro used to create memory bags in conf_membag.h
+ *
+ * \note Multiple bags of the same size are allowed, if more than 32 bags of a
+ *       given size are required in an application.
+ *
+ * \param objsize  Size of each block in the bag
+ * \param nr_objs  Number of blocks in the bag, a value less than 32
  */
 #define MEMBAG(objsize, nr_objs)\
 	{ .block_size = objsize, .num_blocks = nr_objs }
 
 /**
  * Macro used to store the size of the membags in conf_membag.h
+ *
+ * \note Multiple bags of the same size are allowed, if more than 32 bags of a
+ *       given size are required in an application.
+ *
+ * \param objsize  Size of each block in the bag
+ * \param nr_objs  Number of blocks in the bag, a value less than 32
  */
 #define MEMBAG_SIZE(objsize, nr_objs)\
 	(objsize * nr_objs)

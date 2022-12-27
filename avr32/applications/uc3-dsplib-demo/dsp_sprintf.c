@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -86,10 +88,10 @@ static char *dsp_sprint_ui(char *out, unsigned int n)
     dsp_debug_buffer[--i] = '0' + n%10;
     // Divide per 10 this number
     n /= 10;
-  // This until n reachs 0
+  // This until n reaches 0
   } while (n);
 
-  // Returns a pointer on the begining of the generated string
+  // Returns a pointer on the beginning of the generated string
   return &dsp_debug_buffer[i];
 }
 
@@ -147,7 +149,7 @@ static int dsp_sprint(char **out, int nb_bits, int q, int i)
   // if this is a negative number
   if (i < 0)
   {
-    // Particulary case
+    // Particular case
     if (i == 0x80000000)
     {
       i = 0;
@@ -178,7 +180,7 @@ static int dsp_sprint(char **out, int nb_bits, int q, int i)
   n += dsp_sprint_after_radix(out, i, 1 << (nb_bits-q), 4);
 
 
-  // Retruns the length of the string generated
+  // Returns the length of the string generated
   return n;
 }
 

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -47,16 +49,16 @@
  * peripherals.
  *
  * \par Requirements
- *  This package can be used with all SAM3-EK. 
+ *  This package can be used with all SAM-EK. 
  *
  * \par Description
  *
  * On start up, the debug information is dumped to on-board USART port.
- * A terminal application, such as hyperterminal, is used to monitor these
- * debug information. Open another hyperterminal to connect with
+ * A terminal application, such as HyperTerminal, is used to monitor these
+ * debug information. Open another HyperTerminal to connect with
  * on-board USART port. Then the program works in ECHO mode, so USART will
- * send back anything it receives from the hyperterminal.  You can send a text
- * file from the hyperterminal connected with USART port to the device (without
+ * send back anything it receives from the HyperTerminal.  You can send a text
+ * file from the HyperTerminal connected with USART port to the device (without
  * any protocol such as X-modem).
  *
  * \par Usage
@@ -72,20 +74,23 @@
  *   - No flow control
  * -# In the terminal window, the following text should appear:
  *    \code
- *     -- Basic USART Serial Project --
+ *     -- USART Serial Example --
  *     -- xxxxxx-xx
  *     -- Compiled: xxx xx xxxx xx:xx:xx --
  *     -- Start to echo serial inputs --
+ *     -- -I- Default Transfer with PDC --
+ *     -- -I- Press 's' to switch transfer mode
  *    \endcode
- * -# Send a file in text format from the hyperterminal connected with USART port to
+ * -# Send a file in text format from the HyperTerminal connected with USART port to
  *    the device. On HyperTerminal, this is done by selecting "Transfer -> Send Text File"
  *    (this does not prevent you from sending binary files). The transfer will start and then
- *    you could read the file in the hyperterminal.
+ *    you could read the file in the HyperTerminal.
  *
  */
 
 #include <string.h>
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_example.h"
@@ -120,7 +125,7 @@ static uint8_t gs_puc_buffer[2][BUFFER_SIZE];
 static uint32_t gs_ul_size_buffer = BUFFER_SIZE;
 
 /** Byte mode read buffer. */
-static uint16_t gs_us_read_buffer = 0;
+static uint32_t gs_ul_read_buffer = 0;
 
 /** Current transfer mode. */
 static uint8_t gs_uc_trans_mode = PDC_TRANSFER;
@@ -170,8 +175,8 @@ void USART_Handler(void)
 	} else {
 		/* Transfer without PDC. */
 		if (ul_status & US_CSR_RXRDY) {
-			usart_getchar(BOARD_USART, (uint32_t *)&gs_us_read_buffer);
-			usart_write(BOARD_USART, gs_us_read_buffer);
+			usart_getchar(BOARD_USART, &gs_ul_read_buffer);
+			usart_write(BOARD_USART, gs_ul_read_buffer);
 		}
 	}
 }
@@ -271,27 +276,14 @@ static void configure_tc(void)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO. */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC. */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART. */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -333,7 +325,7 @@ int main(void)
 	uint8_t uc_char;
 	uint8_t uc_flag;
 
-	/* Initialize the SAM3 system. */
+	/* Initialize the SAM system. */
 	sysclk_init();
 	board_init();
 
@@ -360,7 +352,8 @@ int main(void)
 
 	gs_ul_size_buffer = BUFFER_SIZE;
 
-	puts("-I- Default Transfer with PDC \r\n"
+	puts("-- Start to echo serial inputs -- \r\n"
+			"-I- Default Transfer with PDC \r\n"
 			"-I- Press 's' to switch transfer mode \r");
 	gs_uc_trans_mode = PDC_TRANSFER;
 

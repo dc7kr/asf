@@ -5,11 +5,13 @@
  *        ILI9341 display controller.
  * display controller.
  *
- * This files includes the correct header files for the grapics service
+ * This files includes the correct header files for the graphics service
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -54,8 +56,7 @@ extern "C" {
 
 /**
  * \ingroup gfx_group
- * \defgroup gfx_ili9341_sdt028Atft SDT028ATFT display using ILI9341 display
- * controller
+ * \defgroup gfx_ili9341_sdt028Atft SDT028ATFT display using ILI9341 display controller
  *
  * This is hardware specific configuration that configures the graphical
  * service for use with the ILI9341 display controller and the SDT028ATFT
@@ -66,10 +67,6 @@ extern "C" {
  *
  * @{
  */
-
-/* Panel information */
-#define GFX_PANELWIDTH ILI9341_DEFAULT_WIDTH
-#define GFX_PANELHEIGHT ILI9341_DEFAULT_HEIGHT
 
 typedef ili9341_color_t gfx_color_t;
 typedef ili9341_coord_t gfx_coord_t;
@@ -86,7 +83,7 @@ typedef ili9341_coord_t gfx_coord_t;
  * \brief Initialize the ili9341 display controller
  *
  * This function will be called when calling \ref gfx_init.
- * It will draw a black bacground to the display and enable the
+ * It will draw a black background to the display and enable the
  * display backlight if available.
  */
 void gfx_ili9341_init(void);
@@ -245,7 +242,7 @@ void gfx_ili9341_set_orientation(uint8_t flags);
  * ILI9341 display driver specific function, see
  * \ref ili9341_duplicate_pixel
  */
-#define gfx_duplicate_pixel(color, count) ili9341_duplicate_pixel(color, count);
+#define gfx_duplicate_pixel(color, count) ili9341_duplicate_pixel(color, count)
 
 /**
  * ILI9341 display driver specific function, see
@@ -270,19 +267,19 @@ void gfx_ili9341_set_orientation(uint8_t flags);
  * ILI9341 display driver specific function, see
  * \ref ili9341_set_top_left_limit
  */
-#define  gfx_set_top_left_limit(x, y) ili9341_set_top_left_limit(x, y)
+#define gfx_set_top_left_limit(x, y) ili9341_set_top_left_limit(x, y)
 
 /**
  * ILI9341 display driver specific function, see
  * \ref ili9341_set_bottom_right_limit
  */
-#define  gfx_set_bottom_right_limit(x, y) ili9341_set_bottom_right_limit(x, y)
+#define gfx_set_bottom_right_limit(x, y) ili9341_set_bottom_right_limit(x, y)
 
 /**
  * ILI9341 display driver specific function, see
  * \ref ili9341_set_limits
  */
-#define  gfx_set_limits(x1, y1, x2, y2) ili9341_set_limits(x1, y1, x2, y2)
+#define gfx_set_limits(x1, y1, x2, y2) ili9341_set_limits(x1, y1, x2, y2)
 
 /**
  * ILI9341 display driver specific function, see
@@ -315,7 +312,7 @@ void gfx_ili9341_set_orientation(uint8_t flags);
  * ILI9341 display driver specific function, see
  * \ref gfx_ili9341_set_orientation
  */
- #define gfx_set_orientation(flags) gfx_ili9341_set_orientation(flags)
+#define gfx_set_orientation(flags) gfx_ili9341_set_orientation(flags)
 
 /**
  * ILI9341 display driver specific function, see
@@ -323,7 +320,13 @@ void gfx_ili9341_set_orientation(uint8_t flags);
  */
 #define gfx_init() gfx_ili9341_init()
 
-/*! @} */
+/**
+ * ILI9341 display driver uses generic gfx implementation for this function. See
+ * \ref gfx_generic_sync
+ */
+#define gfx_sync() gfx_generic_sync()
+
+/** @} */
 
 #ifdef __cplusplus
 }

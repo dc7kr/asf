@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -60,7 +62,7 @@
  *
  *  The provided program uses hardware handshaking mode to regulate the data
  *  rate of an incoming file transfer. A terminal application, such as
- *  hyperterminal, is used to send a text file to the device (without any
+ *  HyperTerminal, is used to send a text file to the device (without any
  *  protocol such as X-modem). The device will enforce the configured
  *  bytes per second (bps) rate with its Request To Send (RTS) line.
  *
@@ -107,6 +109,7 @@
 
 #include <string.h>
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_example.h"
@@ -194,7 +197,8 @@ void TC0_Handler(void)
 		bytes_total += g_ul_bytes_received;
 		memset(g_puc_string, 0, BUFFER_SIZE);
 		sprintf((char *)g_puc_string, "Bps: %4lu; Tot: %6lu\r\n",
-				g_ul_bytes_received, bytes_total);
+				(unsigned long)g_ul_bytes_received,
+				(unsigned long)bytes_total);
 		usart_write_line(BOARD_USART, (char *)g_puc_string);
 
 		/* Resume transfer if needed. */
@@ -281,27 +285,14 @@ static void configure_usart(void)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO. */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC. */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART. */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**

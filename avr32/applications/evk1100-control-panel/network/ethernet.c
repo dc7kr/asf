@@ -2,11 +2,13 @@
  *
  * \file
  *
- * \brief lwIP on ethernet entry point.
+ * \brief lwIP on Ethernet entry point.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -61,7 +63,7 @@
 #include "config_file.h"
 #include "conf_lwip_threads.h"
 
-/* ethernet includes */
+/* Ethernet includes */
 #include "ethernet.h"
 #include "macb.h"
 
@@ -83,7 +85,10 @@
 #include "lwip/tcpip.h"
 #include "lwip/memp.h"
 #include "lwip/stats.h"
+#include "lwip/init.h"
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
 #include "netif/loopif.h"
+#endif
 
 /* shell includes */
 #include "supervisor.h"
@@ -107,7 +112,7 @@ extern xSemaphoreHandle   xCFGMutex;
 /* Initialisation required by lwIP. */
 static void prvlwIPInit( void );
 
-/* Initialisation of ethernet interfaces by reading config file */
+/* Initialisation of Ethernet interfaces by reading config file */
 static void prvEthernetConfigureInterface(void * param);
 
 static void prv_v_set_default_macaddr( unsigned portCHAR aMacAddress[] ); // FORWARD
@@ -184,11 +189,15 @@ static void tcpip_init_done(void *arg)
   sys_sem_t *sem;
   sem = (sys_sem_t *)arg;
   prvEthernetConfigureInterface(NULL);
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
   sys_sem_signal(*sem); // Signal the waiting thread that the TCP/IP init is done.
+#else
+  sys_sem_signal(sem); // Signal the waiting thread that the TCP/IP init is done.
+#endif
 }
 
 /*!
- * \brief Stop the ethernet module resources.
+ * \brief Stop the Ethernet module resources.
  */
 void v_ethernet_stopResources( void )
 {
@@ -388,17 +397,28 @@ portCHAR buf[18];
 static void prvlwIPInit( void )
 {
   sys_sem_t sem;
+#if ( (LWIP_VERSION) != ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
+  err_t     err_sem;
+#endif
 
-
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
   sem = sys_sem_new(0); // Create a new semaphore.
   tcpip_init(tcpip_init_done, &sem);
   sys_sem_wait(sem);    // Block until the lwIP stack is initialized.
   sys_sem_free(sem);    // Free the semaphore.
-
+#else
+  err_sem = sys_sem_new(&sem, 0);
+  if (err_sem == ERR_OK)
+  {
+    tcpip_init(tcpip_init_done, &sem);
+    sys_sem_wait(&sem);    // Block until the lwIP stack is initialized.
+    sys_sem_free(&sem);    // Free the semaphore.
+  }
+#endif
 }
 
 /*!
- *  \brief set ethernet config, by parsing ETHERNET_CONFIG_FILE file.
+ *  \brief set Ethernet config, by parsing ETHERNET_CONFIG_FILE file.
  */
 static void prvEthernetConfigureInterface(void * param)
 {
@@ -432,7 +452,7 @@ unsigned int AddrByte;
         MacAddress[NbDigits++] = (portCHAR)AddrByte;
         current = strpbrk(current, ":");
 
-        if ((current == NULL) && (NbDigits != 6))
+        if ((current == NULL) && (NbDigits == 6))
         {
           prv_v_set_default_macaddr( MacAddress );
           break;
@@ -454,8 +474,12 @@ unsigned int AddrByte;
 
     if (config_file_get_value(ETHERNET_CONFIG_FILE, "ipaddr" , token) >= 0)
     {
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
       /* get IP address */
       xIpAddr.addr = inet_addr(token);
+#else
+      xIpAddr.addr = ipaddr_addr(token);
+#endif
     }
     else
     {
@@ -465,8 +489,12 @@ unsigned int AddrByte;
 
     if (config_file_get_value(ETHERNET_CONFIG_FILE, "submask", token) >= 0)
     {
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
       /* get subnet mask */
       xNetMask.addr = inet_addr(token);
+#else
+      xNetMask.addr = ipaddr_addr(token);
+#endif
     }
     else
     {
@@ -476,8 +504,12 @@ unsigned int AddrByte;
 
     if (config_file_get_value(ETHERNET_CONFIG_FILE, "gwaddr" , token) >= 0)
     {
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
       /* get GW address */
       xGateway.addr = inet_addr(token);
+#else
+      xGateway.addr = ipaddr_addr(token);
+#endif
     }
     else
     {

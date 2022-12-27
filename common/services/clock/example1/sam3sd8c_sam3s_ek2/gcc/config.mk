@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -60,8 +62,7 @@ CSRCS = \
        sam/drivers/uart/uart.c                            \
        sam/utils/cmsis/sam3s8/source/templates/exceptions.c \
        sam/utils/cmsis/sam3s8/source/templates/gcc/startup_sam3sd8.c \
-       sam/utils/cmsis/sam3s8/source/templates/system_sam3sd8.c \
-       sam/utils/syscalls/gcc/syscalls.c
+       sam/utils/cmsis/sam3s8/source/templates/system_sam3sd8.c
 
 # List of assembler source files.
 ASSRCS = 

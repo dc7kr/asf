@@ -41,6 +41,7 @@
 #include <stdlib.h>
 #include <wl_api.h>
 #include <board.h>
+#include "lwip/init.h"
 
 #ifndef BOARD
 #error "BOARD must be defined"
@@ -138,11 +139,15 @@
  */
 #define MEMP_NUM_ARP_QUEUE              2
 
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
 /**
  * MEMP_NUM_SYS_TIMEOUT: the number of simulateously active timeouts.
  * (requires NO_SYS==0)
  */
 #define MEMP_NUM_SYS_TIMEOUT            0
+#else
+#define MEMP_NUM_SYS_TIMEOUT            5
+#endif
 
 /**
  * MEMP_NUM_NETBUF: the number of struct netbufs.

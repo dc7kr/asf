@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -60,12 +62,12 @@ void ui_wakeup(void)
 	LED_On(LED0_GPIO);
 }
 
-void ui_com_open(void)
+void ui_com_open(uint8_t port)
 {
 	LED_On(LED1_GPIO);
 }
 
-void ui_com_close(void)
+void ui_com_close(uint8_t port)
 {
 	LED_Off(LED1_GPIO);
 }
@@ -111,6 +113,6 @@ void ui_process(uint16_t framenumber)
  *
  * Human interface on SAM4S Xplained:
  * - SAM4S USART used UART on J7 connector
- * - Led 0 (D9) blinks when USB host has checked and enabled CDC interface
- * - Led 1 (D10) is on when CDC port is open
+ * - LED D9 blinks when USB host has checked and enabled CDC interface
+ * - LED D10 is on when CDC port is open
  */

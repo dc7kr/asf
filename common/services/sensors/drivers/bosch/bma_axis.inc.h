@@ -7,7 +7,7 @@
  * used in multiple Bosch sensor drivers, including BMA020, BMA150, BMA180,
  * BMA220, BMA222, and BMA250 devices.
  *
- * The module relies upon conditially compiled types and functions to
+ * The module relies upon conditionally compiled types and functions to
  * generate functions specialized for a particular driver module. Driver
  * source modules include this module directly via the C-preprocessor
  * with a #include directive.
@@ -15,6 +15,8 @@
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -64,7 +66,7 @@ extern "C" {
 /**
  * @brief Bosch 8-bit Axis Data Format
  *
- * The BMA222 stores 2's-complement 8-bit axis data samples split accross
+ * The BMA222 stores 2's-complement 8-bit axis data samples split across
  * two contiguous 8-bit device locations where the lower address in the
  * device register space stores a 1-bit "new data" flag and the next
  * higher address stores the 8 most significant bits of the axis data.
@@ -83,7 +85,7 @@ typedef union {
  * @brief Bosch 10-bit Axis Data Format
  *
  * The BMA020, BMA150, and BMA250 store 2's-complement 10-bit axis data
- * samples split accross two contiguous 8-bit device locations where the
+ * samples split across two contiguous 8-bit device locations where the
  * lower address in the device register space stores a 1-bit "new data"
  * flag and the next higher locations store the 10 most significant bits
  * of the axis data.

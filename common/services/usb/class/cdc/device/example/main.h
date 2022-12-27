@@ -3,9 +3,11 @@
  *
  * \brief Main functions
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -49,12 +51,12 @@
  *
  * \retval true if cdc startup is successfully done
  */
-bool main_cdc_enable(void);
+bool main_cdc_enable(uint8_t port);
 
 /*! \brief Closes the communication port
  * This is called by CDC interface when USB Host disable it.
  */
-void main_cdc_disable(void);
+void main_cdc_disable(uint8_t port);
 
 /*! \brief Attach or detach USB device
  * Called by UDC when Vbus line state changes
@@ -79,7 +81,7 @@ void main_resume_action(void);
 /*! \brief Save new DTR state to change led behavior.
  * The DTR notify that the terminal have open or close the communication port.
  */
-void main_cdc_set_dtr(bool b_enable);
+void main_cdc_set_dtr(uint8_t port, bool b_enable);
 
 
 #endif // _MAIN_H_

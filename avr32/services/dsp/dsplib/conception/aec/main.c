@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -70,7 +72,7 @@ void echo_cancel(const short *out_buf, const short *in, size_t block_size, int *
         int echo_est_q16;
         short echo_est;
 
-        /* Caculate echo estimate for this sample using output data  */
+        /* Calculate echo estimate for this sample using output data  */
         echo_est_q16 = 0;
         for (out_p = &cur_out[num_taps-1], filter_q16_p = &filter_q16[num_taps-1]; out_p != cur_out; --out_p, --filter_q16_p)
             echo_est_q16 += (int) (*out_p)*(*filter_q16_p);
@@ -78,7 +80,7 @@ void echo_cancel(const short *out_buf, const short *in, size_t block_size, int *
         echo_est = ROUND_DIV(echo_est_q16, 1 << 16);
 
         /* Echo cancelled input is simply input minus echo estimate
-                       * Round echo_est_q16 to nearest int when convering to short
+                       * Round echo_est_q16 to nearest int when converting to short
                        * This can also be interpreted as the error term, which
                        * is used for the NLMS correction below
                        */

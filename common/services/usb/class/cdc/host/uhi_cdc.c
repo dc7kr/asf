@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -178,7 +180,7 @@ static bool uhi_cdc_set_ctrl_line(uint8_t port, le16_t wValue);
  * \brief Update the transfer endpoint IN (RX)
  * Valid the reception of the previous transfer.
  * Start a new transfer on endpoint IN, if a RX buffer is free
- * and a new USB frame is occured since last transfer.
+ * and a new USB frame is occurred since last transfer.
  *
  * \param line        RX communication line to manage
  *
@@ -201,7 +203,7 @@ static void uhi_cdc_rx_received(usb_add_t add, usb_ep_t ep,
 /**
  * \brief Update the transfer endpoint OUT (TX)
  * Start a new transfer on endpoint OUT, if a data must be send
- * and a new USB frame is occured since last transfer.
+ * and a new USB frame is occurred since last transfer.
  *
  * \param line        TX communication line to manage
  *

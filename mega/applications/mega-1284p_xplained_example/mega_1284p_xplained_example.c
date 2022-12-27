@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -60,7 +62,7 @@
  * The example application have two main modes: \ref demo_mode "demo mode"
  * or \ref terminal_mode "terminal mode".
  * Please refer to the \ref application_description "detailed description"
- * for more informaiton.
+ * for more information.
  *
  * \section compinfo Compilation Info
  * This software was written for the <A href="http://gcc.gnu.org/">GNU GCC</A>
@@ -372,7 +374,7 @@ static void start32crystal(void)
 	// Make sure clock to timer2 is enabled
 	PRR0 &= ~(1 << PRTIM2);
 
-	// Start Timer 2, precale 8
+	// Start Timer 2, prescale 8
 	TCCR2B = (0 << WGM22) | (0 << CS22) | (1 << CS21) | (0 << CS20);
 
 	// Enable clocking of timer2 using 32.768kHz crystal
@@ -738,7 +740,7 @@ static void execute_terminal_mode(void)
 
 	while (1) {
 
-		// Read and handle incomming data on usart1
+		// Read and handle incoming data on usart1
 		data = usart1_getchar();
 		switch (data)	{
 
@@ -780,7 +782,7 @@ static void execute_terminal_mode(void)
  * and the ntc sensor.
  *
  * Please refer to the \ref application_description "detailed description"
- * for more informaiton.
+ * for more information.
  */
 
 int main(void)

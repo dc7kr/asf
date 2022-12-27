@@ -4,9 +4,11 @@
  *
  * \brief Main file of the CS2200 example.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -263,13 +265,6 @@ int main(void)
 
   // Initialize the HMatrix.
   init_hmatrix();
-
-  // Specify that stdin should not be buffered.
-#if (defined(__GNUC__) && defined(__AVR32__))
-  setbuf(stdin, NULL);
-#else // __ICCAVR32__
-  // Already the case in IAR's Normal DLIB default configuration
-#endif
 
   print_dbg("\r\nCS2200 Example\r\n");
 

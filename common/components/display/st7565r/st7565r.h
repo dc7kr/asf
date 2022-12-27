@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -62,14 +64,14 @@ extern "C" {
  * hardware control and use of the LCD controller internal functions .
  *
  * Before writing data to the display call \ref st7565r_init() which will set up
- * the pysical interface and the LCD. A file named \ref conf_st7565r.h is needed
+ * the physical interface and the LCD. A file named \ref conf_st7565r.h is needed
  * to define which interface to use. For more information see the Interface
  * selection section. In addition one also need to define the pins
  * \ref ST7565R_A0_PIN, \ref ST7565R_CS_PIN and \ref ST7565R_RESET_PIN and the
  * display \ref ST7565R_CLOCK_SPEED.
  *
  * \warning This driver is not reentrant and can not be used in interrupt\
- * service routines whitout extra care.
+ * service routines without extra care.
  *
  * As a safety feature one also need to set the max and min contrast levels that
  * the \ref st7565r_set_contrast using the defines
@@ -161,7 +163,7 @@ extern "C" {
 #if defined(__DOXYGEN__)
 //! \brief Select the a USART SPI interface.
 # define ST7565R_USART_SPI_INTERFACE
-//! \brief Select the normal SPI pheripheral interface.
+//! \brief Select the normal SPI peripheral interface.
 # define ST7565R_SPI_INTERFACE
 #endif
 
@@ -253,7 +255,7 @@ static inline uint8_t st7565r_get_status(void)
  * \brief Perform a soft reset of the LCD controller
  *
  * This functions will reset the LCD controller by sending the reset command.
- * \note this funtions should not be confused with the \ref st7565r_hard_reset()
+ * \note this functions should not be confused with the \ref st7565r_hard_reset()
  * function, this command will not control the RST pin.
  */
 static inline void st7565r_soft_reset(void)
@@ -265,7 +267,7 @@ static inline void st7565r_soft_reset(void)
  * \brief Perform a hard reset of the LCD controller
  *
  * This functions will reset the LCD controller by setting the reset pin low.
- * \note this funtions should not be confused with the \ref st7565r_soft_reset()
+ * \note this functions should not be confused with the \ref st7565r_soft_reset()
  * function, this command will control the RST pin.
  */
 static inline void st7565r_hard_reset(void)

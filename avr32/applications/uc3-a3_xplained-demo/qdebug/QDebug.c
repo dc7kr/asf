@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -140,7 +142,7 @@ Purpose :   Command handler for the data received from QTouch Studio
 Input   :   n/a
 Output  :   n/a
 Notes   :   This function should be called in the main loop after
-measure_sensors to process the data received from QTOuch Studio
+measure_sensors to process the data received from QTouch Studio
 ============================================================================*/
 void QDebug_ProcessCommands(void)
 {

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -46,6 +48,10 @@
  *
  * This basic example shows how to use the Flash service available on the Atmel SAM flash
  * microcontrollers. It reads and displays the Unique Identifier stored in the Flash.
+ *
+ * \section Requirements
+ *
+ * This package can be used with SAM evaluation kits.
  *
  * \section Description
  * To read the Unique Identifier, the sequence is:
@@ -92,6 +98,7 @@
  */
 
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 
@@ -105,30 +112,17 @@
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
-
+typedef unsigned long UL;
 /**
  *  \brief efc_unique_id_example Application entry point.
  *
@@ -139,7 +133,7 @@ int main(void)
 	uint32_t ul_rc;
 	uint32_t unique_id[4];
 
-	/* Initialize the SAM3 system */
+	/* Initialize the SAM system */
 	sysclk_init();
 	board_init();
 
@@ -152,7 +146,7 @@ int main(void)
 	/* Initialize Flash service */
 	ul_rc = flash_init(FLASH_ACCESS_MODE_128, 4);
 	if (ul_rc != FLASH_RC_OK) {
-		printf("-F- Initialization error %lu\n\r", ul_rc);
+		printf("-F- Initialization error %lu\n\r", (UL)ul_rc);
 		return 0;
 	}
 
@@ -160,12 +154,13 @@ int main(void)
 	puts("-I- Reading 128 bits Unique Identifier\r");
 	ul_rc = flash_read_unique_id(unique_id, 4);
 	if (ul_rc != FLASH_RC_OK) {
-		printf("-F- Read the Unique Identifier error %lu\n\r", ul_rc);
+		printf("-F- Read the Unique Identifier error %lu\n\r", (UL)ul_rc);
 		return 0;
 	}
 
 	printf("-I- ID: 0x%08lu, 0x%08lu, 0x%08lu, 0x%08lu\n\r",
-			unique_id[0], unique_id[1], unique_id[2], unique_id[3]);
+			(UL)unique_id[0], (UL)unique_id[1],
+			(UL)unique_id[2], (UL)unique_id[3]);
 
 	while (1) {
 		/* Do nothing */

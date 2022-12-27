@@ -1,11 +1,12 @@
-/**
- * \file
+/*! \file
  *
  * \brief Unit test configuration.
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -42,11 +43,16 @@
 #ifndef CONF_TEST_H
 #define CONF_TEST_H
 
-/** USART Interface */
+
+/** USART Interface  : Console UART */
 #define CONF_TEST_USART      CONSOLE_UART
-/** Baudrate setting */
+/** Baudrate setting : 115200 */
 #define CONF_TEST_BAUDRATE   115200
-/** Parity setting */
+/** Char setting     : 8-bit character length (don't care for UART) */
+#define CONF_TEST_CHARLENGTH 0
+/** Parity setting   : No parity check */
 #define CONF_TEST_PARITY     UART_MR_PAR_NO
+/** Stopbit setting  : No extra stopbit, i.e., use 1 (don't care for UART) */
+#define CONF_TEST_STOPBITS   false
 
 #endif /* CONF_TEST_H_INCLUDED */

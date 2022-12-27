@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -276,9 +278,9 @@ void usart_man_disable_drift_compensation(Usart *p_usart);
  * the steps for usage can be copied into, e.g., the main application function.
  *
  * \note Some SAM devices contain both USART and UART modules, with the latter
- *       being a subset in functionality of the former but physically seperate
+ *       being a subset in functionality of the former but physically separate
  *       peripherals. UART modules are compatible with the USART driver, but
- *       only for the functions and modes suported by the base UART driver.
+ *       only for the functions and modes supported by the base UART driver.
  *
  * \section usart_basic_use_case Basic use case
  * \section usart_use_cases USART use cases

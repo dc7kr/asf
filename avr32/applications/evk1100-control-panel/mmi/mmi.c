@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -308,7 +310,7 @@ extern const signed portCHAR *const pcStringLogDirectoryNameA;
 extern const signed portCHAR *const pcStringLogDirectoryNameB;
 
 /*-----------------------------------------------------------*/
-/*! \brief Init MMI, for Man to Macine Interface management.
+/*! \brief Init MMI, for Man to Machine Interface management.
  *
  */
 bool bMMI_start( void )
@@ -345,7 +347,7 @@ unsigned short i;
 void vMMI_DisplayIP(portCHAR * IPAddress)
 {
 unsigned short i = 0;
-  // clear previous line but not the last char (we sould be connected)
+  // clear previous line but not the last char (we should be connected)
   memset(UserMenuScreen, MMI_SPACE, MMI_LINE_LENGTH - 1);
   // set new value
   do
@@ -704,7 +706,7 @@ unsigned short i = 0;
 }
 
 
-/*! \brief MMI function for Man to Macine Interface management.
+/*! \brief MMI function for Man to Machine Interface management.
  *
  */
 void vMMI_Manage( void )

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -87,13 +89,6 @@
  */
 //@}
 
-/* Pointer to the module instance to use for stdio. */
-#if defined(__GNUC__)
-void (*ptr_get)(void volatile*,int*);
-int (*ptr_put)(void volatile*,int);
-volatile void *volatile stdio_base;
-#endif
-
 #define MCP980X_MAX_SAMPLES   5
 #define MCP980X_LOWEST_TEMP  10
 #define MCP980X_HIGHEST_TEMP 40
@@ -136,7 +131,7 @@ static void mdelay(uint32_t dw_dly_ticks)
 /**
  * \brief Test MCP980X
  *
- * This test reads temperature values returnd by MCP980X every 100ms and check if the temperature is delightful.
+ * This test reads temperature values returned by MCP980X every 100ms and check if the temperature is delightful.
  *
  * \param test Current test case.
  */
@@ -159,8 +154,8 @@ static void run_mcp980x_test(const struct test_case *test)
 			MCP980X_CONFIG_ALERT_POLARITY_ACTIVE_HIGH |
 			MCP980X_CONFIG_INTERRUPT_MODE);
 
-	volatile uint32_t i = 0;
-    uint32_t ul_unused = 0;
+	uint32_t i = 0;
+	uint32_t ul_unused = 0;
 	for (; i < MCP980X_MAX_SAMPLES; i++) {
 		/* Enable One-Shot mode to perform a single temperature measurement. */
 		if (TWI_SUCCESS != mcp980x_one_shot_mode()) {
@@ -192,7 +187,7 @@ static void run_mcp980x_test(const struct test_case *test)
 	volatile int8_t temp_delta = 0;
 	for (i = 0; i < (MCP980X_MAX_SAMPLES - 1); i++) {
 		temp_delta = (temp_buf[i] > temp_buf[i + 1]) ?
-            (temp_buf[i] - temp_buf[i + 1]) : (temp_buf[i + 1] - temp_buf[i]);
+				(temp_buf[i] - temp_buf[i + 1]) : (temp_buf[i + 1] - temp_buf[i]);
 		if (temp_delta > MCP980X_TEMP_DELTA) {
 			mcp980x_test_flag = 1;
 			break;
@@ -223,10 +218,6 @@ int main(void)
 		while (1) {
 		}
 	}
-
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
 
 	/* Define all the test cases */
 	DEFINE_TEST_CASE(mcp980x_test, NULL, run_mcp980x_test, NULL,

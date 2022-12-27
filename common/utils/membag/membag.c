@@ -5,9 +5,9 @@
  *
  * Copyright (C) 2012 Atmel Corporation. All rights reserved.
  *
- * \page License
- *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -110,6 +110,10 @@ void membag_init(void)
 	poolptr = (uintptr_t)membag_pool;
 
 	for (i = 0; i < ARRAY_LEN(membag_list); i++) {
+		Assert(membag_list[i].block_size > 0);
+		Assert(membag_list[i].num_blocks > 0);
+		Assert(membag_list[i].num_blocks <= 32);
+	
 		membag_list[i].start = poolptr;
 		poolptr += (membag_list[i].block_size *
 				membag_list[i].num_blocks);

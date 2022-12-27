@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -94,13 +96,6 @@
  */
 //@}
 
-/* Pointer to the module instance to use for stdio. */
-#if defined(__GNUC__)
-void (*ptr_get) (void volatile *, int *);
-int (*ptr_put) (void volatile *, int);
-volatile void *volatile stdio_base;
-#endif
-
 /** Reset type of chip. */
 #define GENERAL_RESET          (0x00 << RSTC_SR_RSTTYP_Pos)
 #define BACKUP_RESET           (0x01 << RSTC_SR_RSTTYP_Pos)
@@ -127,7 +122,7 @@ volatile void *volatile stdio_base;
  *
  * This test check the reset type of RSTC when the chip resets for different reasons.
  */
-static void run_rstc_test(void)
+static void run_rstc_test(const struct test_case *test)
 {
 	uint32_t dw_reset_type;
 
@@ -152,7 +147,8 @@ static void run_rstc_test(void)
 	case RSTC_UT_STEP2:
 	  	/* Save reset type in RES1 */
 		gpbr_write(RSTC_GPBR_RES1, dw_reset_type);
-
+		test_assert_true(test, gpbr_read(RSTC_GPBR_RES1) == SOFTWARE_RESET,
+			"Test: unexpected reset type, expected SOFTWARE_RESET!");
 	  	/* Step 2: Watchdog reset test. */
 		gpbr_write(RSTC_GPBR_STEP, RSTC_UT_STEP3);
 		wdt_init(WDT, WDT_MR_WDRSTEN, 0, 0);
@@ -162,6 +158,8 @@ static void run_rstc_test(void)
 	case RSTC_UT_STEP3:
 	  	/* Save reset type in RES2 */
 		gpbr_write(RSTC_GPBR_RES2, dw_reset_type);
+		test_assert_true(test, gpbr_read(RSTC_GPBR_RES2) == WDT_RESET,
+			"Test: unexpected reset type, expected WDT_RESET!");
 		wdt_disable(WDT);
 		break;
 
@@ -171,22 +169,7 @@ static void run_rstc_test(void)
 		while (1) {
 		}
 	}
-}
 
-/**
- * \brief Test Reset Controller.
- *
- * Read test results stored in the GPBR registers.
- *
- * \param test Current test case.
- */
-static void check_rstc_test(const struct test_case *test)
-{
-	test_assert_true(test, gpbr_read(RSTC_GPBR_RES1) == SOFTWARE_RESET,
-			"Test: unexpected reset type, expected SOFTWARE_RESET!");
-
-	test_assert_true(test, gpbr_read(RSTC_GPBR_RES2) == WDT_RESET,
-			"Test: unexpected reset type, expected WDT_RESET!");
 }
 
 /**
@@ -205,15 +188,8 @@ int main(void)
 	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
 
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
-
-	/* Perform actual test and store results in RSTC_GPBR_RESX. */
-	run_rstc_test();
-
 	/* Define all the test cases. */
-	DEFINE_TEST_CASE(rstc_test, NULL, check_rstc_test, NULL,
+	DEFINE_TEST_CASE(rstc_test, NULL, run_rstc_test, NULL,
 			"Reset Controller, check reset type");
 
 	/* Put test case addresses in an array. */

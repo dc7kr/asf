@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -103,7 +105,7 @@ void device_generic_hid_task_init(void)
 }
 
 //! @brief Entry point of the HID generic communication task
-//! This function manages IN/OUT repport management.
+//! This function manages IN/OUT report management.
 //!
 void device_generic_hid_task(void)
 {
@@ -168,7 +170,7 @@ void hid_report_out(void)
       gpio_set_gpio_pin(LED3_GPIO);
       Usb_detach();                          // Detach actual generic HID application
       for(tempo=0;tempo<70000;tempo++);      // Wait some time before
-      //start_boot();                          // Jumping to booltoader
+      //start_boot();                          // Jumping to bootloader
       while(1);
    }
 }
@@ -186,7 +188,7 @@ void hid_report_in(void)
   if(!Is_usb_write_enabled(EP_HID_GENERIC_IN))
       return;                                // Not ready to send report
 
-  // Build the Joytick report
+  // Build the Joystick report
   if(is_joystick_up()|| is_joystick_down() || is_joystick_right() || is_joystick_left() )                     //! Check for UP event
   {
     joy=0x01;

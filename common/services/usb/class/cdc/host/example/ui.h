@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -44,7 +46,7 @@
 
 #include "uhc.h"
 
-//! \brief Initializes the user interface
+/*! \brief Initializes the user interface */
 void ui_init(void);
 
 /*! \brief Notify that the USB mode has automatically switched.
@@ -53,7 +55,6 @@ void ui_init(void);
  * \param b_host_mode true, if the host mode has been selected
  */
 void ui_usb_mode_change(bool b_host_mode);
-
 
 /*! \brief Notify that a new Vbus transition has been detected.
  * Available only in USB hardware with Vbus monitoring.
@@ -74,10 +75,10 @@ void ui_usb_vbus_error(void);
  */
 void ui_usb_connection_event(uhc_device_t *dev, bool b_present);
 
-//! \brief Notify that a USB device or the host has woken up the USB line.
+/*! \brief Notify that a USB device or the host has woken up the USB line. */
 void ui_usb_wakeup_event(void);
 
-//! \brief Notify that a SOF has been sent (each 1 ms)
+/*! \brief Notify that a SOF has been sent (each 1 ms) */
 void ui_usb_sof_event(void);
 
 /*! \brief Notify the end of a USB device enumeration
@@ -111,4 +112,4 @@ void ui_com_error(void);
  */
 void ui_com_overflow(void);
 
-#endif // _UI_H_
+#endif /* _UI_H_ */

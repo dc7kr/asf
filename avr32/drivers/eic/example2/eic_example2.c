@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -79,7 +81,7 @@
  * - STK600-RCUC3D evaluation kit
  *
  * \section setupinfo Setup Information
- * CPU speed: <i> Switch to oscillator external OSC0 = 12 Mhz. </i>
+ * CPU speed: <i> Switch to oscillator external OSC0 = 12 MHz. </i>
  *
  * \section contactinfo Contact Information
  * For further information, visit
@@ -179,7 +181,7 @@ static void software_delay(void)
 }
 
 /*
- * \brief main function : do init and wait interrupt catched by EIC controller.
+ * \brief main function : do init and wait for interrupt caught by the EIC controller.
  */
 int main(void)
 {

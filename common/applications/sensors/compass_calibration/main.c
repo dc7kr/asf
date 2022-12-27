@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -168,7 +170,7 @@ int main(void)
 		}
 
 		while (true) {
-			/* Error ocurred, loop forever */
+			/* Error occurred, loop forever */
 		}
 	}
 

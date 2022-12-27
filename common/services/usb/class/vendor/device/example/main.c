@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -66,17 +68,17 @@ static uint8_t main_buf_iso_sel;
 #endif
 
 void main_vendor_int_in_received(udd_ep_status_t status,
-		iram_size_t nb_transfered);
+		iram_size_t nb_transfered, udd_ep_id_t ep);
 void main_vendor_int_out_received(udd_ep_status_t status,
-		iram_size_t nb_transfered);
+		iram_size_t nb_transfered, udd_ep_id_t ep);
 void main_vendor_bulk_in_received(udd_ep_status_t status,
-		iram_size_t nb_transfered);
+		iram_size_t nb_transfered, udd_ep_id_t ep);
 void main_vendor_bulk_out_received(udd_ep_status_t status,
-		iram_size_t nb_transfered);
+		iram_size_t nb_transfered, udd_ep_id_t ep);
 void main_vendor_iso_in_received(udd_ep_status_t status,
-		iram_size_t nb_transfered);
+		iram_size_t nb_transfered, udd_ep_id_t ep);
 void main_vendor_iso_out_received(udd_ep_status_t status,
-		iram_size_t nb_transfered);
+		iram_size_t nb_transfered, udd_ep_id_t ep);
 
 /*! \brief Main function. Execution starts here.
  */
@@ -140,14 +142,14 @@ bool main_vendor_enable(void)
 	main_b_vendor_enable = true;
 	// Start data reception on OUT endpoints
 #if UDI_VENDOR_EPS_SIZE_INT_FS
-	main_vendor_int_in_received(UDD_EP_TRANSFER_OK, 0);
+	main_vendor_int_in_received(UDD_EP_TRANSFER_OK, 0, 0);
 #endif
 #if UDI_VENDOR_EPS_SIZE_BULK_FS
-	main_vendor_bulk_in_received(UDD_EP_TRANSFER_OK, 0);
+	main_vendor_bulk_in_received(UDD_EP_TRANSFER_OK, 0, 0);
 #endif
 #if UDI_VENDOR_EPS_SIZE_ISO_FS
 	main_buf_iso_sel=0;
-	main_vendor_iso_out_received(UDD_EP_TRANSFER_OK, 0);
+	main_vendor_iso_out_received(UDD_EP_TRANSFER_OK, 0, 0);
 #endif
 	return true;
 }
@@ -179,10 +181,11 @@ bool main_setup_in_received(void)
 
 #if UDI_VENDOR_EPS_SIZE_INT_FS
 void main_vendor_int_in_received(udd_ep_status_t status,
-		iram_size_t nb_transfered)
+		iram_size_t nb_transfered, udd_ep_id_t ep)
 {
+	UNUSED(nb_transfered);
 	if (UDD_EP_TRANSFER_OK != status) {
-		return; // Tranfert aborted, then stop loopback
+		return; // Transfer aborted, then stop loopback
 	}
 	ui_loop_back_state(false);
 	// Wait a full buffer
@@ -193,10 +196,10 @@ void main_vendor_int_in_received(udd_ep_status_t status,
 }
 
 void main_vendor_int_out_received(udd_ep_status_t status,
-		iram_size_t nb_transfered)
+		iram_size_t nb_transfered, udd_ep_id_t ep)
 {
 	if (UDD_EP_TRANSFER_OK != status) {
-		return; // Tranfert aborted, then stop loopback
+		return; // Transfer aborted, then stop loopback
 	}
 	ui_loop_back_state(true);
 	// Send on IN endpoint the data received on endpoint OUT
@@ -209,10 +212,11 @@ void main_vendor_int_out_received(udd_ep_status_t status,
 
 #if UDI_VENDOR_EPS_SIZE_BULK_FS
 void main_vendor_bulk_in_received(udd_ep_status_t status,
-		iram_size_t nb_transfered)
+		iram_size_t nb_transfered, udd_ep_id_t ep)
 {
+	UNUSED(nb_transfered);
 	if (UDD_EP_TRANSFER_OK != status) {
-		return; // Tranfert aborted, then stop loopback
+		return; // Transfer aborted, then stop loopback
 	}
 	ui_loop_back_state(false);
 	// Wait a full buffer
@@ -223,10 +227,10 @@ void main_vendor_bulk_in_received(udd_ep_status_t status,
 }
 
 void main_vendor_bulk_out_received(udd_ep_status_t status,
-		iram_size_t nb_transfered)
+		iram_size_t nb_transfered, udd_ep_id_t ep)
 {
 	if (UDD_EP_TRANSFER_OK != status) {
-		return; // Tranfert aborted, then stop loopback
+		return; // Transfer aborted, then stop loopback
 	}
 	ui_loop_back_state(true);
 	// Send on IN endpoint the data received on endpoint OUT
@@ -239,18 +243,20 @@ void main_vendor_bulk_out_received(udd_ep_status_t status,
 
 #if UDI_VENDOR_EPS_SIZE_ISO_FS
 void main_vendor_iso_in_received(udd_ep_status_t status,
-		iram_size_t nb_transfered)
+		iram_size_t nb_transfered, udd_ep_id_t ep)
 {
+	UNUSED(status);
+	UNUSED(nb_transfered);
 	ui_loop_back_state(false);
 }
 
 void main_vendor_iso_out_received(udd_ep_status_t status,
-		iram_size_t nb_transfered)
+		iram_size_t nb_transfered, udd_ep_id_t ep)
 {
 	uint8_t *buf_ptr;
 
 	if (UDD_EP_TRANSFER_OK != status) {
-		return; // Tranfert aborted, then stop loopback
+		return; // Transfer aborted, then stop loopback
 	}
 
 	if (nb_transfered) {
@@ -267,7 +273,7 @@ void main_vendor_iso_out_received(udd_ep_status_t status,
 	// Switch of buffer
 	main_buf_iso_sel = main_buf_iso_sel? 0:1;
 
-	// Immediatly enable a transfer on next USB isochronous OUT packet
+	// Immediately enable a transfer on next USB isochronous OUT packet
 	// to avoid to skip a USB packet.
 	// NOTE:
 	// Here the expected buffer size is equal to endpoint size.
@@ -277,7 +283,7 @@ void main_vendor_iso_out_received(udd_ep_status_t status,
 	// When using buffer size larger than endpoint size,
 	// the requested transfer is stopped when the buffer is = full*.
 	// *on USBC and XMEGA USB driver, the buffer is full
-	// when "number of data transfered" > "buffer size" - "endppoint size".
+	// when "number of data transfered" > "buffer size" - "endpoint size".
 	buf_ptr = &main_buf_loopback[ main_buf_iso_sel
 			*(sizeof(main_buf_loopback)/2) ];
 
@@ -301,8 +307,8 @@ void main_vendor_iso_out_received(udd_ep_status_t status,
  * The example uses a vendor class which implements a loopback on
  * all endpoints types: control, interrupt, bulk and isochronous.
  * After loading firmware, connect the board
- * (EVKxx,XPlain,...) to the USB Host. A Host applciation developped
- * on libusb library is provided in application note AVR4001.
+ * (EVKxx,Xplain,...) to the USB Host. A Host application developed
+ * on libusb library is provided with application note AVR4901.
 
  * \note
  * When the application is connected for the first time to the PC,
@@ -311,7 +317,7 @@ void main_vendor_iso_out_received(udd_ep_status_t status,
  * - Choose "No, not this time" to connect to Windows Update for this installation
  * - click "Next"
  * - When requested to search the INF file, browse the avr4901\drivers\ folder
- *   provided package of the AVR4901 applicatinon note.
+ *   provided package of the AVR4901 application note.
  * - click "Next"
 *
  * \copydoc UI

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -633,7 +635,7 @@ void main(void)
 	//Configure SAU access in lock mode
 	print_dbg("\r\n # SAU interrupt in lock mode test...       ");
 	sau_lock_channels(EXAMPLE_UNLOCK_CLOCK_CYCLES, EXAMPLE_UNLOCK_KEY);
-	//Use wrong unlock key to generate interrupt in lodk mode 
+	//Use wrong unlock key to generate interrupt in lock mode 
 	sau_unlock_channel(USART_THR_CHANNEL, EXAMPLE_WRONG_UNLOCK_KEY);
 	//End of interrupt example test
 	print_dbg("\r\n # SAU interrupt test done         ##\r\n");
@@ -642,7 +644,7 @@ void main(void)
 
 	//Exception test  
 	print_dbg("\r\n # SAU Bus Error response test... ");
-	//Bus error response eanble
+	//Bus error response enable
 	sau_enable_buserr_resp();
 	//Use URREAD bit to generate interrupt test
 	print_dbg("\r\n # SAU Bus Error response 1---URREAD  ##");

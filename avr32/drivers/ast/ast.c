@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -102,7 +104,7 @@ void ast_disable(volatile avr32_ast_t *ast)
 }
 
 /**
- * \brief This function will initialise the AST module in calendar Mode.
+ * \brief This function will initialize the AST module in calendar Mode.
  *
  * \note  If you use the 32 KHz oscillator, it will enable this module.
  *
@@ -116,7 +118,7 @@ void ast_disable(volatile avr32_ast_t *ast)
  *        desired.
  * \param ast_calendar Startup date
  *
- * \return 1 if the initialisation succeds otherwize it will return 0.
+ * \return 1 if the initialization succeeds otherwise it will return 0.
  */
 int ast_init_calendar(volatile avr32_ast_t *ast, uint8_t osc_type,
 		uint8_t psel, ast_calendar_t ast_calendar)
@@ -156,7 +158,7 @@ int ast_init_calendar(volatile avr32_ast_t *ast, uint8_t osc_type,
 }
 
 /**
- * \brief This function will initialise the AST module in counter Mode.
+ * \brief This function will initialize the AST module in counter Mode.
  *
  * \note  If you use the 32 KHz oscillator, it will enable this module.
  *
@@ -170,7 +172,7 @@ int ast_init_calendar(volatile avr32_ast_t *ast, uint8_t osc_type,
  *        desired.
  * \param ast_counter Startup counter value
  *
- * \return 1 if the initialisation succeds otherwize it will return 0.
+ * \return 1 if the initialization succeeds otherwise it will return 0.
  */
 int ast_init_counter(volatile avr32_ast_t *ast, uint8_t osc_type,
 		uint8_t psel, uint32_t ast_counter)
@@ -252,7 +254,7 @@ int ast_init_counter(volatile avr32_ast_t *ast, uint8_t osc_type,
  * max (Ft) = (4*fi)/3 \n
  * min (Ft) = (4*fi)/5 \n
  *
- * Using the above details, X & Y that will closely satisy the equation is
+ * Using the above details, X & Y that will closely satisfy the equation is
  * found in this function.
  */
 int ast_configure_digital_tuner(volatile avr32_ast_t *ast,
@@ -329,7 +331,7 @@ int ast_configure_digital_tuner(volatile avr32_ast_t *ast,
 }
 
 /**
- * \brief This function will initialise the digital tuner of AST module.
+ * \brief This function will initialize the digital tuner of AST module.
  *
  * \param ast   Base address of the AST (i.e. &AVR32_AST).
  * \param add   set to true if frequency has to be increased, false if it
@@ -337,7 +339,7 @@ int ast_configure_digital_tuner(volatile avr32_ast_t *ast,
  * \param value Parameter used in the formula
  * \param exp   Parameter used in the formula
  *
- * \return 1 if the initialisation succeds otherwize it will return 0.
+ * \return 1 if the initialization succeeds otherwise it will return 0.
  */
 void ast_init_digital_tuner(volatile avr32_ast_t *ast, bool add,
 		uint8_t value, uint8_t exp)
@@ -383,7 +385,7 @@ void ast_disable_digital_tuner(volatile avr32_ast_t *ast)
  *        oscillator you are using (32 KHz or 115 KHz) and Fast the frequency
  *        desired.
  *
- * \return 1 if the initialisation succeeds otherwise returns 0 on time-out
+ * \return 1 if the initialization succeeds otherwise returns 0 on time-out
  */
 int ast_change_clk_source(volatile avr32_ast_t *ast, uint8_t osc_type,
 		uint8_t psel)

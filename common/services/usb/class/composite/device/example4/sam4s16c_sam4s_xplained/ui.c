@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -60,11 +62,11 @@ void ui_wakeup(void)
 	LED_On(LED0_GPIO);
 }
 
-void ui_com_open(void)
+void ui_com_open(uint8_t port)
 {
 }
 
-void ui_com_close(void)
+void ui_com_close(uint8_t port)
 {
 }
 
@@ -126,8 +128,8 @@ void ui_process(uint16_t framenumber)
 /**
  * \defgroup UI User Interface
  *
- * Human interface on SAM4S-EK:
- * - Led 0 (D9) blinks when USB host has checked and enabled MSC interface
- * - Led 1 (D10) is on during read/write operation
+ * Human interface on SAM4S-Xplained:
+ * - LED D9 blinks when USB host has checked and enabled MSC interface
+ * - LED D10 is on during read/write operation
  *
  */

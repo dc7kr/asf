@@ -39,7 +39,12 @@
 #include <board.h>
 #include <lwip/init.h>
 #include <lwip/dhcp.h>
+#include <lwip/init.h>
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
 #include <lwip/tcp.h>
+#else
+#include <lwip/tcp_impl.h>
+#endif
 #include <ipv4/lwip/ip_frag.h>
 #include <netif/etharp.h>
 #include <netif/wlif.h>

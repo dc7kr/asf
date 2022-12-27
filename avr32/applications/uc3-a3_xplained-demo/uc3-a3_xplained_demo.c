@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -45,7 +47,7 @@
  * \section intro Introduction
  *
  * This application demonstrates the QTouch functionality of the UC3-A3
- * Xplained board. On poweron, the board will initialize the required touch
+ * Xplained board. On power-on, the board will initialize the required touch
  * libraries, showing the current touch state of the slider and touch button on
  * the board LEDs.
  *

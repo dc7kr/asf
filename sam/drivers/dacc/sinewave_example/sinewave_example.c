@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -44,7 +46,7 @@
  *
  * \section Purpose
  *
- * The DAC Sinewave example demonstrates how to use DAC peripheral.
+ * The DAC Sinewave example demonstrates how to use DACC peripheral.
  *
  * \section Requirements
  *
@@ -62,8 +64,9 @@
  *
  * The example can also generate a full amplitude square wave for reference.
  *
- * The output could be monitored by connecting the DAC channel that is used to
- * one channel of an oscilloscope.
+ * The output could be monitored by connecting the following PIN that is used to one
+ * channel of an oscilloscope.
+ * \copydoc dac_sinewave_example_pin_defs
  *
  * \section Usage
  *
@@ -92,7 +95,7 @@
  *     -- Compiled: xxx xx xxxx xx:xx:xx --
  *     -- Menu Choices for this example--
  *     -- 0: Set frequency(200Hz-3kHz).--
- *     -- 1: Set amplitude(100-2047).--
+ *     -- 1: Set amplitude(100-4095).--
  *     -- i: Display present frequency and amplitude.--
  *     -- m: Display this menu.--
  *    \endcode
@@ -104,6 +107,7 @@
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_dacc_sinewave_example.h"
+
 
 //! Analog control value
 #define DACC_ANALOG_CONTROL (DACC_ACR_IBCTLCH0(0x02) \
@@ -175,18 +179,14 @@ const int16_t gc_us_sine_data[SAMPLES] = {
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-		{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE,
-			PINS_UART_MASK, PINS_UART_ATTR);
-
-	/* Configure PMC */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART */
-	uart_init(CONSOLE_UART, &uart_console_settings);
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -271,8 +271,8 @@ static void display_menu(void)
 			"-- m: Display this menu.\n\r"
 			"------------ Current configuration ------------\r");
 	printf("-- DACC channel:\t%d\n\r", DACC_CHANNEL);
-	printf("-- Amplitude   :\t%d\n\r", g_l_amplitude);
-	printf("-- Frequency   :\t%u\n\r", g_ul_frequency);
+	printf("-- Amplitude   :\t%ld\n\r", (long)g_l_amplitude);
+	printf("-- Frequency   :\t%lu\n\r", (unsigned long)g_ul_frequency);
 	printf("-- Wave        :\t%s\n\r", g_uc_wave_sel ? "SQUARE" : "SINE");
 	puts("===============================================\r");
 }
@@ -384,7 +384,7 @@ int main(void)
 			puts("\r");
 
 			if (ul_freq != VAL_INVALID) {
-				printf("Set frequency to : %uHz\n\r", ul_freq);
+				printf("Set frequency to : %luHz\n\r", (unsigned long)ul_freq);
 				SysTick_Config(sysclk_get_cpu_hz() / (ul_freq * SAMPLES));
 				g_ul_frequency = ul_freq;
 			}
@@ -395,15 +395,15 @@ int main(void)
 			ul_amp = get_input_value(MIN_AMPLITUDE, MAX_AMPLITUDE);
 			puts("\r");
 			if (ul_amp != VAL_INVALID) {
-				printf("Set amplitude to : %u\n\r", ul_amp);
+				printf("Set amplitude to : %lu\n\r", (unsigned long)ul_amp);
 				g_l_amplitude = ul_amp;
 			}
 			break;
 
 		case 'i':
 		case 'I':
-			printf("-I- Frequency : %u Hz Amplitude : %d\n\r",
-				g_ul_frequency, g_l_amplitude);
+			printf("-I- Frequency : %lu Hz Amplitude : %ld\n\r",
+				(unsigned long)g_ul_frequency, (long)g_l_amplitude);
 			break;
 
 		case 'w':

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -69,12 +71,12 @@ void ui_wakeup(void)
 	LED_On(LED0_GPIO);
 }
 
-void ui_com_open(void)
+void ui_com_open(uint8_t port)
 {
 	LED_On(LED2_GPIO);
 }
 
-void ui_com_close(void)
+void ui_com_close(uint8_t port)
 {
 	LED_Off(LED2_GPIO);
 	LED_Off(LED4_GPIO);

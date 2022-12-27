@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../.. ../../../../pmic ../../../../../../common/utils ../../../../../../common/services/clock ../../../../../../common/services/gpio ../../../../../../common/services/spi ../../../../../../common/boards ../../../../../utils/preprocessor ../../../../../utils ../../../../../../common/services/gfx_mono ../../../../../boards/xmega_a3bu_xplained ../../../../../../common/services/ioport ../../../../usart .. ../../../../../boards ../../../../nvm ../../../../../../common/services/sleepmgr ../../../../sleep ../../../../cpu ../../../../../../common/components/display/st7565r
+INCLUDE_PATH           =  ../../../../cpu ../../../../pmic ../../../../sleep ../../../../../../common/services/clock ../../.. ../../../../../../common/services/spi ../../../../../../common/boards ../../../../../utils/preprocessor ../../../../../utils ../../../../../../common/services/gfx_mono ../../../../../boards/xmega_a3bu_xplained ../../../../../../common/services/ioport ../../../../usart .. ../../../../../boards ../../../../nvm ../../../../../../common/services/sleepmgr ../../../../../../common/utils ../../../../../../common/services/gpio ../../../../../../common/components/display/st7565r
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

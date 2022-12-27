@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -183,7 +185,7 @@ Name    :   Receive_Message
 Purpose :   Executes a master read transmission if TWI is selected as interface
 Checks if RX_Buffer has a valid frame
 Input   :   n/a
-Output  :   returns a true or false depandant on whether a valid frame is
+Output  :   returns a true or false dependant on whether a valid frame is
 available or not
 Notes   :	Called from QDebug_ProcessCommands in QDebug.c
 ============================================================================*/
@@ -216,7 +218,7 @@ uint8_t Receive_Message(void)
 /*============================================================================
 Name    :   RxHandler
 ------------------------------------------------------------------------------
-Purpose :   Handles the incomming bytes from the interface selected in
+Purpose :   Handles the incoming bytes from the interface selected in
 QDebugSettings.h and puts the bytes in the RX_Buffer
 Input   :   data read by the selected interface
 Output  :   returns a true if more data must be read

@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -239,7 +241,7 @@ static void pdca_usart_interrupt_handler(void)
 //! To set the clock frequency to 48MHz
 void sys_cpu_48MHz(void)
 {
-  // Swith to external Oscillator 0
+  // Switch to external Oscillator 0
   pm_switch_to_osc0(&AVR32_PM, FOSC0, OSC0_STARTUP);
 
   // Set PLL0 @ 96 MHz from Osc0 => Fpll= Fosc*(7+1)/1
@@ -268,7 +270,7 @@ void sys_cpu_48MHz(void)
   pm_switch_to_clock(&AVR32_PM, AVR32_PM_MCCTRL_MCSEL_PLL0);
 }
 
-//! this function intializes the USART module at 115200 bauds
+//! this function initializes the USART module at 115200 bauds
 void init_usart()
 {
   static const gpio_map_t USART_GPIO_MAP =
@@ -457,7 +459,7 @@ int main(int argc, char *argv[])
       // Set busy state
       buffer_state[i_w] = BUFFER_STATE_BUSY;
 
-      // Add the adddress of memory buffer
+      // Add the address of memory buffer
       // BUFFER_SIZE/2 because the PDCA transfer is using half words data unit.
       pdca_reload_channel(PDCA_ADC_CHANNEL, pbuffer_w, BUFFER_SIZE/2);
       // Enable the transfer
@@ -500,7 +502,7 @@ int main(int argc, char *argv[])
       // Encode in IMA/DVI ADPCM
       dsp_adpcm_ima_encode(&tbuffer[4], (void *) pbuffer_r, BUFFER_SIZE >> 1, &step_index, &predicted_value);
 
-      // Add the adddress of memory buffer
+      // Add the address of memory buffer
       pdca_reload_channel(PDCA_USART_CHANNEL, tbuffer, sizeof(tbuffer));
       // Enable the transfer
       pdca_enable(PDCA_USART_CHANNEL);

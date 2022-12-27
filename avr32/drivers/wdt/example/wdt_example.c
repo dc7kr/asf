@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -49,7 +51,7 @@
  * This example will start a watchdog scheduler and scroll led until a reset occurs.
  * \n At first, the watchdog is enabled with the min value WDT_MIN_VALUE(i.e. 1s),
  * then :
- *       - If a Watchdog reset occurs, the watchdog is reenabled with the current value
+ *       - If a Watchdog reset occurs, the watchdog is re-enabled with the current value
  *       - If a External reset occurs, the watchdog is enabled with the current value incremented of 1s.
  * When the WDT timeout period reaches 4s, it is reset back to 1s. So, possible wdt delays(in this example) are 1s, 2s and 3s.
  *       - If a Power On reset occurs, the watchdog is reset and enabled with the default value, WDT_MIN_VALUE(i.e. 1s).
@@ -69,7 +71,7 @@
  *
  * \section configinfo Configuration Information
  * This example has been tested with the following configuration:
- * - EVK1100, EVK1101, EVK1104 or EVK1105 evalutation kit;
+ * - EVK1100, EVK1101, EVK1104 or EVK1105 evaluation kit;
  * - CPU clock: 12000000 MHz;
  *
  * \section contactinfo Contact Information
@@ -99,7 +101,7 @@ uint8_t step_led_task = 0;
 
 // To specify which current Watchdog value
 wdt_opt_t opt = {
-          .us_timeout_period = WDT_MIN_VALUE_US  // TimeOut Value
+          .us_timeout_period = WDT_MIN_VALUE_US  // Timeout Value
 };
 
 /*! \brief Led Task to scroll led before reset
@@ -141,7 +143,7 @@ void wdt_scheduler(void)
 	volatile avr32_pm_t* pm = &AVR32_PM;
 
 	// If Reset Cause is due to a Watchdog reset just relaunch Watchdog and turn
-	// LED0 to 4 on to let user know that a new wdt reset has occured.
+	// LED0 to 4 on to let user know that a new wdt reset has occurred.
 	if (pm->RCAUSE.wdt) {
 		wdt_reenable();
 
@@ -174,7 +176,7 @@ void wdt_scheduler(void)
 		// Save new value in GPLP register
 		pm_write_gplp(pm,0,opt.us_timeout_period);
 	}
-	// Else relaunch Watchdog and toggle GPIO to let user know that a new reset has occured
+	// Else relaunch Watchdog and toggle GPIO to let user know that a new reset has occurred
 	else {
 		opt.us_timeout_period = WDT_MIN_VALUE_US;
 

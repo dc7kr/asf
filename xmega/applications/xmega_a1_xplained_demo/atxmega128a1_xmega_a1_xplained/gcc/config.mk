@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -50,7 +52,6 @@ CSRCS = \
        common/services/ioport/xmega/ioport_compat.c       \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        xmega/applications/xmega_a1_xplained_demo/main.c   \
-       xmega/applications/xmega_a1_xplained_demo/snd_samples.c \
        xmega/applications/xmega_a1_xplained_demo/sound.c  \
        xmega/boards/xmega_a1_xplained/init.c              \
        xmega/drivers/dac/dac.c                            \

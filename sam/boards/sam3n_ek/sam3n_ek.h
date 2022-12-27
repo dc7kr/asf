@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -351,6 +353,23 @@
 /** List of all LCD pin definitions. */
 #define PINS_LCD    PIN_SPI_SPCK, PIN_SPI_MOSI, PIN_SPI_NPCS2_LCD, PIN_LCD_RS, PIN_LCD_RSTN
 
+/** Definition of MMA7341L x,y,z axis channel number */
+#define MMA7341L_ADC_CHANNEL_X  2
+#define MMA7341L_ADC_CHANNEL_Y  6
+#define MMA7341L_ADC_CHANNEL_Z  7
+
+/** MMA7341L mode set pin definition. */
+#define PIN_MMA7341L_MODE                PIO_PC13_IDX
+#define PIN_MMA7341L_MODE_FLAG       PIO_OUTPUT_1 | PIO_DEFAULT
+
+/** MMA7341L X,Y,Z axis pin definition. */
+#define PIN_MMA7341L_X_AXIS                PIO_PB3_IDX
+#define PIN_MMA7341L_X_AXIS_FLAG       PIO_INPUT | PIO_DEFAULT
+#define PIN_MMA7341L_Y_AXIS                PIO_PC17_IDX
+#define PIN_MMA7341L_Y_AXIS_FLAG       PIO_INPUT | PIO_DEFAULT
+#define PIN_MMA7341L_Z_AXIS                PIO_PC18_IDX
+#define PIN_MMA7341L_Z_AXIS_FLAG       PIO_INPUT | PIO_DEFAULT
+
 /* =============== DATAFLASH =============== */
 /** List of all Serial flash pin definitions. */
 #define PINS_AT25         PINS_SPI, PIN_SPI_NPCS3_AT25
@@ -411,12 +430,12 @@
 /** PWM LED0 pin definitions. */
 #define PIN_PWM_LED0_GPIO    PIO_PA23_IDX
 #define PIN_PWM_LED0_FLAGS   (PIO_PERIPH_B | PIO_DEFAULT)
-#define PIN_PWM_LED0_CHANNEL 3
+#define PIN_PWM_LED0_CHANNEL PWM_CHANNEL_3
 
 /** PWM LED1 pin definitions. */
 #define PIN_PWM_LED1_GPIO    PIO_PB14_IDX
 #define PIN_PWM_LED1_FLAGS   (PIO_PERIPH_B | PIO_DEFAULT)
-#define PIN_PWM_LED1_CHANNEL 0
+#define PIN_PWM_LED1_CHANNEL PWM_CHANNEL_0
 
 /* =============== QTOUCH =============== */
 /** List of all Slider pin definitions. */
@@ -633,5 +652,11 @@
 #define ISO7816_USART              USART0
 #define PIN_ISO7816_RST_IDX        PIO_PA15_IDX
 #define PIN_ISO7816_RST_FLAG       (PIO_OUTPUT_0 | PIO_DEFAULT)
+
+/* Select the SPI module that AT25DFx is connected to */
+#define AT25DFX_SPI_MODULE          SPI
+
+/* Chip select used by AT25DFx components on the SPI module instance */
+#define AT25DFX_CS      3
 
 #endif  // _SAM3N_EK_H_

@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -457,7 +459,7 @@ extern void adcifa_get_calibration_data( volatile avr32_adcifa_t * adcifa,
  * If not called, ADC channels will have side effects
  * \param *adcifa    Base address of the ADCIFA
  * \param *p_adcifa_opt Structure for the ADCIFA core configuration
- * \param  pb_hz     Periphal Bus frequency
+ * \param  pb_hz     Peripheral Bus frequency
  * \return U8        ADCIFA_CONFIGURATION_REFUSED or ADCIFA_CONFIGURATION_ACCEPTED
  */
 extern U8 adcifa_configure( volatile avr32_adcifa_t * adcifa,
@@ -493,13 +495,13 @@ extern void adcifa_configure_window_monitor( volatile avr32_adcifa_t * adcifa,
 extern void adcifa_start_sequencer( volatile avr32_adcifa_t * adcifa,
                                     U8 sequencer );
 
-/*! \brief Get End of Converion status bit
+/*! \brief Get End of Conversion status bit
  *  \param *adcifa                             Base address of the ADCIFA
  *  \param sequencer                           0: sequencer 0 - 1: sequencer 1
  */
 extern bool adcifa_check_eoc(volatile avr32_adcifa_t * adcifa, U8 sequencer);
 
-/*! \brief Get End of Converion status bit
+/*! \brief Get End of Conversion status bit
  *  \param *adcifa                             Base address of the ADCIFA
  *  \param sequencer                           0: sequencer 0 - 1: sequencer 1
  */

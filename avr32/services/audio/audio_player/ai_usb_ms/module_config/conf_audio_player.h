@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -63,7 +65,7 @@
 #define DEFAULT_HEAP_INIT_WORD            0xA5A5A5A5
 
 /*! \name Default DAC Settings
- * Please choose beetween:
+ * Please choose between:
  * - AUDIO_MIXER_DAC_AIC23B (external DAC mounted on EVK1105 board)
  * - AUDIO_MIXER_DAC_ABDAC  (internal ABDAC with external amplifier tap6130
  *   on EVK1105 and EVK1104)

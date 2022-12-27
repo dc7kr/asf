@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -56,7 +58,7 @@ extern "C" {
  *
  * See \ref wdt_quickstart.
  *
- * This is a driver for configuring, enablig, disabling and use of the on-chip
+ * This is a driver for configuring, enabling, disabling and use of the on-chip
  * WDT.
  *
  * \section dependencies Dependencies
@@ -233,7 +235,7 @@ bool wdt_set_window_period(enum wdt_window_period_t win_period);
  *  The function writes the correct signature to the Configuration
  *  Change Protection register before writing the CTRL register. Interrupts are
  *  automatically ignored during the change enable period. Disable functions
- *  operate asynchronously with immidiate effect.
+ *  operate asynchronously with immediate effect.
  */
 void wdt_disable(void);
 
@@ -258,7 +260,7 @@ void wdt_enable(void);
  *  The function writes the correct signature to the Configuration
  *  Change Protection register before writing the WINCTRL register. Interrupts
  *  are automatically ignored during the change enable period. Disable functions
- *  operate asynchronously with immidiate effect.
+ *  operate asynchronously with immediate effect.
  *
  *  \retval  true   The WDT was enabled and the window mode is disabled.
  *           false  The WDT (& the window mode) is already disabled.

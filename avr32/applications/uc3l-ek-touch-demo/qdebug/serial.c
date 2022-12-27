@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -80,7 +82,7 @@ static void int_usart_handler(void)
       }
 
     SERIAL_RX_Buffer[SERIAL_RX_index++]=c;
-    // resyn until we get MESSAGE_START
+    // resynchronize until we get MESSAGE_START
     if(SERIAL_RX_Buffer[0]!=MESSAGE_START) {
       SERIAL_RX_index=0;
     }
@@ -100,7 +102,7 @@ static void int_usart_handler(void)
     }
 
     if(SERIAL_RX_index > 3) {
-      // Must not occurred, require a synchro
+      // Must not occurred, require a sync
       SERIAL_RX_index=0;
     }
   }

@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -138,7 +140,7 @@ extern bool           sd_mmc_spi_removal(void);
 //!
 extern Ctrl_status    sd_mmc_spi_usb_read_10(uint32_t addr, uint16_t nb_sector);
 
-//! This fonction initialises the SD/MMC memory for a write operation
+//! This function initializes the SD/MMC memory for a write operation
 //!
 //!         DATA FLOW is: USB => SD_MMC
 //!
@@ -158,7 +160,7 @@ extern Ctrl_status    sd_mmc_spi_usb_write_10(uint32_t addr, uint16_t nb_sector)
 // Standard functions for read/write 1 sector to 1 sector ram buffer
 
 
-//! This fonction reads 1 sector from SD/MMC to internal ram buffer
+//! This function reads 1 sector from SD/MMC to internal ram buffer
 //!
 //!         DATA FLOW is: SD/MMC => RAM
 //!
@@ -172,7 +174,7 @@ extern Ctrl_status    sd_mmc_spi_usb_write_10(uint32_t addr, uint16_t nb_sector)
 //!
 extern Ctrl_status    sd_mmc_spi_mem_2_ram(uint32_t addr, void *ram);
 
-//! This fonction initialises the memory for a write operation
+//! This function initializes the memory for a write operation
 //! from ram buffer to SD/MMC (1 sector)
 //!
 //!         DATA FLOW is: RAM => SD/MMC

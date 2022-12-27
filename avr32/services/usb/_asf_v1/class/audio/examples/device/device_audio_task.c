@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -262,7 +264,7 @@ static void mmi_display( void )
               #if (defined USB_RESYNC_METHOD) && (USB_RESYNC_METHOD == USB_RESYNC_METHOD_EXT_CLOCK_SYNTHESIZER)
                  et024006_PrintString("32/44.1/48 KHz, HID, CS2200"     , (const unsigned char *)&FONT8x8, 50, START_Y_DEMO_TEXT+0*FONT_HEIGHT, BLUE, -1);
               #elif (defined USB_RESYNC_METHOD) && (USB_RESYNC_METHOD == USB_RESYNC_METHOD_SOFT_ADAPTIF_SRC)
-                 et024006_PrintString("%32/44.1/48 KHz, HID, adaptif SRC", (const unsigned char *)&FONT8x8, 50, START_Y_DEMO_TEXT+0*FONT_HEIGHT, BLUE, -1);
+                 et024006_PrintString("%32/44.1/48 KHz, HID, adaptive SRC", (const unsigned char *)&FONT8x8, 50, START_Y_DEMO_TEXT+0*FONT_HEIGHT, BLUE, -1);
               #elif (defined USB_RESYNC_METHOD) && (USB_RESYNC_METHOD == USB_RESYNC_METHOD_SOFT_ADD_DEL_SAMPLES)
                  sprintf( tmp, "%d.%d KHz, HID, Add/remove sample", SPEAKER_FREQUENCY/1000, SPEAKER_FREQUENCY%1000);
                  et024006_PrintString(tmp, (const unsigned char *)&FONT8x8, 50, START_Y_DEMO_TEXT+0*FONT_HEIGHT, BLUE, -1);

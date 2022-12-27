@@ -7,12 +7,14 @@
  * be 100% full thanks to a double-index range implementation. For example,
  * a FIFO of 4 elements can be implemented: the FIFO can really hold up to 4
  * elements.
- * This is particurly well suited for any kind of application needing a lot of
+ * This is particularly well suited for any kind of application needing a lot of
  * small FIFO.
  *
  * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -59,7 +61,7 @@
  * These functions manages FIFOs thanks to simple a API. The FIFO can
  * be 100% full thanks to a double-index range implementation. For example,
  * a FIFO of 4 elements can be implemented: the FIFO can really hold up to 4
- * elements. This is particurly well suited for any kind of application
+ * elements. This is particularly well suited for any kind of application
  * needing a lot of small FIFO. The maximum fifo size is 128 items (uint8,
  * uint16 or uint32). Note that the driver, thanks to its conception, does
  * not use interrupt protection.
@@ -588,10 +590,10 @@ static inline void fifo_flush(fifo_desc_t *fifo_desc)
  *   - \code uint8_t pull_value; \endcode
  * -# Put a new 8-bit element into the FIFO:
  *   - \code status = fifo_push_uint8(&fifo_desc, PUSH_VALUE & 0xff); \endcode
- * \note The status variable will contain \ref FIFO_OK if no error occured.
+ * \note The status variable will contain \ref FIFO_OK if no error occurred.
  * -# Get the 8-bit element from the FIFO:
  *   - \code status = fifo_pull_uint8(&fifo_desc, &pull_value); \endcode
- * \note The status variable will contain \ref FIFO_OK if no error occured.
+ * \note The status variable will contain \ref FIFO_OK if no error occurred.
  */
 
 /**
@@ -625,7 +627,7 @@ static inline void fifo_flush(fifo_desc_t *fifo_desc)
  * -# Create a FIFO buffer of FIFO_BUFFER_LENGTH elements, capable
  * of holding a byte, halfword or word:
  *   - \code union buffer_element fifo_buffer[FIFO_BUFFER_LENGTH]; \endcode
- * -# Create a FIFO buffer descriptor that containg information about the
+ * -# Create a FIFO buffer descriptor that containing information about the
  * location of the FIFO buffer, its size and where to read from or write to
  * upon the next buffer pull or push:
  *   - \code fifo_desc_t fifo_desc; \endcode
@@ -652,7 +654,7 @@ static inline void fifo_flush(fifo_desc_t *fifo_desc)
  * -# Put two new 16-bit element into the FIFO:
  *   - \code status = fifo_push_uint16(&fifo_desc, PUSH_VALUE & 0xffff); \endcode
  *   - \code status = fifo_push_uint16(&fifo_desc, PUSH_VALUE & 0xffff); \endcode
- * \note The status variable will contain \ref FIFO_OK if no error occured.
+ * \note The status variable will contain \ref FIFO_OK if no error occurred.
  * -# Flush the FIFO:
  *   - \code fifo_flush(&fifo_desc); \endcode
  * -# Check that the FIFO is empty after flushing:

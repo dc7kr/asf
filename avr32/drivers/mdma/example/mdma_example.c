@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -237,7 +239,7 @@ void mdma_init_buffer_descriptor(void)
   // Source : SDRAM
   // Destination : HSB Ram
   // Size : BUFFER_SIZE
-  // Transfert Size: TRANSFERT_SIZE
+  // Transfer Size: TRANSFERT_SIZE
   // Mode : BURST_MODE
   // Interrupt : 1 (Enable)
   // Valid : 1 (true)
@@ -255,7 +257,7 @@ void mdma_init_buffer_descriptor(void)
   // Source : HSB Ram
   // Destination : CPU Ram
   // Size : BUFFER_SIZE
-  // Transfert Size: TRANSFERT_SIZE
+  // Transfer Size: TRANSFERT_SIZE
   // Mode : BURST_MODE
   // Interrupt : 1 (Enable)
   // Valid : 1 (true)
@@ -273,7 +275,7 @@ void mdma_init_buffer_descriptor(void)
   // Source : CPU Ram
   // Destination : HSB Ram
   // Size : BUFFER_SIZE
-  // Transfert Size: TRANSFERT_SIZE
+  // Transfer Size: TRANSFERT_SIZE
   // Mode : BURST_MODE
   // Interrupt : 1 (Enable)
   // Valid : 1 (true)
@@ -291,7 +293,7 @@ void mdma_init_buffer_descriptor(void)
   // Source : HSB Ram
   // Destination : SDRAM
   // Size : BUFFER_SIZE
-  // Transfert Size: TRANSFERT_SIZE
+  // Transfer Size: TRANSFERT_SIZE
   // Mode : BURST_MODE
   // Interrupt : 1 (Enable)
   // Valid : 1 (true)

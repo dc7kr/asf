@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -87,13 +89,6 @@
  * \brief Use mailbox of CAN0 and CAN1 to communicate with each other.
  */
 //@}
-
-/* Pointer to the module instance used for stdio. */
-#if defined(__GNUC__)
-void (*ptr_get) (void volatile *, int *);
-int (*ptr_put) (void volatile *, int);
-volatile void *volatile stdio_base;
-#endif
 
 /** The data transfer between the CAN0 and CAN1 */
 #define TRANSFER_DATA_LOW             0x12345678
@@ -290,10 +285,6 @@ int main(void)
 
 	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
 
 	/* Define all the test cases. */
 	DEFINE_TEST_CASE(can_test, NULL, run_can_test, NULL,

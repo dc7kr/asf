@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -92,7 +94,7 @@ extern "C" {
 typedef uint8_t spi_flags_t;
 typedef uint32_t board_spi_select_id_t;
 
-//! \brief Polled SPI device defintion
+//! \brief Polled SPI device definition
 struct usart_spi_device {
 	//! Board specific select id
 	port_pin_t	id;
@@ -106,7 +108,7 @@ struct usart_spi_device {
 extern void usart_spi_init(USART_t *usart);
 
 /**
- * \brief Setup a USART in SPI mdoe device.
+ * \brief Setup a USART in SPI mode device.
  *
  * The returned device descriptor structure must be passed to the driver
  * whenever that device should be used as current slave device.
@@ -117,7 +119,7 @@ extern void usart_spi_init(USART_t *usart);
  *                  implementations are the usart modes SPI_MODE_0 ...
  *                  SPI_MODE_3.
  * \param baud_rate Baud rate for communication with slave device in Hz.
- * \param sel_id    Board specific seclet id
+ * \param sel_id    Board specific select id
  */
 extern void usart_spi_setup_device(USART_t *usart, struct usart_spi_device *device,
      spi_flags_t flags, unsigned long baud_rate,

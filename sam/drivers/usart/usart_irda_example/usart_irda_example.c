@@ -1,11 +1,13 @@
 /**
  * \file
  *
- * \brief USART Irda example for SAM.
+ * \brief USART IrDA example for SAM.
  *
  * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -44,24 +46,19 @@
  *
  * \par Purpose
  *
- * This example demonstrates the IrDA (Infrared Data Association) on sam3.
+ * This example demonstrates the IrDA (Infrared Data Association) on SAM.
  *
  * \par Requirements
  *
- * This example can be used on all SAM3-EK with external IrDA transceiver component.
- * Connect the board and external component with the following paired
- * pins:
- *  - <b> SAM3-EK  --  IrDA transceiver </b>
- *   - 3V3 -- VCC
- *   - TXD -- TXD
- *   - RXD -- RXD
- *   - CTS -- SD
- *   - GND -- GND
+ * This example can be used on all SAM EK boards with external IrDA transceiver
+ * component. Connect the board and external component with the following paired
+ * pins.
+ * \copydoc usart_irda_example_pin_defs
  *
  * \par Description
  *
  * The provided program uses the USART in IrDA mode for transmitting and receiving
- * several octets. This example can be used with two SAM3-EK boards.
+ * several octets. This example can be used with two SAM-EK boards.
  * The program receives or transmits a series of octets according to its state of
  * either receiver or transmitter.
  *
@@ -100,6 +97,7 @@
 
 #include <string.h>
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_example.h"
@@ -256,27 +254,14 @@ static void configure_usart(void)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO. */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC. */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART. */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -290,7 +275,7 @@ int main(void)
 {
 	uint8_t uc_char;
 
-	/* Initialize the SAM3 system. */
+	/* Initialize the SAM system. */
 	sysclk_init();
 	board_init();
 

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -57,7 +59,7 @@
  * Typical flow of an application using the spincollection system:
  *
  * 1) Define spinners.\n
- * 2) Initalize each spinners with \ref gfx_mono_spinctrl_init.\n
+ * 2) Initialize each spinners with \ref gfx_mono_spinctrl_init.\n
  * 3) Define a spincollection struct and initialize it with
  * \ref gfx_mono_spinctrl_spincollection_init.\n
  * 4) Add spinners to spincollection with
@@ -74,7 +76,7 @@
  * Typical flow of an application using a single spinner:
  *
  * 1) Define spinner.\n
- * 2) Initalize the spinners with \ref gfx_mono_spinctrl_init with preferred y
+ * 2) Initialize the spinners with \ref gfx_mono_spinctrl_init with preferred y
  * position on screen.\n
  * 3) Draw spinner to screen with \ref gfx_mono_spinctrl_draw.\n
  * 4) Update spinner with user input using function

@@ -13,6 +13,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -206,7 +208,7 @@ extern status_code_t twim_master_init (volatile avr32_twim_t *twim,
 		const twim_options_t *opt);
 
 /**
- * \brief Set the twim bus speed in cojunction with the clock frequency
+ * \brief Set the twim bus speed in conjunction with the clock frequency
  *
  * \param twim              Base address of the TWIM (i.e. &AVR32_TWIM).
  * \param speed             The desired twim bus speed
@@ -298,12 +300,12 @@ extern status_code_t twim_chained_transfer (volatile avr32_twim_t *twim,
 		bool tenbit);
 
 /**
- * \brief Compatibilty with TWI Module driver for read operation
+ * \brief Compatibility with TWI Module driver for read operation
  *
  * \param twim         Base address of the TWIM (i.e. &AVR32_TWIM).
  * \param package      Package information and data
  *                     (see \ref twim_package_t)
- * \return STATUS_OK   If all bytes were read, error code otherwhise
+ * \return STATUS_OK   If all bytes were read, error code otherwise
  */
 static inline status_code_t twi_master_read (volatile avr32_twi_t *twim,
 		const twi_package_t *package)
@@ -317,7 +319,7 @@ static inline status_code_t twi_master_read (volatile avr32_twi_t *twim,
  * \param twim         Base address of the TWIM (i.e. &AVR32_TWI).
  * \param *package     Package information and data
  *                     (see \ref twim_package_t)
- * \return STATUS_OK   if all bytes were written, error code otherwhise
+ * \return STATUS_OK   if all bytes were written, error code otherwise
  */
 static inline status_code_t twi_master_write (volatile avr32_twi_t *twim,
 		const twi_package_t *package)

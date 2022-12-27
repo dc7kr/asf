@@ -13,9 +13,11 @@
  * <A href="http://www.atmel.com/dyn/products/tools_card.asp?tool_id=5017">Atmel Data Visualizer</A>
  *
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -84,7 +86,7 @@
 
 // Data Structure Definitions
 
-COMPILER_PACK_SET(1);       // pack structures (1-byte align all fields)
+COMPILER_PACK_SET(1)        // pack structures (1-byte align all fields)
 
 
 //! \brief Atmel Data Visualizer start-of-configuration packet
@@ -216,7 +218,7 @@ typedef struct {
 // @}
 
 
-COMPILER_PACK_RESET();              // reset to default structure packing
+COMPILER_PACK_RESET()              // reset to default structure packing
 
 
 /*! \brief Write Atmel Data Visualizer data buffer via USB or serial port.

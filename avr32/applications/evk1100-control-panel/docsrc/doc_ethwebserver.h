@@ -20,6 +20,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -101,7 +103,7 @@
  * browser's address bar. The Control Panel default IP address is <em>192.168.0.2</em>.
  * If this address has previously been changed, the IP address of the Control Panel
  * will always be displayed on the second line from the top of the EVK1100 LCD screen,
- * as soon as the board is connected to some ethernet network.
+ * as soon as the board is connected to some Ethernet network.
  * \note There are other ways to know the Control Panel IP address as described in
  * the scenarios \ref ShellUsage and \ref UsbCpMassStorageDevice.
  *

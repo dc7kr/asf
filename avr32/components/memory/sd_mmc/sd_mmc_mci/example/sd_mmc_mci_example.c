@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -307,7 +309,7 @@ static bool test_sd_mmc_write(U8 pattern_id)
 
     if( b_error )
     {
-      print_dbg("\r\nERROR: pattern comparaison failed.\r\n");
+      print_dbg("\r\nERROR: pattern comparison failed.\r\n");
       for( i=0 ; i<SD_MMC_SECTOR_SIZE ; i++ )
       {
         print_dbg_char_hex(buffer_in[i]);
@@ -329,7 +331,7 @@ static bool test_sd_mmc_write(U8 pattern_id)
     return false;
   }
 
-  // Check that the sector restore is succesful.
+  // Check that the sector restore is successful.
   status = sd_mmc_mci_mem_2_ram(EXAMPLE_SD_SLOT, 0, buffer_in);
   if( status!=CTRL_GOOD )
   {

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -70,7 +72,7 @@
  *
  * \section configinfo Configuration Information
  * This example has been tested with the following configuration:
- *   - AT32UC3L-EK evalutation kit; STK600+RCUC3L0 routing card ; STK600+RCUC3D routing card
+ *   - AT32UC3L-EK evaluation kit; STK600+RCUC3L0 routing card ; STK600+RCUC3D routing card
  *   - CPU clock: 12 MHz;
  *   - USART3 (on AT32UC3L-EK) abstracted with a USB CDC connection to a PC;
  *     STK600 usart port for the STK600+RCUC3L0 setup :
@@ -148,7 +150,7 @@ __no_init
 // batchisp and a bootloader. Else, IAR will set this variable as
 // loadable and batchisp will err because this variable is out of the
 // flash memory range (it's in the user page).
-// GCC will init this variable at run time not during the programmation
+// GCC will init this variable at run time not during the programming
 // of the application.
 #endif
 static nvram_data_t user_nvram_data

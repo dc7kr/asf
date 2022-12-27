@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -115,7 +117,7 @@ typedef struct {
 	uint8_t(*getsetting) (void);
 
 	/**
-	 * \brief To signal that a SOF is occured
+	 * \brief To signal that a SOF is occurred
 	 */
 	void(*sof_notify) (void);
 } udi_api_t;

@@ -2091,21 +2091,6 @@
 			</group>
 		</group>
 		<group>
-			<name>applications</name>
-			<group>
-				<name>xmega_a1_xplained_demo</name>
-				<file>
-					<name>$PROJ_DIR$/../../snd_samples.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../sound.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../main.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
 			<name>drivers</name>
 			<group>
 				<name>dac</name>
@@ -2132,6 +2117,18 @@
 				<name>cpu</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/cpu/ccp.s</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>applications</name>
+			<group>
+				<name>xmega_a1_xplained_demo</name>
+				<file>
+					<name>$PROJ_DIR$/../../sound.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../main.c</name>
 				</file>
 			</group>
 		</group>

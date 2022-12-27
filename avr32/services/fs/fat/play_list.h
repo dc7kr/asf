@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -143,7 +145,7 @@ bool pl_nav_eol( void );
 bool  pl_nav_setpos( uint16_t u16_position );
 
 
-//! This function read the playliost's entry at a specific position
+//! This function read the playlist's entry at a specific position
 //!
 //! @param u16_position Position in play list.
 //! @param sz_path      The address of the string where is stored the information.
@@ -155,7 +157,7 @@ bool pl_nav_readentry(uint16_t u16_position, FS_STRING *sz_pat, uint16_t *u16_si
 //!
 //! @param b_gotopath   PL_MAIN_READLINE_OPT_CHECKLINE to check the next line in the file.\n
 //!                     PL_MAIN_READLINE_OPT_READSTRING to read the string in the text file.\n
-//!                     PL_MAIN_READLINE_OPT_GOTOPATH to read, chack and goto the path.
+//!                     PL_MAIN_READLINE_OPT_GOTOPATH to read, check and goto the path.
 //! @param id_nav       ID navigator to update with the selected file (ignore if b_gotopatch == false)
 //! @param sz_path      Address of the string returned. It is used only if PL_MAIN_READLINE_OPT_READSTRING or
 //!                     PL_MAIN_READLINE_OPT_GOTOPATH options are specified.

@@ -3,9 +3,11 @@
  *
  * \brief Board configuration.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -50,6 +52,9 @@
 
 /* Chip select number for HX8347A */
 #define CONF_BOARD_HX8347A_LCD_CS      2
+
+/** Enable Com Port. */
+#define CONF_BOARD_UART_CONSOLE
 
 /** Usart Hw ID used by the console (UART). */
 #define CONSOLE_UART_ID          ID_UART

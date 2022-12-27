@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -287,7 +289,7 @@ void handle_exception(uint32_t *sp, uint32_t exception_address,
 		 * to avoid triggering the exception again.
 		 * Check if the instruction that generated the exception is extended
 		 * (4 bytes) or compact (2 bytes) to find out the address of the next
-		 * instruction which we should return to. All extended intructions have
+		 * instruction which we should return to. All extended instructions have
 		 * the 3 MSb always set, while this pattern is forbidden for compact
 		 * instructions.
 		 */
@@ -430,7 +432,7 @@ static void configure_memory_area(void)
 	 * MPU_PRIVRX_UNPRIVRX for region 0); if the bit is set to 1; the subregion
 	 * permission access is taken from the MPUAPRB register (previously set to
 	 * MPU_PRIVR_UNPRIVNONE for region 0).
-	 * We purposedly placed the ForbiddenFunc function in one of the subregion
+	 * We purposely placed the ForbiddenFunc function in one of the subregion
 	 * 12 to 15; so that when the code jumps to this location, we should get an
 	 * ITLB exception.
 	 */

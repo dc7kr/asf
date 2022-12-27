@@ -13,6 +13,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -114,7 +116,7 @@
 //! @{
 // Number maximum of file include in each random (Unit 8 files)
 #define  NAVAUTO_MAX_RANGE_RAND  8     // 8*8= 64 file
-// Random value methode (byte value)
+// Random value method (byte value)
 #define NAVAUTO_GET_RAND(val)       (val=1) 	// By default no random value but static value
 
 #define NAV_AUTO_FILE_IN_FIRST   1

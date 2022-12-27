@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -46,7 +48,7 @@
  *
  * \section intro Introduction
  * This is a full example of a IMA/DVI ADPCM WAV decoder.\n
- * It uses the USART as a display to sho wav file information and
+ * It uses the USART as a display to show wav file information and
  * two mixed PWM to play through a 16 bits precision sample sound.\n
  * Through this page, you can access the \ref group_dsplib documentation.
  *
@@ -59,7 +61,7 @@
  * PWM channels and then modify the defines \ref DAC_PWM_CHANNEL_LSB, \ref DAC_PWM_CHANNEL_LSB_PIN,
  * \ref DAC_PWM_CHANNEL_LSB_FUNCTION, \ref DAC_PWM_CHANNEL_MSB, \ref DAC_PWM_CHANNEL_MSB_PIN and
  * \ref DAC_PWM_CHANNEL_MSB_FUNCTION.
- * - To use another audio file, copy this file into the ADPCM_WAV_PLAYER direcory where the sample
+ * - To use another audio file, copy this file into the ADPCM_WAV_PLAYER directory where the sample
  * file is already located. Then update the line \code .incbin "enterprise_ima-dvi.wav" \endcode in the file "load.S" (for GCC)
  * or update the following field in the project options for IAR:
  * \image html iar_audio_file_update.jpg "IAR audio file update"
@@ -265,7 +267,7 @@ void print_fct(char *str)
   usart_write_line(EXAMPLE_USART, str);
 }
 
-//! this function intializes the USART module at 115200 bauds
+//! this function initializes the USART module at 115200 bauds
 void init_usart()
 {
   static const gpio_map_t USART_GPIO_MAP =
@@ -352,7 +354,7 @@ void dac_pwm_init()
 //! To set the clock frequency to 48MHz
 void sys_cpu_48MHz(void)
 {
-  // Swith to external Oscillator 0
+  // Switch to external Oscillator 0
   pm_switch_to_osc0(&AVR32_PM, FOSC0, OSC0_STARTUP);
 
   // Set PLL1 @ 96 MHz from Osc0

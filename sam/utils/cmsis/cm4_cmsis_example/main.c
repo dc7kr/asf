@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -45,7 +47,7 @@
  * \section Purpose
  *
  * The cmsis example will help new users get familiar with
- * basic cmsis utilities of SAM3 microcontrollers.
+ * basic cmsis utilities of SAM4 microcontrollers.
  *
  * The example will execute the following tests:
  * - The application will flash the LED per second. The second 
@@ -53,10 +55,10 @@
  *
  * \section Requirements
  *
- * This package can be used with SAM3 evaluation kits.
+ * This package can be used with SAM4 evaluation kits.
  *
  * \section Description
- * The cmsis example will use the system tick of the Cortex-M3.
+ * The cmsis example will use the system tick of the Cortex-M4.
  *
  * \section Usage
  *
@@ -147,7 +149,7 @@ __INLINE static void led_off(uint32_t ul_led)
  */
 int main(void)
 {
-	/* Initilize the SAM3 system */
+	/* Initialize the SAM4 system */
 	SystemInit();
 
 	WDT->WDT_MR = WDT_MR_WDDIS;

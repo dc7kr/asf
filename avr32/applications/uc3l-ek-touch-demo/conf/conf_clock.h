@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -45,7 +47,7 @@
  * @name System Clock Configuration
  *
  * @brief
- * The QDebug protocol USART clock settings are available in qdebug/Serial.h.
+ * The QDebug protocol USART clock settings are available in QDebug/Serial.h.
  * When modifying the EXAMPLE_CPUCLK_HZ clock, care must be taken to modify
  * the TARGET_PBA_FREQ_HZ and TARGET_CPU_FREQ_HZ defines in the Serial.h file
  * for the QDebug protocol to work correctly.

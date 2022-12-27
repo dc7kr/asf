@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -101,7 +103,7 @@ enum
  */
 extern void ssc_i2s_reset(volatile avr32_ssc_t *ssc);
 
-/*! \brief Sets up registers and intializes SSC for use as I2S.
+/*! \brief Sets up registers and initializes SSC for use as I2S.
  *
  *  \param ssc Pointer to the correct volatile avr32_ssc_t struct
  *  \param sample_frequency The sample frequency given in Hz
@@ -118,7 +120,7 @@ extern void ssc_i2s_reset(volatile avr32_ssc_t *ssc);
  *  \param pba_hz The clock speed of the PBA bus in Hz.
  *
  *  \return Status
- *    \retval SSC_I2S_OK when no error occured.
+ *    \retval SSC_I2S_OK when no error occurred.
  *    \retval SSC_I2S_ERROR_ARGUMENT when invalid arguments are passed
  */
 extern int ssc_i2s_init(volatile avr32_ssc_t *ssc,
@@ -134,8 +136,8 @@ extern int ssc_i2s_init(volatile avr32_ssc_t *ssc,
  *  \param data The data to transfer
  *
  *  \return Status
- *    \retval SSC_I2S_OK when no error occured.
- *    \retval SSC_I2S_TIMEOUT when a timeout occured while trying to transfer
+ *    \retval SSC_I2S_OK when no error occurred.
+ *    \retval SSC_I2S_TIMEOUT when a timeout occurred while trying to transfer
  */
 extern int ssc_i2s_transfer(volatile avr32_ssc_t *ssc, unsigned int data);
 

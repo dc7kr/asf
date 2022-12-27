@@ -3,9 +3,11 @@
  *
  * \brief Sleep manager
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -45,12 +47,7 @@
 
 uint8_t sleepmgr_locks[SLEEPMGR_NR_OF_MODES];
 
-#  ifndef __DOXYGEN__
-PROGMEM_DECLARE(enum SLEEP_SMODE_enum,
-		sleepmgr_configs[SLEEPMGR_NR_OF_MODES]) = {
-#  else
 enum SLEEP_SMODE_enum sleepmgr_configs[SLEEPMGR_NR_OF_MODES] = {
-#  endif
 	SLEEP_SMODE_IDLE_gc,
 	SLEEP_SMODE_ESTDBY_gc,
 	SLEEP_SMODE_PSAVE_gc,

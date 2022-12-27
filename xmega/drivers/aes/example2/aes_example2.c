@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -209,7 +211,7 @@ static void aes_isr_handler(void)
 		success = false;
 	}
 
-	/* Check if crypted answer is equal to cipher result. */
+	/* Check if encrypted answer is equal to cipher result. */
 	for (i = 0; i < BLOCK_LENGTH ; i++ ) {
 		if (plain_text[i] != single_ans[i]) {
 			success = false;

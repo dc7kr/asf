@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -51,7 +53,7 @@
  * data from memory to a peripheral or from a peripheral to memory.
  *
  * The given example is a transfer of an ASCII animation stored in internal flash to the USART_1 output.
- * The ASCII animation is divived in two files (ascii_anim1.h and ascii_anim2.h).
+ * The ASCII animation is divided in two files (ascii_anim1.h and ascii_anim2.h).
  *
  * \section compinfo Compilation Info
  * This software was written for the GNU GCC for AVR32 and IAR Systems compiler
@@ -69,7 +71,7 @@
  * - CPU clock:
  *        -- 12 MHz : EVK1100, EVK1101, EVK1104, EVK1105, AT32UC3L-EK evaluation kits;
  *                    STK600+RCUC3L routing card; STK600+RCUC3D routing card;
- *        -- 16 Mhz : UC3C_EK
+ *        -- 16 MHz : UC3C_EK
  * - USART1 (on EVK1100 or EVK1101 or STK600+RCUC3D ) connected to a PC serial port via a standard
  *   RS232 DB9 cable, or USART2 (on UC3C_EK) or USART0 (on EVK1105)
  *   or USART1 (on EVK1104) or USART3 (on AT32UC3L-EK) abstracted with a USB CDC
@@ -384,7 +386,7 @@ int main(void)
   // Enable now the transfer.
   pdca_enable(PDCA_CHANNEL_USART_EXAMPLE);
 
-  // While the PDCA is active transfering data from memory to USART, we may switch
+  // While the PDCA is active transferring data from memory to USART, we may switch
   // the device into IDLE sleep mode.
   // --
   // Modules communicating with external circuits should normally be disabled

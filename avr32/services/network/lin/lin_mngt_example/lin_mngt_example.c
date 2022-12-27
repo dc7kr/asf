@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -171,7 +173,7 @@ void start_scheduler(void)
 {
   volatile avr32_tc_t *tc = TC_INSTANCE;
 
-  // Options for waveform genration.
+  // Options for waveform generation.
   static const tc_waveform_opt_t WAVEFORM_OPT =
   {
     .channel  = TC_CHANNEL,                        // Channel selection.

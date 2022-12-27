@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -89,7 +91,7 @@ typedef struct
 						AVR32_SAU_CONFIG_OPEN_MASK))
 
 /*!
- * \brief SAU Bus Error Eception response management
+ * \brief SAU Bus Error Exception response management
  *
  */
 #define  sau_enable_buserr_resp()       (Set_bits(AVR32_SAU.cr,         \

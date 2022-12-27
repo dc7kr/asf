@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -56,7 +58,7 @@
  * 1) Define menu structure.\n
  * 2) Call gfx_mono_menu_init.\n
  * 3) Get user input.\n
- * 4) Update menu with user imput using funciton \ref gfx_mono_menu_process_key.\n
+ * 4) Update menu with user input using function \ref gfx_mono_menu_process_key.\n
  * 5) Interpret \ref gfx_mono_menu_process_key return value.\n
  * 6) Go to 3.\n
  *

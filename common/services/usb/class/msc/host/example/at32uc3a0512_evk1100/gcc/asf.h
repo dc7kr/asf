@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -57,7 +59,7 @@
 // From module: EIC - External Interrupt Controller
 #include <eic.h>
 
-// From module: EVK1100 board support
+// From module: EVK1100
 #include <led.h>
 
 // From module: FAT file system
@@ -99,7 +101,7 @@
 #include <sysclk.h>
 
 // From module: USB Host MSC (Single Class support)
-#include <uhi_msc.h>
+#include <uhi_msc_mem.h>
 
 // From module: USB Host stack core
 #include <uhc.h>

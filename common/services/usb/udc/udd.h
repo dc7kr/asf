@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -129,7 +131,7 @@ typedef void (*udd_callback_halt_cleared_t) (void);
  * \param n          number of data transfered
  */
 typedef void (*udd_callback_trans_t) (udd_ep_status_t status,
-		iram_size_t nb_transfered);
+		iram_size_t nb_transfered, udd_ep_id_t ep);
 
 /**
  * \brief Authorizes the VBUS event
@@ -374,7 +376,7 @@ extern bool udc_process_setup(void);
 extern void udc_reset(void);
 
 /**
- * \brief To signal that a SOF is occured
+ * \brief To signal that a SOF is occurred
  *
  * The UDC must send the signal to all UDIs enabled
  */

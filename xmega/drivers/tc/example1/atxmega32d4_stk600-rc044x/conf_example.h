@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -50,7 +52,7 @@
 
 /*
 *This example runs at default 2MHz system clock
-*The precaler for TC is 64
+*The prescaler for TC is 64
 *Thus, 2000000/64=31250
 */
 #define TIMER_EXAMPLE_PERIOD 31250

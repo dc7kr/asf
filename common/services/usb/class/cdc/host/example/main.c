@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -39,40 +41,37 @@
  *
  */
 
-#include <asf.h>
 #include "conf_usb_host.h"
-#include "ui.h"
-#include "main.h"
-
+#include <asf.h>
 
 /*! \brief Main function. Execution starts here.
  */
 int main(void)
 {
-	// Initialize the synchronous clock system to the default configuration
-	// set in conf_clock.h.
-	// \note All non-essential peripheral clocks are initially disabled.
+	/* Initialize the synchronous clock system to the default configuration
+	   set in conf_clock.h.
+	   \note All non-essential peripheral clocks are initially disabled. */
 	sysclk_init();
 
-	// Initialize interrupts
+	/* Initialize interrupts */
 	irq_initialize_vectors();
 	cpu_irq_enable();
 
-	// Initialize the sleep manager, lock initial mode.
+	/* Initialize the sleep manager, lock initial mode. */
 	sleepmgr_init();
 
-	// Initialize the resources used by this example to the default
-	// configuration set in conf_board.h
+	/* Initialize the resources used by this example to the default
+	   configuration set in conf_board.h */
 	board_init();
 
-	// Initialize the user interface
+	/* Initialize the user interface */
 	ui_init();
 
-	// Start USB host stack
+	/* Start USB host stack */
 	uhc_start();
 
-	// The main loop manages only the power mode
-	// because the USB management is done by interrupt
+	/* The main loop manages only the power mode
+	   because the USB management is done by interrupt */
 	while (true) {
 		sleepmgr_enter_sleep();
 	}
@@ -86,7 +85,7 @@ int main(void)
  * on Atmel MCU with USB module.
  *
  * \section startup Startup
- * After loading firmware, connect the board (EVKxx,XPlain,...) to a USB
+ * After loading firmware, connect the board (EVKxx,Xplain,...) to a USB
  * device CDC.
  * The example is a bridge between a USART from the main MCU
  * and the USB host CDC interface.

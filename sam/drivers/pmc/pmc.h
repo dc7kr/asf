@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -67,11 +69,11 @@ extern "C" {
 /** Key used to write SUPC registers */
 #define SUPC_KEY_VALUE          ((uint32_t) 0xA5)
 
-/** PMC xtal statup time */
+/** PMC xtal startup time */
 #define PMC_XTAL_STARTUP_TIME   (0x3F)
 
 /** Mask to access fast startup input */
-#define PMC_FAST_STARTUP_Msk    (0xFFFFu)
+#define PMC_FAST_STARTUP_Msk    (0x7FFFFu)
 
 /** PMC_WPMR Write Protect KEY, unlock it */
 #define PMC_WPMR_WPKEY_VALUE    PMC_WPMR_WPKEY((uint32_t) 0x504D43)
@@ -237,7 +239,7 @@ uint32_t pmc_get_status(void);
 /**
  * \name Power management
  *
- * The following functions are used to configure sleep mode and additionnal 
+ * The following functions are used to configure sleep mode and additional 
  * wake up inputs.
  */
 //@{
@@ -247,6 +249,17 @@ void pmc_clr_fast_startup_input(uint32_t ul_inputs);
 void pmc_enable_sleepmode(uint8_t uc_type);
 void pmc_enable_waitmode(void);
 void pmc_enable_backupmode(void);
+
+//@}
+
+/**
+ * \name Failure detector
+ *
+ */
+//@{
+
+void pmc_enable_clock_failure_detector(void);
+void pmc_disable_clock_failure_detector(void);
 
 //@}
 

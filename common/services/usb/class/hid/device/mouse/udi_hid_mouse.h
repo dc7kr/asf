@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -56,7 +58,7 @@ extern "C" {
  * \addtogroup udi_hid_mouse_group_udc
  * @{
  */
-//! Global struture which contains standard UDI API for UDC
+//! Global structure which contains standard UDI API for UDC
 extern UDC_DESC_STORAGE udi_api_t udi_api_hid_mouse;
 //@}
 
@@ -69,7 +71,7 @@ extern UDC_DESC_STORAGE udi_api_t udi_api_hid_mouse;
  */
 //@{
 
-//! Interface descriptor struture for HID mouse
+//! Interface descriptor structure for HID mouse
 typedef struct {
 	usb_iface_desc_t iface;
 	usb_hid_descriptor_t hid;
@@ -87,7 +89,7 @@ typedef struct {
 #define UDI_HID_MOUSE_STRING_ID 0
 #endif
 
-//! HID mouse enpoints size
+//! HID mouse endpoints size
 #define UDI_HID_MOUSE_EP_SIZE  8
 
 //! Content of HID mouse interface descriptor for all speed
@@ -241,7 +243,7 @@ bool udi_hid_mouse_btnleft(bool b_state);
  * \code
  * #define UDI_HID_MOUSE_ENABLE_EXT() my_callback_mouse_enable()
  * extern bool my_callback_mouse_enable(void);
- * #define UDI_HIDMOUSE_DISABLE_EXT() my_callback_mouse_disable()
+ * #define UDI_HID_MOUSE_DISABLE_EXT() my_callback_mouse_disable()
  * extern void my_callback_mouse_disable(void);
  * #include "udi_hid_mouse_conf.h" // At the end of conf_usb.h file
  * \endcode
@@ -276,12 +278,12 @@ bool udi_hid_mouse_btnleft(bool b_state);
  *     \note After the device enumeration (detecting and identifying USB devices),
  *     the USB host starts the device configuration. When the USB mouse interface 
  *     from the device is accepted by the host, the USB host enables this interface and the
- *     UDI_HIDMOUSE_ENABLE_EXT() callback function is called and return true.
+ *     UDI_HID_MOUSE_ENABLE_EXT() callback function is called and return true.
  *     Thus, it is recommended to enable sensors used by the mouse in this function.
- *   - \code #define UDI_HIDMOUSE_DISABLE_EXT() my_callback_mouse_disable()
+ *   - \code #define UDI_HID_MOUSE_DISABLE_EXT() my_callback_mouse_disable()
  * extern void my_callback_mouse_disable(void); \endcode
  *     \note When the USB device is unplugged or is reset by the USB host, the USB
- *     interface is disabled and the UDI_HIDMOUSE_DISABLE_EXT() callback function
+ *     interface is disabled and the UDI_HID_MOUSE_DISABLE_EXT() callback function
  *     is called. Thus, it is recommended to disable sensors used by the mouse
  *     in this function.
  * -# send mouse events:

@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -51,7 +53,10 @@ TARGET_SRAM = adc_adc_example_sram.elf
 # List of C source files.
 CSRCS = \
        common/services/clock/sam3u/sysclk.c               \
+       common/services/serial/usart_serial.c              \
        common/utils/interrupt/interrupt_sam_nvic.c        \
+       common/utils/stdio/read.c                          \
+       common/utils/stdio/write.c                         \
        sam/boards/sam3u_ek/init.c                         \
        sam/drivers/adc/adc.c                              \
        sam/drivers/adc/adc_example/adc_example.c          \
@@ -75,7 +80,10 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/serial                             \
+       common/services/serial/sam_uart                    \
        common/utils                                       \
+       common/utils/stdio/stdio_serial                    \
        sam/boards                                         \
        sam/boards/sam3u_ek                                \
        sam/drivers/adc                                    \

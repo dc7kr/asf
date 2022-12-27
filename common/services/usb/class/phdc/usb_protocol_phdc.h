@@ -3,9 +3,11 @@
  *
  * \brief USB Personal Healthcare Device Class (PHDC) protocol definitions.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -131,7 +133,7 @@ enum usb_phdc_qos_encoding_version {
 #define METADATA_MESSAGE_SIG 	\
 			{'P','h','d','c','Q','o','S','S','i','g','n','a','t','u','r','e'}
 
-COMPILER_PACK_SET(1);
+COMPILER_PACK_SET(1)
 
 //! PHDC Class Function Descriptor
 typedef struct {
@@ -197,7 +199,7 @@ typedef struct {
 	uint8_t bOpaqueData[1];	//!< Opaque meta-data (size=1)
 } usb_phdc_metadata_msg_1_t;
 
-COMPILER_PACK_RESET();
+COMPILER_PACK_RESET()
 
 //@}
 

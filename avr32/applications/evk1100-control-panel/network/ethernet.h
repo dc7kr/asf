@@ -2,11 +2,13 @@
  *
  * \file
  *
- * \brief lwIP on ethernet entry point.
+ * \brief lwIP on Ethernet entry point.
  *
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -62,7 +64,7 @@ void vStartEthernetTaskLauncher( unsigned portBASE_TYPE uxPriority );
 portTASK_FUNCTION( vStartEthernetTask, pvParameters );
 
 /*!
- * \brief Stop the ethernet module resources.
+ * \brief Stop the Ethernet module resources.
  */
 void v_ethernet_stopResources( void );
 

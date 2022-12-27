@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -46,7 +48,7 @@
 #define __CONFIG_H__
 
 //!
-//! @brief This fonction replace a (or many) line(s) in a file.
+//! @brief This function replace a (or many) line(s) in a file.
 //!        Syntax of the line should be : \verbatim field=value\r\n \endverbatim
 //!
 //! @param filename Input. The filename to write into.

@@ -3,9 +3,11 @@
  *
  * \brief USB Standard I/O (stdio) Example
  *
- * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -43,10 +45,10 @@
  * \mainpage
  *
  * \section intro Introduction
- * This example demonstrates how to configure a C-library Standard I/O interface
- * to the ASF Common usb_group Service.  The initialization routines, along with
- * board and clock configuration constants, illustrate how to perform serial I/O
- * via a Communication Device Class (CDC) device protocol.
+ * This example demonstrates how to configure a C-library Standard
+ * I/O interface to the ASF common USB Device CDC service. The initialization
+ * routines, along with board and clock configuration constants, illustrate how
+ * to perform serial I/O via a Communication Device Class (CDC) device protocol
  *
  * \section files Main Files
  * - stdio_usb_example.c: the example application.
@@ -56,20 +58,9 @@
  * - read.c : System implementation function used by standard library
  * - write.c : System implementation function used by standard library
  *
- * \section deviceinfo Device Info
- * All AVR and AVR32 devices supported by the ASF Common USB Protocol can be
- * used. This example has been tested with the following:
- *   - UC3-A3 Xplained Evaluation kit
- *
- * \sa cdc_protocol_group
- *
- * \section exampledescription Description of the example
+ * \section example_description Description of the example
  *   - Send message on USB CDC device to a Virtual Com Port.
  *   - Performs echo of any received character
- *
- * \section compinfo Compilation Info
- * This software was written for the GNU GCC and IAR for AVR and AVR32.
- * Other compilers may or may not work.
  *
  * \section contactinfo Contact Information
  * For further information, visit
@@ -79,33 +70,6 @@
 #include <board.h>
 #include <sysclk.h>
 #include <stdio_usb.h>
-
-/**
- * \brief Specify the MCU serial I/O interface
- *
- * A constant like this is, ideally, defined in a separate configuration header
- * file along with other configurable parameters describing a particular part
- * or board configuration.
- */
-#define CONFIG_USART_IF (AVR32_USART2)
-
-/**
- * \brief Initialize USB CDC support for C-Library Standard I/O functions
- */
-static void sio_init (void)
-{
- 	/* Start and attach USB CDC device interface for devices with
- 	 * integrated USB interfaces.
- 	 */
-	stdio_usb_init(&CONFIG_USART_IF);
-
-	// Specify that stdout and stdin should not be buffered.
-
-#if defined(__GNUC__) && defined(__AVR32__)
-	setbuf(stdout, NULL);
-	setbuf(stdin,  NULL);
-#endif
-}
 
 /**
  * \brief main function
@@ -121,17 +85,17 @@ int main (void)
 	sysclk_init();
 	board_init();
 
-    // Initialize interrupt vector table support.
-    irq_initialize_vectors();
+	// Initialize interrupt vector table support.
+	irq_initialize_vectors();
 
-    // Enable interrupts
-    cpu_irq_enable();
+	// Enable interrupts
+	cpu_irq_enable();
 
 	/* Call a local utility routine to initialize C-Library Standard I/O over
-	 * a USB CDC protocol.  Tunable parameters in a conf_usb.h file must be
-	 * supplied to configure the protocol correctly.
-     */
-    sio_init();
+	 * a USB CDC protocol. Tunable parameters in a conf_usb.h file must be
+	 * supplied to configure the USB device correctly.
+	 */
+	stdio_usb_init();
 
 	// Get and echo characters forever.
 
@@ -139,10 +103,10 @@ int main (void)
 
 	while (true) {
 
-		scanf("%c",&ch);            // get one input character
+		scanf("%c",&ch); // get one input character
 
 		if (ch) {
-			printf("%c",ch);        // echo to output
+			printf("%c",ch); // echo to output
 		}
 	}
 }

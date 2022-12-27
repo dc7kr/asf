@@ -20,6 +20,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -100,7 +102,7 @@
  * \section EthMailConfiguration 4) Configure the Control Panel to send mail.
  * The Control Panel will send mail  to the recipient previously configured upon several actions :
  * - each time a log file is definitely closed, the Control Panel should sent the file content.
- * - each time an alarm is trigerred, the Control Panel should sent an email to inform of this occurence.
+ * - each time an alarm is triggered, the Control Panel should sent an email to inform of this occurrence.
  *
  * \subsection EthMailConfigurationLog 4.1) Log files.
  * You do not have to set up anything to allow the Control Panel to send mail upon this event.\n

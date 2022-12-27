@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -52,7 +54,7 @@
  * \brief Production date get timestamp
  *
  * This function reads the production date time stamp stored in the
- * user signature row adresses PRODUCTION_DATE_ADDRESS to
+ * user signature row addresses PRODUCTION_DATE_ADDRESS to
  * PRODUCTION_DATE_ADDRESS + 3 (4 bytes) and returns a 32 bit value in the
  * UNIX time format.
  *
@@ -148,7 +150,7 @@ void production_date_application(void)
 		// Use months + year*12 as we are a line short to have both year and month
 		months = (date_diff.year * 12) + date_diff.month;
 
-		// Center month string on screen. Allign day string with month string
+		// Center month string on screen. Align day string with month string
 		snprintf(string_buf, sizeof(string_buf), "%2d Months", months);
 		gfx_mono_get_string_bounding_box(string_buf, &sysfont, &width, &height);
 		offset = (GFX_MONO_LCD_WIDTH - width) / 2;

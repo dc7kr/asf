@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -66,16 +68,16 @@ void ui_usb_mode_change(bool b_host_mode)
 		LED_On(LED0);
 	}
 }
-//! @}
+/*! @} */
 
 /**
  * \name Host mode user interface functions
  * @{
  */
 
-//! Status of device enumeration
+/*! Status of device enumeration */
 static uhc_enum_status_t ui_enum_status=UHC_ENUM_DISCONNECT;
-//! Blink frequency depending on device speed
+/*! Blink frequency depending on device speed */
 static uint16_t ui_device_speed_blink;
 
 void ui_usb_vbus_change(bool b_vbus_present)
@@ -122,8 +124,8 @@ void ui_usb_enum_event(uhc_device_t *dev, uhc_enum_status_t status)
 		break;
 	}
 	if (ui_enum_status == UHC_ENUM_SUCCESS) {
-		// USB Device CDC connected
-		// Open and configure UART and USB CDC ports
+		/* USB Device CDC connected
+		   Open and configure UART and USB CDC ports */
 		usb_cdc_line_coding_t cfg = {
 			.dwDTERate   = CPU_TO_LE32(115200),
 			.bCharFormat = CDC_STOP_BITS_1,
@@ -146,7 +148,7 @@ void ui_usb_sof_event(void)
 
 	if (ui_enum_status == UHC_ENUM_SUCCESS) {
 
-		// Display device enumerated and in active mode
+		/*Display device enumerated and in active mode */
 		if (++counter_sof > ui_device_speed_blink) {
 			counter_sof = 0;
 			LED_Toggle(LED3);
@@ -184,14 +186,14 @@ void ui_com_overflow(void)
 	LED_On(LED_BI1_RED);
 }
 
-//! @}
+/*! @} */
 
 /**
  * \defgroup UI User Interface
  *
  * Human interface on EVK1100 :
  * - PWR led is on when power present
- * - Led 0 is on when USB OTG cable is pluged
+ * - Led 0 is on when USB OTG cable is plugged in
  * - Led 1 is on when Vbus is present
  * - Led 2 is on when a device is connected
  * - Led 3 blinks when the CDC device is enumerated and USB in idle mode

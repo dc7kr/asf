@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -51,7 +53,7 @@
  * needed when using a controller that does not provide a way to read back data
  * from the LCD controller memory. In this case we need to buffer the data in
  * a local framebuffer to allow manipulation on pixel level. It is generally
- * not recommended to access the framebuffer directy; this is handled by the
+ * not recommended to access the framebuffer directly; this is handled by the
  * graphic driver when needed.
  *
  * @{

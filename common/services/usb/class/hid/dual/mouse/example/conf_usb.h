@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -76,6 +78,8 @@
 
 //! To authorize the High speed
 #if (UC3A3||UC3A4)
+//#define  USB_DEVICE_HS_SUPPORT
+#elif (SAM3XA)
 //#define  USB_DEVICE_HS_SUPPORT
 #endif
 //@}

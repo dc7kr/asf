@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -78,7 +80,7 @@ struct wav_info_t {
 /*!
  * \brief Decode the header of a WAV file.\n
  * This function will fill the \ref wav_info_t structure passed in argument
- * to this funciton.
+ * to this function.
  * \param wav_info WAV format information. This structure will be updated with
  * the call of this function.
  * \return true on success, false otherwise.

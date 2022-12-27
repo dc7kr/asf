@@ -3,9 +3,11 @@
  *
  * \brief USART synchronous example configuration.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -37,6 +39,15 @@
  *
  * \asf_license_stop
  *
+ */
+
+/**
+ * \defgroup usart_sync_example_pin_defs
+ *   - <b> master  --  slave</b>
+ *   - TXD(PA22)  --  RXD(PA21)
+ *   - RXD(PA21)  --  TXD(PA22)
+ *   - SCK(PA23)  --  SCK(PA23)
+ *   - GND  --  GND
  */
 
 #ifndef CONF_EXAMPLE_H_INCLUDED

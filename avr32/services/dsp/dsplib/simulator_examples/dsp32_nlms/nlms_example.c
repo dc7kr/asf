@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -256,7 +258,7 @@ int main(int argc, char *argv[])
 	dsp_debug_initialization(FOSC0);
 #endif
 
-	// Initialisation of the buffers
+	// Initialization of the buffers
 	for (i = 0; i < FIR_COEF_SIZE; i++) {
 		w[i] = 0;
 		x[i] = 0;

@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -167,7 +169,7 @@ int main(int argc, char *argv[])
   unsigned int cycle_count;
   volatile  dsp16_t fft16_max;
 
-  // Swith to external Oscillator 0.
+  // Switch to external Oscillator 0.
   pm_switch_to_osc0(&AVR32_PM, FOSC0, OSC0_STARTUP);
 
   // Initialize the DSP debug module
@@ -179,7 +181,7 @@ int main(int argc, char *argv[])
   dsp16_trans_realcomplexfft(vect1, vect2, NLOG);
   // Perform the absolute value of a complex vector
   dsp16_vect_complex_abs(fft_real, vect1, SIZE);
-  // Fetrieves the maximum of a vector
+  // Retrieves the maximum of a vector
   fft16_max = dsp16_vect_max(fft_real, SIZE);
 
   // Calculate the number of cycles the FFT took

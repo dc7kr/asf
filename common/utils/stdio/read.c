@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -46,13 +48,13 @@
  * \defgroup group_common_utils_stdio Standard I/O (stdio)
  *
  * Common standard I/O driver that implements the stdio
- * read and write functions on AVR devices.
+ * read and write functions on AVR and SAM devices.
  *
  * \{
  */
 
 extern volatile void *volatile stdio_base;
-void (*ptr_get)(void volatile*,int*);
+void (*ptr_get)(void volatile*, char*);
 
 
 // IAR common implementation
@@ -83,12 +85,9 @@ size_t __read(int handle, unsigned char *buffer, size_t size)
 		return _LLIO_ERROR;
 	}
 	for (; size > 0; --size) {
-		int c;
-		ptr_get(stdio_base,&c);
-		if (c < 0)
-			break;
-		*buffer++ = c;
-		++nChars;
+		ptr_get(stdio_base, (char*)buffer);
+		buffer++;
+		nChars++;
 	}
 	return nChars;
 }
@@ -98,6 +97,7 @@ size_t __read(int handle, unsigned char *buffer, size_t size)
  */
 int __close(int handle)
 {
+	UNUSED(handle);
 	return 0;
 }
 
@@ -106,6 +106,7 @@ int __close(int handle)
  */
 int remove(const char* val)
 {
+	UNUSED(val);
 	return 0;
 }
 
@@ -114,30 +115,32 @@ int remove(const char* val)
  */
 long __lseek(int handle, long val, int val2)
 {
+	UNUSED(handle);
+	UNUSED(val2);
 	return val;
 }
 
 _STD_END
 
-// GCC AVR32 implementation
+// GCC AVR32 and SAM implementation
 #elif (defined(__GNUC__) && !XMEGA)
 
+int __attribute__((weak))
+_read (int file, char * ptr, int len); // Remove GCC compiler warning
 
 int __attribute__((weak))
 _read (int file, char * ptr, int len)
 {
 	int nChars = 0;
 
-	if (file != 0)
+	if (file != 0) {
 		return -1;
+	}
 
 	for (; len > 0; --len) {
-		int c;
-		ptr_get(stdio_base,&c);
-		if (c < 0)
-		break;
-		*ptr++ = c;
-		++nChars;
+		ptr_get(stdio_base, ptr);
+		ptr++;
+		nChars++;
 	}
 	return nChars;
 }
@@ -149,13 +152,13 @@ int _read (int *f); // Remove GCC compiler warning
 
 int _read (int *f)
 {
-	int c;
+	char c;
 	ptr_get(stdio_base,&c);
 	return c;
 }
+#endif
 
 /**
  * \}
  */
 
-#endif

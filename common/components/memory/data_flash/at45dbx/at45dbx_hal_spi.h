@@ -8,9 +8,11 @@
  * service selection depends on  AT45DBX_USES_SPI_MASTER_SERVICE or
  * AT45DBX_USES_USART_SPI_SERVICE in conf_at45dbx.h
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -61,7 +63,7 @@ extern "C" {
 #if defined(AT45DBX_USES_SPI_MASTER_SERVICE) &&  defined(AT45DBX_USES_USART_SPI_SERVICE)
 	#error only one SPI service should be selected
 #endif
-// At least one SPI service should be connnectec...
+// At least one SPI service should be connected...
 #if !defined(AT45DBX_USES_SPI_MASTER_SERVICE) &&  !defined(AT45DBX_USES_USART_SPI_SERVICE)
 	#error No SPI service selected
 #endif
@@ -115,7 +117,7 @@ extern "C" {
 	#endif
 #endif
 
-/*! \brief Initialize SPI external ressource for AT45dbx DataFlash driver.
+/*! \brief Initialize SPI external resource for AT45dbx DataFlash driver.
  *
  *  This function initializes the DataFlash component as well as the SPI service
  *  the memory is connected to.
@@ -170,9 +172,10 @@ inline void at45dbx_spi_init(void)
 inline void at45dbx_spi_select_device(uint8_t mem_id)
 {
 #if defined( AT45DBX_USES_SPI_MASTER_SERVICE)
-	#if (AT45DBX_MEM_CNT==1)
+# if (AT45DBX_MEM_CNT==1)
+	UNUSED(mem_id);
 	spi_select_device(AT45DBX_SPI_MODULE, &AT45DBX_DEVICE1);
-	#else
+# else
 	switch(mem_id) {
 	case 1:
 		spi_select_device(AT45DBX_SPI_MODULE, &AT45DBX_DEVICE1);
@@ -194,13 +197,14 @@ inline void at45dbx_spi_select_device(uint8_t mem_id)
 		/* unhandled_case(id); */
 		return;
 	}
-	#endif
+#  endif
 
 // Implementation with USART in SPI mode service
 #elif defined(AT45DBX_USES_USART_SPI_SERVICE)
-	#if (AT45DBX_MEM_CNT==1)
+#  if (AT45DBX_MEM_CNT==1)
+	UNUSED(mem_id);
 	usart_spi_select_device(AT45DBX_SPI_MODULE, &AT45DBX_DEVICE1);
-	#else
+#  else
 	switch(mem_id) {
 	case 1:
 		usart_spi_select_device(AT45DBX_SPI_MODULE, &AT45DBX_DEVICE1);
@@ -222,7 +226,7 @@ inline void at45dbx_spi_select_device(uint8_t mem_id)
 		/* unhandled_case(id); */
 		return;
 	}
-#endif
+#  endif
 
 #endif
 }
@@ -234,9 +238,10 @@ inline void at45dbx_spi_select_device(uint8_t mem_id)
 inline void at45dbx_spi_deselect_device(uint8_t mem_id)
 {
 #if defined( AT45DBX_USES_SPI_MASTER_SERVICE)
-	#if (AT45DBX_MEM_CNT==1)
+#  if (AT45DBX_MEM_CNT==1)
+	UNUSED(mem_id);
 	spi_deselect_device(AT45DBX_SPI_MODULE, &AT45DBX_DEVICE1);
-	#else
+#  else
 	switch(mem_id) {
 	case 1:
 		spi_deselect_device(AT45DBX_SPI_MODULE, &AT45DBX_DEVICE1);
@@ -258,13 +263,14 @@ inline void at45dbx_spi_deselect_device(uint8_t mem_id)
 		/* unhandled_case(id); */
 		return;
 	}
-	#endif
+#  endif
 
 // Implementation with USART in SPI mode service
 #elif defined(AT45DBX_USES_USART_SPI_SERVICE)
-	#if (AT45DBX_MEM_CNT==1)
+#  if (AT45DBX_MEM_CNT==1)
+	UNUSED(mem_id);
 	usart_spi_deselect_device(AT45DBX_SPI_MODULE, &AT45DBX_DEVICE1);
-	#else
+#  else
 	switch(mem_id) {
 	case 1:
 		usart_spi_deselect_device(AT45DBX_SPI_MODULE, &AT45DBX_DEVICE1);
@@ -286,7 +292,7 @@ inline void at45dbx_spi_deselect_device(uint8_t mem_id)
 		/* unhandled_case(id); */
 		return;
 	}
-#endif
+#  endif
 #endif
 }
 
@@ -342,7 +348,7 @@ inline void at45dbx_spi_read_packet(void const *data, size_t len)
 }
 
 /**
- * \brief Send a sequence of bytes to a DataFlashfrom
+ * \brief Send a sequence of bytes to a DataFlash from
  *
  *
  * \param data   data buffer to write

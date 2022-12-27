@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -67,7 +69,7 @@ void udi_msc_disable(void);
 bool udi_msc_setup(void);
 uint8_t udi_msc_getsetting(void);
 
-//! Global struture which contains standard UDI API for UDC
+//! Global structure which contains standard UDI API for UDC
 UDC_DESC_STORAGE udi_api_t udi_api_msc = {
 	.enable = udi_msc_enable,
 	.disable = udi_msc_disable,
@@ -164,13 +166,14 @@ static void udi_msc_cbw_wait(void);
  * \param status       UDD_EP_TRANSFER_ABORT, if transfer is aborted
  * \param nb_received  number of data transfered
  */
-void udi_msc_cbw_received(udd_ep_status_t status, iram_size_t nb_received);
+static void udi_msc_cbw_received(udd_ep_status_t status,
+		iram_size_t nb_received, udd_ep_id_t ep);
 
 /**
  * \brief Function to check the CBW length and direction
  * Call it after SCSI command decode to check integrity of command
  *
- * \param alloc_len  number of bytes that device want tranfer
+ * \param alloc_len  number of bytes that device want transfer
  * \param dir_flag   Direction of transfer (USB_CBW_DIRECTION_IN/OUT)
  *
  * \retval true if the command can be processed
@@ -201,7 +204,8 @@ static void udi_msc_data_send(uint8_t * buffer, uint8_t buf_size);
  * \param status     UDD_EP_TRANSFER_ABORT, if transfer aborted
  * \param nb_sent    number of data transfered
  */
-void udi_msc_data_sent(udd_ep_status_t status, iram_size_t nb_sent);
+static void udi_msc_data_sent(udd_ep_status_t status, iram_size_t nb_sent,
+		udd_ep_id_t ep);
 //@}
 
 
@@ -233,7 +237,8 @@ void udi_msc_csw_send(void);
  * \param status     UDD_EP_TRANSFER_ABORT, if transfer is aborted
  * \param nb_sent    number of data transfered
  */
-void udi_msc_csw_sent(udd_ep_status_t status, iram_size_t nb_sent);
+static void udi_msc_csw_sent(udd_ep_status_t status, iram_size_t nb_sent,
+		udd_ep_id_t ep);
 //@}
 
 
@@ -430,18 +435,18 @@ uint8_t udi_msc_getsetting(void)
 static void udi_msc_cbw_invalid(void)
 {
 	if (!udi_msc_b_cbw_invalid)
-		return;	// Don't restall endpoint if error reseted by setup
+		return;	// Don't re-stall endpoint if error reseted by setup
 	udd_ep_set_halt(UDI_MSC_EP_OUT);
-	// If stall cleared then restall it. Only Setup MSC Reset can clear it
+	// If stall cleared then re-stall it. Only Setup MSC Reset can clear it
 	udd_ep_wait_stall_clear(UDI_MSC_EP_OUT, udi_msc_cbw_invalid);
 }
 
 static void udi_msc_csw_invalid(void)
 {
 	if (!udi_msc_b_cbw_invalid)
-		return;	// Don't restall endpoint if error reseted by setup
+		return;	// Don't re-stall endpoint if error reseted by setup
 	udd_ep_set_halt(UDI_MSC_EP_IN);
-	// If stall cleared then restall it. Only Setup MSC Reset can clear it
+	// If stall cleared then re-stall it. Only Setup MSC Reset can clear it
 	udd_ep_wait_stall_clear(UDI_MSC_EP_IN, udi_msc_csw_invalid);
 }
 
@@ -458,11 +463,12 @@ static void udi_msc_cbw_wait(void)
 }
 
 
-void udi_msc_cbw_received(udd_ep_status_t status, iram_size_t nb_received)
+static void udi_msc_cbw_received(udd_ep_status_t status,
+		iram_size_t nb_received, udd_ep_id_t ep)
 {
 	// Check status of transfer
 	if (UDD_EP_TRANSFER_OK != status) {
-		// Tranfert aborted
+		// Transfer aborted
 		// Now wait MSC setup reset to relaunch CBW reception
 		return;
 	}
@@ -590,7 +596,8 @@ static void udi_msc_data_send(uint8_t * buffer, uint8_t buf_size)
 }
 
 
-void udi_msc_data_sent(udd_ep_status_t status, iram_size_t nb_sent)
+static void udi_msc_data_sent(udd_ep_status_t status, iram_size_t nb_sent,
+		udd_ep_id_t ep)
 {
 	if (UDD_EP_TRANSFER_OK != status) {
 		// Error protocol
@@ -639,8 +646,11 @@ void udi_msc_csw_send(void)
 }
 
 
-void udi_msc_csw_sent(udd_ep_status_t status, iram_size_t nb_sent)
+static void udi_msc_csw_sent(udd_ep_status_t status, iram_size_t nb_sent,
+		udd_ep_id_t ep)
 {
+	UNUSED(status);
+	UNUSED(nb_sent);
 	// CSW is sent or not
 	// In all case, restart process and wait CBW
 	udi_msc_cbw_wait();
@@ -1012,8 +1022,10 @@ bool udi_msc_process_trans(void)
 }
 
 
-static void udi_msc_trans_ack(udd_ep_status_t status, iram_size_t n)
+static void udi_msc_trans_ack(udd_ep_status_t status, iram_size_t n,
+		udd_ep_id_t ep)
 {
+	UNUSED(n);
 	// Update variable to signal the end of transfer
 	udi_msc_b_abort_trans = (UDD_EP_TRANSFER_OK != status) ? true : false;
 	udi_msc_b_ack_trans = true;
@@ -1021,7 +1033,7 @@ static void udi_msc_trans_ack(udd_ep_status_t status, iram_size_t n)
 
 
 bool udi_msc_trans_block(bool b_read, uint8_t * block, iram_size_t block_size,
-		void (*callback) (udd_ep_status_t status, iram_size_t n))
+		void (*callback) (udd_ep_status_t status, iram_size_t n, udd_ep_id_t ep))
 {
 	if (!udi_msc_b_ack_trans)
 		return false;	// No possible, transfer on going

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -63,7 +65,7 @@
 // From module: DSPLIB - Common files
 #include <dsp.h>
 
-// From module: EVK1100 board support
+// From module: EVK1100
 #include <led.h>
 
 // From module: FLASHC - Flash Controller

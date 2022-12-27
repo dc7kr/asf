@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -302,4 +304,12 @@ void board_init(void)
 	gpio_configure_pin(USB_VBOF_GPIO, USB_VBOF_FLAGS);
 #endif
 
+#ifdef CONF_BOARD_MMA7341L
+	/* Configure MMA7341L mode set control pin */
+	gpio_configure_pin(PIN_MMA7341L_MODE, PIN_MMA7341L_MODE_FLAG);
+	/* Configure MMA7341L x,y,z axis output voltage pin */
+	gpio_configure_pin(PIN_MMA7341L_X_AXIS, PIN_MMA7341L_X_AXIS_FLAG);
+	gpio_configure_pin(PIN_MMA7341L_Y_AXIS, PIN_MMA7341L_Y_AXIS_FLAG);
+	gpio_configure_pin(PIN_MMA7341L_Z_AXIS, PIN_MMA7341L_Z_AXIS_FLAG);
+#endif
 }

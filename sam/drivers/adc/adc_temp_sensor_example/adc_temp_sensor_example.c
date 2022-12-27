@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -94,11 +96,12 @@
  *     -- xxxxxx-xx
  *     -- Compiled: xxx xx xxxx xx:xx:xx --
  *    \endcode
- * -# The application will output current celsius temperature on the terminal, and
+ * -# The application will output current Celsius temperature on the terminal, and
  *    users can set temperature offset by a menu.
  *
  */
 
+#include <stdio.h>
 #include <string.h>
 #include <assert.h>
 #include "asf.h"
@@ -205,27 +208,14 @@ static uint32_t adc_read_buffer(Adc * pADC, int16_t * pwBuffer, uint32_t dwSize)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO. */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC. */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART. */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -292,8 +282,9 @@ void ADC_Handler(void)
  */
 int main(void)
 {
-	/* Initialize the SAM3 system. */
+	/* Initialize the SAM system. */
 	sysclk_init();
+	board_init();
 
 	/* Disable watchdog. */
 	WDT->WDT_MR = WDT_MR_WDDIS;
@@ -312,8 +303,8 @@ int main(void)
 	pmc_enable_periph_clk(ID_ADC);
 	/* Initialize ADC. */
 	/*  startup = 8:    512 periods of ADCClock
-	 * for prescal = 4
-	 *     prescal: ADCClock = MCK / ( (PRESCAL+1) * 2 ) => 64MHz / ((4+1)*2) = 6.4MHz
+	 * for prescale = 4
+	 *     prescale: ADCClock = MCK / ( (PRESCAL+1) * 2 ) => 64MHz / ((4+1)*2) = 6.4MHz
 	 *     ADC clock = 6.4 MHz
 	 */
 	adc_init(ADC, sysclk_get_cpu_hz(), 6400000, 8);

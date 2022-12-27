@@ -3,6 +3,8 @@
 #
 # \asf_license_start
 #
+# \page License
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
 #
@@ -54,6 +56,7 @@ CSRCS = \
        sam/boards/sam4s_xplained/init.c                   \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
+       sam/drivers/pmc/pmc.c                              \
        sam/utils/cmsis/cm4_bit_banding_example/main.c     \
        sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
@@ -70,6 +73,7 @@ INC_PATH = \
        sam/boards                                         \
        sam/boards/sam4s_xplained                          \
        sam/drivers/pio                                    \
+       sam/drivers/pmc                                    \
        sam/utils                                          \
        sam/utils/cmsis/cm4_bit_banding_example/sam4s16c_sam4s_xplained \
        sam/utils/cmsis/sam4s/include                      \

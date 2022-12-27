@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -48,10 +50,10 @@ void ui_init(void);
 //! \brief Enters the user interface in power down mode
 void ui_powerdown(void);
 
-//! \brief Enables the asynchrone interrupts of the user interface
+//! \brief Enables the asynchronous interrupts of the user interface
 void ui_wakeup_enable(void);
 
-//! \brief Disables the asynchrone interrupts of the user interface
+//! \brief Disables the asynchronous interrupts of the user interface
 void ui_wakeup_disable(void);
 
 //! \brief Exits the user interface of power down mode

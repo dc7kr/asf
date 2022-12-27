@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -251,7 +253,7 @@ void touch_init(void)
 }
 
 /**
- * \brief Meassure touch sensors and do appropriate action
+ * \brief Measure touch sensors and do appropriate action
  */
 void touch_handler(void)
 {

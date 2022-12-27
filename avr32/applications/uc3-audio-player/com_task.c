@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -615,7 +617,7 @@ static void playback_task(struct state_machine_context *state_m)
       ai_async_audio_nav_next();
       break;
     }
-    // Toogle play/pause
+    // Toggle play/pause
     else if (controller_playback_toggle_play_pause())
     {
       switch (state_m->player_status.flags.status)
@@ -1008,7 +1010,7 @@ void com_task(void)
     // If current command is not done
     if (!is_ai_async_cmd_finished())
     {
-      // If it is a new command that is beeing proceed
+      // If it is a new command that is being proceed
       if (state_m.in_progress_timer.timer_state == CPU_TIMER_STATE_STOPPED)
         cpu_set_timeout(cpu_ms_2_cy(500, FCPU_HZ), &state_m.in_progress_timer);
       // If current command is not done and it is taking a long
@@ -1028,7 +1030,7 @@ void com_task(void)
       state_m.state != STATE_IDLE_ENTRY_POINT &&
       state_m.state != STATE_IDLE_WAIT_FOR_EVENT)
   {
-    // If no device is connected, then jump to te disconnection state
+    // If no device is connected, then jump to the disconnection state
     if (ai_is_none())
     {
       ai_command_abort();

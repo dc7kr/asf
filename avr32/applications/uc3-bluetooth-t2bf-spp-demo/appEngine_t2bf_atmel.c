@@ -81,7 +81,7 @@ boolean AppEngineInit( TAppEnginePrintCb* pCb, TString deviceName )
     pMyCb = pCb;
     myName = myNameBuf;
 
-    // The Bluetooth adress below is used as default during connect if no other has been selected
+    // The Bluetooth address below is used as default during connect if no other has been selected
     myBdAddr[5] = 0x00;
     myBdAddr[4] = 0x00;
     myBdAddr[3] = 0x00;
@@ -99,7 +99,7 @@ boolean AppEngineInit( TAppEnginePrintCb* pCb, TString deviceName )
 	// BT settings
     TT2BFBtSettings btSettings =
     	{
-        false,               /* Means that the Bluetooth adress stored locally in the chip shall be used. */
+        false,               /* Means that the Bluetooth address stored locally in the chip shall be used. */
     	{ NULL },            /* No address to write since local address in chip shall be used. */
     	myName,              /* Set this to point at a string to use own device name instead of default name. */
         T2BF_LITE_COD,       /* Sets Class Of Device, used in remote en to classify this unit. Se at definition of T2BF_LITE_COD for details. */
@@ -324,7 +324,7 @@ void AppEngineJoystickButton( TAppEngineJoystick joystick )
  * \param dataLength   Defines the length of the data that shall be sent using SPP.
  * \param pData        Points to data area containing data to be sent.
  *
- * \retval true        Transmission succeded.
+ * \retval true        Transmission succeeded.
  * \retval false       Transmission failed.
  */
 boolean AppEngineInternalSendData( uint16 dataLength, uint8* pData )

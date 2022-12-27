@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -370,7 +372,7 @@ void dacifb_reload_timer(volatile avr32_dacifb_t * dacifb,
     Assert( dacifb != NULL );
 
     timer = ( (timer_us * prescaler_clock_hz)/1000000);
-    // Reload Timer Valuie
+    // Reload Timer Value
     switch(channel)
     {
       case DACIFB_CHANNEL_SELECTION_A:

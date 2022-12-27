@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -333,7 +335,7 @@ static inline void pwm_overflow_int_callback(struct pwm_config *config,
  *    on what port/pin is used for different timer/counters.
  * \attention This step must not be skipped or the initial content of the
  * structs will be unpredictable, possibly causing misconfiguration.
- * -# Set callback function on PWM TCc hannel overflow:
+ * -# Set callback function on PWM TCc channel overflow:
  *   \code pwm_overflow_int_callback(&pwm_cfg, my_callback); \endcode
  *
  * \section pwm_use_case_1_usage Usage steps

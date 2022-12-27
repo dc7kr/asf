@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -111,7 +113,7 @@ static void twi_master_interrupt_handler(void)
       {
         // put the byte in the Transmit Holding Register
         twim_inst->thr = *twim_tx_data++;
-        // decrease transmited bytes number
+        // decrease transmitted bytes number
         twim_tx_nb_bytes--;
       }
 
@@ -126,7 +128,7 @@ static void twi_master_interrupt_handler(void)
 
 
 
-/*! \brief Set the twi bus speed in cojunction with the clock frequency
+/*! \brief Set the twi bus speed in conjunction with the clock frequency
  *
  * \param twi    Base address of the TWI (i.e. &AVR32_TWI).
  * \param speed  The desired twi bus speed
@@ -475,7 +477,7 @@ int twim_write(volatile avr32_twim_t *twi, unsigned const char *buffer,
 #if AVR32_TWIM_H_VERSION > 101
      // put the byte in the Transmit Holding Register
      twim_inst->thr = *twim_tx_data++;
-     // decrease transmited bytes number
+     // decrease transmitted bytes number
      twim_tx_nb_bytes--;
 #endif
 

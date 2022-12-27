@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -46,13 +48,13 @@
 // Input angle from -pi/4 to pi/4
 dsp16_t dsp16_op_kernel_cosfix(dsp16_t angle)
 {
-  // Coefficients of the 4th order Tchebychev polynom to calculate a cosine.
+  // Coefficients of the 4th order Tchebychev polynomial to calculate a cosine.
   const dsp16_t c0 = DSP16_Q(1.);
   const dsp16_t c2 = DSP16_Q(0.61651611328125);
   const dsp16_t c4 = DSP16_Q(0.1231689453125);
   S32 z, suma;
 
-  // Computation of the polynom
+  // Computation of the polynomial
   z = (angle*angle) >> (DSP16_QB - 3);
   suma = c2 - ((z*c4) >> (DSP16_QB + 1));
 
@@ -62,7 +64,7 @@ dsp16_t dsp16_op_kernel_cosfix(dsp16_t angle)
 // Input angle from -pi/4 to pi/4
 dsp32_t dsp32_op_kernel_cosfix(dsp32_t angle)
 {
-  // Coefficients of the 12th order Tchebychev polynom to calculate a cosine.
+  // Coefficients of the 12th order Tchebychev polynomial to calculate a cosine.
   const dsp32_t one = DSP32_Q(1.);
   const dsp32_t half = DSP32_Q(0.61685027507);    //0.5*(pi^2/8);
   const dsp32_t C1 = DSP32_Q(0.50733903092);      //(4.1666667908e-02*pi^2)*(pi^2/8);
@@ -73,7 +75,7 @@ dsp32_t dsp32_op_kernel_cosfix(dsp32_t angle)
   const dsp32_t C6 = DSP32_Q(-0.00001295308);     //(-1.1359647598e-11*pi^12)*(pi^2/8);
   long long z, suma, produ;
 
-  // Computation of the polynom
+  // Computation of the polynomial
   z = (long long) angle;
   z = (z*z) >> DSP32_QB;
 

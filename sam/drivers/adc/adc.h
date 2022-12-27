@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -272,7 +274,7 @@ Pdc *adc12b_get_pdc_base(const Adc12b *p_adc);
  * In this basic use case, the ADC module and single channel are configured for:
  * - 12-bit, unsigned conversions
  * - Internal bandgap as 3.3 V reference
- * - ADC clock rate of at most 6.4 MHz and maxium sample rate is 1 MHz
+ * - ADC clock rate of at most 6.4 MHz and maximum sample rate is 1 MHz
  * - Software triggering of conversions
  * - Interrupt-based conversion handling
  * - Single channel measurement
@@ -333,7 +335,7 @@ Pdc *adc12b_get_pdc_base(const Adc12b *p_adc);
  *   - \code adc_configure_timing(ADC, 0, ADC_SETTLING_TIME_3, 1); \endcode
  *   - \note Tracking Time = (0 + 1) * ADC Clock period
  * Settling Time =  ADC_SETTLING_TIME_3 * ADC Clock period
- * Transfer Time = (1 * 2 + 3) * ADC CLock period
+ * Transfer Time = (1 * 2 + 3) * ADC Clock period
  * -# Set the ADC resolution.
  *   - \code adc_set_resolution(ADC, ADC_MR_LOWRES_BITS_12); \endcode
  *   - \note The resolution value can be set to 10 bits or 12 bits.
@@ -365,7 +367,7 @@ Pdc *adc12b_get_pdc_base(const Adc12b *p_adc);
  * In this use case the ADC module and one channel are configured for:
  * - 12-bit, unsigned conversions
  * - Internal bandgap as 3.3 V reference
- * - ADC clock rate of at most 6.4 MHz and maxium sample rate is 1 MHz
+ * - ADC clock rate of at most 6.4 MHz and maximum sample rate is 1 MHz
  * - Software triggering of conversions
  * - Comparison event happen and interrupt handling
  * - Single channel measurement
@@ -433,7 +435,7 @@ Pdc *adc12b_get_pdc_base(const Adc12b *p_adc);
  *   - \code adc_configure_timing(ADC, 0, ADC_SETTLING_TIME_3, 1); \endcode
  *   - \note Tracking Time = (0 + 1) * ADC Clock period
  * Settling Time =  ADC_SETTLING_TIME_3 * ADC Clock period
- * Transfer Time = (1 * 2 + 3) * ADC CLock period
+ * Transfer Time = (1 * 2 + 3) * ADC Clock period
  * -# Set the ADC resolution.
  *   - \code adc_set_resolution(ADC, ADC_MR_LOWRES_BITS_12); \endcode
  *   - \note The resolution value can be set to 10 bits or 12 bits.

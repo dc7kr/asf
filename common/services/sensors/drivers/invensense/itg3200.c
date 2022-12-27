@@ -47,6 +47,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -257,7 +259,7 @@ static void itg3200_isr(volatile void *arg)
 
 	if (STATUS_OK == hal->bus.status) {
 		/* Assume new data to avoid an apparent race condition. The
-		 * interupt status register sometimes has the new data flag
+		 * interrupt status register sometimes has the new data flag
 		 * cleared before it is read above.  If this happens, the sensor will
 		 * not generate any further new data interrupts until the device is
 		 * independently accessed.

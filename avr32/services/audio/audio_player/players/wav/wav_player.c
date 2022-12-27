@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -117,7 +119,7 @@ bool play_wav(const char *filename, bool verbose)
 
 	// Allocate the PCM buffers (output buffer) (* 2 to handle mono to stereo translation)
 	if (!audio_mixer_create_buffers(2, OUTPUT_BUFFER_SIZE * 2)) {
-		// fprintf(stderr, "** Cannot creat buffers.\r\n");
+		// fprintf(stderr, "** Cannot create buffers.\r\n");
 		goto lerror;
 	}
 

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -116,7 +118,7 @@ void main_sof_action(void)
 	ui_process(udd_get_frame_number());
 }
 
-/*! \brief Example of extra USB string maangement
+/*! \brief Example of extra USB string management
  * This feature is available for single or composite device
  * which want implement additional USB string than
  * Manufacture, Product and serial number ID.
@@ -181,34 +183,34 @@ void main_msc_disable(void)
 	main_b_msc_enable = false;
 }
 
-bool main_cdc_enable(void)
+bool main_cdc_enable(uint8_t port)
 {
 	main_b_cdc_enable = true;
 	// Open communication
-	uart_open();
+	uart_open(port);
 	return true;
 }
 
-void main_cdc_disable(void)
+void main_cdc_disable(uint8_t port)
 {
 	main_b_cdc_enable = false;
 	// Close communication
-	uart_close();
+	uart_close(port);
 }
 
-void main_cdc_set_dtr(bool b_enable)
+void main_cdc_set_dtr(uint8_t port, bool b_enable)
 {
 	if (b_enable) {
 		// Host terminal has open COM
-		ui_com_open();
+		ui_com_open(port);
 	}else{
 		// Host terminal has close COM
-		ui_com_close();
+		ui_com_close(port);
 	}
 }
 
 /**
- * \mainpage ASF USB Composite Device
+ * \mainpage ASF USB Composite Device Example CDC and MSC
  *
  * \section intro Introduction
  * This example shows how to implement a USB Composite Device with CDC and
@@ -230,20 +232,20 @@ void main_cdc_set_dtr(bool b_enable)
  * USB Device Mass Storage stack.
  * Also, the example is a bridge between a USART from the main MCU
  * and the USB CDC interface.
- * After loading firmware, connect the board (EVKxx,XPlain,...) to the USB Host.
+ * After loading firmware, connect the board (EVKxx,Xplain,...) to the USB Host.
  * When connected to a USB host system this application allows to display
  * all available memories as a removable disks and provides a mouse, keyboard and CDC in
  * the Unix/Mac/Windows operating systems.
  *
- * In this exmaple, we will use a PC as a USB host:
+ * In this example, we will use a PC as a USB host:
  * it connects to the USB and to the USART board connector.
  * - Connect the USART peripheral to the USART interface of the board.
  * - Connect the application to a USB host (e.g. a PC)
  *   with a mini-B (embedded side) to A (PC host side) cable.
  * The application will behave as a virtual COM (see Windows Device Manager).
- * - Open a hyperterminal on both COM ports (RS232 and Virtual COM)
+ * - Open a HyperTerminal on both COM ports (RS232 and Virtual COM)
  * - Select the same configuration for both COM ports up to 115200 baud.
- * - Type a character in one hyperterminal and it will echo in the other.
+ * - Type a character in one HyperTerminal and it will echo in the other.
  *
  * \note
  * This example uses the native MSC driver on Unix/Mac/Windows OS, except for Win98.

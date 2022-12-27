@@ -3,9 +3,11 @@
  *
  * \brief Main functions to generate USB patterns
  *
- * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -44,8 +46,13 @@
 #include "board.h"
 #include "gpio.h"
 #include "sysclk.h"
+#if SAM3XA
+#include "uotghs_otg.h"
+#include "uotghs_device.h"
+#else
 #include "usbb_otg.h"
 #include "usbb_device.h"
+#endif
 #include "usb_protocol.h"
 #include "usb_protocol_hid.h"
 #include "delay.h"
@@ -66,6 +73,7 @@
  */
 
 //#define  USBC_TST
+//#define  UOTGHS_TST
 
 #define  USB_DEVICE_VENDOR_ID             USB_VID_ATMEL
 #define  USB_DEVICE_PRODUCT_ID            USB_PID_ATMEL_ASF_HIDMOUSE
@@ -211,7 +219,7 @@ static void main_usb_wait_sof(void)
 	udd_ack_sof();
 }
 
-//! \brief Detachs the USB device of the USB line (= remove USB pull_up)
+//! \brief Detaches the USB device of the USB line (= remove USB pull_up)
 static void main_detach(void)
 {
 	udd_detach_device();
@@ -226,7 +234,7 @@ static void main_detach(void)
  */
 static void main_usb_enable_ctrl_ep(uint8_t address, uint8_t ep_size)
 {
-	// Configue USB address
+	// Configure USB address
 	udd_disable_address();
 	udd_configure_address(address);
 	udd_enable_address();
@@ -234,10 +242,18 @@ static void main_usb_enable_ctrl_ep(uint8_t address, uint8_t ep_size)
 	// Alloc and configure control endpoint
 	udd_disable_endpoint(0);
 	udd_unallocate_memory(0);
+#if SAM3XA
+	udd_configure_endpoint(0,
+			USB_EP_TYPE_CONTROL,
+			0,
+			ep_size,
+			UOTGHS_DEVEPTCFG_EPBK_1_BANK);
+#else
 	udd_configure_endpoint(0,
 			USB_EP_TYPE_CONTROL,
 			0,
 			ep_size, AVR32_USBB_UECFG0_EPBK_SINGLE);
+#endif
 	udd_allocate_memory(0);
 	udd_enable_endpoint(0);
 }
@@ -346,7 +362,7 @@ static void main_usb_enum_step4(void)
 	main_usb_wait_sof(); // 100ms
 }
 
-//! \brief step5 of enumeration - Get incomplet USB device descriptor
+//! \brief step5 of enumeration - Get incomplete USB device descriptor
 static void main_usb_enum_step5(void)
 {
 	// Get Device Descriptor
@@ -443,7 +459,7 @@ static void main_usb_enum_step14(void)
 //! \name Tests of USB Host stack core
 //! @{
 
-//! \brief Test 1 - Attach and no reponse
+//! \brief Test 1 - Attach and no response
 static void main_test1(void)
 {
 	uint8_t nb_fail;
@@ -793,7 +809,7 @@ static void main_test16(void)
 	main_usb_wait_suspend();
 	main_detach();
 }
-//! \brief Test 17 - Enumeration sucess (with configuration in BUS + 100mA -> must be pass)
+//! \brief Test 17 - Enumeration success (with configuration in BUS + 100mA -> must be pass)
 static void main_test17(void)
 {
 	udd_attach_device();
@@ -888,6 +904,9 @@ int main(void)
 	sysclk_enable_usb();
 
 	// Enable USB hardware
+#if SAM
+	pmc_enable_periph_clk(ID_UOTGHS);
+#endif
 	otg_disable_id_pin();
 	otg_force_device_mode();
 	otg_enable_pad();
@@ -935,7 +954,9 @@ int main(void)
 		main_test13();
 		main_test14();
 #ifndef USBC_TST
+# ifndef UOTGHS_TST
 		main_test15();
+# endif
 #endif
 		main_test16();
 		main_test17();

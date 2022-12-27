@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -161,7 +163,7 @@ static pcl_freq_param_t pcl_dfll_freq_param =
 #endif
 
 
-/*! \brief Initialize daflash memory AT45DBX resources: GPIO, SPI and AT45DBX
+/*! \brief Initialize dataflash memory AT45DBX resources: GPIO, SPI and AT45DBX
  *
  */
 static void at45dbx_resources_init(void)
@@ -292,7 +294,7 @@ char filename2[90];
       // Wait for destination filename
       print_dbg("Destination : ");
       fsaccess_example_get_filename(filename2);
-      // Write from source to destination (append to the unexisting file)
+      // Write from source to destination (append to the nonexisting file)
       fsaccess_example_write(filename1, filename2, (O_CREAT | O_APPEND));
     break;
     default:

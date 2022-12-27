@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -64,10 +66,9 @@
  * \code
  * -- Menu Choices for this example--
  * -- 0: Display voltage on potentiometer.--
- * -- 1: Display thresholds.--
- * -- 2: Modify low threshold.--
- * -- 3: Modify high threshold.--
- * -- 4: Choose comparison mode.--
+ *  -- 1: Modify low threshold.--
+ *  -- 2: Modify high threshold.--
+ *  -- 3: Choose comparison mode.--
  * -- i: Display ADC information.--
  * -- m: Display this main menu.--
  * -- c: Set Auto Calibration Mode. --
@@ -113,10 +114,9 @@
  *     -- Compiled: xxx xx xxxx xx:xx:xx --
  *     -- Menu Choices for this example--
  *     -- 0: Display voltage on potentiometer.--
- *     -- 1: Display thresholds.--
- *     -- 2: Modify low threshold.--
- *     -- 3: Modify high threshold.--
- *     -- 4: Choose comparison mode.--
+ *      -- 1: Modify low threshold.--
+ *      -- 2: Modify high threshold.--
+ *      -- 3: Choose comparison mode.--
  *     -- i: Display ADC information.--
  *     -- m: Display this main menu.--
  *     -- c: Set Auto Calibration Mode. --
@@ -127,6 +127,7 @@
  */
 
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
 
 /** ADC channel for potentiometer */
@@ -155,10 +156,9 @@
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 #define MENU_HEADER "\n\r-- Menu Choices for this example--\n\r" \
 		"-- 0: Display voltage on potentiometer.--\n\r" \
-		"-- 1: Display thresholds.--\n\r" \
-		"-- 2: Modify low threshold.--\n\r" \
-		"-- 3: Modify high threshold.--\n\r" \
-		"-- 4: Choose comparison mode.--\n\r" \
+		"-- 1: Modify low threshold.--\n\r" \
+		"-- 2: Modify high threshold.--\n\r" \
+		"-- 3: Choose comparison mode.--\n\r" \
 		"-- i: Display ADC information.--\n\r" \
 		"-- m: Display this main menu.--\n\r" \
 		"-- s: Enter sleep mode.--\n\r"
@@ -236,18 +236,34 @@ static void display_menu(void)
 }
 
 /** 
- * \brief Display ADC information.
+ *  \brief Transform float data type to int.
+ */
+static uint32_t  f_to_int(float x)
+{
+	uint32_t j = (uint32_t)x;
+	float k = (float)j;
+	if(k == x) {
+		return j;
+	} else {
+		return j+1;
+	}
+}
+
+/** Display current information,including
+ * voltage on potentiometer, thresholds and comparison mode.
  */
 static void display_info(void)
 {
 	uint32_t ul_adc_value = adc_get_channel_value(ADC, ADC_CHANNEL_POTENTIOMETER);
+	float f_low_threshold = (float)gs_us_low_threshold * VOLT_REF / MAX_DIGITAL;
+	float f_high_threshold = (float)gs_us_high_threshold * VOLT_REF / MAX_DIGITAL;
+	uint32_t ul_low_threshold = f_to_int(f_low_threshold);
+	uint32_t ul_high_threshold = f_to_int(f_high_threshold);
 
-	printf("-I- Thresholds: %d mv - %d mv.\n\r",
-			gs_us_low_threshold * VOLT_REF / MAX_DIGITAL,
-			gs_us_high_threshold * VOLT_REF / MAX_DIGITAL);
+	printf("-I- Thresholds: %d mv - %d mv.\n\r", ul_low_threshold, ul_high_threshold);
 	printf("-I- Voltage on potentiometer: %u mv.\n\r",
 			(unsigned int)(ul_adc_value * VOLT_REF / MAX_DIGITAL));
-	printf("-I- Comparison mode is %u.\n\r",
+	printf("-I- Comparison mode is %u\n\r.",
 			(unsigned int)(ADC->ADC_EMR & ADC_EMR_CMPMODE_Msk));
 }
 
@@ -380,27 +396,14 @@ static int16_t get_voltage(void)
 
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO. */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC. */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART. */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -417,9 +420,10 @@ int main(void)
 	int16_t s_adc_value;
 	int16_t s_threshold = 0;
 
-	/* Initilize the system. */
+	/* Initialize the SAM system. */
 	sysclk_init();
 	board_init();
+
 
 	configure_console();
 	
@@ -434,8 +438,8 @@ int main(void)
 	pmc_enable_periph_clk(ID_ADC);
 	/* Initialize ADC. */
 	/* startup = 10:    640 periods of ADCClock
-	 * for prescal = 4
-	 *     prescal: ADCClock = MCK / ( (PRESCAL+1) * 2 ) => 64MHz / ((4+1)*2) = 6.4MHz
+	 * for prescale = 4
+	 *     prescale: ADCClock = MCK / ( (PRESCAL+1) * 2 ) => 64MHz / ((4+1)*2) = 6.4MHz
 	 *     ADC clock = 6.4 MHz
 	 */
 	adc_init(ADC, sysclk_get_cpu_hz(), 6400000, 10);
@@ -485,12 +489,6 @@ int main(void)
 			break;
 
 		case '1':
-			printf("-I- Thresholds are 0x%x(%d%%) and 0x%x(%d%%).\n\r", gs_us_low_threshold, 
-				gs_us_low_threshold * 100 / MAX_DIGITAL, gs_us_high_threshold, 
-				gs_us_high_threshold * 100 / MAX_DIGITAL);
-			break;
-
-		case '2':
 			puts("Low threshold is set to(mv):");
 			s_threshold = get_voltage();
 			puts("\r");
@@ -502,14 +500,16 @@ int main(void)
 						gs_us_high_threshold);
 				/* Renew low threshold. */
 				gs_us_low_threshold = s_adc_value;
+				float f_low_threshold = (float)gs_us_low_threshold * VOLT_REF / MAX_DIGITAL;
+				uint32_t ul_low_threshold = f_to_int(f_low_threshold);
 				printf("Setting low threshold to %d mv (reg value to 0x%x ~%d%%)\n\r",
-						gs_us_low_threshold * VOLT_REF / MAX_DIGITAL,
+						ul_low_threshold,
 						gs_us_low_threshold,
 						gs_us_low_threshold * 100 / MAX_DIGITAL);
 			}
 			break;
 
-		case '3':
+		case '2':
 			puts("High threshold is set to(mv):");
 			s_threshold = get_voltage();
 			puts("\r");
@@ -519,16 +519,17 @@ int main(void)
 						VOLT_REF;
 				adc_set_comparison_window(ADC, gs_us_low_threshold,
 						s_adc_value);
-
 				/* Renew high threshold. */
 				gs_us_high_threshold = s_adc_value;
+				float f_high_threshold = (float)gs_us_high_threshold * VOLT_REF / MAX_DIGITAL;
+				uint32_t ul_high_threshold = f_to_int(f_high_threshold);
 				printf("Setting high threshold to %d mv (reg value to 0x%x ~%d%%)\n\r",
-						gs_us_high_threshold * VOLT_REF / MAX_DIGITAL, 
+						ul_high_threshold, 
 						gs_us_high_threshold, 
 						gs_us_high_threshold * 100 / MAX_DIGITAL);
 			}
 			break;
-		case '4':
+		case '3':
 			puts("-a. Below low threshold.\n\r"
 					"-b. Above high threshold.\n\r"
 					"-c. In the comparison window.\n\r"

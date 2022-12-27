@@ -9,8 +9,12 @@ define symbol __ICFEDIT_region_RAM0_end__    = 0x20000FFF;
 define symbol __ICFEDIT_region_RAM1_start__  = 0x20080000;
 define symbol __ICFEDIT_region_RAM1_end__    = 0x20083FFF;
 /*-Sizes-*/
+if (!isdefinedsymbol(__ICFEDIT_size_cstack__)) {
 define symbol __ICFEDIT_size_cstack__        = 0x900;
+}
+if (!isdefinedsymbol(__ICFEDIT_size_heap__)) {
 define symbol __ICFEDIT_size_heap__          = 0x200;
+}
 /*-Exports-*/
 export symbol __ICFEDIT_vector_start__;
 /**** End of ICF editor section. ###ICF###*/

@@ -743,7 +743,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1652,7 +1652,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
@@ -1821,6 +1821,33 @@
 	<group>
 		<name>sam</name>
 		<group>
+			<name>utils</name>
+			<group>
+				<name>cmsis</name>
+				<group>
+					<name>sam3n</name>
+					<group>
+						<name>source</name>
+						<group>
+							<name>templates</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/source/templates/system_sam3n.c</name>
+							</file>
+							<group>
+								<name>iar</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/source/templates/iar/startup_sam3n.c</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/source/templates/exceptions.c</name>
+							</file>
+						</group>
+					</group>
+				</group>
+			</group>
+		</group>
+		<group>
 			<name>drivers</name>
 			<group>
 				<name>pio</name>
@@ -1851,42 +1878,6 @@
 			</group>
 		</group>
 		<group>
-			<name>utils</name>
-			<group>
-				<name>cmsis</name>
-				<group>
-					<name>sam3n</name>
-					<group>
-						<name>source</name>
-						<group>
-							<name>templates</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/source/templates/system_sam3n.c</name>
-							</file>
-							<group>
-								<name>iar</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/source/templates/iar/startup_sam3n.c</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/source/templates/exceptions.c</name>
-							</file>
-						</group>
-					</group>
-				</group>
-			</group>
-			<group>
-				<name>syscalls</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../utils/syscalls/iar/dlib_lowlevel.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
 			<name>boards</name>
 			<group>
 				<name>sam3n_ek</name>
@@ -1899,20 +1890,38 @@
 			<name>services</name>
 			<group>
 				<name>flash_efc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../flash_efc.c</name>
+				</file>
 				<group>
 					<name>unit_tests</name>
 					<file>
 						<name>$PROJ_DIR$/../../unit_tests.c</name>
 					</file>
 				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../flash_efc.c</name>
-				</file>
 			</group>
 		</group>
 	</group>
 	<group>
 		<name>common</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam3n</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam3n/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
+			</group>
+		</group>
 		<group>
 			<name>utils</name>
 			<group>
@@ -1935,24 +1944,6 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
 				</file>
-			</group>
-		</group>
-		<group>
-			<name>services</name>
-			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
-				</file>
-			</group>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>sam3n</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam3n/sysclk.c</name>
-					</file>
-				</group>
 			</group>
 		</group>
 	</group>

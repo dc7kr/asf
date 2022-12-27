@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -100,10 +102,10 @@ static volatile uint32_t g_ul_is_rtouch_enabled = 0;
 /* If not, Callback functions are not called. */
 static volatile uint32_t g_ul_is_calibrated = 0;
 
-/* Slope for interpoling touchscreen measurements along the X-axis. */
+/* Slope for interpolating touchscreen measurements along the X-axis. */
 static int32_t g_l_xslope;
 
-/* Slope for interpoling touchscreen measurements along the Y-axis. */
+/* Slope for interpolating touchscreen measurements along the Y-axis. */
 static int32_t g_l_yslope;
 
 /* First calibration point (required for processing point) */

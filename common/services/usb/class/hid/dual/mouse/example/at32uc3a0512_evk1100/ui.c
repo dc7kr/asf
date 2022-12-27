@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -425,7 +427,7 @@ void ui_device_sof_action(void)
  *   - Led 4 red is on when the mouse right button is down
  *   - Led 5 green is on when the mouse move
  *   - Switch PB0 allows to enter the device in suspend mode
- *   - Switch PB1 allows to enter the device in suspend mode with remote wakeup feature autorized
+ *   - Switch PB1 allows to enter the device in suspend mode with remote wakeup feature authorized
  *   - Only Push joystick button can be used to wakeup the USB devices in suspend mode
  *
  * Note: On board the LED labels are incremented of one.

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -84,8 +86,7 @@ ISR(usart_interrupt, USART_IRQ_GROUP, 3)
 	}
 }
 
-
-void uart_rx_notify(void)
+void uart_rx_notify(uint8_t port)
 {
 	// If UART is open
 	if (USART->imr & AVR32_USART_IER_RXRDY_MASK) {
@@ -95,7 +96,7 @@ void uart_rx_notify(void)
 }
 
 
-void uart_config(usb_cdc_line_coding_t * cfg)
+void uart_config(uint8_t port, usb_cdc_line_coding_t * cfg)
 {
 	uint32_t stopbits, parity;
 	uint32_t imr;
@@ -146,7 +147,7 @@ void uart_config(usb_cdc_line_coding_t * cfg)
 	USART->ier = imr;
 }
 
-void uart_open(void)
+void uart_open(uint8_t port)
 {
 	// Enable interrupt with priority higher than USB
 	irq_register_handler(usart_interrupt, USART_IRQ, 3);
@@ -161,7 +162,7 @@ void uart_open(void)
 	USART->ier = AVR32_USART_IER_TXRDY_MASK | AVR32_USART_IER_RXRDY_MASK;
 }
 
-void uart_close(void)
+void uart_close(uint8_t port)
 {
 	// Disable interrupts
 	USART->idr = 0xFFFFFFFF;

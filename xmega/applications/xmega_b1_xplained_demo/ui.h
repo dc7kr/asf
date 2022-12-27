@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -85,10 +87,10 @@ void ui_led(uint8_t led_num);
 
 /*! \brief Display a text string on the LCD.
  *
- *  \note The text string can thenby scrolled using the ui_display_text function
+ *  \note The text string can then be scrolled using the ui_display_text function
  *
  *  \param msg Pointer to the string message to be displayed
- *  \param len Lenght of this text message
+ *  \param len Length of this text message
  */
 void ui_display_text(uint8_t *msg, uint8_t len);
 
@@ -184,9 +186,9 @@ static inline bool ui_pusb_button_3(void)
 	return gpio_pin_is_low(GPIO_PUSH_BUTTON_3);
 }
 
-//! The maximum text lenght of LCD text message for scrolling
+//! The maximum text length of LCD text message for scrolling
 #define LCD_TEXT_STRING_SIZE    20
-//! The maximum text lenght visible text string on the LCD
+//! The maximum text length visible text string on the LCD
 #define LCD_TEST_DISPLAY_SIZE   7
 
 #endif // _UI_H_

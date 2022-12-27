@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -77,6 +79,8 @@
  * - sam3sd8c_sam3s_ek2
  * - sam3u4e_sam3u_ek
  * - sam3x8h_sam3x_ek
+ * - sam4s16c_sam4s_ek
+ * - sam4s16c_sam4s_xplained
  *
  * \section compinfo Compilation info
  * This software was written for the GNU GCC and IAR for ARM. Other compilers
@@ -94,13 +98,6 @@
  * \brief Test the functions provided by the flash driver.
  */
 //@}
-
-/* Pointer to the module instance to use for stdio. */
-#if defined(__GNUC__)
-void (*ptr_get)(void volatile*,int*);
-int (*ptr_put)(void volatile*,int);
-volatile void *volatile stdio_base;
-#endif
 
 /**
  * \brief Test flash device id interface.
@@ -424,10 +421,6 @@ int main(void)
 	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
 
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
-
 	/* Define all the test cases */
 	DEFINE_TEST_CASE(flash_device_id_test, NULL, run_flash_device_id_test, NULL,
 		"Readout flash device id");
@@ -436,7 +429,7 @@ int main(void)
 		"Set, adaptively set and get the wait state for the flash");
 
 	DEFINE_TEST_CASE(flash_information_test, NULL, run_flash_information_test, NULL,
-		"Get the desciptor, page count, page count per region and region count");
+		"Get the descriptor, page count, page count per region and region count");
 
 	DEFINE_TEST_CASE(flash_write_test, NULL, run_flash_write_test, NULL,
 		"Flash write test");

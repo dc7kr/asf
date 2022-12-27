@@ -2,13 +2,15 @@
  *
  * \file
  *
- * \brief Accelerometer senser driver.
+ * \brief Accelerometer sensor driver.
  *
  * This file provides an example for the ADC + Accelerometer on AVR32 UC3 devices
  *
  * Copyright (c) 2009 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -73,7 +75,7 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: UC3-A3 Xplained board support
+// From module: UC3-A3 Xplained
 #include <led.h>
 
 #endif // ASF_H

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -302,7 +304,7 @@ void ui_stop_write(void)
  *
  * Human interface on EVK1104 :
  * - PWR led is on when power present
- * - Led 0 is on when USB OTG cable is pluged and Vbus is present
+ * - Led 0 is on when USB OTG cable is plugged and Vbus is present
  * - Led 1 is continuously on when a device is connected
  * - Led 1 blinks when the device is enumerated and USB in idle mode
  *   - The blink is slow (1s) with low speed device
@@ -310,7 +312,7 @@ void ui_stop_write(void)
  *   - The blink is fast (0.25s) with high speed device
  * - Led 2 is on when a read or write access is on going
  * - Led 3 is on when a LUN test is success
- * - Led 3 blinks when a LUN test is unsuccess
+ * - Led 3 blinks when a LUN test is unsuccessful
  * - Switch SW2 allows to enter the device in suspend mode
  * - Only a low level on J17.7 will generate to wakeup USB device in suspend mode.
  */

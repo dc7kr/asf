@@ -2,8 +2,8 @@
  *
  * \file
  *
- * \brief FIR coefficients for the dsp16_resampling function from the DPSLib.
- *        These coefficients have the following caracterizations:
+ * \brief FIR coefficients for the dsp16_resampling function from the DSPLib.
+ *        These coefficients have the following characterizations:
  *          - Input sampling frequency: 32000 Hz
  *          - Output sampling frequency: 48000 Hz
  *          - Polyphase FIR filter order: 100
@@ -18,6 +18,8 @@
  * Copyright (c) 2010 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -107,12 +109,12 @@
  * @{
  */
 //! Interface callback definition
-#define  UDI_CDC_ENABLE_EXT()             main_cdc_enable()
-#define  UDI_CDC_DISABLE_EXT()            main_cdc_disable()
-#define  UDI_CDC_RX_NOTIFY()              usb_rx_notify()
-#define  UDI_CDC_SET_CODING_EXT(cfg)
-#define  UDI_CDC_SET_DTR_EXT(set)
-#define  UDI_CDC_SET_RTS_EXT(set)
+#define  UDI_CDC_ENABLE_EXT(port)             main_cdc_enable()
+#define  UDI_CDC_DISABLE_EXT(port)            main_cdc_disable()
+#define  UDI_CDC_RX_NOTIFY(port)              usb_rx_notify()
+#define  UDI_CDC_SET_CODING_EXT(port,cfg)
+#define  UDI_CDC_SET_DTR_EXT(port,set)
+#define  UDI_CDC_SET_RTS_EXT(port,set)
 
 //! Define it when the transfer CDC Device to Host is a low rate (<512000 bauds)
 //! to reduce CDC buffers size

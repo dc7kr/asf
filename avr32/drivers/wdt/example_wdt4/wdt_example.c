@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -49,7 +51,7 @@
  * This example will start a watchdog scheduler and scroll led until a reset occurs.
  * \n At first, the watchdog is enabled with the min value WDT_MIN_VALUE(i.e. 1s),
  * then :
- *       - If a Watchdog reset occurs, the watchdog is reenabled with the current value
+ *       - If a Watchdog reset occurs, the watchdog is re-enabled with the current value
  *       - If a External reset occurs, the watchdog is enabled with the current value incremented of 1s.
  * When the WDT timeout period reaches 4s, it is reset back to 1s. So, possible wdt delays(in this example) are 1s, 2s and 3s.
  *       - If a Power On reset occurs, the watchdog is reset and enabled with the default value, WDT_MIN_VALUE(i.e. 1s).
@@ -74,7 +76,7 @@
  * - CPU clock:
  *              - 16000000 MHz: UC3C_EK;
  *              - 12000000 MHz: STK600+RCUC3D;
- * - STK600+RCUC3D Borad Configuration :
+ * - STK600+RCUC3D Board Configuration :
  *     - connect STK600.PA4 to STK600.LEDS.LED0
  *     - connect STK600.PA5 to STK600.LEDS.LED1
  *     - connect STK600.PA6 to STK600.LEDS.LED2
@@ -111,7 +113,7 @@ wdt_opt_t opt = {
           .sfv   = false,     // WDT Control Register is not locked.
           .fcd   = false,     // The flash calibration will be redone after a watchdog reset.
           .cssel = WDT_CLOCK_SOURCE_SELECT_RCSYS,       // Select the system RC oscillator (RCSYS) as clock source.
-          .us_timeout_period = WDT_MIN_VALUE_US  // TimeOut Value
+          .us_timeout_period = WDT_MIN_VALUE_US  // Timeout Value
 };
 
 /*! \brief Led Task to scroll led before reset
@@ -156,7 +158,7 @@ void led_task()
 void wdt_scheduler(void)
 {
   // If Reset Cause is due to a Watchdog reset just relaunch Watchdog and turn
-  // LED0 to 4 on to let user know that a new wdt reset has occured.
+  // LED0 to 4 on to let user know that a new wdt reset has occurred.
   if(AVR32_PM.RCAUSE.wdt) {
       wdt_reenable();
       gpio_clr_gpio_pin(LED0_GPIO);
@@ -181,7 +183,7 @@ void wdt_scheduler(void)
       wdt_enable(&opt);
       // Save new value in GPLP register
       pcl_write_gplp(0,current_wdt_value);
-  // Else relaunch Watchdog and toggle GPIO to let user know that a new reset has occured
+  // Else relaunch Watchdog and toggle GPIO to let user know that a new reset has occurred
   }else{
       current_wdt_value = WDT_MIN_VALUE_US; //WDT_MIN_VALUE
       // Save start value of watchdog in GPLP register

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -382,6 +384,6 @@ void ui_device_sof_action(void)
  *   - Led 1 blinks when the device is enumerated and USB in idle mode
  *   - Led 2 is on when a HID mouse button is pressed
  *   - Led 3 is on when the mouse move
- *   - Switch SW2 allows to enter the device in suspend mode with remote wakeup feature autorized
+ *   - Switch SW2 allows to enter the device in suspend mode with remote wakeup feature authorized
  *   - Only a low level on J17.7 will generate a wakeup USB device in suspend mode.
  */

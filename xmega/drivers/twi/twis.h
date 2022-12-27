@@ -32,6 +32,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -104,7 +106,7 @@ typedef enum TWIS_RESULT_enum {
 /*! \brief TWI slave driver struct.
  *
  *  TWI slave struct. Holds pointer to TWI module and data processing routine,
- *  buffers and necessary varibles.
+ *  buffers and necessary variables.
  */
 typedef struct TWI_Slave {
 	TWI_t *interface;                               /*!< Pointer to what interface to use*/

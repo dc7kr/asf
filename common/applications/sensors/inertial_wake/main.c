@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -157,14 +159,14 @@ int main(void)
 	sleepmgr_lock_mode(SLEEP_MODE);
 
 #if (USE_ACCEL == true)
-	/* Attach acclerometer */
+	/* Attach accelerometer */
 	sensor_attach(&accelerometer, SENSOR_TYPE_ACCELEROMETER, 0, 0);
 
 	if (accelerometer.err) {
 		puts("\r\nAccelerometer initialization error.");
 
 		while (true) {
-			/* Error ocurred, loop forever */
+			/* Error occurred, loop forever */
 		}
 	}
 
@@ -187,7 +189,7 @@ int main(void)
 		puts("\r\nGyroscope initialization error.");
 
 		while (true) {
-			/* Error ocurred, loop forever */
+			/* Error occurred, loop forever */
 		}
 	}
 

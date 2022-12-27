@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -57,7 +59,7 @@
 // From module: EIC - External Interrupt Controller
 #include <eic.h>
 
-// From module: EVK1101 board support
+// From module: EVK1101
 #include <led.h>
 
 // From module: FLASHC - Flash Controller

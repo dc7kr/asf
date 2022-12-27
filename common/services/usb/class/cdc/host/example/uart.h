@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -51,7 +53,7 @@ void uart_rx_notify(void);
  *
  * \param cfg      pointer on line configuration descriptor
  */
-void uart_config(usb_cdc_line_coding_t * cfg);
+void uart_config(usb_cdc_line_coding_t *cfg);
 
 /*! \brief Opens communication line
  */
@@ -61,4 +63,4 @@ void uart_open(void);
  */
 void uart_close(void);
 
-#endif // _UART_H_
+#endif /* _UART_H_ */

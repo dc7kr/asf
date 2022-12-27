@@ -3,9 +3,11 @@
  *
  * \brief UC3-L0 Xplained demonstration application
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -44,6 +46,8 @@
 void init_touch(void);
 void touch_handler(void);
 
+#define EXAMPLE_PWMA_FREQUENCY       19607
+#define EXAMPLE_PWMA_GCLK_FREQUENCY  5000000
 typedef enum led_pwm_channel {
 	PWM_CHANNEL_RED   = (1 << LED_RED_PWMA),
 	PWM_CHANNEL_GREEN = (1 << LED_GREEN_PWMA),

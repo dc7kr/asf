@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -99,6 +101,7 @@ volatile uint32_t g_ul_clk;
  */
 static uint32_t iso7816_get_char(uint8_t *p_char_received)
 {
+	uint32_t ul_data;
 	uint32_t ul_status;
 	uint32_t ul_timeout = 0;
 
@@ -119,9 +122,9 @@ static uint32_t iso7816_get_char(uint8_t *p_char_received)
 	}
 
 	/* At least one complete character has been received and US_RHR has not yet been read. */
-	usart_read(ISO7816_USART, (uint32_t *) p_char_received);
+	usart_read(ISO7816_USART, &ul_data);
 	/* ISO7816 only has 8 bits data. */
-	*p_char_received &= 0xFF;
+	*p_char_received = 0xFF & ul_data;
 
 	ul_status = usart_get_status(ISO7816_USART) & (US_CSR_OVRE |
 			US_CSR_FRAME | US_CSR_PARE | US_CSR_TIMEOUT |
@@ -254,6 +257,7 @@ uint16_t iso7816_xfr_block_tpdu_t0(const uint8_t *p_apdu,
 	/* Handle Procedure Bytes. */
 	do {
 		iso7816_get_char(&uc_proc_byte);
+		uint8_t uc_proc_byte_x = (uc_proc_byte ^ 0xff);
 		/* Handle NULL. */
 		if (ISO_NULL_VAL == uc_proc_byte) {
 			continue;
@@ -278,7 +282,7 @@ uint16_t iso7816_xfr_block_tpdu_t0(const uint8_t *p_apdu,
 			}
 		}
 		/* Handle INS ^ 0xff. */
-		else if (p_apdu[1] == (uc_proc_byte ^ 0xff)) {
+		else if (p_apdu[1] == uc_proc_byte_x) {
 			if (uc_cmd_case == CASE2) {
 				/* receive data from card. */
 				iso7816_get_char(&p_message[us_message_index++]);
@@ -370,13 +374,13 @@ uint8_t iso7816_get_reset_statuts(void)
 void iso7816_cold_reset(void)
 {
 	uint32_t i;
-	uint8_t uc_char;
+	uint32_t ul_data;
 
 	/* tb: wait 400 cycles */
 	for (i = 0; i < (RST_WAIT_TIME * (g_ul_clk / 1000000)); i++) {
 	}
 
-	usart_read(ISO7816_USART, (uint32_t *)&uc_char);
+	usart_read(ISO7816_USART, &ul_data);
 	usart_reset_status(ISO7816_USART);
 	usart_reset_iterations(ISO7816_USART);
 	usart_reset_nack(ISO7816_USART);
@@ -390,7 +394,7 @@ void iso7816_cold_reset(void)
 void iso7816_warm_reset(void)
 {
 	uint32_t i;
-	uint8_t uc_char;
+	uint32_t ul_data;
 
 	iso7816_icc_power_off();
 
@@ -398,7 +402,7 @@ void iso7816_warm_reset(void)
 	for (i = 0; i < (RST_WAIT_TIME * (g_ul_clk / 1000000)); i++) {
 	}
 
-	usart_read(ISO7816_USART, (uint32_t *) & uc_char);
+	usart_read(ISO7816_USART, &ul_data);
 	usart_reset_status(ISO7816_USART);
 	usart_reset_iterations(ISO7816_USART);
 	usart_reset_nack(ISO7816_USART);

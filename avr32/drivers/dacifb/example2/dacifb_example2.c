@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -133,7 +135,7 @@ dacifb_channel_opt_t dacifb_channel_opt = {
                                                 .trigger_mode         = DACIFB_TRIGGER_MODE_EVENT, // Trigger selection
                                                 .left_adjustment      = false,                      // Right Adjustment
                                                 .data_shift           = 0,                          // Number of Data Shift
-                                                .data_round_enable    = false                       // Data Rouding Mode                                              };
+                                                .data_round_enable    = false                       // Data Rounding Mode                                              };
 };
 
 /*! \brief The PDCA interrupt handler.

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -68,7 +70,7 @@
  *   header.
  *
  * \section exampledescription Description of the example
- * This example will continously sample button input from SW0 on STK600, and
+ * This example will continuously sample button input from SW0 on STK600, and
  * then apply a software debounce filter to get a stable button press
  * indication. A valid button down-press will cause LED0 to toggle.
  *

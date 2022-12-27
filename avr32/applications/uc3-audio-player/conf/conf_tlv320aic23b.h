@@ -13,6 +13,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -64,14 +66,14 @@
 //! Master clock (in Hz): \c 12000000 or \c 11289600.
 #define AIC23B_MCLK_HZ                      11289600
 
-//! Use an external clock recieved from the SSC RX clock pin to generate the SSC TX clock.
+//! Use an external clock received from the SSC RX clock pin to generate the SSC TX clock.
 //! \note If this define is enabled, the GCLK2 pin must be linked with the SSC RX clock.
 //!       On the AT32UC30512, link PB21 with PA18.
 #define AIC23B_DAC_USE_RX_CLOCK             false
 
 #if defined(AIC23B_DAC_USE_RX_CLOCK) && AIC23B_DAC_USE_RX_CLOCK == true
 
-  //! This callback is used to set the frequency of the external clock recieved
+  //! This callback is used to set the frequency of the external clock received
   //! from the RX clock pin.
   extern void set_gclk2_freq(int freq_hz);
   #define AIC23B_DAC_RX_CLOCK_SET_CALLBACK(freq_hz)   set_gclk2_freq(freq_hz)

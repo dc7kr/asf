@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -230,7 +232,7 @@ void gfx_mono_draw_char(const char c, const gfx_coord_t x, const gfx_coord_t y,
 		break;
 #endif
 	default:
-		//unsported mode, call assert
+		// unsupported mode, call assert
 		Assert(false);
 		break;
 	}
@@ -309,7 +311,7 @@ void gfx_mono_draw_progmem_string(char PROGMEM_PTR_T str, gfx_coord_t x,
 			x = start_of_string_position_x;
 			y += font->height + 1;
 		}
-		else if (*str == '\r') {
+		else if (temp_char == '\r') {
 			/* Skip '\r' characters. */
 		} else {
 			gfx_mono_draw_char(temp_char, x, y, font);

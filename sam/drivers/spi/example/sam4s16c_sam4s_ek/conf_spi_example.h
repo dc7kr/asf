@@ -3,9 +3,11 @@
  *
  * \brief SPI example configuration.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -37,6 +39,17 @@
  *
  * \asf_license_stop
  *
+ */
+
+/**
+ * \defgroup spi_example_pin_defs
+ *  - <b> SAM4S-EK  --  SAM4S-EK </b>
+ *  - VCC -- VCC
+ *  - NPCS0(PA11) -- NPCS0(PA11)
+ *  - MISO(PA12)  -- MISO(PA12)
+ *  - MOSI(PA13)  -- MOSI(PA13)
+ *  - SPCK(PA14)  -- SPCK(PA14)
+ *  - GND -- GND
  */
 
 #ifndef CONF_SPI_EXAMPLE_H_INCLUDED

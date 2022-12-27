@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -55,7 +57,7 @@
  *
  * \section intro Introduction
  * This is the unit test application for the GPBR driver.
- * It consists of test cases for the following functionality:
+ * It consists of the following test steps:
  * - Write a value to the GPBR
  * - Enter the backup mode
  * - Wake up from the backup mode
@@ -94,13 +96,6 @@
  * \brief Test the functions provided by the GPBR driver.
  */
 //@}
-
-/* Pointer to the module instance to use for stdio. */
-#if defined(__GNUC__)
-void (*ptr_get)(void volatile*,int*);
-int (*ptr_put)(void volatile*,int);
-volatile void *volatile stdio_base;
-#endif
 
 /** RTT wait time */
 #define RTT_WAIT_TIME  (2)
@@ -241,14 +236,14 @@ static void run_gpbr_test(const struct test_case *test)
 	/* Write backup mode flag */
 	if (flash_write(ul_last_page_addr, (uint8_t *) & ul_backup_mode_flag,
 					sizeof(uint32_t), 0) != FLASH_RC_OK) {
-		/* Flag wirte failed, return error */
+		/* Flag write failed, return error */
 		test_assert_true(test, 0, "Test GPBR: GPBR write error!");
 	}
 #else
 	/* Write backup mode flag */
 	if (flash_write(ul_last_page_addr, (uint8_t *) & ul_backup_mode_flag,
 					sizeof(uint32_t), 1) != FLASH_RC_OK) {
-		/* Flag wirte failed, return error */
+		/* Flag write failed, return error */
 		test_assert_true(test, 0, "Test GPBR: GPBR write error!");
 	}
 #endif
@@ -279,10 +274,6 @@ int main(void)
 	/* Enable the debug uart */
 	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#endif
 
 	/* Define all the test cases */
 	DEFINE_TEST_CASE(gpbr_test, NULL, run_gpbr_test, NULL,

@@ -15,6 +15,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -144,7 +146,7 @@ static bool usb_stream_process(void)
   // Select the current input buffer and make sure it is valid
   input_buffer = usb_stream_context->input_buffers[usb_stream_context->current_full_buffer];
 
-  // Make sure this buffer is not already in the proces of resampling
+  // Make sure this buffer is not already in the process of resampling
   if (input_buffer->buffer_state != BUFFER_STATE_FULL)
     return false;
 
@@ -640,7 +642,7 @@ int usb_stream_input(usb_stream_side_t side, uint8_t pipe_in, uint32_t* pFifoCou
     cpu_set_timeout(cpu_ms_2_cy(BROKEN_STREAM_TIMER, FCPU_HZ), &broken_stream_timer);
   }
 
-  // Make sure the structure is intialized
+  // Make sure the structure is initialized
   if (usb_stream_context->status == USB_STREAM_STATUS_NOT_INITIALIZED)
     return USB_STREAM_ERROR_NONE;
 
@@ -703,7 +705,7 @@ bool usb_stream_task(void)
   const int buffer_limit_overrun = 1;
   const int buffer_limit_underrun = AUDIO_STREAM_NB_INPUT_BUFFERS - 1;
 
-  // Make sure the structure is intialized
+  // Make sure the structure is initialized
   if (usb_stream_context->status == USB_STREAM_STATUS_NOT_INITIALIZED)
     return false;
 
@@ -714,7 +716,7 @@ bool usb_stream_task(void)
 
   nb_full_buffers = usb_stream_count_nb_buffer(BUFFER_STATE_FULL);
 
-  // Check for the most approprite re-sampling setup to use
+  // Check for the most appropriate re-sampling setup to use
   if (usb_stream_context->synchronized)
   {
     if (nb_full_buffers == 0)

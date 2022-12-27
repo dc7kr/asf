@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -170,7 +172,7 @@ typedef struct
 //!  @{
 /*! \brief Options to attribute to the resampling algorithm
  * \note The structure must be initialized to 0 before using it. This will ensure
- * all the defautl options will be chosen.
+ * all the default options will be chosen.
  * \ingroup group_resampling
  */
 typedef struct
@@ -196,7 +198,7 @@ typedef struct
       int custom_fc_hz;
       //! Custom filter function. If set to NULL, the algorithm will use the dsp16_filt_lpfirdesign function.
       void (*dsp16_custom_filter)(dsp16_t *coefficients, int fc_hz, int fs_hz, int order);
-      //! Custom window function. If set to NULL, the algortihm will use a rectangular window.
+      //! Custom window function. If set to NULL, the algorithm will use a rectangular window.
       void (*dsp16_custom_window)(dsp16_t *window, dsp16_t *input, int size);
     } dynamic;
     //! If using the static method to generate the filter coefficients
@@ -220,7 +222,7 @@ typedef void *(*malloc_fct_t)(int);
  * \param output_sample_rate The sample rate of the output signal.
  * \param buffer_size The size of the input buffers.
  * \param order The order of the re-sampling module. This defines indirectly the order of the
- *        filter to be used. It sorder will be <order> * <interpolation factor>.
+ *        filter to be used. Its order will be <order> * <interpolation factor>.
  * \param malloc_fct A pointer on a memory allocation function.
  * \param nb_channels The number of channels to compute.
  * \param options Add specific options to the algorithm.
@@ -239,7 +241,7 @@ dsp_resampling_t *dsp16_resampling_setup(int input_sample_rate, int output_sampl
  * \ingroup group_resampling
  */
 typedef void (*free_fct_t)(void *);
-/*! \brief Function used to free the previously allocted structure issued by the
+/*! \brief Function used to free the previously allocated structure issued by the
  *         \ref dsp16_resampling_setup function.
  * \ingroup group_resampling
  * \param dsp_resampling The re-sampling context structure to be freed.
@@ -270,7 +272,7 @@ int dsp16_resampling_get_output_current_buffer_size(dsp_resampling_t *dsp_resamp
  *              process. It has to be of a length defined to the
  *              \ref dsp16_resampling_setup function as for its sampling rate.
  * \param channel The channel number to compute (starting from 0 to nb_channels - 1
- *                refered in \ref dsp16_resampling_setup).
+ *                referred in \ref dsp16_resampling_setup).
  */
 void dsp16_resampling_compute(dsp_resampling_t *dsp_resampling, dsp16_t *output, dsp16_t *input, int channel);
 

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -113,7 +115,7 @@
 // From module: TWI - Two-Wire Master Interface
 #include <twim.h>
 
-// From module: UC3C-EK board support
+// From module: UC3C-EK
 #include <led.h>
 
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter

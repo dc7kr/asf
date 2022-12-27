@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -65,8 +67,8 @@
  * resulting in a 1kHz TC overflow frequency.
  * Compare Channels A and B will be setup at 1/4 and 1/2 of the TC period.
  *
- * Each callback interupts functions are setup to toggle a LED.
- *  - PORTA0 GPIO: Toggles on TC overflow interrup
+ * Each callback interrupts functions are setup to toggle a LED.
+ *  - PORTA0 GPIO: Toggles on TC overflow interrupt
  *  - PORTA1 GPIO and PORTA2 GPIO: Toggle on Compare Channel A and B interrupts
  *
  * \section compinfo Compilation Info
@@ -82,9 +84,9 @@
 #include <asf.h>
 
 /**
- * \brief Timer Counter Oveflow interrupt callback function
+ * \brief Timer Counter Overflow interrupt callback function
  *
- * This function is called when an overflow interrupt has occured on
+ * This function is called when an overflow interrupt has occurred on
  * TIMER_EXAMPLE and toggles PORTA0 GPIO.
  */
 static void example_ovf_interrupt_callback(void)
@@ -95,7 +97,7 @@ static void example_ovf_interrupt_callback(void)
 /**
  * \brief Timer Counter Capture/Compare A interrupt callback function
  *
- * This function is called when an a capture compare channel A has occured
+ * This function is called when an a capture compare channel A has occurred
  * TIMER_EXAMPLE and toggles PORTA1 GPIO.
  */
 static void example_cca_interrupt_callback(void)
@@ -105,7 +107,7 @@ static void example_cca_interrupt_callback(void)
 /**
  * \brief Timer Counter Capture/Compare B interrupt callback function
  *
- * This function is called when an a capture compare channel B has occured
+ * This function is called when an a capture compare channel B has occurred
  * TIMER_EXAMPLE and toggles PORTA2 GPIO.
  */
 static void example_ccb_interrupt_callback(void)
@@ -124,7 +126,7 @@ int main(void)
 	cpu_irq_enable();
 
 	/*
-	* Unmask clok for TIMER_EXAMPLE
+	* Unmask clock for TIMER_EXAMPLE
 	*/
 	tc_enable(&TIMER_EXAMPLE);
 

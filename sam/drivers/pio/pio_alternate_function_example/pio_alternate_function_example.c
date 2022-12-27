@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -151,23 +153,14 @@ static void configure_button(void)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), BOARD_UART_BAUDRATE, UART_MR_PAR_NO };
-
-	/* Configure PMC. */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART. */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -233,7 +226,7 @@ int main(void)
 	puts("-I- Checking page contents.\r\n");
 	for (i = 0; i < BUFFER_SIZE; i++) {
 		puts(".");
-		if (p_last_page_data[i] != (1 << (i % MAX_SHIFTING_NUMBER))) {
+		if (p_last_page_data[i] != (1u << (i % MAX_SHIFTING_NUMBER))) {
 			puts("The content in the last page isn't written correctly");
 			return 0;
 		}

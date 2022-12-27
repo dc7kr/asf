@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -247,7 +249,7 @@ void  ai_usb_ms_init( void )
   size_t playlist_file_list_size;
   size_t nb_file_format_supported = sizeof(file_format_supported) / sizeof(file_format_supported[0]);
 
-  // Do it only once - usefull if another module uses this function (like SD/MMC card support for example)
+  // Do it only once - useful if another module uses this function (like SD/MMC card support for example)
   if (ai_usb_ms_filter_file && ai_usb_ms_filter_playlist)
     return;
 
@@ -330,7 +332,7 @@ ai_device_status_t ai_usb_ms_get_device_status( ai_async_status_t *cmd_ai_status
   *cmd_ai_status = CMD_DONE;
 
 #if defined(USB_MS_INCLUDED) && USB_MS_INCLUDED == true
-  // Not revelant if the USB macro is not in host state
+  // Not relevant if the USB macro is not in host state
   if (g_usb_mode != USB_MODE_HOST)
     return AI_DEVICE_STATUS_NOT_PRESENT;
 
@@ -1026,7 +1028,7 @@ bool  ai_usb_ms_audio_nav_playfile( ai_async_status_t *cmd_ai_status )
   else
   {
     //** Start play
-    // If the file selected have a correct extention then play file
+    // If the file selected have a correct extension then play file
     // If no file selected then play the first file or a random file
     if ( !navauto_open( false , 0 ))
     {
@@ -1042,7 +1044,7 @@ bool  ai_usb_ms_audio_nav_playfile( ai_async_status_t *cmd_ai_status )
 
 #if defined(PAUSE_ON_TRACK_CHANGED) && PAUSE_ON_TRACK_CHANGED == true
   ai_usb_ms_audio_ctrl_resume(cmd_ai_status);
-  // Automaticaly pause new track
+  // Automatically pause new track
   return ai_usb_ms_audio_ctrl_pause(cmd_ai_status);
 #else
   return ai_usb_ms_audio_ctrl_resume(cmd_ai_status);
@@ -1185,7 +1187,7 @@ bool  ai_usb_ms_audio_context_restore( void *p, ai_async_status_t *cmd_ai_status
     // Set the track changed bit
     g_player_flag.new_file_played = 1;
 
-    // restore the Audio controler status
+    // restore the Audio controller status
     if ( ctx->u8_audio_ctrl_status.status == PLAYER_FLAG_PLAY
          ||  ctx->u8_audio_ctrl_status.status_fast == PLAYER_FLAG_FFW
          ||  ctx->u8_audio_ctrl_status.status_fast == PLAYER_FLAG_FRW)
@@ -1295,7 +1297,7 @@ static bool  ai_usb_ms_audio_nav_mov( bool b_direction, ai_async_status_t *cmd_a
         break;
 
       default:
-        // Erroroccur then close audio
+        // Error occur then close audio
         navauto_close();
         g_ai_usb_ms_b_audio_file = false;
         state = STATE_INIT;
@@ -1303,7 +1305,7 @@ static bool  ai_usb_ms_audio_nav_mov( bool b_direction, ai_async_status_t *cmd_a
         return false;
       }
     }
-    // Save the direction for futur use.
+    // Save the direction for future use.
     b_previous_direction = b_direction;
 
     g_player_flag.new_file_played = 1;
@@ -1313,7 +1315,7 @@ static bool  ai_usb_ms_audio_nav_mov( bool b_direction, ai_async_status_t *cmd_a
       state = STATE_INIT;
 #if defined(PAUSE_ON_TRACK_CHANGED) && PAUSE_ON_TRACK_CHANGED == true
       ai_usb_ms_audio_ctrl_resume(cmd_ai_status);
-      // Automaticaly pause new track
+      // Automatically pause new track
       return ai_usb_ms_audio_ctrl_pause(cmd_ai_status);
 #else
       return ai_usb_ms_audio_ctrl_resume(cmd_ai_status);
@@ -1351,7 +1353,7 @@ bool  ai_usb_ms_audio_nav_eof_occur( ai_async_status_t *cmd_ai_status )
     g_player_flag.new_file_played = 1;
 #if defined(PAUSE_ON_TRACK_CHANGED) && PAUSE_ON_TRACK_CHANGED == true
     ai_usb_ms_audio_ctrl_resume(cmd_ai_status);
-    // Automaticaly pause new track
+    // Automatically pause new track
     return ai_usb_ms_audio_ctrl_pause(cmd_ai_status);
 #else
     return ai_usb_ms_audio_ctrl_resume(cmd_ai_status);   // start play of same file
@@ -1391,7 +1393,7 @@ bool  ai_usb_ms_audio_nav_eof_occur( ai_async_status_t *cmd_ai_status )
     break;
 
   default:
-    // Erroroccur then close audio
+    // Error occur then close audio
     navauto_close();
     g_ai_usb_ms_b_audio_file = false;
     *cmd_ai_status = CMD_ERROR;
@@ -1401,7 +1403,7 @@ bool  ai_usb_ms_audio_nav_eof_occur( ai_async_status_t *cmd_ai_status )
 
 #if defined(PAUSE_ON_TRACK_CHANGED) && PAUSE_ON_TRACK_CHANGED == true
   ai_usb_ms_audio_ctrl_resume(cmd_ai_status);
-  // Automaticaly pause new track
+  // Automatically pause new track
   return ai_usb_ms_audio_ctrl_pause(cmd_ai_status);
 #else
   return ai_usb_ms_audio_ctrl_resume(cmd_ai_status);
@@ -1846,7 +1848,7 @@ bool  ai_usb_ms_audio_ctrl_resume    ( ai_async_status_t *cmd_ai_status )
     else
     {
       //** Start play
-      // If the file selected have a correct extention then play file
+      // If the file selected have a correct extension then play file
       // If no file selected then play the first file or a random file
       if ( !navauto_open( false , 0 ))
       {
@@ -1865,7 +1867,7 @@ bool  ai_usb_ms_audio_ctrl_resume    ( ai_async_status_t *cmd_ai_status )
   g_player_target_file_pos = 0;
   g_player_flag.status = PLAYER_FLAG_PLAY;
 
-  // If a file is already beeing played.
+  // If a file is already being played.
   for (i = 0; i < sizeof(file_format_supported) / sizeof(file_format_supported[0]); i++)
   {
     if (file_format_supported[i].is_file_playing())
@@ -2812,7 +2814,7 @@ static bool ai_usb_ms_specific_audio_nav_playlist_play_link(uint16_t u16_link_po
   }
 #if defined(PAUSE_ON_TRACK_CHANGED) && PAUSE_ON_TRACK_CHANGED == true
   ai_usb_ms_audio_ctrl_resume(cmd_ai_status);
-  // Automaticaly pause new track
+  // Automatically pause new track
   return ai_usb_ms_audio_ctrl_pause(cmd_ai_status);
 #else
   return ai_usb_ms_audio_ctrl_resume(cmd_ai_status);

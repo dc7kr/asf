@@ -1,13 +1,15 @@
 /**
  * \file touch_api_at32uc3l.h
  *
- * \brief  This file contains the AT32UC3L QTouch Libary API interface for
+ * \brief  This file contains the AT32UC3L QTouch Library API interface for
  *         QMatrix, QTouch and Autonomous Touch method using the Capacitive
  *         Touch (CAT) module.
  *
  * Copyright (c) 2010 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -65,13 +67,13 @@
 ----------------------------------------------------------------------------*/
 /* No Touch activity. */
 #define TOUCH_NO_ACTIVITY             (0x0000u)
-/* Atleast one Touch channel is in detect. */
+/* At least one Touch channel is in detect. */
 #define TOUCH_IN_DETECT               (0x0001u)
-/* Change in Touch status of atleast one Touch channel. */
+/* Change in Touch status of at least one Touch channel. */
 #define TOUCH_STATUS_CHANGE           (0x0002u)
-/* Change in Rotor or Slider position of atleast one rotor or slider. */
+/* Change in Rotor or Slider position of at least one rotor or slider. */
 #define TOUCH_ROTOR_SLIDER_POS_CHANGE (0x0004u)
-/* Change in Reference value of atleast one Touch channel. */
+/* Change in Reference value of at least one Touch channel. */
 #define TOUCH_CHANNEL_REF_CHANGE      (0x0008u)
 /* Indicates that reburst is required to resolve Filtering or Calibration state. */
 #define TOUCH_BURST_AGAIN             (0x0100u)
@@ -352,7 +354,7 @@ typedef enum tag_touch_acq_mode_t
                                                               available.  In this mode, the Touch Library does not do any
                                                               processing on the Signals.  So, the References, Sensor states or
                                                               Rotor/Slider position values are not updated in this mode. */
-  NORMAL_ACQ_MODE                                          /* When Nomal acquisition mode is used, the measure_complete_callback
+  NORMAL_ACQ_MODE                                          /* When Normal acquisition mode is used, the measure_complete_callback
                                                               function is called only after the Touch Library completes processing
                                                               of the Signal values obtained. The References, Sensor states and
                                                               Rotor/Slider position values are updated in this mode. */
@@ -990,7 +992,7 @@ touch_ret_t touch_qm_sensor_get_delta( sensor_id_t sensor_id, touch_delta_t *p_d
 
 
 /*----------------------------------------------------------------------------
-                          Autonomous QTouh API
+                          Autonomous QTouch API
 ----------------------------------------------------------------------------*/
 
 
@@ -1010,7 +1012,7 @@ Name    :   touch_at_sensor_update_config
 ------------------------------------------------------------------------------
 Purpose :   This API is used to update the register configuration information
             of the Autonomous Touch sensor.
-Input   :   p_at_param: Autonomous Touch sensor configuration paramter input
+Input   :   p_at_param: Autonomous Touch sensor configuration parameter input
             to the Touch Library.
 Output  :   n/a
 Notes   :
@@ -1023,7 +1025,7 @@ Name    :   touch_at_sensor_get_config
 Purpose :   This API is used to read back the register configuration information
             of the Autonomous Touch sensor.
 Input   :   n/a
-Output  :   p_at_param: Autonomous Touch sensor configuration paramter updated
+Output  :   p_at_param: Autonomous Touch sensor configuration parameter updated
             by the Touch Library.
 Notes   :
 ============================================================================*/
@@ -1296,7 +1298,7 @@ Notes   :   In an application if the user would like to call touch_qm_sensors_in
             or the touch_at_sensor_init() API more than once, then the
             touch_deinit() API must be called before calling the touch_qm_sensors_init()
             or the touch_at_sensor_init() the second time.
-            Also, incase any of the Touch API return an error, the the user
+            Also, in case any of the Touch API return an error, the the user
             must call the touch_deinit() API before calling the touch_qm_sensors_init()
             or the touch_at_sensor_init() API.
 ============================================================================*/

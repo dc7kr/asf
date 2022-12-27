@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -306,7 +308,7 @@ Ctrl_status virtual_usb_write_10(uint32_t addr, uint16_t nb_sector)
 
 #include <string.h>
 
-//! This function tranfers 1 data sector from memory to RAM
+//! This function transfers 1 data sector from memory to RAM
 //! sector = 512 bytes
 //! @param addr         Sector address to start read
 //! @param ram          Address of RAM buffer
@@ -329,7 +331,7 @@ Ctrl_status virtual_mem_2_ram(uint32_t addr, void *ram)
 }
 
 
-//! This function tranfers 1 data sector from memory to RAM
+//! This function transfers 1 data sector from memory to RAM
 //! sector = 512 bytes
 //! @param addr         Sector address to start write
 //! @param ram          Address of RAM buffer

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -905,7 +907,7 @@ uint32_t flash_write_user_signature(uint32_t ul_address, const void *p_buffer, u
 	/* Write the full page */
 	flash_write(ul_address,  p_buffer, ul_size, 0);
 
-	/* Send the write signagure command */
+	/* Send the write signature command */
 	if (FLASH_RC_OK != efc_perform_command(EFC, EFC_FCMD_WUS, 0)) {
 		return FLASH_RC_ERROR;
 	}

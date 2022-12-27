@@ -3,9 +3,11 @@
  *
  * \brief Generic implementation of huge data memory access
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -77,6 +79,12 @@ static inline uint32_t hugemem_read32(const hugemem_ptr_t from)
 	return *(uint32_t *)from;
 }
 
+static inline void hugemem_read_block(void *to, const hugemem_ptr_t from,
+		size_t size)
+{
+	memcpy(to, from, size);
+}
+
 static inline void hugemem_write8(hugemem_ptr_t to, uint8_t val)
 {
 	*(uint8_t *)to = val;
@@ -91,6 +99,12 @@ static inline void hugemem_write16(hugemem_ptr_t to, uint16_t val)
 static inline void hugemem_write32(hugemem_ptr_t to, uint32_t val)
 {
 	*(uint32_t *)to = val;
+}
+
+static inline void hugemem_write_block(hugemem_ptr_t to, const void *from,
+		size_t size)
+{
+	memcpy(to, from, size);
 }
 
 //@}

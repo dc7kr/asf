@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -130,7 +132,7 @@ typedef  struct {
  */
 #define  LIN_OVERLOAD_INT     ((U16)0x00FF)  //!< More than ONE interrupt in the same time !
 #ifndef  LIN_LAST_ERR_LENGHT
-#define  LIN_LAST_ERR_LENGHT   0x04          //!< Default lenght of the 'lin_last_error[]' array
+#define  LIN_LAST_ERR_LENGHT   0x04          //!< Default length of the 'lin_last_error[]' array
 #endif
 
 //_____ M A C R O S ____________________________________________________________

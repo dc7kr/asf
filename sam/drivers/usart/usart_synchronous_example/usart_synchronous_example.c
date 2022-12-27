@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -45,17 +47,13 @@
  *  \par Purpose
  *
  *  This example demonstrates the Synchronous  mode provided by the USART
- *  peripherals on SAM3.
+ *  peripherals on SAM.
  *
  *  \par Requirements
  *
- *  This example can be used on all SAM3-EK and requires 2 boards to
- *   be connected directly through populated USART pins.
- *   - <b> master  --  slave</b>
- *   - TXD         --  RXD
- *   - RXD         --  TXD
- *   - SCK         --  SCK
- *   - GND         --  GND
+ * This example can be used on all SAM EK boards and requires 2 boards to
+ * be connected directly through populated USART pins. 
+ * \copydoc usart_sync_example_pin_defs
  *
  *  \par Description
  *
@@ -105,6 +103,7 @@
 
 #include <string.h>
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
 #include "conf_clock.h"
 #include "conf_example.h"
@@ -211,27 +210,14 @@ void USART_Handler(void)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO. */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK,
-			PINS_UART_ATTR);
-
-	/* Configure PMC. */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART. */
-	uart_init(CONSOLE_UART, &uart_console_settings);
-
-	/* Specify that stdout should not be buffered. */
-#if defined(__GNUC__)
-	setbuf(stdout, NULL);
-#else
-	/* Already the case in IAR's Normal DLIB default configuration: printf()
-	 * emits one character at a time.
-	 */
-#endif
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -314,7 +300,7 @@ int main(void)
 {
 	uint8_t uc_char;
 
-	/* Initialize the SAM3 system. */
+	/* Initialize the SAM system. */
 	sysclk_init();
 	board_init();
 
@@ -349,13 +335,15 @@ int main(void)
 		case '2':
 		case '3':
 			g_uc_freq_idx = uc_char - '0';
-			printf("-- The clock freq is: %luHz.\r\n", g_ul_freq[g_uc_freq_idx]);
+			printf("-- The clock freq is: %luHz.\r\n",
+				(unsigned long)g_ul_freq[g_uc_freq_idx]);
 			configure_usart(SYNC_MASTER, g_ul_freq[g_uc_freq_idx]);
 			break;
 		case 'i':
 		case 'I':
 			if (g_uc_transfer_mode == SYNC_MASTER) {
-				printf("-- USART is MASTER at %luHz.\r\n", g_ul_freq[g_uc_freq_idx]);
+				printf("-- USART is MASTER at %luHz.\r\n",
+					(unsigned long)g_ul_freq[g_uc_freq_idx]);
 			} else {
 				puts("-- USART is SLAVE \r");
 			}
@@ -404,11 +392,11 @@ int main(void)
 			while (!g_ul_recv_done) {
 			}
 			if (g_ul_recv_done) {
-				if (strncmp(g_c_recv_buff, tran_buff, BUFFER_SIZE)) {
+				if (strncmp((char*)g_c_recv_buff, tran_buff, BUFFER_SIZE)) {
 					puts(" -F-: Failed!\r");
 				} else {
 					/* successfully received */
-					dump_info(g_c_recv_buff, BUFFER_SIZE);
+					dump_info((char*)g_c_recv_buff, BUFFER_SIZE);
 				}
 				puts("----END of read----\r");
 				memset(g_c_recv_buff, 0, sizeof(g_c_recv_buff));

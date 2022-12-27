@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -49,10 +51,10 @@
  *
  * \section Requirements
  *
- * This package can be used with SAM3 evaluation kits.
+ * This package can be used with SAM evaluation kits.
  * It generates a waveform on TC0 channel 1 TIOA1, and it captures wave
  * from channel 2 TIOA2. These 2 pins could be found on board extension
- * header. To measure the wavefrom on TIOA1, connect PIN_TC0_TIOA1 to PIN_TC0_TIOA2,
+ * header. To measure the waveform on TIOA1, connect PIN_TC0_TIOA1 to PIN_TC0_TIOA2,
  * and configure PIN_TC0_TIOA1 as output pin and PIN_TC0_TIOA2 as input pin.
  *
  * \section Descriptions
@@ -96,14 +98,17 @@
  *    \endcode
  * -# Choose the item in the following menu to test.
  *    \code
+ * Configure TC0 channel 1 as waveform operating mode
+ * Start waveform: Frequency = 375 Hz,Duty Cycle = 50%
+ * Configure TC0 channel 2 as capture operating mode
+ *
  *     Menu :
  *     ------
  *       Output waveform property:
- *       0: Set Frequency =  120 Hz, Duty Cycle = 30%
- *       1: Set Frequency =  375 Hz, Duty Cycle = 50%
- *       2: Set Frequency =  800 Hz, Duty Cycle = 75%
- *       3: Set Frequency = 1000 Hz, Duty Cycle = 80%
- *       4: Set Frequency = 4000 Hz, Duty Cycle = 55%
+ *       0: Set Frequency =  375 Hz, Duty Cycle = 50%
+ *       1: Set Frequency =  800 Hz, Duty Cycle = 75%
+ *       2: Set Frequency = 1000 Hz, Duty Cycle = 80%
+ *       3: Set Frequency = 4000 Hz, Duty Cycle = 55%
  *       -------------------------------------------
  *       c: Capture waveform from TC 0 channel 2
  *       s: Stop capture and display informations what have been captured
@@ -114,7 +119,9 @@
  */
 
 #include "asf.h"
+#include "stdio_serial.h"
 #include "conf_board.h"
+#include "conf_clock.h"
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -243,17 +250,14 @@ static void tc_capture_initialize(void)
  */
 static void configure_console(void)
 {
-	const sam_uart_opt_t uart_console_settings =
-			{ sysclk_get_cpu_hz(), 115200, UART_MR_PAR_NO };
-
-	/* Configure PIO */
-	pio_configure(PINS_UART_PIO, PINS_UART_TYPE, PINS_UART_MASK, PINS_UART_ATTR);
-
-	/* Configure PMC */
-	pmc_enable_periph_clk(CONSOLE_UART_ID);
-
-	/* Configure UART */
-	uart_init(CONSOLE_UART, &uart_console_settings);
+	const usart_serial_options_t uart_serial_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.paritytype = CONF_UART_PARITY
+	};
+	
+	/* Configure console UART. */
+	sysclk_enable_peripheral_clock(CONSOLE_UART_ID);
+	stdio_serial_init(CONF_UART, &uart_serial_options);
 }
 
 /**
@@ -278,7 +282,7 @@ int main(void)
 	uint8_t key;
 	uint16_t frequence, dutycycle;
 
-	/* Initilize the SAM3 system */
+	/* Initialize the SAM system */
 	sysclk_init();
 	board_init();	
 

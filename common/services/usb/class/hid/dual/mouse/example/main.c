@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -58,7 +60,7 @@ int main(void)
 	board_init();
 	ui_init();
 
-	// Start USB dual rual which will start the correct mode (device or host)
+	// Start USB dual mode which will start the correct mode (device or host)
 	// corresponding at USB ID signal.
 	uhc_start();
 
@@ -84,7 +86,7 @@ void main_usb_device_vbus_action(bool b_high)
  * \mainpage ASF USB host and device HID mouse
  *
  * \section intro Introduction
- * This example shows how to implement a USB dual rual (device and host)
+ * This example shows how to implement a USB dual mode (device and host)
  * HID Mouse on Atmel MCU with USB module.
  *
  * \section startup Startup

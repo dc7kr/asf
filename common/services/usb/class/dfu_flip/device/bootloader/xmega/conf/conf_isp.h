@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -58,7 +60,7 @@
 #  define BOOTLOADER_VERSION   0x04
 
 #  if (FLASH_SIZE<=0x10000) // FLASH <= 64KB
-// If all memories (flash,eeprom,...) do not exced 64KB.
+// If all memories (flash,eeprom,...) do not exceed 64KB.
 // then the ISP interface can be optimized to save CODE.
 #    define ISP_SMALL_MEMORY_SIZE
 #  endif

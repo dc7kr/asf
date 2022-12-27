@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -111,7 +113,7 @@ extern void udc_start(void);
  * or dynamically during code execution.
  *
  * \section Power mode management
- * The driver uses the sleepmngr service to manage the different sleep modes.
+ * The driver uses the sleepmgr service to manage the different sleep modes.
  * The sleep mode depends on USB driver state (uhd_usbc_state_enum).
  * @{
  */
@@ -198,7 +200,7 @@ static uhd_callback_reset_t uhd_reset_callback = NULL;
 /**
  * \name Control endpoint low level management routine.
  *
- * This function performs control endpoint mangement.
+ * This function performs control endpoint management.
  * It handles the SETUP/DATA/HANDSHAKE phases of a control transaction.
  */
 //@{
@@ -208,16 +210,16 @@ static uhd_callback_reset_t uhd_reset_callback = NULL;
  *
  * Used to avoid a RAM buffer overflow when the payload buffer
  * is smaller than control endpoint size.
- * Also used when playload buffer is not word aligned.
+ * Also used when payload buffer is not word aligned.
  */
 COMPILER_ALIGNED(4) uint8_t uhd_ctrl_buffer[64];
 
 /**
- * \brief Struture to store the high level setup request
+ * \brief Structure to store the high level setup request
  */
 
 struct uhd_ctrl_request_t{
-	//! USB address of control enpoint
+	//! USB address of control endpoint
 	usb_add_t add;
 
 	//! Setup request definition
@@ -243,7 +245,7 @@ struct uhd_ctrl_request_t{
 struct uhd_ctrl_request_t *uhd_ctrl_request_first;
 struct uhd_ctrl_request_t *uhd_ctrl_request_last;
 
-//! Remaing time for on-going setup request (No request on-going if equal 0)
+//! Remaining time for on-going setup request (No request on-going if equal 0)
 volatile uint16_t uhd_ctrl_request_timeout;
 
 //! Number of transfered byte on DATA phase of current setup request
@@ -278,7 +280,7 @@ uhd_ctrl_request_phase_t uhd_ctrl_request_phase;
  * \name Management of bulk/interrupt/isochronous endpoints
  *
  * The UHD manages the data transfer on endpoints:
- * - Start data tranfer on endpoint with USB DMA
+ * - Start data transfer on endpoint with USB DMA
  * - Send a ZLP packet if requested
  * - Call registered callback to signal end of transfer
  * The transfer abort and stall feature are supported.
@@ -299,13 +301,13 @@ typedef struct {
 	//! Buffer located in internal RAM to send or fill during job
 	uint8_t *buf;
 
-	//! Internal buffer alllocated in internal RAM to receiv data in case of small user buffer
+	//! Internal buffer allocated in internal RAM to receive data in case of small user buffer
 	uint8_t *buf_internal;
 
 	//! Size of buffer to send or fill
 	iram_size_t buf_size;
 
-	//! Total number of transfered data on enpoint
+	//! Total number of transfered data on endpoint
 	iram_size_t nb_trans;
 
 	//! Callback to call at the end of transfer
@@ -353,7 +355,7 @@ static void uhd_pipe_finish_job(uint8_t pipe, uhd_trans_status_t status);
  *
  * Note:
  * Here, the global interrupt mask is not cleared when an USB interrupt
- * is enabled because this one can not occured during the USB ISR
+ * is enabled because this one can not occurred during the USB ISR
  * (=during INTX is masked).
  * See Technical reference $3.8.3 Masking interrupt requests
  * in peripheral modules.
@@ -566,7 +568,7 @@ void uhd_disable(bool b_id_stop)
 #ifdef USB_ID
 	uhd_sleep_mode(UHD_STATE_WAIT_ID_HOST);
 	if (!b_id_stop) {
-		return; // No need to disable host, it is done automaticaly by hardware
+		return; // No need to disable host, it is done automatically by hardware
 	}
 #endif
 
@@ -670,7 +672,7 @@ bool uhd_ep0_alloc(
 	uhd_enable_pipe(0);
 	uhd_configure_pipe(0, // Pipe 0
 			0, // No frequency
-			0, // Enpoint 0
+			0, // endpoint 0
 			AVR32_USBC_UECFG0_EPTYPE_CONTROL,
 			AVR32_USBC_UPCFG0_PTOKEN_SETUP,
 #ifdef USB_HOST_HUB_SUPPORT
@@ -814,7 +816,7 @@ bool uhd_setup_request(
 	cpu_irq_restore(flags);
 
 	if (b_start_request) {
-		// Start immediatly request
+		// Start immediately request
 		uhd_ctrl_phase_setup();
 	}
 	return true;
@@ -851,7 +853,6 @@ bool uhd_ep_run(
 	ptr_job->buf_size = buf_size;
 	ptr_job->nb_trans = 0;
 	ptr_job->timeout = timeout;
-	ptr_job->buf_internal = NULL;
 	ptr_job->b_shortpacket = b_shortpacket;
 	ptr_job->call_end = callback;
 	uhd_udesc_rst_buf0_ctn(pipe);
@@ -951,7 +952,7 @@ static void uhd_interrupt(void)
 				| AVR32_USBC_UHINTCLR_RSTIC_MASK | AVR32_USBC_UHINTCLR_RXRSMIC_MASK;
 
 		// Enable Vbus change and error interrupts
-		// Disable automatique Vbus control after Vbus error
+		// Disable automatic Vbus control after Vbus error
 		AVR32_USBC.usbcon = save_usbcon;
 		uhd_enable_vbus();
 		otg_ack_vbus_transition();
@@ -1003,7 +1004,7 @@ static void uhd_interrupt(void)
 			// Is_uhd_upstream_resume() can be not detected
 			// because the USB clock are not available.
 
-			// In High speed mode a donwstream resume must be sent
+			// In High speed mode a downstream resume must be sent
 			// after a upstream to avoid a disconnection.
 			if (Is_uhd_high_speed_mode()) {
 				uhd_send_resume();
@@ -1581,7 +1582,7 @@ static void uhd_pipe_trans_complet(uint8_t pipe)
 	}
 
 	if (uhd_is_pipe_out(pipe)) {
-		// Transfer complet on OUT
+		// Transfer complete on OUT
 		nb_trans = uhd_udesc_get_buf0_size(pipe);
 		uhd_udesc_rst_buf0_size(pipe);
 
@@ -1635,6 +1636,7 @@ static void uhd_pipe_trans_complet(uint8_t pipe)
 					ptr_job->buf_internal,
 					ptr_job->buf_size % pipe_size);
 			free(ptr_job->buf_internal);
+			ptr_job->buf_internal = NULL;
 		}
 
 		// Update number of transfered data
@@ -1690,7 +1692,7 @@ static void uhd_pipe_trans_complet(uint8_t pipe)
 			cpu_irq_restore(flags);
 			return;
 		}
-		// Pipe is not freeze automaticaly in case of incomplet transfer
+		// Pipe is not freeze automatically in case of incomplete transfer
 		if (0 != uhd_get_in_request_number(pipe)) {
 			uhd_freeze_pipe(pipe);
 		}
@@ -1796,6 +1798,11 @@ static void uhd_pipe_finish_job(uint8_t pipe, uhd_trans_status_t status)
 	ptr_job = &uhd_pipe_job[pipe - 1];
 	if (ptr_job->busy == false) {
 		return; // No job running
+	}
+	// In case of abort, free the internal buffer
+	if (ptr_job->buf_internal != NULL) {
+		free(ptr_job->buf_internal);
+		ptr_job->buf_internal = NULL;
 	}
 	ptr_job->busy = false;
 	if (NULL == ptr_job->call_end) {

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -70,7 +72,7 @@ extern UDC_DESC_STORAGE udi_api_t udi_api_dfu_atmel;
  */
 //@{
 
-//! Interface descriptor struture for Atmel DFU
+//! Interface descriptor structure for Atmel DFU
 typedef struct {
 	usb_iface_desc_t iface;
 } udi_dfu_atmel_desc_t;
@@ -97,7 +99,7 @@ typedef struct {
 
 /**
  * \ingroup udi_group
- * \defgroup udi_dfu_atmel_group UDI for Device Firmware Upgrade Atmel specific
+ * \defgroup udi_dfu_atmel_group USB Device Interface (UDI) for Device Firmware Upgrade Atmel specific
  *
  * The DFU from Atmel is based on DFU specification,
  * but does not implement same protocol.

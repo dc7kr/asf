@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -65,12 +67,12 @@ eUserMenuUSBDevice
 
 #define MMI_MAINTAINER_MODE             "Waiting for Host    "
 
-/*! \brief Init MMI, for Man to Macine Interface management.
+/*! \brief Init MMI, for Man to Machine Interface management.
  *
  */
 bool bMMI_start( void );
 
-/*! \brief MMI function for Man to Macine Interface management.
+/*! \brief MMI function for Man to Machine Interface management.
  *
  */
 void vMMI_Manage( void );

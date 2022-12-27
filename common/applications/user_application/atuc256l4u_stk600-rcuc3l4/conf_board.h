@@ -8,4 +8,7 @@
 #ifndef CONF_BOARD_H
 #define CONF_BOARD_H
 
+// Enable USB interface (USB)
+#define CONF_BOARD_USB_PORT
+
 #endif // CONF_BOARD_H

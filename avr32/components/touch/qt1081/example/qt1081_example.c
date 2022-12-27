@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -48,7 +50,7 @@
  *
  * \section files Main Files
  * - qt1081_example.c: the QT1081 example
- * - qt1081.h: the driver inteface for the QT1081
+ * - qt1081.h: the driver interface for the QT1081
  *
  * \section compilinfo Compilation Information
  * This software is written for GNU GCC for AVR32 and for IAR Embedded Workbench
@@ -86,7 +88,7 @@
 
 #define INT_MODE_EIC	0
 #define INT_MODE_GPIO	1
-/* Select either interrupt mode wiht a detect signal that is connected to the EIC controller or
+/* Select either interrupt mode with a detect signal that is connected to the EIC controller or
  * GPIO interrupt mode.*/
 #define INT_MODE	INT_MODE_EIC
 

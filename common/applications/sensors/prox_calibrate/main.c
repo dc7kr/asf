@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -133,7 +135,7 @@ static void prompt_user(char *prompt_string)
  * calculated and are written to non-volatile (flash) memory on the
  * microcontroller.  These values will continue to be used for future
  * proximity readings, unless they are overwritten by an application
- * calling the sensor_set_threshold functoin for the proximity sensor
+ * calling the sensor_set_threshold function for the proximity sensor
  * channel(s).
  */
 int main(void)
@@ -190,7 +192,7 @@ int main(void)
 		}
 
 		while (true) {
-			/* Error ocurred, loop forever */
+			/* Error occurred, loop forever */
 		}
 	}
 

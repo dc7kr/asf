@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -115,7 +117,7 @@
 // From module: TWI - Two-Wire Master Interface
 #include <twim.h>
 
-// From module: UC3-A3 Xplained board support
+// From module: UC3-A3 Xplained
 #include <led.h>
 
 // From module: USB Device HID Mouse (Single Interface Device)
@@ -131,7 +133,7 @@
 // From module: USB HID Library (Device)
 #include <udi_hid.h>
 
-// From module: maXTouch
+// From module: maXTouch - mXT143E Controller
 #include <mxt_device.h>
 
 #endif // ASF_H

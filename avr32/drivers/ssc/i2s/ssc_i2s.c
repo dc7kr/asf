@@ -12,6 +12,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -210,9 +212,9 @@ int ssc_i2s_init(volatile avr32_ssc_t *ssc,
 
         /* Set transmit clock mode:
          *   CKS - use divided clock,
-         *   CKO - transmit continous clock on TK
+         *   CKO - transmit continuous clock on TK
          *   CKI - shift data on falling clock
-         *   CKG - transmit continous clock on TK
+         *   CKG - transmit continuous clock on TK
          *   START - on falling TF(WS) edge
          *   STTDLY - TF toggles before last bit of last word, not before
          *            first bit on next word. Therefore: delay one cycle.
@@ -234,9 +236,9 @@ int ssc_i2s_init(volatile avr32_ssc_t *ssc,
 
         /* Set transmit clock mode:
          *   CKS - use RX clock,
-         *   CKO - transmit continous clock on TK
+         *   CKO - transmit continuous clock on TK
          *   CKI - shift data on falling clock
-         *   CKG - transmit continous clock on TK
+         *   CKG - transmit continuous clock on TK
          *   START - on falling TF(WS) edge
          *   STTDLY - TF toggles before last bit of last word, not before
          *            first bit on next word. Therefore: delay one cycle.

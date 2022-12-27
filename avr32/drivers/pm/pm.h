@@ -8,6 +8,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -322,7 +324,7 @@ extern void pm_gc_disable(volatile avr32_pm_t *pm, unsigned int gc);
  * \param mul PLL MUL in the PLL formula
  * \param div PLL DIV in the PLL formula
  * \param osc OSC number (0 for osc0, 1 for osc1)
- * \param lockcount PLL lockount
+ * \param lockcount PLL lock count
  */
 extern void pm_pll_setup(volatile avr32_pm_t *pm, unsigned int pll, unsigned int mul, unsigned int div, unsigned int osc, unsigned int lockcount);
 
@@ -497,7 +499,7 @@ extern void pm_write_gplp(volatile avr32_pm_t *pm, unsigned long gplp, unsigned 
  *
  * \return Status.
  *   \retval 0  Success.
- *   \retval <0 An error occured.
+ *   \retval <0 An error occurred.
  */
 extern long pm_enable_module(volatile avr32_pm_t *pm, unsigned long module);
 
@@ -510,7 +512,7 @@ extern long pm_enable_module(volatile avr32_pm_t *pm, unsigned long module);
  *
  * \return Status.
  *   \retval 0  Success.
- *   \retval <0 An error occured.
+ *   \retval <0 An error occurred.
  */
 extern long pm_disable_module(volatile avr32_pm_t *pm, unsigned long module);
 

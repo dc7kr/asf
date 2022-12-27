@@ -4,11 +4,13 @@
  * \brief Graphic service settings for the SDT028ATFT panel using the ILI9341
  * display controller
  *
- * This files includes the correct header files for the grapics service
+ * This files includes the correct header files for the graphics service
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -62,11 +64,11 @@ void gfx_ili9341_set_orientation(uint8_t flags)
 
 	/* Switch width and height if XY is switched. */
 	if ((flags & GFX_SWITCH_XY) != 0x00) {
-		gfx_width = GFX_PANELHEIGHT;
-		gfx_height = GFX_PANELWIDTH;
+		gfx_width = ILI9341_SWITCH_XY_WIDTH;
+		gfx_height = ILI9341_SWITCH_XY_HEIGHT;
 	} else {
-		gfx_width = GFX_PANELWIDTH;
-		gfx_height = GFX_PANELHEIGHT;
+		gfx_width = ILI9341_DEFAULT_WIDTH;
+		gfx_height = ILI9341_DEFAULT_HEIGHT;
 	}
 
 #ifdef CONF_GFX_USE_CLIPPING
@@ -131,16 +133,16 @@ void gfx_ili9341_draw_line_pixel(gfx_coord_t x, gfx_coord_t y,
 void gfx_ili9341_init(void)
 {
 	/* initialize globals */
-	gfx_width = GFX_PANELWIDTH;
-	gfx_height = GFX_PANELHEIGHT;
+	gfx_width = ILI9341_DEFAULT_WIDTH;
+	gfx_height = ILI9341_DEFAULT_HEIGHT;
 
 	ili9341_init();
 	ili9341_backlight_on();
 
 	/* Set clipping area to whole screen initially */
-	gfx_set_clipping(0, 0, GFX_PANELWIDTH, GFX_PANELHEIGHT);
+	gfx_set_clipping(0, 0, gfx_width, gfx_height);
 
-	gfx_draw_filled_rect(0, 0, GFX_PANELWIDTH, GFX_PANELHEIGHT,
+	gfx_draw_filled_rect(0, 0, gfx_width, gfx_height,
 			GFX_COLOR(0xFF, 0xFF, 0xFF));
 }
 

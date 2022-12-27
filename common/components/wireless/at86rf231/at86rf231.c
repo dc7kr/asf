@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -81,7 +83,7 @@ static trx_retval_t trx_init(void);
 /**
  * \brief Internal TAL reset function
  *
- * \return TRX_SUCCESS if the transceiver was successfully resetted
+ * \return TRX_SUCCESS if the transceiver was successfully reset
  *         TRX_FAILURE otherwise
  */
 static trx_retval_t internal_tal_reset(void);
@@ -111,9 +113,9 @@ static void switch_pll_on(void);
  * The generated random 16-bit number is feed into function srand()
  * as initial seed.
  *
- * The transceiver state is initally set to RX_ON.
+ * The transceiver state is initially set to RX_ON.
  * After the completion of the random seed generation, the
- * trancseiver is set to TRX_OFF.
+ * transceiver is set to TRX_OFF.
  *
  * As a prerequisite the Preamble Detector must not be disabled.
  * Since this function is called right after trx_reset(), the Preamble
@@ -187,7 +189,7 @@ trx_retval_t tal_init(void)
 	pal_trx_reg_write(RG_CSMA_BE, ((MAXBE_DEFAULT << 4) | MINBE_DEFAULT));
 	pal_trx_bit_write(SR_MAX_CSMA_RETRIES, MAX_CSMA_BACKOFFS_DEFAULT);
 
-	/* Set the trx in promiscous mode to receive all frame with CRC OK */
+	/* Set the trx in promiscuous mode to receive all frame with CRC OK */
 	pal_trx_bit_write(SR_AACK_PROM_MODE, PROM_MODE_ENABLE);
 
 	/* Configuration to perform auto CRC for transmission */
@@ -474,7 +476,7 @@ void tx_frame_config(void)
 {
 	tal_trx_status_t trx_status;
 
-	/* Set trx to PLL_ON state to intiate transmission procedure */
+	/* Set trx to PLL_ON state to initiate transmission procedure */
 	do {
 		trx_status = set_trx_state(CMD_PLL_ON);
 	} while (trx_status != PLL_ON);

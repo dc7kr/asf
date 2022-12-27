@@ -3,9 +3,11 @@
  *
  * \brief Syscalls for SAM (GCC).
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -43,8 +45,6 @@
 #include <stdarg.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include "board.h"
-#include "uart.h"
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -64,8 +64,6 @@ extern int _close(int file);
 extern int _fstat(int file, struct stat *st);
 extern int _isatty(int file);
 extern int _lseek(int file, int ptr, int dir);
-extern int _read(int file, char *ptr, int len);
-extern int _write(int file, char *ptr, int len);
 extern void _exit(int status);
 extern void _kill(int pid, int sig);
 extern int _getpid(void);
@@ -110,36 +108,6 @@ extern int _isatty(int file)
 extern int _lseek(int file, int ptr, int dir)
 {
 	return 0;
-}
-
-extern int _read(int file, char *ptr, int len)
-{
-	size_t nChars = 0;
-	uint8_t c = 0;
-
-	for (; len > 0; --len) {
-		while (uart_read(CONSOLE_UART, &c));
-
-		if (c == 0) {
-			break;
-		}
-		*ptr++ = c;
-		++nChars;
-	}
-
-	return nChars;
-}
-
-extern int _write(int file, char *ptr, int len)
-{
-	int iIndex;
-
-	for (iIndex = 0; iIndex < len; iIndex++, ptr++) {
-		while (!uart_is_tx_ready(CONSOLE_UART));
-		uart_write(CONSOLE_UART, *ptr);
-	}
-
-	return iIndex;
 }
 
 extern void _exit(int status)

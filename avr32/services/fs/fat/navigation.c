@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -133,7 +135,7 @@ void  nav_string_length_disable( void )
 //! This function disables the disk check before each actions on disk
 //!
 //! @verbatim
-//! By default, between each read/write access a check disk (test unit ready) is sended at device.
+//! By default, between each read/write access a check disk (test unit ready) is sent at device.
 //! This check can reduce the speed access on specific disk.
 //! @endverbatim
 //!
@@ -145,7 +147,7 @@ void  nav_checkdisk_disable( void )
 //! This function enables the disk check before each actions on disk
 //!
 //! @verbatim
-//! By default, between each read/write access a check disk (test unit ready) is sended at device.
+//! By default, between each read/write access a check disk (test unit ready) is sent at device.
 //! This check can reduce the speed access on specific disk.
 //! @endverbatim
 //!
@@ -156,7 +158,7 @@ void  nav_checkdisk_enable( void )
 
 
 //**********************************************************************
-//************** Initialise or Stop navigation module ******************
+//************** Initialize or Stop navigation module ******************
 
 
 //! This function resets ALL navigations to init file system core
@@ -270,7 +272,7 @@ uint8_t    nav_get( void )
 }
 
 
-//! This function copys the navigator information to another navigator
+//! This function copies the navigator information to another navigator
 //!
 //! @param     u8_idnav       navigator identifier where the main navigator will be copied
 //!
@@ -303,7 +305,7 @@ bool  nav_copy( uint8_t u8_idnav )
 //********************* Drive navigation functions *********************
 
 
-//! This function returns the number of devices availabled
+//! This function returns the number of devices available
 //!
 //! @return    number of devices, 0 = NO DEVICE AVAILABLED
 //!
@@ -483,7 +485,7 @@ bool  nav_partition_mount( void )
 //! This function gives the partition type
 //!
 //! @return partition type: FS_TYPE_FAT_12, FS_TYPE_FAT_16, FS_TYPE_FAT_32
-//! @return FS_TYPE_FAT_UNM, in case of error or unknow format
+//! @return FS_TYPE_FAT_UNM, in case of error or unknown format
 //!
 uint8_t    nav_partition_type( void )
 {
@@ -624,7 +626,7 @@ uint32_t   nav_partition_freespace( void )
 //! @return    0% in case of error or full partition
 //!
 //! @verbatim
-//! To speed up the compute, the resultat have an error delta of 1%
+//! To speed up the compute, the result have an error delta of 1%
 //! @endverbatim
 //!
 uint8_t    nav_partition_freespace_percent( void )
@@ -643,7 +645,7 @@ uint8_t    nav_partition_freespace_percent( void )
 //! To display in File List only the files OR directories
 //!
 //! @param     b_type   FS_DIR  to display only directories presence <br>
-//!                     FS_FILE to dispaly only files presence <br>
+//!                     FS_FILE to display only files presence <br>
 //!
 //! @return  false in case of error, see global value "fs_g_status" for more detail
 //! @return  true otherwise
@@ -786,7 +788,7 @@ bool  nav_filelist_set( uint16_t u16_nb , bool b_direction )
       }else{
          if ( fat_entry_check( fs_g_nav.b_mode_nav ) )
          {
-           // HERE, the file entry match with the type seached
+           // HERE, the file entry match with the type searched
 
            if( b_find_last_entry )
              continue;  // The search of last directory is on going then continue the search
@@ -893,7 +895,7 @@ bool  nav_filelist_goto( uint16_t u16_newpos )
 }
 
 
-//! This function searchs a file name in file list
+//! This function searches a file name in file list
 //!
 //! @param     sz_name        name to search (UNICODE or ASCII) <br>
 //!                           It must be terminate by NULL or '*' value
@@ -1089,7 +1091,7 @@ bool  nav_filelist_last( bool b_type )
 //! @return    It is a small index structure with information on selected file (disk, partition, dir, file/dir selected)
 //!
 //! @verbatim
-//! This routine is interresting to save a file position in small variable.
+//! This routine is interesting to save a file position in small variable.
 //! This pointer allow to reinit a navigator quickly with nav_gotoindex() routine.
 //! @endverbatim
 //!
@@ -1383,7 +1385,7 @@ bool  nav_dir_make( const FS_STRING sz_name  )
    // Save information about the new directory
    fs_g_nav_entry.u32_cluster = fs_g_seg.u32_addr; // First cluster of the directory returned by alloc_free_space
    fs_g_nav_entry.u32_size    = 0;                 // The directory size is null
-   fs_g_nav_entry.u8_attr     = FS_ATTR_DIRECTORY; // Directory attribut
+   fs_g_nav_entry.u8_attr     = FS_ATTR_DIRECTORY; // Directory Attribute
 
    // Initialize the values in the new directory
    if ( !fat_initialize_dir())
@@ -1573,9 +1575,9 @@ bool  nav_getcwd( FS_STRING sz_path  , uint8_t u8_size_path , bool b_view_file_s
 //! @return    true otherwise
 //!
 //! @verbatim
-//! The syntact "./../../file_name" is supported.
-//! With syntact "./dir_parent/directory_name"  the file list corresponding at "dir_parent" and "directory_name" is selected.
-//! With syntact "./dir_parent/directory_name/" the file list corresponding at "directory_name" and no file is selected.
+//! The syntax "./../../file_name" is supported.
+//! With syntax "./dir_parent/directory_name"  the file list corresponding at "dir_parent" and "directory_name" is selected.
+//! With syntax "./dir_parent/directory_name/" the file list corresponding at "directory_name" and no file is selected.
 //! @endverbatim
 //!
 bool  nav_setcwd( FS_STRING sz_path , bool b_match_case , bool b_create )
@@ -1592,7 +1594,7 @@ bool  nav_setcwd( FS_STRING sz_path , bool b_match_case , bool b_create )
 
    index = nav_getindex();             // Save current position
 
-   // Check syntact "\path..."
+   // Check syntax "\path..."
    if( (( Is_unicode) && (('\\'  == ((FS_STR_UNICODE)sz_path )[0]) || ('/'  == ((FS_STR_UNICODE)sz_path )[0])) )
    ||  ((!Is_unicode) && (('\\'  == sz_path [0]) || ('/'  == sz_path [0])) ) )
    {
@@ -1602,7 +1604,7 @@ bool  nav_setcwd( FS_STRING sz_path , bool b_match_case , bool b_create )
       sz_path  += (Is_unicode? 2 : 1 );
    }else
 
-   // Check syntact "x:\path..."
+   // Check syntax "x:\path..."
    if( (( Is_unicode) && (( ':'  == ((FS_STR_UNICODE)sz_path )[1] ) && (('\\'  == ((FS_STR_UNICODE)sz_path )[2] ) || ('/'  == ((FS_STR_UNICODE)sz_path )[2]))) )
    ||  ((!Is_unicode) && (( ':'  == sz_path [1] ) && (('\\'  == sz_path [2] ) || ('/'  == sz_path [2]))) ) )
    {
@@ -1620,7 +1622,7 @@ bool  nav_setcwd( FS_STRING sz_path , bool b_match_case , bool b_create )
       sz_path  += 3*(Is_unicode? 2 : 1 );
    }else
 
-   // Check syntact ".\path..."
+   // Check syntax ".\path..."
    if( (( Is_unicode) && (( '.'  == ((FS_STR_UNICODE)sz_path )[0] ) && (('\\'  == ((FS_STR_UNICODE)sz_path )[1] ) || ('/'  == ((FS_STR_UNICODE)sz_path )[1] ))) )
    ||  ((!Is_unicode) && (( '.'  == sz_path [0] ) && (('\\'  == sz_path [1] ) || ('/'  == sz_path [1] ))) ) )
    {
@@ -1629,7 +1631,7 @@ bool  nav_setcwd( FS_STRING sz_path , bool b_match_case , bool b_create )
    }else
 
    {
-      // Check syntact "..\..\path..."
+      // Check syntax "..\..\path..."
       if( Is_unicode )
       {
          while(( '.'  == ((FS_STR_UNICODE)sz_path )[0] )
@@ -1673,7 +1675,7 @@ bool  nav_setcwd( FS_STRING sz_path , bool b_match_case , bool b_create )
       {
          // The file or directory is not found
          if( !b_create )
-            goto nav_setcwd_fail;   // don't creat the directory then exit
+            goto nav_setcwd_fail;   // don't create the directory then exit
          // Set flag to create the directory
          b_create_name = true;
 #if (FSFEATURE_WRITE == (FS_LEVEL_FEATURES & FSFEATURE_WRITE)) ||              \
@@ -1790,7 +1792,7 @@ bool  nav_file_name( FS_STRING sz_name , uint8_t u8_size_max , bool b_mode , boo
    // if it is the beginning of the directory
    if ( 0 == fs_g_nav_fast.u16_entry_pos_sel_file )
    {
-      b_readshortname = true;                   // It isn't possibled to have a long name
+      b_readshortname = true;                   // It isn't possible to have a long name
    }
    else
    {
@@ -1872,7 +1874,7 @@ uint16_t   nav_file_lgtsector( void )
 }
 
 
-//! This function checks the write protection of disk and the attribut "read only" of selected file
+//! This function checks the write protection of disk and the Attribute "read only" of selected file
 //!
 //! @return    false, it is possible to modify the selected file
 //! @return    true, in other case
@@ -1883,7 +1885,7 @@ bool  nav_file_isreadonly( void )
       return true;   // No file selected
    if( mem_wr_protect( fs_g_nav.u8_lun ) )
       return true;   // Disk protected
-   return (0!=(FS_ATTR_READ_ONLY & fs_g_nav_entry.u8_attr));   // Check attribut "read only"
+   return (0!=(FS_ATTR_READ_ONLY & fs_g_nav_entry.u8_attr));   // Check Attribute "read only"
 }
 
 
@@ -1926,7 +1928,7 @@ bool  nav_file_checkext( const FS_STRING sz_filterext )
 //! @param     type_date      FS_DATE_LAST_WRITE,  to get the date of last write access <br>
 //!                           FS_DATE_CREATION,    to get the date of file creation
 //! @param     sz_date        ASCCI string (>17B) to store the information about date <br>
-//!                           "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, seconde, miliseconde
+//!                           "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, second, millisecond
 //!
 //! @return    false in case of error, see global value "fs_g_status" for more detail
 //! @return    true otherwise
@@ -1944,9 +1946,9 @@ bool  nav_file_dateget( FS_STRING sz_date , bool type_date )
 }
 
 
-//! This function returns the attribut of selected file
+//! This function returns the Attribute of selected file
 //!
-//! @return    attribut of selected file, see masks "FS_ATTR_" in fs_com.h file.
+//! @return    Attribute of selected file, see masks "FS_ATTR_" in fs_com.h file.
 //!
 uint8_t    nav_file_attributget( void )
 {
@@ -1961,7 +1963,7 @@ uint8_t    nav_file_attributget( void )
 //! @param     type_date      FS_DATE_LAST_WRITE,  to get the date of last write access <br>
 //!                           FS_DATE_CREATION,    to get the date of file creation
 //! @param     sz_date        ASCCI string contains the date to write<br>
-//!                           "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, seconde, miliseconde
+//!                           "YYYYMMDDHHMMSSMS" = year, month, day, hour, minute, second, millisecond
 //!
 //! @return    false in case of error, see global value "fs_g_status" for more detail
 //! @return    true otherwise
@@ -1981,7 +1983,7 @@ bool  nav_file_dateset( const FS_STRING sz_date , bool type_date )
 
 
 #if (FSFEATURE_WRITE_COMPLET == (FS_LEVEL_FEATURES & FSFEATURE_WRITE_COMPLET))
-//! This function changes the attribut of selected file
+//! This function changes the Attribute of selected file
 //!
 //! @param   u8_attribut   value to write on selected file, see masks "FS_ATTR_" in fs_com.h file.
 //!
@@ -1997,7 +1999,7 @@ bool  nav_file_attributset( uint8_t u8_attribut )
    if ( !fat_read_dir())
       return false;
 
-   // Write the new attribut
+   // Write the new Attribute
    fs_g_nav_entry.u8_attr &= (~(FS_ATTR_READ_ONLY|FS_ATTR_HIDDEN|FS_ATTR_SYSTEM|FS_ATTR_ARCHIVE));
    fs_g_nav_entry.u8_attr |= u8_attribut & (FS_ATTR_READ_ONLY|FS_ATTR_HIDDEN|FS_ATTR_SYSTEM|FS_ATTR_ARCHIVE);
    fat_write_entry_file();
@@ -2112,7 +2114,7 @@ bool  nav_file_rename( const FS_STRING sz_name  )
 
    // Note: in case of error, create the new name before delete the current name
 
-   // Save information about current name poisition
+   // Save information about current name position
    u16_save_entry_pos = fs_g_nav_fast.u16_entry_pos_sel_file;
    b_save_entry_type  = fs_g_nav.b_mode_nav;
    // Save information about file
@@ -2145,7 +2147,7 @@ bool  nav_file_rename( const FS_STRING sz_name  )
 
 #if (FSFEATURE_WRITE == (FS_LEVEL_FEATURES & FSFEATURE_WRITE))
 
-//! This function creates a file with NULL size and NULL attribut
+//! This function creates a file with NULL size and NULL Attribute
 //!
 //! @param     sz_name     file name to create (ASCII or UNICODE )
 //!
@@ -2153,7 +2155,7 @@ bool  nav_file_rename( const FS_STRING sz_name  )
 //! @return    true otherwise
 //!
 //! @verbatim
-//! If you ues this routine to create a file, then you must called file_open() to open this new file
+//! If you use this routine to create a file, then you must called file_open() to open this new file
 //! @endverbatim
 //!
 bool  nav_file_create( const FS_STRING sz_name  )
@@ -2167,13 +2169,13 @@ bool  nav_file_create( const FS_STRING sz_name  )
       return false;  // File exist -> it is not possible to create this name
    }
    // FYC: here, the selection is at the end of the list
-   // Create name entrys
+   // Create name entries
    if ( !fat_create_entry_file_name( sz_name ))
       return false; // error
    // By default the information about the new file is NULL
    fs_g_nav_entry.u32_cluster = 0;     // No first cluster
    fs_g_nav_entry.u32_size    = 0;     // The size is null
-   fs_g_nav_entry.u8_attr     = 0;     // Attribut is a file
+   fs_g_nav_entry.u8_attr     = 0;     // Attribute is a file
 
    // It is the last FILE of the list
    fs_g_nav.u16_pos_sel_file++;

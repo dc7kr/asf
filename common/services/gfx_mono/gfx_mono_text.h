@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -87,13 +89,13 @@ struct font {
 #endif
 		uint8_t PROGMEM_PTR_T   progmem;
 	} data;
-	//! Width of one font character, in pixles.
+	//! Width of one font character, in pixels.
 	uint8_t width;
-	//! Height of one font character, in pixles.
+	//! Height of one font character, in pixels.
 	uint8_t height;
 	//! ASCII value of first character in font set.
 	uint8_t first_char;
-	//! ASCII value of last character in ont set.
+	//! ASCII value of last character in the set.
 	uint8_t last_char;
 };
 

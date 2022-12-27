@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -111,7 +113,7 @@ void lcd_set_frame_interrupt_callback(lcd_callback_t callback)
  * and will stop writing if a NULL character is found.
  *
  * \param  lcd_tdg    Type of digit decoder.
- * \param  first_seg  First SEG where the first data will be writen.
+ * \param  first_seg  First SEG where the first data will be written.
  * \param  data       Data buffer.
  * \param  width      Maximum Number of data.
  * \param  dir        Direction (==0: Left->Right, !=0: Left<-Right).

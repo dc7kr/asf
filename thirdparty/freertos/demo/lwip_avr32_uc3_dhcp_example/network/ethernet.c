@@ -4,9 +4,11 @@
  *
  * \brief ethernet management for AVR32 UC3.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
+ *
+ * \page License
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -82,7 +84,12 @@
 #include <lwip/dns.h>
 #include <lwip/netif.h>
 #include "lwip/stats.h"
+#include "lwip/init.h"
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
 #include "netif/loopif.h"
+#else
+#include "lwip/inet.h"
+#endif
 
 //_____ M A C R O S ________________________________________________________
 
@@ -171,7 +178,11 @@ static void tcpip_init_done(void *arg)
   /* Set hw and IP parameters, initialize MACB too */
   prvEthernetConfigureInterface(NULL);
 
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
   sys_sem_signal(*sem); // Signal the waiting thread that the TCP/IP init is done.
+#else
+  sys_sem_signal(sem); // Signal the waiting thread that the TCP/IP init is done.
+#endif
 }
 
 /*!
@@ -196,13 +207,18 @@ void status_callback(struct netif *netif)
 static void prvlwIPInit( void )
 {
   sys_sem_t sem;
-
-
+#if ( (LWIP_VERSION) == ((1U << 24) | (3U << 16) | (2U << 8) | (LWIP_VERSION_RC)) )
   sem = sys_sem_new(0); // Create a new semaphore.
   tcpip_init(tcpip_init_done, &sem);
   sys_sem_wait(sem);    // Block until the lwIP stack is initialized.
   sys_sem_free(sem);    // Free the semaphore.
-
+#else
+  err_t  err_sem;
+  err_sem = sys_sem_new(&sem, 0); // Create a new semaphore.
+  tcpip_init(tcpip_init_done, &sem);
+  sys_sem_wait(&sem);    // Block until the lwIP stack is initialized.
+  sys_sem_free(&sem);    // Free the semaphore.
+#endif
 }
 
 /*!

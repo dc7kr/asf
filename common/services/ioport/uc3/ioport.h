@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -54,7 +56,7 @@
  * @{
  */
 
-/** \name IOPORT Mode bit defintions */
+/** \name IOPORT Mode bit definitions */
 /** @{ */
 #define IOPORT_MODE_MUX_MASK            (7 << 0) /*!< MUX bits mask */
 #define IOPORT_MODE_MUX_BIT0            (1 << 0) /*!< MUX BIT0 mask */

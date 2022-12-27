@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -175,7 +177,7 @@ typedef char      _MEM_TYPE_SLOW_ * FS_STRING;
 typedef UNICODE   _MEM_TYPE_SLOW_ * FS_STR_UNICODE;
 //! @}
 
-//! \name Struture to store a pointer on a file
+//! \name Structure to store a pointer on a file
 typedef struct {
    uint8_t    u8_lun;                       //!< number of the logical driver
 #if (FS_MULTI_PARTITION == true)

@@ -13,6 +13,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -89,7 +91,7 @@ extern void usb_device_task_init(void);
 extern void usb_start_device(void);
 
 //!
-//! @brief Entry point of the USB device mamagement
+//! @brief Entry point of the USB device management
 //!
 //! This function is the entry point of the USB management. Each USB
 //! event is checked here in order to launch the appropriate action.

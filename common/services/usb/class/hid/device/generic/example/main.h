@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -79,7 +81,7 @@ void main_remotewakeup_enable(void);
  */
 void main_remotewakeup_disable(void);
 
-/*! \brief Called by UDI HID geenric when USB Host send a feature request
+/*! \brief Called by UDI HID generic when USB Host send a feature request
  */
 void main_hid_set_feature(uint8_t* report);
 

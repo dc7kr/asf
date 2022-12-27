@@ -4,6 +4,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -54,7 +56,7 @@
  * \subsection evk1105_step1 Step1 : Load the bitmap pictures into the dataflash
  *
  * This application needs some bitmap pictures to be stored into the
- * data-flash of the evalutaion kit.
+ * data-flash of the evaluation kit.
  *
  * Here is the procedure for a PC using Windows XP/Vista (for other
  * platforms, please adapt this steps according to the OS):
@@ -89,7 +91,7 @@
  * need the appropriate setup. For an alternative, please refer to the
  * `\ref group_compilation' section.
  *
- * -# Plug a JTAGICE or AVRONE! emulator on the evalutation kit. Power the
+ * -# Plug a JTAGICE or AVRONE! emulator on the evaluation kit. Power the
  *    board with a USB miniAB cable to the "USB VCP" connector (from the 2
  *    sets of USB connectors, this the one which is on the right).
  * -# Drag the appropriate "EVK1105*_audio_player_*.elf,bin" file onto the

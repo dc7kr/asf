@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -101,7 +103,7 @@ void ui_wakeup_enable(void)
 	pio_configure_pin(WAKEUP_PIN, WAKEUP_PIO_ATTR);
 	// Enable interrupt for PA15
 	pio_enable_pin_interrupt(WAKEUP_PIN);
-	// Enable fastwakeup for button pin (WKUP14 for PA15)
+	// Enable fast wakeup for button pin (WKUP14 for PA15)
 	pmc_set_fast_startup_input(WAKEUP_PMC_FSTT);
 }
 
@@ -109,7 +111,7 @@ void ui_wakeup_disable(void)
 {
 	// Disable interrupt for button pin
 	pio_disable_pin_interrupt(WAKEUP_PIN);
-	// Disable fastwakeup for button pin (WKUP14 for PA15)
+	// Disable fast wakeup for button pin (WKUP14 for PA15)
 	pmc_clr_fast_startup_input(WAKEUP_PMC_FSTT);
 }
 
@@ -174,10 +176,10 @@ void ui_process(uint16_t framenumber)
 /**
  * \defgroup UI User Interface
  *
- * Human interface on SAM4S Xplained:
- * - Led 0 (D2) blinks when USB host has checked and enabled HID Mouse interface
+ * Human interface on SAM4S-Xplained:
+ * - LED D9 blinks when USB host has checked and enabled HID Mouse interface
  * - No mouse buttons are linked
- * - SW1/BP1 is used to move mouse around
+ * - SW1(BOARD REV A) or BP2(BOARD REV B) is used to move mouse around
  * - Only a low level on J13.PA15 will generate a wakeup to USB Host in remote wakeup mode.
  *
  */

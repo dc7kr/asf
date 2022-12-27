@@ -10,6 +10,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -114,7 +116,7 @@ typedef struct
  */
 typedef struct
 {
-  //! Routine to receiv data from TWI master
+  //! Routine to receive data from TWI master
   void (*rx)(U8);
   //! Routine to transmit data to TWI master
   U8 (*tx)(void);
@@ -160,7 +162,7 @@ extern int twi_master_init(volatile avr32_twi_t *twi, const twi_options_t *opt);
  * \param twi   Base address of the TWI (i.e. &AVR32_TWI).
  * \param *opt  Options for initializing the twi module
  *              (see \ref twi_options_t)
- * \param *slave_fct  Pointer on application fonctions
+ * \param *slave_fct  Pointer on application functions
  */
 extern int twi_slave_init(volatile avr32_twi_t *twi, const twi_options_t *opt, const twi_slave_fct_t *slave_fct);
 
@@ -171,7 +173,7 @@ extern int twi_slave_init(volatile avr32_twi_t *twi, const twi_options_t *opt, c
  *
  * \param twi        Base address of the TWI (i.e. &AVR32_TWI).
  * \param chip_addr  Address of the chip which is searched for
- * \return TWI_SUCCESS if a chip was found, error code otherwhise
+ * \return TWI_SUCCESS if a chip was found, error code otherwise
  */
 extern int twi_probe(volatile avr32_twi_t *twi, char chip_addr);
 
@@ -189,7 +191,7 @@ extern void twi_disable_interrupt(volatile avr32_twi_t *twi);
  * \param twi     Base address of the TWI (i.e. &AVR32_TWI).
  * \param package Package information and data
  *                (see \ref twi_package_t)
- * \return TWI_SUCCESS if all bytes were read, error code otherwhise
+ * \return TWI_SUCCESS if all bytes were read, error code otherwise
  */
 extern int twi_master_read(volatile avr32_twi_t *twi, const twi_package_t *package);
 
@@ -199,7 +201,7 @@ extern int twi_master_read(volatile avr32_twi_t *twi, const twi_package_t *packa
  * \param twi       Base address of the TWI (i.e. &AVR32_TWI).
  * \param *package  Package information and data
  *                  (see \ref twi_package_t)
- * \return TWI_SUCCESS if all bytes were written, error code otherwhise
+ * \return TWI_SUCCESS if all bytes were written, error code otherwise
  */
 extern int twi_master_write(volatile avr32_twi_t *twi, const twi_package_t *package);
 
@@ -211,14 +213,14 @@ extern int twi_master_write(volatile avr32_twi_t *twi, const twi_package_t *pack
  * \param twi       Base address of the TWI (i.e. &AVR32_TWI).
  * \param *package  Package information and data
  *                  (see \ref twi_package_t)
- * \return TWI_SUCCESS if all bytes were written, error code otherwhise
+ * \return TWI_SUCCESS if all bytes were written, error code otherwise
  */
 extern int twi_master_write_ex(volatile avr32_twi_t *twi, const twi_package_t *package);
 
 /*!
  * \brief Test if a TWI read/write is pending.
  *
- * \return true if a write/read access is pending, false otherwhise
+ * \return true if a write/read access is pending, false otherwise
  */
 extern bool twi_is_busy(void);
 

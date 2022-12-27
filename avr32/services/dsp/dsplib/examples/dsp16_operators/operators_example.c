@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -88,7 +90,7 @@ int main(int argc, char *argv[])
   dsp16_t number, result;
   int cycle_count;
 
-  // Swith to external Oscillator 0.
+  // Switch to external Oscillator 0.
   pm_switch_to_osc0(&AVR32_PM, FOSC0, OSC0_STARTUP);
 
   // Initialize the DSP debug module

@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -367,7 +369,7 @@ void ui_stop_write(void)
  *   - The blink is fast (0.25s) with high speed device
  * - Led 2 is on when a HID mouse button is pressed
  * - Led 3 is on when a LUN test is success
- * - Led 3 blinks when a LUN test is unsuccess
+ * - Led 3 blinks when a LUN test is unsuccessful
  * - Switch SW2 allows to enter the device in suspend mode
  * - Only a low level on J17.7 will generate a wakeup to USB device in suspend mode
  */

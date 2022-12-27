@@ -7,6 +7,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -111,7 +113,7 @@ enum tc_cc_channel_mask_enable_t {
 enum tc_dir_t {
 	//! Counting up
 	TC_UP = 0,
-	//! Down Coutning B
+	//! Down Counting B
 	TC_DOWN = 1
 };
 //! Timer Counter Waveform Generator mode
@@ -344,7 +346,7 @@ static inline void tc_set_ccd_interrupt_level(volatile void *tc,
  *
  * \param tc Pointer to TC module.
  * \param TC_CLKSEL_enum Clock source selection
- * \note Configuring the clock starts alos the timer
+ * \note Configuring the clock also starts the timer
  */
 static inline void tc_write_clock_source(volatile void *tc,
 		TC_CLKSEL_t TC_CLKSEL_enum)
@@ -573,7 +575,7 @@ static inline void tc_disable_delay(volatile void *tc)
  * \brief Tests if the Overflow flag is set
  *
  * \param tc Pointer to TC module.
- * \return  overflow has occured or not : OVFIF
+ * \return  overflow has occurred or not : OVFIF
  */
 static inline bool tc_is_overflow(volatile void *tc)
 {
@@ -595,7 +597,7 @@ static inline void tc_clear_overflow(volatile void *tc)
  * \brief Tests if the Error flag is set
  *
  * \param tc Pointer to TC module.
- * \return  Error has occured or not : ERRIF
+ * \return  Error has occurred or not : ERRIF
  */
 static inline bool tc_read_error(volatile void *tc)
 {
@@ -914,7 +916,7 @@ static inline bool tc_cc_buffer_is_valid(volatile void *tc,
 }
 
 /**
- * \brief Reports if Capture/Compare interrupt has occured
+ * \brief Reports if Capture/Compare interrupt has occurred
  *
  * \param tc Pointer to TC module.
  * \param channel_index CC Channel
@@ -1026,7 +1028,7 @@ static inline void tc_awex_disable_cwcm(AWEX_t *awex)
 }
 
 /**
- * \brief AWeX extension ensable pattern generator mode
+ * \brief AWeX extension enable pattern generator mode
  *
  * \param awex Pointer to AWeX module (AWEXC or AWEXE)
  */
@@ -1036,7 +1038,7 @@ static inline void tc_awex_enable_pgm(AWEX_t *awex)
 }
 
 /**
- * \brief AWeX extension dissable pattern generator mode
+ * \brief AWeX extension disable pattern generator mode
  *
  * \param awex Pointer to AWeX module (AWEXC or AWEXE)
  */
@@ -1145,7 +1147,7 @@ static inline void tc_awex_set_dti_low(AWEX_t *awex, int16_t value)
 	((AWEX_t *)awex)->DTLS = value;
 }
 /**
- * \brief AWeX extension : configures symetrical deadtime
+ * \brief AWeX extension : configures symmetrical deadtime
  *
  * \param awex Pointer to AWeX module (AWEXC or AWEXE)
  * \param value : deadtime value
@@ -1156,7 +1158,7 @@ static inline void tc_awex_set_dti_both(AWEX_t *awex, int16_t value)
 }
 
 /**
- * \brief AWeX extension : configures symetrical deadtime buffer
+ * \brief AWeX extension : configures symmetrical deadtime buffer
  *
  * \param awex Pointer to AWeX module (AWEXC or AWEXE)
  * \param value : deadtime buffer value
@@ -1281,7 +1283,7 @@ static inline void tc_awex_set_fault_detection_event(AWEX_t *awex,
  * \brief AWeX extension : configures the port overdrive
  *
  * \param awex Pointer to AWeX module (AWEXC or AWEXE)
- * \param value Output everride configuration
+ * \param value Output override configuration
  */
 static inline void tc_awex_set_output_override(AWEX_t * awex,
 		int8_t value)
@@ -1353,7 +1355,7 @@ static inline void tc_hires_set_mode(HIRES_t * hires, HIRES_HREN_t hi_res_mode)
  * \section xmega_tc_qs_ovf Timer/counter overflow (interrupt based)
  *
  * This use case will prepare a timer to trigger a interrupt when the timer
- * overflows. The interrupt is handled by a cutomizable call back function.
+ * overflows. The interrupt is handled by a cutomisable call back function.
  *
  * We will setup the timer in this mode:
  * - Normal WGM mode (incrementing timer)
@@ -1444,7 +1446,7 @@ static inline void tc_hires_set_mode(HIRES_t * hires, HIRES_HREN_t hi_res_mode)
  * - Period of timer 10000 counts
  * - Compare match A interrupt trigger after 100 counts
  * - Compare match B interrupt trigger after 1000 counts
- * - If compare A and compare B match occur simulatneously, compare B
+ * - If compare A and compare B match occur simultaneously, compare B
  *   should have higher priority
  *
  *

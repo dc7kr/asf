@@ -11,6 +11,8 @@
  *
  * \asf_license_start
  *
+ * \page License
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
@@ -321,7 +323,7 @@ void dip204_set_cursor_position(unsigned char column, unsigned char line)
   }
   /* Send Command Start Byte */
   dip204_write_byte(DIP204_WRITE_COMMAND);
-  /* Send Adress lower Nibble */
+  /* Send Address lower Nibble */
   dip204_write_byte(address);
   dip204_wait_busy();
   dip204_unselect();
@@ -496,7 +498,7 @@ static void dip204_wait_busy(void)
 {
   unsigned char status = 0x00;
 
-  /* send read commd to LCD */
+  /* send read command to LCD */
   dip204_write_byte(DIP204_READ_COMMAND);
   /* read next byte */
   do {
