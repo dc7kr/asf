@@ -3,7 +3,7 @@
  *
  * \brief USB host Mass Storage interface for control access module..
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -43,7 +43,11 @@
 #include "uhi_msc_mem.h"
 
 /**
- * \addtogroup uhi_msc_mem_group
+ * \ingroup uhi_msc_mem_group
+ * \defgroup uhi_msc_mem_group_internal Implementation of USB host Mass Storage
+ * interface for control access module
+ *
+ * Internal implementation 
  * @{
  */
 

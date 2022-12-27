@@ -46,12 +46,18 @@ TARGET = mxt_example_hid.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
+       common/components/display_controller/ili9341/ili9341.c \
        common/components/touch/mxt/example_hid/example_hid.c \
        common/components/touch/mxt/example_hid/ui.c       \
        common/components/touch/mxt/mxt_device.c           \
        common/services/clock/xmega/sysclk.c               \
+       common/services/gfx/gfx_generic.c                  \
+       common/services/gfx/gfx_ili9341_sdt028atft.c       \
+       common/services/gfx/gfx_text.c                     \
+       common/services/gfx/sysfont.c                      \
        common/services/ioport/xmega/ioport_compat.c       \
        common/services/sleepmgr/xmega/sleepmgr.c          \
+       common/services/spi/xmega_usart_spi/usart_spi.c    \
        common/services/usb/class/hid/device/mouse/udi_hid_mouse.c \
        common/services/usb/class/hid/device/mouse/udi_hid_mouse_desc.c \
        common/services/usb/class/hid/device/udi_hid.c     \
@@ -60,6 +66,7 @@ CSRCS = \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/twi/twim.c                           \
        xmega/drivers/twi/twis.c                           \
+       xmega/drivers/usart/usart.c                        \
        xmega/drivers/usb/usb_device.c
 
 # Assembler source files located from the top-level source directory
@@ -70,14 +77,17 @@ ASSRCS = \
 # Include path located from the top-level source directory
 INC_PATH = \
        common/boards                                      \
+       common/components/display_controller/ili9341       \
        common/components/touch/mxt                        \
        common/components/touch/mxt/example_hid            \
        common/components/touch/mxt/example_hid/atxmega256a3bu_xplained \
        common/services/clock                              \
        common/services/delay                              \
+       common/services/gfx                                \
        common/services/gpio                               \
        common/services/ioport                             \
        common/services/sleepmgr                           \
+       common/services/spi                                \
        common/services/twi                                \
        common/services/usb                                \
        common/services/usb/class/hid                      \
@@ -89,8 +99,10 @@ INC_PATH = \
        xmega/boards/xmega_a3bu_xplained                   \
        xmega/drivers/cpu                                  \
        xmega/drivers/nvm                                  \
+       xmega/drivers/pmic                                 \
        xmega/drivers/sleep                                \
        xmega/drivers/twi                                  \
+       xmega/drivers/usart                                \
        xmega/drivers/usb                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
@@ -139,6 +151,8 @@ CFLAGS =
 CPPFLAGS = \
        -D BOARD=XMEGA_A3BU_XPLAINED                       \
        -D CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA       \
+       -D CONF_GFX_ILI9341_SDT028ATFT=1                   \
+       -D GFX_INITIALIZED=1                               \
        -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking

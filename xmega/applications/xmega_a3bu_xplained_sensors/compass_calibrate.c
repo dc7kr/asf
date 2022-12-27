@@ -3,7 +3,7 @@
  *
  * \brief Sensors Xplained Electronic Compass Calibration Application
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -91,7 +91,6 @@
  */
 #include "sensor_demo.h"
 
-
 /**
  * \brief User prompt routine
  *
@@ -107,17 +106,17 @@ static void prompt_user(char *prompt_string)
 
 	LED_Off(ALL_LEDS);
 
-	// Wait for user to push button before continuing.
-
+	/* Wait for user to push button before continuing. */
 	do {
 		LED_Toggle(PROMPT_LED);
-		mdelay(500);
-
-	} while ( ! switch_pressed(SW1));
+		delay_ms(500);
+	} while (!switch_pressed(SW1));
 
 	LED_Off(PROMPT_LED);
 
-	while (switch_pressed(SW1));
+	/* Wait for button release before continuing. */
+	while (switch_pressed(SW1)) {
+	}
 
 	clear_screen();
 }
@@ -144,70 +143,58 @@ int main(void)
 	gfx_mono_draw_string("Atmel\r\nSensors Xplained\r\nCompass Calibration",
 			0, 0, &sysfont);
 
-	mdelay(2000);
+	delay_ms(2000);
 
 	clear_screen();
 
-
-	// Attach descriptors to sensors on an Xplained add-on board.
-
+	/* Attach descriptors to sensors on an Xplained add-on board. */
 	sensor_t compass;
 	sensor_attach(&compass, SENSOR_TYPE_COMPASS, 0, 0);
 
-
-	// Calibration Step 1.
-
+	/* Calibration Step 1. */
 	prompt_user("Lay board flat");
-	(void) sensor_calibrate(&compass, MANUAL_CALIBRATE, 1, NULL);
-   
+	(void)sensor_calibrate(&compass, MANUAL_CALIBRATE, 1, NULL);
 
-	// Calibration Step 2.
-
+	/* Calibration Step 2. */
 	prompt_user("Rotate 180");
-	(void) sensor_calibrate(&compass, MANUAL_CALIBRATE, 2, NULL);
+	(void)sensor_calibrate(&compass, MANUAL_CALIBRATE, 2, NULL);
 
-	// Calibration Step 3.
-
+	/* Calibration Step 3. */
 	prompt_user("Flip board");
 
 	if (sensor_calibrate(&compass, MANUAL_CALIBRATE, 3, NULL) != true) {
-
 		if (compass.err == SENSOR_ERR_IO) {
-			gfx_mono_draw_string("Calibration failure", 1,  5, &sysfont);
-			gfx_mono_draw_string("Write Error",         1, 13, &sysfont);
+			gfx_mono_draw_string("Calibration failure", 1, 5,
+					&sysfont);
+			gfx_mono_draw_string("Write Error", 1, 13, &sysfont);
 		} else {
-			gfx_mono_draw_string("Unknown Error",       1,  5, &sysfont);
-			gfx_mono_draw_string("Calibrating Device",  1, 13, &sysfont);
+			gfx_mono_draw_string("Unknown Error", 1, 5, &sysfont);
+			gfx_mono_draw_string("Calibrating Device", 1, 13,
+					&sysfont);
 		}
 
 		return -1;
 	}
 
-	// Draw rotation units.
-
-	gfx_mono_draw_string("Hed     Deg        ", 1,  5, &sysfont);
+	/* Draw rotation units. */
+	gfx_mono_draw_string("Hed     Deg        ", 1, 5, &sysfont);
 	gfx_mono_draw_string("Inc     Deg        ", 1, 13, &sysfont);
-	gfx_mono_draw_string("Fld     uT         ", 1, 21, &sysfont);	
-
+	gfx_mono_draw_string("Fld     uT         ", 1, 21, &sysfont);
 
 	static gfx_coord_t const ring_center_x = 112;
 	static gfx_coord_t const ring_center_y = 16;
 	static gfx_coord_t const ring_radius   = 15;
 
-	// Compass needle point x- and y-coordinate.
-
+	/* Compass needle point x- and y-coordinate. */
 	gfx_coord_t needle_x = ring_center_x;
 	gfx_coord_t needle_y = ring_center_y;
 
-	// Draw the compass ring.
-
+	/* Draw the compass ring. */
 	gfx_mono_draw_circle(ring_center_x, ring_center_y, ring_radius,
-		GFX_PIXEL_SET, GFX_WHOLE);
-
+			GFX_PIXEL_SET, GFX_WHOLE);
 
 	while (true) {
-
-	    static sensor_data_t data;
+		static sensor_data_t data;
 		sensor_get_heading(&compass, &data);
 
 		/* Calculate compass needle coordinates on the display by using
@@ -218,18 +205,18 @@ int main(void)
 		int const needle_length = ring_radius - 3;
 		double const direction = radians(data.heading.direction);
 
-		// Erase the old compass needle.
-
+		/* Erase the old compass needle. */
 		gfx_mono_draw_line(ring_center_x, ring_center_y,
-			needle_x, needle_y, GFX_PIXEL_CLR);
+				needle_x, needle_y, GFX_PIXEL_CLR);
 
-		needle_x = ring_center_x + (needle_length * sin(direction + M_PI));
-		needle_y = ring_center_y + (needle_length * cos(direction + M_PI));
+		needle_x = ring_center_x +
+				(needle_length * sin(direction + M_PI));
+		needle_y = ring_center_y +
+				(needle_length * cos(direction + M_PI));
 
-		// Draw the new compass needle.
-
+		/* Draw the new compass needle. */
 		gfx_mono_draw_line(ring_center_x, ring_center_y,
-			needle_x, needle_y, GFX_PIXEL_SET);
+				needle_x, needle_y, GFX_PIXEL_SET);
 
 		LED_Toggle(PROMPT_LED);
 
@@ -239,10 +226,10 @@ int main(void)
 		sprintf(format_buffer[1], "%4ld", data.heading.inclination);
 		sprintf(format_buffer[2], "%4ld", data.heading.strength);
 
-		gfx_mono_draw_string(format_buffer[0], 20,  5, &sysfont);
+		gfx_mono_draw_string(format_buffer[0], 20, 5, &sysfont);
 		gfx_mono_draw_string(format_buffer[1], 20, 13, &sysfont);
 		gfx_mono_draw_string(format_buffer[2], 20, 21, &sysfont);
 
-		mdelay(hz_to_ms(REFRESH_PERIOD));
+		delay_ms(hz_to_ms(REFRESH_PERIOD));
 	}
 }

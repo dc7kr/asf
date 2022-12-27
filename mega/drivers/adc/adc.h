@@ -4,7 +4,7 @@
  * \brief megaAVR ADC driver for ATmegaxx4, ATmegaxx4/A/P/PA, ATmegaxx0/xx1,
  * ATmegaxx8 and ATmegaxx8A/P/PA.
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -117,8 +117,8 @@
  * own defines and enums to either a new family header file, or modify an
  * existing one to include your device. You will also need to add a new
  * condition below to include the correct header file.
- * to add a specific device you can use the part_is_defined(device_name) macro.
- * for device names see /mega/utils/parts.h
+ * to add a specific device you can use the AVR8_PART_IS_DEFINED(device_name)
+ * macro. For device names see /common/utils/parts.h
  */
 #if MEGA_XX || defined(__DOXYGEN__)
 #	include "adc_megaxx.h"

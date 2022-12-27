@@ -3,7 +3,7 @@
  *
  * \brief Chip-specific system clock manager configuration
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -57,17 +57,21 @@
 #define CONFIG_SYSCLK_PBA_DIV         0
 #define CONFIG_SYSCLK_PBB_DIV         0
 
+#if UC3L3_L4
+
 //#define CONFIG_USBCLK_SOURCE        USBCLK_SRC_OSC0
-//#define CONFIG_USBCLK_SOURCE        USBCLK_SRC_PLL0
+#define CONFIG_USBCLK_SOURCE        USBCLK_SRC_PLL0
 
 /* Fusb = Fsys / USB_div */
-//#define CONFIG_USBCLK_DIV           1
+#define CONFIG_USBCLK_DIV           1
 
-//#define CONFIG_PLL0_SOURCE          PLL_SRC_OSC0
+#define CONFIG_PLL0_SOURCE          PLL_SRC_OSC0
 
 /* Fpll0 = (Fclk * PLL_mul) / PLL_div */
-//#define CONFIG_PLL0_MUL             (48000000UL / BOARD_OSC32_HZ)
-//#define CONFIG_PLL0_DIV             1
+#define CONFIG_PLL0_MUL             (48000000UL / BOARD_OSC32_HZ)
+#define CONFIG_PLL0_DIV             1
+
+#endif
 
 //#define CONFIG_DFLL0_SOURCE         GENCLK_SRC_OSC0
 //#define CONFIG_DFLL0_SOURCE         GENCLK_SRC_RCSYS

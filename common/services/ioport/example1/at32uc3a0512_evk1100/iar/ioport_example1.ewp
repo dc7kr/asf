@@ -1743,30 +1743,6 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>common</name>
-		<group>
-			<name>services</name>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>uc3a0_a1</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../clock/uc3a0_a1/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>ioport</name>
-				<group>
-					<name>example1</name>
-					<file>
-						<name>$PROJ_DIR$/../../ioport_example1.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-	</group>
-	<group>
 		<name>avr32</name>
 		<group>
 			<name>boards</name>
@@ -1775,20 +1751,23 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1100/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1100/led.c</name>
+				</file>
 			</group>
 		</group>
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>gpio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../avr32/drivers/gpio/gpio.c</name>
-				</file>
-			</group>
-			<group>
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/flashc/flashc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/gpio/gpio.c</name>
 				</file>
 			</group>
 		</group>
@@ -1799,6 +1778,30 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/utils/startup/trampoline_uc3.s82</name>
 				</file>
+			</group>
+		</group>
+	</group>
+	<group>
+		<name>common</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>ioport</name>
+				<group>
+					<name>example1</name>
+					<file>
+						<name>$PROJ_DIR$/../../ioport_example1.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>uc3a0_a1</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../clock/uc3a0_a1/sysclk.c</name>
+					</file>
+				</group>
 			</group>
 		</group>
 	</group>

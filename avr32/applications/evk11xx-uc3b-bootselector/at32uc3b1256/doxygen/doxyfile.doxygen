@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../../../drivers/gpio/gpio.c ../../../../drivers/flashc/flashc.c ../../bootselector.c  ../../../../utils/compiler.h ../../../../utils/preprocessor/stringz.h ../../../../drivers/flashc/flashc.h ../../../../utils/parts.h ../../../../../common/boards/board.h ../../../../utils/preprocessor/tpaste.h ../../../../utils/preprocessor/preprocessor.h ../../../../../common/utils/interrupt/interrupt_avr32.h ../../../../drivers/gpio/gpio.h ../../../../utils/status_codes.h ../../../../../common/utils/interrupt.h ../../../../boards/dummy/dummy_board.h ../../../../utils/header_files/uc3d_defines_fix.h ../../../../utils/preprocessor/mrepeat.h
+INPUT                  =  ../../../../drivers/gpio/gpio.c ../../../../drivers/flashc/flashc.c ../../bootselector.c  ../../../../utils/compiler.h ../../../../utils/preprocessor/stringz.h ../../../../drivers/flashc/flashc.h ../../../../../common/utils/parts.h ../../../../../common/boards/board.h ../../../../utils/header_files/uc3l3_l4_defines_fix.h ../../../../utils/preprocessor/tpaste.h ../../../../drivers/gpio/gpio.h ../../../../../common/utils/interrupt/interrupt_avr32.h ../../../../utils/status_codes.h ../../../../../common/utils/interrupt.h ../../../../boards/dummy/dummy_board.h ../../../../utils/header_files/uc3d_defines_fix.h ../../../../utils/preprocessor/preprocessor.h ../../../../utils/preprocessor/mrepeat.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is

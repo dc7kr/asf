@@ -56,6 +56,7 @@ TARGET = spi_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/uc3c_ek/led.c                         \
        avr32/components/memory/sd_mmc/sd_mmc_spi/example/sd_mmc_spi_example.c \
        avr32/components/memory/sd_mmc/sd_mmc_spi/sd_mmc_spi.c \
        avr32/components/memory/sd_mmc/sd_mmc_spi/sd_mmc_spi_mem.c \

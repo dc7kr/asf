@@ -192,15 +192,6 @@ The defines below may be changed or extended by the user.
 #define T2BF_USART_IRQ_SETTING           AVR32_USART1_IRQ
 #define T2BF_USART_PORT_SETTING          1
 
-#elif BOARD == UC3_C2_XPLAINED
-#define T2BF_USART_SETTING               (&AVR32_USART3)
-#define T2BF_USART_RX_PIN_SETTING        AVR32_USART3_RXD_2_PIN
-#define T2BF_USART_RX_FUNCTION_SETTING   AVR32_USART3_RXD_2_FUNCTION
-#define T2BF_USART_TX_PIN_SETTING        AVR32_USART3_TXD_2_PIN
-#define T2BF_USART_TX_FUNCTION_SETTING   AVR32_USART3_TXD_2_FUNCTION
-#define T2BF_USART_IRQ_SETTING           AVR32_USART3_IRQ
-#define T2BF_USART_PORT_SETTING          3
-
 #else
 #error Board is not supported.
 #endif

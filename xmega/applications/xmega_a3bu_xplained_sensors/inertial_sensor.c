@@ -3,7 +3,7 @@
  *
  * \brief Sensors Xplained Inertial Sensor Data Display Example
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -37,7 +37,9 @@
  *
  * \asf_license_stop
  *
- *
+ */
+ 
+/**
  * \mainpage
  *
  * \section intro Introduction
@@ -85,8 +87,8 @@
  * For further information, visit <a href="http://www.atmel.com/">Atmel</a>.\n
  * Support and FAQ: http://support.atmel.no/
  */
+#include <asf.h>
 #include "sensor_demo.h"
-
 
 enum format_string_select {
 	acceleration_format = 0,
@@ -96,42 +98,43 @@ enum format_string_select {
 };
 
 static void draw_formatted_data(enum format_string_select sel,
-		const sensor_data_t * data)
+		const sensor_data_t *data)
 {
 	static char format_buffer[3][17];
 
-	static const char * format[] = {
-		// Acceleration
+	static const char *format[] = {
+		/* Acceleration */
 		"X %5ld Milli-G ",
 		"Y %5ld Milli-G ",
 		"Z %5ld Milli-G ",
 
-		// Angular Rate
+		/* Angular Rate */
 		"X %5ld Deg/sec ",
 		"Y %5ld Deg/sec ",
 		"Z %5ld Deg/sec ",
 
-		// Magnetic Heading
+		/* Magnetic Heading */
 		"Hed %4ld Deg    ",
 		"Inc %4ld Deg    ",
 		"Fld %4ld uT     ",
 
-		// Temperature
+		/* Temperature */
 		"%4ld Fahrenheit ",
 		"%4ld Celsius    ",
-		"                "};
+		"                "
+	};
 
 	LED_Toggle(PROMPT_LED);
 
-	sprintf(format_buffer[0], format[sel+0], data->value[0]);
-	sprintf(format_buffer[1], format[sel+1], data->value[1]);
-	sprintf(format_buffer[2], format[sel+2], data->value[2]);
+	sprintf(format_buffer[0], format[sel + 0], data->value[0]);
+	sprintf(format_buffer[1], format[sel + 1], data->value[1]);
+	sprintf(format_buffer[2], format[sel + 2], data->value[2]);
 
-	gfx_mono_draw_string(format_buffer[0], 1,  5, &sysfont);
+	gfx_mono_draw_string(format_buffer[0], 1, 5, &sysfont);
 	gfx_mono_draw_string(format_buffer[1], 1, 13, &sysfont);
 	gfx_mono_draw_string(format_buffer[2], 1, 21, &sysfont);
 
-	mdelay(hz_to_ms(REFRESH_PERIOD));
+	delay_ms(hz_to_ms(REFRESH_PERIOD));
 }
 
 /**
@@ -153,23 +156,22 @@ int main(void)
 	gpio_set_pin_high(NHD_C12832A1Z_BACKLIGHT);
 	st7565r_set_contrast(ST7565R_DISPLAY_CONTRAST_MIN);
 
-	gfx_mono_draw_string("Atmel\r\nSensors Xplained\r\nInertial Sensor Demo",
+	gfx_mono_draw_string(
+			"Atmel\r\nSensors Xplained\r\nInertial Sensor Demo",
 			0, 0, &sysfont);
 
-	mdelay(2000);
+	delay_ms(2000);
 
 	clear_screen();
 
-	gfx_mono_draw_string("Press button SW1", 1,  5, &sysfont);
+	gfx_mono_draw_string("Press button SW1", 1, 5, &sysfont);
 	gfx_mono_draw_string("to change sensor", 1, 13, &sysfont);
 
-	mdelay(1000);
+	delay_ms(1000);
 
 	screen_border();
 
-
-	// Attach descriptors to sensors on an Xplained add-on board.
-
+	/* Attach descriptors to sensors on an Xplained add-on board. */
 	sensor_t accelerometer;
 	sensor_attach(&accelerometer, SENSOR_TYPE_ACCELEROMETER, 0, 0);
 
@@ -179,100 +181,85 @@ int main(void)
 	sensor_t compass;
 	sensor_attach(&compass, SENSOR_TYPE_COMPASS, 0, 0);
 
-	// Configure operational parameters for select sensors.
-
+	/* Configure operational parameters for select sensors. */
 	sensor_set_range(&accelerometer, 2000 /* milli-g */);
 	sensor_set_bandwidth(&accelerometer, 25 /* Hertz */);
 
-
 	while (true) {
-
-		// Initialize a sensor data descriptor for scaled data.
-
+		/* Initialize a sensor data descriptor for scaled data. */
 		static sensor_data_t sensor_data = {.scaled = true};
 
-
 		do {
-			// Measure & show acceleration until button SW1 is pushed.
-
+			/* Measure & show acceleration until button SW1 is
+			 * pushed. */
 			sensor_read(&accelerometer, SENSOR_READ_ACCELERATION, &sensor_data);
 			draw_formatted_data(acceleration_format, &sensor_data);
-
-		} while ( ! switch_pressed(SW1));
-
+		} while (!switch_pressed(SW1));
 
 		do {
-			// Measure & show rotation until button SW1 is pushed.
-
+			/* Measure & show rotation until button SW1 is pushed. */
 			sensor_read(&gyroscope, SENSOR_READ_ROTATION, &sensor_data);
 			draw_formatted_data(rotation_format, &sensor_data);
-
-		} while ( ! switch_pressed(SW1));
-
+		} while (!switch_pressed(SW1));
 
 		static gfx_coord_t const ring_center_x = 112;
 		static gfx_coord_t const ring_center_y = 16;
 		static gfx_coord_t const ring_radius   = 15;
 
-		// Compass needle point x- and y-coordinate.
-
+		/* Compass needle point x- and y-coordinate. */
 		gfx_coord_t needle_x = ring_center_x;
 		gfx_coord_t needle_y = ring_center_y;
 
-		// Draw the compass ring.
-
+		/* Draw the compass ring. */
 		gfx_mono_draw_circle(ring_center_x, ring_center_y, ring_radius,
-			GFX_PIXEL_SET, GFX_WHOLE);
+				GFX_PIXEL_SET, GFX_WHOLE);
 
 		do {
-			// Measure & show magnetic heading until button SW1 is pushed.
-
+			/* Measure & show magnetic heading until button SW1 is
+			 * pushed.
+			 */
 			sensor_read(&compass, SENSOR_READ_HEADING, &sensor_data);
 
-			/* Calculate compass needle coordinates on the display by using
-			 * sin() & cos() to find the x- and y-coordinate of the needle
-			 * point. Note that the 'direction' value is in degrees and must
-			 * be converted to radians for the C-library math functions.
+			/* Calculate compass needle coordinates on the display
+			 * by using sin() & cos() to find the x- and y-coordinate of the
+			 * needle point. Note that the 'direction' value is in degrees
+			 * and must be converted to radians for the C-library math
+			 * functions.
 			 */
 			int const needle_length = ring_radius - 3;
-			double const direction = radians(sensor_data.heading.direction);
+			double const direction  = radians(sensor_data.heading.direction);
 
-			// Erase the old compass needle.
-
+			/* Erase the old compass needle. */
 			gfx_mono_draw_line(ring_center_x, ring_center_y,
-				needle_x, needle_y, GFX_PIXEL_CLR);
+					needle_x, needle_y, GFX_PIXEL_CLR);
 
-			needle_x = ring_center_x + (needle_length * sin(direction + M_PI));
-			needle_y = ring_center_y + (needle_length * cos(direction + M_PI));
+			needle_x = ring_center_x +
+					(needle_length * sin(direction + M_PI));
+			needle_y = ring_center_y +
+					(needle_length * cos(direction + M_PI));
 
-			// Draw the new compass needle.
-
+			/* Draw the new compass needle. */
 			gfx_mono_draw_line(ring_center_x, ring_center_y,
-				needle_x, needle_y, GFX_PIXEL_SET);
+					needle_x, needle_y, GFX_PIXEL_SET);
 
 			draw_formatted_data(heading_format, &sensor_data);
+		} while (!switch_pressed(SW1));
 
-		} while ( ! switch_pressed(SW1));
-
-
-		// Clear last compass needle and compass ring.
-
+		/* Clear last compass needle and compass ring. */
 		gfx_mono_draw_line(ring_center_x, ring_center_y,
-			needle_x, needle_y, GFX_PIXEL_CLR);
+				needle_x, needle_y, GFX_PIXEL_CLR);
 
 		gfx_mono_draw_circle(ring_center_x, ring_center_y, ring_radius,
-			GFX_PIXEL_CLR, GFX_WHOLE);
+				GFX_PIXEL_CLR, GFX_WHOLE);
 
 		screen_border();
 
-
 		do {
-			// Measure & show temperature until button SW1 is pushed.
-
+			/* Measure & show temperature until button SW1 is pushed. */
 			sensor_read(&gyroscope, SENSOR_READ_TEMPERATURE, &sensor_data);
 
-			/* Arrange temperature data values in array with Fahrenheit
-			 * and Celsius formats.
+			/* Arrange temperature data values in array with
+			 * Fahrenheit and Celsius formats.
 			 */
 			int32_t const temp_deg_c = sensor_data.temperature.value;
 			int32_t const temp_deg_f = CELSIUS_TO_FAHRENHEIT(temp_deg_c);
@@ -281,7 +268,6 @@ int main(void)
 			sensor_data.value[1] = temp_deg_c;
 
 			draw_formatted_data(temperature_format, &sensor_data);
-
-		} while ( ! switch_pressed(SW1));
+		} while (!switch_pressed(SW1));
 	}
 }

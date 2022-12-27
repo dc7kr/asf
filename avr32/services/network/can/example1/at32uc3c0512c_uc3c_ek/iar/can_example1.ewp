@@ -1770,21 +1770,15 @@
 				</file>
 			</group>
 			<group>
-				<name>canif</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/canif/canif.c</name>
-				</file>
-			</group>
-			<group>
-				<name>flashc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/flashc/flashc.c</name>
-				</file>
-			</group>
-			<group>
 				<name>scif</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/scif/scif_uc3c.c</name>
+				</file>
+			</group>
+			<group>
+				<name>canif</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/canif/canif.c</name>
 				</file>
 			</group>
 			<group>
@@ -1802,6 +1796,21 @@
 					<name>$PROJ_DIR$/../../../../../../drivers/usart/usart.c</name>
 				</file>
 			</group>
+			<group>
+				<name>flashc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/flashc/flashc.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>uc3c_ek</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../boards/uc3c_ek/led.c</name>
+				</file>
+			</group>
 		</group>
 		<group>
 			<name>services</name>
@@ -1809,15 +1818,15 @@
 				<name>network</name>
 				<group>
 					<name>can</name>
-					<file>
-						<name>$PROJ_DIR$/../../../can.c</name>
-					</file>
 					<group>
 						<name>example1</name>
 						<file>
 							<name>$PROJ_DIR$/../../can_example1.c</name>
 						</file>
 					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../can.c</name>
+					</file>
 				</group>
 			</group>
 		</group>

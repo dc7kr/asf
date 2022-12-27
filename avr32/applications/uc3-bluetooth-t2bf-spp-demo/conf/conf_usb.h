@@ -44,17 +44,6 @@
 
 #include <compiler.h>
 
-#if BOARD == UC3_C2_XPLAINED
-    #undef ISR(func, int_grp, int_lvl)
-    #define     ISR(func, int_grp, int_lvl)                                    \
-                                static void func (void)
-#undef irq_initialize_vectors
-#  define irq_initialize_vectors() \
-  BSP_INTC_Init()
-#undef irq_register_handler
-#  define irq_register_handler(func, int_num, int_lvl) \
-  BSP_INTC_IntReg(&func, int_num, int_lvl)
-#endif
 /**
  * USB Device Configuration
  * @{

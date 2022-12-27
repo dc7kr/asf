@@ -42,8 +42,36 @@
 #include "ili9341.h"
 #include "ili9341_regs.h"
 #include <sysclk.h>
-#include <gpio.h>
+#include <ioport.h>
 #include <delay.h>
+
+/**
+ * \internal
+ * \brief Helper function to wait for the last send operation to complete
+ */
+__always_inline static void ili9341_wait_for_send_done(void)
+{
+#if defined(CONF_ILI9341_USART_SPI)
+	/* Wait for TX to complete */
+	while (!usart_tx_is_complete(CONF_ILI9341_USART_SPI)) {
+		/* Do nothing */
+	}
+	/* Clear the TX complete flag */
+	usart_clear_tx_complete(CONF_ILI9341_USART_SPI);
+#elif defined(CONF_ILI9341_SPI)
+#  if XMEGA
+	/* Wait for TX to complete */
+	while (!spi_is_tx_ok(CONF_ILI9341_SPI)) {
+		/* Do nothing */
+	}
+#  else	
+	/* Wait for TX to complete */
+	while (!spi_is_tx_empty(CONF_ILI9341_SPI)) {
+		/* Do nothing */
+	}
+#  endif
+#endif
+}
 
 /**
  * \internal
@@ -51,7 +79,7 @@
  */
 __always_inline static void ili9341_select_chip(void)
 {
-	gpio_set_pin_low(CONF_ILI9341_CS_PIN);
+	ioport_set_pin_level(CONF_ILI9341_CS_PIN, false);
 }
 
 /**
@@ -60,7 +88,7 @@ __always_inline static void ili9341_select_chip(void)
  */
 __always_inline static void ili9341_deselect_chip(void)
 {
-	gpio_set_pin_high(CONF_ILI9341_CS_PIN);
+	ioport_set_pin_level(CONF_ILI9341_CS_PIN, true);
 }
 
 /**
@@ -69,7 +97,7 @@ __always_inline static void ili9341_deselect_chip(void)
  */
 __always_inline static void ili9341_select_command_mode(void)
 {
-	gpio_set_pin_low(CONF_ILI9341_DC_PIN);
+	ioport_set_pin_level(CONF_ILI9341_DC_PIN, false);
 }
 
 /**
@@ -78,28 +106,7 @@ __always_inline static void ili9341_select_command_mode(void)
  */
 __always_inline static void ili9341_select_data_mode(void)
 {
-	gpio_set_pin_high(CONF_ILI9341_DC_PIN);
-}
-
-/**
- * \internal
- * \brief Helper function to wait for the last send operation to complete
- */
-__always_inline static void ili9341_wait_for_send_done(void)
-{
-#if defined(CONF_ILI9341_USART_SPI) && defined(XMEGA)
-	/* Wait for TX to complete */
-	while (!usart_tx_is_complete(CONF_ILI9341_USART_SPI)) {
-		/* Do nothing */
-	}
-	/* Clear the TX complete flag */
-	usart_clear_tx_complete(CONF_ILI9341_USART_SPI);
-#elif defined(CONF_ILI9341_SPI)
-	/* Wait for TX to complete */
-	while (!spi_is_tx_ok(CONF_ILI9341_SPI)) {
-		/* Do nothing */
-	}
-#endif
+	ioport_set_pin_level(CONF_ILI9341_DC_PIN, true);
 }
 
 /**
@@ -115,9 +122,11 @@ __always_inline static void ili9341_wait_for_send_done(void)
 __always_inline static void ili9341_send_byte(uint8_t data)
 {
 #if defined(CONF_ILI9341_USART_SPI)
-#  if defined(UC3)
+#  if UC3
+	/* This function could also be used for XMEGA but results in a very slow
+	 * framerate, hence a workaround has been implemented for the XMEGA */
 	usart_spi_write_packet(CONF_ILI9341_USART_SPI, &data, 1);
-#  elif defined(XMEGA)
+#  elif XMEGA
 	irqflags_t flags;
 
 	/* Wait for data register to be empty if send is in progress */
@@ -137,7 +146,7 @@ __always_inline static void ili9341_send_byte(uint8_t data)
 #elif defined(CONF_ILI9341_SPI)
 	/* Wait for any previously running send data */
 	ili9341_wait_for_send_done();
-
+	
 	spi_write_single(CONF_ILI9341_SPI, data);
 #endif
 }
@@ -156,12 +165,11 @@ __always_inline static uint8_t ili9341_read_byte(void)
 {
 	uint8_t data;
 #if defined(CONF_ILI9341_USART_SPI)
-#  if defined(UC3)
-
+#  if UC3
 	/* This function could also be used for XMEGA but results in a very slow
 	 * framerate, hence a workaround has been implemented for the XMEGA */
 	usart_spi_read_packet(CONF_ILI9341_USART_SPI, &data, 1);
-#  elif defined(XMEGA)
+#  elif XMEGA
 	/* Workaround for clearing the RXCIF for XMEGA */
 	usart_rx_enable(CONF_ILI9341_USART_SPI);
 
@@ -178,6 +186,8 @@ __always_inline static uint8_t ili9341_read_byte(void)
 #  endif
 #elif defined(CONF_ILI9341_SPI)
 	spi_write_single(CONF_ILI9341_SPI, 0xFF);
+
+	ili9341_wait_for_send_done();
 
 	/* Wait for RX to complete */
 	while (!spi_is_rx_full(CONF_ILI9341_SPI)) {
@@ -217,22 +227,28 @@ static ili9341_coord_t limit_end_x, limit_end_y;
  *
  * This function is used to send the currently set upper-left and lower-right
  * drawing limits to the display, as set through the various limit functions.
+ *
+ * \param send_end_limits  True to also send the lower-right drawing limits
  */
-static void ili9341_send_draw_limits(void)
+static inline void ili9341_send_draw_limits(const bool send_end_limits)
 {
 	ili9341_send_command(ILI9341_CMD_COLUMN_ADDRESS_SET);
 	ili9341_send_byte(limit_start_x >> 8);
 	ili9341_send_byte(limit_start_x & 0xFF);
-	ili9341_send_byte(limit_end_x >> 8);
-	ili9341_send_byte(limit_end_x & 0xFF);
+	if (send_end_limits) {
+		ili9341_send_byte(limit_end_x >> 8);
+		ili9341_send_byte(limit_end_x & 0xFF);
+	}
 	ili9341_wait_for_send_done();
 	ili9341_deselect_chip();
 
 	ili9341_send_command(ILI9341_CMD_PAGE_ADDRESS_SET);
 	ili9341_send_byte(limit_start_y >> 8);
 	ili9341_send_byte(limit_start_y & 0xFF);
-	ili9341_send_byte(limit_end_y >> 8);
-	ili9341_send_byte(limit_end_y & 0xFF);
+	if (send_end_limits) {
+		ili9341_send_byte(limit_end_y >> 8);
+		ili9341_send_byte(limit_end_y & 0xFF);
+	}
 	ili9341_wait_for_send_done();
 	ili9341_deselect_chip();
 }
@@ -250,7 +266,7 @@ void ili9341_set_top_left_limit(ili9341_coord_t x, ili9341_coord_t y)
 	limit_start_x = x;
 	limit_start_y = y;
 
-	ili9341_send_draw_limits();
+	ili9341_send_draw_limits(false);
 }
 
 /**
@@ -266,7 +282,7 @@ void ili9341_set_bottom_right_limit(ili9341_coord_t x, ili9341_coord_t y)
 	limit_end_x = x;
 	limit_end_y = y;
 
-	ili9341_send_draw_limits();
+	ili9341_send_draw_limits(true);
 }
 
 /**
@@ -287,7 +303,7 @@ void ili9341_set_limits(ili9341_coord_t start_x, ili9341_coord_t start_y,
 	limit_end_x = end_x;
 	limit_end_y = end_y;
 
-	ili9341_send_draw_limits();
+	ili9341_send_draw_limits(true);
 }
 
 /**
@@ -384,6 +400,7 @@ void ili9341_copy_pixels_to_screen(const ili9341_color_t *pixels, uint32_t count
 	ili9341_deselect_chip();
 }
 
+#if XMEGA
 /**
  * \brief Copy pixels from progmem to the screen
  *
@@ -422,6 +439,7 @@ void ili9341_copy_progmem_pixels_to_screen(
 	ili9341_wait_for_send_done();
 	ili9341_deselect_chip();
 }
+#endif
 
 /**
  * \brief Set a given number of pixels to the same color
@@ -517,19 +535,23 @@ static void ili9341_interface_init(void)
 
 #if defined(CONF_ILI9341_USART_SPI)
 	struct usart_spi_device device = {
-		.id = CONF_ILI9341_CS_PIN,
+		.id = 0,
 	};
 	usart_spi_init(CONF_ILI9341_USART_SPI);
 	usart_spi_setup_device(CONF_ILI9341_USART_SPI, &device, spi_flags,
 			CONF_ILI9341_CLOCK_SPEED, spi_select_id);
 #elif defined(CONF_ILI9341_SPI)
 	struct spi_device device = {
-		.id = CONF_ILI9341_CS_PIN,
+		.id = 0,
 	};
 	spi_master_init(CONF_ILI9341_SPI);
 	spi_master_setup_device(CONF_ILI9341_SPI, &device, spi_flags,
 			CONF_ILI9341_CLOCK_SPEED, spi_select_id);
 	spi_enable(CONF_ILI9341_SPI);
+
+#if UC3
+	spi_set_chipselect(CONF_ILI9341_SPI, ~(1 << 0));
+#endif
 
 	/* Send one dummy byte for the spi_is_tx_ok() to work as expected */
 	spi_write_single(CONF_ILI9341_SPI, 0);
@@ -634,11 +656,11 @@ static void ili9341_exit_standby(void)
  */
 static void ili9341_reset_display(void)
 {
-	gpio_set_pin_high(CONF_ILI9341_RESET_PIN);
+	ioport_set_pin_level(CONF_ILI9341_RESET_PIN, true);
 	delay_ms(10);
-	gpio_set_pin_low(CONF_ILI9341_RESET_PIN);
+	ioport_set_pin_level(CONF_ILI9341_RESET_PIN, false);
 	delay_ms(10);
-	gpio_set_pin_high(CONF_ILI9341_RESET_PIN);
+	ioport_set_pin_level(CONF_ILI9341_RESET_PIN, true);
 	delay_ms(150);
 }
 

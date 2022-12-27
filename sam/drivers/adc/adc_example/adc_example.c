@@ -40,75 +40,79 @@
  */
 
 /**
- *  \mainpage ADC12 Example
+ * \mainpage ADC Example
  *
- *  \section Purpose
+ * \section Purpose
  *
- *  The adc12 example demonstrates how to use ADC peripheral with several modes.
+ * The ADC example demonstrates how to use ADC/ADC12B peripheral with several
+ * modes.
  *
- *  \section Requirements
+ * \section Requirements
  *
- *  This package can be used with SAM3-EK. To enable full scale measurement
- *  of the potentiometer, jumper JP18 has to be closed.
+ * This example can be used on any SAM3/4 boards.
  *
- *  We use "USRPB1" button for ADTGR, so please connect ADTRG to
- *  USRPB1 and solder in R9,R10 before running the example.
+ * ADVREF must be set to 3300 mv in order to enable full scale measurement
+ * of the potentiometer. Please refer to the board schematics for ADVREF
+ * jumper configuration.
  *
- *  \section Description
+ * We use "USRPB1" button for ADTGR, so please connect ADTRG to USRPB1 and
+ * solder in R9, R10 before running the example.
  *
- *  This application shows how to use the ADC using the several modes:
- *  with/without PDC, several types of trigger (Software, ADTRG, Timer, etc.),
- *  gain and offset selection, using sequencer. Users can select different modes
- *  by configuration menu in the terminal.
+ * \section Description
  *
- *  \note
- *  The sequence number allowed for sam3s8 is 0 up to 7, so the channel 15 used for
- *  TempSensor is not allowed to be set as the sequencer. Two times of capture on
- *  channel 5 are used instead in the user sequence mode demo.
+ * This application shows how to use the ADC using the several modes:
+ * with/without PDC, several types of trigger (Software, ADTRG, Timer, etc.),
+ * gain and offset selection, using sequencer. Users can select different modes
+ * by configuration menu in the terminal.
  *
- *  \section Usage
+ * \note
+ * The sequence number allowed for sam3s8 is 0 up to 7, so the channel 15 used for
+ * TempSensor is not allowed to be set as the sequencer. Two times of capture on
+ * channel 5 are used instead in the user sequence mode demo.
  *
- *  -# Build the program and download it into the evaluation board. Please
- *     refer to the
- *     <a href="http://www.atmel.com/dyn/resources/prod_documents/6421B.pdf">
- *     SAM-BA User Guide</a>, the
- *     <a href="http://www.atmel.com/dyn/resources/prod_documents/doc6310.pdf">
- *     GNU-Based Software Development</a>
- *     application note or the
- *     <a href="http://www.iar.com/website1/1.0.1.0/78/1/">
- *     IAR EWARM User and reference guides</a>,
- *     depending on the solutions that users choose.
- *  -# On the computer, open and configure a terminal application
- *     (e.g., HyperTerminal on Microsoft Windows) with these settings:
- *    - 115200 bauds
- *    - 8 bits of data
- *    - No parity
- *    - 1 stop bit
- *    - No flow control
- *  -# In the terminal window, the
- *     following text should appear (values depend on the board and the chip used):
- *     \code
- *      -- ADC12 Example xxx --
- *      -- xxxxxx-xx
- *      -- Compiled: xxx xx xxxx xx:xx:xx --
- *      =========================================================
- *      Menu: press a key to change the configuration.
- *      ---------------------------------------------------------
- *      [X] 0: Set ADC trigger mode: Software.
- *      [ ] 1: Set ADC trigger mode: ADTRG.
- *      [ ] 2: Set ADC trigger mode: Timer TIOA.
- *      [ ] 3: Set ADC trigger mode: PWM Event Line.
- *      [ ] 4: Set ADC trigger mode: Free run mode.
- *      [E] T: Enable/Disable to tranfer with PDC.
- *      [D] S: Enable/Disable to use user sequence mode.
- *      [D] P: Enable/Disable ADC power save mode.
- *      [D] G: Enable/Disable to set gain=2 for potentiometer channel.
- *      [D] O: Enable/Disable offset for potentiometer channel.
- *          Q: Quit configuration and start ADC.
- *      =========================================================
- *     \endcode
- *  -# The application will output converted value to hyperterminal and display
- *     a menu for users to set different modes.
+ * \section Usage
+ *
+ * -# Build the program and download it into the evaluation board. Please
+ *    refer to the
+ *    <a href="http://www.atmel.com/dyn/resources/prod_documents/6421B.pdf">
+ *    SAM-BA User Guide</a>, the
+ *    <a href="http://www.atmel.com/dyn/resources/prod_documents/doc6310.pdf">
+ *    GNU-Based Software Development</a>
+ *    application note or the
+ *    <a href="http://www.iar.com/website1/1.0.1.0/78/1/">
+ *    IAR EWARM User and reference guides</a>,
+ *    depending on the solutions that users choose.
+ * -# On the computer, open and configure a terminal application
+ *    (e.g., HyperTerminal on Microsoft Windows) with these settings:
+ *   - 115200 bauds
+ *   - 8 bits of data
+ *   - No parity
+ *   - 1 stop bit
+ *   - No flow control
+ * -# In the terminal window, the
+ *    following text should appear (values depend on the board and the chip used):
+ *    \code
+ *     -- ADC12 Example xxx --
+ *     -- xxxxxx-xx
+ *     -- Compiled: xxx xx xxxx xx:xx:xx --
+ *     =========================================================
+ *     Menu: press a key to change the configuration.
+ *     ---------------------------------------------------------
+ *     [X] 0: Set ADC trigger mode: Software.
+ *     [ ] 1: Set ADC trigger mode: ADTRG.
+ *     [ ] 2: Set ADC trigger mode: Timer TIOA.
+ *     [ ] 3: Set ADC trigger mode: PWM Event Line.
+ *     [ ] 4: Set ADC trigger mode: Free run mode.
+ *     [E] T: Enable/Disable to tranfer with PDC.
+ *     [D] S: Enable/Disable to use user sequence mode.
+ *     [D] P: Enable/Disable ADC power save mode.
+ *     [D] G: Enable/Disable to set gain=2 for potentiometer channel.
+ *     [D] O: Enable/Disable offset for potentiometer channel.
+ *         Q: Quit configuration and start ADC.
+ *     =========================================================
+ *    \endcode
+ * -# The application will output converted value to hyperterminal and display
+ *    a menu for users to set different modes.
  *
  */
 
@@ -689,7 +693,7 @@ static void start_adc(void)
 	if (g_adc_test_mode.uc_auto_calib_en) {
 		adc_set_calibmode(ADC);
 		while (1) {
-			if ((adc_get_status(ADC).isr_status & ADC_ISR_EOCAL) ==
+			if ((adc_get_status(ADC) & ADC_ISR_EOCAL) ==
 					ADC_ISR_EOCAL)
 				break;
 		}
@@ -825,7 +829,7 @@ void ADC_Handler(void)
 
 	/* With PDC transfer */
 	if (g_adc_test_mode.uc_pdc_en) {
-		if ((adc_get_status(ADC).isr_status & ADC_ISR_RXBUFF) ==
+		if ((adc_get_status(ADC) & ADC_ISR_RXBUFF) ==
 				ADC_ISR_RXBUFF) {
 			g_adc_sample_data.us_done = ADC_DONE_MASK;
 			adc_read_buffer(ADC, g_adc_sample_data.us_value, BUFFER_SIZE);
@@ -835,7 +839,7 @@ void ADC_Handler(void)
 			}
 		}
 	} else {	/* Without PDC transfer */
-		if ((adc_get_status(ADC).isr_status & ADC_ISR_DRDY) ==
+		if ((adc_get_status(ADC) & ADC_ISR_DRDY) ==
 				ADC_ISR_DRDY) {
 			ul_temp = adc_get_latest_value(ADC);
 			for (i = 0; i < NUM_CHANNELS; i++) {
@@ -860,7 +864,7 @@ void ADC12B_Handler(void)
 
 	/* With PDC transfer */
 	if (g_adc_test_mode.uc_pdc_en) {
-		if ((adc12b_get_status(ADC12B).all_status & ADC12B_SR_RXBUFF) ==
+		if ((adc12b_get_status(ADC12B) & ADC12B_SR_RXBUFF) ==
 				ADC12B_SR_RXBUFF) {
 			g_adc_sample_data.us_done = ADC_DONE_MASK;
 			adc12_read_buffer(ADC12B, g_adc_sample_data.us_value,
@@ -873,7 +877,7 @@ void ADC12B_Handler(void)
 			}
 		}
 	} else {	/* Without PDC transfer */
-		if ((adc12b_get_status(ADC12B).all_status & ADC12B_SR_DRDY) ==
+		if ((adc12b_get_status(ADC12B) & ADC12B_SR_DRDY) ==
 				ADC12B_SR_DRDY) {
 			ul_temp = adc12b_get_latest_value(ADC12B);
 			for (i = 0; i < NUM_CHANNELS; i++) {

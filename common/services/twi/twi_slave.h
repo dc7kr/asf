@@ -43,8 +43,8 @@
 
 #include <parts.h>
 
-#if (SAM3S || SAM3U || SAM3N || SAM3XA)
-# include "sam3_twi/twi_slave.h"
+#if (SAM3S || SAM3U || SAM3N || SAM3XA || SAM4S)
+# include "sam_twi/twi_slave.h"
 #elif XMEGA
 # include "xmega_twi/twi_slave.h"
 #elif (defined(__GNUC__) && defined(__AVR32__)) || (defined(__ICCAVR32__) || defined(__AAVR32__))

@@ -39,10 +39,7 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "board.h"
-#include "led.h"
+#include <asf.h>
 #include "ui.h"
 
 void ui_init(void)
@@ -120,7 +117,7 @@ void ui_process(uint16_t framenumber)
  *
  * Human interface on SAM3X-EK:
  * - SAM3X USART used UART on J11 connector
- * - Led 0 (D2, blue) blinks when USB Host have checked and enabled CDC interface
+ * - Led 0 (D2, blue) blinks when USB host has checked and enabled CDC interface
  * - Led 1 (D4, green) is on when CDC port is open
  * - Led 2 (D3, amber) is on during data transfer between CDC and UART
  */

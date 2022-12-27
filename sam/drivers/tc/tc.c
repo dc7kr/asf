@@ -3,7 +3,7 @@
  *
  * \brief Timer Counter (TC) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -54,8 +54,8 @@ extern "C" {
  * \defgroup sam_drivers_tc_group Timer Counter (TC)
  *
  * The Timer Counter (TC) includes three identical 32-bit Timer Counter channels.
- * Each channel can be independently programmed to perform a wide range of functions 
- * including frequency measurement, event counting, interval measurement, pulse 
+ * Each channel can be independently programmed to perform a wide range of functions
+ * including frequency measurement, event counting, interval measurement, pulse
  * generation, delay timing and pulse width modulation.
  *
  * @{
@@ -120,7 +120,7 @@ uint32_t tc_init_2bit_gray(Tc * p_tc, uint32_t ul_channel,
 {
 	assert(ul_channel <
 			(sizeof(p_tc->TC_CHANNEL) / sizeof(p_tc->TC_CHANNEL[0])));
-	
+
 	p_tc->TC_CHANNEL[ul_channel].TC_SMMR = ul_steppermode;
 	return 0;
 }
@@ -165,7 +165,7 @@ int tc_read_ra(Tc * p_tc, uint32_t ul_channel)
 {
 	assert(ul_channel <
 			(sizeof(p_tc->TC_CHANNEL) / sizeof(p_tc->TC_CHANNEL[0])));
-			
+
 	return p_tc->TC_CHANNEL[ul_channel].TC_RA;
 }
 
@@ -249,7 +249,7 @@ void tc_write_rc(Tc * p_tc, uint32_t ul_channel,
 	p_tc->TC_CHANNEL[ul_channel].TC_RC = ul_value;
 }
 
-/** 
+/**
  * \brief Enable TC interrupts on the selected channel.
  *
  * \param p_tc Pointer to a TC instance.
@@ -267,7 +267,7 @@ void tc_enable_interrupt(Tc * p_tc, uint32_t ul_channel,
 	tc_channel->TC_IER = ul_sources;
 }
 
-/** 
+/**
  * \brief Disable TC interrupts on the selected channel.
  *
  * \param p_tc Pointer to a TC instance.
@@ -285,7 +285,7 @@ void tc_disable_interrupt(Tc * p_tc, uint32_t ul_channel,
 	tc_channel->TC_IDR = ul_sources;
 }
 
-/** 
+/**
  * \brief Read TC interrupt mask on the selected channel.
  *
  * \param p_tc Pointer to a TC instance.
@@ -334,7 +334,8 @@ uint32_t tc_get_status(Tc * p_tc, uint32_t ul_channel)
  * \code
  *   (MCK / (DIV * 65536)) <= freq <= (MCK / DIV)
  * \endcode
- * with DIV being the highest possible value.
+ * with DIV being the lowest possible value,
+ * to maximize timing adjust resolution.
  *
  * \param ul_freq  Desired timer frequency.
  * \param ul_mck  Master clock frequency.
@@ -347,41 +348,39 @@ uint32_t tc_get_status(Tc * p_tc, uint32_t ul_channel)
 uint32_t tc_find_mck_divisor(uint32_t ul_freq, uint32_t ul_mck,
 		uint32_t * p_uldiv, uint32_t * p_ultcclks, uint32_t ul_boardmck)
 {
-	const uint32_t adwDivisors[5] = { 2, 8, 32, 128, ul_boardmck / FREQ_SLOW_CLOCK_EXT };
+	const uint32_t divisors[5] = { 2, 8, 32, 128,
+			ul_boardmck / FREQ_SLOW_CLOCK_EXT };
+	uint32_t ul_index;
+	uint32_t ul_high, ul_low;
 
-	uint32_t dwIndex = 0;
-
-	/*  Satisfy lower bound. */
-	while (ul_freq < ((ul_mck / adwDivisors[dwIndex]) / TC_DIV_FACTOR)) {
-		dwIndex++;
-
-		/*  If no divisor can be found, return 0. */
-		if (dwIndex == (sizeof(adwDivisors) / sizeof(adwDivisors[0]))) {
+	/*  Satisfy frequency bound. */
+	for (ul_index = 0;
+			ul_index < (sizeof(divisors) / sizeof(divisors[0]));
+			ul_index ++) {
+		ul_high = ul_mck / divisors[ul_index];
+		ul_low  = ul_high / TC_DIV_FACTOR;
+		if (ul_freq > ul_high) {
 			return 0;
-		}
-	}
-
-	/*  Try to maximize DIV while satisfying upper bound. */
-	while (dwIndex < 4) {
-
-		if (ul_freq > (ul_mck / adwDivisors[dwIndex + 1])) {
+		} else if (ul_freq >= ul_low) {
 			break;
 		}
-		dwIndex++;
+	}
+	if (ul_index >= (sizeof(divisors) / sizeof(divisors[0]))) {
+		return 0;
 	}
 
 	/*  Store results. */
 	if (p_uldiv) {
-		*p_uldiv = adwDivisors[dwIndex];
+		*p_uldiv = divisors[ul_index];
 	}
 	if (p_ultcclks) {
-		*p_ultcclks = dwIndex;
+		*p_ultcclks = ul_index;
 	}
 
 	return 1;
 }
 
-/** 
+/**
  * \brief Enable TC QDEC interrupts.
  *
  * \param p_tc Pointer to a TC instance.
@@ -392,7 +391,7 @@ void tc_enable_qdec_interrupt(Tc * p_tc, uint32_t ul_sources)
 	p_tc->TC_QIER = ul_sources;
 }
 
-/** 
+/**
  * \brief Disable TC QDEC interrupts.
  *
  * \param p_tc Pointer to a TC instance.
@@ -403,7 +402,7 @@ void tc_disable_qdec_interrupt(Tc * p_tc, uint32_t ul_sources)
 	p_tc->TC_QIDR = ul_sources;
 }
 
-/** 
+/**
  * \brief Read TC QDEC interrupt mask.
  *
  * \param p_tc Pointer to a TC instance.

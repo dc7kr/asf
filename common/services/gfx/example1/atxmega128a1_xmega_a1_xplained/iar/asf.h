@@ -60,6 +60,9 @@
 // From module: GFX - Graphic Library
 #include <gfx.h>
 
+// From module: GFX - System Font
+#include <sysfont.h>
+
 // From module: GPIO - General purpose Input/Output
 #include <gpio.h>
 
@@ -78,6 +81,9 @@
 // From module: PMIC - Programmable Multi-level Interrupt Controller
 #include <pmic.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: SPI - XMEGA implementation
 #include <usart_spi.h>
 #include <xmega_usart_spi/usart_spi.h>
@@ -90,7 +96,9 @@
 
 // From module: XMEGA compiler driver
 #include <compiler.h>
-#include <parts.h>
 #include <status_codes.h>
+
+// From module: XMEGA-A1 Xplained LED support enabled
+#include <led.h>
 
 #endif // ASF_H

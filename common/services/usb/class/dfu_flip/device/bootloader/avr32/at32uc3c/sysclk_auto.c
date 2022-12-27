@@ -4,7 +4,7 @@
  * \brief Application-specific system clock management to support automatic
  * detection of external oscillator
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -137,7 +137,7 @@ void sysclk_auto_init(void)
 	opt.pll_freq = 1;
 
 	// lockcount in main clock for the PLL wait lock
-	scif_pll_setup(SCIF_PLL0, opt);
+	scif_pll_setup(SCIF_PLL0, &opt);
 
 	/* Enable PLL0 */
 	scif_pll_enable(SCIF_PLL0);

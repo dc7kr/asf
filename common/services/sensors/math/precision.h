@@ -6,7 +6,7 @@
  * This module defines numeric precision and the real-number representation
  * used in the Atmel Software Framework common sensor service.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -42,13 +42,10 @@
  *
  */
 
+#ifndef _MATH_PRECISION_H_
+#define _MATH_PRECISION_H_
 
 #include "fixed.h"
-
-
-#ifndef _precision_h_
-#define _precision_h_
-
 
 /**
  * \brief Scalar Value Format and Precision
@@ -68,51 +65,45 @@
  */
 
 #if defined(__GNUC__) && !defined(FLT_EVAL_METHOD)
-	typedef float float_t;          //!< clib (C99) floating-point format
+	typedef float float_t;          /**< clib (C99) floating-point format */
 #endif
 
 #if defined (MATH_FIXED_POINT)
 # ifdef __cplusplus
-	typedef math::fixed scalar;     //!< fixed-point (C++) scalar type
+	typedef math::fixed scalar;     /**< Fixed-point (C++) scalar type */
 # else
-	typedef fixed_t scalar;         //!< fixed-point (C/C++) scalar type
+	typedef fixed_t scalar;         /**< Fixed-point (C/C++) scalar type */
 # endif
 #else
-	typedef float_t scalar;         //!< floating-point scalar type
+	typedef float_t scalar;         /**< Floating-point scalar type */
 #endif
 
 typedef scalar scalar_t;
 
-//! \brief scalar 3-dimensional vector
-
+/** \brief scalar 3-dimensional vector */
 typedef struct {
 	scalar_t    x;
 	scalar_t    y;
 	scalar_t    z;
-
 } vector3_t;
 
-//! \brief Calculate a vector3_t dot-product
-
+/** \brief Calculate a vector3_t dot-product */
 static inline scalar_t vector3_dot_product(vector3_t const *v,
 	vector3_t const *w)
 {
 	return ((v->x * w->x) + (v->y * w->y) + (v->z * w->z));
 }
 
-//! \brief Calculate a vector3_t magnitude
-
+/** \brief Calculate a vector3_t magnitude */
 static inline scalar_t vector3_magnitude(vector3_t const *v)
 {
 	return sqrt(vector3_dot_product(v,v));
 }
 
-//! \brief Scale a vector3_t value (scalar multiplication)
-
+/** \brief Scale a vector3_t value (scalar multiplication) */
 static inline void vector3_scale(scalar_t s, vector3_t *v)
 {
 	v->x *= s; v->y *= s; v->z *= s;
 }
 
-
-#endif /* _precision_h_ */
+#endif

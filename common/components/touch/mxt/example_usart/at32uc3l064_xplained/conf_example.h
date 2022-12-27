@@ -47,9 +47,9 @@
 /*! \name maXTouch configuration
  */
 /** @{ */
-#define TWI_INTERFACE                    &AVR32_TWIM0
+#define MAXTOUCH_TWI_INTERFACE           MXT143E_XPLAINED_TWI
 #define MAXTOUCH_DEVICE_ADR              0x4A
-#define MAXTOUCH_CHG_PIN                 AVR32_PIN_PB11
+#define MAXTOUCH_CHG_PIN                 MXT143E_XPLAINED_CHG
 /* @} */
 
 #endif /* CONF_EXAMPLE_H */

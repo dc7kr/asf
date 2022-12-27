@@ -4,7 +4,7 @@
  *
  * \brief Use the RC120M internal oscillator as main clock source and Generic clock configurations.
  *
- * Copyright (c) 2009 - 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -137,7 +137,7 @@ static void local_set_main_clock_to_rc120m(void)
   // Start the 120MHz internal RCosc (RC120M) clock
   scif_start_rc120M();
 
-#ifdef UC3D
+#if UC3D
   // Set one wait-state (WS) for flash controller. 0 WS access is up to 30MHz for HSB/CPU clock.
   // As we want to have 48MHz on HSB/CPU clock, we need to set 1 WS on flash controller.
    flashcdw_set_wait_state(1);

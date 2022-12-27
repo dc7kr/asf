@@ -3,7 +3,7 @@
  *
  * \brief Missing Toolchain Definition for UC3 D header files
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  * 
  * \asf_license_start
  *
@@ -41,6 +41,8 @@
 
 #ifndef _UC3D_DEFINES_FIX_
 #define _UC3D_DEFINES_FIX_
+
+#include <parts.h>
 
 #if (UC3D)
 

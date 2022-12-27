@@ -283,6 +283,7 @@
 #define LED_BLUE_2    1
 
 /** LED #0 pin definition (BLUE#1). */
+#define LED_0_NAME           "blue LED D9"
 #define PIN_LED_0   {PIO_PC10, PIOC, ID_PIOC, PIO_OUTPUT_1, PIO_DEFAULT}
 #define PIN_LED_0_MASK PIO_PC10
 #define PIN_LED_0_PIO PIOC
@@ -294,6 +295,7 @@
 #define LED0_FLAGS (PIO_OUTPUT_1 | PIO_DEFAULT)
 
 /** LED #1 pin definition (Blue#2). */
+#define LED_1_NAME           "blue LED D10"
 #define PIN_LED_1   {PIO_PC17, PIOC, ID_PIOC, PIO_OUTPUT_1, PIO_DEFAULT}
 #define PIN_LED_1_MASK PIO_PC17
 #define PIN_LED_1_PIO PIOC
@@ -305,8 +307,9 @@
 #define LED1_FLAGS (PIO_OUTPUT_1 | PIO_DEFAULT)
 
 /** Push button #0 definition. Attributes = pull-up + debounce + interrupt on rising edge. */
-#define GPIO_PUSH_BUTTON_1			(PIO_PA5_IDX)
-#define GPIO_PUSH_BUTTON_1_FLAGS	(PIO_INPUT | PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_RISE_EDGE)
+#define PUSHBUTTON_1_NAME    "BP1"
+#define GPIO_PUSH_BUTTON_1   (PIO_PA5_IDX)
+#define GPIO_PUSH_BUTTON_1_FLAGS    (PIO_INPUT | PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_RISE_EDGE)
 
 #define PIN_PUSHBUTTON_1    {PIO_PA5, PIOA, ID_PIOA, PIO_INPUT, PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_RISE_EDGE}
 #define PIN_PUSHBUTTON_1_MASK PIO_PA5
@@ -389,6 +392,20 @@
 #define SPI_NPCS3_PA22_GPIO 	  (PIO_PA22_IDX)
 #define SPI_NPCS3_PA22_FLAGS      (PIO_PERIPH_B | PIO_DEFAULT)
 
+//! \name MXT143E Xplained top module
+//@{
+#define MXT143E_XPLAINED_TWI            TWI0
+#define MXT143E_XPLAINED_SPI            SPI
+#define MXT143E_XPLAINED_CS             (PIO_PA31_IDX)
+#define MXT143E_XPLAINED_SCK            (PIO_PA14_IDX)
+#define MXT143E_XPLAINED_MOSI           (PIO_PA13_IDX)
+#define MXT143E_XPLAINED_MISO           (PIO_PA12_IDX)
+#define MXT143E_XPLAINED_CHG            (PIO_PB2_IDX)
+#define MXT143E_XPLAINED_DC             (PIO_PB3_IDX)
+#define MXT143E_XPLAINED_BACKLIGHT      (PIO_PA17_IDX)
+#define MXT143E_XPLAINED_LCD_RESET      (PIO_PC13_IDX)
+//@}
+
 /** SSC pin Transmitter Data (TD) */
 #define PIN_SSC_TD      {PIO_PA17A_TD, PIOA, ID_PIOA, PIO_PERIPH_A, PIO_DEFAULT}
 /** SSC pin Transmitter Clock (TK) */
@@ -434,6 +451,18 @@
 #define PIN_TWI_TWCK1  {PIO_PB5A_TWCK1, PIOB, ID_PIOB, PIO_PERIPH_A, PIO_DEFAULT}
 /** TWI1 pins */
 #define PINS_TWI1      PIN_TWI_TWD1, PIN_TWI_TWCK1
+
+/** TWI0 pins definition */
+#define TWI0_DATA_GPIO   PIO_PA3_IDX
+#define TWI0_DATA_FLAGS  (PIO_PERIPH_A | PIO_DEFAULT)
+#define TWI0_CLK_GPIO    PIO_PA4_IDX
+#define TWI0_CLK_FLAGS   (PIO_PERIPH_A | PIO_DEFAULT)
+
+/** TWI1 pins definition */
+#define TWI1_DATA_GPIO   PIO_PB4_IDX
+#define TWI1_DATA_FLAGS  (PIO_PERIPH_A | PIO_DEFAULT)
+#define TWI1_CLK_GPIO    PIO_PB4_IDX
+#define TWI1_CLK_FLAGS   (PIO_PERIPH_A | PIO_DEFAULT)
 
 /** USART0 pin RX */
 #define PIN_USART0_RXD    {PIO_PA5A_RXD0, PIOA, ID_PIOA, PIO_PERIPH_A, PIO_DEFAULT}
@@ -529,6 +558,6 @@
 /* TXD pin configuration. */
 #define PIN_USART_TXD_IDX          PIN_USART1_TXD_IDX
 #define PIN_USART_TXD_FLAGS        (PIO_PERIPH_A | PIO_DEFAULT)
-#define PIN_USART_TXD_IO_FLAGS     (PIO_OUTPUT_0 | PIO_DEFAULT) 
+#define PIN_USART_TXD_IO_FLAGS     (PIO_OUTPUT_0 | PIO_DEFAULT)
 
 #endif  /* SAM4S_XPLAINED_H_INCLUDED */

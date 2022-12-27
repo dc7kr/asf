@@ -41,4 +41,7 @@
 #ifndef CONF_BOARD_H_INCLUDED
 #define CONF_BOARD_H_INCLUDED
 
+/* Enable the maXTouch mXT143E Xplained top module */
+#define CONF_BOARD_ENABLE_MXT143E_XPLAINED
+
 #endif /* CONF_BOARD_H_INCLUDED */

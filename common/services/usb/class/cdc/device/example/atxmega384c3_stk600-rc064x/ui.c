@@ -39,10 +39,7 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "board.h"
-#include "led.h"
+#include <asf.h>
 #include "ui.h"
 
 void ui_init(void)
@@ -131,7 +128,7 @@ void ui_process(uint16_t framenumber)
  *
  * Human interface on STK600:
  * - Led 0 is on when USB line is in IDLE mode, and off in SUSPEND mode
- * - Led 1 blinks when USB Host have checked and enabled CDC interface
+ * - Led 1 blinks when USB host has checked and enabled CDC interface
  * - Led 2 is on when CDC port is open
  * - Led 4 is on during data transfer from CDC to UART
  * - Led 5 is on during data transfer from UART to CDC

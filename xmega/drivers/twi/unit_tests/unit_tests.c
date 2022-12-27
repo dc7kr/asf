@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for TWI driver
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -409,10 +409,6 @@ int main(void)
 	sysclk_init();
 	board_init();
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-	// GCC AVR32 implementation
-#if (defined(__GNUC__) && !defined(XMEGA))
-	setbuf(stdout, NULL);
-#endif
 
 	// Use the internal pullups for SDA and SCL
 	TWI_MASTER_PORT.PIN0CTRL = PORT_OPC_WIREDANDPULL_gc;

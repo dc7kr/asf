@@ -3,7 +3,7 @@
  *
  * \brief User Interface
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,19 +39,7 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb_host.h"
-#include "uhc.h"
-#include "uhi_hid_mouse.h"
-#include "conf_usb.h"
-#include "udc.h"
-#include "udi_hid_mouse.h"
-#include "board.h"
-#include "gpio.h"
-#include "sysclk.h"
-#include "joystick.h"
-#include "lis3l06al.h"
-#include "eic.h"
+#include <asf.h>
 #include "ui.h"
 
 //! Current USB mode
@@ -92,7 +80,7 @@ ISR(ui_wakeup_isr, AVR32_GPIO0_IRQ_GROUP, 0)
 		uhc_resume();
 	} else {
 		// In device mode, wakeup the USB host.
-		udc_wakeup();
+		udc_remotewakeup();
 	}
 }
 
@@ -463,7 +451,7 @@ void ui_device_sof_action(void)
  * - Led 0 is on in host mode (when USB OTG cable is pluged)
  * - device mode:
  *   - Led 1 is on when USB line is in IDLE mode, and off in SUSPEND mode
- *   - Led 2 blinks when USB Host have checked and enabled HID mouse interface
+ *   - Led 2 blinks when USB host has checked and enabled HID mouse interface
  *   - Mouse buttons are linked to switch PB0 (left), PB1 (right), joystick press (middle)
  *   - Look accelerometer activity for the X and Y mouse events
  *   - Look joystick activity for the Wheel events

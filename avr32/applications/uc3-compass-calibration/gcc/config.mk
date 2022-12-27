@@ -65,11 +65,26 @@ CSRCS = \
        avr32/drivers/pm/pm.c                              \
        avr32/drivers/pm/pm_conf_clocks.c                  \
        avr32/drivers/pm/power_clocks_lib.c                \
+       avr32/drivers/twim/twim.c                          \
        avr32/drivers/usbb/usbb_device.c                   \
        common/applications/sensors/compass_calibration/main.c \
        common/boards/sensors_xplained/sensors_xplained.c  \
        common/services/clock/uc3a3_a4/sysclk.c            \
-       common/services/sensors/drivers/platform/avr32/twim.c \
+       common/services/sensors/drivers/akm/ak8975.c       \
+       common/services/sensors/drivers/bosch/bma020.c     \
+       common/services/sensors/drivers/bosch/bma150.c     \
+       common/services/sensors/drivers/bosch/bma180.c     \
+       common/services/sensors/drivers/bosch/bma220.c     \
+       common/services/sensors/drivers/bosch/bma222.c     \
+       common/services/sensors/drivers/bosch/bma250.c     \
+       common/services/sensors/drivers/bosch/bma_axis.inc.c \
+       common/services/sensors/drivers/bosch/bmp.c        \
+       common/services/sensors/drivers/honeywell/hmc5883l.c \
+       common/services/sensors/drivers/invensense/imu3000.c \
+       common/services/sensors/drivers/invensense/itg3200.c \
+       common/services/sensors/drivers/kionix/kxtf9.c     \
+       common/services/sensors/drivers/osram/sfh5712.c    \
+       common/services/sensors/drivers/osram/sfh7770.c    \
        common/services/sensors/physics/physics.c          \
        common/services/sensors/sensor.c                   \
        common/services/sensors/sensor_bus.c               \
@@ -100,16 +115,17 @@ INC_PATH = \
        avr32/drivers/gpio                                 \
        avr32/drivers/intc                                 \
        avr32/drivers/pm                                   \
+       avr32/drivers/twim                                 \
        avr32/drivers/usbb                                 \
        avr32/utils                                        \
        avr32/utils/preprocessor                           \
        common/boards                                      \
-       common/services                                    \
        common/services/clock                              \
        common/services/delay                              \
        common/services/sensors                            \
        common/services/sensors/module_config              \
        common/services/sleepmgr                           \
+       common/services/twi                                \
        common/services/usb                                \
        common/services/usb/class/cdc                      \
        common/services/usb/class/cdc/device               \
@@ -119,12 +135,10 @@ INC_PATH = \
        ./avr32/applications/uc3-compass-calibration/gcc  
 
 # Additional search paths for libraries.
-LIB_PATH =  \
-       thirdparty/sensors/libs/gcc                       
+LIB_PATH = 
 
 # List of libraries to use during linking.
 LIBS =  \
-       sensors-at32uc3a3-debug                            \
        m                                                 
 
 # Path relative to top level directory pointing to a linker script.

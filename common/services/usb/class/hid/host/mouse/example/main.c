@@ -3,7 +3,7 @@
  *
  * \brief Main functions for USB host mouse example
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,14 +39,8 @@
  *
  */
 
-#include "compiler.h"
-#include "preprocessor.h"
-#include "board.h"
-#include "gpio.h"
-#include "sysclk.h"
-#include "sleepmgr.h"
+#include <asf.h>
 #include "conf_usb_host.h"
-#include "uhc.h"
 #include "ui.h"
 
 /*! \brief Main function. Execution starts here.

@@ -1750,18 +1750,6 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>flashc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../flashc.c</name>
-				</file>
-				<group>
-					<name>flash_example</name>
-					<file>
-						<name>$PROJ_DIR$/../../flash_example.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>pm</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../pm/pm.c</name>
@@ -1774,6 +1762,18 @@
 				</file>
 			</group>
 			<group>
+				<name>flashc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../flashc.c</name>
+				</file>
+				<group>
+					<name>flash_example</name>
+					<file>
+						<name>$PROJ_DIR$/../../flash_example.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
 				<name>gpio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../gpio/gpio.c</name>
@@ -1783,6 +1783,15 @@
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../usart/usart.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1104</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/evk1104/led.c</name>
 				</file>
 			</group>
 		</group>

@@ -3,7 +3,7 @@
  *
  * \brief User Interface
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,12 +39,7 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "udc.h"
-#include "udi_hid_generic.h"
-#include "board.h"
-#include "led.h"
+#include <asf.h>
 #include "ui.h"
 
 static uint8_t ui_hid_report[UDI_HID_REPORT_OUT_SIZE];
@@ -104,7 +99,7 @@ ISR(PORTB_INT0_vect)
 	port = ioport_pin_to_port(GPIO_PUSH_BUTTON_0);
 	port->INTFLAGS = 0x01; // Ack interrupt
 	// It is a wakeup then send wakeup USB
-	udc_wakeup();
+	udc_remotewakeup();
 }
 
 void ui_wakeup(void)
@@ -176,7 +171,7 @@ void ui_led_change(uint8_t *report)
  *
  * Human interface on STK600:
  * - Led 0 is on when USB line is in IDLE mode, and off in SUSPEND mode
- * - Led 1 blinks when USB Host have checked and enabled HID generic interface
+ * - Led 1 blinks when USB host has checked and enabled HID generic interface
  * - Led 2 and 3 are linked on HID events LED 2 and 3
  * - Event buttons are linked to switch 0 and 1
  * - All switches can be used to wakeup USB Host in remote wakeup mode.

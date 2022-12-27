@@ -4,7 +4,7 @@
  *
  * \brief SDRAMC on EBI driver for AVR32 UC3.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -86,7 +86,7 @@ static void sdramc_ck_delay(unsigned long ck)
 /*! \brief Puts the multiplexed MCU pins used for the SDRAM under control of the
  *         SDRAMC.
  */
-#if BOARD == EVK1100 || BOARD == EVK1104 || BOARD == EVK1105 || BOARD == UC3_A3_XPLAINED
+#if ( UC3A0 || UC3A3)
 static void sdramc_enable_muxed_pins(void)
 {
   static const gpio_map_t SDRAMC_EBI_GPIO_MAP =
@@ -143,7 +143,7 @@ static void sdramc_enable_muxed_pins(void)
 
   gpio_enable_module(SDRAMC_EBI_GPIO_MAP, sizeof(SDRAMC_EBI_GPIO_MAP) / sizeof(SDRAMC_EBI_GPIO_MAP[0]));
 }
-#elif BOARD == UC3C_EK
+#elif UC3C0
 static void sdramc_enable_muxed_pins(void)
 {
   static const gpio_map_t SDRAMC_EBI_GPIO_MAP =
@@ -200,40 +200,6 @@ static void sdramc_enable_muxed_pins(void)
 
   gpio_enable_module(SDRAMC_EBI_GPIO_MAP, sizeof(SDRAMC_EBI_GPIO_MAP) / sizeof(SDRAMC_EBI_GPIO_MAP[0]));
 }
-#elif BOARD == STK1000
-static void sdramc_enable_muxed_pins(void)
-{
-  volatile avr32_hmatrix_t *hmatrix = &AVR32_HMATRIX;
-
-  // Enable SDRAM mode for CS1 in the BAMBI mux
-  hmatrix->sfr[4] |= 0x0002;
-  hmatrix->sfr[4] |= 0x0100;
-
-  static const gpio_map_t SDRAMC_EBI_GPIO_MAP =
-  {
-    // Enable DATA 16 through 31 pins, which is muxed with LCD
-    {AVR32_EBI_DATA_16_PIN,           AVR32_EBI_DATA_16_FUNCTION          },
-    {AVR32_EBI_DATA_17_PIN,           AVR32_EBI_DATA_17_FUNCTION          },
-    {AVR32_EBI_DATA_18_PIN,           AVR32_EBI_DATA_18_FUNCTION          },
-    {AVR32_EBI_DATA_19_PIN,           AVR32_EBI_DATA_19_FUNCTION          },
-    {AVR32_EBI_DATA_20_PIN,           AVR32_EBI_DATA_20_FUNCTION          },
-    {AVR32_EBI_DATA_21_PIN,           AVR32_EBI_DATA_21_FUNCTION          },
-    {AVR32_EBI_DATA_22_PIN,           AVR32_EBI_DATA_22_FUNCTION          },
-    {AVR32_EBI_DATA_23_PIN,           AVR32_EBI_DATA_23_FUNCTION          },
-    {AVR32_EBI_DATA_24_PIN,           AVR32_EBI_DATA_24_FUNCTION          },
-    {AVR32_EBI_DATA_25_PIN,           AVR32_EBI_DATA_25_FUNCTION          },
-    {AVR32_EBI_DATA_26_PIN,           AVR32_EBI_DATA_26_FUNCTION          },
-    {AVR32_EBI_DATA_27_PIN,           AVR32_EBI_DATA_27_FUNCTION          },
-    {AVR32_EBI_DATA_28_PIN,           AVR32_EBI_DATA_28_FUNCTION          },
-    {AVR32_EBI_DATA_29_PIN,           AVR32_EBI_DATA_29_FUNCTION          },
-    {AVR32_EBI_DATA_30_PIN,           AVR32_EBI_DATA_30_FUNCTION          },
-    {AVR32_EBI_DATA_31_PIN,           AVR32_EBI_DATA_31_FUNCTION          }
-  };
-
-  gpio_enable_module(SDRAMC_EBI_GPIO_MAP, sizeof(SDRAMC_EBI_GPIO_MAP) / sizeof(SDRAMC_EBI_GPIO_MAP[0]));
-
-}
-
 #else
 # warning GPIO setups configuration to use in the driver is missing. Default configuration is used.
 static void sdramc_enable_muxed_pins(void)

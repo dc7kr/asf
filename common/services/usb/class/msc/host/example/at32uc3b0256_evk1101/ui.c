@@ -3,7 +3,7 @@
  *
  * \brief User Interface
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,12 +39,7 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb_host.h"
-#include "uhc.h"
-#include "uhi_msc.h"
-#include "board.h"
-#include "gpio.h"
+#include <asf.h>
 #include "ui.h"
 
 

@@ -53,8 +53,8 @@
  *
  * \section Description
  *
- * In this example, two interrupt sources will be configured. One is from User Button, 
- * and the other is from PIO output. They are called INT1 and INT2. INT1 is triggered 
+ * In this example, two interrupt sources will be configured. One is from User Button,
+ * and the other is from PIO output. They are called INT1 and INT2. INT1 is triggered
  * by pressing user button #1, and INT2 is triggered by pressing user button #2.\n
  * \n
  * In INT1 handler:
@@ -168,7 +168,7 @@ extern "C" {
 /**
  * \brief Delay number of tick Systicks (happens roughly every 1 ms).
  *
- * Note: As the systick has the lowest priority, lower than the PIO, the systick 
+ * Note: As the systick has the lowest priority, lower than the PIO, the systick
  * is not used here.
  */
 __INLINE static void delay_ticks(uint32_t ul_dly_ticks)
@@ -214,7 +214,6 @@ static void Int1Handler(uint32_t ul_id, uint32_t ul_mask)
 
 	pio_enable_interrupt(PIN_PUSHBUTTON_1_PIO, PIN_PUSHBUTTON_1_MASK);
 }
-
 
 /**
  * \brief Handler for INT2, rising edge interrupt.
@@ -273,11 +272,15 @@ static void set_interrupt_priority(uint8_t int1Prior, uint8_t int2Prior)
 /**
 *  \brief Configure the push buttons.
 *
-*  Configure the PIOs as inputs and generate corresponding interrupt when 
+*  Configure the PIOs as inputs and generate corresponding interrupt when
 *  the push buttons are pressed or released.
 */
 static void configure_buttons(void)
 {
+	/* Enable the pmc clocks of the push buttons for all SAM3. */
+	pmc_enable_periph_clk(PIN_PUSHBUTTON_1_ID);
+	pmc_enable_periph_clk(PIN_PUSHBUTTON_2_ID);
+
 	/* Adjust PIO debouncing filter patameters, using 10 Hz filter. */
 	pio_set_debounce_filter(PIN_PUSHBUTTON_1_PIO, PIN_PUSHBUTTON_1_MASK,
 			10);
@@ -291,6 +294,10 @@ static void configure_buttons(void)
 	/* Enable PIO controller IRQs. */
 	NVIC_EnableIRQ((IRQn_Type) PIN_PUSHBUTTON_1_ID);
 	NVIC_EnableIRQ((IRQn_Type) PIN_PUSHBUTTON_2_ID);
+
+	/* PIO configuration for Buttons. */
+	pio_handler_set_priority(PIN_PUSHBUTTON_1_PIO, (IRQn_Type) PIN_PUSHBUTTON_1_ID, 0);
+	pio_handler_set_priority(PIN_PUSHBUTTON_2_PIO, (IRQn_Type) PIN_PUSHBUTTON_2_ID, 0);
 
 	/* Enable PIO line interrupts. */
 	pio_enable_interrupt(PIN_PUSHBUTTON_1_PIO, PIN_PUSHBUTTON_1_MASK);
@@ -346,25 +353,11 @@ int main(void)
 
 	WDT->WDT_MR = WDT_MR_WDDIS;
 
-	/* Enable the pmc clocks of the push buttons for all SAM3. */
-	pmc_enable_periph_clk(ID_PIOA);
-	pmc_enable_periph_clk(ID_PIOB);
-	pmc_enable_periph_clk(ID_PIOC);
-
-#if SAM3XA
-	pmc_enable_periph_clk(ID_PIOE);
-#endif
-
 	/* Initialize the console uart */
 	configure_console();
 
 	/* Output example information */
 	puts(STRING_HEADER);
-
-	/* PIO configuration for LEDs and Buttons. */
-	pio_handler_set_priority(PIOA, PIOA_IRQn, 0);
-	pio_handler_set_priority(PIOB, PIOB_IRQn, 0);
-	pio_handler_set_priority(PIOC, PIOC_IRQn, 0);
 
 	/* configure LED. */
 	led_config();

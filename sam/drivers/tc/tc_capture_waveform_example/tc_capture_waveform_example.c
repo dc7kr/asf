@@ -143,7 +143,7 @@ struct waveconfig_t {
 
 /** TC waveform configurations */
 static const struct waveconfig_t gc_waveconfig[] = {
-#ifndef SAM4S
+#if !SAM4S
 	{TC_CMR_TCCLKS_TIMER_CLOCK4, 178, 30},
 #endif	
 	{TC_CMR_TCCLKS_TIMER_CLOCK3, 375, 50},

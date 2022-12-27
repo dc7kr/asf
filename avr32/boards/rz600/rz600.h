@@ -3,7 +3,7 @@
  *
  * \brief AT32UC3A3 RZ600 board header file.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -112,6 +112,35 @@
 //! @{
 #define LED_RED     LED0
 #define LED_GREEN   LED1
+//! @}
+
+/*! \name SPI Connections of the AT86RFX transceiver
+ */
+//! @{
+#define AT86RFX_SPI                  (&AVR32_SPI0)
+#define AT86RFX_SPI_NPCS             0
+#define AT86RFX_SPI_SCK_PIN          AVR32_SPI0_SCK_0_0_PIN
+#define AT86RFX_SPI_SCK_FUNCTION     AVR32_SPI0_SCK_0_0_FUNCTION
+#define AT86RFX_SPI_MISO_PIN         AVR32_SPI0_MISO_0_0_PIN
+#define AT86RFX_SPI_MISO_FUNCTION    AVR32_SPI0_MISO_0_0_FUNCTION
+#define AT86RFX_SPI_MOSI_PIN         AVR32_SPI0_MOSI_0_0_PIN
+#define AT86RFX_SPI_MOSI_FUNCTION    AVR32_SPI0_MOSI_0_0_FUNCTION
+#define AT86RFX_SPI_NPCS_PIN         AVR32_SPI0_NPCS_0_0_PIN
+#define AT86RFX_SPI_NPCS_FUNCTION    AVR32_SPI0_NPCS_0_0_FUNCTION
+#define AT86RFX_SPI_BAUDRATE         (48000)
+//! @}
+
+/*! \name SDRAM Definitions
+ */
+//! @{
+
+//! Part header file of used SDRAM(s).
+#define SDRAM_PART_HDR  "mt48lc16m16a2tg7e/mt48lc16m16a2tg7e.h"
+
+//! Data bus width to use the SDRAM(s) with (16 or 32 bits; always 16 bits on
+//! UC3).
+#define SDRAM_DBW       16
+
 //! @}
 
 #endif  // _RZ600_H_

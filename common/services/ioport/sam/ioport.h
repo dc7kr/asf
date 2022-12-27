@@ -271,7 +271,7 @@ __always_inline static ioport_port_mask_t arch_ioport_get_port_level(
 __always_inline static void arch_ioport_toggle_pin_level(ioport_pin_t pin)
 {
 	Pio *port = arch_ioport_pin_to_base(pin);
-	ioport_port_mask_t mask = arch_ioport_pin_to_mask(mask);
+	ioport_port_mask_t mask = arch_ioport_pin_to_mask(pin);
 
 	if (port->PIO_PDSR & arch_ioport_pin_to_mask(pin)) {
 		port->PIO_CODR = mask;

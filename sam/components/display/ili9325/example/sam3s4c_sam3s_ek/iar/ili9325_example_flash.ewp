@@ -1807,30 +1807,6 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>common</name>
-		<group>
-			<name>services</name>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>sam3s</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../common/services/clock/sam3s/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-			</group>
-		</group>
-	</group>
-	<group>
 		<name>sam</name>
 		<group>
 			<name>drivers</name>
@@ -1932,6 +1908,30 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../boards/sam3s_ek/init.c</name>
 				</file>
+			</group>
+		</group>
+	</group>
+	<group>
+		<name>common</name>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam3s</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../common/services/clock/sam3s/sysclk.c</name>
+					</file>
+				</group>
 			</group>
 		</group>
 	</group>

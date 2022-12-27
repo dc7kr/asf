@@ -7,7 +7,7 @@
  * This file defines a useful set of functions for the SPI interface on AVR32
  * devices.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -107,7 +107,7 @@ static xSemaphoreHandle xSPIMutex;
 
 int16_t getBaudDiv(const unsigned int baudrate, uint32_t pb_hz)
 {
-  int baudDiv = div_ceil((pb_hz + baudrate / 2), baudrate);
+  int baudDiv = div_ceil(pb_hz, baudrate);
 
   if (baudDiv <= 0 || baudDiv > 255) {
     return -1;

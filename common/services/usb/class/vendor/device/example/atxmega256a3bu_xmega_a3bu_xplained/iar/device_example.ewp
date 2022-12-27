@@ -395,18 +395,18 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usb</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../udc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usb</state>
+					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards/xmega_a3bu_xplained</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards/xmega_a3bu_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils</state>
-					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards</state>
@@ -680,18 +680,18 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usb</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../udc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usb</state>
+					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards/xmega_a3bu_xplained</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards/xmega_a3bu_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils</state>
-					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards</state>
@@ -1430,18 +1430,18 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usb</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../udc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usb</state>
+					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards/xmega_a3bu_xplained</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards/xmega_a3bu_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils</state>
-					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards</state>
@@ -1715,18 +1715,18 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usb</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../udc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usb</state>
+					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards/xmega_a3bu_xplained</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards/xmega_a3bu_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils</state>
-					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards</state>

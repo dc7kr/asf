@@ -3,7 +3,7 @@
  *
  * \brief Chip-specific system clock manager configuration
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -67,8 +67,7 @@
 #define CONFIG_USBCLK_SOURCE     USBCLK_SRC_RCOSC
 #define CONFIG_OSC_RC32_CAL      48000000UL
 
-#define CONFIG_OSC_AUTOCAL          OSC_ID_RC32MHZ
-#define CONFIG_OSC_AUTOCAL_REF_OSC  OSC_ID_USBSOF
+#define CONFIG_OSC_AUTOCAL_RC32MHZ_REF_OSC  OSC_ID_USBSOF
 
 #define CONFIG_SYSCLK_SOURCE     SYSCLK_SRC_RC32MHZ
 #define CONFIG_SYSCLK_PSADIV     SYSCLK_PSADIV_2

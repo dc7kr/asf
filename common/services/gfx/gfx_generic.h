@@ -60,14 +60,14 @@ extern "C" {
  */
 
 /**
- * \ brief Valid bitmap types
+ * \brief Valid bitmap types
  */
 enum gfx_bitmap_type {
-	/* ! Solid color bitmap */
+	/*! Solid color bitmap */
 	GFX_BITMAP_SOLID,
-	/* ! Bitmap stored in SRAM */
+	/*! Bitmap stored in SRAM */
 	GFX_BITMAP_RAM,
-	/* ! Bitmap stored in progmem */
+	/*! Bitmap stored in progmem */
 	GFX_BITMAP_PROGMEM
 };
 
@@ -75,18 +75,18 @@ enum gfx_bitmap_type {
  * \brief Storage structure for bitmap pixel data and metadata
  */
 struct gfx_bitmap {
-	/* ! Width of bitmap */
+	/*! Width of bitmap */
 	gfx_coord_t width;
-	/* ! Height of bitmap */
+	/*! Height of bitmap */
 	gfx_coord_t height;
-	/* ! Bitmap type */
+	/*! Bitmap type */
 	enum gfx_bitmap_type type;
 	union {
-		/* ! Color for solid color bitmaps */
+		/*! Color for solid color bitmaps */
 		gfx_color_t color;
-		/* ! Pointer to pixels for bitmap stored in SRAM */
+		/*! Pointer to pixels for bitmap stored in SRAM */
 		gfx_color_t *pixmap;
-		/* ! Pointer to pixels for bitmap stored in progmem */
+		/*! Pointer to pixels for bitmap stored in progmem */
 		gfx_color_t PROGMEM_PTR_T progmem;
 	} data;
 };
@@ -135,22 +135,23 @@ void gfx_generic_draw_bitmap_tiled(const struct gfx_bitmap *bmp, gfx_coord_t x1,
 		gfx_coord_t tile_origin_x, gfx_coord_t tile_origin_y);
 
 /*! Generic implementation of gfx_draw_horizontal_line(). */
-__always_inline static inline void gfx_generic_draw_horizontal_line(gfx_coord_t x, gfx_coord_t y,
-		gfx_coord_t length, gfx_color_t color)
+__always_inline static inline void gfx_generic_draw_horizontal_line(
+		gfx_coord_t x, gfx_coord_t y, gfx_coord_t length,
+		gfx_color_t color)
 {
 	gfx_draw_filled_rect(x, y, length, 1, color);
 }
 
 /*! Generic implementation of gfx_draw_vertical_line(). */
-__always_inline static inline void gfx_generic_draw_vertical_line(gfx_coord_t x, gfx_coord_t y,
-		gfx_coord_t length, gfx_color_t color)
+__always_inline static inline void gfx_generic_draw_vertical_line(gfx_coord_t x,
+		gfx_coord_t y, gfx_coord_t length, gfx_color_t color)
 {
 	gfx_draw_filled_rect(x, y, 1, length, color);
 }
 
 /*! Generic implementation of gfx_draw_rect(). */
-__always_inline static inline void gfx_generic_draw_rect(gfx_coord_t x, gfx_coord_t y,
-		gfx_coord_t width, gfx_coord_t height,
+__always_inline static inline void gfx_generic_draw_rect(gfx_coord_t x,
+		gfx_coord_t y, gfx_coord_t width, gfx_coord_t height,
 		gfx_color_t color)
 {
 	gfx_draw_horizontal_line(x, y, width, color);
@@ -160,7 +161,8 @@ __always_inline static inline void gfx_generic_draw_rect(gfx_coord_t x, gfx_coor
 }
 
 /*! Generic implementation of gfx_draw_bitmap(). */
-__always_inline static inline void gfx_generic_draw_bitmap(const struct gfx_bitmap *bmp, gfx_coord_t x,
+__always_inline static inline void gfx_generic_draw_bitmap(
+		const struct gfx_bitmap *bmp, gfx_coord_t x,
 		gfx_coord_t y)
 {
 	gfx_put_bitmap(bmp, 0, 0, x, y, bmp->width, bmp->height);

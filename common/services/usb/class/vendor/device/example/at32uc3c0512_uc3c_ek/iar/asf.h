@@ -70,6 +70,9 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: SCIF System Control Interface - UC3C implementation
 #include <scif_uc3c.h>
 
@@ -86,7 +89,7 @@
 // From module: USB - Universial Serial Bus driver (with sleep manager)
 #include <usbc_device.h>
 
-// From module: USB Device Stack Core
+// From module: USB Device Stack Core (Common API)
 #include <udc.h>
 #include <udd.h>
 

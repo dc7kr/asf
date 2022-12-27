@@ -305,4 +305,32 @@ void board_init(void)
 			USB_OVERCURRENT_DETECT_FLAGS);
 #endif
 
+#ifdef CONF_BOARD_ISO7816_RST
+	/* Configure ISO7816 card reset pin */
+	gpio_configure_pin(PIN_ISO7816_RST_IDX, PIN_ISO7816_RST_FLAG);
+#endif
+
+#ifdef CONF_BOARD_ISO7816
+	/* Configure ISO7816 interface TXD & SCK pin */
+	gpio_configure_pin(PIN_USART0_TXD_IDX, PIN_USART0_TXD_FLAGS);
+	gpio_configure_pin(PIN_USART0_SCK_IDX, PIN_USART0_SCK_FLAGS);
+#endif
+
+#ifdef CONF_BOARD_CAN0
+	/* Configure the CAN0 TX and RX pins. */
+	gpio_configure_pin(PIN_CAN0_RX_IDX, PIN_CAN0_RX_FLAGS);
+	gpio_configure_pin(PIN_CAN0_TX_IDX, PIN_CAN0_TX_FLAGS);
+	/* Configure the transiver0 RS & EN pins. */
+	gpio_configure_pin(PIN_CAN0_TR_RS_IDX, PIN_CAN0_TR_RS_FLAGS);
+	gpio_configure_pin(PIN_CAN0_TR_EN_IDX, PIN_CAN0_TR_EN_FLAGS);
+#endif
+
+#ifdef CONF_BOARD_CAN1
+	/* Configure the CAN1 TX and RX pin. */
+	gpio_configure_pin(PIN_CAN1_RX_IDX, PIN_CAN1_RX_FLAGS);
+	gpio_configure_pin(PIN_CAN1_TX_IDX, PIN_CAN1_TX_FLAGS);
+	/* Configure the transiver1 RS & EN pins. */
+	gpio_configure_pin(PIN_CAN1_TR_RS_IDX, PIN_CAN1_TR_RS_FLAGS);
+	gpio_configure_pin(PIN_CAN1_TR_EN_IDX, PIN_CAN1_TR_EN_FLAGS);
+#endif
 }

@@ -3,7 +3,7 @@
  *
  * \brief Development Board Configuration
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -38,13 +38,12 @@
  * \asf_license_stop
  *
  */
-#ifndef _conf_platform_h_
-#define _conf_platform_h_
+#ifndef _CONF_SENSOR_PLATFORM_H_
+#define _CONF_SENSOR_PLATFORM_H
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 
 /**
  * @defgroup atavrpb_config Sensors Platform Board Configuration
@@ -57,28 +56,26 @@ extern "C" {
  * @{
  */
 
-//! \name Platform Board Interrupt Priorities
-// @{
+/** \name Platform Board Interrupt Priorities */
+/** @{ */
 #define CONFIG_GPIO_INT_LVL         0
 #define CONFIG_TWIM_INT_LVL         2
-// @}
+/** @} */
 
-//! \name Platform-Specific GPIO Pin Configuration
-// @
-#define CONF_BOARD_SPI              //!< Map board SPI bus I/O pins
-#define CONF_BOARD_TWI              //!< Map board TWI bus I/O pins
-#define CONF_BOARD_ENABLE_USARTC0   //!< Map XMEGA-A1 USART pins
-#define CONF_BOARD_ENABLE_USARTE0   //!< Map XMEGA-B1 USART pins
-#define CONF_BOARD_ENABLE_USARTD0   //!< Map XMEGA-A3BU USART pins
-#define CONF_BOARD_COM_PORT         //!< Map UC3-L0 / UC3-A3 USART USB Virtual Com pins
-// @}
+/** \name Platform-Specific GPIO Pin Configuration */
+/** @{ */
+#define CONF_BOARD_SPI              /**< Map board SPI bus I/O pins */
+#define CONF_BOARD_TWI              /**< Map board TWI bus I/O pins */
+#define CONF_BOARD_ENABLE_USARTC0   /**< Map XMEGA-A1 USART pins */
+#define CONF_BOARD_ENABLE_USARTE0   /**< Map XMEGA-B1 USART pins */
+#define CONF_BOARD_ENABLE_USARTD0   /**< Map XMEGA-A3BU USART pins */
+#define CONF_BOARD_COM_PORT         /**< Map UC3-L0 / UC3-A3 USART USB Virtual Com pins */
+/** @} */
 
-
-/** @} */ // atavrpb_config group
-
+/** @} */
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* _conf_platform_h_ */
+#endif

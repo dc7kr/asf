@@ -69,6 +69,9 @@
 // From module: NVM - Non Volatile Memory
 #include <nvm.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: Sleep Controller driver
 #include <sleep.h>
 
@@ -82,7 +85,7 @@
 // From module: USB Device HID Mouse (Single Interface Device)
 #include <udi_hid_mouse.h>
 
-// From module: USB Device Stack Core
+// From module: USB Device Stack Core (Common API)
 #include <udc.h>
 #include <udd.h>
 
@@ -94,7 +97,6 @@
 
 // From module: XMEGA compiler driver
 #include <compiler.h>
-#include <parts.h>
 #include <status_codes.h>
 
 // From module: XMEGA-A3BU Xplained LED support enabled

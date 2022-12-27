@@ -72,6 +72,9 @@
 // From module: MPU - Memory Protection Unit
 #include <mpu.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: System Clock Control - UC3 L0 implementation
 #include <sysclk.h>
 

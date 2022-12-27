@@ -76,6 +76,9 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: System Clock Control - UC3 A3/A4 implementation
 #include <sysclk.h>
 

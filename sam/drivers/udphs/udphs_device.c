@@ -66,13 +66,15 @@
 #  define UDD_USB_INT_LEVEL 0 // By default USB interrupt have low priority
 #endif
 
+#define UDD_EP_USED(ep)      (USB_DEVICE_MAX_EP >= ep)
+
 // for debug text
 //#define dbg_print printf
 #define dbg_print(...)
 
 /**
- * \ingroup usb_device_group
- * \defgroup udd_group USB Device Driver (UDD)
+ * \ingroup udd_group
+ * \defgroup udd_udphs_group USB Device High-Speed Port (UDPHS)
  *
  * \section UDPHS_CONF UDPHS Custom configuration
  * The following UDPHS driver configuration must be included in the conf_usb.h
@@ -83,16 +85,16 @@
  *
  * UDD_USB_INT_FUN<br>
  * Option to fit interrupt function to what defined in exception table.
- * 
- * UDD_ISOCHRONOUS_NB_BANK<br>
+ *
+ * UDD_ISOCHRONOUS_NB_BANK(ep)<br>
  * Feature to reduce or increase isochronous endpoints buffering (1 to 3).
  * Default value 2.
  *
- * UDD_BULK_NB_BANK<br>
+ * UDD_BULK_NB_BANK(ep)<br>
  * Feature to reduce or increase bulk endpoints buffering (1 to 2).
  * Default value 2.
  *
- * UDD_INTERRUPT_NB_BANK<br>
+ * UDD_INTERRUPT_NB_BANK(ep)<br>
  * Feature to reduce or increase interrupt endpoints buffering (1 to 2).
  * Default value 1.
  *
@@ -137,26 +139,95 @@
 #  error USB_DEVICE_MAX_EP is too high and not supported by this part
 #endif
 
+#define UDD_EP_ISO_NBANK_ERROR(ep)            \
+	( (UDD_ISOCHRONOUS_NB_BANK(ep) < 1)   \
+		|| (UDD_ISOCHRONOUS_NB_BANK(ep) > 3) )
+#define UDD_EP_BULK_NBANK_ERROR(ep)           \
+	( (UDD_BULK_NB_BANK(ep) < 1) || (UDD_BULK_NB_BANK(ep) > 2) )
+#define UDD_EP_INT_NBANK_ERROR(ep)            \
+	( (UDD_INTERRUPT_NB_BANK(ep) < 1) || (UDD_INTERRUPT_NB_BANK(ep) > 2) )
+
+#define UDD_EP_ISO_NB_BANK_ERROR(ep)          \
+	(UDD_EP_USED(ep) && UDD_EP_ISO_NBANK_ERROR(ep))
+#define UDD_EP_BULK_NB_BANK_ERROR(ep)         \
+	(UDD_EP_USED(ep) && UDD_EP_ISO_NBANK_ERROR(ep))
+#define UDD_EP_INT_NB_BANK_ERROR(ep)          \
+	(UDD_EP_USED(ep) && UDD_EP_ISO_NBANK_ERROR(ep))
+
+#define UDD_EP_NB_BANK_ERROR(ep, type)        \
+	(ATPASTE3(UDD_EP_, type, _NB_BANK_ERROR(ep)))
+
+#define UDD_ISO_NB_BANK_ERROR \
+	(          UDD_EP_NB_BANK_ERROR( 1, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 2, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 3, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 4, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 5, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 6, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 7, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 8, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 9, ISO) \
+		|| UDD_EP_NB_BANK_ERROR(10, ISO) \
+		|| UDD_EP_NB_BANK_ERROR(11, ISO) \
+		|| UDD_EP_NB_BANK_ERROR(12, ISO) \
+		|| UDD_EP_NB_BANK_ERROR(13, ISO) \
+		|| UDD_EP_NB_BANK_ERROR(14, ISO) \
+		|| UDD_EP_NB_BANK_ERROR(15, ISO) )
+#define UDD_BULK_NB_BANK_ERROR \
+	(          UDD_EP_NB_BANK_ERROR( 1, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 2, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 3, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 4, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 5, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 6, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 7, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 8, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 9, BULK) \
+		|| UDD_EP_NB_BANK_ERROR(10, BULK) \
+		|| UDD_EP_NB_BANK_ERROR(11, BULK) \
+		|| UDD_EP_NB_BANK_ERROR(12, BULK) \
+		|| UDD_EP_NB_BANK_ERROR(13, BULK) \
+		|| UDD_EP_NB_BANK_ERROR(14, BULK) \
+		|| UDD_EP_NB_BANK_ERROR(15, BULK) )
+#define UDD_INTERRUPT_NB_BANK_ERROR \
+	(          UDD_EP_NB_BANK_ERROR( 1, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 2, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 3, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 4, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 5, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 6, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 7, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 8, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 9, INT) \
+		|| UDD_EP_NB_BANK_ERROR(10, INT) \
+		|| UDD_EP_NB_BANK_ERROR(11, INT) \
+		|| UDD_EP_NB_BANK_ERROR(12, INT) \
+		|| UDD_EP_NB_BANK_ERROR(13, INT) \
+		|| UDD_EP_NB_BANK_ERROR(14, INT) \
+		|| UDD_EP_NB_BANK_ERROR(15, INT) )
+
 #ifndef UDD_ISOCHRONOUS_NB_BANK
-#  define UDD_ISOCHRONOUS_NB_BANK   2
+# define UDD_ISOCHRONOUS_NB_BANK(ep) 2
 #else
-#  if (UDD_ISOCHRONOUS_NB_BANK < 1) || (UDD_ISOCHRONOUS_NB_BANK > 3)
-#    error UDD_ISOCHRONOUS_NB_BANK must be define within 1 to 3.
-#  endif
+# if UDD_ISO_NB_BANK_ERROR
+#  error UDD_ISOCHRONOUS_NB_BANK(ep) must be define within 1 to 3.
+# endif
 #endif
+
 #ifndef UDD_BULK_NB_BANK
-#  define UDD_BULK_NB_BANK  2
+# define UDD_BULK_NB_BANK(ep) 2
 #else
-#  if (UDD_BULK_NB_BANK < 1) || (UDD_BULK_NB_BANK > 2)
-#    error UDD_BULK_NB_BANK must be define with 1 or 2.
-#  endif
+# if UDD_BULK_NB_BANK_ERROR
+#  error UDD_BULK_NB_BANK must be define with 1 or 2.
+# endif
 #endif
+
 #ifndef UDD_INTERRUPT_NB_BANK
-#  define UDD_INTERRUPT_NB_BANK 1
+# define UDD_INTERRUPT_NB_BANK(ep) 1
 #else
-#  if (UDD_INTERRUPT_NB_BANK < 1) || (UDD_INTERRUPT_NB_BANK > 2)
-#    error UDD_INTERRUPT_NB_BANK must be define with 1 or 2.
-#  endif
+# if UDD_INTERRUPT_NB_BANK_ERROR
+#  error UDD_INTERRUPT_NB_BANK must be define with 1 or 2.
+# endif
 #endif
 
 
@@ -308,27 +379,20 @@ typedef struct {
 		//! Callback to call when the endpoint halt is cleared
 		udd_callback_halt_cleared_t call_nohalt;
 	};
-
 	//! Buffer located in internal RAM to send or fill during job
 	uint8_t *buf;
-
 	//! Size of buffer to send or fill
 	iram_size_t buf_size;
-
 	//!< Size of data transfered
-	iram_size_t buf_cnt; 
-
+	iram_size_t buf_cnt;
+	//!< Size of data prepared for DMA last time
+	iram_size_t buf_load;
 	//! A job is registered on this endpoint
 	uint8_t busy:1;
-
 	//! A short packet is requested for this job on endpoint IN
 	uint8_t b_shortpacket:1;
-
 	//! A stall has been requested but not executed
 	uint8_t stall_requested:1;
-
-	//! ZLP is need to finish this IN transfer
-	uint32_t need_zlp:1;
 } udd_ep_job_t;
 
 
@@ -638,7 +702,7 @@ uint16_t udd_get_micro_frame_number(void)
 	return udd_micro_frame_number();
 }
 
-void udd_send_wake_up(void)
+void udd_send_remotewakeup(void)
 {
 #ifndef UDD_NO_SLEEP_MGR
 	if (!udd_b_idle)
@@ -682,13 +746,13 @@ bool udd_ep_alloc(udd_ep_id_t ep, uint8_t bmAttributes,
 	switch (bmAttributes & USB_EP_TYPE_MASK) {
 	case USB_EP_TYPE_ISOCHRONOUS:
 		b_iso_hbw = Is_udd_endpoint_high_bw_supported(ep);
-		nb_bank = UDD_ISOCHRONOUS_NB_BANK;
+		nb_bank = UDD_ISOCHRONOUS_NB_BANK(ep);
 		break;
 	case USB_EP_TYPE_INTERRUPT:
-		nb_bank = UDD_INTERRUPT_NB_BANK;
+		nb_bank = UDD_INTERRUPT_NB_BANK(ep);
 		break;
 	case USB_EP_TYPE_BULK:
-		nb_bank = UDD_BULK_NB_BANK;
+		nb_bank = UDD_BULK_NB_BANK(ep);
 		break;
 	default:
 		Assert(false);
@@ -751,20 +815,48 @@ bool udd_ep_alloc(udd_ep_id_t ep, uint8_t bmAttributes,
 			// Disable and unallocate endpoint
 			udd_disable_endpoint(i);
 			udd_configure_endpoint_bank(i, 0);
-			
+
 		}
 	}
 
 	// Realloc/Enable endpoints
 	for (i = ep; i <= USB_DEVICE_MAX_EP; i++) {
+		udd_ep_job_t *ptr_job = &udd_ep_job[i - 1];
+		bool b_restart = ptr_job->busy;
+		// Unallocated banks?
 		bank = (ep_allocated >> (i * 2)) & 0x03;
-		if (0!=bank) {
-			udd_configure_endpoint_bank(i, bank);
-			udd_enable_endpoint(i);
-			if (!Is_udd_endpoint_mapped(i)) {
+		if (bank == 0) {
+			continue;
+		}
+		// Restart running job because
+		// memory window slides up and its data is lost
+		ptr_job->busy = false;
+		// Re-allocate memory
+		udd_configure_endpoint_bank(i, bank);
+		udd_enable_endpoint(i);
+		if (!Is_udd_endpoint_mapped(i)) {
+			dbg_print("ErrRealloc%d-JobE ", i);
+			if (NULL == ptr_job->call_trans) {
 				return false;
 			}
-			udd_enable_endpoint_bank_autoswitch(i);
+			ptr_job->call_trans(UDD_EP_TRANSFER_ABORT,
+					ptr_job->buf_cnt);
+			return false;
+		}
+		udd_enable_endpoint_bank_autoswitch(i);
+		if (b_restart) {
+			// Re-run the job remaining part
+			ptr_job->buf_cnt -= ptr_job->buf_load;
+			b_restart = udd_ep_run(i,
+					ptr_job->b_shortpacket,
+					&ptr_job->buf[ptr_job->buf_cnt],
+					ptr_job->buf_size
+						- ptr_job->buf_cnt,
+					ptr_job->call_trans);
+			if (!b_restart) {
+				dbg_print("ErrReRun%d ", i);
+				return false;
+			}
 		}
 	}
 	dbg_print("ep_alloc(%d:%08x) ", ep, UDPHS->UDPHS_EPT[ep].UDPHS_EPTCFG);
@@ -823,7 +915,7 @@ bool udd_ep_set_halt(udd_ep_id_t ep)
 			dbg_print("<reqHalt%x> ", ep);
 			return true;
 	}
-	
+
 	// Stall endpoint immediately
 	udd_disable_endpoint_bank_autoswitch(index);
 	udd_ack_stall(index);
@@ -910,6 +1002,7 @@ bool udd_ep_run(udd_ep_id_t ep, bool b_shortpacket,
 	ptr_job->buf = buf;
 	ptr_job->buf_size = buf_size;
 	ptr_job->buf_cnt = 0;
+	ptr_job->buf_load = 0;
 	ptr_job->call_trans = callback;
 	ptr_job->b_shortpacket = b_shortpacket || (buf_size == 0);
 
@@ -1604,6 +1697,7 @@ static void udd_ep_trans_done(udd_ep_id_t ep)
 				& UDPHS_DMASTATUS_END_TR_ST)) {
 			udd_endpoint_dma_set_control(ep, udd_dma_ctrl);
 			ptr_job->buf_cnt += next_trans;
+			ptr_job->buf_load = next_trans;
 			udd_enable_endpoint_dma_interrupt(ep);
 			cpu_irq_restore(flags);
 			return;

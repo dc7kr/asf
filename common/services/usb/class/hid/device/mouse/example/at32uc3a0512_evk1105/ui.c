@@ -3,7 +3,7 @@
  *
  * \brief User Interface
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,12 +39,8 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "udi_hid_mouse.h"
-#include "board.h"
-#include "gpio.h"
-#include "qt1081.h"
+#include <asf.h>
+#include <qt1081.h>
 #include "ui.h"
 
 #define  MOUSE_MOVE_RANGE  3
@@ -113,7 +109,7 @@ void ui_process(uint16_t framenumber)
  * Human interface on EVK1105 :
  * - PWR led is on when power present
  * - Led 0 is on when USB line is in IDLE mode, and off in SUSPEND mode
- * - Led 1 blinks when USB Host have checked and enabled HID mouse interface
+ * - Led 1 blinks when USB host has checked and enabled HID mouse interface
  * - Mouse buttons are not linked.
  * - Touch sensors are used to move mouse
  * - No button are linked to wakeup USB Host in remote wakeup mode.

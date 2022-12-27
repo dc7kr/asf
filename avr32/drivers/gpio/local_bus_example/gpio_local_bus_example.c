@@ -4,7 +4,7 @@
  *
  * \brief GPIO example application for AVR32 using the local bus interface.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -81,7 +81,6 @@
  * All AVR32 devices with a GPIO module can be used. This example has been tested
  * with the following setup:
  *   - EVK1100, EVK1101, EVK1104, EVK1105, AT32UC3C-EK, AT32UC3L-EK evaluation kit;
- *   - UC3_C2_Xplained evaluation kit (PA06 is routed on J2.5).
  *   - STK600+RCUC3L0 or STK600+RCUC3L4 routing card (PA10 is routed to STK600.PORTB.PB2).
  *   - STK600+RCUC3D routing card  (PA10 is routed to STK600.PORTB.PB2).
  *
@@ -120,11 +119,7 @@
 /*! \name Pin Configuration
  */
 //! @{
-#if ( BOARD == UC3_C2_XPLAINED)
-#define GPIO_PIN_EXAMPLE  AVR32_PIN_PA06
-#else
 #define GPIO_PIN_EXAMPLE  AVR32_PIN_PA10
-#endif
 //! @}
 
 
@@ -183,7 +178,7 @@ static void clockfrequencies_configure(void)
     opt.pll_wbwdisable = 0;  //pll_wbwdisable 1 Disable the Wide-Bandith Mode (Wide-Bandwith mode allow a faster startup time and out-of-lock time). 0 to enable the Wide-Bandith Mode.
     opt.pll_freq = 1;        // Set to 1 for VCO frequency range 80-180MHz, set to 0 for VCO frequency range 160-240Mhz.
 
-    scif_pll_setup(SCIF_PLL0, opt); // lockcount in main clock for the PLL wait lock
+    scif_pll_setup(SCIF_PLL0, &opt); // lockcount in main clock for the PLL wait lock
 
     /* Enable PLL0 */
     scif_pll_enable(SCIF_PLL0);
@@ -220,7 +215,7 @@ static void clockfrequencies_configure(void)
     opt.pll_wbwdisable = 0;  // pll_wbwdisable 1 Disable the Wide-Bandith Mode (Wide-Bandwith mode allow a faster startup time and out-of-lock time). 0 to enable the Wide-Bandith Mode.
     opt.pll_freq = 1;        // Set to 1 for VCO frequency range 80-180MHz, set to 0 for VCO frequency range 160-240Mhz.
 
-    scif_pll_setup(SCIF_PLL0, opt); // lockcount in main clock for the PLL wait lock
+    scif_pll_setup(SCIF_PLL0, &opt); // lockcount in main clock for the PLL wait lock
 
     /* Enable PLL0 */
     scif_pll_enable(SCIF_PLL0);

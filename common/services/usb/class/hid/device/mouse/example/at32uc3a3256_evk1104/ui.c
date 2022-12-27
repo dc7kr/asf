@@ -3,7 +3,7 @@
  *
  * \brief User Interface
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,13 +39,7 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "udc.h"
-#include "udi_hid_mouse.h"
-#include "board.h"
-#include "gpio.h"
-#include "eic.h"
+#include <asf.h>
 #include "ui.h"
 
 #define  MOUSE_MOVE_RANGE  3
@@ -61,7 +55,7 @@ ISR(ui_wakeup_isr, AVR32_GPIO_IRQ_GROUP, 0)
 	// Clear External Interrupt Line else Wakeup event always enabled
 	eic_clear_interrupt_line(&AVR32_EIC, EXT_NMI);
 	// It is a wakeup then send wakeup USB
-	udc_wakeup();
+	udc_remotewakeup();
 }
 
 
@@ -177,7 +171,7 @@ void ui_process(uint16_t framenumber)
  * Human interface on EVK1104 :
  * - PWR led is on when power present
  * - Led 0 is on when USB line is in IDLE mode, and off in SUSPEND mode
- * - Led 1 blinks when USB Host have checked and enabled HID mouse interface
+ * - Led 1 blinks when USB host has checked and enabled HID mouse interface
  * - Mouse buttons are not linked.
  * - Only SW2 allows to move mouse on X axe.
  * - Only a low level on J17.7 will generate a wakeup to USB Host in remote wakeup mode.

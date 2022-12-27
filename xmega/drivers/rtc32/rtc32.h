@@ -1,4 +1,4 @@
-/**
+	/**
  * \file
  *
  * \brief AVR XMEGA 32-bit Real Time Counter driver definitions
@@ -156,20 +156,20 @@ enum vbat_status_code {
 
 };
 
-enum vbat_status_code rtc32_vbat_system_check(bool first_time_init);
+enum vbat_status_code rtc_vbat_system_check(bool first_time_init);
 
 /**
  * \brief Callback definition for alarm callback
  *
  * \param time The time of the alarm
  */
-typedef void (*rtc32_callback_t)(uint32_t time);
+typedef void (*rtc_callback_t)(uint32_t time);
 
-void rtc32_set_callback(rtc32_callback_t callback);
-void rtc32_set_time(uint32_t time);
-uint32_t rtc32_get_time(void);
-void rtc32_set_alarm(uint32_t time);
-bool rtc32_alarm_has_triggered(void);
+void rtc_set_callback(rtc_callback_t callback);
+void rtc_set_time(uint32_t time);
+uint32_t rtc_get_time(void);
+void rtc_set_alarm(uint32_t time);
+bool rtc_alarm_has_triggered(void);
 
 /**
  * \brief Set alarm relative to current time
@@ -178,14 +178,14 @@ bool rtc32_alarm_has_triggered(void);
  * might happen at up to one time unit later. See also \ref
  * rtc32_min_alarm_time
  */
-static inline void rtc32_set_alarm_relative(uint32_t offset)
+static inline void rtc_set_alarm_relative(uint32_t offset)
 {
 	Assert(offset >= 2);
 
-	rtc32_set_alarm(rtc32_get_time() + offset);
+	rtc_set_alarm(rtc_get_time() + offset);
 }
 
-void rtc32_init(void);
+void rtc_init(void);
 
 //! @}
 
@@ -208,7 +208,7 @@ void rtc32_init(void);
  * Add to the initialization code:
  * \code
  *    sysclk_init();
- *    rtc32_init();
+ *    rtc_init();
  * \endcode
  *
  * \subsection rtc32_basic_use_case_setup_flow Workflow
@@ -219,19 +219,19 @@ void rtc32_init(void);
  *   - \code sysclk_init(); \endcode
  * -# Call RTC32 driver's own init function to initialize the 32kHz oscillator
  * and RTC32:
- *   - \code rtc32_init(); \endcode
+ *   - \code rtc_init(); \endcode
  *
  * \section rtc32_basic_use_case_usage Usage steps
  *
  * \subsection rtc32_basic_use_case_usage_code Example code
  * Add to, e.g., main loop in application C-file:
  * \code
- *    rtc32_get_time();
+ *    rtc_get_time();
  * \endcode
  *
  * \subsection rtc32_basic_use_case_usage_flow Workflow
  * -# Get current time of the RTC32:
- *   - \code rtc32_get_time(); \endcode
+ *   - \code rtc_get_time(); \endcode
  *
  * \section rtc32_use_cases Advanced use cases
  * For more advanced use of the RTC32 driver, see the following use cases:
@@ -250,13 +250,13 @@ void rtc32_init(void);
  * be added to the project:
  * -# PMIC for interrupt handling.
  * -# Sleep Managager.
- * -# A \ref rtc32_callback_t "callback" function, called alarm, that
+ * -# A \ref rtc_callback_t "callback" function, called alarm, that
  * reschedules the alarm must be provided
  * by the user.
  * \code
  *   static void alarm(uint32_t time)
  *   {
- *       rtc32_set_alarm(2);
+ *       rtc_set_alarm(2);
  *   }
  * \endcode
  * \note Since the next alarm will be rounded up to the next second pass, this
@@ -268,8 +268,8 @@ void rtc32_init(void);
  *    pmic_init();
  *    sysclk_init();
  *    sleepmgr_init();
- *    rtc32_init();
- *    rtc32_set_callback(alarm);
+ *    rtc_init();
+ *    rtc_set_callback(alarm);
  *    cpu_irq_enable();
  * \endcode
  *
@@ -286,9 +286,9 @@ void rtc32_init(void);
  *   - \code sleepmgr_init(); \endcode
  * -# Call RTC32 driver's own init function to initialize the 32kHz oscillator
  * and RTC32:
- *   - \code rtc32_init(); \endcode
+ *   - \code rtc_init(); \endcode
  * -# Set callback function to call on alarm:
- *   - \code rtc32_set_callback(alarm); \endcode
+ *   - \code rtc_set_callback(alarm); \endcode
  *   - \note The callback function alarm must be defined by the user.
  * -# Enable interrupts globally:
  *   - \code cpu_irq_enable(); \endcode
@@ -297,7 +297,7 @@ void rtc32_init(void);
  *
  * \subsection rtc32_use_case_1_usage_code Example code
  * \code
- *    rtc32_set_alarm_relative(3);
+ *    rtc_set_alarm_relative(3);
  *    while (true) {
  *        sleepmgr_enter_sleep();
  *    }
@@ -305,7 +305,7 @@ void rtc32_init(void);
  *
  * \subsection rtc32_use_case_1_usage_flow Workflow
  * -# Set the alarm to trigget on next time unit roll over:
- *   - \code rtc32_set_alarm_relative(3); \endcode
+ *   - \code rtc_set_alarm_relative(3); \endcode
  * \note The lowest value which is safe to use is 3. The use of 2 could
  * happen in a second change, and we would not get an interrupt. A
  * value of 3 causes the alarm to be set of in 3-4 seconds.

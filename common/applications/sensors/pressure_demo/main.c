@@ -3,19 +3,7 @@
  *
  * \brief Common Sensor Service Pressure Sensor Example
  *
- * \mainpage
- *
- * \section intro Introduction
- *
- * This application obtains sensor data from the MEMS pressure sensor device
- * installed on an Atmel development board.
- *
- * \section contactinfo Contact Information
- * For further information, visit
- * <A href="http://www.atmel.com/avr">Atmel AVR</A>.\n
- *
- * \section License
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -51,44 +39,44 @@
  *
  */
 
+/**
+ * \mainpage
+ *
+ * \section intro Introduction
+ *
+ * This application obtains sensor data from the MEMS pressure sensor device
+ * installed on an Atmel development board.
+ *
+ * \section contactinfo Contact Information
+ * For further information, visit
+ * <A href="http://www.atmel.com/avr">Atmel AVR</A>.\n
+ * Support and FAQ: http://support.atmel.no/
+ */
 
 #include <stdio.h>
-
-#include <board.h>
+#include <asf.h>
 #include <led.h>
 
-#include <sensors/sensor.h>
+/* Application configuration constants */
+#define PRINT_BANNER    (true)
+
+/* Hardware environment constants */
+#define ACTIVITY_LED    (LED1)
 
 
-// supply missing C-library constants
-
-#if defined(XMEGA) && defined(__GNUC__)
-enum {EXIT_SUCCESS, EXIT_FAILURE};
-#endif
-
-
-// Application configuration constants
-static bool PRINT_BANNER = true;
-
-// Hardware environment constants
-#define ACTIVITY_LED    (LED1)      // which LED to blink to show activity
-
-
-/*! \brief Pressure sensor demonstration application entry
+/** \brief Pressure sensor demonstration application entry
  *
  * After initializing the development platform and sensors, this application
  * attaches a descriptor to the sensor on an Xplained pressure sensor board.
  * The sensor pressure and temperature data, which is formatted and printed
  * via printf() after being read, can be viewed with a terminal application on
  * a machine attached to the serial interface on the development board.
- *
- * \return  Nothing.
  */
 int main(void)
 {
-	sensor_t        barometer;      // pressure sensor device descriptor
-	sensor_data_t   press_data;     // pressure data
-	sensor_data_t   temp_data;      // temperature data
+	sensor_t barometer;             /* Pressure sensor device descriptor */
+	sensor_data_t press_data;       /* Pressure data */
+	sensor_data_t temp_data;        /* Temperature data */
 
 	/* Initialize the board (Xplained UC3 or XMEGA & Xplained Sensor boards)
 	 * I/O pin mappings and any other configurable resources selected in
@@ -96,56 +84,49 @@ int main(void)
 	 */
 	sensor_platform_init();
 
-	// Attach a descriptor to the existing sensor device.
-
+	/* Attach a descriptor to the existing sensor device. */
 	sensor_attach(&barometer, SENSOR_TYPE_BAROMETER, 0, 0);
 
 	if (barometer.err) {
 		puts("\rSensor initialization error.");
-		mdelay(5000);
-		return EXIT_FAILURE;
+
+		while (true) {
+			/* Error ocurred, loop forever */
+		}
 	}
 
 	sensor_set_state(&barometer, SENSOR_STATE_HIGHEST_POWER);
 
-	// Initialize sensor data structure flags for scaled vs. raw data
-
+	/* Initialize sensor data structure flags for scaled vs. raw data */
 	press_data.scaled = true;
 	temp_data.scaled = true;
 
-	// Print sensor config info
-
+	/* Print sensor config info */
 	if (PRINT_BANNER) {
-
 		uint32_t id;
-		uint8_t  ver;
+		uint8_t ver;
 
-		static const char * const banner_format =
-			"%s\r\nID = 0x%02x ver. 0x%02x\r\n  %d-bit Resolution\r\n";
+		static const char *const banner_format
+			= "%s\r\nID = 0x%02x ver. 0x%02x\r\n  %d-bit Resolution\r\n";
 
 		sensor_device_id(&barometer, &id, &ver);
 
-		printf(banner_format, barometer.drv->caps.name, (unsigned) id,
-			(unsigned) ver, barometer.hal->resolution);
+		printf(banner_format, barometer.drv->caps.name, (unsigned)id,
+				(unsigned)ver, barometer.hal->resolution);
 	}
 
-
-	// Enter main loop
-
 	while (true) {
-
 		LED_Toggle(ACTIVITY_LED);
 
 		sensor_get_pressure(&barometer, &press_data);
 		sensor_get_temperature(&barometer, &temp_data);
 
 		printf("P = %.2f hPa,  T = %.1f C\r\n",
-			(press_data.pressure.value / 100.0),
-			(temp_data.temperature.value / 10.0));
+				(press_data.pressure.value / 100.0),
+				(temp_data.temperature.value / 10.0));
 
-		mdelay(500);
+		delay_ms(500);
 	}
 
-
-	return EXIT_SUCCESS;
+	return 0;
 }

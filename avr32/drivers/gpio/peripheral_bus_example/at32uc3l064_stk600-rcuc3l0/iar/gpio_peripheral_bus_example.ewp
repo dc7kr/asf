@@ -1721,6 +1721,18 @@
 	<group>
 		<name>avr32</name>
 		<group>
+			<name>boards</name>
+			<group>
+				<name>stk600</name>
+				<group>
+					<name>rcuc3l0</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../boards/stk600/rcuc3l0/led.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
+		<group>
 			<name>drivers</name>
 			<group>
 				<name>gpio</name>

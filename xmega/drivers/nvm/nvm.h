@@ -450,71 +450,71 @@ void nvm_eeprom_erase_all(void);
 #else
 
 // 16K devices
-#  if part_is_defined(ATxmega16A4)            | \
-		part_is_defined(ATxmega16A4U) | \
-		part_is_defined(ATxmega16D4)  | \
-		part_is_defined(ATxmega16C4)
+#  if AVR8_PART_IS_DEFINED(ATxmega16A4)            | \
+		AVR8_PART_IS_DEFINED(ATxmega16A4U) | \
+		AVR8_PART_IS_DEFINED(ATxmega16D4)  | \
+		AVR8_PART_IS_DEFINED(ATxmega16C4)
 #    define FLASH_SIZE      (16*1024L)
 #    define FLASH_PAGE_SIZE (256)
 
 // 32K devices
-#  elif part_is_defined(ATxmega32A4)          | \
-		part_is_defined(ATxmega32A4U) | \
-		part_is_defined(ATxmega32D4)  | \
-		part_is_defined(ATxmega32C4)
+#  elif AVR8_PART_IS_DEFINED(ATxmega32A4)          | \
+		AVR8_PART_IS_DEFINED(ATxmega32A4U) | \
+		AVR8_PART_IS_DEFINED(ATxmega32D4)  | \
+		AVR8_PART_IS_DEFINED(ATxmega32C4)
 #    define FLASH_SIZE      (32*1024L)
 #    define FLASH_PAGE_SIZE (256)
 
 // 64K devices
-#  elif part_is_defined(ATxmega64A1)          | \
-		part_is_defined(ATxmega64A1U) | \
-		part_is_defined(ATxmega64A3)  | \
-		part_is_defined(ATxmega64A3U) | \
-		part_is_defined(ATxmega64A4U) | \
-		part_is_defined(ATxmega64B1)  | \
-		part_is_defined(ATxmega64B3)  | \
-		part_is_defined(ATxmega64D3)  | \
-		part_is_defined(ATxmega64D4)
+#  elif AVR8_PART_IS_DEFINED(ATxmega64A1)          | \
+		AVR8_PART_IS_DEFINED(ATxmega64A1U) | \
+		AVR8_PART_IS_DEFINED(ATxmega64A3)  | \
+		AVR8_PART_IS_DEFINED(ATxmega64A3U) | \
+		AVR8_PART_IS_DEFINED(ATxmega64A4U) | \
+		AVR8_PART_IS_DEFINED(ATxmega64B1)  | \
+		AVR8_PART_IS_DEFINED(ATxmega64B3)  | \
+		AVR8_PART_IS_DEFINED(ATxmega64D3)  | \
+		AVR8_PART_IS_DEFINED(ATxmega64D4)
 #    define FLASH_SIZE      (64*1024L)
 #    define FLASH_PAGE_SIZE (256)
 
 // 128K devices
-#  elif part_is_defined(ATxmega128A1)          | \
-		part_is_defined(ATxmega128A1U) | \
-		part_is_defined(ATxmega128A3)  | \
-		part_is_defined(ATxmega128A3U) | \
-		part_is_defined(ATxmega128D3)  | \
-		part_is_defined(ATxmega128D4)
+#  elif AVR8_PART_IS_DEFINED(ATxmega128A1)          | \
+		AVR8_PART_IS_DEFINED(ATxmega128A1U) | \
+		AVR8_PART_IS_DEFINED(ATxmega128A3)  | \
+		AVR8_PART_IS_DEFINED(ATxmega128A3U) | \
+		AVR8_PART_IS_DEFINED(ATxmega128D3)  | \
+		AVR8_PART_IS_DEFINED(ATxmega128D4)
 #    define FLASH_SIZE      (128*1024L)
 #    define FLASH_PAGE_SIZE (512)
 
-#  elif part_is_defined(ATxmega128A4U)         | \
-		part_is_defined(ATxmega128B1)  | \
-		part_is_defined(ATxmega128B3)
+#  elif AVR8_PART_IS_DEFINED(ATxmega128A4U)         | \
+		AVR8_PART_IS_DEFINED(ATxmega128B1)  | \
+		AVR8_PART_IS_DEFINED(ATxmega128B3)
 #    define FLASH_SIZE      (128*1024L)
 #    define FLASH_PAGE_SIZE (256)
 
 // 192K devices
-#  elif part_is_defined(ATxmega192A3U) | \
-		part_is_defined(ATxmega192D3)
+#  elif AVR8_PART_IS_DEFINED(ATxmega192A3U) | \
+		AVR8_PART_IS_DEFINED(ATxmega192D3)
 #    define FLASH_SIZE      (192*1024L)
 #    define FLASH_PAGE_SIZE (512)
 
 // 256K devices
-#  elif part_is_defined(ATxmega256A3)           | \
-		part_is_defined(ATxmega256A3U)  | \
-		part_is_defined(ATxmega256A3B)  | \
-		part_is_defined(ATxmega256A3BU) | \
-		part_is_defined(ATxmega256C3)   | \
-		part_is_defined(ATxmega256D3)
+#  elif AVR8_PART_IS_DEFINED(ATxmega256A3)           | \
+		AVR8_PART_IS_DEFINED(ATxmega256A3U)  | \
+		AVR8_PART_IS_DEFINED(ATxmega256A3B)  | \
+		AVR8_PART_IS_DEFINED(ATxmega256A3BU) | \
+		AVR8_PART_IS_DEFINED(ATxmega256C3)   | \
+		AVR8_PART_IS_DEFINED(ATxmega256D3)
 #    define FLASH_SIZE      (256*1024L)
 #    define FLASH_PAGE_SIZE (512)
 
 // 384K devices
-#  elif part_is_defined(ATxmega384C3)
+#  elif AVR8_PART_IS_DEFINED(ATxmega384C3)
 #    define FLASH_SIZE      (384*1024L)
 #    define FLASH_PAGE_SIZE (512)
-#  elif part_is_defined(ATxmega384D3)
+#  elif AVR8_PART_IS_DEFINED(ATxmega384D3)
 #    define FLASH_SIZE      (384*1024L)
 #    define FLASH_PAGE_SIZE (512)
 #  else

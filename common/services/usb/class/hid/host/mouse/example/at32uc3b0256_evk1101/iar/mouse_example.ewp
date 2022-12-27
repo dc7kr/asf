@@ -327,7 +327,7 @@
 					<state>$PROJ_DIR$/../../../../../../../uhc</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../clock</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
+					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/flashc</state>
@@ -336,7 +336,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards/evk1101</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -463,7 +463,7 @@
 					<state>$PROJ_DIR$/../../../../../../../uhc</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../clock</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
+					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/flashc</state>
@@ -472,7 +472,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards/evk1101</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1208,7 +1208,7 @@
 					<state>$PROJ_DIR$/../../../../../../../uhc</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../clock</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
+					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/flashc</state>
@@ -1217,7 +1217,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards/evk1101</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1344,7 +1344,7 @@
 					<state>$PROJ_DIR$/../../../../../../../uhc</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../clock</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
+					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/flashc</state>
@@ -1353,7 +1353,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards/evk1101</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../..</state>

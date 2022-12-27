@@ -76,52 +76,54 @@ void board_init(void)
 	ioport_configure_pin(GPIO_PUSH_BUTTON_7, IOPORT_DIR_INPUT
 			| IOPORT_PULL_UP);
 
-	#ifdef CONF_BOARD_AT45DBX
+#ifdef CONF_BOARD_AT45DBX
 	ioport_configure_pin(AT45DBX_MASTER_SCK,IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 	ioport_configure_pin(AT45DBX_MASTER_MOSI,IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 	ioport_configure_pin(AT45DBX_MASTER_MISO, IOPORT_DIR_INPUT);
 	ioport_configure_pin(AT45DBX_CS, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
-	#endif
+#endif
 
-	#ifdef CONF_BOARD_ENABLE_USARTC0
+#ifdef CONF_BOARD_ENABLE_USARTC0
 	ioport_configure_pin(IOPORT_CREATE_PIN(PORTC, 3), IOPORT_DIR_OUTPUT
 			| IOPORT_INIT_HIGH);
 	ioport_configure_pin(IOPORT_CREATE_PIN(PORTC, 2), IOPORT_DIR_INPUT);
-	#endif
+#endif
 
-	#ifdef CONF_BOARD_ENABLE_USARTC1
+#ifdef CONF_BOARD_ENABLE_USARTC1
 	ioport_configure_pin(IOPORT_CREATE_PIN(PORTC, 7), IOPORT_DIR_OUTPUT
 			| IOPORT_INIT_HIGH);
 	ioport_configure_pin(IOPORT_CREATE_PIN(PORTC, 6), IOPORT_DIR_INPUT);
-	#endif
+#endif
 
-	#ifdef CONF_BOARD_ENABLE_USARTD0
+#ifdef CONF_BOARD_ENABLE_USARTD0
 	ioport_configure_pin(IOPORT_CREATE_PIN(PORTD, 3), IOPORT_DIR_OUTPUT
 			| IOPORT_INIT_HIGH);
 	ioport_configure_pin(IOPORT_CREATE_PIN(PORTD, 2), IOPORT_DIR_INPUT);
-	#endif
+#endif
 
-	#ifdef CONF_BOARD_ENABLE_USARTD1
+#ifdef CONF_BOARD_ENABLE_USARTD1
 	ioport_configure_pin(IOPORT_CREATE_PIN(PORTD, 7), IOPORT_DIR_OUTPUT
 			| IOPORT_INIT_HIGH);
 	ioport_configure_pin(IOPORT_CREATE_PIN(PORTD, 6), IOPORT_DIR_INPUT);
-	#endif
+#endif
 
-	#ifdef CONF_BOARD_ENABLE_USARTE0
+#if !(XMEGA_B3)
+# ifdef CONF_BOARD_ENABLE_USARTE0
 	ioport_configure_pin(IOPORT_CREATE_PIN(PORTE, 3), IOPORT_DIR_OUTPUT
 			| IOPORT_INIT_HIGH);
 	ioport_configure_pin(IOPORT_CREATE_PIN(PORTE, 2), IOPORT_DIR_INPUT);
-	#endif
+# endif
 
-	#ifdef CONF_BOARD_ENABLE_USARTE1
+# ifdef CONF_BOARD_ENABLE_USARTE1
 	ioport_configure_pin(IOPORT_CREATE_PIN(PORTE, 7), IOPORT_DIR_OUTPUT
 			| IOPORT_INIT_HIGH);
 	ioport_configure_pin(IOPORT_CREATE_PIN(PORTE, 6), IOPORT_DIR_INPUT);
-	#endif
+# endif
 
-	#ifdef CONF_BOARD_ENABLE_USARTF0
+# ifdef CONF_BOARD_ENABLE_USARTF0
 	ioport_configure_pin(IOPORT_CREATE_PIN(PORTF, 3), IOPORT_DIR_OUTPUT
 			| IOPORT_INIT_HIGH);
 	ioport_configure_pin(IOPORT_CREATE_PIN(PORTF, 2), IOPORT_DIR_INPUT);
-	#endif
+# endif
+#endif	
 }

@@ -4,7 +4,7 @@
  * \brief USB host driver
  * Compliance with common driver UHD
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -91,8 +91,8 @@ extern void udc_start(void);
 #endif
 
 /**
- * \ingroup usb_host_group
- * \defgroup uhd_group USB Host Driver (UHD)
+ * \ingroup uhd_group
+ * \defgroup uhd_usbb_group USBB Host Driver
  *
  * \section USB_CONF USB dual role configuration
  * The defines UHD_ENABLE and UDD_ENABLE must be added in project to allow
@@ -809,23 +809,8 @@ void uhd_ep_free(usb_add_t add, usb_ep_t endp)
 		}
 		if (endp != 0xFF) {
 			// Disable specific endpoint number
-
-			// Check endpoint number
-			if ((endp & USB_EP_ADDR_MASK) != uhd_get_pipe_endpoint_number(pipe)) {
+			if (endp != uhd_get_pipe_endpoint_address(pipe)) {
 				continue; // Mismatch
-			}
-
-			// Check endpoint and pipe direction
-			if (endp & USB_EP_DIR_IN) {
-				// Endpoint IN
-				if (AVR32_USBB_UPCFG0_PTOKEN_IN != uhd_get_pipe_token(pipe)) {
-					continue; // Mismatch
-				}
-			} else {
-				// Endpoint OUT
-				if (AVR32_USBB_UPCFG0_PTOKEN_OUT != uhd_get_pipe_token(pipe)) {
-					continue; // Mismatch
-				}
 			}
 		}
 		// Unalloc pipe
@@ -1505,7 +1490,7 @@ static void uhd_ctrl_phase_zlp_out(void)
 
 /**
  * \internal
- * \brief Call the callback linked to control request 
+ * \brief Call the callback linked to control request
  * and start the next request from the queue.
 */
 static void uhd_ctrl_request_end(uhd_trans_status_t status)
@@ -1591,11 +1576,7 @@ static uint8_t uhd_get_pipe(usb_add_t add, usb_ep_t endp)
 		if (add != uhd_get_configured_address(pipe)) {
 			continue;
 		}
-		if ((endp&USB_EP_ADDR_MASK)!= uhd_get_pipe_endpoint_number(pipe)) {
-			continue;
-		}
-		if ((!(endp&USB_EP_DIR_IN)) != (AVR32_USBB_UPCFG0_PTOKEN_IN
-				!= uhd_get_pipe_token(pipe))) {
+		if (endp != uhd_get_pipe_endpoint_address(pipe)) {
 			continue;
 		}
 		break;
@@ -1682,10 +1663,6 @@ static void uhd_pipe_trans_complet(uint8_t pipe)
 			if (uhd_is_pipe_in(pipe)) {
 				uhd_in_request_number(pipe,
 						(next_trans+uhd_get_pipe_size(pipe)-1)/uhd_get_pipe_size(pipe));
-				// In case of low USB speed and with a high CPU frequency,
-				// a ACK from host can be always running on USB line
-				// then wait end of ACK on IN pipe.
-				while (!Is_uhd_pipe_frozen(pipe));
 			}
 			uhd_disable_bank_interrupt(pipe);
 			uhd_unfreeze_pipe(pipe);
@@ -1753,6 +1730,21 @@ static void uhd_pipe_interrupt_dma(uint8_t pipe)
 		// and call calback
 		uhd_enable_bank_interrupt(pipe);
 	} else {
+		if (!Is_uhd_pipe_frozen(pipe)) {
+			// Pipe is not freeze in case of :
+			// - incomplet transfer when the request number INRQ is not complete.
+			// - low USB speed and with a high CPU frequency,
+			// a ACK from host can be always running on USB line.
+
+			if (nb_remaining) {
+				// Freeze pipe in case of incomplet transfer
+				uhd_freeze_pipe(pipe);
+			} else {
+				// Wait freeze in case of ASK on going
+				while (!Is_uhd_pipe_frozen(pipe)) {
+				}
+			}
+		}
 		uhd_pipe_trans_complet(pipe);
 	}
 }
@@ -1840,6 +1832,7 @@ static void uhd_pipe_finish_job(uint8_t pipe, uhd_trans_status_t status)
 		return; // No callback linked to job
 	}
 	ptr_job->call_end(uhd_get_configured_address(pipe),
+			uhd_get_pipe_endpoint_address(pipe),
 			status, ptr_job->nb_trans);
 }
 

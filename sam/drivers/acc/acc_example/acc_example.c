@@ -203,7 +203,7 @@ static void dsplay_menu(void)
 }
 
 /**
- * \brief Get voltage from user input, the input range is: 
+ * \brief Get voltage from user input, the input range is:
  * (1/6)*ADVREF~(5/6)*ADVREF (mv)
  */
 static int16_t get_input_voltage(void)
@@ -389,7 +389,7 @@ int main(void)
 				 *              MAX_DIGITAL                       digit
 				 *
 				 */
-				ul_value = ((s_volt - (VOLT_REF / 6)) 
+				ul_value = ((s_volt - (VOLT_REF / 6))
 					* (MAX_DIGITAL * 6) / 4) / VOLT_REF;
 				dacc_write_conversion_data(DACC, ul_value);
 				puts("-I- Set ok\r");
@@ -401,9 +401,9 @@ int main(void)
 		case 'V':
 			/* Start conversion */
 			adc_start(ADC);
-			ul_status = adc_get_status(ADC).isr_status;
+			ul_status = adc_get_status(ADC);
 			while ((ul_status & ADC_ISR_EOC5) != ADC_ISR_EOC5) {
-				ul_status = adc_get_status(ADC).isr_status;
+				ul_status = adc_get_status(ADC);
 			}
 			/* Conversion is done */
 			ul_value = adc_get_channel_value(ADC, ADC_CHANNEL_5);

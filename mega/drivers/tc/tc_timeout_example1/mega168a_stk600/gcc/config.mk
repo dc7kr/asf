@@ -46,6 +46,7 @@ TARGET = tc_timeout_example1.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
+       mega/boards/stk600/init.c                          \
        mega/drivers/tc/tc_timeout.c                       \
        mega/drivers/tc/tc_timeout_example1/tc_timeout_example1.c
 
@@ -54,6 +55,7 @@ ASSRCS =
 
 # Include path located from the top-level source directory
 INC_PATH = \
+       common/boards                                      \
        common/utils                                       \
        mega/drivers/tc                                    \
        mega/drivers/tc/tc_timeout_example1/mega168a_stk600 \

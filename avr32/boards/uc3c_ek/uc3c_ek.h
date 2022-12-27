@@ -235,6 +235,13 @@
 #define ET024006DHU_EBI_NCS_PIN         AVR32_EBI_NCS_PIN
 #define ET024006DHU_EBI_NCS_FUNCTION    AVR32_EBI_NCS_FUNCTION
 
+#define ET024006_IFACE_MODE             ET024006_IFACE_MODE_EBI
+#define ET024006_CMD_ADDR               ((volatile unsigned short int *) AVR32_EBI_CS0_ADDRESS)
+// The select signal connected to address line 22,
+// this implies an address offset of 0x400000.
+#define ET024006_PARAM_ADDR             ((volatile unsigned short int *) (AVR32_EBI_CS0_ADDRESS + 0x00400000))
+
+
 //! @}
 /*! \name Optional SPI connection to the TFT
  */
@@ -308,6 +315,35 @@
 #define ET024006DHU_EBI_NWE       AVR32_EBI_NWE0
 #define ET024006DHU_EBI_NRD       AVR32_EBI_NRD
 #define ET024006DHU_EBI_NCS       AVR32_EBI_NCS_0
+//! @}
+
+/*! \name Resistive touch Connections of the ET024006DHU display
+ */
+//! @{
+#define RTOUCH_ADC_IRQ            AVR32_ADCIFA_SEQUENCER0_IRQ
+
+//! IO pin used for XL line.
+#define RTOUCH_XH_PIN            AVR32_ADCIN1_PIN //PA5
+#define RTOUCH_XH_PIN_FUNCTION   AVR32_ADCIN1_FUNCTION
+#define RTOUCH_ADC_XH_CHANNEL    AVR32_ADCIFA_INP_ADCIN1
+
+//! IO pin used for XH line.
+#define RTOUCH_XL_PIN            AVR32_ADCIN15_PIN //PA13
+#define RTOUCH_XL_PIN_FUNCTION   AVR32_ADCIN15_FUNCTION
+#define RTOUCH_ADC_XL_CHANNEL    AVR32_ADCIFA_INN_ADCIN15
+
+//! IO pin used for YL line.
+#define RTOUCH_YL_PIN            AVR32_ADCIN13_PIN //PA24
+#define RTOUCH_YL_PIN_FUNCTION   AVR32_ADCIN13_FUNCTION
+#define RTOUCH_ADC_YL_CHANNEL    AVR32_ADCIFA_INN_ADCIN13
+
+//! IO pin used for YH line.
+#define RTOUCH_YH_PIN            AVR32_ADCIN0_PIN //PA4
+#define RTOUCH_YH_PIN_FUNCTION   AVR32_ADCIN0_FUNCTION
+#define RTOUCH_ADC_YH_CHANNEL    AVR32_ADCIFA_INP_ADCIN0
+
+//! AVR32 ADC module used for touch panel sampling.
+#define RTOUCH_ADC               AVR32_ADCIFA
 //! @}
 
 #endif  // _UC3C_EK_H_

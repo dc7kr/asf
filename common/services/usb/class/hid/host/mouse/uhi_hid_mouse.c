@@ -3,7 +3,7 @@
  *
  * \brief USB host Human Interface Device (HID) mouse driver.
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -51,7 +51,10 @@
 #endif
 
 /**
- * \addtogroup uhi_hid_mouse_group
+ * \ingroup uhi_hid_mouse_group
+ * \defgroup uhi_hid_mouse_group_internal Implementation of UHI HID Mouse
+ *
+ * Class internal implementation
  * @{
  */
 
@@ -92,6 +95,7 @@ static uhi_hid_mouse_dev_t uhi_hid_mouse_dev = {
 static void uhi_hid_mouse_start_trans_report(usb_add_t add);
 static void uhi_hid_mouse_report_reception(
 		usb_add_t add,
+		usb_ep_t ep,
 		uhd_trans_status_t status,
 		iram_size_t nb_transfered);
 //@}
@@ -211,6 +215,7 @@ static void uhi_hid_mouse_start_trans_report(usb_add_t add)
  */
 static void uhi_hid_mouse_report_reception(
 		usb_add_t add,
+		usb_ep_t ep,
 		uhd_trans_status_t status,
 		iram_size_t nb_transfered)
 {

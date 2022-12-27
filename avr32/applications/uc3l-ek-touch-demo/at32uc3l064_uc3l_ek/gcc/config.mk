@@ -61,6 +61,7 @@ CSRCS = \
        avr32/applications/uc3l-ek-touch-demo/qdebug/qdebugtransport.c \
        avr32/applications/uc3l-ek-touch-demo/qdebug/serial.c \
        avr32/applications/uc3l-ek-touch-demo/uc3l-ek-touch-demo.c \
+       avr32/boards/uc3l_ek/led.c                         \
        avr32/drivers/flashcdw/flashcdw.c                  \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \

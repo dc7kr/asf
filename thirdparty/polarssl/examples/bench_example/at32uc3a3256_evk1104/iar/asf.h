@@ -75,6 +75,9 @@
 // From module: Interrupt management - UC3 implementation
 #include <interrupt.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: PolarSSL - Small Cryptographic and SSL/TLS Library
 #include <polarssl/aes.h>
 #include <polarssl/arc4.h>

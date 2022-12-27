@@ -1803,5 +1803,14 @@
 				</file>
 			</group>
 		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1101</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/evk1101/led.c</name>
+				</file>
+			</group>
+		</group>
 	</group>
 </project>

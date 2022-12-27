@@ -176,6 +176,7 @@ void PIOD_Handler(void)
 	pio_handler_process(PIOD, ID_PIOD);
 }
 
+#ifdef _SAM3XA_PIOE_INSTANCE_
 /**
  * \brief Parallel IO Controller E interrupt handler.
  * Redefined PIOE interrupt handler for NVIC interrupt table.
@@ -184,7 +185,9 @@ void PIOE_Handler(void)
 {
 	pio_handler_process(PIOE, ID_PIOE);
 }
+#endif
 
+#ifdef _SAM3XA_PIOF_INSTANCE_
 /**
  * \brief Parallel IO Controller F interrupt handler.
  * Redefined PIOF interrupt handler for NVIC interrupt table.
@@ -193,6 +196,7 @@ void PIOF_Handler(void)
 {
 	pio_handler_process(PIOF, ID_PIOF);
 }
+#endif
 #endif
 
 /**
@@ -216,11 +220,3 @@ void pio_handler_set_priority(Pio *p_pio, IRQn_Type ul_irqn, uint32_t ul_priorit
 	NVIC_SetPriority(ul_irqn, ul_priority);
 	NVIC_EnableIRQ(ul_irqn);
 }
-
-/// @cond 0
-/**INDENT-OFF**/
-#ifdef __cplusplus
-}
-#endif
-/**INDENT-ON**/
-/// @endcond

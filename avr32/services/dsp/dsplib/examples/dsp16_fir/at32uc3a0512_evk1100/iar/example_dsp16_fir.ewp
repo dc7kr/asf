@@ -1927,6 +1927,9 @@
 									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp16_add_and_saturate.c</name>
 								</file>
 								<file>
+									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp32_pow.c</name>
+								</file>
+								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp32_intmul.c</name>
 								</file>
 								<file>
@@ -1955,9 +1958,6 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp16_intdiv.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp32_pow.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp32_add.c</name>
@@ -2002,9 +2002,6 @@
 									<name>$PROJ_DIR$/../../../../generic/basic/filters/filt_dsp16_nlms.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../generic/basic/filters/filt_dsp32_lms.c</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/filters/dsp16_filt_interpolation.c</name>
 								</file>
 								<file>
@@ -2012,6 +2009,9 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/filters/filt_dsp32_iirpart.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../generic/basic/filters/filt_dsp32_lms.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/filters/filt_dsp16_lms.c</name>
@@ -2059,13 +2059,13 @@
 									<name>$PROJ_DIR$/../../../../at32uc/basic/vectors/vect_dsp16_dotdiv_at32uc.c</name>
 								</file>
 								<file>
+									<name>$PROJ_DIR$/../../../../at32uc/basic/vectors/vect_dsp32_min_at32uc.c</name>
+								</file>
+								<file>
 									<name>$PROJ_DIR$/../../../../at32uc/basic/vectors/vect_dsp16_complex_conj_at32uc.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../at32uc/basic/vectors/vect_dsp16_add_at32uc.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../at32uc/basic/vectors/vect_dsp32_min_at32uc.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../at32uc/basic/vectors/vect_dsp16_dotmul_at32uc.c</name>
@@ -2196,6 +2196,15 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../drivers/pm/pm_conf_clocks.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1100</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../boards/evk1100/led.c</name>
 				</file>
 			</group>
 		</group>

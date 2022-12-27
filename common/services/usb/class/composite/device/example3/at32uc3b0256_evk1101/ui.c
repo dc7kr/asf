@@ -3,7 +3,7 @@
  *
  * \brief User Interface
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,15 +39,7 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "udi_msc.h"
-#include "udc.h"
-#include "udi_hid_kbd.h"
-#include "board.h"
-#include "gpio.h"
-#include "joystick.h"
-#include "eic.h"
+#include <asf.h>
 #include "ui.h"
 
 static struct{
@@ -118,7 +110,7 @@ ISR(ui_wakeup_isr, AVR32_GPIO0_IRQ_GROUP, 0)
 	// Clear External Interrupt Line else Wakeup event always enabled
 	eic_clear_interrupt_line(&AVR32_EIC, EXT_INT6);
 	// It is a wakeup then send wakeup USB
-	udc_wakeup();
+	udc_remotewakeup();
 }
 
 
@@ -302,7 +294,7 @@ void ui_kbd_led(uint8_t value)
  *
  * Human interface on EVK1101 :
  * - Led 0 is on when USB line is in IDLE mode, and off in SUSPEND mode
- * - Led 1 blinks when USB Host have checked and enabled HID and MSC interfaces
+ * - Led 1 blinks when USB host has checked and enabled HID and MSC interfaces
  * - Led 2 is on during read or write operation
  * - Led 3 displays caps lock status.
  * - The PB0 open a note pad application on Windows O.S.

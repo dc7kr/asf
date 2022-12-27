@@ -1724,15 +1724,24 @@
 			<name>drivers</name>
 			<group>
 				<name>gpio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../gpio.c</name>
-				</file>
 				<group>
 					<name>peripheral_bus_example</name>
 					<file>
 						<name>$PROJ_DIR$/../../gpio_peripheral_bus_example.c</name>
 					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../gpio.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1105</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/evk1105/led.c</name>
+				</file>
 			</group>
 		</group>
 		<group>

@@ -3,7 +3,7 @@
  *
  * \brief User Interface
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,10 +39,7 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "board.h"
-#include "led.h"
+#include <asf.h>
 #include "ui.h"
 
 void ui_init(void)
@@ -121,7 +118,7 @@ void ui_process(uint16_t framenumber)
  *
  * Human interface on XMEGA-A3BU Xplained:
  * - XMEGA USART used USARTC0 on J1 connector
- * - Led 0 blinks when USB Host have checked and enabled CDC interface
+ * - Led 0 blinks when USB host has checked and enabled CDC interface
  * - Led 1 is on when CDC port is open
  * - Green LED close to USB connector is on during data transfer from CDC to UART
  * - Red LED close to USB connector is on during data transfer from UART to CDC

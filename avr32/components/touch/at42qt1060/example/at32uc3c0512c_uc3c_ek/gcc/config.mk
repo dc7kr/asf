@@ -56,6 +56,7 @@ TARGET = at42qt1060_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/uc3c_ek/led.c                         \
        avr32/components/touch/at42qt1060/at42qt1060.c     \
        avr32/components/touch/at42qt1060/example/at42qt1060_example.c \
        avr32/drivers/flashc/flashc.c                      \

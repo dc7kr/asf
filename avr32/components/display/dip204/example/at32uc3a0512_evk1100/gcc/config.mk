@@ -56,6 +56,7 @@ TARGET = dip204_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/evk1100/led.c                         \
        avr32/components/display/dip204/dip204.c           \
        avr32/components/display/dip204/example/dip204_example.c \
        avr32/drivers/flashc/flashc.c                      \
@@ -80,6 +81,7 @@ INC_PATH = \
        avr32/boards/evk1100                               \
        avr32/components/display/dip204                    \
        avr32/components/display/dip204/example            \
+       avr32/components/display/dip204/example/at32uc3a0512_evk1100 \
        avr32/drivers/cpu/cycle_counter                    \
        avr32/drivers/flashc                               \
        avr32/drivers/gpio                                 \

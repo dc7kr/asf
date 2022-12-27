@@ -72,12 +72,12 @@
 // From module: Interrupt management - UC3 implementation
 #include <interrupt.h>
 
-// From module: Joystick interface (5-way)
-#include <joystick.h>
-
 // From module: PM Power Manager- UC3 A0/A1/A3/A4/B0/B1 implementation
 #include <power_clocks_lib.h>
 #include <sleep.h>
+
+// From module: Part identification macros
+#include <parts.h>
 
 // From module: Sleep manager - UC3 implementation
 #include <sleepmgr.h>
@@ -89,7 +89,7 @@
 // From module: USB Device HID Mouse (Single Interface Device)
 #include <udi_hid_mouse.h>
 
-// From module: USB Device Stack Core
+// From module: USB Device Stack Core (Common API)
 #include <udc.h>
 #include <udd.h>
 

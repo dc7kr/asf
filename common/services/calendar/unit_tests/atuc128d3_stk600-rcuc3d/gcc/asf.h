@@ -72,6 +72,12 @@
 // From module: Interrupt management - UC3 implementation
 #include <interrupt.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
+// From module: STK600-RCUC3D board support
+#include <led.h>
+
 // From module: Standard serial I/O (stdio) - UC3 implementation
 #include <stdio_serial.h>
 

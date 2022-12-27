@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief mXT143E Xplained HID mouse example
+ * \brief User interface for mXT143E Xplained trackpad demo
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
@@ -41,28 +41,22 @@
 #ifndef _UI_H_
 #define _UI_H_
 
-extern struct mxt_touch_event touch_event;
+#include <asf.h>
 
-/**! \brief Initializes the user interface */
+extern bool ui_new_touch_event;
+extern struct mxt_touch_event ui_touch_event;
+
+/** Flag to UI that touch event is pending  */
+static inline void ui_flag_new_touch_event(void)
+{
+	ui_new_touch_event = true;
+}
+
 void ui_init(void);
-
-/**! \brief Enters the user interface in power down mode */
 void ui_powerdown(void);
-
-/**! \brief Enables the asynchrone interrupts of the user interface */
 void ui_wakeup_enable(void);
-
-/**! \brief Disables the asynchrone interrupts of the user interface */
 void ui_wakeup_disable(void);
-
-/**! \brief Exits the user interface of power down mode */
 void ui_wakeup(void);
-
-/*! \brief This process is called each 1ms
- * It is called only if the USB interface is enabled.
- *
- * \param framenumber  Current frame number
- */
 void ui_process(uint16_t framenumber);
 
 #endif /* _UI_H_ */

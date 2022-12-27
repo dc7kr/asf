@@ -133,10 +133,7 @@ INC_PATH = \
        avr32/boards                                       \
        avr32/boards/evk1100                               \
        avr32/components/display/dip204                    \
-       avr32/components/ethernet_phy                      \
        avr32/components/ethernet_phy/dp83848              \
-       avr32/components/ethernet_phy/dummy_phy            \
-       avr32/components/ethernet_phy/rtl8201              \
        avr32/drivers/cpu/cycle_counter                    \
        avr32/drivers/flashc                               \
        avr32/drivers/gpio                                 \

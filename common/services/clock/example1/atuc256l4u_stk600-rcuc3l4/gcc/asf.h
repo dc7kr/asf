@@ -76,8 +76,14 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: SCIF System Control Interface - UC3L implementation
 #include <scif_uc3l.h>
+
+// From module: STK600-RCUC3L4 board support
+#include <led.h>
 
 // From module: System Clock Control - UC3 L0 with PLL implementation
 #include <sysclk.h>

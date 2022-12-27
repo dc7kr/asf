@@ -63,12 +63,6 @@
 // From module: EVK1100 board support
 #include <led.h>
 
-// From module: Ethernet Physical (DP83848)
-#include <dp83848.h>
-
-// From module: Ethernet Physical Device Manager
-#include <ethernet_phy.h>
-
 // From module: FLASHC - Flash Controller
 #include <flashc.h>
 
@@ -119,6 +113,9 @@
 
 // From module: PWM - UC3 A/B implementation
 #include <pwm.h>
+
+// From module: Part identification macros
+#include <parts.h>
 
 // From module: SPI - Serial Peripheral Interface
 #include <spi.h>

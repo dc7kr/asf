@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief ADC12 temperature sensor example for SAM.
+ * \brief ADC temperature sensor example for SAM.
  *
  * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
@@ -40,58 +40,62 @@
  */
 
 /**
- *  \mainpage ADC12 Temperature Sensor Example
+ * \mainpage ADC Temperature Sensor Example
  *
- *  \section Purpose
+ * \section Purpose
  *
- *  The adc12_temp_sensor example demonstrates how to use the temperature sensor
- *  feature inside the microcontroller.
+ * The adc_temp_sensor example demonstrates how to use the temperature sensor
+ * feature inside the microcontroller.
  *
- *  \section Requirements
+ * \section Requirements
  *
- *  This package can be used with SAM3-EK.
+ * This example can be used on any SAM3/4 boards.
  *
- *  \section Description
+ * Temperature sensor output range is from 0 to 3300 mv, hence ADVREF must be 
+ * set to 3300 mv in order to provide reliable temperature information. Please 
+ * refer to the board schematics for ADVREF jumper configuration.
  *
- *  The adc12_temp_sensor is aimed to demonstrate the temperature sensor feature
- *  inside the device. To use this feature, the temperature sensor should be
- *  turned on by setting TSON bit in ADC_ACR. The channel 15 is connected to the
- *  sensor by default. With PDC support, the Interrupt Handler of ADC is designed
- *  to handle RXBUFF interrupt.
+ * \section Description
  *
- *  The temperature sensor provides an output voltage (VT) that is proportional
- *  to absolute temperature (PTAT). The relationship between measured voltage and
- *  actual temperature could be found in Electrical Characteristics part of the
- *  datasheet.
+ * The adc_temp_sensor is aimed to demonstrate the temperature sensor feature
+ * inside the device. To use this feature, the temperature sensor should be
+ * turned on by setting TSON bit in ADC_ACR. The channel 15 is connected to the
+ * sensor by default. With PDC support, the Interrupt Handler of ADC is designed
+ * to handle RXBUFF interrupt.
  *
- *  \section Usage
+ * The temperature sensor provides an output voltage (VT) that is proportional
+ * to absolute temperature (PTAT). The relationship between measured voltage and
+ * actual temperature could be found in Electrical Characteristics part of the
+ * datasheet.
  *
- *  -# Build the program and download it into the evaluation board. Please
- *     refer to the
- *     <a href="http://www.atmel.com/dyn/resources/prod_documents/6421B.pdf">
- *     SAM-BA User Guide</a>, the
- *     <a href="http://www.atmel.com/dyn/resources/prod_documents/doc6310.pdf">
- *     GNU-Based Software Development</a>
- *     application note or the
- *     <a href="http://www.iar.com/website1/1.0.1.0/78/1/">
- *     IAR EWARM User and reference guides</a>,
- *     depending on the solutions that users choose.
- *  -# On the computer, open and configure a terminal application
- *     (e.g., HyperTerminal on Microsoft Windows) with these settings:
- *    - 115200 bauds
- *    - 8 bits of data
- *    - No parity
- *    - 1 stop bit
- *    - No flow control
- *  -# In the terminal window, the
- *     following text should appear (values depend on the board and the chip used):
- *     \code
- *      -- ADC12 Temperature Sensor xxx --
- *      -- xxxxxx-xx
- *      -- Compiled: xxx xx xxxx xx:xx:xx --
- *     \endcode
- *  -# The application will output current celsius temperature on the terminal, and
- *     users can set temperature offset by a menu.
+ * \section Usage
+ *
+ * -# Build the program and download it into the evaluation board. Please
+ *    refer to the
+ *    <a href="http://www.atmel.com/dyn/resources/prod_documents/6421B.pdf">
+ *    SAM-BA User Guide</a>, the
+ *    <a href="http://www.atmel.com/dyn/resources/prod_documents/doc6310.pdf">
+ *    GNU-Based Software Development</a>
+ *    application note or the
+ *    <a href="http://www.iar.com/website1/1.0.1.0/78/1/">
+ *    IAR EWARM User and reference guides</a>,
+ *    depending on the solutions that users choose.
+ * -# On the computer, open and configure a terminal application
+ *    (e.g., HyperTerminal on Microsoft Windows) with these settings:
+ *   - 115200 bauds
+ *   - 8 bits of data
+ *   - No parity
+ *   - 1 stop bit
+ *   - No flow control
+ * -# In the terminal window, the
+ *    following text should appear (values depend on the board and the chip used):
+ *    \code
+ *     -- ADC Temperature Sensor xxx --
+ *     -- xxxxxx-xx
+ *     -- Compiled: xxx xx xxxx xx:xx:xx --
+ *    \endcode
+ * -# The application will output current celsius temperature on the terminal, and
+ *    users can set temperature offset by a menu.
  *
  */
 
@@ -100,14 +104,11 @@
 #include "asf.h"
 #include "conf_board.h"
 
-/** ADC clock */
-#define BOARD_ADC_FREQ (6000000)
-
 /** Size of the receive buffer and transmit buffer. */
-#define BUFFER_SIZE         (100)
+#define BUFFER_SIZE     (100)
 
 /** Reference voltage for ADC,in mv. */
-#define VOLT_REF   (3300)
+#define VOLT_REF        (3300)
 
 /** The maximal digital value */
 #if SAM3S || SAM3XA || SAM4S
@@ -124,19 +125,16 @@
 #endif
 
 #define STRING_EOL    "\r"
-#define STRING_HEADER "-- ADC12 Temperature Sensor Example --\r\n" \
+#define STRING_HEADER "-- ADC Temperature Sensor Example --\r\n" \
 		"-- "BOARD_NAME" --\r\n" \
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 
 /** adc buffer */
 static int16_t gs_s_adc_values[BUFFER_SIZE] = { 0 };
 
-/** Time stamp */
-static uint32_t gs_ul_time_stamp = 0;
-
-
-/** \brief Simple function to replace printf with float formatting.
- *  1 decimal with rounding support.
+/** 
+ * \brief Simple function to replace printf with float formatting.
+ * One decimal with rounding support.
  */
 static void print_temp(float temp)
 {
@@ -203,7 +201,7 @@ static uint32_t adc_read_buffer(Adc * pADC, int16_t * pwBuffer, uint32_t dwSize)
 }
 
 /**
- *  Configure UART console.
+ * \brief Configure UART console.
  */
 static void configure_console(void)
 {
@@ -231,26 +229,17 @@ static void configure_console(void)
 }
 
 /**
- * Systick handler, start new conversion.
+ * \brief Systick handler, start new conversion.
  */
 void SysTick_Handler(void)
 {
-	gs_ul_time_stamp++;
-	/* Simply to get 10ms interval */
-	if (gs_ul_time_stamp % 10 == 0) {
-
-		if ((adc_get_status(ADC).isr_status & ADC_ISR_EOC15) ==
-				ADC_ISR_EOC15) {
-
-			/* Start conversion */
-			adc_start(ADC);
-		}
-
+	if ((adc_get_status(ADC) & ADC_ISR_EOC15) == ADC_ISR_EOC15) {
+		adc_start(ADC);
 	}
 }
 
 /**
- * ADC interrupt handler.
+ * \brief ADC interrupt handler.
  */
 void ADC_Handler(void)
 {
@@ -260,7 +249,7 @@ void ADC_Handler(void)
 	uint32_t ul_value = 0;
 	uint32_t ul_temp_value = 0;
 
-	if ((adc_get_status(ADC).isr_status & ADC_ISR_RXBUFF) == ADC_ISR_RXBUFF) {
+	if ((adc_get_status(ADC) & ADC_ISR_RXBUFF) == ADC_ISR_RXBUFF) {
 
 		/* Multisample */
 		for (ul_counter = 0; ul_counter < BUFFER_SIZE; ul_counter++) {
@@ -293,14 +282,13 @@ void ADC_Handler(void)
 }
 
 /**
- *  \brief adc12_temp_sensor Application entry point.
+ * \brief adc_temp_sensor Application entry point.
  *
- *  Initialize adc to 12-bit, enable channel 15,turn on
- *  temp sensor, pdc channel interrupt for temp sensor
- *  and start conversion.
+ * Initialize adc to 12-bit, enable channel 15,turn on
+ * temp sensor, pdc channel interrupt for temp sensor
+ * and start conversion.
  *
- *  \return Unused (ANSI-C compatibility).
- *  \callgraph
+ * \return Unused (ANSI-C compatibility).
  */
 int main(void)
 {
@@ -314,10 +302,11 @@ int main(void)
 	/* Output example information. */
 	puts(STRING_HEADER);
 
-	/* 1 ms timer */
-	if (SysTick_Config(sysclk_get_cpu_hz() / 1000)) {
+	/* 10 ms timer */
+	if (SysTick_Config(sysclk_get_cpu_hz() / 100)) {
 		puts("-F- Systick configuration error\r");
-		while (1);
+		while (1) {
+		}
 	}
 	/* Enable peripheral clock. */
 	pmc_enable_periph_clk(ID_ADC);
@@ -343,12 +332,15 @@ int main(void)
 
 	/* Enable ADC interrupt. */
 	NVIC_EnableIRQ(ADC_IRQn);
+	
 	/* Start conversion. */
 	adc_start(ADC);
 
 	adc_read_buffer(ADC, gs_s_adc_values, BUFFER_SIZE);
+	
 	/* Enable PDC channel interrupt. */
 	adc_enable_interrupt(ADC, ADC_ISR_RXBUFF);
 
-	while (1);
+	while (1) {
+	}
 }

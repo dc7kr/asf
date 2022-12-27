@@ -38,8 +38,8 @@
  * \asf_license_stop
  *
  */
-#ifndef _cycle_counter_h_
-#define _cycle_counter_h_
+#ifndef _CYCLE_COUNTER_H_
+#define _CYCLE_COUNTER_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -108,4 +108,4 @@ static inline void __portable_avr_delay_cycles(unsigned long n)
 }
 #endif
 
-#endif /* _cycle_counter_h_ */
+#endif /* _CYCLE_COUNTER_H_ */

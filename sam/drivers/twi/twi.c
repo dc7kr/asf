@@ -398,6 +398,29 @@ uint32_t twi_get_interrupt_mask(Twi *p_twi)
 }
 
 /**
+ * \brief Reads a byte from the TWI bus.
+ *
+ * \param p_twi Pointer to a TWI instance.
+ *
+ * \return The byte read.
+ */
+uint8_t twi_read_byte(Twi *p_twi)
+{
+	return p_twi->TWI_RHR;
+}
+
+/**
+ * \brief Sends a byte of data to one of the TWI slaves on the bus.
+ *
+ * \param p_twi Pointer to a TWI instance.
+ * \param byte The byte to send.
+ */
+void twi_write_byte(Twi *p_twi, uint8_t uc_byte)
+{
+	p_twi->TWI_THR = uc_byte;
+}
+
+/**
  * \brief Enable TWI slave mode.
  *
  * \param p_twi Pointer to a TWI instance.
@@ -529,16 +552,20 @@ void twi_reset(Twi *p_twi)
  */
 Pdc *twi_get_pdc_base(Twi *p_twi)
 {
-	Pdc *p_pdc_base;
+	Pdc *p_pdc_base = NULL;
 
 	if (p_twi == TWI0) {
 		p_pdc_base = PDC_TWI0;
 	}
-#if (SAM3XA || SAM3U || SAM3S)
+#if (SAM3XA || SAM3U || SAM3S || SAM4S)
 	else if (p_twi == TWI1) {
 		p_pdc_base = PDC_TWI1;
 	}
 #endif
+	else
+	{
+		Assert(false);
+	}
 
 	return p_pdc_base;
 }

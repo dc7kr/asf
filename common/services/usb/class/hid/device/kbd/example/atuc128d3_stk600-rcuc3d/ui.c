@@ -39,13 +39,7 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "udc.h"
-#include "udi_hid_kbd.h"
-#include "board.h"
-#include "gpio.h"
-#include "eic.h"
+#include <asf.h>
 #include "ui.h"
 
 //! Sequence process running each \c SEQUENCE_PERIOD ms
@@ -127,7 +121,7 @@ ISR(ui_wakeup_isr, AVR32_GPIO_IRQ_GROUP, 0)
 	// Clear External Interrupt Line else Wakeup event always enabled
 	eic_clear_interrupt_line(&AVR32_EIC, EXT_NMI);
 	// It is a wakeup then send wakeup USB
-	udc_wakeup();
+	udc_remotewakeup();
 }
 
 void ui_init(void)
@@ -291,7 +285,7 @@ void ui_kbd_led(uint8_t value)
  *
  * Human interface on STK600:
  * - Led 0 is on when USB line is in IDLE mode, and off in SUSPEND mode
- * - Led 1 blinks when USB Host have checked and enabled HID Keyboard interface
+ * - Led 1 blinks when USB host has checked and enabled HID Keyboard interface
  * - Led 2 displays numeric lock status.
  * - Led 3 displays caps lock status.
  * - The switch 0 open a note pad application on Windows O.S.

@@ -54,8 +54,8 @@
 #  define AVR32_USBB_EPT_NUM 8
 #endif
 
-//! \ingroup usb_host_group
-//! \defgroup uhd_group USB Host Driver (UHD)
+//! \ingroup uhd_group
+//! \defgroup uhd_usbb_group USBB Host Driver
 //! USBB low-level driver for USB host mode
 //!
 //! @warning Bit-masks are used instead of bit-fields because PB registers
@@ -288,6 +288,9 @@
 #define uhd_configure_pipe_int_req_freq(p,freq)  USBB_P_WR_BITFIELD(UPCFG,INTFRQ,p,freq)
 #define uhd_get_pipe_int_req_freq(p)             USBB_P_RD_BITFIELD(UPCFG,INTFRQ,p)
 #define uhd_configure_pipe_endpoint_number(p,ep) USBB_P_WR_BITFIELD(UPCFG,PEPNUM,p,ep)
+#define uhd_get_pipe_endpoint_address(p) \
+		(uhd_get_pipe_endpoint_number(p) \
+		| (uhd_is_pipe_in(p)? USB_EP_DIR_IN : USB_EP_DIR_OUT))
 #define uhd_get_pipe_endpoint_number(p)          USBB_P_RD_BITFIELD(UPCFG,PEPNUM,p)
 #define uhd_configure_pipe_type(p, type)         USBB_P_WR_BITFIELD(UPCFG,PTYPE,p, type)
 #define uhd_get_pipe_type(p)                     USBB_P_RD_BITFIELD(UPCFG,PTYPE,p)

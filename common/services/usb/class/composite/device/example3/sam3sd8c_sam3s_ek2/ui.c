@@ -39,20 +39,8 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "udi_msc.h"
-#include "udc.h"
-#include "udi_hid_kbd.h"
-#include "board.h"
-#include "pmc.h"
-#include "led.h"
+#include <asf.h>
 #include "ui.h"
-
-#include "conf_board.h"
-#include "pio.h"
-#include "pio_handler.h"
-#include "sysclk.h"
 
 //! Sequence process running each \c SEQUENCE_PERIOD ms
 #define SEQUENCE_PERIOD 150
@@ -138,7 +126,7 @@ static void ui_wakeup_handler(uint32_t id, uint32_t mask)
 {
 	if (WAKEUP_PIO_ID == id && WAKEUP_PIO_MASK == mask) {
 		// It is a wakeup then send wakeup USB
-		udc_wakeup();
+		udc_remotewakeup();
 	}
 }
 
@@ -287,7 +275,7 @@ void ui_kbd_led(uint8_t value)
  * \defgroup UI User Interface
  *
  * Human interface on SAM3S-EK2:
- * - Led 0 (D2) blinks when USB Host have checked and enabled MSC interface
+ * - Led 0 (D2) blinks when USB host has checked and enabled MSC interface
  * - The USRPB1 (BP2) opens a notepad application on Windows O.S.
  *   and sends key sequence "Atmel ARM"
  * - Led 1 (D3) is on during read/write operation

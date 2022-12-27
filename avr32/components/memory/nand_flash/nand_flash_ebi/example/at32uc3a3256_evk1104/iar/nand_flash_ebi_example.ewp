@@ -1815,6 +1815,12 @@
 				</group>
 			</group>
 			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../drivers/usart/usart.c</name>
+				</file>
+			</group>
+			<group>
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../drivers/flashc/flashc.c</name>
@@ -1841,12 +1847,6 @@
 					<name>$PROJ_DIR$/../../../../../../../drivers/pm/pm_conf_clocks.c</name>
 				</file>
 			</group>
-			<group>
-				<name>usart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../drivers/usart/usart.c</name>
-				</file>
-			</group>
 		</group>
 		<group>
 			<name>boards</name>
@@ -1854,6 +1854,9 @@
 				<name>evk1104</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../boards/evk1104/init.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../boards/evk1104/led.c</name>
 				</file>
 			</group>
 		</group>
@@ -1876,18 +1879,6 @@
 	<group>
 		<name>common</name>
 		<group>
-			<name>utils</name>
-			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/write.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/read.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
 			<name>services</name>
 			<group>
 				<name>clock</name>
@@ -1902,6 +1893,18 @@
 				<name>serial</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/write.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/read.c</name>
 				</file>
 			</group>
 		</group>

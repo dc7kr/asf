@@ -172,7 +172,7 @@
 				</option>
 				<option>
 					<name>LCNearHeapSize</name>
-					<state>0x20</state>
+					<state>0x1000</state>
 				</option>
 				<option>
 					<name>LCFarHeapSize</name>
@@ -237,6 +237,8 @@
 					<name>CCDefines</name>
 					<state></state>
 					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>GFX_INITIALIZED=1</state>
+					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
@@ -395,10 +397,13 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/utils</state>
+					<state>$PROJ_DIR$/../../../../../../services/gfx</state>
 					<state>$PROJ_DIR$/../../../../../../services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
@@ -414,8 +419,10 @@
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid/device</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/usb</state>
+					<state>$PROJ_DIR$/../../../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../display_controller/ili9341</state>
+					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/sleep</state>
@@ -565,6 +572,8 @@
 				<option>
 					<name>ADefines</name>
 					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>GFX_INITIALIZED=1</state>
+					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
@@ -685,10 +694,13 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/utils</state>
+					<state>$PROJ_DIR$/../../../../../../services/gfx</state>
 					<state>$PROJ_DIR$/../../../../../../services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
@@ -704,8 +716,10 @@
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid/device</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/usb</state>
+					<state>$PROJ_DIR$/../../../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../display_controller/ili9341</state>
+					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/sleep</state>
@@ -1217,7 +1231,7 @@
 				</option>
 				<option>
 					<name>LCNearHeapSize</name>
-					<state>0x20</state>
+					<state>0x1000</state>
 				</option>
 				<option>
 					<name>LCFarHeapSize</name>
@@ -1282,6 +1296,8 @@
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
 					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>GFX_INITIALIZED=1</state>
+					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
@@ -1440,10 +1456,13 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/utils</state>
+					<state>$PROJ_DIR$/../../../../../../services/gfx</state>
 					<state>$PROJ_DIR$/../../../../../../services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
@@ -1459,8 +1478,10 @@
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid/device</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/usb</state>
+					<state>$PROJ_DIR$/../../../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../display_controller/ili9341</state>
+					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/sleep</state>
@@ -1610,6 +1631,8 @@
 				<option>
 					<name>ADefines</name>
 					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>GFX_INITIALIZED=1</state>
+					<state>CONF_GFX_ILI9341_SDT028ATFT=1</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 				</option>
@@ -1730,10 +1753,13 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/utils</state>
+					<state>$PROJ_DIR$/../../../../../../services/gfx</state>
 					<state>$PROJ_DIR$/../../../../../../services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
@@ -1749,8 +1775,10 @@
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid/device</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/usb</state>
+					<state>$PROJ_DIR$/../../../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../display_controller/ili9341</state>
+					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
 					<state>$PROJ_DIR$/../../../../../../../xmega/drivers/sleep</state>
@@ -2091,51 +2119,6 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>xmega</name>
-		<group>
-			<name>drivers</name>
-			<group>
-				<name>nvm</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../xmega/drivers/nvm/nvm.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../xmega/drivers/nvm/nvm_asm.s</name>
-				</file>
-			</group>
-			<group>
-				<name>twi</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../xmega/drivers/twi/twis.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../xmega/drivers/twi/twim.c</name>
-				</file>
-			</group>
-			<group>
-				<name>usb</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../xmega/drivers/usb/usb_device.c</name>
-				</file>
-			</group>
-			<group>
-				<name>cpu</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../xmega/drivers/cpu/ccp.s</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>xmega_a3bu_xplained</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../xmega/boards/xmega_a3bu_xplained/init.c</name>
-				</file>
-			</group>
-		</group>
-	</group>
-	<group>
 		<name>common</name>
 		<group>
 			<name>components</name>
@@ -2157,20 +2140,26 @@
 					</file>
 				</group>
 			</group>
+			<group>
+				<name>display_controller</name>
+				<group>
+					<name>ili9341</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../display_controller/ili9341/ili9341.c</name>
+					</file>
+				</group>
+			</group>
 		</group>
 		<group>
 			<name>services</name>
 			<group>
-				<name>ioport</name>
+				<name>usb</name>
 				<group>
-					<name>xmega</name>
+					<name>udc</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../services/ioport/xmega/ioport_compat.c</name>
+						<name>$PROJ_DIR$/../../../../../../services/usb/udc/udc.c</name>
 					</file>
 				</group>
-			</group>
-			<group>
-				<name>usb</name>
 				<group>
 					<name>class</name>
 					<group>
@@ -2180,10 +2169,10 @@
 							<group>
 								<name>mouse</name>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../services/usb/class/hid/device/mouse/udi_hid_mouse_desc.c</name>
+									<name>$PROJ_DIR$/../../../../../../services/usb/class/hid/device/mouse/udi_hid_mouse.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../services/usb/class/hid/device/mouse/udi_hid_mouse.c</name>
+									<name>$PROJ_DIR$/../../../../../../services/usb/class/hid/device/mouse/udi_hid_mouse_desc.c</name>
 								</file>
 							</group>
 							<file>
@@ -2191,12 +2180,6 @@
 							</file>
 						</group>
 					</group>
-				</group>
-				<group>
-					<name>udc</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../services/usb/udc/udc.c</name>
-					</file>
 				</group>
 			</group>
 			<group>
@@ -2209,6 +2192,21 @@
 				</group>
 			</group>
 			<group>
+				<name>gfx</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../services/gfx/gfx_text.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../services/gfx/gfx_generic.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../services/gfx/gfx_ili9341_sdt028atft.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../services/gfx/sysfont.c</name>
+				</file>
+			</group>
+			<group>
 				<name>sleepmgr</name>
 				<group>
 					<name>xmega</name>
@@ -2216,6 +2214,75 @@
 						<name>$PROJ_DIR$/../../../../../../services/sleepmgr/xmega/sleepmgr.c</name>
 					</file>
 				</group>
+			</group>
+			<group>
+				<name>spi</name>
+				<group>
+					<name>xmega_usart_spi</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../services/spi/xmega_usart_spi/usart_spi.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>ioport</name>
+				<group>
+					<name>xmega</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../services/ioport/xmega/ioport_compat.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
+	</group>
+	<group>
+		<name>xmega</name>
+		<group>
+			<name>drivers</name>
+			<group>
+				<name>twi</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../xmega/drivers/twi/twis.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../xmega/drivers/twi/twim.c</name>
+				</file>
+			</group>
+			<group>
+				<name>nvm</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../xmega/drivers/nvm/nvm.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../xmega/drivers/nvm/nvm_asm.s</name>
+				</file>
+			</group>
+			<group>
+				<name>usb</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../xmega/drivers/usb/usb_device.c</name>
+				</file>
+			</group>
+			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../xmega/drivers/usart/usart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>cpu</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../xmega/drivers/cpu/ccp.s</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>xmega_a3bu_xplained</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../xmega/boards/xmega_a3bu_xplained/init.c</name>
+				</file>
 			</group>
 		</group>
 	</group>

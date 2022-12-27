@@ -344,8 +344,9 @@
 
 #ifdef BOARD_REV_A
 /** LED #0 pin definition (BLUE). */
-#define LED0_GPIO 		(PIO_PC20_IDX)
-#define LED0_FLAGS (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
+#define LED_0_NAME   "blue LED D2"
+#define LED0_GPIO    (PIO_PC20_IDX)
+#define LED0_FLAGS   (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
 
 #define PIN_LED_0   {PIO_PC20, PIOC, ID_PIOC, PIO_OUTPUT_1, PIO_DEFAULT}
 #define PIN_LED_0_MASK PIO_PC20
@@ -355,12 +356,13 @@
 #define PIN_LED_0_ATTR PIO_DEFAULT
 
 /** LED #1 pin definition (GREEN). */
-#define LED1_GPIO 		(PIO_PC21_IDX)
-#define LED1_FLAGS (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
+#define LED_1_NAME    "green LED D3"
+#define LED1_GPIO     (PIO_PC21_IDX)
+#define LED1_FLAGS    (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
 
 #define PIN_LED_1   {PIO_PC21, PIOC, ID_PIOC, PIO_OUTPUT_1, PIO_DEFAULT}
 /** LED #2 pin definition (RED). */
-#define LED2_GPIO 		(PIO_PC22_IDX)
+#define LED2_GPIO  (PIO_PC22_IDX)
 #define LED2_FLAGS (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
 
 #define PIN_LED_2   {PIO_PC22, PIOC, ID_PIOC, PIO_OUTPUT_1, PIO_DEFAULT}
@@ -368,8 +370,9 @@
 
 #ifdef BOARD_REV_B
 /** LED #0 pin definition (BLUE). */
-#define LED0_GPIO 		(PIO_PA19_IDX)
-#define LED0_FLAGS (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
+#define LED_0_NAME   "blue LED D2"
+#define LED0_GPIO     (PIO_PA19_IDX)
+#define LED0_FLAGS    (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
 
 #define PIN_LED_0   {PIO_PA19, PIOA, ID_PIOA, PIO_OUTPUT_1, PIO_DEFAULT}
 #define PIN_LED_0_MASK PIO_PA19
@@ -379,8 +382,9 @@
 #define PIN_LED_0_ATTR PIO_DEFAULT
 
 /** LED #1 pin definition (GREEN). */
-#define LED1_GPIO 		(PIO_PA20_IDX)
-#define LED1_FLAGS (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
+#define LED_1_NAME    "green LED D3"
+#define LED1_GPIO     (PIO_PA20_IDX)
+#define LED1_FLAGS    (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
 
 #define PIN_LED_1   {PIO_PA20, PIOA, ID_PIOA, PIO_OUTPUT_1, PIO_DEFAULT}
 #define PIN_LED_1_MASK PIO_PA20
@@ -412,8 +416,9 @@
 #endif
 
 /** Push button #0 definition. Attributes = pull-up + debounce + interrupt on rising edge. */
-#define GPIO_PUSH_BUTTON_1			(PIO_PB3_IDX)
-#define GPIO_PUSH_BUTTON_1_FLAGS	(PIO_INPUT | PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_RISE_EDGE)
+#define PUSHBUTTON_1_NAME    "USRPB1"
+#define GPIO_PUSH_BUTTON_1    (PIO_PB3_IDX)
+#define GPIO_PUSH_BUTTON_1_FLAGS    (PIO_INPUT | PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_RISE_EDGE)
 
 #define PIN_PUSHBUTTON_1    {PIO_PB3, PIOB, ID_PIOB, PIO_INPUT, PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_RISE_EDGE}
 #define PIN_PUSHBUTTON_1_MASK PIO_PB3
@@ -423,8 +428,9 @@
 #define PIN_PUSHBUTTON_1_ATTR PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_RISE_EDGE
 
 /** Push button #1 definition. Attributes = pull-up + debounce + interrupt on falling edge. */
-#define GPIO_PUSH_BUTTON_2			(PIO_PC12_IDX)
-#define GPIO_PUSH_BUTTON_2_FLAGS	(PIO_INPUT | PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_FALL_EDGE)
+#define PUSHBUTTON_2_NAME    "USRPB2"
+#define GPIO_PUSH_BUTTON_2    (PIO_PC12_IDX)
+#define GPIO_PUSH_BUTTON_2_FLAGS    (PIO_INPUT | PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_FALL_EDGE)
 
 #define PIN_PUSHBUTTON_2    {PIO_PC12, PIOC, ID_PIOC, PIO_INPUT, PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_FALL_EDGE}
 #define PIN_PUSHBUTTON_2_MASK PIO_PC12
@@ -494,15 +500,18 @@
 #define CHANNEL_PWM_LED2 2
 
 /** PWM LED0 pin definitions. */
-#define PIN_PWM_LED0_GPIO   PIO_PA19_IDX
-#define PIN_PWM_LED0_FLAGS  (PIO_PERIPH_B | PIO_DEFAULT)
-/** PWM LED1 pin definitions. */
-#define PIN_PWM_LED1_GPIO   PIO_PA20_IDX
-#define PIN_PWM_LED1_FLAGS  (PIO_PERIPH_B | PIO_DEFAULT)
-/** PWM LED2 pin definitions. */
-#define PIN_PWM_LED2_GPIO   PIO_PC20_IDX
-#define PIN_PWM_LED2_FLAGS  (PIO_PERIPH_B | PIO_DEFAULT)
+#define PIN_PWM_LED0_GPIO    PIO_PA19_IDX
+#define PIN_PWM_LED0_FLAGS   (PIO_PERIPH_B | PIO_DEFAULT)
+#define PIN_PWM_LED0_CHANNEL 0
 
+/** PWM LED1 pin definitions. */
+#define PIN_PWM_LED1_GPIO    PIO_PA20_IDX
+#define PIN_PWM_LED1_FLAGS   (PIO_PERIPH_B | PIO_DEFAULT)
+#define PIN_PWM_LED1_CHANNEL 1
+
+/** PWM LED2 pin definitions. */
+#define PIN_PWM_LED2_GPIO    PIO_PC20_IDX
+#define PIN_PWM_LED2_FLAGS   (PIO_PERIPH_B | PIO_DEFAULT)
 
 /** SPI MISO pin definition. */
 #define PIN_SPI_MISO    {PIO_PA12A_MISO, PIOA, ID_PIOA, PIO_PERIPH_A, PIO_DEFAULT}
@@ -796,7 +805,7 @@
 /** Touchscreen controller IRQ pin definition. */
 #ifdef BOARD_REV_A
 #define PIN_TSC_IRQ_IDX    PIO_PA4_IDX
-#define PIN_TSC_IRQ_FLAG  PIO_INPUT | PIO_PULLUP 
+#define PIN_TSC_IRQ_FLAG  PIO_INPUT | PIO_PULLUP
 #define PIN_TSC_IRQ  {PIO_PA4, PIOA, ID_PIOA, PIO_INPUT, PIO_PULLUP}
 #define PIN_TSC_IRQ_MASK PIO_PA4
 #define PIN_TSC_IRQ_PIO PIOA
@@ -806,7 +815,7 @@
 #define PIN_TSC_IRQ_WUP_ID (1 << 3)
 /** Touchscreen controller Busy pin definition. */
 #define PIN_TSC_BUSY_IDX  PIO_PA5_IDX
-#define PIN_TSC_BUSY_FLAG    PIO_INPUT | PIO_PULLUP 
+#define PIN_TSC_BUSY_FLAG    PIO_INPUT | PIO_PULLUP
 #define PIN_TSC_BUSY {PIO_PA5, PIOA, ID_PIOA, PIO_INPUT, PIO_PULLUP}
 #define PIN_TSC_BUSY_MASK PIO_PA5
 #define PIN_TSC_BUSY_PIO PIOA
@@ -817,7 +826,7 @@
 
 #ifdef BOARD_REV_B
 #define PIN_TSC_IRQ_IDX    PIO_PA16_IDX
-#define PIN_TSC_IRQ_FLAG  PIO_INPUT | PIO_PULLUP 
+#define PIN_TSC_IRQ_FLAG  PIO_INPUT | PIO_PULLUP
 #define PIN_TSC_IRQ  {PIO_PA16, PIOA, ID_PIOA, PIO_INPUT, PIO_PULLUP}
 #define PIN_TSC_IRQ_MASK PIO_PA16
 #define PIN_TSC_IRQ_PIO PIOA
@@ -903,16 +912,10 @@
 
 /** TWI ID for EEPROM application to use */
 #define BOARD_ID_TWI_EEPROM         ID_TWI1
-/** TWI ID for SLAVE application to use */
-#define BOARD_ID_TWI_SLAVE          ID_TWI1
 /** TWI Base for TWI EEPROM application to use */
 #define BOARD_BASE_TWI_EEPROM       TWI1
-/** TWI Base for TWI SLAVE application to use */
-#define BOARD_BASE_TWI_SLAVE        TWI1
 /** TWI pins for EEPROM application to use */
 #define BOARD_PINS_TWI_EEPROM       PINS_TWI1
-/** TWI pins for TWI SLAVE application to use */
-#define BOARD_PINS_TWI_SLAVE        PINS_TWI1
 
 /** USART RX pin for application */
 #define BOARD_PIN_USART_RXD        PIN_USART1_RXD
@@ -943,6 +946,12 @@
 /* TXD pin configuration. */
 #define PIN_USART_TXD_IDX          PIN_USART1_TXD_IDX
 #define PIN_USART_TXD_FLAGS        (PIO_PERIPH_A | PIO_DEFAULT)
-#define PIN_USART_TXD_IO_FLAGS     (PIO_OUTPUT_0 | PIO_DEFAULT) 
+#define PIN_USART_TXD_IO_FLAGS     (PIO_OUTPUT_0 | PIO_DEFAULT)
+
+/* ISO7816 example relate PIN definition. */
+#define ISO7816_USART_ID           ID_USART1
+#define ISO7816_USART              USART1
+#define PIN_ISO7816_RST_IDX        PIO_PA15_IDX
+#define PIN_ISO7816_RST_FLAG       (PIO_OUTPUT_0 | PIO_DEFAULT)
 
 #endif  // _SAM3S_EK2_H_

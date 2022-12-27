@@ -39,15 +39,20 @@
  *
  */
 
-#ifndef CONF_BOARD_H
-#define CONF_BOARD_H
+#ifndef CONF_BOARD_H_INCLUDED
+#define CONF_BOARD_H_INCLUDED
 
 /* Configure UART pins */
 #define CONF_BOARD_UART_CONSOLE
 
 /* Configure ADC example pins */
-//#define CONF_BOARD_ADC
+#define CONF_BOARD_ADC
 
+/*
+ * LED pins are not configured for PWM function here.
+ * Because those LED pins are enabled for PIO function by default.
+ * You can enable them according to application.
+ */
 /* Configure PWM LED0 pin */
 //#define CONF_BOARD_PWM_LED0
 
@@ -58,28 +63,32 @@
 //#define CONF_BOARD_PWM_LED2
 
 /* Configure SPI0 pins */
-//#define CONF_BOARD_SPI0
-//#define CONF_BOARD_SPI0_NPCS0
+#define CONF_BOARD_SPI0
+#define CONF_BOARD_SPI0_NPCS0
 //#define CONF_BOARD_SPI0_NPCS1
 //#define CONF_BOARD_SPI0_NPCS2
 //#define CONF_BOARD_SPI0_NPCS3
 
 /* Configure SPI1 pins */
-//#define CONF_BOARD_SPI1
-//#define CONF_BOARD_SPI1_NPCS0
+#define CONF_BOARD_SPI1
+#define CONF_BOARD_SPI1_NPCS0
 //#define CONF_BOARD_SPI1_NPCS1
 //#define CONF_BOARD_SPI1_NPCS2
 //#define CONF_BOARD_SPI1_NPCS3
 
-//#define CONF_BOARD_TWI0
+#define CONF_BOARD_TWI0
 
 //#define CONF_BOARD_TWI1
 
+/*
+ * USART pins are configured as basic serial port by default.
+ * You can enable other pins according application.
+ */
 /* Configure USART RXD pin */
-//#define CONF_BOARD_USART_RXD
+#define CONF_BOARD_USART_RXD
 
 /* Configure USART TXD pin */
-//#define CONF_BOARD_USART_TXD
+#define CONF_BOARD_USART_TXD
 
 /* Configure USART CTS pin */
 //#define CONF_BOARD_USART_CTS
@@ -91,7 +100,7 @@
 //#define CONF_BOARD_USART_SCK
 
 /* Configure ADM3312 enable pin */
-//#define CONF_BOARD_ADM3312_EN
+#define CONF_BOARD_ADM3312_EN
 
 /* Configure IrDA transceiver shutdown pin */
 //#define CONF_BOARD_TFDU4300_SD
@@ -99,12 +108,12 @@
 /* Configure RS485 transceiver ADM3485 RE pin */
 //#define CONF_BOARD_ADM3485_RE
 
-//#define CONF_BOARD_SMC_PSRAM
+#define CONF_BOARD_SMC_PSRAM
 
 /* Configure LCD EBI pins */
-//#define CONF_BOARD_HX8347A
+#define CONF_BOARD_HX8347A
 
 /* Configure Backlight control pin */
-//#define CONF_BOARD_AAT3194
+#define CONF_BOARD_AAT3194
 
-#endif // CONF_BOARD_H
+#endif /* CONF_BOARD_H_INCLUDED */

@@ -49,15 +49,6 @@ extern "C" {
 /**INDENT-ON**/
 /// @endcond
 
-/**
- * \defgroup sam_drivers_adc_group Analog-to-digital Converter (ADC)
- *
- * Driver for the Analog-to-digital Converter. This driver provides access to the main 
- * features of the ADC controller.
- *
- * @{
- */
- 
 #if SAM3U
 
 /**
@@ -182,6 +173,16 @@ void adc12b_enable_channel(Adc12b *p_adc, const enum adc_channel_num_t adc_ch)
 }
 
 /**
+ * \brief Enable all ADC channels.
+ *
+ * \param p_adc Pointer to an ADC instance.
+ */
+void adc12b_enable_all_channel(Adc12b *p_adc)
+{
+	p_adc->ADC12B_CHER = 0xFF;
+}
+
+/**
  * \brief Disable the specified ADC channel.
  *
  * \param p_adc Pointer to an ADC instance.
@@ -190,6 +191,16 @@ void adc12b_enable_channel(Adc12b *p_adc, const enum adc_channel_num_t adc_ch)
 void adc12b_disable_channel(Adc12b *p_adc, const enum adc_channel_num_t adc_ch)
 {
 	p_adc->ADC12B_CHDR = 1 << adc_ch;
+}
+
+/**
+ * \brief Disable all ADC channel.
+ *
+ * \param p_adc Pointer to an ADC instance.
+ */
+void adc12b_disable_all_channel(Adc12b *p_adc)
+{
+	p_adc->ADC12B_CHDR = 0xFF;
 }
 
 /**
@@ -348,11 +359,9 @@ uint32_t adc12b_get_interrupt_mask(const Adc12b *p_adc)
  *
  * \retval ADC interrupt status.
  */
-struct adc_status_t adc12b_get_status(const Adc12b *p_adc)
+uint32_t adc12b_get_status(const Adc12b *p_adc)
 {
-	struct adc_status_t adc_status;
-	adc_status.all_status = p_adc->ADC12B_SR;
-	return adc_status;
+	return p_adc->ADC12B_SR;
 }
 
 /**
@@ -381,8 +390,6 @@ Pdc *adc12b_get_pdc_base(const Adc12b *p_adc)
 	return PDC_ADC12B;
 }
 #endif
-
-//@}
 
 /// @cond 0
 /**INDENT-OFF**/

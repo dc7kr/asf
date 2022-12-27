@@ -74,7 +74,6 @@ CSRCS = \
        avr32/drivers/tc/tc.c                              \
        avr32/drivers/usart/usart.c                        \
        avr32/drivers/usbb/usbb_host.c                     \
-       avr32/services/delay/delay.c                       \
        avr32/utils/debug/print_funcs.c                    \
        common/services/clock/uc3a3_a4/sysclk.c            \
        common/services/sleepmgr/uc3/sleepmgr.c            \
@@ -110,12 +109,12 @@ INC_PATH = \
        avr32/drivers/tc                                   \
        avr32/drivers/usart                                \
        avr32/drivers/usbb                                 \
-       avr32/services/delay                               \
        avr32/utils                                        \
        avr32/utils/debug                                  \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/sleepmgr                           \
        common/services/usb                                \
        common/services/usb/class/aoa                      \

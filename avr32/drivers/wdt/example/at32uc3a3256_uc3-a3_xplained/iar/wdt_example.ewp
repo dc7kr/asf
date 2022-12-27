@@ -1735,6 +1735,12 @@
 		<group>
 			<name>drivers</name>
 			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../gpio/gpio.c</name>
+				</file>
+			</group>
+			<group>
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../flashc/flashc.c</name>
@@ -1764,10 +1770,13 @@
 					</file>
 				</group>
 			</group>
+		</group>
+		<group>
+			<name>boards</name>
 			<group>
-				<name>gpio</name>
+				<name>uc3_a3_xplained</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../gpio/gpio.c</name>
+					<name>$PROJ_DIR$/../../../../../boards/uc3_a3_xplained/led.c</name>
 				</file>
 			</group>
 		</group>

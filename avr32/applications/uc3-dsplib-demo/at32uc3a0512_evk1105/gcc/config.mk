@@ -62,6 +62,7 @@ CSRCS = \
        avr32/applications/uc3-dsplib-demo/dsp_process.c   \
        avr32/applications/uc3-dsplib-demo/dsp_sprintf.c   \
        avr32/applications/uc3-dsplib-demo/gui.c           \
+       avr32/boards/evk1105/led.c                         \
        avr32/components/audio/amp/tpa6130a2/tpa6130.c     \
        avr32/components/display/et024006dhu/et024006dhu.c \
        avr32/drivers/abdac/abdac.c                        \
@@ -150,7 +151,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=EVK1105
+       -D BOARD=EVK1105                                   \
+       -D CONFIG_INTERRUPT_FORCE_INTC
 
 # Extra flags to use when linking
 LDFLAGS = \

@@ -56,6 +56,7 @@ TARGET = macb_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/evk1105/led.c                         \
        avr32/drivers/flashc/flashc.c                      \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \
@@ -77,10 +78,7 @@ ASSRCS = \
 INC_PATH = \
        avr32/boards                                       \
        avr32/boards/evk1105                               \
-       avr32/components/ethernet_phy                      \
        avr32/components/ethernet_phy/dp83848              \
-       avr32/components/ethernet_phy/dummy_phy            \
-       avr32/components/ethernet_phy/rtl8201              \
        avr32/drivers/flashc                               \
        avr32/drivers/gpio                                 \
        avr32/drivers/intc                                 \

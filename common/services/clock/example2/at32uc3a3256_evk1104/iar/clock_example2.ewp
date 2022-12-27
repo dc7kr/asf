@@ -1731,15 +1731,15 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>gpio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../avr32/drivers/gpio/gpio.c</name>
-				</file>
-			</group>
-			<group>
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/flashc/flashc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/gpio/gpio.c</name>
 				</file>
 			</group>
 		</group>
@@ -1747,6 +1747,9 @@
 			<name>boards</name>
 			<group>
 				<name>evk1104</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1104/led.c</name>
+				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1104/init.c</name>
 				</file>

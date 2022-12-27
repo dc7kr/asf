@@ -395,20 +395,20 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/.</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
-					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usb</state>
+					<state>$PROJ_DIR$/../../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../conf</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards/dummy</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../isp/flip</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../..</state>
@@ -677,20 +677,20 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/.</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
-					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usb</state>
+					<state>$PROJ_DIR$/../../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../conf</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards/dummy</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../isp/flip</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../..</state>
@@ -1425,20 +1425,20 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/.</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
-					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usb</state>
+					<state>$PROJ_DIR$/../../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../conf</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards/dummy</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../isp/flip</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../..</state>
@@ -1707,20 +1707,20 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/.</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
-					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usb</state>
+					<state>$PROJ_DIR$/../../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../conf</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards/dummy</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../isp/flip</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../..</state>

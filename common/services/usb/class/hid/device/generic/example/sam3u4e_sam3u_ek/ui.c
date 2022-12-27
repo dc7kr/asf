@@ -39,17 +39,8 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "udc.h"
-#include "udi_hid_generic.h"
-#include "board.h"
-#include "led.h"
+#include <asf.h>
 #include "ui.h"
-
-#include "conf_board.h"
-#include "pio.h"
-#include "sysclk.h"
 
 static uint8_t ui_hid_report[UDI_HID_REPORT_OUT_SIZE];
 
@@ -141,7 +132,7 @@ void ui_led_change(uint8_t *report)
  * \defgroup UI User Interface
  *
  * Human interface on SAM3U-EK :
- * - Led 0 (D2) blinks when USB Host have checked and enabled HID generic interface
+ * - Led 0 (D2) blinks when USB host has checked and enabled HID generic interface
  * - Led 1 (D3) is linked on HID events LED1
  * - Event buttons are linked to USR-LEFT (BP4) and USR-RIGHT (BP5)
  *

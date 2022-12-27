@@ -101,6 +101,22 @@
 
 
 /**
+ * USB Device low level configuration
+ * For device that does not use default settings, e.g.,
+ * number of banks for each bulk endpoint (default is 2).
+ * @{
+ */
+#if defined(USB_DEVICE_HS_SUPPORT)
+// In HS mode, size of bulk endpoints are 512
+// If all CDC endpoints use 2 banks, DPRAM is not enough: 4 bulk
+// endpoints requires 4K bytes. So reduce the number of banks of CDC bulk
+// endpoints to use less DPRAM.
+#   define  UDD_BULK_NB_BANK(ep) (1)
+#endif
+//@}
+
+
+/**
  * USB Interface Configuration
  * @{
  */

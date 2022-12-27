@@ -3,7 +3,7 @@
  *
  * \brief Display time since production date
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -130,7 +130,7 @@ void production_date_application(void)
 		}
 
 		// Get current time from RTC32
-		rtc_timestamp = rtc32_get_time();
+		rtc_timestamp = rtc_get_time();
 
 		if (rtc_timestamp == past_timestamp) {
 			// Same time as last time, no need for update

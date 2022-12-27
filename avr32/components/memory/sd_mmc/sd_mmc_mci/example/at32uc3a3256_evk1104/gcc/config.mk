@@ -56,6 +56,7 @@ TARGET = mci_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/evk1104/led.c                         \
        avr32/components/memory/sd_mmc/sd_mmc_mci/example/sd_mmc_mci_example.c \
        avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci.c \
        avr32/components/memory/sd_mmc/sd_mmc_mci/sd_mmc_mci_mem.c \

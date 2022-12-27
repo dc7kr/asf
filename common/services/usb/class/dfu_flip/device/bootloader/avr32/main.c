@@ -3,7 +3,7 @@
  *
  * \brief Main functions
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,18 +39,10 @@
  *
  */
 
-#include "compiler.h"
-#include "preprocessor.h"
-#include "board.h"
+#include <asf.h>
 #include "conf_usb.h"
-#include "udd.h"
-#include "udc.h"
-#include "udi_dfu_atmel.h"
-#include "isp.h"
 #include "sysclk_auto.h"
-#if UC3L3_L4 || UC3D
-#include "gpio.h"
-#endif
+
 /*! \brief Main function. Execution starts here.
  */
 int main(void)

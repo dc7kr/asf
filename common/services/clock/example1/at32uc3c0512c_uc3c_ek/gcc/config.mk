@@ -57,6 +57,7 @@ TARGET = clock_example1.elf
 # List of C source files.
 CSRCS = \
        avr32/boards/uc3c_ek/init.c                        \
+       avr32/boards/uc3c_ek/led.c                         \
        avr32/drivers/flashc/flashc.c                      \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \

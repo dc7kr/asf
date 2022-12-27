@@ -56,6 +56,7 @@ TARGET = pwm_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/evk1101/led.c                         \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \
        avr32/drivers/pwm/example/pwm_example.c            \

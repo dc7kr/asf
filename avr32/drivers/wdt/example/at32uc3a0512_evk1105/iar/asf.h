@@ -76,6 +76,9 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: WDT Watchdog Timer - UC3 A0/A1/A3/A4/B0/B1 implementation
 #include <wdt.h>
 

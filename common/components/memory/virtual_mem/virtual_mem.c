@@ -79,8 +79,7 @@
 # endif
 static uint8_t* vmem_data = (uint8_t*)VMEM_ADDRESS;
 #else
-# if (defined __GNUC__) && (defined __AVR32__) ||\
-	(defined __GNUC__) && (defined SAM)
+# if defined(__GNUC__) && (UC3 || SAM)
 	__attribute__((__aligned__(4)))
 # elif (defined __ICCAVR32__) || (defined __ICCARM__)
 	#pragma data_alignment = 4

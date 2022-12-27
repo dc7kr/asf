@@ -46,6 +46,7 @@ TARGET = adc_example2.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
+       mega/boards/stk600/init.c                          \
        mega/drivers/adc/example2/adc_example2.c
 
 # Assembler source files located from the top-level source directory
@@ -53,6 +54,7 @@ ASSRCS =
 
 # Include path located from the top-level source directory
 INC_PATH = \
+       common/boards                                      \
        common/utils                                       \
        mega/drivers/adc                                   \
        mega/drivers/adc/example2/mega2560_stk600          \

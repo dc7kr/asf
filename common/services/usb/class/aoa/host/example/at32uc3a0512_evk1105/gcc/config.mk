@@ -71,7 +71,6 @@ CSRCS = \
        avr32/drivers/rtc/rtc.c                            \
        avr32/drivers/spi/spi.c                            \
        avr32/drivers/usbb/usbb_host.c                     \
-       avr32/services/delay/delay.c                       \
        common/services/clock/uc3a0_a1/sysclk.c            \
        common/services/sleepmgr/uc3/sleepmgr.c            \
        common/services/usb/class/aoa/host/example/at32uc3a0512_evk1105/cellphone.c \
@@ -104,11 +103,11 @@ INC_PATH = \
        avr32/drivers/rtc                                  \
        avr32/drivers/spi                                  \
        avr32/drivers/usbb                                 \
-       avr32/services/delay                               \
        avr32/utils                                        \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/sleepmgr                           \
        common/services/usb                                \
        common/services/usb/class/aoa                      \

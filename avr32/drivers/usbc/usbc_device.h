@@ -3,7 +3,7 @@
  *
  * \brief USBC Device Driver header file.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -46,9 +46,8 @@
 #include "preprocessor.h"
 #include "usbc_otg.h"
 
-
-//! \ingroup usb_device_group
-//! \defgroup udd_group USB Device Driver (UDD)
+//! \ingroup udd_group
+//! \defgroup udd_usbc_group USBC Device Driver
 //! USBC low-level driver for USB Device mode
 //!
 //! @warning Bit-masks are used instead of bit-fields because PB registers

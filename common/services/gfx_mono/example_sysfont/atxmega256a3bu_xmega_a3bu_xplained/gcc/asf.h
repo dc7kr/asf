@@ -78,6 +78,9 @@
 // From module: PMIC - Programmable Multi-level Interrupt Controller
 #include <pmic.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: SPI - XMEGA implementation
 #include <usart_spi.h>
 #include <xmega_usart_spi/usart_spi.h>
@@ -93,7 +96,9 @@
 
 // From module: XMEGA compiler driver
 #include <compiler.h>
-#include <parts.h>
 #include <status_codes.h>
+
+// From module: XMEGA-A3BU Xplained LED support enabled
+#include <led.h>
 
 #endif // ASF_H

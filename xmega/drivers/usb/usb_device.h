@@ -3,7 +3,7 @@
  *
  * \brief USB Driver header file for XMEGA products including USB interface.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -45,8 +45,8 @@
 #include <nvm.h>
 
 /**
- * \ingroup usb_device_group
- * \defgroup udd_group USB Device Driver (UDD)
+ * \ingroup udd_group
+ * \defgroup udd_xmega_usb_group Xmega USB Device Driver
  * USBC low-level driver for USB Device mode
  *
  *

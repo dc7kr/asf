@@ -1747,6 +1747,12 @@
 		<group>
 			<name>drivers</name>
 			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../gpio/gpio.c</name>
+				</file>
+			</group>
+			<group>
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../flashc/flashc.c</name>
@@ -1771,12 +1777,6 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../pm/pm_conf_clocks.c</name>
-				</file>
-			</group>
-			<group>
-				<name>gpio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../gpio/gpio.c</name>
 				</file>
 			</group>
 			<group>
@@ -1807,6 +1807,15 @@
 				<name>startup</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../utils/startup/trampoline_uc3.s82</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>uc3_a3_xplained</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/uc3_a3_xplained/led.c</name>
 				</file>
 			</group>
 		</group>

@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for calendar service
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -1030,7 +1030,7 @@ int main(void)
 	board_init();
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
 // GCC AVR32 implementation
-#if (defined(__GNUC__) && !defined(XMEGA))
+#if defined(__GNUC__) && !XMEGA
 	setbuf(stdout, NULL);
 #endif
 

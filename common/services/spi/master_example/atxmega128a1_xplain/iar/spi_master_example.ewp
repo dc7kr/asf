@@ -414,7 +414,7 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
-					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
@@ -426,7 +426,7 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards/xplain</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -669,7 +669,7 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
-					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
@@ -681,7 +681,7 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards/xplain</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1429,7 +1429,7 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
-					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
@@ -1441,7 +1441,7 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards/xplain</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1684,7 +1684,7 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
-					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
@@ -1696,7 +1696,7 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards/xplain</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>

@@ -3,7 +3,7 @@
  *
  * \brief RZ600 board init.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -45,6 +45,10 @@
 #include "gpio.h"
 #include "board.h"
 
+#if defined (CONF_BOARD_AT45DBX)
+# define AT45DBX_MEM_CNT  1
+#endif
+
 void board_init(void)
 {
 	gpio_configure_pin(LED0_GPIO,GPIO_DIR_OUTPUT | GPIO_INIT_HIGH);
@@ -63,4 +67,5 @@ void board_init(void)
   // Assign GPIO to SPI.
   gpio_enable_module(AT86RFX_SPI_GPIO_MAP, sizeof(AT86RFX_SPI_GPIO_MAP) / sizeof(AT86RFX_SPI_GPIO_MAP[0]));
 #endif
+
 }

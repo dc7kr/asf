@@ -56,6 +56,7 @@ TARGET = eic_example2.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/uc3c_ek/led.c                         \
        avr32/drivers/eic/eic.c                            \
        avr32/drivers/eic/example2/eic_example2.c          \
        avr32/drivers/gpio/gpio.c                          \

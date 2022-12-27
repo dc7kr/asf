@@ -3,7 +3,7 @@
  *
  * \brief AVR UC3 Bluetooth Cybercom Demo.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -58,19 +58,11 @@
  *
  * \section configinfo Configuration Information
  * This example has been tested with the following configuration:
- * - UC3C_EK, EVK1104, EVK1105 and UC3_C2_Xplained evaluation kit;
+ * - UC3C_EK, EVK1104 and EVK1105 evaluation kit;
  *
  * \section Connection Information
  * To connect EXTBT to UC3C_EK, EVK1104, EVK1105, please refer to :
  * http://www.atmel.com/dyn/resources/prod_documents/doc32153.pdf.
- * For UC3_C2_Xplained board, please connect the EXTBT Ji connector (Labled
- * WLESS) to the UC3_C2_Xplained J4 header.
- * The EXTBT demonstration navigation on UC3_C2_Xpalained is controlled by the
- * Key input from the keyboard:
- * Pressing "W" to search for a Bluetooth connection;
- * Press "D" to select a device to connect;
- * Press "A" to connect/disconnet to the device selected;
- * Press "S" to send data.
  *
  * \section Known Issues
  * The connection Bluetooth may be failed if the connection is initiated from

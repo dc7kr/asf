@@ -4,7 +4,7 @@
  *
  * \brief System Control InterFace(SCIF) driver.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -866,7 +866,7 @@ long int scif_stop_gclk(unsigned int gclk)
 
 long int scif_gc_setup(unsigned int gclk, scif_gcctrl_oscsel_t clk_src, unsigned int diven, unsigned int divfactor)
 {
-  int restart_gc = false;
+  bool restart_gc = false;
 
 
   // Change the division factor to conform to the equation: fgclk = fsrc/divfactor = fsrc/(2*(div+1))

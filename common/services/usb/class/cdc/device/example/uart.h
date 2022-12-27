@@ -3,7 +3,7 @@
  *
  * \brief UART functions
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -43,7 +43,7 @@
 #define _UART_H_
 
 /*! \brief Called by CDC interface
- * Callback running when CDC device have receiv data
+ * Callback running when CDC device have received data
  */
 void uart_rx_notify(void);
 

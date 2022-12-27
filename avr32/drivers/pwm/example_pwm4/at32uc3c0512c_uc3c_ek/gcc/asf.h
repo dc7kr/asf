@@ -76,6 +76,9 @@
 // From module: PWM - UC3C implementation
 #include <pwm4.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: SCIF System Control Interface - UC3C implementation
 #include <scif_uc3c.h>
 

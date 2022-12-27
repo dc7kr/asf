@@ -57,6 +57,7 @@ TARGET = ioport_example3.elf
 # List of C source files.
 CSRCS = \
        avr32/boards/evk1104/init.c                        \
+       avr32/boards/evk1104/led.c                         \
        avr32/drivers/flashc/flashc.c                      \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \

@@ -49,7 +49,7 @@
  *
  * \section Requirements
  *
- * This package can be used with SAM3 evaluation kits.
+ * This example can be used on any SAM3/4 boards.
  *
  * \section Description
  *

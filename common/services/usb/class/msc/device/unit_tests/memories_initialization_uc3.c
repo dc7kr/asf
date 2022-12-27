@@ -4,7 +4,7 @@
  * \brief Initialization of memories
  * Specific AVR UC3 functions to initialize memories.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,11 +40,7 @@
  *
  */
 
-#include "compiler.h"
-#include "preprocessor.h"
-#include "board.h"
-#include "gpio.h"
-#include "sysclk.h"
+#include <asf.h>
 #include "conf_access.h"
 #include "unit_tests.h"
 

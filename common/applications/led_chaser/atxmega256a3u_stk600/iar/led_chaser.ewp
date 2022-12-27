@@ -2039,39 +2039,6 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>common</name>
-		<group>
-			<name>services</name>
-			<group>
-				<name>ioport</name>
-				<group>
-					<name>xmega</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../services/ioport/xmega/ioport_compat.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>xmega</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../services/clock/xmega/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>applications</name>
-			<group>
-				<name>led_chaser</name>
-				<file>
-					<name>$PROJ_DIR$/../../led_example.c</name>
-				</file>
-			</group>
-		</group>
-	</group>
-	<group>
 		<name>xmega</name>
 		<group>
 			<name>boards</name>
@@ -2100,6 +2067,39 @@
 				<name>cpu</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../xmega/drivers/cpu/ccp.s</name>
+				</file>
+			</group>
+		</group>
+	</group>
+	<group>
+		<name>common</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>xmega</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/clock/xmega/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>ioport</name>
+				<group>
+					<name>xmega</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/ioport/xmega/ioport_compat.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
+		<group>
+			<name>applications</name>
+			<group>
+				<name>led_chaser</name>
+				<file>
+					<name>$PROJ_DIR$/../../led_example.c</name>
 				</file>
 			</group>
 		</group>

@@ -1772,6 +1772,9 @@
 			<group>
 				<name>uc3_a3_xplained</name>
 				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/uc3_a3_xplained/led.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/boards/uc3_a3_xplained/init.c</name>
 				</file>
 			</group>

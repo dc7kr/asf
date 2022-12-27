@@ -3,7 +3,7 @@
  *
  * \brief USB host driver for Human Interface Device (HID) mouse interface.
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -52,8 +52,11 @@ extern "C" {
 #endif
 
 /**
- * \ingroup uhi_hid_group
- * \defgroup uhi_hid_mouse_group UHI for Human Interface Device Mouse Class
+ * \ingroup uhi_hid_mouse_group
+ * \defgroup uhi_hid_mouse_group_uhc Interface with USB Host Core (UHC)
+ *
+ * Structures and functions required by UHC.
+ *
  * @{
  */
 
@@ -74,6 +77,25 @@ extern void uhi_hid_mouse_enable(uhc_device_t* dev);
 extern void uhi_hid_mouse_uninstall(uhc_device_t* dev);
 //@}
 //@}
+
+/**
+ * \ingroup uhi_group
+ * \defgroup uhi_hid_mouse_group UHI for Human Interface Device Mouse Class
+ *
+ * Common APIs used by high level application to use this USB host class.
+ * 
+ * This API requires only callback definitions in conf_usb_host.h file
+ * through following defines:
+ * - \code  #define UHI_HID_MOUSE_CHANGE(dev,b_plug)
+ * #define UHI_HID_MOUSE_EVENT_BTN_LEFT(b_state)
+ * #define UHI_HID_MOUSE_EVENT_BTN_RIGHT(b_state)
+ * #define UHI_HID_MOUSE_EVENT_BTN_MIDDLE(b_state)
+ * #define UHI_HID_MOUSE_EVENT_MOUVE(x,y,scroll) \endcode
+ *
+ * @{
+ */
+//@}
+
 
 #ifdef __cplusplus
 }

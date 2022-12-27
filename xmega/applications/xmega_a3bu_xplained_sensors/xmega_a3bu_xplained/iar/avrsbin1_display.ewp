@@ -401,7 +401,6 @@
 					<state>$PROJ_DIR$/../../../../../common/services/sensors</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gfx_mono</state>
-					<state>$PROJ_DIR$/../../../../../common/services</state>
 					<state>$PROJ_DIR$/../../conf</state>
 					<state>$PROJ_DIR$/../../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
@@ -693,7 +692,6 @@
 					<state>$PROJ_DIR$/../../../../../common/services/sensors</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gfx_mono</state>
-					<state>$PROJ_DIR$/../../../../../common/services</state>
 					<state>$PROJ_DIR$/../../conf</state>
 					<state>$PROJ_DIR$/../../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
@@ -1450,7 +1448,6 @@
 					<state>$PROJ_DIR$/../../../../../common/services/sensors</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gfx_mono</state>
-					<state>$PROJ_DIR$/../../../../../common/services</state>
 					<state>$PROJ_DIR$/../../conf</state>
 					<state>$PROJ_DIR$/../../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
@@ -1742,7 +1739,6 @@
 					<state>$PROJ_DIR$/../../../../../common/services/sensors</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gfx_mono</state>
-					<state>$PROJ_DIR$/../../../../../common/services</state>
 					<state>$PROJ_DIR$/../../conf</state>
 					<state>$PROJ_DIR$/../../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
@@ -2099,21 +2095,6 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>thirdparty</name>
-		<group>
-			<name>sensors</name>
-			<group>
-				<name>libs</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../thirdparty/sensors/libs/iar/libsensors-atxmega256a3bu-debug.r90</name>
-					</file>
-				</group>
-			</group>
-		</group>
-	</group>
-	<group>
 		<name>xmega</name>
 		<group>
 			<name>boards</name>
@@ -2191,6 +2172,72 @@
 			</group>
 			<group>
 				<name>sensors</name>
+				<group>
+					<name>drivers</name>
+					<group>
+						<name>honeywell</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/honeywell/hmc5883l.c</name>
+						</file>
+					</group>
+					<group>
+						<name>bosch</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bmp.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma180.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma_axis.inc.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma222.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma220.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma150.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma020.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/bosch/bma250.c</name>
+						</file>
+					</group>
+					<group>
+						<name>kionix</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/kionix/kxtf9.c</name>
+						</file>
+					</group>
+					<group>
+						<name>invensense</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/invensense/imu3000.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/invensense/itg3200.c</name>
+						</file>
+					</group>
+					<group>
+						<name>osram</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/osram/sfh7770.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/osram/sfh5712.c</name>
+						</file>
+					</group>
+					<group>
+						<name>akm</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../common/services/sensors/drivers/akm/ak8975.c</name>
+						</file>
+					</group>
+				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/services/sensors/sensor_bus.c</name>
 				</file>

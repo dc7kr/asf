@@ -4,7 +4,7 @@
  * \brief Default descriptors for a USB Device with a single vendor class
  * interface
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -47,10 +47,12 @@
 
 
 /**
- * \ingroup udi_vendor_group
- * \defgroup udi_vendor_group_desc Default descriptors for a USB Device
- * with a single interface vendor
+ * \defgroup udi_vendor_group_single_desc USB device descriptors for a single interface
  *
+ * The following structures provide the USB device descriptors required for
+ * USB Device with a single interface Vendor Class.
+ *
+ * It is ready to use and do not require more definition.
  * @{
  */
 

@@ -47,8 +47,8 @@
 #include "usbb_otg.h"
 
 
-//! \ingroup usb_device_group
-//! \defgroup udd_group USB Device Driver (UDD)
+//! \ingroup udd_group
+//! \defgroup udd_usbb_group USBB Device Driver
 //! USBB low-level driver for USB device mode
 //!
 //! @warning Bit-masks are used instead of bit-fields because PB registers
@@ -596,6 +596,9 @@ typedef struct {
       //! Get status to selected endpoint DMA channel
 #define  udd_endpoint_dma_get_status(ep)           (USBB_UDDMA_ARRAY(ep).status)
    //! @}
+//! @}
+//! @}
+//! @}
 //! @}
 
 //! @}

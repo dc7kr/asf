@@ -41,7 +41,7 @@
 #ifndef ILI9341_H_INCLUDED
 #define ILI9341_H_INCLUDED
 
-#include <gpio.h>
+#include <ioport.h>
 #include <compiler.h>
 
 /* Controller and interface configuration file */
@@ -52,7 +52,7 @@
 #elif defined(CONF_ILI9341_SPI)
 #  include <spi_master.h>
 #else
-#error "Interface not supported by the component driver"
+#  error "Interface not supported by the component driver"
 #endif
 
 #ifdef __cplusplus
@@ -101,9 +101,9 @@ extern "C" {
  *  24-bit RGB value
  */
 #define ILI9341_COLOR(r, g, b)\
-	CPU_TO_BE16((((uint16_t)b) >> 3) |\
-	            ((((uint16_t)g) << 3) & 0x07E0) |\
-	            ((((uint16_t)r) << 8) & 0xf800))
+	Swap16((((uint16_t)b) >> 3) |\
+	       ((((uint16_t)g) << 3) & 0x07E0) |\
+	       ((((uint16_t)r) << 8) & 0xf800))
 
 /** Type define for an integer type large enough to store a pixel color. */
 typedef uint16_t ili9341_color_t;
@@ -118,11 +118,11 @@ typedef int16_t ili9341_coord_t;
  */
 
 /** Bit mask for flipping X for ili9341_set_orientation() */
-#  define ILI9341_FLIP_X 1
+#define ILI9341_FLIP_X 1
 /** Bit mask for flipping Y for ili9341_set_orientation() */
-#  define ILI9341_FLIP_Y 2
+#define ILI9341_FLIP_Y 2
 /** Bit mask for swapping X and Y for ili9341_set_orientation() */
-#  define ILI9341_SWITCH_XY 4
+#define ILI9341_SWITCH_XY 4
 
 /** @} */
 
@@ -158,8 +158,10 @@ void ili9341_set_orientation(uint8_t flags);
 void ili9341_copy_pixels_to_screen(const ili9341_color_t *pixels,
 		uint32_t count);
 
+#if XMEGA
 void ili9341_copy_progmem_pixels_to_screen(
 		ili9341_color_t PROGMEM_PTR_T pixels, uint32_t count);
+#endif
 
 void ili9341_copy_pixels_from_screen(ili9341_color_t *pixels, uint32_t count);
 
@@ -185,7 +187,7 @@ void ili9341_init(void);
  */
 __always_inline static void ili9341_backlight_on(void)
 {
-	gpio_set_pin_high(CONF_ILI9341_BACKLIGHT_PIN);
+	ioport_set_pin_level(CONF_ILI9341_BACKLIGHT_PIN, true);
 }
 
 /**
@@ -196,7 +198,7 @@ __always_inline static void ili9341_backlight_on(void)
  */
 __always_inline static void ili9341_backlight_off(void)
 {
-	gpio_set_pin_low(CONF_ILI9341_BACKLIGHT_PIN);
+	ioport_set_pin_level(CONF_ILI9341_BACKLIGHT_PIN, false);
 }
 
 /** @} */

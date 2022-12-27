@@ -1825,28 +1825,25 @@
 			</group>
 		</group>
 		<group>
-			<name>components</name>
+			<name>services</name>
 			<group>
-				<name>wireless</name>
-				<file>
-					<name>$PROJ_DIR$/../../../at86rfx_driver.c</name>
-				</file>
+				<name>sleepmgr</name>
 				<group>
-					<name>unit_tests</name>
+					<name>uc3</name>
 					<file>
-						<name>$PROJ_DIR$/../../unit_tests.c</name>
-					</file>
-				</group>
-				<group>
-					<name>at86rf230b</name>
-					<file>
-						<name>$PROJ_DIR$/../../../at86rf230b/at86rf230b.c</name>
+						<name>$PROJ_DIR$/../../../../../services/sleepmgr/uc3/sleepmgr.c</name>
 					</file>
 				</group>
 			</group>
-		</group>
-		<group>
-			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>uc3a3_a4</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../services/clock/uc3a3_a4/sysclk.c</name>
+					</file>
+				</group>
+			</group>
 			<group>
 				<name>usb</name>
 				<group>
@@ -1872,24 +1869,6 @@
 				</group>
 			</group>
 			<group>
-				<name>sleepmgr</name>
-				<group>
-					<name>uc3</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../services/sleepmgr/uc3/sleepmgr.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>uc3a3_a4</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../services/clock/uc3a3_a4/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>spi</name>
 				<group>
 					<name>uc3_spi</name>
@@ -1899,11 +1878,56 @@
 				</group>
 			</group>
 		</group>
+		<group>
+			<name>components</name>
+			<group>
+				<name>wireless</name>
+				<group>
+					<name>unit_tests</name>
+					<file>
+						<name>$PROJ_DIR$/../../unit_tests.c</name>
+					</file>
+				</group>
+				<group>
+					<name>at86rf230b</name>
+					<file>
+						<name>$PROJ_DIR$/../../../at86rf230b/at86rf230b.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../at86rfx_driver.c</name>
+				</file>
+			</group>
+		</group>
 	</group>
 	<group>
 		<name>avr32</name>
 		<group>
+			<name>boards</name>
+			<group>
+				<name>rz600</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/rz600/led.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/rz600/init.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
 			<name>drivers</name>
+			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/gpio/gpio.c</name>
+				</file>
+			</group>
+			<group>
+				<name>usbb</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/usbb/usbb_device.c</name>
+				</file>
+			</group>
 			<group>
 				<name>pm</name>
 				<file>
@@ -1923,30 +1947,9 @@
 				</file>
 			</group>
 			<group>
-				<name>usbb</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../avr32/drivers/usbb/usbb_device.c</name>
-				</file>
-			</group>
-			<group>
-				<name>gpio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../avr32/drivers/gpio/gpio.c</name>
-				</file>
-			</group>
-			<group>
 				<name>spi</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/spi/spi.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>rz600</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../avr32/boards/rz600/init.c</name>
 				</file>
 			</group>
 		</group>

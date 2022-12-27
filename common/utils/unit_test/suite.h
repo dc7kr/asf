@@ -3,7 +3,7 @@
  *
  * \brief Test suite core declarations
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -45,7 +45,7 @@
 #include <parts.h>
 #include <stdio.h>
 
-#if defined(XMEGA)
+#if XMEGA
 #  include <progmem.h>
 #endif
 
@@ -205,7 +205,7 @@ struct test_suite {
  * the test application to set up the stream.
  */
 //@{
-#if defined(XMEGA) && !defined(__ICCAVR__)
+#if XMEGA && !defined(__ICCAVR__)
 #  define dbg(__fmt_)                                                          \
 	printf_P(PROGMEM_STRING(__fmt_))
 #  define dbg_info(__fmt_, ...)                                                \
@@ -363,7 +363,7 @@ enum test_status {
  * \param result The result of the test (may not be 0)
  * \param ... printf()-style format string and arguments
  */
-#if defined(XMEGA) && !defined(__ICCAVR__)
+#if XMEGA && !defined(__ICCAVR__)
 #  define test_priv_fail_ps(test, result, format, ...)                         \
 	do {                                                                   \
 		static PROGMEM_DECLARE(char, _fmtstr[]) = format "%s";         \

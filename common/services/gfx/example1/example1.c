@@ -56,9 +56,13 @@
  *   \ref smiley.h
  *
  * \section device_info Device Info
- * All AVR devices can be used.
  * This example has been tested with the following setup:
- * - XMEGA-A1 Xplain with the Display Xplained
+ * - UC3-A3 Xplained with the mXT143E Xplained
+ * - UC3-L0 Xplained with the mXT143E Xplained
+ * - XMEGA-A1 Xplained with the mXT143E Xplained
+ * - XMEGA-B1 Xplained with the mXT143E Xplained
+ * - XMEGA-A3BU Xplained with the mXT143E Xplained
+ * - SAM4S Xplained with the mXT143E Xplained
  *
  * \section exampledescription Description of the example
  * This example will demonstrate all the graphic primitives available in the
@@ -95,10 +99,11 @@
 /* Comment this out for portrait mode */
 #define LANDSCAPE_MODE
 
-
 const gfx_color_t color_table[] = {GFX_COLOR(0, 0, 255), GFX_COLOR(0, 255, 0),
                                    GFX_COLOR(255, 0, 0), GFX_COLOR(255, 255, 0),
                                    GFX_COLOR(255, 0, 255), GFX_COLOR(0, 255, 255)};
+
+const char example_string[] = "Atmel Graphical Library GFX Service Test";
 
 /**
  * \brief main example code
@@ -113,6 +118,7 @@ int main(void)
 {
 	uint8_t color_table_index = 0;
 	uint16_t y, color;
+	gfx_coord_t str_width, str_height;
 	uint8_t xoff = 0;
 
 	board_init();
@@ -126,6 +132,11 @@ int main(void)
 
 	/* Fill the whole screen with the background color */
 	gfx_draw_filled_rect(0, 0, gfx_get_width(), gfx_get_height(), BGCOLOR);
+
+	/* Write center-aligned text string to the top of the display */
+	gfx_get_string_bounding_box(example_string, &sysfont, &str_width, &str_height);
+	gfx_draw_string(example_string, (gfx_get_width() - str_width) / 2, 2,
+			&sysfont, BGCOLOR, GFX_COLOR(255, 0, 0));
 
 	/* We move down the screen with STEP size increments */
 	for (y = STEP; y < (gfx_get_height() - atmel_logo.height - STEP);

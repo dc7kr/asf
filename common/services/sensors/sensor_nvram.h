@@ -6,7 +6,7 @@
  * This module provides general access to the NVRAM interfaces
  * in the Atmel Software Framework.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -42,43 +42,42 @@
  *
  */
 
-
-#ifndef _sensor_nvram_h_
-#define _sensor_nvram_h_
+#ifndef _SENSOR_NVRAM_H_
+#define _SENSOR_NVRAM_H_
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-
 #include <compiler.h>
 
-
-//! \brief Data type for NVRAM memory addresses.
-
+/** \brief Data type for NVRAM memory addresses. */
 typedef uint16_t nvram_addr_t;
 
-//! \brief Atmel platform non-volatile memory spaces.
-
-#if defined(XMEGA)
+/** \brief Atmel platform non-volatile memory spaces. */
+/** @{ */
+#if XMEGA
 #   include <nvm.h>
-#   define SENSOR_NVM_BASE      (USER_SIGNATURES_START)	// user signature row
-#   define SENSOR_NVM_OFFSET    (0)		// offset from start of signature row
+
+#   define SENSOR_NVM_BASE      (USER_SIGNATURES_START)
+#   define SENSOR_NVM_OFFSET    (0)
 #   define SENSOR_NVM_SIZE      (USER_SIGNATURES_SIZE)
 #elif defined(AVR32_FLASHC)
 #   include <flashc.h>
-#   define SENSOR_NVM_BASE      (AVR32_FLASHC_USER_PAGE_ADDRESS)	// user page
-#   define SENSOR_NVM_OFFSET    (0x10)		// offset from start of user page
+
+#   define SENSOR_NVM_BASE      (AVR32_FLASHC_USER_PAGE_ADDRESS)
+#   define SENSOR_NVM_OFFSET    (0x10)
 #   define SENSOR_NVM_SIZE      (AVR32_FLASHC_USER_PAGE_SIZE)
 #elif defined(AVR32_FLASHCDW)
 #   include <flashcdw.h>
-#   define SENSOR_NVM_BASE      (AVR32_FLASHCDW_USER_PAGE_ADDRESS)	// user page
-#   define SENSOR_NVM_OFFSET    (0x10)		// offset from start of user page
+
+#   define SENSOR_NVM_BASE      (AVR32_FLASHCDW_USER_PAGE_ADDRESS)
+#   define SENSOR_NVM_OFFSET    (0x10)
 #   define SENSOR_NVM_SIZE      (AVR32_FLASHCDW_USER_PAGE_SIZE)
 #endif
+/** @} */
 
-
-/*! \brief Write a buffer to non-volatile RAM
+/** \brief Write a buffer to non-volatile RAM
  *
  * This routine writes \c count Bytes to the NVRAM destination pointed
  * to by \c dst from the source buffer pointed to by \c src.
@@ -91,7 +90,7 @@ typedef uint16_t nvram_addr_t;
  */
 extern void nvram_write(nvram_addr_t dst, const void *src, size_t count);
 
-/*! \brief Read a buffer from non-volatile RAM
+/** \brief Read a buffer from non-volatile RAM
  *
  * This routine reads \c count Bytes from the NVRAM source pointed
  * to by \c src to the destination buffer pointed to by \c dst.
@@ -104,9 +103,8 @@ extern void nvram_write(nvram_addr_t dst, const void *src, size_t count);
  */
 extern void nvram_read(nvram_addr_t src, void *dst, size_t count);
 
-
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* _sensor_nvram_h_ */
+#endif

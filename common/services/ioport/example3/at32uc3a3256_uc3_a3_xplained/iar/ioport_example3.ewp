@@ -1756,6 +1756,9 @@
 			<group>
 				<name>uc3_a3_xplained</name>
 				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/uc3_a3_xplained/led.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/boards/uc3_a3_xplained/init.c</name>
 				</file>
 			</group>
@@ -1775,20 +1778,20 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>ioport</name>
-				<group>
-					<name>example3</name>
-					<file>
-						<name>$PROJ_DIR$/../../ioport_example3.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>clock</name>
 				<group>
 					<name>uc3a3_a4</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../clock/uc3a3_a4/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>ioport</name>
+				<group>
+					<name>example3</name>
+					<file>
+						<name>$PROJ_DIR$/../../ioport_example3.c</name>
 					</file>
 				</group>
 			</group>

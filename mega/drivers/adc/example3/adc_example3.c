@@ -3,7 +3,7 @@
  *
  * \brief megaAVR ADC example 3, measure bandgap voltage
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -70,7 +70,7 @@
 #include "adc.h"
 
 // Internal bandgap voltages in mV.
-#if MEGA_XX8 || MEGA_XX0_1 || MEGA_XX4 || part_is_defined(ATmega169)
+#if MEGA_XX8 || MEGA_XX0_1 || MEGA_XX4 || AVR8_PART_IS_DEFINED(ATmega169)
 #	define BG_VOLTAGE   1100
 #	define BG_MUX       ADC_MUX_1V1
 #elif MEGA_XX

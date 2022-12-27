@@ -3,35 +3,7 @@
  *
  * \brief Common Sensor Service Pressure Sensor Example
  *
- * \mainpage
- *
- * \section intro Introduction
- *
- * This application uses the common sensor service to obtain pressure data
- * from a MEMS pressure sensor installed on an Atmel development board.  After
- * initializing sensor platform board resources, this demonstration will
- * attach and initialize a baromtric sensor installed on the development board.
- * In the case of the Atmel Xplained development boards, for example, the
- * platform should be fitted and built for a Sensors Xplained Pressure sensor
- * board.
- *
- * Once an appropriate pressure sensor is intialized, the
- * \ref pressure_altitude() utility in the ASF Common Sensor service is used
- * to calculate the pressure altitude as a function of the current barometric
- * pressure and configured local mean sea level pressure.  Adjust the
- * \ref MSL_PRESSURE constant to local conditions to improve the altitude
- * estimate.  The pressure sample, converted to hectopascals, along with
- * altitude estimate are printed to the application console.  In the case of
- * Atmel Xplained development boards communicating over a USART, the serial
- * channel configuration is selected by the board configuration files; see, for
- * example, the conf_board.h file in the project directories.
- *
- * \section contactinfo Contact Information
- * For further information, visit
- * <A href="http://www.atmel.com/avr">Atmel AVR</A>.\n
- *
- * \section License
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -67,37 +39,55 @@
  *
  */
 
+/**
+ * \mainpage
+ *
+ * \section intro Introduction
+ *
+ * This application uses the common sensor service to obtain pressure data
+ * from a MEMS pressure sensor installed on an Atmel development board.  After
+ * initializing sensor platform board resources, this demonstration will
+ * attach and initialize a baromtric sensor installed on the development board.
+ * In the case of the Atmel Xplained development boards, for example, the
+ * platform should be fitted and built for a Sensors Xplained Pressure sensor
+ * board.
+ *
+ * Once an appropriate pressure sensor is intialized, the
+ * \ref pressure_altitude() utility in the ASF Common Sensor service is used
+ * to calculate the pressure altitude as a function of the current barometric
+ * pressure and configured local mean sea level pressure.  Adjust the
+ * \ref MSL_PRESSURE constant to local conditions to improve the altitude
+ * estimate.  The pressure sample, converted to hectopascals, along with
+ * altitude estimate are printed to the application console.  In the case of
+ * Atmel Xplained development boards communicating over a USART, the serial
+ * channel configuration is selected by the board configuration files; see, for
+ * example, the conf_board.h file in the project directories.
+ *
+ * \section contactinfo Contact Information
+ * For further information, visit
+ * <a href="http://www.atmel.com/avr">Atmel AVR</a>.\n
+ * Support and FAQ: http://support.atmel.no/
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <asf.h>
 
-#include <sensors/sensor.h>
-#include <sensors/physics/press_altitude.h>
+/** \name Runtime Configuration Variables
+ * @{
+ */
 
+/** \brief display a startup banner with basic sensor information */
+static const bool PRINT_BANNER = true;
 
-// supply missing C-library constants
+/** \brief current local mean sea level pressure (Pascals) */
+static const long MSL_PRESSURE = 102300;
 
-#if defined(XMEGA) && defined(__GNUC__)
-enum {EXIT_SUCCESS, EXIT_FAILURE};
-#endif
-
-
-//! \name Runtime Configuration Variables
-// @{
-
-//! \brief display a startup banner with basic sensor information
-
-static bool PRINT_BANNER = true;
-
-//! \brief current local mean sea level pressure (Pascals)
-
-const long  MSL_PRESSURE (102300);
-
-// @}
+/** @} */
 
 
-/*! \brief Convert an altitude to a pressure value.
+/** \brief Convert an altitude to a pressure value.
  *
  * The pressure_altitude() utility converts barometric pressure values in
  * Pascal units to an estimated altitude in meters using a standard model.
@@ -123,9 +113,9 @@ static inline float meters_to_pascals(float meters)
  *
  * \return  int32_t     A pressure samples.
  */
-static inline int32_t barometric_pressure(sensor_t * sensor)
+static inline int32_t barometric_pressure(sensor_t *sensor)
 {
-    sensor_data_t data;
+	sensor_data_t data;
 	data.scaled = true;
 
 	sensor_get_pressure(sensor, &data);
@@ -133,7 +123,7 @@ static inline int32_t barometric_pressure(sensor_t * sensor)
 	return *(data.value);
 }
 
-/*! \brief Get an averaged function value.
+/** \brief Get an averaged function value.
  *
  * This utility returns the average of a specified number of function
  * values.
@@ -142,31 +132,28 @@ static inline int32_t barometric_pressure(sensor_t * sensor)
  * \param   arg         An argument passed to the sample function.
  * \param   M           The number of samples to average.
  *
- * \return  int32_T     An average (scaled) of 'M' pressure samples.
+ * \return  int32_t     An average (scaled) of 'M' pressure samples.
  */
-template <typename func, typename T> static inline
-	int32_t average(func callback, T arg, int M = 25)
+template <typename func, typename T>
+static inline int32_t average(func callback, T arg, int M = 25)
 {
 	float avg = 0;
 
 	for (int j = M; j > 0; --j) {
-
 		avg += callback(arg);
-		mdelay(5);
+		delay_ms(5);
 	}
 
-	return int32_t((avg / M) + 0.5);
+	return (int32_t)((avg / M) + 0.5);
 }
 
-/*! \brief Pressure demo application entry
+/** \brief Pressure demo application entry
  *
  * After initializing sensor platform board resources, this demonstration will
  * attach and initialize a baromtric sensor installed on the development board.
  * In the case of the Atmel Xplained development boards, for example, the
  * platform should be fitted and built for a Sensors Xplained Pressure sensor
  * board.
- *
- * \return  Nothing.
  */
 int main(void)
 {
@@ -176,51 +163,45 @@ int main(void)
 	 */
 	sensor_platform_init();
 
-
-	// Attach a descriptor to the existing sensor device.
-
+	/* Attach a descriptor to the existing sensor device. */
 	sensor_t barometer;
 	sensor_attach(&barometer, SENSOR_TYPE_BAROMETER, 0, 0);
 
-
 	if (barometer.err) {
-
 		puts("\rSensor initialization error.");
-		mdelay(5000);
 
-		return EXIT_FAILURE;
+		while (true) {
+			/* Error ocurred, loop forever */
+		}
 	}
 
-
-	// Set the barometer sample mode & altimeter reference values.
-
+	/* Set the barometer sample mode & altimeter reference values. */
 	sensor_set_state(&barometer, SENSOR_STATE_LOWEST_POWER);
 	pressure_sea_level(MSL_PRESSURE);
 
-
 	if (PRINT_BANNER) {
-
 		uint32_t id; uint8_t ver;
 
 		sensor_device_id(&barometer, &id, &ver);
 
-		printf("%s\r\nID = 0x%02x ver. 0x%02x\r\n  %d-bit Resolution\r\n",
-			barometer.drv->caps.name, (unsigned) id, (unsigned) ver,
-			barometer.hal->resolution);
+		printf(
+				"%s\r\nID = 0x%02x ver. 0x%02x\r\n  %d-bit Resolution\r\n",
+				barometer.drv->caps.name,
+				(unsigned)id,
+				(unsigned)ver,
+				barometer.hal->resolution);
 	}
 
-
-	do  {
-		static float P_old (0);
-		float const  P_new (average(barometric_pressure, &barometer));
+	while (true) {
+		static float P_old = 0;
+		const float P_new = average(barometric_pressure, &barometer);
 
 		if (fabs(P_new - P_old) > meters_to_pascals(0.5)) {
-
 			printf("P = %.2f hPa, altimeter: %.1f m\r",
-					(P_new / 100), pressure_altitude(P_new));
+					(P_new / 100),
+					pressure_altitude(P_new));
 		}
 
 		P_old = P_new;
-
-	} while (true);
+	}
 }

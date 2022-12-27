@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief Board configuration for the ST7565R example
+ * \brief Board configuration for the ILI9341 example
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *

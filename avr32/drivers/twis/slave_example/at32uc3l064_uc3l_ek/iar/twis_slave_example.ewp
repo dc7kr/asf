@@ -1749,13 +1749,16 @@
 	<group>
 		<name>avr32</name>
 		<group>
-			<name>drivers</name>
+			<name>boards</name>
 			<group>
-				<name>flashcdw</name>
+				<name>uc3l_ek</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../flashcdw/flashcdw.c</name>
+					<name>$PROJ_DIR$/../../../../../boards/uc3l_ek/led.c</name>
 				</file>
 			</group>
+		</group>
+		<group>
+			<name>drivers</name>
 			<group>
 				<name>pm</name>
 				<file>
@@ -1772,6 +1775,12 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../intc/exception.s82</name>
+				</file>
+			</group>
+			<group>
+				<name>flashcdw</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../flashcdw/flashcdw.c</name>
 				</file>
 			</group>
 			<group>

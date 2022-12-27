@@ -1739,15 +1739,15 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>gpio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../avr32/drivers/gpio/gpio.c</name>
-				</file>
-			</group>
-			<group>
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/flashc/flashc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/gpio/gpio.c</name>
 				</file>
 			</group>
 		</group>
@@ -1755,6 +1755,9 @@
 			<name>boards</name>
 			<group>
 				<name>evk1101</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1101/led.c</name>
+				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1101/init.c</name>
 				</file>
@@ -1777,15 +1780,15 @@
 			<group>
 				<name>clock</name>
 				<group>
-					<name>uc3b0_b1</name>
-					<file>
-						<name>$PROJ_DIR$/../../../uc3b0_b1/sysclk.c</name>
-					</file>
-				</group>
-				<group>
 					<name>example3</name>
 					<file>
 						<name>$PROJ_DIR$/../../clock_example3_uc3a_uc3b.c</name>
+					</file>
+				</group>
+				<group>
+					<name>uc3b0_b1</name>
+					<file>
+						<name>$PROJ_DIR$/../../../uc3b0_b1/sysclk.c</name>
 					</file>
 				</group>
 			</group>

@@ -66,18 +66,40 @@
 // From module: FLASHC - Flash Controller
 #include <flashc.h>
 
+// From module: GFX - Graphic Library
+#include <gfx.h>
+
+// From module: GFX - System Font
+#include <sysfont.h>
+
 // From module: GPIO - General-Purpose Input/Output
 #include <gpio.h>
 
 // From module: Generic board support
 #include <board.h>
 
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
+
 // From module: Interrupt management - UC3 implementation
 #include <interrupt.h>
+
+// From module: LCD - ILI9341 Display Controller
+#include <ili9341.h>
 
 // From module: PM Power Manager- UC3 A0/A1/A3/A4/B0/B1 implementation
 #include <power_clocks_lib.h>
 #include <sleep.h>
+
+// From module: Part identification macros
+#include <parts.h>
+
+// From module: SPI - Serial Peripheral Interface
+#include <spi.h>
+
+// From module: SPI - UC3 implementation
+#include <spi_master.h>
+#include <spi_master.h>
 
 // From module: Sleep manager - UC3 implementation
 #include <sleepmgr.h>
@@ -99,7 +121,7 @@
 // From module: USB Device HID Mouse (Single Interface Device)
 #include <udi_hid_mouse.h>
 
-// From module: USB Device Stack Core
+// From module: USB Device Stack Core (Common API)
 #include <udc.h>
 #include <udd.h>
 

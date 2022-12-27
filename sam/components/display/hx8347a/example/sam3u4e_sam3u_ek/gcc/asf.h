@@ -71,11 +71,16 @@
 
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
-#include <pio_handler.h>
 
 // From module: PMC - Power Management Controller
 #include <pmc.h>
 #include <sleep.h>
+
+// From module: Part identification macros
+#include <parts.h>
+
+// From module: SAM3U EK LED support enabled
+#include <led.h>
 
 // From module: SAM3U startup code
 #include <exceptions.h>
@@ -88,5 +93,8 @@
 
 // From module: UART - Univ. Async Rec/Trans
 #include <uart.h>
+
+// From module: pio_handler support enabled
+#include <pio_handler.h>
 
 #endif // ASF_H

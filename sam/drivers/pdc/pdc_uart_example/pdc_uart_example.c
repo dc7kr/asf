@@ -44,18 +44,18 @@
  *
  * \section Purpose
  *
- * The pdc_uart example demonstrates how to use PDC driver to receive and send 
- * data from uart.
+ * The pdc_uart example demonstrates how to use PDC driver to receive/send 
+ * data from/to the UART.
  *
  * \section Requirements
  *
- * This package can be used with SAM3N-EK,SAM3S-EK,SAM3S-EK2,SAM3U-EK and SAM3X-EK.
+ * This example can be used on any SAM3/4 boards.
  *
  * \section Description
  *
- * This application shows how to use the PDC to receive and send data form uart. 
- * When send BUFFER_SIZE data by terminal, the SAM3 controller will receive 
- * and send back to terminal and dispay it in terminal window.
+ * The SAM controller waits for BUFFER_SIZE data to receive from the UART.
+ * As soon as the expected amount of data is received, the whole buffer is 
+ * sent back to the terminal.
  *
  * \section Usage
  *
@@ -105,7 +105,7 @@ void console_uart_irq_handler(void)
 {
 	/* Get UART status and check if PDC receive buffer is full */
 	if ((uart_get_status(CONSOLE_UART) & UART_SR_RXBUFF) == UART_SR_RXBUFF) {
-		/* Configure PDC for data receive and transmit */
+		/* Configure PDC for data transfer (RX and TX) */
 		pdc_rx_init(g_p_uart_pdc, &g_pdc_uart_packet, NULL);
 		pdc_tx_init(g_p_uart_pdc, &g_pdc_uart_packet, NULL);
 	}

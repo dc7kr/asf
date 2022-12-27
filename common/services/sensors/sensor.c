@@ -1,10 +1,10 @@
 /**
  * \file
  *
- * \brief Atmel AVR and 32-bit AVR Common Sensor API.
+ * \brief Atmel Software Framework Common Sensor API.
  *
  * The sensor device service provides high-level interfaces and binary driver
- * libraries for sensor devices on systems built around UC3 and XMEGA
+ * libraries for sensor devices on systems built around UC3, XMEGA, and SAM
  * microcontrollers.
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
@@ -43,18 +43,11 @@
  *
  */
 
-
-
 #include "sensor.h"
 
-
-
-// Driver Call Wrapper
-
+/** Driver Call Wrapper */
 #define SENSOR_DRV_CALL(sns, fn, ...)   (((sns)->drv->func.fn) \
-	? (((sns)->drv->func.fn)(sns, __VA_ARGS__)) : sensor_driver_unimpl (sns))
-
-
+	? (((sns)->drv->func.fn)(sns, __VA_ARGS__)) : sensor_driver_unimpl(sns))
 
 /**
  * @brief Get a range table index associated with a range value
@@ -117,6 +110,24 @@ static inline bool sensor_band_index
 }
 
 /**
+ * @brief Default sensor event callback handler
+ *
+ * The default event callback handler returns immediately.
+ *
+ * @param data Sensor event data descriptor
+ * @param arg  Optional user-specified callback argument
+ * @return nothing
+ */
+void default_event_handler(volatile sensor_event_data_t *data,
+		volatile void *arg)
+{
+#if 0
+	static uint32_t spurious_event;
+	++spurious_event;
+#endif
+}
+
+/**
  * @ingroup mems_sensor_api
  * @{
  */
@@ -131,7 +142,7 @@ static inline bool sensor_band_index
  * @param  sensor   The address of an initialized sensor descriptor.
  * @return bool     Always returns \c false.
  */
-static bool inline sensor_driver_unimpl (sensor_t *sensor)
+static bool inline sensor_driver_unimpl(sensor_t *sensor)
 {
 	sensor->err = SENSOR_ERR_FUNCTION;
 	return false;
@@ -151,18 +162,19 @@ static bool inline sensor_driver_unimpl (sensor_t *sensor)
  * @param   aux     API Reserved value; should always be set to zero.
  * @return  bool    true if the call succeeds, else false is returned.
  */
-bool sensor_attach (sensor_t *sensor, sensor_type_t type, int num, void *aux)
+bool sensor_attach(sensor_t *sensor, sensor_type_t type, int num, void *aux)
 {
 	bool attached = false;
 
-	sensor_hal_t * hal = sensor_find (type);
+	sensor_hal_t *hal = sensor_find(type);
 
-	sensor->hal  = hal;   // Set unconditionally for use in driver init.
-	sensor->type = type;  // user-selected type (for multi-function device)
+	sensor->hal  = hal;   /* Set unconditionally for use in driver init. */
+	sensor->type = type;  /* user-selected type (for multi-function device)
+	                       **/
 	sensor->aux  = aux;
 
 	if ((hal != NULL) && /* sensor_bus_probe (hal, 0) && */
-		((hal->sensor_init) (sensor, num))) {
+			((hal->sensor_init)(sensor, num))) {
 		sensor->mod = SENSOR_STATE_NORMAL;
 		sensor->err = SENSOR_ERR_NONE;
 		attached = true;
@@ -201,24 +213,22 @@ bool sensor_attach (sensor_t *sensor, sensor_type_t type, int num, void *aux)
  * @return  bool    true if the call succeeds, else false is returned.
  */
 bool sensor_device_enum
-    (sensor_type_t type, sensor_enum_callback func, void *arg)
+	(sensor_type_t type, sensor_enum_callback func, void *arg)
 {
 #ifdef INCLUDE_SENSOR_ENUM
-
 	size_t count;
-	const  sensor_hal_t * hal = sensor_list (&count);
+	const sensor_hal_t *hal = sensor_list(&count);
 
 	if (func != 0) {
 		for (int n = 0; n < count; ++n, ++hal) {
-			if (((type == SENSOR_TYPE_UNKNOWN) || (type == hal->dev_type))
-				&& (false == (func) (hal, arg))) {
-
+			if (((type == SENSOR_TYPE_UNKNOWN) ||
+					(type == hal->dev_type)) &&
+					(false == (func)(hal, arg))) {
 				return true;
 			}
 		}
 	}
-
-#endif // INCLUDE_SENSOR_ENUM
+#endif /* INCLUDE_SENSOR_ENUM */
 
 	return false;
 }
@@ -236,16 +246,16 @@ bool sensor_device_enum
  * @param   ver     An address where the device version is returned.
  * @return  bool    true if the call succeeds, else false is returned.
  */
-bool sensor_device_id (sensor_t *sensor, uint32_t *id, uint8_t *ver)
+bool sensor_device_id(sensor_t *sensor, uint32_t *id, uint8_t *ver)
 {
-	sensor_data_t   dev_data;
+	sensor_data_t dev_data;
 	bool status = false;
 
-	status = sensor_read (sensor, SENSOR_READ_ID, &dev_data);
+	status = sensor_read(sensor, SENSOR_READ_ID, &dev_data);
 
 	if (status) {
 		*id = dev_data.device.id;
-		*ver = (uint8_t) dev_data.device.version;
+		*ver = (uint8_t)dev_data.device.version;
 	}
 
 	return status;
@@ -283,12 +293,12 @@ bool sensor_device_id (sensor_t *sensor, uint32_t *id, uint8_t *ver)
  * @param   data    Specifies an address where sensor data is stored.
  * @return  bool    true if the call succeeds, else false is returned.
  */
-bool sensor_read (sensor_t *sensor, sensor_read_t type,
+bool sensor_read(sensor_t *sensor, sensor_read_t type,
 		sensor_data_t *data)
 {
 	bool result;
 
-	result = SENSOR_DRV_CALL (sensor, read, type, data);
+	result = SENSOR_DRV_CALL(sensor, read, type, data);
 
 	if (result) {
 		data->timestamp = sensor_timestamp();
@@ -311,7 +321,7 @@ bool sensor_read (sensor_t *sensor, sensor_read_t type,
  * @return  bool    true if the call succeeds, else false is returned.
  */
 bool sensor_enum_bandwidth
-		(sensor_t *sensor, const sensor_band_t **table, size_t *count)
+	(sensor_t *sensor, const sensor_band_t **table, size_t *count)
 {
 	*table = sensor->drv->caps.band_table;
 	*count = sensor->drv->caps.band_count;
@@ -333,7 +343,7 @@ bool sensor_enum_bandwidth
  * @return  bool    true if the call succeeds, else false is returned.
  */
 bool sensor_enum_range
-		(sensor_t *sensor, const sensor_range_t **table, size_t *count)
+	(sensor_t *sensor, const sensor_range_t **table, size_t *count)
 {
 	*table = sensor->drv->caps.range_table;
 	*count = sensor->drv->caps.range_count;
@@ -344,15 +354,32 @@ bool sensor_enum_range
 /**
  * @brief Install a sensor event handler.
  *
- * @param   event_desc  A specified sensor event descriptor.
- * @return  bool    true if the call succeeds, else false is returned.
+ * This routine installs a sensor event handler that will be called when
+ * the specified sensor events occur. Function parameters specify the
+ * specific sensor event to be reported, the address of the handler
+ * function to be called, an optional parameter that will be passed to the
+ * handler, and whether the event handler should initially be enabled or
+ * disabled.
+ *
+ * The event handler can subsequently be enabled and disabled using the
+ * sensor_event_enable() and sensor_event_disable() routines.
+ *
+ * @param  sensor        Specifies an initialized sensor descriptor
+ * @param  sensor_event  Specifies the sensor event type
+ * @param  handler       Specifies an application-defined callback
+ * @param  arg           Specifies an optional callback argument
+ * @param  enable        Specifies whether or not the event should be enabled
+ * @return bool          true if the call succeeds, else false is returned.
  */
-bool sensor_add_event (sensor_event_desc_t *event_desc)
+bool sensor_add_event(sensor_t *sensor, sensor_event_t sensor_event,
+		sensor_event_callback handler, volatile void *arg, bool enable)
 {
-	if (event_desc && event_desc->sensor && event_desc->event)
-		return SENSOR_DRV_CALL (event_desc->sensor, event_callback, event_desc);
+	sensor_event_callback_t callback;
 
-	return false;
+	callback.handler = (handler != NULL) ? handler : default_event_handler;
+	callback.arg     = arg;
+
+	return SENSOR_DRV_CALL(sensor, event, sensor_event, &callback, enable);
 }
 
 /**
@@ -362,10 +389,10 @@ bool sensor_add_event (sensor_event_desc_t *event_desc)
  * @param   caltype The type of calibration to perform.
  * @return  bool    true if the call succeeds, else false is returned.
  */
-bool sensor_calibrate (sensor_t *sensor, sensor_calibration_t caltype, 
+bool sensor_calibrate(sensor_t *sensor, sensor_calibration_t caltype,
 		int code, void *caldata)
 {
-	return SENSOR_DRV_CALL (sensor, calibrate, caltype, code, caldata);
+	return SENSOR_DRV_CALL(sensor, calibrate, caltype, code, caldata);
 }
 
 /**
@@ -374,9 +401,9 @@ bool sensor_calibrate (sensor_t *sensor, sensor_calibration_t caltype,
  * @param   sensor  The address of an initialized sensor descriptor.
  * @return  bool    true if the call succeeds, else false is returned.
  */
-bool sensor_sleep (sensor_t *sensor, int arg)
+bool sensor_sleep(sensor_t *sensor, int arg)
 {
-	return sensor_set_state (sensor, SENSOR_STATE_SLEEP);
+	return sensor_set_state(sensor, SENSOR_STATE_SLEEP);
 }
 
 /**
@@ -385,9 +412,9 @@ bool sensor_sleep (sensor_t *sensor, int arg)
  * @param   sensor  The address of an initialized sensor descriptor.
  * @return  bool    true if the call succeeds, else false is returned.
  */
-bool sensor_reset (sensor_t *sensor, int arg)
+bool sensor_reset(sensor_t *sensor, int arg)
 {
-	return sensor_set_state (sensor, SENSOR_STATE_RESET);
+	return sensor_set_state(sensor, SENSOR_STATE_RESET);
 }
 
 /**
@@ -413,16 +440,20 @@ bool sensor_reset (sensor_t *sensor, int arg)
  * @param   mode    A specified sensor operational mode.
  * @return  bool    true if the call succeeds, else false is returned.
  */
-bool sensor_set_state (sensor_t *sensor, sensor_state_t mode)
+bool sensor_set_state(sensor_t *sensor, sensor_state_t mode)
 {
 	bool result = false;
 
 	if (mode != sensor->mod) {
-		result = SENSOR_DRV_CALL (sensor, ioctl, SENSOR_SET_STATE, &mode);
+		result
+			= SENSOR_DRV_CALL(sensor, ioctl, SENSOR_SET_STATE,
+				&mode);
 	}
 
 	if (result) {
-		sensor->mod = (mode == SENSOR_STATE_RESET) ? SENSOR_STATE_NORMAL : mode;
+		sensor->mod
+			= (mode ==
+				SENSOR_STATE_RESET) ? SENSOR_STATE_NORMAL : mode;
 	}
 
 	return result;
@@ -451,7 +482,7 @@ bool sensor_set_state (sensor_t *sensor, sensor_state_t mode)
  * @param   mode    The current sensor mode is returned to this location.
  * @return  bool    true if the call succeeds, else false is returned.
  */
-bool sensor_get_state (sensor_t *sensor, sensor_state_t *mode)
+bool sensor_get_state(sensor_t *sensor, sensor_state_t *mode)
 {
 	*mode = sensor->mod;
 	return true;
@@ -466,33 +497,33 @@ bool sensor_get_state (sensor_t *sensor, sensor_state_t *mode)
  * @return  bool    true if the call succeeds, else false is returned.
  */
 bool sensor_set_threshold
-		(sensor_t *sensor, sensor_threshold_t type, int16_t value)
+	(sensor_t *sensor, sensor_threshold_t type, int16_t value)
 {
 	sensor_threshold_desc_t threshold;
 
 	threshold.type = type;
 	threshold.value = value;
 
-	return SENSOR_DRV_CALL (sensor, ioctl, SENSOR_SET_THRESHOLD, &threshold);
+	return SENSOR_DRV_CALL(sensor, ioctl, SENSOR_SET_THRESHOLD, &threshold);
 }
 
 /**
  * @brief Get a sensor operational threshold.
  *
  * @param   sensor     The address of an initialized sensor descriptor.
- * @param   threshold  A specified sensor operational threshold type.
+ * @param   type       A specified sensor operational threshold type.
  * @param   value      Address of location to return threshold value
  * @return  bool       true if the call succeeds, else false is returned.
  */
 bool sensor_get_threshold
-		(sensor_t *sensor, sensor_threshold_t type, int16_t *value)
+	(sensor_t *sensor, sensor_threshold_t type, int16_t *value)
 {
 	sensor_threshold_desc_t threshold;
 	bool status = false;
 
 	threshold.type = type;
 
-	if (SENSOR_DRV_CALL (sensor, ioctl, SENSOR_GET_THRESHOLD, &threshold)) {
+	if (SENSOR_DRV_CALL(sensor, ioctl, SENSOR_GET_THRESHOLD, &threshold)) {
 		*value = threshold.value;
 		status = true;
 	}
@@ -508,80 +539,84 @@ bool sensor_get_threshold
  * @param   arg     Specifies command paramters (varies by command).
  * @return  bool    true if the call succeeds, else false is returned.
  */
-bool sensor_ioctl (sensor_t *sensor, sensor_command_t cmd, void *arg)
+bool sensor_ioctl(sensor_t *sensor, sensor_command_t cmd, void *arg)
 {
 	bool result = false;
 
 	switch (cmd) {
+	case SENSOR_GET_RANGE:
+		*((int16_t *)arg) = sensor->hal->range;
+		result = true;
+		break;
 
-		case SENSOR_GET_RANGE:
-			*((int16_t *)arg) = sensor->hal->range;
-			result = true;
-			break;
+	case SENSOR_SET_RANGE:
+	{
+		int16_t const range = *(int16_t *)arg;
 
-		case SENSOR_SET_RANGE: {
+		int index;
+		result
+			= sensor_range_index(&(sensor->drv->caps), range,
+				&index);
 
-			int16_t const range = *(int16_t *)arg;
-
-			int index;
-			result = sensor_range_index (&(sensor->drv->caps), range, &index);
-
-			if (result &&
-				(result = SENSOR_DRV_CALL (sensor, ioctl, cmd, &index))) {
-
-				sensor->hal->range = range;
-
-			} else { 
-				sensor->err = SENSOR_ERR_PARAMS; 
-			}
-			break;
+		if (result &&
+				(result
+					= SENSOR_DRV_CALL(sensor, ioctl, cmd,
+						&index))) {
+			sensor->hal->range = range;
+		} else {
+			sensor->err = SENSOR_ERR_PARAMS;
 		}
 
-		case SENSOR_GET_BANDWIDTH:
-			*((int16_t *)arg) = sensor->hal->bandwidth;
-			result = true;
-			break;
+		break;
+	}
 
-		case SENSOR_SET_BANDWIDTH: {
+	case SENSOR_GET_BANDWIDTH:
+		*((int16_t *)arg) = sensor->hal->bandwidth;
+		result = true;
+		break;
 
-			int16_t const bandwidth_Hz = *(int16_t *)arg;
+	case SENSOR_SET_BANDWIDTH:
+	{
+		int16_t const bandwidth_Hz = *(int16_t *)arg;
 
-			int index;
-			result = sensor_band_index (&(sensor->drv->caps), bandwidth_Hz,
-                                        &index);
+		int index;
+		result = sensor_band_index(&(sensor->drv->caps), bandwidth_Hz,
+				&index);
 
-			if (result &&
-				(result = SENSOR_DRV_CALL (sensor, ioctl, cmd, &index))) {
-
-				sensor->hal->bandwidth = bandwidth_Hz;
-			} else {
-				sensor->err = SENSOR_ERR_PARAMS;
-			}
-			break;
+		if (result &&
+				(result
+					= SENSOR_DRV_CALL(sensor, ioctl, cmd,
+						&index))) {
+			sensor->hal->bandwidth = bandwidth_Hz;
+		} else {
+			sensor->err = SENSOR_ERR_PARAMS;
 		}
 
-		case SENSOR_GET_SAMPLE_RATE:
-			*((int16_t *)arg) = sensor->hal->sample_rate;
+		break;
+	}
+
+	case SENSOR_GET_SAMPLE_RATE:
+		*((int16_t *)arg) = sensor->hal->sample_rate;
+		result = true;
+		break;
+
+	case SENSOR_SET_SAMPLE_RATE:
+	{
+		int16_t const sample_Hz = *(int16_t *)arg;
+
+		if (SENSOR_DRV_CALL(sensor, ioctl, cmd, arg)) {
+			sensor->hal->sample_rate = sample_Hz;
 			result = true;
-			break;
-
-		case SENSOR_SET_SAMPLE_RATE: {
-
-			int16_t const sample_Hz = *(int16_t *)arg;
-
-			if (SENSOR_DRV_CALL (sensor, ioctl, cmd, arg)) {
-				sensor->hal->sample_rate = sample_Hz;
-				result = true;
-			} else if (SENSOR_ERR_FUNCTION != sensor->err) { 
-				sensor->err = SENSOR_ERR_PARAMS; 
-			}
-			break;
+		} else if (SENSOR_ERR_FUNCTION != sensor->err) {
+			sensor->err = SENSOR_ERR_PARAMS;
 		}
 
-		default:
-			result = SENSOR_DRV_CALL (sensor, ioctl, cmd, arg);
-			break;
+		break;
+	}
 
+	default:
+		result = SENSOR_DRV_CALL(sensor, ioctl, cmd, arg);
+		break;
 	}
 
 	return result;
@@ -594,11 +629,10 @@ bool sensor_ioctl (sensor_t *sensor, sensor_command_t cmd, void *arg)
  * @param   params  Address of a tap paramter structure.
  * @return  bool    true if the call succeeds, else false is returned.
  */
-bool sensor_set_tap (sensor_t *sensor, sensor_tap_params_t *params)
+bool sensor_set_tap(sensor_t *sensor, sensor_tap_params_t *params)
 {
 	if (params) {
-
-		return SENSOR_DRV_CALL (sensor, ioctl, SENSOR_SET_TAP, params);
+		return SENSOR_DRV_CALL(sensor, ioctl, SENSOR_SET_TAP, params);
 	}
 
 	return false;
@@ -612,9 +646,9 @@ bool sensor_set_tap (sensor_t *sensor, sensor_tap_params_t *params)
  * @param   arg       Device-specific self-test argument options.
  * @return  bool      true if the test succeeds, else false is returned.
  */
-bool sensor_selftest (sensor_t *sensor, int *test_code, void *arg)
+bool sensor_selftest(sensor_t *sensor, int *test_code, void *arg)
 {
-	bool result = SENSOR_DRV_CALL (sensor, selftest, test_code, arg);
+	bool result = SENSOR_DRV_CALL(sensor, selftest, test_code, arg);
 
 	if ((false == result) && (SENSOR_ERR_FUNCTION != sensor->err)) {
 		sensor->err = SENSOR_ERR_SELFTEST;
@@ -630,13 +664,13 @@ bool sensor_selftest (sensor_t *sensor, int *test_code, void *arg)
  *
  * @return The address of a null-terminated read-only version string.
  */
-const char * sensor_api_version (void)
+const char *sensor_api_version(void)
 {
-	static const char sensors_xplained_version [] =
-		"$Id: sensor.c 29446 2012-03-02 12:51:57Z xleprevo $ $Revision: 29446 $ "
-		"$Date: 2012-03-02 13:51:57 +0100 (Fri, 02 Mar 2012) $";
+	static const char sensors_xplained_version []
+		= "$Id: ATML ASF Sensor Service 1.7 $ $Revision: 29685 $ "
+			"$Date: 2012-03-09 15:53:00 -0800 (Fri, 09 Mar 2012) $";
 
 	return sensors_xplained_version;
 }
 
-/* @} */
+/** @} */

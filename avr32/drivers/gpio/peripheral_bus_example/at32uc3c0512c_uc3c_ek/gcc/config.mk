@@ -56,6 +56,7 @@ TARGET = gpio_peripheral_bus_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/uc3c_ek/led.c                         \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/gpio/peripheral_bus_example/gpio_peripheral_bus_example.c \
        avr32/drivers/intc/intc.c

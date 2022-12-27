@@ -3,7 +3,7 @@
  *
  * \brief USBC OTG Driver header file.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -73,8 +73,8 @@
 		((*(volatile unsigned long*)(&AVR32_USBC.TPASTE2(reg,SET)) =\
 		TPASTE5(AVR32_USBC_,reg,SET_,bit,S_MASK)))
 
-//! \ingroup usb_group
-//! \defgroup otg_group USB OTG Driver (OTG)
+//! \ingroup uhd_group
+//! \defgroup otg_usbc_group USBC OTG Driver
 //! USBC low-level driver for OTG features
 //!
 //! @warning Bit-masks are used instead of bit-fields because PB registers

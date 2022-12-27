@@ -92,17 +92,15 @@
 #include "sensor_demo.h"
 #include <sleepmgr.h>
 
+#define SLEEP_MODE          (SLEEPMGR_PDOWN)       /* sleep mode */
+#define LOW_G_THRESHOLD     (250 /* milli-g*/)     /* free fall threshold */
+#define LOW_G_SATURATION    (13000 /* milli-g */)  /* low-g saturation val */
+#define BANDWIDTH           (1500 /* Hz */)        /* accelerometer bandwidth */
+#define RANGE               (8000 /* milli-g */)   /* accelerometer range */
+#define ACCEL_LED           LED2                   /* activity indicator */
 
-#define SLEEP_MODE          (SLEEPMGR_PDOWN)       // sleep mode
-#define LOW_G_THRESHOLD     (250   /* milli-g*/)   // free fall threshold
-#define LOW_G_SATURATION    (13000 /* milli-g */)  // low-g saturation val
-#define BANDWIDTH           (1500  /* Hz */)       // accelerometer bandwidth
-#define RANGE               (8000  /* milli-g */)  // accelerometer range
-#define ACCEL_LED           LED2                   // activity indicator
-
-#define DATA_SAMPLE_COUNT  (128)  // waveform graph sample set count
-#define SAMPLE_AVG_COUNT   (10)   // waveform graph sample average count
-
+#define DATA_SAMPLE_COUNT   (128)  /* waveform graph sample set count */
+#define SAMPLE_AVG_COUNT    (10)   /* waveform graph sample average count */
 
 /**
  * \brief Example application entry routine
@@ -127,49 +125,33 @@ int main(void)
 	gpio_set_pin_high(NHD_C12832A1Z_BACKLIGHT);
 	st7565r_set_contrast(ST7565R_DISPLAY_CONTRAST_MIN);
 
-
-	// Attach an accelerometer on a Sensors Xplained board.
-
+	/* Attach an accelerometer on a Sensors Xplained board. */
 	sensor_t accelerometer;
 	sensor_attach(&accelerometer, SENSOR_TYPE_ACCELEROMETER, 0, 0);
 
-	// Enable the accelerometer low-g (free fall) event.
+	/* Enable the accelerometer low-g (free fall) event. */
+	sensor_enable_event(&accelerometer, SENSOR_EVENT_LOW_G);
 
-	sensor_add_event(&(sensor_event_desc_t){
-		.sensor  = &accelerometer,
-		.event   = SENSOR_EVENT_LOW_G,
-		.handler = NULL,
-		.arg     = NULL,
-		.enabled = true
-	});
-
-
-	// Set the free fall threshold (low-g event), bandwidth and range.
-
-	sensor_set_threshold(&accelerometer, SENSOR_THRESHOLD_LOW_G, LOW_G_THRESHOLD);
+	/* Set the free fall threshold (low-g event), bandwidth and range. */
+	sensor_set_threshold(&accelerometer, SENSOR_THRESHOLD_LOW_G,
+			LOW_G_THRESHOLD);
 	sensor_set_bandwidth(&accelerometer, BANDWIDTH);
 	sensor_set_range(&accelerometer, RANGE);
 
-
 	while (true) {
-
-		// Put the accelerometer into a low-power mode (if available).
-
+		/* Put the accelerometer into a low-power mode (if available). */
 		sensor_set_state(&accelerometer, SENSOR_STATE_LOW_POWER);
 
 		LED_Off(ACCEL_LED);
 
 		clear_screen();
 
-		// Display the "armed" message and put the MCU in sleep mode.
-
+		/* Display the "armed" message and put the MCU in sleep mode. */
 		gfx_mono_draw_string("ATMEL Drop Demo\r\nXMEGA Powered Down\r\n"
 				"g Sensor Armed", 1, 5, &sysfont);
 
-
 		sleepmgr_lock_mode(SLEEP_MODE);
 		sleepmgr_enter_sleep();
-
 
 		/* The following runs after the MCU has been woken by an
 		 * external low-g interrupt from the accelerometer.
@@ -181,78 +163,74 @@ int main(void)
 
 		sensor_set_state(&accelerometer, SENSOR_STATE_HIGHEST_POWER);
 
-
 		static scalar_t acceleration_waveform[DATA_SAMPLE_COUNT];
-		scalar_t        acceleration_max = 0;
+		scalar_t acceleration_max = 0;
 
-		for (int data_count = 0; data_count < DATA_SAMPLE_COUNT; ++data_count) {
-
+		for (int data_count = 0; data_count < DATA_SAMPLE_COUNT;
+				++data_count) {
 			acceleration_waveform[data_count] = 0;
 
 			for (int i = 0; i < SAMPLE_AVG_COUNT; ++i) {
-
-				// Calculate the gravity vector magnitude.
-
+				/* Calculate the gravity vector magnitude. */
 				vector3_t gvec;
 				sensor_get_vector(&accelerometer, &gvec);
 
-				scalar_t const acceleration_magnitude = vector3_magnitude(&gvec);
+				scalar_t const acceleration_magnitude
+					= vector3_magnitude(&gvec);
 
-				// Store the maximum g magnitude for this sub-group.
+				/* Store the maximum g magnitude for this
+				 * sub-group. */
+				if (acceleration_magnitude >
+						acceleration_waveform[data_count]) {
+					acceleration_waveform[data_count]
+						= acceleration_magnitude;
+				}
 
-				if (acceleration_magnitude > acceleration_waveform[data_count])
-					acceleration_waveform[data_count] = acceleration_magnitude;
-
-				// Store the maximum g magnitude for the whole data set.
-
-				if (acceleration_magnitude > acceleration_max)
+				/* Store the maximum g magnitude for the whole
+				 * data set. */
+				if (acceleration_magnitude > acceleration_max) {
 					acceleration_max = acceleration_magnitude;
+				}
 			}
 		}
 
 		clear_screen();
 
-
-		// Turn the max acceleration into a string and convert to g.
-
+		/* Turn the max acceleration into a string and convert to g. */
 		static char max_g_string[20];
 
 		if (acceleration_max > LOW_G_SATURATION) {
-			sprintf(max_g_string,"g Sensor Saturated");
+			sprintf(max_g_string, "g Sensor Saturated");
 		} else {
-			sprintf(max_g_string,"Peak = %02.2f g", acceleration_max / 1000);
+			sprintf(max_g_string, "Peak = %02.2f g",
+					acceleration_max / 1000);
 		}
 
-		// Print the max g on the monochrome display.
-
-		gfx_mono_draw_string("Drop Detected", 1,  5, &sysfont);
-		gfx_mono_draw_string(max_g_string,    1, 13, &sysfont);
-		gfx_mono_draw_string("Press SW1 for chart",  1, 21, &sysfont);
+		/* Print the max g on the monochrome display. */
+		gfx_mono_draw_string("Drop Detected", 1, 5, &sysfont);
+		gfx_mono_draw_string(max_g_string, 1, 13, &sysfont);
+		gfx_mono_draw_string("Press SW1 for chart", 1, 21, &sysfont);
 
 		do {
 			LED_Toggle(ACCEL_LED);
-			mdelay(100);
+			delay_ms(100);
+		} while (!switch_pressed(SW1));
 
-		} while ( ! switch_pressed(SW1));
-
-
-		// Plot the collected data points to create the waveform chart.
-
+		/* Plot the collected data points to create the waveform chart. */
 		clear_screen();
 		screen_border();
 
 		for (int data_count = 0; data_count < DATA_SAMPLE_COUNT; ++data_count) {
-
 			gfx_mono_draw_filled_circle(data_count,
-					32 - (acceleration_waveform[data_count] / 500), 1,
+					32 -
+					(acceleration_waveform[data_count] / 500), 1,
 					GFX_PIXEL_SET, GFX_WHOLE);
 		}
 
 		do {
 			LED_Toggle(PROMPT_LED);
-			mdelay(100);
-
-		} while ( ! switch_pressed(SW1));
+			delay_ms(100);
+		} while (!switch_pressed(SW1));
 
 		LED_Off(PROMPT_LED);
 	}

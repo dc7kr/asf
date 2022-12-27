@@ -3,7 +3,7 @@
  *
  * \brief XMEGA-A3BU Xplained Sensor Demo Common Definitions
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -38,20 +38,15 @@
  * \asf_license_stop
  *
  */
-#ifndef _sensor_demo_h_
-#define _sensor_demo_h_
+#ifndef _SENSOR_DEMO_H_
+#define _SENSOR_DEMO_H_
 
 #include <stdio.h>
-
-#include <board.h>
+#include <asf.h>
 #include <led.h>
-
-#include <sysfont.h>
 #include <sensor.h>
 
-
-// Hardware Environment Constants
-
+/* Hardware Environment Constants */
 #define CHARS_PER_LINE      (LCD_WIDTH_PIXELS  / SYSFONT_WIDTH)
 #define LINES_PER_SCREEN    (LCD_HEIGHT_PIXELS / SYSFONT_LINESPACING)
 
@@ -61,8 +56,7 @@
 #define REFRESH_PERIOD      (2 /* Hertz */)
 #define SW1                 (GPIO_PUSH_BUTTON_1)
 
-// Convenience Macros
-
+/* Convenience Macros */
 #define radians(a)          (DEG_TO_RAD * (a))
 #define hz_to_ms(hz)        ((unsigned long)((1000 / (hz)) + 0.5))
 
@@ -74,4 +68,4 @@
 #define screen_border() gfx_mono_draw_rect \
 		(0, 0, LCD_WIDTH_PIXELS, LCD_HEIGHT_PIXELS, GFX_PIXEL_SET)
 
-#endif // _sensor_demo_h_
+#endif

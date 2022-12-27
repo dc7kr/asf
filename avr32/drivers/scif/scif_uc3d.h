@@ -3,7 +3,7 @@
  *
  * \brief System Control InterFace (SCIF) driver interface.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  * 
  * \asf_license_start
  *
@@ -340,7 +340,7 @@ extern long int scif_enable_extosc(scif_osc_t osc);
  *   \retval 0   PLL successfully started
  *   \retval <0  Error starting the PLL.
  */
-extern long int scif_pll_setup(scif_pll_t pll, const scif_pll_opt_t opt);
+extern long int scif_pll_setup(scif_pll_t pll, const scif_pll_opt_t *opt);
 
 /*!
  * \brief This function will enable a PLL.

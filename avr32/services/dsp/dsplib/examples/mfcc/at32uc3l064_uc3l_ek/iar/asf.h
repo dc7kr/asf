@@ -63,6 +63,9 @@
 // From module: FLASH Controller Double-Word
 #include <flashcdw.h>
 
+// From module: GPIO - General-Purpose Input/Output
+#include <gpio.h>
+
 // From module: Generic board support
 #include <board.h>
 
@@ -72,6 +75,9 @@
 // From module: PM Power Manager - UC3 L0 implementation
 #include <power_clocks_lib.h>
 #include <sleep.h>
+
+// From module: Part identification macros
+#include <parts.h>
 
 // From module: SCIF System Control Interface - UC3L implementation
 #include <scif_uc3l.h>

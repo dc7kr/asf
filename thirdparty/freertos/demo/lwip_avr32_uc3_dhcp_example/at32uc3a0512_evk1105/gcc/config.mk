@@ -133,10 +133,7 @@ INC_PATH = \
        avr32/boards                                       \
        avr32/boards/evk1105                               \
        avr32/components/display/et024006dhu               \
-       avr32/components/ethernet_phy                      \
        avr32/components/ethernet_phy/dp83848              \
-       avr32/components/ethernet_phy/dummy_phy            \
-       avr32/components/ethernet_phy/rtl8201              \
        avr32/drivers/cpu/cycle_counter                    \
        avr32/drivers/ebi/smc                              \
        avr32/drivers/flashc                               \

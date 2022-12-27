@@ -57,6 +57,8 @@ void sysclk_init(void)
 #ifdef CONFIG_OSC_RC32_CAL
 	uint16_t cal;
 #endif
+	bool need_rc2mhz = false;
+
 	/* Turn off all peripheral clocks that can be turned off. */
 	for (i = 0; i <= SYSCLK_PORT_F; i++) {
 		*(reg++) = 0xff;
@@ -87,13 +89,22 @@ void sysclk_init(void)
 	 * Switch to the selected initial system clock source, unless
 	 * the default internal 2 MHz oscillator is selected.
 	 */
-	if (CONFIG_SYSCLK_SOURCE != SYSCLK_SRC_RC2MHZ) {
-		bool need_rc2mhz = false;
-
+	if (CONFIG_SYSCLK_SOURCE == SYSCLK_SRC_RC2MHZ) {
+		need_rc2mhz = true;
+	} else {
 		switch (CONFIG_SYSCLK_SOURCE) {
 		case SYSCLK_SRC_RC32MHZ:
 			osc_enable(OSC_ID_RC32MHZ);
 			osc_wait_ready(OSC_ID_RC32MHZ);
+#ifdef CONFIG_OSC_AUTOCAL_RC32MHZ_REF_OSC
+			if (CONFIG_OSC_AUTOCAL_RC32MHZ_REF_OSC
+					!= OSC_ID_USBSOF) {
+				osc_enable(CONFIG_OSC_AUTOCAL_RC32MHZ_REF_OSC);
+				osc_wait_ready(CONFIG_OSC_AUTOCAL_RC32MHZ_REF_OSC);
+			}
+			osc_enable_autocalibration(OSC_ID_RC32MHZ,
+					CONFIG_OSC_AUTOCAL_RC32MHZ_REF_OSC);
+#endif
 			break;
 
 		case SYSCLK_SRC_RC32KHZ:
@@ -121,18 +132,17 @@ void sysclk_init(void)
 
 		ccp_write_io((uint8_t *)&CLK.CTRL, CONFIG_SYSCLK_SOURCE);
 		Assert(CLK.CTRL == CONFIG_SYSCLK_SOURCE);
+	}
 
-#ifdef CONFIG_OSC_AUTOCAL
-		osc_enable_autocalibration(CONFIG_OSC_AUTOCAL,CONFIG_OSC_AUTOCAL_REF_OSC);
-		if (CONFIG_OSC_AUTOCAL == OSC_ID_RC2MHZ
-				|| CONFIG_OSC_AUTOCAL_REF_OSC == OSC_ID_RC2MHZ) {
-			need_rc2mhz = true;
-		}
+	if (need_rc2mhz) {
+#ifdef CONFIG_OSC_AUTOCAL_RC2MHZ_REF_OSC
+		osc_enable(CONFIG_OSC_AUTOCAL_RC2MHZ_REF_OSC);
+		osc_wait_ready(CONFIG_OSC_AUTOCAL_RC2MHZ_REF_OSC);
+		osc_enable_autocalibration(OSC_ID_RC2MHZ,
+				CONFIG_OSC_AUTOCAL_RC2MHZ_REF_OSC);
 #endif
-
-		if (!need_rc2mhz) {
-			osc_disable(OSC_ID_RC2MHZ);
-		}
+	} else {
+		osc_disable(OSC_ID_RC2MHZ);
 	}
 }
 
@@ -190,8 +200,9 @@ void sysclk_enable_usb(uint8_t frequency)
 		if (!osc_is_ready(OSC_ID_RC32MHZ)) {
 			osc_enable(OSC_ID_RC32MHZ);
 			osc_wait_ready(OSC_ID_RC32MHZ);
-#ifdef CONFIG_OSC_AUTOCAL
-			osc_enable_autocalibration(CONFIG_OSC_AUTOCAL,CONFIG_OSC_AUTOCAL_REF_OSC);
+#ifdef CONFIG_OSC_AUTOCAL_RC32MHZ_REF_OSC
+			osc_enable_autocalibration(OSC_ID_RC32MHZ,
+					CONFIG_OSC_AUTOCAL_RC32MHZ_REF_OSC);
 #endif
 		}
 		ccp_write_io((uint8_t *)&CLK.USBCTRL, (prescaler)

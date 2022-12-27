@@ -6,7 +6,7 @@
  * This module defines types and operations that support basic physical
  * modeling and equations for sensor data.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -42,18 +42,15 @@
  *
  */
 
+#ifndef _SENSOR_PHYSICS_H_
+#define _SENSOR_PHYSICS_H_
 
 #include "constants.h"
 #include "../math/precision.h"
 
-
-#ifndef _physics_h_
-#define _physics_h_
-
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 
 /*! \brief Calculate direction, inclination, and field strength
  *
@@ -69,11 +66,10 @@ extern "C" {
  * \return  bool        true if the call succeeds, else false is returned.
  */
 extern bool field_direction(vector3_t *field, scalar_t *theta,
-	scalar_t *delta, scalar_t *strength);
-
+		scalar_t *delta, scalar_t *strength);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif // _physics_h_
+#endif

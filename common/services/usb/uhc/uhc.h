@@ -3,7 +3,7 @@
  *
  * \brief Interface of the USB Host Controller (UHC)
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -327,6 +327,25 @@ bool uhc_dev_is_high_speed_support(uhc_device_t* dev);
 //@}
 
 //@}
+
+/**
+ * \ingroup usb_group
+ * \defgroup usb_host_group USB Stack Host
+ *
+ * This module includes USB Stack Host implementation.
+ * The stack is divided in three parts:
+ * - USB Host Controller (UHC) provides USB chapter 9 compliance
+ * - USB Host Interface (UHI) provides USB Class compliance
+ * - USB Host Driver (UHD) provides USB Driver for each Atmel MCU
+
+ * Many USB Host applications can be implemented on Atmel MCU.
+ * Atmel provides the application note AVR4950 about USB Host Stack general
+ * information.
+ *
+ * @{
+ */
+
+//! @}
 
 #ifdef __cplusplus
 }

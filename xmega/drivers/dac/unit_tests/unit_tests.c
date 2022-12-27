@@ -3,7 +3,7 @@
  *
  * \brief Unit tests for DAC driver using ADC
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -949,10 +949,6 @@ int main(void)
 	board_init();
 	sysclk_init();
 	stdio_serial_init(CONF_TEST_USART, &usart_serial_options);
-	/* GCC AVR32 implementation */
-#if (defined(__GNUC__) && !defined(XMEGA))
-	setbuf(stdout, NULL);
-#endif
 
 	/* Define test cases */
 	DEFINE_TEST_CASE(dual_channel_12bit_conversion_test, NULL,

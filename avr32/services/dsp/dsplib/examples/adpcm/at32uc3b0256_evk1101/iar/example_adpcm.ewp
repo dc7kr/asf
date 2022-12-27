@@ -1812,6 +1812,12 @@
 							<name>modules</name>
 							<group>
 								<name>debug</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../utils/modules/debug/dsp_debug_read.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../utils/modules/debug/dsp_debug_print.c</name>
+								</file>
 								<group>
 									<name>evk1101</name>
 									<group>
@@ -1821,12 +1827,6 @@
 										</file>
 									</group>
 								</group>
-								<file>
-									<name>$PROJ_DIR$/../../../../utils/modules/debug/dsp_debug_print.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../utils/modules/debug/dsp_debug_read.c</name>
-								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../utils/modules/debug/dsp_debug_printf.c</name>
 								</file>
@@ -1887,6 +1887,15 @@
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../drivers/flashc/flashc.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1101</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../boards/evk1101/led.c</name>
 				</file>
 			</group>
 		</group>

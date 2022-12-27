@@ -69,9 +69,14 @@
 // From module: Interrupt management - XMEGA implementation
 #include <interrupt.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: XMEGA compiler driver
 #include <compiler.h>
-#include <parts.h>
 #include <status_codes.h>
+
+// From module: Xplain LED support enabled
+#include <led.h>
 
 #endif // ASF_H

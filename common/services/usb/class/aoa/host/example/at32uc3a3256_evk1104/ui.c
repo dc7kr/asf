@@ -39,24 +39,11 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb_host.h"
-#include "conf_board.h"
-#include "uhc.h"
-#include "uhi_aoa.h"
-#include "board.h"
-#include "gpio.h"
-#include "eic.h"
-#include "ui.h"
-#include "spi.h"
-#include "qt60168.h"
+#include <asf.h>
 #include "conf_qt60168.h"
-#include "sysclk.h"
-#include "delay.h"
-#include "et024006dhu.h"
-#include "tc.h"
-#include "adc.h"
-#include "rtc.h"
+#include <qt60168.h>
+#include <et024006dhu.h>
+#include "ui.h"
 #include "usb_connector.h"
 #include "cellphone.h"
 
@@ -304,7 +291,7 @@ void ui_usb_sof_event(void)
 
 /* End of Hostmode functions */
 /** @} */
-void read_complete(usb_add_t add, uhd_trans_status_t status,
+void read_complete(usb_add_t add, usb_ep_t ep, uhd_trans_status_t status,
 		iram_size_t nb_transfered)
 {
 	(void)add;

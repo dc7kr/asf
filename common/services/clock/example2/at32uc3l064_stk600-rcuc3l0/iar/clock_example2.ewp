@@ -1737,6 +1737,9 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../avr32/boards/stk600/rcuc3l0/init.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../avr32/boards/stk600/rcuc3l0/led.c</name>
+					</file>
 				</group>
 			</group>
 		</group>

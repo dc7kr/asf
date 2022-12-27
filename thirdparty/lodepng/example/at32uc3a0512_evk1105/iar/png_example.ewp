@@ -1808,15 +1808,15 @@
 			<group>
 				<name>ebi</name>
 				<group>
-					<name>sdramc</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../avr32/drivers/ebi/sdramc/sdramc.c</name>
-					</file>
-				</group>
-				<group>
 					<name>smc</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../avr32/drivers/ebi/smc/smc.c</name>
+					</file>
+				</group>
+				<group>
+					<name>sdramc</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../avr32/drivers/ebi/sdramc/sdramc.c</name>
 					</file>
 				</group>
 			</group>
@@ -1866,6 +1866,15 @@
 				<name>startup</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../avr32/utils/startup/trampoline_uc3.s82</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1105</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/boards/evk1105/led.c</name>
 				</file>
 			</group>
 		</group>

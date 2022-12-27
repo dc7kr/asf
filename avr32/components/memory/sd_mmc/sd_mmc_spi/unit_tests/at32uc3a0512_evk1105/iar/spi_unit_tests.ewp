@@ -1878,6 +1878,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../boards/evk1105/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../boards/evk1105/led.c</name>
+				</file>
 			</group>
 		</group>
 		<group>

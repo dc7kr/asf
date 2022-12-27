@@ -1753,25 +1753,13 @@
 	<group>
 		<name>avr32</name>
 		<group>
-			<name>services</name>
-			<group>
-				<name>network</name>
-				<group>
-					<name>lin</name>
-					<file>
-						<name>$PROJ_DIR$/../../../lin.c</name>
-					</file>
-					<group>
-						<name>lin_mngt_example</name>
-						<file>
-							<name>$PROJ_DIR$/../../lin_mngt_example.c</name>
-						</file>
-					</group>
-				</group>
-			</group>
-		</group>
-		<group>
 			<name>drivers</name>
+			<group>
+				<name>pdca</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pdca/pdca.c</name>
+				</file>
+			</group>
 			<group>
 				<name>gpio</name>
 				<file>
@@ -1785,12 +1773,6 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/intc/exception.s82</name>
-				</file>
-			</group>
-			<group>
-				<name>pdca</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/pdca/pdca.c</name>
 				</file>
 			</group>
 			<group>
@@ -1825,6 +1807,33 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/tc/tc.c</name>
 				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>uc3c_ek</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../boards/uc3c_ek/led.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>services</name>
+			<group>
+				<name>network</name>
+				<group>
+					<name>lin</name>
+					<group>
+						<name>lin_mngt_example</name>
+						<file>
+							<name>$PROJ_DIR$/../../lin_mngt_example.c</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../lin.c</name>
+					</file>
+				</group>
 			</group>
 		</group>
 		<group>

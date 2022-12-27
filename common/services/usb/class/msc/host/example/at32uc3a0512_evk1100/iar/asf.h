@@ -88,6 +88,9 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: Sleep manager - UC3 implementation
 #include <sleepmgr.h>
 #include <uc3/sleepmgr.h>
@@ -96,7 +99,7 @@
 #include <sysclk.h>
 
 // From module: USB Host MSC (Single Class support)
-#include <uhi_msc_mem.h>
+#include <uhi_msc.h>
 
 // From module: USB Host stack core
 #include <uhc.h>

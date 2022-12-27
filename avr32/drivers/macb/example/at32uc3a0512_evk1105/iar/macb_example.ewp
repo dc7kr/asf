@@ -323,22 +323,19 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/rtl8201</state>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/dummy_phy</state>
-					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/dp83848</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/debug</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../flashc</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../intc</state>
 					<state>$PROJ_DIR$/../../../../pm</state>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/dp83848</state>
+					<state>$PROJ_DIR$/../../../../intc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../boards/evk1105</state>
 					<state>$PROJ_DIR$/.</state>
@@ -458,22 +455,19 @@
 				</option>
 				<option>
 					<name>AIncludePaths</name>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/rtl8201</state>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/dummy_phy</state>
-					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/dp83848</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/debug</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../flashc</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../intc</state>
 					<state>$PROJ_DIR$/../../../../pm</state>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/dp83848</state>
+					<state>$PROJ_DIR$/../../../../intc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../boards/evk1105</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1202,22 +1196,19 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/rtl8201</state>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/dummy_phy</state>
-					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/dp83848</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/debug</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../flashc</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../intc</state>
 					<state>$PROJ_DIR$/../../../../pm</state>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/dp83848</state>
+					<state>$PROJ_DIR$/../../../../intc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../boards/evk1105</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1337,22 +1328,19 @@
 				</option>
 				<option>
 					<name>AIncludePaths</name>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/rtl8201</state>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/dummy_phy</state>
-					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/dp83848</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/debug</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../flashc</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../intc</state>
 					<state>$PROJ_DIR$/../../../../pm</state>
-					<state>$PROJ_DIR$/../../../../../components/ethernet_phy/dp83848</state>
+					<state>$PROJ_DIR$/../../../../intc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../boards/evk1105</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1826,6 +1814,15 @@
 				<name>startup</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../utils/startup/trampoline_uc3.s82</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1105</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/evk1105/led.c</name>
 				</file>
 			</group>
 		</group>

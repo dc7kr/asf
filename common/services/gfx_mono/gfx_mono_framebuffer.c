@@ -3,7 +3,7 @@
  *
  * \brief Local framebuffer
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -175,7 +175,7 @@ uint8_t gfx_mono_framebuffer_get_pixel(gfx_coord_t x, gfx_coord_t y)
 	}
 
 	page = y / GFX_MONO_LCD_PIXELS_PER_BYTE;
-	pixel_mask = (1 << ((page << 3) - y));
+	pixel_mask = (1 << (y - (page * 8)));
 
 	return gfx_mono_framebuffer_get_byte(page, x) & pixel_mask;
 }

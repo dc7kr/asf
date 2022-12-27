@@ -1848,9 +1848,6 @@
 									<name>$PROJ_DIR$/../../../../generic/basic/operators/op_kfix_cos.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../generic/basic/operators/op_dsp32_fix_sqrt.c</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/operators/op_fix_exp.c</name>
 								</file>
 								<file>
@@ -1864,6 +1861,9 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/operators/op_kfix_sin.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../generic/basic/operators/op_dsp32_fix_sqrt.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/operators/op_fix_rand.c</name>
@@ -1903,6 +1903,9 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp32_realsub.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp32_dotdiv.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp16_realsub.c</name>
@@ -1945,9 +1948,6 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp16_complex_abs.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp32_dotdiv.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp32_sub.c</name>
@@ -2211,6 +2211,15 @@
 						</group>
 					</group>
 				</group>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1101</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../boards/evk1101/led.c</name>
+				</file>
 			</group>
 		</group>
 		<group>

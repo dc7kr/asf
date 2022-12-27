@@ -63,18 +63,15 @@ void board_init(void)
 	gpio_configure_group(PINS_UART_PIO, PINS_UART, PINS_UART_FLAGS);
 #endif
 
-	/* Configure ADC example pins */
-#ifdef CONF_BOARD_ADC
-	/* TC TIOA configuration */
-	gpio_configure_pin(PIN_TC0_TIOA0,PIN_TC0_TIOA0_FLAGS);
-
-	/* ADC Trigger configuration */
-	gpio_configure_pin(PINS_ADC_TRIG, PINS_ADC_TRIG_FLAG);
-
-	/* PWMH0 configuration */
-	gpio_configure_pin(PIN_PWMC_PWMH0_TRIG, PIN_PWMC_PWMH0_TRIG_FLAG);
+#ifdef CONF_BOARD_TWI0
+	gpio_configure_pin(TWI0_DATA_GPIO, TWI0_DATA_FLAGS);
+	gpio_configure_pin(TWI0_CLK_GPIO, TWI0_CLK_FLAGS);
 #endif
 
+#ifdef CONF_BOARD_TWI1
+	gpio_configure_pin(TWI1_DATA_GPIO, TWI1_DATA_FLAGS);
+	gpio_configure_pin(TWI1_CLK_GPIO, TWI1_CLK_FLAGS);
+#endif
 
 	/* Configure SPI pins */
 #ifdef CONF_BOARD_SPI
@@ -175,5 +172,18 @@ void board_init(void)
 	pio_configure_pin(PIN_EBI_ADDR_BUS_A16, PIN_EBI_ADDR_BUS_FLAG2);
 	pio_configure_pin(PIN_EBI_ADDR_BUS_A17, PIN_EBI_ADDR_BUS_FLAG2);
 	pio_configure_pin(PIN_EBI_ADDR_BUS_A18, PIN_EBI_ADDR_BUS_FLAG2);
+#endif
+
+#if defined(CONF_BOARD_ENABLE_MXT143E_XPLAINED)
+	pio_configure_pin(MXT143E_XPLAINED_MISO, SPI_MISO_FLAGS);
+	pio_configure_pin(MXT143E_XPLAINED_MOSI, SPI_MOSI_FLAGS);
+	pio_configure_pin(MXT143E_XPLAINED_SCK, SPI_SPCK_FLAGS);
+	pio_configure_pin(MXT143E_XPLAINED_CS, (PIO_OUTPUT_0 | PIO_DEFAULT));
+	pio_configure_pin(MXT143E_XPLAINED_CHG, (PIO_INPUT | PIO_DEFAULT));
+	pio_configure_pin(MXT143E_XPLAINED_DC, (PIO_OUTPUT_0 | PIO_DEFAULT));
+	#ifndef MXT143E_XPLAINED_BACKLIGHT_DISABLE
+	pio_configure_pin(MXT143E_XPLAINED_BACKLIGHT, (PIO_OUTPUT_0 | PIO_DEFAULT));
+	#endif
+	pio_configure_pin(MXT143E_XPLAINED_LCD_RESET, (PIO_OUTPUT_0 | PIO_DEFAULT));
 #endif
 }

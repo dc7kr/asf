@@ -19,7 +19,7 @@
  * implication, the location of a virtual fixed decimal point within the
  * mantissa.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -55,18 +55,11 @@
  *
  */
 
-
-// includes
-
 #include "fixed.h"
-
-
 
 namespace math {
 
-
-
-/*! \brief Round up a math::fixed object value.
+/** \brief Round up a math::fixed object value.
  *
  * Returns the smallest integral value that is not less than the invoking
  * object of type math::fixed.
@@ -78,7 +71,7 @@ fixed fixed::ceil () const
 	return (val % (1L << Q)) ? (floor() + 1) : (*this);
 }
 
-/*! \brief Round down a math::fixed object value.
+/** \brief Round down a math::fixed object value.
  *
  * Returns the largest integral value that is not greater than the
  * invoking object of type math::fixed.
@@ -102,7 +95,7 @@ fixed fixed::floor () const
 	return result;
 }
 
-/*! \brief Compute the square root of a math::fixed object value.
+/** \brief Compute the square root of a math::fixed object value.
  *
  * Returns the square root of the invoking object of type <fixed>.
  * If the argument is negative, a domain error occurs, setting the
@@ -119,6 +112,4 @@ fixed fixed::sqrt () const
 	return root;
 }
 
-
-
-}  // namespace math
+}

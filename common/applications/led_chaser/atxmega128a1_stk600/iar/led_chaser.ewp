@@ -2056,20 +2056,20 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>clock</name>
-				<group>
-					<name>xmega</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../services/clock/xmega/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>ioport</name>
 				<group>
 					<name>xmega</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../services/ioport/xmega/ioport_compat.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>xmega</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/clock/xmega/sysclk.c</name>
 					</file>
 				</group>
 			</group>

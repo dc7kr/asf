@@ -7,7 +7,7 @@
  * To be used as a reference, copy/paste to each project using the MAC software
  * driver then customize according to the application.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -118,7 +118,14 @@ to use an MII interface. */
 #endif
 
 /*! set to 1 if Phy status changes handle an interrupt */
-#define ETHERNET_CONF_USE_PHY_IT           1
+#define ETHERNET_CONF_USE_PHY_IT           0
+
+#if ETHERNET_CONF_USE_PHY_IT == 1
+  #if !defined(EXTPHY_MACB_INTERRUPT_PIN) 
+  #warning The MACB configuration does not exist in the board definition file. Using default settings.
+  #define EXTPHY_MACB_INTERRUPT_PIN   AVR32_PIN_PA01 /* MACB Interrupt pin, dummy default value */
+#endif
+#endif
 
 
 #endif // __CONF_ETH_H__

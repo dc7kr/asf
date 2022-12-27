@@ -89,7 +89,6 @@ gfx_color_t gfx_ili9341_get_pixel(gfx_coord_t x, gfx_coord_t y)
 			(y < gfx_min_y) || (y > gfx_max_y)) {
 		return GFX_COLOR_INVALID;
 	}
-
 #endif
 
 	/* Set up draw area and read the three bytes of pixel data. */
@@ -106,7 +105,6 @@ void gfx_ili9341_draw_pixel(gfx_coord_t x, gfx_coord_t y, gfx_color_t color)
 			(y < gfx_min_y) || (y > gfx_max_y)) {
 		return;
 	}
-
 #endif
 
 	/* Set up draw area and write the two bytes of pixel data. */
@@ -122,7 +120,6 @@ void gfx_ili9341_draw_line_pixel(gfx_coord_t x, gfx_coord_t y,
 			(y < gfx_min_y) || (y > gfx_max_y)) {
 		return;
 	}
-
 #endif
 
 	/* Set up top left corner of area and write the two bytes of */

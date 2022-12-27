@@ -1800,6 +1800,12 @@
 				</file>
 			</group>
 			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../drivers/usart/usart.c</name>
+				</file>
+			</group>
+			<group>
 				<name>twim</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../drivers/twim/twim.c</name>
@@ -1842,12 +1848,6 @@
 				</file>
 			</group>
 			<group>
-				<name>usart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../drivers/usart/usart.c</name>
-				</file>
-			</group>
-			<group>
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../drivers/flashc/flashc.c</name>
@@ -1866,6 +1866,15 @@
 				<name>startup</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../utils/startup/trampoline_uc3.s82</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1104</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../boards/evk1104/led.c</name>
 				</file>
 			</group>
 		</group>

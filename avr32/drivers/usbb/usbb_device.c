@@ -65,8 +65,8 @@
 #endif
 
 /**
- * \ingroup usb_device_group
- * \defgroup udd_group USB Device Driver (UDD)
+ * \ingroup udd_group
+ * \defgroup udd_usbb_group USBB Device Driver
  *
  * \section USBB_CONF USBB Custom configuration
  * The following USBB driver configuration must be included in the conf_usb.h
@@ -75,15 +75,15 @@
  * UDD_USB_INT_LEVEL<br>
  * Option to change the interrupt priority (0 to 3) by default 0 (recommended).
  *
- * UDD_ISOCHRONOUS_NB_BANK<br>
+ * UDD_ISOCHRONOUS_NB_BANK(ep)<br>
  * Feature to reduce or increase isochronous endpoints buffering (1 to 2).
  * Default value 2.
  *
- * UDD_BULK_NB_BANK<br>
+ * UDD_BULK_NB_BANK(ep)<br>
  * Feature to reduce or increase bulk endpoints buffering (1 to 2).
  * Default value 2.
  *
- * UDD_INTERRUPT_NB_BANK<br>
+ * UDD_INTERRUPT_NB_BANK(ep)<br>
  * Feature to reduce or increase interrupt endpoints buffering (1 to 2).
  * Default value 1.
  *
@@ -149,24 +149,95 @@
 #  endif
 #endif
 
+#define UDD_EP_USED(ep)      (USB_DEVICE_MAX_EP >= ep)
+
+#define UDD_EP_ISO_NBANK_ERROR(ep)            \
+	( (UDD_ISOCHRONOUS_NB_BANK(ep) < 1)   \
+		|| (UDD_ISOCHRONOUS_NB_BANK(ep) > 2) )
+#define UDD_EP_BULK_NBANK_ERROR(ep)           \
+	( (UDD_BULK_NB_BANK(ep) < 1) || (UDD_BULK_NB_BANK(ep) > 2) )
+#define UDD_EP_INT_NBANK_ERROR(ep)            \
+	( (UDD_INTERRUPT_NB_BANK(ep) < 1) || (UDD_INTERRUPT_NB_BANK(ep) > 2) )
+
+#define UDD_EP_ISO_NB_BANK_ERROR(ep)          \
+	(UDD_EP_USED(ep) && UDD_EP_ISO_NBANK_ERROR(ep))
+#define UDD_EP_BULK_NB_BANK_ERROR(ep)         \
+	(UDD_EP_USED(ep) && UDD_EP_ISO_NBANK_ERROR(ep))
+#define UDD_EP_INT_NB_BANK_ERROR(ep)          \
+	(UDD_EP_USED(ep) && UDD_EP_ISO_NBANK_ERROR(ep))
+
+#define UDD_EP_NB_BANK_ERROR(ep, type)        \
+	(ATPASTE3(UDD_EP_, type, _NB_BANK_ERROR(ep)))
+
+#define UDD_ISO_NB_BANK_ERROR \
+	(          UDD_EP_NB_BANK_ERROR( 1, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 2, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 3, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 4, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 5, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 6, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 7, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 8, ISO) \
+		|| UDD_EP_NB_BANK_ERROR( 9, ISO) \
+		|| UDD_EP_NB_BANK_ERROR(10, ISO) \
+		|| UDD_EP_NB_BANK_ERROR(11, ISO) \
+		|| UDD_EP_NB_BANK_ERROR(12, ISO) \
+		|| UDD_EP_NB_BANK_ERROR(13, ISO) \
+		|| UDD_EP_NB_BANK_ERROR(14, ISO) \
+		|| UDD_EP_NB_BANK_ERROR(15, ISO) )
+#define UDD_BULK_NB_BANK_ERROR \
+	(          UDD_EP_NB_BANK_ERROR( 1, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 2, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 3, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 4, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 5, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 6, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 7, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 8, BULK) \
+		|| UDD_EP_NB_BANK_ERROR( 9, BULK) \
+		|| UDD_EP_NB_BANK_ERROR(10, BULK) \
+		|| UDD_EP_NB_BANK_ERROR(11, BULK) \
+		|| UDD_EP_NB_BANK_ERROR(12, BULK) \
+		|| UDD_EP_NB_BANK_ERROR(13, BULK) \
+		|| UDD_EP_NB_BANK_ERROR(14, BULK) \
+		|| UDD_EP_NB_BANK_ERROR(15, BULK) )
+#define UDD_INTERRUPT_NB_BANK_ERROR \
+	(          UDD_EP_NB_BANK_ERROR( 1, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 2, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 3, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 4, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 5, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 6, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 7, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 8, INT) \
+		|| UDD_EP_NB_BANK_ERROR( 9, INT) \
+		|| UDD_EP_NB_BANK_ERROR(10, INT) \
+		|| UDD_EP_NB_BANK_ERROR(11, INT) \
+		|| UDD_EP_NB_BANK_ERROR(12, INT) \
+		|| UDD_EP_NB_BANK_ERROR(13, INT) \
+		|| UDD_EP_NB_BANK_ERROR(14, INT) \
+		|| UDD_EP_NB_BANK_ERROR(15, INT) )
+
 #ifndef UDD_ISOCHRONOUS_NB_BANK
-#  define UDD_ISOCHRONOUS_NB_BANK 2
+#  define UDD_ISOCHRONOUS_NB_BANK(ep) 2
 #else
-#  if (UDD_ISOCHRONOUS_NB_BANK<1) || (UDD_ISOCHRONOUS_NB_BANK>2)
-#    error UDD_ISOCHRONOUS_NB_BANK must be define with 1 or 2.
+#  if UDD_ISO_NB_BANK_ERROR
+#    error UDD_ISOCHRONOUS_NB_BANK(ep) must be define with 1 or 2.
 #  endif
 #endif
+
 #ifndef UDD_BULK_NB_BANK
-#  define UDD_BULK_NB_BANK 2
+#  define UDD_BULK_NB_BANK(ep) 2
 #else
-#  if (UDD_BULK_NB_BANK<1) || (UDD_BULK_NB_BANK>2)
+#  if UDD_BULK_NB_BANK_ERROR
 #    error UDD_BULK_NB_BANK must be define with 1 or 2.
 #  endif
 #endif
+
 #ifndef UDD_INTERRUPT_NB_BANK
-#  define UDD_INTERRUPT_NB_BANK 1
+#  define UDD_INTERRUPT_NB_BANK(ep) 1
 #else
-#  if (UDD_INTERRUPT_NB_BANK<1) || (UDD_INTERRUPT_NB_BANK>2)
+#  if UDD_INTERRUPT_NB_BANK_ERROR
 #    error UDD_INTERRUPT_NB_BANK must be define with 1 or 2.
 #  endif
 #endif
@@ -404,12 +475,12 @@ static bool udd_ep_interrupt(void);
  * See Technical reference $3.8.3 Masking interrupt requests in peripheral modules.
  */
 #ifdef UHD_ENABLE
-void udd_interrupt(void);
+void udd_interrupt(void); // To avoid GCC warning
 void udd_interrupt(void)
 #else
 #  ifdef FREERTOS_USED
-#  include "FreeRTOS.h"
-#  include "task.h"
+#    include "FreeRTOS.h"
+#    include "task.h"
 ISR_FREERTOS(udd_interrupt, AVR32_USBB_IRQ_GROUP, UDD_USB_INT_LEVEL)
 #  else
 ISR(udd_interrupt, AVR32_USBB_IRQ_GROUP, UDD_USB_INT_LEVEL)
@@ -498,7 +569,13 @@ ISR(udd_interrupt, AVR32_USBB_IRQ_GROUP, UDD_USB_INT_LEVEL)
 	}
 udd_interrupt_end:
 	otg_data_memory_barrier();
+#if (defined FREERTOS_USED)
+	// Since we do not know if the user callbacks have used or not FreeRTOS APIs, let's
+	// consider that exiting from the USB interrupt will require a context switch.
+	return pdTRUE;
+#else
 	return;
+#endif
 }
 
 
@@ -526,7 +603,11 @@ void udd_enable(void)
 	sysclk_enable_usb();
 
 	// Here, only the device mode is possible, then link USBB interrupt to UDD interrupt
-	irq_register_handler(udd_interrupt, AVR32_USBB_IRQ, UDD_USB_INT_LEVEL);
+	irq_register_handler(
+#ifdef FREERTOS_USED
+		(__int_handler)
+#endif
+		udd_interrupt, AVR32_USBB_IRQ, UDD_USB_INT_LEVEL);
 
 	// Always authorize asynchrone USB interrupts to exit of sleep mode
 	pm_asyn_wake_up_enable(AVR32_PM_AWEN_USB_WAKEN_MASK);
@@ -704,7 +785,7 @@ uint16_t udd_get_micro_frame_number(void)
 	return udd_micro_frame_number();
 }
 
-void udd_send_wake_up(void)
+void udd_send_remotewakeup(void)
 {
 #ifndef UDD_NO_SLEEP_MGR
 	if (!udd_b_idle)
@@ -745,13 +826,13 @@ bool udd_ep_alloc(udd_ep_id_t ep, uint8_t bmAttributes,
 	// Bank choise
 	switch(bmAttributes&USB_EP_TYPE_MASK) {
 	case USB_EP_TYPE_ISOCHRONOUS:
-		bank = UDD_ISOCHRONOUS_NB_BANK;
+		bank = UDD_ISOCHRONOUS_NB_BANK(ep);
 		break;
 	case USB_EP_TYPE_INTERRUPT:
-		bank = UDD_INTERRUPT_NB_BANK;
+		bank = UDD_INTERRUPT_NB_BANK(ep);
 		break;
 	case USB_EP_TYPE_BULK:
-		bank = UDD_BULK_NB_BANK;
+		bank = UDD_BULK_NB_BANK(ep);
 		break;
 	default:
 		Assert(false);

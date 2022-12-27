@@ -6,7 +6,7 @@
  * This file defines tunable configuration constants for user selected API
  * features and functions.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -42,9 +42,8 @@
  *
  */
 
-#ifndef _conf_sensors_h_
-#define _conf_sensors_h_
-
+#ifndef _CONF_SENSORS_H_
+#define _CONF_SENSORS_H_
 
 /* Sensor Platform Board Configuration
  *
@@ -54,41 +53,37 @@
  */
 #include    <board.h>
 
-
-// Atmel Software Framework (ASF) Interfaces
-
+/* Atmel Software Framework (ASF) Interfaces */
 #include    <sysclk.h>
 
 #if UC3
 #   include <cycle_counter.h>
 #endif
 
-
-//! \name Redirect C Standard I/O (USB or USART)
-// @{
+/** \name Redirect C Standard I/O (USB or USART) */
+/** @{ */
 #if defined(CONF_STDIO_REDIRECT)
 #if (UC3A || UC3B || UC3C || XMEGA_AU || XMEGA_B)
 #   include <stdio/stdio_usb/stdio_usb.h>
-#   define CONF_STDIO_USB           //!< Configure C Standard I/O over USB/CDC
+#   define CONF_STDIO_USB           /* !< Configure C Standard I/O over USB/CDC */
 #elif (UC3L || XMEGA_A1)
 #   include <stdio/stdio_serial/stdio_serial.h>
-#   define CONF_STDIO_SERIAL        //!< Configure C Standard I/O over USART
+#   define CONF_STDIO_SERIAL        /* !< Configure C Standard I/O over USART */
 #endif
 #endif
-// @}
+/** @} */
 
-
-//! \name Xplained Platform USART Configuration
-// @{
-#if (BOARD==XMEGA_A1_XPLAINED)
+/** \name Xplained Platform USART Configuration */
+/** @{ */
+#if (BOARD == XMEGA_A1_XPLAINED)
 #   define CONFIG_USART_IF          (USARTC0)
-#elif (BOARD==XMEGA_B1_XPLAINED)
+#elif (BOARD == XMEGA_B1_XPLAINED)
 #   define CONFIG_USART_IF          (USARTE0)
-#elif (BOARD==XMEGA_A3BU_XPLAINED)
+#elif (BOARD == XMEGA_A3BU_XPLAINED)
 #   define CONFIG_USART_IF          (USARTD0)
-#elif (BOARD==UC3_L0_XPLAINED)
+#elif (BOARD == UC3_L0_XPLAINED)
 #   define CONFIG_USART_IF          (AVR32_USART2)
-#elif (BOARD==UC3_A3_XPLAINED)
+#elif (BOARD == UC3_A3_XPLAINED)
 #   define CONFIG_USART_IF          (AVR32_USART2)
 #else
 #   define CONFIG_USART_IF          (NULL)
@@ -105,24 +100,23 @@
 #   define CONFIG_USART_PARITY      (USART_NO_PARITY)
 #   define CONFIG_USART_STOP_BIT    (USART_1_STOPBIT)
 #endif
-// @}
+/** @} */
 
-
-//! \name Platform TWI and SPI Bus Configuration
-// @{
-#if (BOARD==XMEGA_A1_XPLAINED)
+/** \name Platform TWI and SPI Bus Configuration */
+/** @{ */
+#if (BOARD == XMEGA_A1_XPLAINED)
 #   define CONFIG_TWI_MASTER_IF     (TWIF)
 #   define CONFIG_SPI_MASTER_IF     (SPIF)
-#elif (BOARD==XMEGA_B1_XPLAINED)
+#elif (BOARD == XMEGA_B1_XPLAINED)
 #   define CONFIG_TWI_MASTER_IF     (TWIC)
 #   define CONFIG_SPI_MASTER_IF     (SPIC)
-#elif (BOARD==XMEGA_A3BU_XPLAINED)
+#elif (BOARD == XMEGA_A3BU_XPLAINED)
 #   define CONFIG_TWI_MASTER_IF     (TWIC)
 #   define CONFIG_SPI_MASTER_IF     (SPIC)
-#elif (BOARD==UC3_L0_XPLAINED)
+#elif (BOARD == UC3_L0_XPLAINED)
 #   define CONFIG_TWI_MASTER_IF     (AVR32_TWIM0)
 #   define CONFIG_SPI_MASTER_IF     (AVR32_SPI)
-#elif (BOARD==UC3_A3_XPLAINED)
+#elif (BOARD == UC3_A3_XPLAINED)
 #   define CONFIG_TWI_MASTER_IF     (AVR32_TWIM0)
 #   define CONFIG_SPI_MASTER_IF     (AVR32_SPI0)
 #else
@@ -136,14 +130,7 @@
 #define CONFIG_SPI_BAUDRATE         (12000000)
 #define CONFIG_SPI_OFFSET           (0)
 
-#if defined(XMEGA) || defined(AVR32_TWI)
-#   define CONF_FRAMEWORK_BUS       //!< Use ASF common bus interfaces
-#else
-#   define CONF_CUSTOM_BUS          //!< Use custom (non-ASF) bus interfaces
+#undef CONF_EVENT_COUNTERS          /**< Development and Debugging Facilities */
+/** @} */
+
 #endif
-
-#undef CONF_EVENT_COUNTERS          //!< Development and Debugging Facilities
-// @}
-
-
-#endif /* _conf_sensors_h_ */

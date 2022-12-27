@@ -414,16 +414,16 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../cpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
-					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/xplain</state>
-					<state>$PROJ_DIR$/../../../../cpu</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -667,16 +667,16 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../cpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
-					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/xplain</state>
-					<state>$PROJ_DIR$/../../../../cpu</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1425,16 +1425,16 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../cpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
-					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/xplain</state>
-					<state>$PROJ_DIR$/../../../../cpu</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1678,16 +1678,16 @@
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../cpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
-					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/xplain</state>
-					<state>$PROJ_DIR$/../../../../cpu</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -2063,20 +2063,20 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>clock</name>
-				<group>
-					<name>xmega</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/clock/xmega/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>ioport</name>
 				<group>
 					<name>xmega</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../common/services/ioport/xmega/ioport_compat.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>xmega</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/xmega/sysclk.c</name>
 					</file>
 				</group>
 			</group>

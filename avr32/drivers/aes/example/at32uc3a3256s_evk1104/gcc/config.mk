@@ -56,6 +56,7 @@ TARGET = aes_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/evk1104/led.c                         \
        avr32/drivers/aes/aes.c                            \
        avr32/drivers/aes/example/aes_example.c            \
        avr32/drivers/flashc/flashc.c                      \

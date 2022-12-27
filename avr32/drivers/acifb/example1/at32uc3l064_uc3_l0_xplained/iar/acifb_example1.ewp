@@ -324,11 +324,11 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../ast</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../utils/debug</state>
-					<state>$PROJ_DIR$/../../../../flashcdw</state>
 					<state>$PROJ_DIR$/../../../../../boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
@@ -337,7 +337,7 @@
 					<state>$PROJ_DIR$/../../../../pm</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../flashcdw</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/sleepmgr</state>
@@ -460,11 +460,11 @@
 				<option>
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../ast</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../utils/debug</state>
-					<state>$PROJ_DIR$/../../../../flashcdw</state>
 					<state>$PROJ_DIR$/../../../../../boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
@@ -473,7 +473,7 @@
 					<state>$PROJ_DIR$/../../../../pm</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../flashcdw</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/sleepmgr</state>
@@ -1205,11 +1205,11 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../ast</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../utils/debug</state>
-					<state>$PROJ_DIR$/../../../../flashcdw</state>
 					<state>$PROJ_DIR$/../../../../../boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
@@ -1218,7 +1218,7 @@
 					<state>$PROJ_DIR$/../../../../pm</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../flashcdw</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/sleepmgr</state>
@@ -1341,11 +1341,11 @@
 				<option>
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../ast</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../utils/debug</state>
-					<state>$PROJ_DIR$/../../../../flashcdw</state>
 					<state>$PROJ_DIR$/../../../../../boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
@@ -1354,7 +1354,7 @@
 					<state>$PROJ_DIR$/../../../../pm</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../../services/delay</state>
+					<state>$PROJ_DIR$/../../../../flashcdw</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/sleepmgr</state>
@@ -1839,15 +1839,6 @@
 				<name>startup</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../utils/startup/trampoline_uc3.s82</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>services</name>
-			<group>
-				<name>delay</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../services/delay/delay.c</name>
 				</file>
 			</group>
 		</group>

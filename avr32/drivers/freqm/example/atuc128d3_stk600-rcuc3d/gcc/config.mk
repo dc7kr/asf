@@ -56,6 +56,7 @@ TARGET = freqm_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/stk600/rcuc3d/led.c                   \
        avr32/drivers/flashcdw/flashcdw.c                  \
        avr32/drivers/freqm/example/freqm_example.c        \
        avr32/drivers/freqm/freqm.c                        \

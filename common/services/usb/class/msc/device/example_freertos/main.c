@@ -39,21 +39,9 @@
  *
  */
 
-#include "compiler.h"
-#include "preprocessor.h"
-#include "board.h"
-#include "gpio.h"
-#include "sysclk.h"
-#include "sleepmgr.h"
+#include <asf.h>
 #include "conf_usb.h"
-#include "udd.h"
-#include "udc.h"
-#include "udi_msc.h"
 #include "ui.h"
-#include "FreeRTOS.h"
-#include "task.h"
-#include "semphr.h"
-#include "ctrl_access.h"
 
 static bool main_b_msc_enable = false;
 
@@ -230,6 +218,6 @@ void main_msc_disable(void)
  * vApplicationIdleHook() which calls sleepmgr_enter_sleep().
  *
  * However, the IDLE sleep level must be locked in sleepmgr module, if you want
- * that FreeRTOS runs when USB cable is unplug. In fact, the Timer counter used
- * by FreeRTOS runs only when sleep level is > IDLE.
+ * that FreeRTOS runs when USB cable is unplugged. In fact, the Timer counter
+ * used by FreeRTOS runs only when sleep level is > IDLE.
  */

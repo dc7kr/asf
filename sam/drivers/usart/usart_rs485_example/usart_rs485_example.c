@@ -144,7 +144,7 @@
 #define SYS_TICK_FREQ        1000
 
 #define STRING_EOL    "\r"
-#define STRING_HEADER "--USART Hardware Handshaking Example --\r\n" \
+#define STRING_HEADER "-- USART RS485 Example --\r\n" \
 		"-- "BOARD_NAME" --\r\n" \
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
 

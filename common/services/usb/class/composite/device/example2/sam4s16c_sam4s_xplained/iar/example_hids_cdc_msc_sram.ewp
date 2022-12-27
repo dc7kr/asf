@@ -299,7 +299,6 @@
 					<state>$PROJ_DIR$/../../../../../cdc/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
-					<state>$PROJ_DIR$/../../../../../msc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/..</state>
@@ -316,6 +315,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
@@ -324,7 +324,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../msc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -1223,7 +1223,6 @@
 					<state>$PROJ_DIR$/../../../../../cdc/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
-					<state>$PROJ_DIR$/../../../../../msc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/..</state>
@@ -1240,6 +1239,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
@@ -1248,7 +1248,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../msc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>

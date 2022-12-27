@@ -3,7 +3,7 @@
  *
  * \brief Timeout service for XMEGA
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -111,13 +111,8 @@ static void tick_handler(uint32_t time)
 		}
 	}
 	// Reset RTC before next tick
-#if defined(CLOCK_SOURCE_RTC32)
-	rtc32_set_time(0);
-	rtc32_set_alarm(TIMEOUT_COMP);
-#else
 	rtc_set_time(0);
 	rtc_set_alarm(TIMEOUT_COMP);
-#endif
 }
 
 /**
@@ -128,17 +123,10 @@ static void tick_handler(uint32_t time)
  */
 void timeout_init(void)
 {
-#if defined(CLOCK_SOURCE_RTC32)
-	rtc32_init();
-	rtc32_set_time(0);
-	rtc32_set_callback(tick_handler);
-	rtc32_set_alarm(TIMEOUT_COMP);
-#else
 	rtc_init();
 	rtc_set_callback(tick_handler);
 	rtc_set_time(0);
 	rtc_set_alarm(TIMEOUT_COMP);
-#endif
 	cpu_irq_enable();
 }
 

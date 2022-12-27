@@ -72,4 +72,7 @@
 // From module: Interrupt management - UC3 implementation
 #include <interrupt.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 #endif // ASF_H

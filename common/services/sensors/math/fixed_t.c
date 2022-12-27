@@ -13,7 +13,7 @@
  * Arithmetic functions that do not require the \a Q parameter assume that
  * both operands have the same \a Q format (the same number of fractional bits).
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -49,9 +49,7 @@
  *
  */
 
-
 #include "fixed_t.h"
-
 
 #if defined(__GNUC__)
 #  define clzll(n)  __builtin_clzll(n)
@@ -62,7 +60,7 @@
 #endif
 
 
-/*! \brief signed fixed-point range
+/** \brief signed fixed-point range
  *
  * Given a signed fixed-point format \p Qm.f, where \a f represents the number
  * of fractional bits and \a m the number of integer bits, this routine
@@ -85,7 +83,7 @@ int fixed_range(double x_min, double x_max)
 	return (int) (ceil(log2(a + 1)) + 1);
 }
 
-/*! \brief signed fixed-point resolution
+/** \brief signed fixed-point resolution
  *
  * Given a signed fixed-point format \p Qm.f, where \a f represents the number
  * of fractional bits and \a m the number of integer bits, this routine
@@ -103,7 +101,7 @@ int fixed_resolution(double epsilon)
 	return (int)(epsilon ? ceil (log2(1 / epsilon)) : 0);
 }
 
-/*! \brief Calculate the square root of an integer
+/** \brief Calculate the square root of an integer
  *
  * This routine calculates the integer square root, \a isqrt(), of a positive
  * integer argument \a n:
@@ -124,8 +122,6 @@ fixed_t fixed_sqrt(fixed_t f, int Q)
 {
 	uint64_t n = (uint64_t) f << Q;
 	uint64_t m = 0;
-
-	// assert (n >= 0);
 
 	if (n) {
 		int32_t  bshft = (63 - clzll (n)) >> 1;

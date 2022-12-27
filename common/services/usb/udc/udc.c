@@ -47,7 +47,10 @@
 #include "udc.h"
 
 /**
- * \addtogroup udc_group
+ * \ingroup udc_group
+ * \defgroup udc_group_interne Implementation of UDC
+ *
+ * Internal implementation
  * @{
  */
 

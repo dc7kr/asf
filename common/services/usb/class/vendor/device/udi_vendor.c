@@ -56,15 +56,13 @@
 #endif
 
 /**
- * \addtogroup udi_vendor_group
+ * \ingroup udi_vendor_group
+ * \defgroup udi_vendor_group_udc Interface with USB Device Core (UDC)
+ *
+ * Structures and functions required by UDC.
+ *
  * @{
  */
-
-/**
- * \name Interface for UDC
- */
-//@{
-
 bool udi_vendor_enable(void);
 void udi_vendor_disable(void);
 bool udi_vendor_setup(void);
@@ -78,8 +76,16 @@ UDC_DESC_STORAGE udi_api_t udi_api_vendor = {
 	.getsetting = udi_vendor_getsetting,
 	.sof_notify = NULL,
 };
-
 //@}
+
+
+/**
+ * \ingroup udi_vendor_group
+ * \defgroup udi_vendor_group_internal Implementation of UDI Vendor Class
+ *
+ * Class internal implementation
+ * @{
+ */
 
 //! USB descriptor alternate setting used
 static uint8_t udi_vendor_alternate_setting = 0;

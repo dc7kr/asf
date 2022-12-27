@@ -69,12 +69,17 @@
 // From module: NVM - Non Volatile Memory
 #include <nvm.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
+// From module: STK600-RC044X LED support enabled
+#include <led.h>
+
 // From module: System Clock Control - XMEGA A1U/A3U/A3BU/A4U implementation
 #include <sysclk.h>
 
 // From module: XMEGA compiler driver
 #include <compiler.h>
-#include <parts.h>
 #include <status_codes.h>
 
 #endif // ASF_H

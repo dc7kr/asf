@@ -6,7 +6,7 @@
  *
  * This file provides an example for the TWI on AVR32 UC3 devices.
  *
- * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -110,7 +110,6 @@
 #include "print_funcs.h"
 #include "gpio.h"
 #include "pm.h"
-#include "intc.h"
 #include "twi.h"
 
 
@@ -177,6 +176,10 @@ int main(void)
 
   // Init debug serial line
   init_dbg_rs232(FOSC0);
+
+  // Initialize and enable interrupt
+  irq_initialize_vectors();
+  cpu_irq_enable();
 
   // Display a header to user
   print_dbg("\x0C\r\nTWI Example\r\nMaster!\r\n");

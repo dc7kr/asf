@@ -56,6 +56,7 @@ TARGET = flashcdw_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/stk600/rcuc3l0/led.c                  \
        avr32/drivers/flashcdw/flash_example/flash_example.c \
        avr32/drivers/flashcdw/flashcdw.c                  \
        avr32/drivers/gpio/gpio.c                          \

@@ -187,6 +187,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=EVK1101</state>
+					<state>CONFIG_INTERRUPT_FORCE_INTC</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -325,6 +326,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/debug</state>
+					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
@@ -450,11 +452,13 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=EVK1101</state>
+					<state>CONFIG_INTERRUPT_FORCE_INTC</state>
 				</option>
 				<option>
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/debug</state>
+					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
@@ -1056,6 +1060,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=EVK1101</state>
+					<state>CONFIG_INTERRUPT_FORCE_INTC</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1194,6 +1199,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/debug</state>
+					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
@@ -1319,11 +1325,13 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=EVK1101</state>
+					<state>CONFIG_INTERRUPT_FORCE_INTC</state>
 				</option>
 				<option>
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/debug</state>
+					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
@@ -1743,6 +1751,18 @@
 		<group>
 			<name>drivers</name>
 			<group>
+				<name>pm</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pm/pm.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pm/power_clocks_lib.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pm/pm_conf_clocks.c</name>
+				</file>
+			</group>
+			<group>
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../flashc/flashc.c</name>
@@ -1755,18 +1775,6 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../intc/exception.s82</name>
-				</file>
-			</group>
-			<group>
-				<name>pm</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pm/pm.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pm/power_clocks_lib.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pm/pm_conf_clocks.c</name>
 				</file>
 			</group>
 			<group>
@@ -1806,6 +1814,15 @@
 				<name>startup</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../utils/startup/trampoline_uc3.s82</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1101</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/evk1101/led.c</name>
 				</file>
 			</group>
 		</group>

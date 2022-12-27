@@ -1,16 +1,16 @@
 /**
  * \file
  *
- * \brief STK600 with the RCUC3A routing card header file.
+ * \brief STK600 with the RCUC3A0 routing card header file.
  *
  * This file contains definitions and services related to the features of the
- * STK600 board with RCUC3A routing card. As the STK600 Leds, switches, clocks are configurables (hardware
+ * STK600 board with RCUC3A0 routing card. As the STK600 Leds, switches, clocks are configurables (hardware
  * through connectors and software through AVR32Studio or AVR Studio5), the proposed definitions
  * below should be considered as examples and may be modified for a given application.
  *
- * To use this board, define BOARD=STK600_UC3A0.
+ * To use this board, define BOARD=STK600_RCUC3A0.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -76,9 +76,28 @@
 //#define OSC1_STARTUP    AVR32_PM_OSCCTRL1_STARTUP_2048_RCOSC  //!< Osc1 startup time: RCOsc periods.
 // Osc1 crystal is not mounted by default. Set the following definitions to the
 
-
 //! @}
 
+/* These are documented in services/basic/clock/uc3a0_a1/osc.h */
+#define BOARD_OSC0_HZ           12000000
+#define BOARD_OSC0_STARTUP_US   17000
+#define BOARD_OSC0_IS_XTAL      true
+#define BOARD_OSC32_HZ          32768
+#define BOARD_OSC32_STARTUP_US  71000
+#define BOARD_OSC32_IS_XTAL     true
+
+/*! \name SDRAM Definitions
+ */
+//! @{
+
+//! Part header file of used SDRAM(s).
+#define SDRAM_PART_HDR  "mt48lc16m16a2tg7e/mt48lc16m16a2tg7e.h"
+
+//! Data bus width to use the SDRAM(s) with (16 or 32 bits; always 16 bits on
+//! UC3).
+#define SDRAM_DBW       16
+
+//! @}
 //! Number of LEDs.
 #define LED_COUNT   8
 
@@ -120,5 +139,80 @@
 #define GPIO_PUSH_BUTTON_SW7_PRESSED    0
 //! @}
 
+/*! \name SPI Connections of the DIP204 LCD
+ */
+//! @{
+#define DIP204_SPI                  (&AVR32_SPI1)
+#define DIP204_SPI_NPCS             2
+#define DIP204_SPI_SCK_PIN          AVR32_SPI1_SCK_0_0_PIN
+#define DIP204_SPI_SCK_FUNCTION     AVR32_SPI1_SCK_0_0_FUNCTION
+#define DIP204_SPI_MISO_PIN         AVR32_SPI1_MISO_0_0_PIN
+#define DIP204_SPI_MISO_FUNCTION    AVR32_SPI1_MISO_0_0_FUNCTION
+#define DIP204_SPI_MOSI_PIN         AVR32_SPI1_MOSI_0_0_PIN
+#define DIP204_SPI_MOSI_FUNCTION    AVR32_SPI1_MOSI_0_0_FUNCTION
+#define DIP204_SPI_NPCS_PIN         AVR32_SPI1_NPCS_2_0_PIN
+#define DIP204_SPI_NPCS_FUNCTION    AVR32_SPI1_NPCS_2_0_FUNCTION
+//! @}
 
+/*! \name GPIO and PWM Connections of the DIP204 LCD Backlight
+ */
+//! @{
+#define DIP204_BACKLIGHT_PIN        AVR32_PIN_PB18
+#define DIP204_PWM_CHANNEL          6
+#define DIP204_PWM_PIN              AVR32_PWM_6_PIN
+#define DIP204_PWM_FUNCTION         AVR32_PWM_6_FUNCTION
+//! @}
+
+/*! \name SPI Connections of the AT45DBX Data Flash Memory
+ */
+//! @{
+#define AT45DBX_SPI                 (&AVR32_SPI1)
+#define AT45DBX_SPI_NPCS            0
+#define AT45DBX_SPI_SCK_PIN         AVR32_SPI1_SCK_0_0_PIN
+#define AT45DBX_SPI_SCK_FUNCTION    AVR32_SPI1_SCK_0_0_FUNCTION
+#define AT45DBX_SPI_MISO_PIN        AVR32_SPI1_MISO_0_0_PIN
+#define AT45DBX_SPI_MISO_FUNCTION   AVR32_SPI1_MISO_0_0_FUNCTION
+#define AT45DBX_SPI_MOSI_PIN        AVR32_SPI1_MOSI_0_0_PIN
+#define AT45DBX_SPI_MOSI_FUNCTION   AVR32_SPI1_MOSI_0_0_FUNCTION
+#define AT45DBX_SPI_NPCS0_PIN       AVR32_SPI1_NPCS_0_0_PIN
+#define AT45DBX_SPI_NPCS0_FUNCTION  AVR32_SPI1_NPCS_0_0_FUNCTION
+//! @}
+
+/*! \name MACB connections to the DP83848 external phy controller
+ */
+//! @{
+
+//! GPIO connection of the MAC PHY PWR_DOWN/INT signal for the external phy controller
+#define MACB_INTERRUPT_PIN          AVR32_PIN_PA24
+#define EXTPHY_MACB_INTERRUPT_PIN   MACB_INTERRUPT_PIN // Added for homogeneity
+
+#define EXTPHY_MACB                 (&AVR32_MACB)
+#define EXTPHY_MACB_MDC_PIN         AVR32_MACB_MDC_0_PIN
+#define EXTPHY_MACB_MDC_FUNCTION    AVR32_MACB_MDC_0_FUNCTION
+#define EXTPHY_MACB_MDIO_PIN        AVR32_MACB_MDIO_0_PIN
+#define EXTPHY_MACB_MDIO_FUNCTION   AVR32_MACB_MDIO_0_FUNCTION
+#define EXTPHY_MACB_RXD_0_PIN       AVR32_MACB_RXD_0_PIN
+#define EXTPHY_MACB_RXD_0_FUNCTION  AVR32_MACB_RXD_0_FUNCTION
+#define EXTPHY_MACB_RXD_1_PIN       AVR32_MACB_RXD_1_PIN
+#define EXTPHY_MACB_RXD_1_FUNCTION  AVR32_MACB_RXD_1_FUNCTION
+#define EXTPHY_MACB_TXD_0_PIN       AVR32_MACB_TXD_0_PIN
+#define EXTPHY_MACB_TXD_0_FUNCTION  AVR32_MACB_TXD_0_FUNCTION
+#define EXTPHY_MACB_TXD_1_PIN       AVR32_MACB_TXD_1_PIN
+#define EXTPHY_MACB_TXD_1_FUNCTION  AVR32_MACB_TXD_1_FUNCTION
+#define EXTPHY_MACB_TX_EN_PIN       AVR32_MACB_TX_EN_0_PIN
+#define EXTPHY_MACB_TX_EN_FUNCTION  AVR32_MACB_TX_EN_0_FUNCTION
+#define EXTPHY_MACB_RX_ER_PIN       AVR32_MACB_RX_ER_0_PIN
+#define EXTPHY_MACB_RX_ER_FUNCTION  AVR32_MACB_RX_ER_0_FUNCTION
+#define EXTPHY_MACB_RX_DV_PIN       AVR32_MACB_RX_DV_0_PIN
+#define EXTPHY_MACB_RX_DV_FUNCTION  AVR32_MACB_RX_DV_0_FUNCTION
+#define EXTPHY_MACB_TX_CLK_PIN      AVR32_MACB_TX_CLK_0_PIN
+#define EXTPHY_MACB_TX_CLK_FUNCTION AVR32_MACB_TX_CLK_0_FUNCTION
+
+//! Phy Address (set through strap options)
+#define EXTPHY_PHY_ADDR             0x01
+
+//! Configure the ethernet phy component to use the DP83848 phy
+#define PHY_DP83848
+
+//! @}
 #endif  // _STK600_RCUCA0_H_

@@ -3,7 +3,7 @@
  *
  * \brief AVR XMEGA RTC32 example
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -119,7 +119,7 @@ static void alarm(uint32_t time)
 	/* Since the next alarm will be rounded up to the next second pass, this will
 	 * actually happen in 3 seconds.
 	 */
-	rtc32_set_alarm_relative(2);
+	rtc_set_alarm_relative(2);
 }
 
 /**
@@ -132,8 +132,8 @@ int main(void)
 	sysclk_init();
 	sleepmgr_init();
 
-	rtc32_init();
-	rtc32_set_callback(alarm);
+	rtc_init();
+	rtc_set_callback(alarm);
 
 	cpu_irq_enable();
 
@@ -141,7 +141,7 @@ int main(void)
 	 * happen in a second change, and we would not get an interrupt. A
 	 * value of 3 causes the alarm to be set of in 3-4 seconds.
 	 */
-	rtc32_set_alarm_relative(3);
+	rtc_set_alarm_relative(3);
 
 	while (true) {
 		/* Alarm action is handled in alarm callback so we just go to

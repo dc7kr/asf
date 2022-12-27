@@ -47,9 +47,9 @@
 /*! \name maXTouch configuration
  */
 /** @{ */
-#define TWI_INTERFACE                    &TWIF
+#define MAXTOUCH_TWI_INTERFACE           MXT143E_XPLAINED_TWI
 #define MAXTOUCH_DEVICE_ADR              0x4A
-#define MAXTOUCH_CHG_PIN                 IOPORT_CREATE_PIN(PORTF, 2)
+#define MAXTOUCH_CHG_PIN                 MXT143E_XPLAINED_CHG
 /* @} */
 
 #endif /* CONF_EXAMPLE_H */

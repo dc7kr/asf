@@ -3,7 +3,7 @@
  *
  * \brief USB Device Human Interface Device (HID) keyboard interface.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -48,14 +48,13 @@
 #include <string.h>
 
 /**
- * \addtogroup udi_hid_keyboard_group
+ * \ingroup udi_hid_keyboard_group
+ * \defgroup udi_hid_keyboard_group_udc Interface with USB Device Core (UDC)
+ *
+ * Structures and functions required by UDC.
+ * 
  * @{
  */
-
-/**
- * \name Interface for UDC
- */
-//@{
 
 bool udi_hid_kbd_enable(void);
 void udi_hid_kbd_disable(void);
@@ -70,9 +69,16 @@ UDC_DESC_STORAGE udi_api_t udi_api_hid_kbd = {
 	.getsetting = (uint8_t(*)(void))udi_hid_kbd_getsetting,
 	.sof_notify = NULL,
 };
-
 //@}
 
+
+/**
+ * \ingroup udi_hid_keyboard_group
+ * \defgroup udi_hid_keyboard_group_internal Implementation of UDI HID keyboard
+ *
+ * Class internal implementation
+ * @{
+ */
 
 /**
  * \name Internal defines and variables to manage HID keyboard

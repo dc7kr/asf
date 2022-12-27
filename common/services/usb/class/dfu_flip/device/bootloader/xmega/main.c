@@ -39,14 +39,8 @@
  *
  */
 
-#include "compiler.h"
-#include "preprocessor.h"
-#include "sysclk.h"
+#include <asf.h>
 #include "conf_usb.h"
-#include "udd.h"
-#include "udc.h"
-#include "udi_dfu_atmel.h"
-
 
 /*! \brief Main function. Execution starts here.
  */

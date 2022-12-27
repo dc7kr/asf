@@ -142,10 +142,10 @@ __always_inline static void hx8347a_send_byte(uint8_t data)
 	 * XMEGA in order for the diplay to work correctly at all SPI clock
 	 * clock speeds */
 
-#  if defined(UC3)
+#  if UC3
 	usart_spi_write_packet(CONF_HX8347A_USART_SPI, &data, 1);
 
-#  elif defined(XMEGA)
+#  elif XMEGA
 	usart_spi_write_single(CONF_HX8347A_USART_SPI, data);
 
 	/* Wait for TX to complete */
@@ -178,7 +178,7 @@ __always_inline static uint8_t hx8347a_read_byte(void)
 {
 	uint8_t data;
 #if defined(CONF_HX8347A_USART_SPI)
-#  if defined(UC3)
+#  if UC3
 
 	/* A workaround for optimizing data transfer had to be done for the
 	 * XMEGA in order for the diplay to work correctly at all SPI clock
@@ -188,7 +188,7 @@ __always_inline static uint8_t hx8347a_read_byte(void)
 	 * framerate, hence a workaround has been implemented for the XMEGA */
 	usart_spi_read_packet(CONF_HX8347A_USART_SPI, &data, 1);
 
-#  elif defined(XMEGA)
+#  elif XMEGA
 	/* Workaround for clearing the RXCIF for XMEGA */
 	usart_rx_enable(CONF_HX8347A_USART_SPI);
 

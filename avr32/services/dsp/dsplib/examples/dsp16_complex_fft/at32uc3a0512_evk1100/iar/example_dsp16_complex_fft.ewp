@@ -2047,10 +2047,10 @@
 									<name>$PROJ_DIR$/../../../../at32uc/basic/vectors/vect_dsp16_dotdiv_at32uc.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../at32uc/basic/vectors/vect_dsp16_add_at32uc.c</name>
+									<name>$PROJ_DIR$/../../../../at32uc/basic/vectors/vect_dsp32_min_at32uc.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../at32uc/basic/vectors/vect_dsp32_min_at32uc.c</name>
+									<name>$PROJ_DIR$/../../../../at32uc/basic/vectors/vect_dsp16_add_at32uc.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../at32uc/basic/vectors/vect_dsp16_dotmul_at32uc.c</name>
@@ -2160,6 +2160,15 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../drivers/pm/pm_conf_clocks.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1100</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../boards/evk1100/led.c</name>
 				</file>
 			</group>
 		</group>

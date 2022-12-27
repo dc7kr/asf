@@ -242,4 +242,21 @@ void board_init(void)
 	/* Configure Backlight control pin */
 	gpio_configure_pin(BOARD_BACKLIGHT, BOARD_BACKLIGHT_FLAG);
 #endif
+
+#ifdef CONF_BOARD_MCP9800
+	/* Configure Temperature Sensor pins */
+	gpio_configure_pin(TWI0_DATA_GPIO, TWI0_DATA_FLAGS);
+	gpio_configure_pin(TWI0_CLK_GPIO, TWI0_CLK_FLAGS);
+#endif
+
+#ifdef CONF_BOARD_ISO7816_RST
+	/* Configure ISO7816 card reset pin */
+	gpio_configure_pin(PIN_ISO7816_RST_IDX, PIN_ISO7816_RST_FLAG);
+#endif
+
+#ifdef CONF_BOARD_ISO7816
+	/* Configure ISO7816 interface TXD & SCK pin */
+	gpio_configure_pin(PIN_USART0_TXD_IDX, PIN_USART0_TXD_FLAGS);
+	gpio_configure_pin(PIN_USART0_SCK_IDX, PIN_USART0_SCK_FLAGS);
+#endif
 }

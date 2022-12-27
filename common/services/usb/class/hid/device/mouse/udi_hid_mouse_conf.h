@@ -4,7 +4,7 @@
  * \brief Default HID mouse configuration for a USB Device
  * with a single interface HID mouse
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -44,10 +44,7 @@
 #define _UDI_HID_MOUSE_CONF_H_
 
 /**
- * \ingroup udi_hid_mouse_group
- * \defgroup udi_hid_mouse_group_conf Default HID mouse configuration
- * for a USB Device with a single interface HID
- *
+ * \addtogroup udi_hid_mouse_group_single_desc
  * @{
  */
 

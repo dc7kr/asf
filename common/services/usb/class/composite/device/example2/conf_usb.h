@@ -120,6 +120,13 @@
 // (3 | USB_EP_DIR_IN)  // HID mouse report
 // (4 | USB_EP_DIR_IN)  // HID keyboard report
 #define  USB_DEVICE_MAX_EP             7
+#  if SAM3XA && defined(USB_DEVICE_HS_SUPPORT)
+// In HS mode, size of bulk endpoints are 512
+// If CDC and MSC endpoints all uses 2 banks, DPRAM is not enough: 4 bulk
+// endpoints requires 4K bytes. So reduce the number of banks of CDC bulk
+// endpoints to use less DPRAM. Keep MSC setting to keep MSC performance.
+#     define  UDD_BULK_NB_BANK(ep) ((ep == 5 || ep== 6) ? 1 : 2)
+#  endif
 //@}
 
 //@}

@@ -187,6 +187,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=EVK1105</state>
+					<state>CONFIG_INTERRUPT_FORCE_INTC</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -461,6 +462,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=EVK1105</state>
+					<state>CONFIG_INTERRUPT_FORCE_INTC</state>
 				</option>
 				<option>
 					<name>AIncludePaths</name>
@@ -1078,6 +1080,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=EVK1105</state>
+					<state>CONFIG_INTERRUPT_FORCE_INTC</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1352,6 +1355,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=EVK1105</state>
+					<state>CONFIG_INTERRUPT_FORCE_INTC</state>
 				</option>
 				<option>
 					<name>AIncludePaths</name>
@@ -1850,51 +1854,15 @@
 				</group>
 			</group>
 			<group>
-				<name>pdca</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/pdca/pdca.c</name>
-				</file>
-			</group>
-			<group>
-				<name>ebi</name>
-				<group>
-					<name>smc</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/ebi/smc/smc.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>pm</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/pm/power_clocks_lib.c</name>
-				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/pm/pm.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/pm/pm_conf_clocks.c</name>
 				</file>
-			</group>
-			<group>
-				<name>usart</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../drivers/usart/usart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>intc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/intc/intc.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/intc/exception.s82</name>
-				</file>
-			</group>
-			<group>
-				<name>flashc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/flashc/flashc.c</name>
+					<name>$PROJ_DIR$/../../../../drivers/pm/power_clocks_lib.c</name>
 				</file>
 			</group>
 			<group>
@@ -1915,17 +1883,47 @@
 					<name>$PROJ_DIR$/../../../../drivers/gpio/gpio.c</name>
 				</file>
 			</group>
+			<group>
+				<name>pdca</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/pdca/pdca.c</name>
+				</file>
+			</group>
+			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/usart/usart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>ebi</name>
+				<group>
+					<name>smc</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/ebi/smc/smc.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>flashc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/flashc/flashc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>intc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/intc/intc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/intc/exception.s82</name>
+				</file>
+			</group>
 		</group>
 		<group>
 			<name>applications</name>
 			<group>
 				<name>uc3-dsplib-demo</name>
-				<file>
-					<name>$PROJ_DIR$/../../background_image.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../dsp_sprintf.c</name>
-				</file>
 				<file>
 					<name>$PROJ_DIR$/../../gui.c</name>
 				</file>
@@ -1933,10 +1931,25 @@
 					<name>$PROJ_DIR$/../../dsp_process.c</name>
 				</file>
 				<file>
+					<name>$PROJ_DIR$/../../background_image.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../dsp_sprintf.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../controller_evk1105.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../demo.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1105</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../boards/evk1105/led.c</name>
 				</file>
 			</group>
 		</group>

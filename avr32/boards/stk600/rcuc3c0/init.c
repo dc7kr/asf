@@ -5,7 +5,7 @@
  *
  * This file contains board initialization function.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -48,10 +48,26 @@
 #include "gpio.h"
 #include "board.h"
 
+#if defined (CONF_BOARD_AT45DBX)
+#define AT45DBX_MEM_CNT             1
+#endif
+
 void board_init(void)
 {
 #if defined (CONF_BOARD_AT45DBX)
-	//DF initialization if required by the application
+	static const gpio_map_t AT45DBX_SPI_GPIO_MAP = {
+		{AT45DBX_SPI_SCK_PIN,  AT45DBX_SPI_SCK_FUNCTION},
+		{AT45DBX_SPI_MISO_PIN, AT45DBX_SPI_MISO_FUNCTION},
+		{AT45DBX_SPI_MOSI_PIN, AT45DBX_SPI_MOSI_FUNCTION},
+#  define AT45DBX_ENABLE_NPCS_PIN(npcs, unused) \
+		{AT45DBX_SPI_NPCS##npcs##_PIN, AT45DBX_SPI_NPCS##npcs##_FUNCTION},
+		MREPEAT(AT45DBX_MEM_CNT, AT45DBX_ENABLE_NPCS_PIN, ~)
+#  undef AT45DBX_ENABLE_NPCS_PIN
+	};
+
+	// Assign I/Os to SPI.
+	gpio_enable_module(AT45DBX_SPI_GPIO_MAP,
+			sizeof(AT45DBX_SPI_GPIO_MAP) / sizeof(AT45DBX_SPI_GPIO_MAP[0]));
 #endif
 
 	// Configure the pins connected to LEDs as output and set their default

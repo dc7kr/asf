@@ -1727,9 +1727,21 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>gpio</name>
+				<name>pm</name>
+				<group>
+					<name>example1</name>
+					<file>
+						<name>$PROJ_DIR$/../../pm_example1.c</name>
+					</file>
+				</group>
 				<file>
-					<name>$PROJ_DIR$/../../../../gpio/gpio.c</name>
+					<name>$PROJ_DIR$/../../../pm.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../pm_conf_clocks.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../power_clocks_lib.c</name>
 				</file>
 			</group>
 			<group>
@@ -1739,21 +1751,18 @@
 				</file>
 			</group>
 			<group>
-				<name>pm</name>
+				<name>gpio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../power_clocks_lib.c</name>
+					<name>$PROJ_DIR$/../../../../gpio/gpio.c</name>
 				</file>
-				<group>
-					<name>example1</name>
-					<file>
-						<name>$PROJ_DIR$/../../pm_example1.c</name>
-					</file>
-				</group>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>uc3_a3_xplained</name>
 				<file>
-					<name>$PROJ_DIR$/../../../pm_conf_clocks.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../pm.c</name>
+					<name>$PROJ_DIR$/../../../../../boards/uc3_a3_xplained/led.c</name>
 				</file>
 			</group>
 		</group>

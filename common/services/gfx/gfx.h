@@ -55,8 +55,8 @@ extern "C" {
 /* UC3 & ARM does not have PROGMEM, declare PROGMEM as const variables */
 #ifndef PROGMEM_DECLARE
 #  define PROGMEM_DECLARE(type, name) const type name
-#  define PROGMEM_T
-#  define PROGMEM_PTR_T *
+#  define PROGMEM_T const
+#  define PROGMEM_PTR_T const *
 #  define PROGMEM_READ_BYTE(x) *(x)
 #endif
 
@@ -71,8 +71,6 @@ extern "C" {
 #else
 #  error "Configuration for display controller/panel not selected"
 #endif
-
-
 
 /**
  * \defgroup gfx_group Graphical display system
@@ -226,14 +224,14 @@ extern "C" {
 
 /*! @{ */
 #if defined(CONF_GFX_USE_CLIPPING) || defined(__DOXYGEN__)
-extern gfx_coord_t gfx_min_x;   /* !< Minimum X of current clipping region. */
-extern gfx_coord_t gfx_min_y;   /* !< Maximum Y of current clipping region. */
-extern gfx_coord_t gfx_max_x;   /* !< Minimum X of current clipping region. */
-extern gfx_coord_t gfx_max_y;   /* !< Maximum Y of current clipping region. */
+extern gfx_coord_t gfx_min_x;   /*!< Minimum X of current clipping region. */
+extern gfx_coord_t gfx_min_y;   /*!< Maximum Y of current clipping region. */
+extern gfx_coord_t gfx_max_x;   /*!< Minimum X of current clipping region. */
+extern gfx_coord_t gfx_max_y;   /*!< Maximum Y of current clipping region. */
 #endif
 
-extern gfx_coord_t gfx_width;  /* !< Current width of screen. */
-extern gfx_coord_t gfx_height; /* !< Current height of screen. */
+extern gfx_coord_t gfx_width;  /*!< Current width of screen. */
+extern gfx_coord_t gfx_height; /*!< Current height of screen. */
 /*@} */
 
 /**
@@ -729,9 +727,9 @@ void gfx_copy_pixels_from_screen(gfx_color_t *pixels, uint32_t count);
 /**
  * \page gfx_quickstart Quick Start Guide for the graphics service
  *
- * This is the quick start guide for the \ref gfx_group "Graphics (GFX) service", with
- * step-by-step instructions on how to configure and use it for a
- * specific use case.
+ * This is the quick start guide for the \ref gfx_group "Graphics (GFX)
+ * service", with step-by-step instructions on how to configure and use
+ * it for a specific use case.
  *
  *
  * \section gfx_quickstart_basic Basic usage of the graphics service
@@ -759,10 +757,12 @@ void gfx_copy_pixels_from_screen(gfx_color_t *pixels, uint32_t count);
  * controller driver and intialize the screen to a white background.
  * -# Draw a red line from 10,10 to 20,20:
  * -  \code gfx_draw_line(10, 10, 20, 20, GFX_COLOR(0xFF, 0, 0)); \endcode
- * -  \attention This uses the \ref GFX_COLOR macro to convert a RGB (Red,Green,Blue)
+ * -  \attention This uses the \ref GFX_COLOR macro to convert a RGB
+ *    (Red,Green,Blue)
  * value to a color value native to the display. In this case the color is
  * a constant, so we use the macro. If you need to create the color from a
- * non-constant value you must use the \ref gfx_color function to generate the color.
+ * non-constant value you must use the \ref gfx_color function to generate the
+ * color.
  */
 
 #ifdef __cplusplus

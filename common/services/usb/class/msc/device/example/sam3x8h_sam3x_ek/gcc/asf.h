@@ -68,11 +68,16 @@
 
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
-#include <pio_handler.h>
 
 // From module: PMC - Power Management Controller
 #include <pmc.h>
 #include <sleep.h>
+
+// From module: Part identification macros
+#include <parts.h>
+
+// From module: SAM3X EK LED support enabled
+#include <led.h>
 
 // From module: SAM3X startup code
 #include <exceptions.h>
@@ -87,7 +92,7 @@
 // From module: USB Device MSC (Single Interface Device)
 #include <udi_msc.h>
 
-// From module: USB Device Stack Core
+// From module: USB Device Stack Core (Common API)
 #include <udc.h>
 #include <udd.h>
 
@@ -96,5 +101,8 @@
 
 // From module: Virtual Memory in RAM
 #include <virtual_mem.h>
+
+// From module: pio_handler support enabled
+#include <pio_handler.h>
 
 #endif // ASF_H

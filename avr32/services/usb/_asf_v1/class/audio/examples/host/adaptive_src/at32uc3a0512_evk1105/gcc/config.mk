@@ -177,7 +177,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=EVK1105
+       -D BOARD=EVK1105                                   \
+       -D CONFIG_INTERRUPT_FORCE_INTC
 
 # Extra flags to use when linking
 LDFLAGS = \

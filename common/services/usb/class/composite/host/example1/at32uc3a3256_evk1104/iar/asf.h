@@ -78,15 +78,15 @@
 // From module: Interrupt management - UC3 implementation
 #include <interrupt.h>
 
-// From module: Joystick interface (5-way)
-#include <joystick.h>
-
 // From module: Memory Control Access Interface
 #include <ctrl_access.h>
 
 // From module: PM Power Manager- UC3 A0/A1/A3/A4/B0/B1 implementation
 #include <power_clocks_lib.h>
 #include <sleep.h>
+
+// From module: Part identification macros
+#include <parts.h>
 
 // From module: Sleep manager - UC3 implementation
 #include <sleepmgr.h>
@@ -102,7 +102,7 @@
 #include <uhi_hid_mouse.h>
 
 // From module: USB Host MSC (Multiple classes support)
-#include <uhi_msc.h>
+#include <uhi_msc_mem.h>
 
 // From module: USB Host stack core
 #include <uhc.h>

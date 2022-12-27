@@ -39,25 +39,13 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb_host.h"
-#include "conf_board.h"
-#include "uhc.h"
-#include "uhi_aoa.h"
-#include "board.h"
-#include "gpio.h"
-#include "eic.h"
-#include "ui.h"
-#include "spi.h"
-#include "et024006dhu.h"
-#include "conf_et024006dhu.h"
-#include "sysclk.h"
-#include "delay.h"
-#include "pwm.h"
-#include "qt1081.h"
+#include <asf.h>
+#include <et024006dhu.h>
+#include <qt1081.h>
 #include "usb_connector.h"
 #include "cellphone.h"
-#include "rtc.h"
+#include "ui.h"
+
 
 /** Stores if a button needs to be updated */
 volatile uint8_t ui_button_state_toggle[5];
@@ -106,6 +94,7 @@ uint8_t read_complete_flag;
 #define DISPLAY_RTC_IRQ_GROUP       AVR32_RTC_IRQ_GROUP
 /** Interrupt priority 1 is used for RTC in this example. */
 #define DISPLAY_RTC_IRQ_PRIORITY    1
+
 
 /*! \brief Initializes and enables Display
  *
@@ -291,7 +280,7 @@ void ui_usb_sof_event(void)
 /* End of Hostmode functions */
 /** @} */
 
-void read_complete(usb_add_t add, uhd_trans_status_t status,
+void read_complete(usb_add_t add, usb_ep_t ep, uhd_trans_status_t status,
 		iram_size_t nb_transfered)
 {
 	(void)add;
@@ -660,7 +649,8 @@ static void ui_display_init_rtc(void)
 	irq_register_handler(display_rtc_irq, DISPLAY_RTC_IRQ,
 			DISPLAY_RTC_IRQ_PRIORITY);
 
-	rtc_init(&AVR32_RTC, RTC_OSC_32KHZ, RTC_PSEL_32KHZ_1HZ - 1);
+	// There is no OSC32 on this kit. Use the RC115 for the RTC.
+	rtc_init(&AVR32_RTC, RTC_OSC_RC, RTC_PSEL_RC_1_76HZ - 1);
 
 	rtc_enable_wake_up(&AVR32_RTC);
 

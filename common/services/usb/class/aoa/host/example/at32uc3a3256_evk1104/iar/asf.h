@@ -60,7 +60,7 @@
 #include <compiler.h>
 #include <status_codes.h>
 
-// From module: Delay functions
+// From module: Delay routines
 #include <delay.h>
 
 // From module: EBI Static Memory Controller (SMC)
@@ -91,6 +91,9 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: RTC - Real Time Counter
 #include <rtc.h>
 
@@ -116,7 +119,7 @@
 // From module: USB AOA protocol
 #include <usb_protocol_aoa.h>
 
-// From module: USB Host Android Accessory Protocol
+// From module: USB Host Android Accessory Class
 #include <uhi_aoa.h>
 
 // From module: USB Host stack core

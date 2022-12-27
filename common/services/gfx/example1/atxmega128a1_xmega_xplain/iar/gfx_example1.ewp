@@ -2057,10 +2057,16 @@
 			<group>
 				<name>gfx</name>
 				<file>
+					<name>$PROJ_DIR$/../../../gfx_text.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../gfx_generic.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../gfx_hx8347a_et024006dhu.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../sysfont.c</name>
 				</file>
 				<group>
 					<name>example1</name>

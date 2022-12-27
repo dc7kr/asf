@@ -39,16 +39,8 @@
  *
  */
 
-#include "compiler.h"
-#include "preprocessor.h"
-#include "board.h"
-#include "gpio.h"
-#include "sysclk.h"
-#include "sleepmgr.h"
+#include <asf.h>
 #include "conf_usb.h"
-#include "udd.h"
-#include "udc.h"
-#include "udi_cdc.h"
 #include "ui.h"
 #include "uart.h"
 
@@ -178,7 +170,9 @@ void main_cdc_set_dtr(bool b_enable)
  * - This will open a new hardware installation window.
  * - Choose "No, not this time" to connect to Windows Update for this installation
  * - click "Next"
- * - When requested to search the INF file, browse to the same folder of this main.c file.
+ * - When requested by Windows for a driver INF file, select the
+ *   atmel_devices_cdc.inf file in the directory indicated in the Atmel Studio
+ *   "Solution Explorer" window.
  * - click "Next"
  *
  * \copydoc UI

@@ -6,7 +6,7 @@
  *        configuration, clock configuration, System-sensible parameters
  *        configuration, buses clocks configuration, sleep mode, reset.
  *
- * Copyright (c) 2009 - 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -399,8 +399,7 @@ static long int pcl_configure_clocks_uc3c(pcl_freq_param_t *param)
         opt.pll_wbwdisable = 0,  //pll_wbwdisable 1 Disable the Wide-Bandith Mode (Wide-Bandwith mode allow a faster startup time and out-of-lock time). 0 to enable the Wide-Bandith Mode.
         opt.pll_freq = (pll_freq < AVR32_PM_PLL_VCO_RANGE0_MIN_FREQ) ? 1 : 0,        // Set to 1 for VCO frequency range 80-180MHz, set to 0 for VCO frequency range 160-240Mhz.
 
-
-        scif_pll_setup(SCIF_PLL0, opt); // lockcount in main clock for the PLL wait lock
+        scif_pll_setup(SCIF_PLL0, &opt); // lockcount in main clock for the PLL wait lock
 
         /* Enable PLL0 */
         scif_pll_enable(SCIF_PLL0);
@@ -565,7 +564,7 @@ static long int pcl_configure_clocks_uc3d(pcl_freq_param_t *param)
         opt.pll_freq = (pll_freq < AVR32_PM_PLL_VCO_RANGE0_MIN_FREQ) ? 1 : 0,        // Set to 1 for VCO frequency range 80-180MHz, set to 0 for VCO frequency range 160-240Mhz.
 
 
-        scif_pll_setup(SCIF_PLL0, opt); // lockcount in main clock for the PLL wait lock
+        scif_pll_setup(SCIF_PLL0, &opt); // lockcount in main clock for the PLL wait lock
 
         /* Enable PLL0 */
         scif_pll_enable(SCIF_PLL0);
@@ -687,7 +686,7 @@ long int pcl_configure_usb_clock(void)
     };
 
     /* Setup PLL1 on Osc0, mul=7 ,no divisor, lockcount=16, ie. 16Mhzx6 = 96MHz output */
-    scif_pll_setup(SCIF_PLL1, opt); // lockcount in main clock for the PLL wait lock
+    scif_pll_setup(SCIF_PLL1, &opt); // lockcount in main clock for the PLL wait lock
 
     /* Enable PLL1 */
     scif_pll_enable(SCIF_PLL1);

@@ -88,6 +88,9 @@
 // From module: PWM - UC3 A/B implementation
 #include <pwm.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: SPI - Serial Peripheral Interface
 #include <spi.h>
 

@@ -3,7 +3,7 @@
  *
  * \brief Main functions for USB composite example
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,17 +39,8 @@
  *
  */
 
-#include "compiler.h"
-#include "preprocessor.h"
-#include "board.h"
-#include "gpio.h"
-#include "sysclk.h"
-#include "sleepmgr.h"
+#include <asf.h>
 #include "conf_usb.h"
-#include "udd.h"
-#include "udc.h"
-#include "udi_msc.h"
-#include "udi_hid.h"
 #include "ui.h"
 
 static bool main_b_keyboard_enable = false;
@@ -156,11 +147,11 @@ void main_msc_disable(void)
 }
 
 /**
- * \mainpage ASF USB Device Composite
+ * \mainpage ASF USB Composite Device
  *
  * \section intro Introduction
- * This example shows how to implement a USB Device Composite with HID keyboard and
- * Mass Storage interfaces on Atmel MCU with USB module.
+ * This example shows how to implement a USB Composite Device with HID keyboard
+ * and Mass Storage interfaces on Atmel MCU with USB module.
  *
  * \section startup Startup
  * The example uses all memories available on the board and connects these to
@@ -193,7 +184,7 @@ void main_msc_disable(void)
  *      <br>initializes interrupt
  *      <br>manages UI
  *    - udi_composite_desc.c,udi_composite_conf.h,
- *      <br>USB Device composite definition
+ *      <br>USB Composite Device definition
  *    - specific implementation for each target "./examples/product_board/":
  *       - conf_foo.h   configuration of each module
  *       - ui.c         implement of user's interface (buttons, leds)

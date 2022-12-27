@@ -44,11 +44,11 @@
  *
  * \section Purpose
  *
- * The DAC Sinewave example demonstrates how to use DACC peripheral.
+ * The DAC Sinewave example demonstrates how to use DAC peripheral.
  *
  * \section Requirements
  *
- * This example can be used with sam3n-ek,sam3s-ek,sam3s-ek2,sam3x-ek,sam4s-ek.
+ * This example can be used on any SAM3/4 boards.
  *
  * \section Description
  *
@@ -84,8 +84,8 @@
  *   - No parity
  *   - 1 stop bit
  *   - No flow control
- * -# In the terminal window, the
- *    following text should appear (values depend on the board and chip used):
+ * -# In the terminal window, the following text should appear (values depend
+ *    on the board and chip used):
  *    \code
  *     -- DAC Sinewave Example xxx --
  *     -- xxxxxx-xx
@@ -180,7 +180,7 @@ static void configure_console(void)
 
 	/* Configure PIO */
 	pio_configure(PINS_UART_PIO, PINS_UART_TYPE,
-		      PINS_UART_MASK, PINS_UART_ATTR);
+			PINS_UART_MASK, PINS_UART_ATTR);
 
 	/* Configure PMC */
 	pmc_enable_periph_clk(CONSOLE_UART_ID);
@@ -325,8 +325,10 @@ int main(void)
 
 	/* Enable clock for DACC */
 	pmc_enable_periph_clk(DACC_ID);
+	
 	/* Reset DACC registers */
 	dacc_reset(DACC_BASE);
+
 	/* Half word transfer mode */
 	dacc_set_transfer_mode(DACC_BASE, 0);
 
@@ -337,6 +339,7 @@ int main(void)
 	 * internal trigger clock - 0x60 (96 clocks)
 	 */
 	dacc_set_timing(DACC_BASE, 0x10, 0x60);
+
 	/* Enable DAC */
 	dacc_enable(DACC_BASE);
 #else
@@ -351,10 +354,13 @@ int main(void)
 	 * startup time   - 0x10 (1024 dacc clocks)
 	 */
 	dacc_set_timing(DACC_BASE, 0x08, 0, 0x10);
+
 	/* Disable TAG and select output channel DACC_CHANNEL */
 	dacc_set_channel_selection(DACC_BASE, DACC_CHANNEL);
+
 	/* Enable output channel DACC_CHANNEL */
 	dacc_enable_channel(DACC_BASE, DACC_CHANNEL);
+
 	/* Set up analog current */
 	dacc_set_analog_control(DACC_BASE, DACC_ANALOG_CONTROL);
 #endif /* (SAM3N) */
@@ -378,8 +384,8 @@ int main(void)
 			puts("\r");
 
 			if (ul_freq != VAL_INVALID) {
-				printf("Set frequency to:%uHz\n\r", ul_freq);
-				SysTick_Config(sysclk_get_cpu_hz() / (ul_freq*SAMPLES));
+				printf("Set frequency to : %uHz\n\r", ul_freq);
+				SysTick_Config(sysclk_get_cpu_hz() / (ul_freq * SAMPLES));
 				g_ul_frequency = ul_freq;
 			}
 			break;
@@ -389,21 +395,21 @@ int main(void)
 			ul_amp = get_input_value(MIN_AMPLITUDE, MAX_AMPLITUDE);
 			puts("\r");
 			if (ul_amp != VAL_INVALID) {
-				printf("Set amplitude to %u \n\r", ul_amp);
+				printf("Set amplitude to : %u\n\r", ul_amp);
 				g_l_amplitude = ul_amp;
 			}
 			break;
 
 		case 'i':
 		case 'I':
-			printf("-I- Frequency:%u Hz Amplitude:%d\n\r",
+			printf("-I- Frequency : %u Hz Amplitude : %d\n\r",
 				g_ul_frequency, g_l_amplitude);
 			break;
 
 		case 'w':
 		case 'W':
 			printf("-I- Switch wave to : %s\n\r", g_uc_wave_sel ?
-				"SINE" : "Full Amplitude SQUAQE");
+				"SINE" : "Full Amplitude SQUARE");
 			g_uc_wave_sel = (g_uc_wave_sel + 1) & 1;
 			break;
 
@@ -412,6 +418,6 @@ int main(void)
 			display_menu();
 			break;
 		}
-		puts("Press \'m\' or \'M\' to display the main menu again!!\r");
+		puts("Press \'m\' or \'M\' to display the main menu again!\r");
 	}
 }

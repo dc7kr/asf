@@ -420,7 +420,7 @@
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
@@ -431,7 +431,7 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -680,7 +680,7 @@
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
@@ -691,7 +691,7 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1445,7 +1445,7 @@
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
@@ -1456,7 +1456,7 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1705,7 +1705,7 @@
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
+					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
@@ -1716,7 +1716,7 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -2071,6 +2071,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../gfx_generic.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../sysfont.c</name>
+				</file>
 				<group>
 					<name>example1</name>
 					<file>
@@ -2079,6 +2082,9 @@
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../gfx_ili9341_sdt028atft.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../gfx_text.c</name>
 				</file>
 			</group>
 			<group>

@@ -73,8 +73,14 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: SCIF System Control Interface - UC3D implementation
 #include <scif_uc3d.h>
+
+// From module: STK600-RCUC3D board support
+#include <led.h>
 
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter
 #include <usart.h>

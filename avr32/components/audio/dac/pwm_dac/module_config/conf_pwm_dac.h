@@ -6,7 +6,7 @@
  *
  * This file contains the possible external configuration of the PWM DAC.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-1012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -59,7 +59,7 @@
 #define PWM_DAC_PWM                   (&AVR32_PWM)
 #define PWM_DAC_PWM_IRQ               AVR32_PWM_IRQ
 #define PWM_DAC_PWM_INT_LEVEL         AVR32_INTC_INT3
-#if BOARD==EVK1100 || BOARD==EVK1105
+#if BOARD==EVK1100 || BOARD==EVK1105 || BOARD==STK600_RCUC3A0
 #  define PWM_DAC_PWM_CHANNEL_LSB       1             //!< Least significant 8-bit PWM channel.
 #  define PWM_DAC_PWM_CHANNEL_LSB_PIN                 //!< Least significant 8-bit PWM channel pin.
 #  define PWM_DAC_PWM_CHANNEL_MSB       0             //!< Most significant 8-bit PWM channel.

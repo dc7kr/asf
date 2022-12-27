@@ -91,6 +91,16 @@ void board_init(void)
 	gpio_configure_pin(PIN_PWM_LED2_GPIO, PIN_PWM_LED2_FLAGS);
 #endif
 
+#ifdef CONF_BOARD_TWI0
+	gpio_configure_pin(TWI0_DATA_GPIO, TWI0_DATA_FLAGS);
+	gpio_configure_pin(TWI0_CLK_GPIO, TWI0_CLK_FLAGS);
+#endif
+
+#ifdef CONF_BOARD_TWI1
+	gpio_configure_pin(TWI1_DATA_GPIO, TWI1_DATA_FLAGS);
+	gpio_configure_pin(TWI1_CLK_GPIO, TWI1_CLK_FLAGS);
+#endif
+
 	/* Configure SPI pins */
 #ifdef CONF_BOARD_SPI
 	gpio_configure_pin(SPI_MISO_GPIO, SPI_MISO_FLAGS);
@@ -205,5 +215,16 @@ void board_init(void)
 	gpio_configure_pin(SPI_SPCK_GPIO, SPI_SPCK_FLAGS);
 	gpio_configure_pin(SPI_NPCS0_GPIO, SPI_NPCS0_FLAGS);
 	gpio_configure_pin(PIN_TSC_BUSY_IDX, PIN_TSC_BUSY_FLAG);
+#endif
+
+#ifdef CONF_BOARD_ISO7816_RST
+	/* Configure ISO7816 card reset pin */
+	gpio_configure_pin(PIN_ISO7816_RST_IDX, PIN_ISO7816_RST_FLAG);
+#endif
+
+#ifdef CONF_BOARD_ISO7816
+	/* Configure ISO7816 interface TXD & SCK pin */
+	gpio_configure_pin(PIN_USART1_TXD_IDX, PIN_USART1_TXD_FLAGS);
+	gpio_configure_pin(PIN_USART1_SCK_IDX, PIN_USART1_SCK_FLAGS);
 #endif
 }

@@ -39,15 +39,8 @@
  *
  */
 
-#include"compiler.h"
-#include "preprocessor.h"
-#include "board.h"
-#include "gpio.h"
-#include "sysclk.h"
-#include "sleepmgr.h"
+#include <asf.h>
 #include "conf_usb.h"
-#include "udc.h"
-#include "udd.h"
 #include "ui.h"
 
 static volatile bool main_b_mouse_enable = false;

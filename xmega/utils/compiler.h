@@ -3,7 +3,7 @@
  *
  * \brief Commonly used includes, types and macros.
  *
- * Copyright (c) 2010-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -64,6 +64,8 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdlib.h>
+
+#include <parts.h>
 
 #ifdef __ICCAVR__
 /*! \name Compiler Keywords

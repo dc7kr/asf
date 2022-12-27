@@ -1758,6 +1758,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1104/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1104/led.c</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1775,20 +1778,20 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>cpu</name>
-				<group>
-					<name>reset_cause_example</name>
-					<file>
-						<name>$PROJ_DIR$/../../reset_cause_example.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>clock</name>
 				<group>
 					<name>uc3a3_a4</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../clock/uc3a3_a4/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>cpu</name>
+				<group>
+					<name>reset_cause_example</name>
+					<file>
+						<name>$PROJ_DIR$/../../reset_cause_example.c</name>
 					</file>
 				</group>
 			</group>

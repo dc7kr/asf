@@ -74,8 +74,8 @@
 //    USBB Device low-level driver (UDD)
 ////////////////////////////////////////////////////
 /**
- * \ingroup usb_device_group
- * \defgroup udd_group USB Device Driver (UDD)
+ * \ingroup udd_group
+ * \defgroup udd_xmega_usb_group Xmega USB Device Driver
  *
  * \section USBB_CONF USBB Custom configuration
  * The following USBB driver configuration must be included in the conf_usb.h
@@ -418,13 +418,13 @@ void udd_enable(void)
 	irqflags_t flags;
 
 	// Sanity check Silicon revision
-#if part_is_defined(ATxmega128A1U)
+#if AVR8_PART_IS_DEFINED(ATxmega128A1U)
 	// The part ATxmega128A1U Rev. J is not supported, please use new silicon revision.
 	Assert(!(MCU_REVID < 0x0A));
 #endif
 
-#ifdef CONFIG_OSC_AUTOCAL
-# if CONFIG_OSC_AUTOCAL_REF_OSC == OSC_ID_USBSOF
+#ifdef CONFIG_OSC_AUTOCAL_RC32MHZ_REF_OSC
+# if CONFIG_OSC_AUTOCAL_RC32MHZ_REF_OSC == OSC_ID_USBSOF
 	// RC oscillator calibration via USB Start Of Frame is not available
 	// in low speed mode.
 	// Thus, the calibration is disabled
@@ -561,7 +561,7 @@ uint16_t udd_get_micro_frame_number(void)
 	return 0;
 }
 
-void udd_send_wake_up(void)
+void udd_send_remotewakeup(void)
 {
 #ifndef UDD_NO_SLEEP_MGR
 	if (!udd_b_idle)

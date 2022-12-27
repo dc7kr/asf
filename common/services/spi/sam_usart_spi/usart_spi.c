@@ -74,9 +74,9 @@ void usart_spi_init(Usart *p_usart)
 	else if(p_usart == USART1) {
 #if ((SAM3S) || (SAM3N))
 			uc_id = 15;
-#elif defined(SAM3XA)
+#elif (SAM3XA)
 			uc_id = 18;
-#elif defined(SAM3U)
+#elif (SAM3U)
 			uc_id = 14;
 #endif	
 	}

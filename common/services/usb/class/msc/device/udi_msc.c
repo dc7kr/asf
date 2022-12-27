@@ -55,15 +55,13 @@
 #endif
 
 /**
- * \addtogroup udi_msc_group
+ * \ingroup udi_msc_group
+ * \defgroup udi_msc_group_udc Interface with USB Device Core (UDC)
+ *
+ * Structures and functions required by UDC.
+ *
  * @{
  */
-
-/**
- * \name Interface for UDC
- */
-//@{
-
 bool udi_msc_enable(void);
 void udi_msc_disable(void);
 bool udi_msc_setup(void);
@@ -77,12 +75,19 @@ UDC_DESC_STORAGE udi_api_t udi_api_msc = {
 	.getsetting = udi_msc_getsetting,
 	.sof_notify = NULL,
 };
-
 //@}
+
+
+/**
+ * \ingroup udi_msc_group
+ * \defgroup udi_msc_group_internal Implementation of UDI MSC
+ *
+ * Class internal implementation
+ * @{
+ */
 
 //! Static block size for all memories
 #define  UDI_MSC_BLOCK_SIZE   512L
-
 
 /**
  * \name Variables to manage SCSI requests

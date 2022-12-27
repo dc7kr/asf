@@ -46,9 +46,12 @@
 
 
 /**
- * \ingroup udi_cdc_group
- * \defgroup udi_cdc_group_desc Default descriptors for a USB Device
- * with a single interface CDC
+ * \defgroup udi_cdc_group_single_desc USB device descriptors for a single interface
+ *
+ * The following structures provide the USB device descriptors required for
+ * USB Device with a single interface CDC.
+ *
+ * It is ready to use and do not require more definition.
  *
  * @{
  */
@@ -61,8 +64,6 @@
 #elif UDI_CDC_PORT_NB == 3
 # define  USB_DEVICE_NB_INTERFACE       6
 #endif
-
-/**INDENT-OFF**/
 
 //! USB Device Descriptor
 COMPILER_WORD_ALIGNED
@@ -240,5 +241,4 @@ UDC_DESC_STORAGE udc_config_t udc_config = {
 };
 
 //@}
-/**INDENT-ON**/
 //@}

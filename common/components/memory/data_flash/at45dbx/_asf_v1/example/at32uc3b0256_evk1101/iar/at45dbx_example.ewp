@@ -1770,10 +1770,10 @@
 					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/pm/power_clocks_lib.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/pm/pm.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/pm/pm_conf_clocks.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/pm/pm_conf_clocks.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/pm/pm.c</name>
 				</file>
 			</group>
 			<group>
@@ -1801,6 +1801,15 @@
 				<name>gpio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/gpio/gpio.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1101</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/boards/evk1101/led.c</name>
 				</file>
 			</group>
 		</group>

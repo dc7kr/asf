@@ -65,13 +65,20 @@ CSRCS = \
        avr32/drivers/pm/pm.c                              \
        avr32/drivers/pm/pm_conf_clocks.c                  \
        avr32/drivers/pm/power_clocks_lib.c                \
+       avr32/drivers/spi/spi.c                            \
        avr32/drivers/twim/twim.c                          \
        avr32/drivers/usbb/usbb_device.c                   \
+       common/components/display_controller/ili9341/ili9341.c \
        common/components/touch/mxt/example_hid/example_hid.c \
        common/components/touch/mxt/example_hid/ui.c       \
        common/components/touch/mxt/mxt_device.c           \
        common/services/clock/uc3a3_a4/sysclk.c            \
+       common/services/gfx/gfx_generic.c                  \
+       common/services/gfx/gfx_ili9341_sdt028atft.c       \
+       common/services/gfx/gfx_text.c                     \
+       common/services/gfx/sysfont.c                      \
        common/services/sleepmgr/uc3/sleepmgr.c            \
+       common/services/spi/uc3_spi/spi_master.c           \
        common/services/usb/class/hid/device/mouse/udi_hid_mouse.c \
        common/services/usb/class/hid/device/mouse/udi_hid_mouse_desc.c \
        common/services/usb/class/hid/device/udi_hid.c     \
@@ -93,17 +100,23 @@ INC_PATH = \
        avr32/drivers/gpio                                 \
        avr32/drivers/intc                                 \
        avr32/drivers/pm                                   \
+       avr32/drivers/spi                                  \
        avr32/drivers/twim                                 \
        avr32/drivers/usbb                                 \
        avr32/utils                                        \
        avr32/utils/preprocessor                           \
        common/boards                                      \
+       common/components/display_controller/ili9341       \
        common/components/touch/mxt                        \
        common/components/touch/mxt/example_hid            \
        common/components/touch/mxt/example_hid/at32uc3a3256_uc3_a3_xplained \
        common/services/clock                              \
        common/services/delay                              \
+       common/services/gfx                                \
+       common/services/ioport                             \
        common/services/sleepmgr                           \
+       common/services/spi                                \
+       common/services/spi/uc3_spi                        \
        common/services/twi                                \
        common/services/usb                                \
        common/services/usb/class/hid                      \
@@ -150,6 +163,8 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D BOARD=UC3_A3_XPLAINED                           \
+       -D CONF_GFX_ILI9341_SDT028ATFT=1                   \
+       -D GFX_INITIALIZED=1                               \
        -D UDD_ENABLE
 
 # Extra flags to use when linking

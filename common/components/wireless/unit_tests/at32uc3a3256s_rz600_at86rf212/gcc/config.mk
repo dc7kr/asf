@@ -57,6 +57,7 @@ TARGET = wireless_unit_tests.elf
 # List of C source files.
 CSRCS = \
        avr32/boards/rz600/init.c                          \
+       avr32/boards/rz600/led.c                           \
        avr32/drivers/flashc/flashc.c                      \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \

@@ -56,6 +56,7 @@ TARGET = acifa_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/uc3c_ek/led.c                         \
        avr32/drivers/acifa/acifa.c                        \
        avr32/drivers/acifa/example/acifa_example.c        \
        avr32/drivers/flashc/flashc.c                      \

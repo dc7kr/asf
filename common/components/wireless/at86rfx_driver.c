@@ -3,7 +3,7 @@
  *
  * \brief AT86RFx driver.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -47,14 +47,13 @@
 #include "gpio.h"
 #include "at86rfx_driver.h"
 
-
 /*
  * Default value of current channel in TAL
  */
 #if EXT_BOARD == RZ600_AT86RF212
-#define CURRENT_CHANNEL_DEFAULT         (1)
+#  define CURRENT_CHANNEL_DEFAULT         (1)
 #else
-#define CURRENT_CHANNEL_DEFAULT         (20)
+#  define CURRENT_CHANNEL_DEFAULT         (20)
 #endif
 
 

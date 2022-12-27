@@ -4,7 +4,7 @@
  *
  * \brief Configuration for the ET024006DHU display.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,47 +40,21 @@
  *
  ******************************************************************************/
 
+
+ //! Configuration of the et024006dhu LCD display driver
+
 #ifndef _CONF_ET024006DHU_H_
 #define _CONF_ET024006DHU_H_
 
-/*! \brief Interface configuration
- *
- * Currently only EBI mode supported
- */
-#define ET024006_IFACE_MODE       ET024006_IFACE_MODE_EBI
+// The following list of required defines is already set in the board used for 
+// this example:
+// ET024006_IFACE_MODE
+// ET024006_CMD_ADDR
+// ET024006_PARAM_ADDR
+// ET024006DHU_TE_PIN
+// ET024006DHU_BL_PIN
+// ET024006DHU_BL_FUNCTION
+// ET024006DHU_RESET_PIN
 
-
-
-#ifdef EVK1105_REV3
-
-/*! \brief address used to write to the index register
- * (or read device status
- */
-#define ET024006_CMD_ADDR     ((volatile unsigned short int *) AVR32_EBI_CS2_ADDRESS)
-
-/*! \brief address used to read/write from/to registers or RAM
- *
- * The select signal is connected to address line 19 and because of that we
- * have an offset of 0x80000 in the rev3 version.
- */
-#define ET024006_PARAM_ADDR   ((volatile unsigned short int *) (AVR32_EBI_CS2_ADDRESS + 0x00080000))
-
-#else
-
-/*! \brief address used to write to the index register
- * (or read device status
- */
-#define ET024006_CMD_ADDR     ((volatile unsigned short int *) AVR32_EBI_CS0_ADDRESS)
-
-
-/*! \brief address used to read/write from/to registers or RAM
- *
- * On the other boards we have the select signal connected to address line
- * 21 and this implies an address offset of 0x200000.
- */
-#define ET024006_PARAM_ADDR   ((volatile unsigned short int *) (AVR32_EBI_CS0_ADDRESS + 0x00200000))
-
-
-#endif // EVK1105_REV3
 
 #endif // _CONF_ET024006DHU_H_

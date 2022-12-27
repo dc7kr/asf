@@ -56,6 +56,7 @@ TARGET = example_adpcm_encoder.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/evk1100/led.c                         \
        avr32/drivers/adc/adc.c                            \
        avr32/drivers/flashc/flashc.c                      \
        avr32/drivers/gpio/gpio.c                          \

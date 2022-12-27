@@ -1854,6 +1854,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../boards/uc3c_ek/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../boards/uc3c_ek/led.c</name>
+				</file>
 			</group>
 		</group>
 		<group>

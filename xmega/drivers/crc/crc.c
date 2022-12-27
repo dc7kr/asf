@@ -311,6 +311,7 @@ void crc_set_initial_value(uint32_t value)
 	crc_initial_value = value;
 }
 
+#ifdef DMA_SUPPORTED
 /**
  * \brief Start CRC calculations on data passing through a DMA channel
  *
@@ -361,6 +362,7 @@ void crc_dma_checksum_start(uint8_t dma_channel, enum crc_16_32_t crc_16_32)
 		break;
 	}
 }
+#endif
 
 /**
  * \brief Disable CRC module and return checksum after DMA transfer

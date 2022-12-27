@@ -4,7 +4,7 @@
  *
  * \brief High frequency Main clock source and Generic clock configurations.
  *
- * Copyright (c) 2009 - 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -226,7 +226,7 @@ static void local_start_highfreq_clock(void)
   opt.pll_wbwdisable = 0;  //pll_wbwdisable 1 Disable the Wide-Bandith Mode (Wide-Bandwith mode allow a faster startup time and out-of-lock time). 0 to enable the Wide-Bandith Mode.
   opt.pll_freq = 1;        // Set to 1 for VCO frequency range 80-180MHz, set to 0 for VCO frequency range 160-240Mhz.
 
-  scif_pll_setup(SCIF_PLL0, opt); // lockcount in main clock for the PLL wait lock
+  scif_pll_setup(SCIF_PLL0, &opt); // lockcount in main clock for the PLL wait lock
 
   /* Enable PLL0 */
   scif_pll_enable(SCIF_PLL0);

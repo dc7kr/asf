@@ -1882,6 +1882,9 @@
 			<group>
 				<name>uc3c_ek</name>
 				<file>
+					<name>$PROJ_DIR$/../../../../../../../boards/uc3c_ek/led.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../../../../boards/uc3c_ek/init.c</name>
 				</file>
 			</group>

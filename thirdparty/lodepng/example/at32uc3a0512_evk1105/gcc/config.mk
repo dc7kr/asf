@@ -56,6 +56,7 @@ TARGET = png_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/evk1105/led.c                         \
        avr32/components/display/et024006dhu/et024006dhu.c \
        avr32/drivers/ebi/sdramc/sdramc.c                  \
        avr32/drivers/ebi/smc/smc.c                        \

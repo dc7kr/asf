@@ -75,6 +75,9 @@
 // From module: PMIC - Programmable Multi-level Interrupt Controller
 #include <pmic.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: STK600-RC044X LED support enabled
 #include <led.h>
 
@@ -103,13 +106,12 @@
 // From module: USB Device CDC (Single Interface Device)
 #include <udi_cdc.h>
 
-// From module: USB Device Stack Core
+// From module: USB Device Stack Core (Common API)
 #include <udc.h>
 #include <udd.h>
 
 // From module: XMEGA compiler driver
 #include <compiler.h>
-#include <parts.h>
 #include <status_codes.h>
 
 #endif // ASF_H

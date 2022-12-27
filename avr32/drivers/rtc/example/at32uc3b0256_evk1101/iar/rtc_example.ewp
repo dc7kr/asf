@@ -1739,6 +1739,18 @@
 		<group>
 			<name>drivers</name>
 			<group>
+				<name>pm</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pm/pm.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pm/power_clocks_lib.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pm/pm_conf_clocks.c</name>
+				</file>
+			</group>
+			<group>
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../flashc/flashc.c</name>
@@ -1766,18 +1778,6 @@
 				</group>
 			</group>
 			<group>
-				<name>pm</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pm/pm.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pm/power_clocks_lib.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pm/pm_conf_clocks.c</name>
-				</file>
-			</group>
-			<group>
 				<name>gpio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../gpio/gpio.c</name>
@@ -1787,6 +1787,15 @@
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../usart/usart.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1101</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/evk1101/led.c</name>
 				</file>
 			</group>
 		</group>

@@ -6,7 +6,7 @@
  * This module defines types and operations that support basic physical
  * modeling and equations for sensor data.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -42,12 +42,9 @@
  *
  */
 
-
 #include "physics.h"
 
-
 #define degrees(a)  (RAD_TO_DEG * (a))
-
 
 /*! \brief Calculate direction, inclination, and field strength
  *
@@ -63,7 +60,7 @@
  * \return  bool        true if the call succeeds, else false is returned.
  */
 bool field_direction(vector3_t *field, scalar_t *theta, scalar_t *delta,
-	scalar_t *strength)
+		scalar_t *strength)
 {
 	/* Calculate the geomagnetic field direction vector (unit vector) and
 	 * strength (field magnitude).
@@ -80,9 +77,9 @@ bool field_direction(vector3_t *field, scalar_t *theta, scalar_t *delta,
 
 	/* Calculate the direction angle (degrees) assuming no mounting tilt.
 	 * "Wraparound" negative results to a positive heading.  The angle is
-	 * calculated relative to +Y axis, so atan2() arguments are (x,y) instead
-	 * of (y,x).  Result is inverted (* -1) so positive values reflect
-	 * clockwise rotation.
+	 * calculated relative to +Y axis, so atan2() arguments are (x,y)
+	 * instead of (y,x).  Result is inverted (* -1) so positive values
+	 * reflect clockwise rotation.
 	 */
 	*theta = degrees(-1 * atan2(field->x, field->y));
 

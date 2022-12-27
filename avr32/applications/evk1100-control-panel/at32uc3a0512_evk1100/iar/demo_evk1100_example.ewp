@@ -359,7 +359,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/tc</state>
 					<state>$PROJ_DIR$/../../actuators</state>
 					<state>$PROJ_DIR$/../../shell</state>
-					<state>$PROJ_DIR$/../../../../components/ethernet_phy/rtl8201</state>
+					<state>$PROJ_DIR$/../../../../drivers/adc</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
 					<state>$PROJ_DIR$/../../mmi</state>
 					<state>$PROJ_DIR$/../../../../boards/evk1100</state>
@@ -381,20 +381,17 @@
 					<state>$PROJ_DIR$/../../config</state>
 					<state>$PROJ_DIR$/../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../common/services/delay</state>
-					<state>$PROJ_DIR$/../../../../components/ethernet_phy</state>
+					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx/_asf_v1</state>
 					<state>$PROJ_DIR$/../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../components/ethernet_phy/dp83848</state>
-					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-port-1.3.2/at32uc3/include</state>
 					<state>$PROJ_DIR$/../../network/webserver</state>
 					<state>$PROJ_DIR$/../../../../drivers/intc</state>
-					<state>$PROJ_DIR$/../../../../components/ethernet_phy/dummy_phy</state>
 					<state>$PROJ_DIR$/../../network/tftpserver</state>
 					<state>$PROJ_DIR$/../../network</state>
 					<state>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access</state>
-					<state>$PROJ_DIR$/../../../../drivers/adc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -548,7 +545,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/tc</state>
 					<state>$PROJ_DIR$/../../actuators</state>
 					<state>$PROJ_DIR$/../../shell</state>
-					<state>$PROJ_DIR$/../../../../components/ethernet_phy/rtl8201</state>
+					<state>$PROJ_DIR$/../../../../drivers/adc</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
 					<state>$PROJ_DIR$/../../mmi</state>
 					<state>$PROJ_DIR$/../../../../boards/evk1100</state>
@@ -570,20 +567,17 @@
 					<state>$PROJ_DIR$/../../config</state>
 					<state>$PROJ_DIR$/../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../common/services/delay</state>
-					<state>$PROJ_DIR$/../../../../components/ethernet_phy</state>
+					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx/_asf_v1</state>
 					<state>$PROJ_DIR$/../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../components/ethernet_phy/dp83848</state>
-					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-port-1.3.2/at32uc3/include</state>
 					<state>$PROJ_DIR$/../../network/webserver</state>
 					<state>$PROJ_DIR$/../../../../drivers/intc</state>
-					<state>$PROJ_DIR$/../../../../components/ethernet_phy/dummy_phy</state>
 					<state>$PROJ_DIR$/../../network/tftpserver</state>
 					<state>$PROJ_DIR$/../../network</state>
 					<state>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access</state>
-					<state>$PROJ_DIR$/../../../../drivers/adc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1346,7 +1340,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/tc</state>
 					<state>$PROJ_DIR$/../../actuators</state>
 					<state>$PROJ_DIR$/../../shell</state>
-					<state>$PROJ_DIR$/../../../../components/ethernet_phy/rtl8201</state>
+					<state>$PROJ_DIR$/../../../../drivers/adc</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
 					<state>$PROJ_DIR$/../../mmi</state>
 					<state>$PROJ_DIR$/../../../../boards/evk1100</state>
@@ -1368,20 +1362,17 @@
 					<state>$PROJ_DIR$/../../config</state>
 					<state>$PROJ_DIR$/../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../common/services/delay</state>
-					<state>$PROJ_DIR$/../../../../components/ethernet_phy</state>
+					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx/_asf_v1</state>
 					<state>$PROJ_DIR$/../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../components/ethernet_phy/dp83848</state>
-					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-port-1.3.2/at32uc3/include</state>
 					<state>$PROJ_DIR$/../../network/webserver</state>
 					<state>$PROJ_DIR$/../../../../drivers/intc</state>
-					<state>$PROJ_DIR$/../../../../components/ethernet_phy/dummy_phy</state>
 					<state>$PROJ_DIR$/../../network/tftpserver</state>
 					<state>$PROJ_DIR$/../../network</state>
 					<state>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access</state>
-					<state>$PROJ_DIR$/../../../../drivers/adc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1535,7 +1526,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/tc</state>
 					<state>$PROJ_DIR$/../../actuators</state>
 					<state>$PROJ_DIR$/../../shell</state>
-					<state>$PROJ_DIR$/../../../../components/ethernet_phy/rtl8201</state>
+					<state>$PROJ_DIR$/../../../../drivers/adc</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
 					<state>$PROJ_DIR$/../../mmi</state>
 					<state>$PROJ_DIR$/../../../../boards/evk1100</state>
@@ -1557,20 +1548,17 @@
 					<state>$PROJ_DIR$/../../config</state>
 					<state>$PROJ_DIR$/../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../common/services/delay</state>
-					<state>$PROJ_DIR$/../../../../components/ethernet_phy</state>
+					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../common/components/memory/data_flash/at45dbx/_asf_v1</state>
 					<state>$PROJ_DIR$/../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../components/ethernet_phy/dp83848</state>
-					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../thirdparty/lwip/lwip-port-1.3.2/at32uc3/include</state>
 					<state>$PROJ_DIR$/../../network/webserver</state>
 					<state>$PROJ_DIR$/../../../../drivers/intc</state>
-					<state>$PROJ_DIR$/../../../../components/ethernet_phy/dummy_phy</state>
 					<state>$PROJ_DIR$/../../network/tftpserver</state>
 					<state>$PROJ_DIR$/../../network</state>
 					<state>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access</state>
-					<state>$PROJ_DIR$/../../../../drivers/adc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>

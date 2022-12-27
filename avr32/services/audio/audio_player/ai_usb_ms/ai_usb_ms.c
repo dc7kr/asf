@@ -7,7 +7,7 @@
  * If you use this routines then you don't must use the other FileSystem routine provide in nav_auto.h, navigation.h, file.h, playlist.h
  *
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -248,7 +248,7 @@ void  ai_usb_ms_init( void )
   size_t nb_file_format_supported = sizeof(file_format_supported) / sizeof(file_format_supported[0]);
 
   // Do it only once - usefull if another module uses this function (like SD/MMC card support for example)
-  if (ai_usb_ms_filter_file && ai_usb_ms_filter_playlist && ai_usb_ms_filter_file)
+  if (ai_usb_ms_filter_file && ai_usb_ms_filter_playlist)
     return;
 
   // Free allocated buffers if any.
@@ -266,7 +266,7 @@ void  ai_usb_ms_init( void )
   song_file_list_size = 0;
   for (i = 0; i < nb_file_format_supported; i++)
     song_file_list_size += strlen(file_format_supported[i].file_ext);
-  if (!(ai_usb_ms_filter_songfile = (char *) malloc(song_file_list_size + nb_file_format_supported + sizeof((char) '\0'))))
+  if (!(ai_usb_ms_filter_songfile = (char *) malloc(song_file_list_size + nb_file_format_supported + sizeof((char)'\0'))))
     return;
   ai_usb_ms_filter_songfile[0] = '\0';
   for (i = 0; i < nb_file_format_supported; i++)
@@ -275,18 +275,18 @@ void  ai_usb_ms_init( void )
       strcat(ai_usb_ms_filter_songfile, ",");
     strcat(ai_usb_ms_filter_songfile, file_format_supported[i].file_ext);
   }
-  song_file_list_size = song_file_list_size + (i - 1) * sizeof((char) ',');
+  song_file_list_size = song_file_list_size + (i - 1) * sizeof((char)',');
 
   // Playlist files filter
   playlist_file_list_size = strlen(PLAYLIST_FILE_EXT);
-  if (!(ai_usb_ms_filter_playlist = (char *) malloc(playlist_file_list_size + sizeof((char) '\0'))))
+  if (!(ai_usb_ms_filter_playlist = (char *) malloc(playlist_file_list_size + sizeof((char)'\0'))))
     return;
   strcpy(ai_usb_ms_filter_playlist, PLAYLIST_FILE_EXT);
 
   // All files filter
   if (playlist_file_list_size)
     song_file_list_size += playlist_file_list_size + sizeof(',');
-  if (!(ai_usb_ms_filter_file = (char *) malloc(song_file_list_size + sizeof('\0'))))
+  if (!(ai_usb_ms_filter_file = (char *) malloc(song_file_list_size + sizeof((char)'\0'))))
     return;
   strcpy(ai_usb_ms_filter_file, ai_usb_ms_filter_songfile);
   if (playlist_file_list_size)

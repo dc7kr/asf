@@ -1781,10 +1781,10 @@
 				<name>$PROJ_DIR$/../../../../arc4.c</name>
 			</file>
 			<file>
-				<name>$PROJ_DIR$/../../../../ssl_cli.c</name>
+				<name>$PROJ_DIR$/../../../../sha1.c</name>
 			</file>
 			<file>
-				<name>$PROJ_DIR$/../../../../sha1.c</name>
+				<name>$PROJ_DIR$/../../../../ssl_cli.c</name>
 			</file>
 			<file>
 				<name>$PROJ_DIR$/../../../../certs.c</name>
@@ -1884,16 +1884,13 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1104/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1104/led.c</name>
+				</file>
 			</group>
 		</group>
 		<group>
 			<name>drivers</name>
-			<group>
-				<name>gpio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../avr32/drivers/gpio/gpio.c</name>
-				</file>
-			</group>
 			<group>
 				<name>intc</name>
 				<file>
@@ -1901,6 +1898,12 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/intc/exception.s82</name>
+				</file>
+			</group>
+			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/gpio/gpio.c</name>
 				</file>
 			</group>
 			<group>

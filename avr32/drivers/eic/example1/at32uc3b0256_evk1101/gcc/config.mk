@@ -56,6 +56,7 @@ TARGET = eic_example1.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/evk1101/led.c                         \
        avr32/drivers/eic/eic.c                            \
        avr32/drivers/eic/example1/eic_example1.c          \
        avr32/drivers/flashc/flashc.c                      \

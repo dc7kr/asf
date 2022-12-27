@@ -202,7 +202,7 @@ uint16_t udd_get_micro_frame_number(void);
 
 /*! \brief The USB driver sends a resume signal called Upstream Resume
  */
-void udd_send_wake_up(void);
+void udd_send_remotewakeup(void);
 
 /**
  * \brief Load setup payload

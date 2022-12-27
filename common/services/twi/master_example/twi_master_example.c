@@ -131,7 +131,7 @@ int main(void)
 
   board_init();
 
-#ifndef SAM
+#if !SAM
   irq_initialize_vectors();
 #endif // SAM
 
@@ -151,7 +151,7 @@ int main(void)
   LED_Off(LED0_GPIO);
 
   twi_package_t packet = {
-#ifdef SAM
+#if SAM
     .addr[0]      = EEPROM_MEM_ADDR >> 8, // TWI slave memory address data MSB
     .addr[1]      = EEPROM_MEM_ADDR,      // TWI slave memory address data LSB
     .addr_length  = sizeof (uint16_t),    // TWI slave memory address data size
@@ -170,7 +170,7 @@ int main(void)
   uint8_t data_received[PATTERN_TEST_LENGTH] = {0};
 
   twi_package_t packet_received = {
-#ifdef SAM
+#if SAM
     .addr[0]      = EEPROM_MEM_ADDR >> 8, // TWI slave memory address data MSB
     .addr[1]      = EEPROM_MEM_ADDR,      // TWI slave memory address data LSB
     .addr_length  = sizeof (uint16_t),    // TWI slave memory address data size

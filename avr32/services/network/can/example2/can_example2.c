@@ -4,7 +4,7 @@
  *
  * \brief CAN Software Stack Example 2.
  *
- * Copyright (c) 2006-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2006-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -63,16 +63,16 @@
  *
  * \section configinfo Configuration Information
  * This example has been tested with the following configuration:
- * - UC3C_EK or UC3_C2_XPLAINED evaluation kit;
+ * - UC3C_EK evaluation kit;
  * - CPU clock: 16 MHz;
  * This example demonstrates that how to send/receive messages from the CAN.
  * - Plug a DB9 cable on CAN1 DB9 connector and an external CAN node to setup a 'point to point' network.
  * - Configure the baudrate to 1Mbps.
  * - Start the example.
  * - A menu is displayed
- *         -- 1) If choose 1), the UC3C_EK or UC3_C2_XPLAINED  will send a message on CAN node. In case the message is correctly sent, a message is displayed.
- *         -- 2) If choose 2), the UC3C_EK or UC3_C2_XPLAINED will receive a message on CAN node. In case the message is correctly received, a message is displayed with the content of the FRAME.
- *         -- 3) If choose 3), the UC3C_EK or UC3_C2_XPLAINED will send a remote message on CAN node. In case the message is correctly sent, a message is displayed.
+ *         -- 1) If choose 1), the UC3C_EK will send a message on CAN node. In case the message is correctly sent, a message is displayed.
+ *         -- 2) If choose 2), the UC3C_EK will receive a message on CAN node. In case the message is correctly received, a message is displayed with the content of the FRAME.
+ *         -- 3) If choose 3), the UC3C_EK will send a remote message on CAN node. In case the message is correctly sent, a message is displayed.
  * - The CPU is in sleep mode (STATIC) at the beginning of the application and then is waked up after the reception
  *   of the message from the external CAN node
  *

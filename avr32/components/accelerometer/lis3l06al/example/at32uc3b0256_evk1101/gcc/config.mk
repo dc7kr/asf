@@ -56,6 +56,7 @@ TARGET = accelerometer_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/evk1101/led.c                         \
        avr32/components/accelerometer/lis3l06al/example/acc_example.c \
        avr32/components/accelerometer/lis3l06al/lis3l06al.c \
        avr32/drivers/adc/adc.c                            \

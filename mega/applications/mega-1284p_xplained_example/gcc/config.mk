@@ -48,7 +48,8 @@ TARGET = mega_1284p_xplained.elf
 CSRCS = \
        mega/applications/mega-1284p_xplained_example/init.c \
        mega/applications/mega-1284p_xplained_example/mega_1284p_xplained_example.c \
-       mega/applications/mega-1284p_xplained_example/usart.c
+       mega/applications/mega-1284p_xplained_example/usart.c \
+       mega/boards/mega_1284p_xplained/init.c
 
 # Assembler source files located from the top-level source directory
 ASSRCS = \
@@ -105,7 +106,7 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=MEGA-1284P_XPLAINED                       \
+       -D BOARD=MEGA_1284P_XPLAINED                       \
        -D QTOUCH_STUDIO_MASKS=1                           \
        -D QT_NUM_CHANNELS=4                               \
        -D SNS1=D                                          \

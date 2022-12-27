@@ -57,6 +57,7 @@ TARGET = mt48lc16m16a2tg7e_unit_tests.elf
 # List of C source files.
 CSRCS = \
        avr32/boards/evk1104/init.c                        \
+       avr32/boards/evk1104/led.c                         \
        avr32/components/memory/sdram/mt48lc16m16a2tg7e/unit_tests/main.c \
        avr32/components/memory/sdram/mt48lc16m16a2tg7e/unit_tests/unit_tests.c \
        avr32/drivers/ebi/sdramc/sdramc.c                  \

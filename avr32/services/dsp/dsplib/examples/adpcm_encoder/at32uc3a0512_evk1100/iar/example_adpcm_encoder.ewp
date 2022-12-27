@@ -1861,15 +1861,15 @@
 				</file>
 			</group>
 			<group>
-				<name>pwm</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../drivers/pwm/pwm.c</name>
-				</file>
-			</group>
-			<group>
 				<name>pdca</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../drivers/pdca/pdca.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pwm</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../drivers/pwm/pwm.c</name>
 				</file>
 			</group>
 			<group>
@@ -1909,6 +1909,15 @@
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../drivers/flashc/flashc.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1100</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../boards/evk1100/led.c</name>
 				</file>
 			</group>
 		</group>

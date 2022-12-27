@@ -75,15 +75,15 @@
 // From module: Interrupt management - UC3 implementation
 #include <interrupt.h>
 
-// From module: Joystick interface (5-way)
-#include <joystick.h>
-
 // From module: Memory Control Access Interface
 #include <ctrl_access.h>
 
 // From module: PM Power Manager - UC3 C0/C1/C2 implementation
 #include <power_clocks_lib.h>
 #include <sleep.h>
+
+// From module: Part identification macros
+#include <parts.h>
 
 // From module: SCIF System Control Interface - UC3C implementation
 #include <scif_uc3c.h>

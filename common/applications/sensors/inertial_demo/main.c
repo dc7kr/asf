@@ -3,19 +3,7 @@
  *
  * \brief Common Sensor Service Inertial Sensor Example
  *
- * \mainpage
- *
- * \section intro Introduction
- *
- * This application obtains sensor data from a MEMS accelerometer, gyroscope,
- * and electronic compass devices installed on an Atmel development board.
- *
- * \section contactinfo Contact Information
- * For further information, visit
- * <A href="http://www.atmel.com/avr">Atmel AVR</A>.\n
- *
- * \section License
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -51,32 +39,33 @@
  *
  */
 
-#include <stdio.h>
+/**
+ * \mainpage
+ *
+ * \section intro Introduction
+ *
+ * This application obtains sensor data from a MEMS accelerometer, gyroscope,
+ * and electronic compass devices installed on an Atmel development board.
+ *
+ * \section contactinfo Contact Information
+ * For further information, visit
+ * <a href="http://www.atmel.com/avr">Atmel AVR</a>.\n
+ * Support and FAQ: http://support.atmel.no/
+ */
 
-#include <board.h>
+#include <stdio.h>
+#include <asf.h>
 #include <led.h>
 
-#include <sensors/sensor.h>
+/* Application configuration constants */
+#define PRINT_BANNER    (true) /* If true, print sensor config information */
+#define SCALED_DATA     (true) /* If true, convert sensor data to std. units */
+
+/* Hardware environment constants */
+#define ACTIVITY_LED    (LED1) /* LED to blink to show activity */
 
 
-// supply missing C-library constants
-
-#if defined(XMEGA) && defined(__GNUC__)
-enum {EXIT_SUCCESS, EXIT_FAILURE};
-#endif
-
-
-// Application configuration constants
-
-#define PRINT_BANNER    (true)      // true = print sensor config information
-#define SCALED_DATA     (true)      // true = convert sensor data to std. units
-
-// Hardware environment constants
-
-#define ACTIVITY_LED    (LED1)      // which LED to blink to show activity
-
-
-/*! \brief Inertial sensor demo application entry
+/** \brief Inertial sensor demo application entry
  *
  * After initializing the Xplained platform and sensor boards, this application
  * attaches descriptors to the accelerometer, gyroscope, and compass devices on
@@ -84,15 +73,12 @@ enum {EXIT_SUCCESS, EXIT_FAILURE};
  * printed via printf() after being read, can be viewed with a serial terminal
  * application on a machine attached to the USB interface on the Xplained
  * board.
- *
- * \return  Nothing.
  */
 int main(void)
 {
-	sensor_t accel;     // accelerometer device descriptor
-	sensor_t compass;   // magnetic compass device descriptor
-	sensor_t gyro;      // gyroscope device descriptor
-
+	sensor_t accel;   /* Accelerometer device descriptor */
+	sensor_t compass; /* Magnetic compass device descriptor */
+	sensor_t gyro;    /* Gyroscope device descriptor */
 
 	/* Initialize the board (Xplained UC3 or XMEGA & Xplained Sensor boards)
 	 * I/O pin mappings and any other configurable resources selected in
@@ -100,127 +86,116 @@ int main(void)
 	 */
 	sensor_platform_init();
 
-	// Attach descriptors to the defined sensor devices.
-
-	sensor_attach(&gyro,    SENSOR_TYPE_GYROSCOPE,     0, 0);
-	sensor_attach(&accel,   SENSOR_TYPE_ACCELEROMETER, 0, 0);
-	sensor_attach(&compass, SENSOR_TYPE_COMPASS,       0, 0);
+	/* Attach descriptors to the defined sensor devices */
+	sensor_attach(&gyro, SENSOR_TYPE_GYROSCOPE, 0, 0);
+	sensor_attach(&accel, SENSOR_TYPE_ACCELEROMETER, 0, 0);
+	sensor_attach(&compass, SENSOR_TYPE_COMPASS, 0, 0);
 
 	if (gyro.err || accel.err || compass.err) {
-		puts ("\rSensor initialization error.");
-		mdelay (5000);
-		return EXIT_FAILURE;
+		puts("\rSensor initialization error.");
+
+		while (true) {
+			/* Error ocurred, loop forever */
+		}
 	}
 
-
-	// Print sensor information
-
+	/* Print sensor information */
 	if (PRINT_BANNER) {
-
-		static const char * const banner_format =
-			"%s\r\nID = 0x%02x ver. 0x%02x\r\n"
-			"Bandwidth = %d Hz  Range = +/- %d\r\n\n";
+		static const char *const banner_format
+			= "%s\r\nID = 0x%02x ver. 0x%02x\r\n"
+				"Bandwidth = %d Hz  Range = +/- %d\r\n\n";
 
 		uint32_t id;
-		uint8_t  version;
-		int16_t  freq, range;
+		uint8_t version;
+		int16_t freq, range;
 
 		sensor_device_id(&gyro, &id, &version);
 		sensor_get_bandwidth(&gyro, &freq);
 		sensor_get_range(&gyro, &range);
 
 		printf(banner_format, gyro.drv->caps.name,
-			(unsigned) id, (unsigned) version, freq, range);
+				(unsigned)id, (unsigned)version, freq, range);
 
 		sensor_device_id(&accel, &id, &version);
 		sensor_get_bandwidth(&accel, &freq);
 		sensor_get_range(&accel, &range);
 
 		printf(banner_format, accel.drv->caps.name,
-			(unsigned) id, (unsigned) version, freq, range);
+				(unsigned)id, (unsigned)version, freq, range);
 
 		sensor_device_id(&compass, &id, &version);
 		sensor_get_bandwidth(&compass, &freq);
 		sensor_get_range(&compass, &range);
 
 		printf(banner_format, compass.drv->caps.name,
-			(unsigned) id, (unsigned) version, freq, range);
+				(unsigned)id, (unsigned)version, freq, range);
 
-		mdelay(500);
+		delay_ms(500);
 	}
 
-
-
-	// Initialize sensor data descriptors for scaled vs. raw data.
-
+	/* Initialize sensor data descriptors for scaled vs. raw data. */
 	static sensor_data_t accel_data   = {.scaled = SCALED_DATA};
 	static sensor_data_t compass_data = {.scaled = SCALED_DATA};
 	static sensor_data_t gyro_data    = {.scaled = SCALED_DATA};
 	static sensor_data_t temp_data    = {.scaled = SCALED_DATA};
 
-
-	// Enter main loop
-
-	while (true) {              // loop forever
-
+	while (true) {
 		LED_Toggle(ACTIVITY_LED);
 
-		// Read sensor values
-
+		/* Read sensor values */
 		sensor_get_acceleration(&accel, &accel_data);
-		sensor_get_rotation(&gyro,  &gyro_data);
-		sensor_get_temperature(&gyro,  &temp_data);  // get temp from gyro
+		sensor_get_rotation(&gyro, &gyro_data);
+		sensor_get_temperature(&gyro, &temp_data); /* Get temp from gyro */
 
 		if (SCALED_DATA) {
-			// Get calculated magnetic heading from compass
+			/* Get calculated magnetic heading from compass */
 			sensor_get_heading(&compass, &compass_data);
 		} else {
-			// Get raw magnetic field readings (X,Y,Z)
+			/* Get raw magnetic field readings (X,Y,Z) */
 			sensor_get_field(&compass, &compass_data);
 		}
 
-
-		// Print sensor values
-
+		/* Print sensor values */
 		if (SCALED_DATA) {
+			printf("acc = [%5d, %5d, %5d]\r\n",
+					(int16_t)accel_data.axis.x,
+					(int16_t)accel_data.axis.y,
+					(int16_t)accel_data.axis.z);
 
-			printf("acc = [%5d, %5d, %5d]\r\n", (int16_t) accel_data.axis.x,
-				(int16_t) accel_data.axis.y, (int16_t) accel_data.axis.z);
-
-			printf("rot = [%5d, %5d, %5d]\r\n", (int16_t) gyro_data.axis.x,
-				(int16_t) gyro_data.axis.y, (int16_t) gyro_data.axis.z);
+			printf("rot = [%5d, %5d, %5d]\r\n",
+					(int16_t)gyro_data.axis.x,
+					(int16_t)gyro_data.axis.y,
+					(int16_t)gyro_data.axis.z);
 
 			printf("heading %5d, inclination %5d, strength %5d\r\n",
-				(uint16_t) compass_data.heading.direction,
-				(int16_t)  compass_data.heading.inclination,
-				(uint16_t) compass_data.heading.strength);
+					(uint16_t)compass_data.heading.direction,
+					(int16_t)compass_data.heading.inclination,
+					(uint16_t)compass_data.heading.strength);
 
 			printf("T = %d C\r\n\n",
-				(int16_t) temp_data.temperature.value);
-
+					(int16_t)temp_data.temperature.value);
 		} else {
-
 			printf("acc = [%.5x, %.5x, %.5x]\r\n",
-				(uint16_t) accel_data.axis.x,  (uint16_t) accel_data.axis.y,
-				(uint16_t) accel_data.axis.z);
+					(uint16_t)accel_data.axis.x,
+					(uint16_t)accel_data.axis.y,
+					(uint16_t)accel_data.axis.z);
 
-			printf("rot = [%.5x, %.5x, %.5x]\r\n", (uint16_t) gyro_data.axis.x,
-				(uint16_t) gyro_data.axis.y, (uint16_t) gyro_data.axis.z);
+			printf("rot = [%.5x, %.5x, %.5x]\r\n",
+					(uint16_t)gyro_data.axis.x,
+					(uint16_t)gyro_data.axis.y,
+					(uint16_t)gyro_data.axis.z);
 
 			printf("field = [%.5x, %.5x, %.5x]\r\n",
-				(int16_t) compass_data.axis.x,
-				(int16_t) compass_data.axis.y,
-				(int16_t) compass_data.axis.z);
+					(int16_t)compass_data.axis.x,
+					(int16_t)compass_data.axis.y,
+					(int16_t)compass_data.axis.z);
 
 			printf("T = %.5x\r\n\n",
-				(uint16_t) temp_data.temperature.value);
+					(uint16_t)temp_data.temperature.value);
 		}
 
-
-		mdelay(500);
+		delay_ms(500);
 	}
 
-
-
-	return EXIT_SUCCESS;
+	return 0;
 }

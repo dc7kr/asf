@@ -334,12 +334,13 @@
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../../../boards/evk1100</state>
-					<state>$PROJ_DIR$/../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/gpio</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/intc</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../boards/evk1100</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -468,12 +469,13 @@
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../../../boards/evk1100</state>
-					<state>$PROJ_DIR$/../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/gpio</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/intc</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../boards/evk1100</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1211,12 +1213,13 @@
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../../../boards/evk1100</state>
-					<state>$PROJ_DIR$/../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/gpio</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/intc</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../boards/evk1100</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1345,12 +1348,13 @@
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../../../boards/evk1100</state>
-					<state>$PROJ_DIR$/../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/gpio</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/intc</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../boards/evk1100</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1819,6 +1823,15 @@
 				<name>pwm</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/pwm/pwm.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1100</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../boards/evk1100/led.c</name>
 				</file>
 			</group>
 		</group>

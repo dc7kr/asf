@@ -40,14 +40,11 @@
  *
  */
 
-#include "compiler.h"
-#include "sysclk.h"
-#include "conf_board.h"
+#include <asf.h>
 #include "conf_access.h"
 #include "unit_tests.h"
 
 #ifdef CONF_BOARD_SMC_PSRAM
-#include "smc.h"
 static void psram_init(void)
 {
 	pmc_enable_periph_clk(ID_SMC);
@@ -68,8 +65,6 @@ static void psram_init(void)
 #endif
 
 #ifdef CONF_BOARD_SRAM
-#include "smc.h"
-#include "pio.h"
 static void ext_sram_init(void)
 {
 	pmc_enable_periph_clk(ID_SMC);

@@ -3,7 +3,7 @@
  *
  * \brief USBC Host Driver header file.
  *
- * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -54,8 +54,8 @@
 #  define AVR32_USBC_UPSTA0CLR_PERRIC_SIZE                             1
 #endif
 
-//! \ingroup usb_host_group
-//! \defgroup uhd_group USB Host Driver (UHD)
+//! \ingroup uhd_group
+//! \defgroup uhd_usbc_group USBC Host Driver
 //! USBC low-level driver for USB host mode
 //!
 //! @warning Bit-masks are used instead of bit-fields because PB registers
@@ -290,6 +290,11 @@
 #define uhd_get_pipe_token(p)                    USBC_P_RD_BITFIELD(UPCFG,PTOKEN,p)
 #define uhd_is_pipe_in(p)                        (AVR32_USBC_UPCFG0_PTOKEN_IN==uhd_get_pipe_token(p))
 #define uhd_is_pipe_out(p)                       (AVR32_USBC_UPCFG0_PTOKEN_OUT==uhd_get_pipe_token(p))
+
+#define uhd_get_pipe_endpoint_address(p) \
+		(uhd_udesc_get_epnum(p) \
+		| (uhd_is_pipe_in(p)? USB_EP_DIR_IN : USB_EP_DIR_OUT))
+
 //! Bounds given integer size to allowed range and rounds it up to the nearest
 //! available greater size, then applies register format of USBC controller
 //! for pipe size bit-field.

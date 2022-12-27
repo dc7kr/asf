@@ -60,6 +60,7 @@
 #include <avr32/io.h>
 
 #include "compiler.h"
+#include "conf_twi.h"
 
 /*! \name Error Codes for the Module
  */

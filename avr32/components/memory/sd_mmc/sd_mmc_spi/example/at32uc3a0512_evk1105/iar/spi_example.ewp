@@ -1761,6 +1761,21 @@
 	<group>
 		<name>avr32</name>
 		<group>
+			<name>utils</name>
+			<group>
+				<name>debug</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../utils/debug/print_funcs.c</name>
+				</file>
+			</group>
+			<group>
+				<name>startup</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../utils/startup/trampoline_uc3.s82</name>
+				</file>
+			</group>
+		</group>
+		<group>
 			<name>components</name>
 			<group>
 				<name>memory</name>
@@ -1839,17 +1854,11 @@
 			</group>
 		</group>
 		<group>
-			<name>utils</name>
+			<name>boards</name>
 			<group>
-				<name>debug</name>
+				<name>evk1105</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../utils/debug/print_funcs.c</name>
-				</file>
-			</group>
-			<group>
-				<name>startup</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../utils/startup/trampoline_uc3.s82</name>
+					<name>$PROJ_DIR$/../../../../../../../boards/evk1105/led.c</name>
 				</file>
 			</group>
 		</group>

@@ -95,6 +95,7 @@ INC_PATH = \
        common/components/touch/mxt/example_usart/at32uc3l064_xplained \
        common/services/clock                              \
        common/services/delay                              \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/uc3_usart                   \
        common/services/twi                                \

@@ -65,13 +65,28 @@ CSRCS = \
        avr32/drivers/pm/pm_uc3l.c                         \
        avr32/drivers/pm/power_clocks_lib.c                \
        avr32/drivers/scif/scif_uc3l.c                     \
+       avr32/drivers/twim/twim.c                          \
        avr32/drivers/usart/usart.c                        \
        common/applications/sensors/prox_gesture/main.c    \
        common/boards/sensors_xplained/sensors_xplained.c  \
        common/services/clock/uc3l/dfll.c                  \
        common/services/clock/uc3l/osc.c                   \
        common/services/clock/uc3l/sysclk.c                \
-       common/services/sensors/drivers/platform/avr32/twim.c \
+       common/services/sensors/drivers/akm/ak8975.c       \
+       common/services/sensors/drivers/bosch/bma020.c     \
+       common/services/sensors/drivers/bosch/bma150.c     \
+       common/services/sensors/drivers/bosch/bma180.c     \
+       common/services/sensors/drivers/bosch/bma220.c     \
+       common/services/sensors/drivers/bosch/bma222.c     \
+       common/services/sensors/drivers/bosch/bma250.c     \
+       common/services/sensors/drivers/bosch/bma_axis.inc.c \
+       common/services/sensors/drivers/bosch/bmp.c        \
+       common/services/sensors/drivers/honeywell/hmc5883l.c \
+       common/services/sensors/drivers/invensense/imu3000.c \
+       common/services/sensors/drivers/invensense/itg3200.c \
+       common/services/sensors/drivers/kionix/kxtf9.c     \
+       common/services/sensors/drivers/osram/sfh5712.c    \
+       common/services/sensors/drivers/osram/sfh7770.c    \
        common/services/sensors/physics/physics.c          \
        common/services/sensors/sensor.c                   \
        common/services/sensors/sensor_bus.c               \
@@ -100,11 +115,11 @@ INC_PATH = \
        avr32/drivers/intc                                 \
        avr32/drivers/pm                                   \
        avr32/drivers/scif                                 \
+       avr32/drivers/twim                                 \
        avr32/drivers/usart                                \
        avr32/utils                                        \
        avr32/utils/preprocessor                           \
        common/boards                                      \
-       common/services                                    \
        common/services/clock                              \
        common/services/delay                              \
        common/services/sensors                            \
@@ -112,17 +127,16 @@ INC_PATH = \
        common/services/serial                             \
        common/services/serial/uc3_usart                   \
        common/services/sleepmgr                           \
+       common/services/twi                                \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
        ./avr32/applications/uc3-prox-gesture/gcc         
 
 # Additional search paths for libraries.
-LIB_PATH =  \
-       thirdparty/sensors/libs/gcc                       
+LIB_PATH = 
 
 # List of libraries to use during linking.
 LIBS =  \
-       sensors-at32uc3l-debug                             \
        m                                                 
 
 # Path relative to top level directory pointing to a linker script.

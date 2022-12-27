@@ -1784,6 +1784,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/boards/uc3l_ek/init.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/uc3l_ek/led.c</name>
+				</file>
 			</group>
 		</group>
 		<group>

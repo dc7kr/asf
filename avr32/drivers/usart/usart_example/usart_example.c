@@ -4,7 +4,7 @@
  *
  * \brief USART example application for AVR UC3 USART driver.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -133,15 +133,6 @@
 #  else
 #    define EXAMPLE_PDCA_CLOCK_PB       AVR32_PDCA_CLK_PBC
 #  endif
-#elif BOARD == UC3_C2_XPLAINED
-#  define EXAMPLE_USART                 (&AVR32_USART3)
-#  define EXAMPLE_USART_RX_PIN          AVR32_USART3_RXD_2_PIN
-#  define EXAMPLE_USART_RX_FUNCTION     AVR32_USART3_RXD_2_FUNCTION
-#  define EXAMPLE_USART_TX_PIN          AVR32_USART3_TXD_2_PIN
-#  define EXAMPLE_USART_TX_FUNCTION     AVR32_USART3_TXD_2_FUNCTION
-#  define EXAMPLE_USART_CLOCK_MASK      AVR32_USART3_CLK_PBA
-#  define EXAMPLE_PDCA_CLOCK_HSB        AVR32_PDCA_CLK_HSB
-#  define EXAMPLE_PDCA_CLOCK_PB         AVR32_PDCA_CLK_PBC
 #elif BOARD == EVK1104
 #  define EXAMPLE_USART                 (&AVR32_USART1)
 #  define EXAMPLE_USART_RX_PIN          AVR32_USART1_RXD_0_0_PIN

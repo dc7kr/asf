@@ -6,7 +6,7 @@
  *
  * This file contains the possible external configuration of the SD/MMC.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -56,5 +56,106 @@
 
 #define MCI_DEFAULT_PWSDIV          0x07    //!< Power Saving Divider.
 
+/*! \name MCI Connections of the SD/MMC Slots
+ */
+//! @{
+#if !defined(SD_SLOT_MCI)
+# define SD_SLOT_MCI                       (&AVR32_MCI)
+# warning The SD/MMC Slots register configuration does not exist in the board definition file. Using default settings.
+#endif
+
+//! 4-bits connector pin
+#if !defined(SD_SLOT_4BITS)                 || \
+!defined(SD_SLOT_4BITS_CLK_PIN)             || \
+!defined(SD_SLOT_4BITS_CLK_FUNCTION)        || \
+!defined(SD_SLOT_4BITS_CMD_PIN)             || \
+!defined(SD_SLOT_4BITS_CMD_FUNCTION)        || \
+!defined(SD_SLOT_4BITS_DATA0_PIN)           || \
+!defined(SD_SLOT_4BITS_DATA0_FUNCTION)      || \
+!defined(SD_SLOT_4BITS_DATA1_PIN)           || \
+!defined(SD_SLOT_4BITS_DATA1_FUNCTION)      || \
+!defined(SD_SLOT_4BITS_DATA2_PIN)           || \
+!defined(SD_SLOT_4BITS_DATA2_FUNCTION)      || \
+!defined(SD_SLOT_4BITS_DATA3_PIN)           || \
+!defined(SD_SLOT_4BITS_DATA3_FUNCTION)      || \
+!defined(SD_SLOT_4BITS_CARD_DETECT)         || \
+!defined(SD_SLOT_4BITS_CARD_DETECT_VALUE)   || \
+!defined(SD_SLOT_4BITS_WRITE_PROTECT)       || \
+!defined(SD_SLOT_4BITS_WRITE_PROTECT_VALUE) 
+# define SD_SLOT_4BITS                      1
+# define SD_SLOT_4BITS_CLK_PIN              AVR32_MCI_CLK_0_PIN
+# define SD_SLOT_4BITS_CLK_FUNCTION         AVR32_MCI_CLK_0_FUNCTION
+# define SD_SLOT_4BITS_CMD_PIN              AVR32_MCI_CMD_1_0_PIN
+# define SD_SLOT_4BITS_CMD_FUNCTION         AVR32_MCI_CMD_1_0_FUNCTION
+# define SD_SLOT_4BITS_DATA0_PIN            AVR32_MCI_DATA_8_0_PIN
+# define SD_SLOT_4BITS_DATA0_FUNCTION       AVR32_MCI_DATA_8_0_FUNCTION
+# define SD_SLOT_4BITS_DATA1_PIN            AVR32_MCI_DATA_9_0_PIN
+# define SD_SLOT_4BITS_DATA1_FUNCTION       AVR32_MCI_DATA_9_0_FUNCTION
+# define SD_SLOT_4BITS_DATA2_PIN            AVR32_MCI_DATA_10_0_PIN
+# define SD_SLOT_4BITS_DATA2_FUNCTION       AVR32_MCI_DATA_10_0_FUNCTION
+# define SD_SLOT_4BITS_DATA3_PIN            AVR32_MCI_DATA_11_0_PIN
+# define SD_SLOT_4BITS_DATA3_FUNCTION       AVR32_MCI_DATA_11_0_FUNCTION
+# define SD_SLOT_4BITS_CARD_DETECT          AVR32_PIN_PB08
+# define SD_SLOT_4BITS_CARD_DETECT_VALUE    0
+# define SD_SLOT_4BITS_WRITE_PROTECT        AVR32_PIN_PB06
+# define SD_SLOT_4BITS_WRITE_PROTECT_VALUE  1
+# warning The SD/MMC 4bits Slots register configuration does not exist in the board definition file. Using default settings.
+#endif
+
+//! 8-bits connector pin
+#if !defined(SD_SLOT_8BITS)                 || \
+!defined(SD_SLOT_8BITS_CLK_PIN)             || \
+!defined(SD_SLOT_8BITS_CLK_FUNCTION)        || \
+!defined(SD_SLOT_8BITS_CMD_PIN)             || \
+!defined(SD_SLOT_8BITS_CMD_FUNCTION)        || \
+!defined(SD_SLOT_8BITS_DATA0_PIN)           || \
+!defined(SD_SLOT_8BITS_DATA0_FUNCTION)      || \
+!defined(SD_SLOT_8BITS_DATA1_PIN)           || \
+!defined(SD_SLOT_8BITS_DATA1_FUNCTION)      || \
+!defined(SD_SLOT_8BITS_DATA2_PIN)           || \
+!defined(SD_SLOT_8BITS_DATA2_FUNCTION)      || \
+!defined(SD_SLOT_8BITS_DATA3_PIN)           || \
+!defined(SD_SLOT_8BITS_DATA3_FUNCTION)      || \
+!defined(SD_SLOT_8BITS_DATA4_PIN)           || \
+!defined(SD_SLOT_8BITS_DATA4_FUNCTION)      || \
+!defined(SD_SLOT_8BITS_DATA5_PIN)           || \
+!defined(SD_SLOT_8BITS_DATA5_FUNCTION)      || \
+!defined(SD_SLOT_8BITS_DATA6_PIN)           || \
+!defined(SD_SLOT_8BITS_DATA6_FUNCTION)      || \
+!defined(SD_SLOT_8BITS_DATA7_PIN)           || \
+!defined(SD_SLOT_8BITS_DATA7_FUNCTION)      || \
+!defined(SD_SLOT_8BITS_CARD_DETECT)         || \
+!defined(SD_SLOT_8BITS_CARD_DETECT_VALUE)   || \
+!defined(SD_SLOT_8BITS_WRITE_PROTECT)       || \
+!defined(SD_SLOT_8BITS_WRITE_PROTECT_VALUE) 
+# define SD_SLOT_8BITS                      0
+# define SD_SLOT_8BITS_CLK_PIN              AVR32_MCI_CLK_0_PIN
+# define SD_SLOT_8BITS_CLK_FUNCTION         AVR32_MCI_CLK_0_FUNCTION
+# define SD_SLOT_8BITS_CMD_PIN              AVR32_MCI_CMD_0_PIN
+# define SD_SLOT_8BITS_CMD_FUNCTION         AVR32_MCI_CMD_0_FUNCTION
+# define SD_SLOT_8BITS_DATA0_PIN            AVR32_MCI_DATA_0_PIN
+# define SD_SLOT_8BITS_DATA0_FUNCTION       AVR32_MCI_DATA_0_FUNCTION
+# define SD_SLOT_8BITS_DATA1_PIN            AVR32_MCI_DATA_1_PIN
+# define SD_SLOT_8BITS_DATA1_FUNCTION       AVR32_MCI_DATA_1_FUNCTION
+# define SD_SLOT_8BITS_DATA2_PIN            AVR32_MCI_DATA_2_PIN
+# define SD_SLOT_8BITS_DATA2_FUNCTION       AVR32_MCI_DATA_2_FUNCTION
+# define SD_SLOT_8BITS_DATA3_PIN            AVR32_MCI_DATA_3_PIN
+# define SD_SLOT_8BITS_DATA3_FUNCTION       AVR32_MCI_DATA_3_FUNCTION
+# define SD_SLOT_8BITS_DATA4_PIN            AVR32_MCI_DATA_4_PIN
+# define SD_SLOT_8BITS_DATA4_FUNCTION       AVR32_MCI_DATA_4_FUNCTION
+# define SD_SLOT_8BITS_DATA5_PIN            AVR32_MCI_DATA_5_PIN
+# define SD_SLOT_8BITS_DATA5_FUNCTION       AVR32_MCI_DATA_5_FUNCTION
+# define SD_SLOT_8BITS_DATA6_PIN            AVR32_MCI_DATA_6_PIN
+# define SD_SLOT_8BITS_DATA6_FUNCTION       AVR32_MCI_DATA_6_FUNCTION
+# define SD_SLOT_8BITS_DATA7_PIN            AVR32_MCI_DATA_7_PIN
+# define SD_SLOT_8BITS_DATA7_FUNCTION       AVR32_MCI_DATA_7_FUNCTION
+# define SD_SLOT_8BITS_CARD_DETECT          AVR32_PIN_PB11
+# define SD_SLOT_8BITS_CARD_DETECT_VALUE    0
+# define SD_SLOT_8BITS_WRITE_PROTECT        AVR32_PIN_PX57
+# define SD_SLOT_8BITS_WRITE_PROTECT_VALUE  1
+# warning The SD/MMC 8bits Slots register configuration does not exist in the board definition file. Using default settings.
+#endif
+
+//! @}
 
 #endif  // _CONF_SD_MMC_MCI_H_

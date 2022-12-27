@@ -39,12 +39,7 @@
  *
  */
 #include <twi_master.h>
-
-#if XMEGA
 #include <ioport.h>
-#elif UC3
-#include <gpio.h>
-#endif
 
 #include "mxt_device.h"
 
@@ -54,13 +49,6 @@
 #define  MXT_MEM_ADDR               0x00
 #define  MXT_FAMILY_143E            0x81
 #define  MXT_VARIANT_143E           0x07
-
-#if UC3
-static uint8_t inline ioport_pin_is_low(uint32_t pin)
-{
-	return gpio_pin_is_low(pin);
-}
-#endif
 
 /**
  * \internal
@@ -704,7 +692,7 @@ void mxt_set_message_handler(struct mxt_device *device,
  */
 uint8_t inline mxt_is_message_pending(struct mxt_device *device)
 {
-	if (ioport_pin_is_low(device->chgpin)) {
+	if (ioport_get_pin_level(device->chgpin) == false) {
 		return true;
 	} else {
 		return false;

@@ -67,7 +67,6 @@ CSRCS = \
        avr32/drivers/pm/power_clocks_lib.c                \
        avr32/drivers/scif/scif_uc3l.c                     \
        avr32/drivers/usart/usart.c                        \
-       avr32/services/delay/delay.c                       \
        avr32/utils/debug/print_funcs.c                    \
        common/services/clock/uc3l/dfll.c                  \
        common/services/clock/uc3l/osc.c                   \
@@ -94,12 +93,12 @@ INC_PATH = \
        avr32/drivers/pm                                   \
        avr32/drivers/scif                                 \
        avr32/drivers/usart                                \
-       avr32/services/delay                               \
        avr32/utils                                        \
        avr32/utils/debug                                  \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/sleepmgr                           \
        common/utils \
        ./avr32/drivers/adcifb/example2/at32uc3l064_uc3_l0_xplained/gcc

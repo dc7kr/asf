@@ -56,6 +56,7 @@ TARGET = qt1081_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/evk1105/led.c                         \
        avr32/components/touch/qt1081/example/qt1081_example.c \
        avr32/drivers/eic/eic.c                            \
        avr32/drivers/flashc/flashc.c                      \

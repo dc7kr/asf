@@ -3,7 +3,7 @@
  *
  * \brief Default CDC configuration for a USB Device with a single interface
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -59,10 +59,7 @@ extern "C" {
 #endif
 
 /**
- * \ingroup udi_cdc_group
- * \defgroup udi_cdc_group_conf Default CDC configuration for a USB Device
- * with a single interface CDC
- *
+ * \addtogroup udi_cdc_group_single_desc
  * @{
  */
 

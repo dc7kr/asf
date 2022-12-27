@@ -187,6 +187,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=EVK1105</state>
+					<state>CONFIG_INTERRUPT_FORCE_INTC</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -344,16 +345,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/audio/codec/tlv320aic23b</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../audio/audio_player/players/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/audio/dac/pwm_dac</state>
 					<state>$PROJ_DIR$/../../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../enum/device</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/usbb/_asf_v1/enum</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/abdac</state>
-					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/audio/amp/tpa6130a2</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/usart</state>
@@ -362,7 +363,7 @@
 					<state>$PROJ_DIR$/../../../enum</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/intc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/touch/qt1081</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../drivers/ebi/smc</state>
+					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -477,6 +478,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=EVK1105</state>
+					<state>CONFIG_INTERRUPT_FORCE_INTC</state>
 				</option>
 				<option>
 					<name>AIncludePaths</name>
@@ -501,16 +503,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/audio/codec/tlv320aic23b</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../audio/audio_player/players/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/audio/dac/pwm_dac</state>
 					<state>$PROJ_DIR$/../../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../enum/device</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/usbb/_asf_v1/enum</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/abdac</state>
-					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/audio/amp/tpa6130a2</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/usart</state>
@@ -519,7 +521,7 @@
 					<state>$PROJ_DIR$/../../../enum</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/intc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/touch/qt1081</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../drivers/ebi/smc</state>
+					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1110,6 +1112,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=EVK1105</state>
+					<state>CONFIG_INTERRUPT_FORCE_INTC</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1267,16 +1270,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/audio/codec/tlv320aic23b</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../audio/audio_player/players/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/audio/dac/pwm_dac</state>
 					<state>$PROJ_DIR$/../../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../enum/device</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/usbb/_asf_v1/enum</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/abdac</state>
-					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/audio/amp/tpa6130a2</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/usart</state>
@@ -1285,7 +1288,7 @@
 					<state>$PROJ_DIR$/../../../enum</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/intc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/touch/qt1081</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../drivers/ebi/smc</state>
+					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1400,6 +1403,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=EVK1105</state>
+					<state>CONFIG_INTERRUPT_FORCE_INTC</state>
 				</option>
 				<option>
 					<name>AIncludePaths</name>
@@ -1424,16 +1428,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/audio/codec/tlv320aic23b</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../audio/audio_player/players/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/audio/dac/pwm_dac</state>
 					<state>$PROJ_DIR$/../../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../enum/device</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/usbb/_asf_v1/enum</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/abdac</state>
-					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/audio/amp/tpa6130a2</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/usart</state>
@@ -1442,7 +1446,7 @@
 					<state>$PROJ_DIR$/../../../enum</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../drivers/intc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../components/touch/qt1081</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../drivers/ebi/smc</state>
+					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>

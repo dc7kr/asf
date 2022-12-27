@@ -3,7 +3,7 @@
  *
  * \brief This module defines a collection of matrix classes.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,17 +39,12 @@
  *
  */
 
-
 #include "matrix.h"
 
+namespace {
 
-
-namespace {  // local namespace
-
-
-
-// Aliases to matrix elements _m(i,j); row 'i', column 'j'.
-
+/** \name Aliases to matrix elements _m(i,j); row 'i', column 'j'. */
+/** @{ */
 #define _m11  (C[0][0])
 #define _m12  (C[1][0])
 #define _m13  (C[2][0])
@@ -69,13 +64,9 @@ namespace {  // local namespace
 #define _m42  (C[1][3])
 #define _m43  (C[2][3])
 #define _m44  (C[3][3])
-
-
-
-// local constants
+/** @} */
 
 const scalar zero_matrix[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-
 
 
 /**
@@ -115,15 +106,10 @@ inline const matrix_t inverse (const matrix_t & m)
 	return matrix_t (zero_matrix);
 }
 
-
-
-}  // local namespace
-
+}
 
 
 namespace math {
-
-
 
 /**
  * \brief calculate the adjoint of a 3x3 matrix
@@ -283,6 +269,4 @@ const matrix4d matrix4d::inverse () const
 	return ::inverse<matrix4d> (*this);
 }
 
-
-
-}  // namespace math
+}

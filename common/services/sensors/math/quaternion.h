@@ -3,7 +3,7 @@
  *
  * \brief The math::quaternion class defines quaternion types and utilities.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,16 +40,13 @@
  */
 
 
-#ifndef _quaternion_h_
-#define _quaternion_h_
-
+#ifndef _QUATERNION_MATH_H_
+#define _QUATERNION_MATH_H_
 
 #include "matrix.h"
 #include "vector.h"
 
-
 namespace math {
-
 
 /**
  * \brief 4-dimensional normed division algebra over the Real Numbers
@@ -112,19 +109,16 @@ class quaternion {
 
 private:
 
-
-	//! \name (scalar, vector) element storage
-	// @{
+	/** \name (scalar, vector) element storage */
+	/** @{ */
 	scalar    _s;
 	vector3d  _v;
-	// @}
-
+	/** @} */
 
 public:
 
-
-	//! \name class construction and type conversion
-	// @{
+	/** \name class construction and type conversion */
+	/** @{ */
 	quaternion ()
 		: _s (0), _v (vector3d (0, 0, 0)) {}
 
@@ -134,26 +128,22 @@ public:
 	quaternion (const scalar & q1, const scalar & q2,
 		 const scalar & q3, const scalar & q4)
 		: _s (q1), _v (q2, q3, q4) {}
-	// @}
+	/** @} */
 
-
-	//! \name class public methods
-	// @{
+	/** \name class public methods
+	/** @{ */
+	
 	const quaternion conjugate () const
 		{ return quaternion (_s, -_v); }
 
 	const vector3d cross (const quaternion & q) const
 		{ return _v.cross (q._v); }
-
-
-	//! \brief dot-product (Euclidean inner-product)
-
+		
+	/** \brief dot-product (Euclidean inner-product) */
 	const scalar dot (const quaternion & q) const
 		{ return (_s * q._s) + _v.dot (q._v); }
 
-
-	//! \brief modulus (absolute value or length from origin)
-
+	/** \brief modulus (absolute value or length from origin) */
 	const scalar length () const
 		{ return static_cast<const scalar>(sqrt (this->dot(*this))); }
 
@@ -169,14 +159,12 @@ public:
 	const vector3d & Vector () const
 		{ return _v; }
 
-
 	/**
      * \brief Sign, sgn(z), of a complex number finds the complex number
      * of the same direction found on the unit circle.
 	 */
 	const quaternion sgn () const
 		{ return this->unit (); }
-
 
 	/**
      * \brief Argument, arg(z), finds the angle of the 4-vector quaternion
@@ -185,50 +173,48 @@ public:
 	const scalar arg () const
 		{ return acos (_s / this->length ()); }
 
-
-	//! \name class member operators
-	// @{
+	/** \name class member operators */
+	/** @{ */
 	const quaternion & operator *= (const quaternion & q)
-		{
+	{
 		quaternion const p (*this);
 
 		*this = p * q;
 
 		return *this;
-		}
+	}
 
 	const quaternion & operator += (const quaternion & q)
-		{
+	{
 		_s += q._s; _v += q._v;
 		return *this;
-		}
+	}
 
 	const quaternion & operator -= (const quaternion & q)
-		{
+	{
 		_s -= q._s; _v -= q._v;
 		return *this;
-		}
+	}
 
 	const quaternion & operator *= (const scalar & s)
-		{
+	{
 		_s *= s; _v *= s;
 		return *this;
-		}
+	}
 
 	const quaternion & operator /= (const scalar & s)
-		{
+	{
 		_s /= s; _v /= s;
 		return *this;
-		}
-	// @}
+	}
+	/** @} */
 
-	//! \brief quaternion multiplication (Grassmann Product)
-
+	/** \brief quaternion multiplication (Grassmann Product) */
 	const quaternion operator * (const quaternion & q) const
-		{
+	{
 		return quaternion ((_s * q._s) - _v.dot (q._v),
 			(q._v * _s) + (_v * q._s) + _v.cross (q._v));
-		}
+	}
 
 	const quaternion operator + (const quaternion & q) const
 		{ return quaternion (_s + q._s, _v + q._v); }
@@ -247,8 +233,8 @@ public:
 
 	const bool   operator != (const quaternion & q) const
 		{ return ! (q == *this); }
-	// @}
 
+	/** @} */
 
 	friend const quaternion operator * (const scalar & s, const quaternion & q)
 		{ return quaternion (q._s * s, q._v * s); }
@@ -258,7 +244,7 @@ public:
 };
 
 
-/*! \brief Multiply a vector by a quaternion.
+/** \brief Multiply a vector by a quaternion.
  *
  * This operator multiplies a math::vector3d object on the right-side of
  * the operator by math::quaternion object on the left-side of the operator.
@@ -277,7 +263,7 @@ inline const quaternion operator *
 	return quaternion (- _v.dot (v), (v * _s) + _v.cross (v));
 }
 
-/*! \brief Multiply a quaternion by a vector.
+/** \brief Multiply a quaternion by a vector.
  *
  * This operator multiplies a math::quaternion object on the right-side of
  * the operator by math::vector3d object on the left-side of the operator.
@@ -296,7 +282,7 @@ inline const quaternion operator *
 	return quaternion (- v.dot (_v), (v * _s) + v.cross (_v));
 }
 
-/*! \brief Rotate a vector by a unit quaternion.
+/** \brief Rotate a vector by a unit quaternion.
  *
  * Given unit quaternion \f$ q = (s, \vec{v}) \f$ and its conjugate
  * \f$ q^{*} = (s, -\vec{v}), \f$ to rotate arbitrary vector \f$ \vec{r} \f$
@@ -326,14 +312,12 @@ inline const quaternion operator *
 inline const vector3d rotate
 	(const quaternion & q, const vector3d & v)
 {
-	// assert (1 == q.length ());
-
 	quaternion const z (q * v * q.conjugate ());
 
 	return z.Vector ();
 }
 
-/*! \brief Quaternion to direction cosine matrix (DCM) conversion.
+/** \brief Quaternion to direction cosine matrix (DCM) conversion.
  *
  * This routine converts a specified quaternion \f$ \mathbf{q} \f$
  * to a 3x3 direction cosine matrix (\p DCM).
@@ -381,7 +365,7 @@ inline const matrix3d quaternion2DCM (const quaternion & q)
 		 2 * (xz - wy),      2 * (yz + wx),      ww - xx - yy + zz);
 }
 
-/*! \brief Quaternion to Euler angle conversion.
+/** \brief Quaternion to Euler angle conversion.
  *
  * This routine converts a specified quaternion \f$ \mathbf{q} \f$ to a 3x1
  * vector storing bank (rotation about x-axis), attitude (rotation about
@@ -415,8 +399,6 @@ inline const vector3d quaternion2euler (const quaternion & q)
 		 atan2 (2 * ((q0*q3) + (q1*q2)), 1 - 2 * ((q2*q2) + (q3*q3))));
 }
 
+}
 
-}  // namespace math
-
-
-#endif // _quaternion_h_
+#endif

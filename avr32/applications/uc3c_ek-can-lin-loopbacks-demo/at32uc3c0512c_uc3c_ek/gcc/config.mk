@@ -62,6 +62,7 @@ CSRCS = \
        avr32/applications/uc3c_ek-can-lin-loopbacks-demo/gui.c \
        avr32/applications/uc3c_ek-can-lin-loopbacks-demo/lin_task.c \
        avr32/applications/uc3c_ek-can-lin-loopbacks-demo/main.c \
+       avr32/boards/uc3c_ek/led.c                         \
        avr32/components/display/et024006dhu/et024006dhu.c \
        avr32/components/touch/at42qt1060/at42qt1060.c     \
        avr32/drivers/adcifa/adcifa.c                      \

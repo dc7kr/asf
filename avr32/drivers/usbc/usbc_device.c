@@ -69,8 +69,8 @@
 #endif
 
 /**
- * \ingroup usb_device_group
- * \defgroup udd_group USB Device Driver (UDD)
+ * \ingroup udd_group
+ * \defgroup udd_usbc_group USBC Device Driver
  *
  * \section USBC_CONF USBC Custom configuration
  * The following USBC driver configuration must be included in the conf_usb.h
@@ -487,7 +487,13 @@ ISR(udd_interrupt, AVR32_USBC_IRQ_GROUP, UDD_USB_INT_LEVEL)
 	}
 udd_interrupt_end:
 	otg_data_memory_barrier();
+#if (defined FREERTOS_USED)
+	// Since we do not know if the user callbacks have used or not FreeRTOS APIs, let's
+	// consider that exiting from the USB interrupt will require a context switch.
+	return pdTRUE;
+#else
 	return;
+#endif
 }
 
 
@@ -519,7 +525,11 @@ void udd_enable(void)
 	sysclk_enable_usb();
 
 	// Here, only the device mode is possible, then link USBC interrupt to UDD interrupt
-	irq_register_handler(udd_interrupt, AVR32_USBC_IRQ, UDD_USB_INT_LEVEL);
+	irq_register_handler(
+#ifdef FREERTOS_USED
+			(__int_handler)
+#endif
+			udd_interrupt, AVR32_USBC_IRQ, UDD_USB_INT_LEVEL);
 
 	// Always authorize asynchrone USB interrupts to exit of sleep mode
 	pm_asyn_wake_up_enable(AVR32_PM_AWEN_USBCWEN_MASK);
@@ -699,7 +709,7 @@ uint16_t udd_get_micro_frame_number(void)
 }
 
 
-void udd_send_wake_up(void)
+void udd_send_remotewakeup(void)
 {
 #ifndef UDD_NO_SLEEP_MGR
 	if (!udd_b_idle)
@@ -1582,4 +1592,5 @@ static bool udd_ep_interrupt(void)
 }
 #endif // (0!=USB_DEVICE_MAX_EP)
 
+//@}
 //@}

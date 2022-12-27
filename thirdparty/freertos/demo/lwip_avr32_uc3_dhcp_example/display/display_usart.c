@@ -3,7 +3,7 @@
  *
  * \brief Display Usart Interface
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -74,7 +74,7 @@ void display_init(uint32_t fcpu_hz)
 
 	// Display default message.
 	puts("\x1B[5;1H");
-	puts("ATMEL  UC3_C2_Xplained \r\n");
+	puts("ATMEL  UC3\r\n");
 	puts("lwIP with DHCP demo \r\n");
 	puts("Not Connected \r\n");
 }

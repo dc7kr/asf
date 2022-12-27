@@ -3,7 +3,7 @@
  *
  * \brief Common API for USB Host Drivers (UHD)
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -152,6 +152,7 @@ typedef void (*uhd_callback_setup_end_t)(
  */
 typedef void (*uhd_callback_trans_t) (
 		usb_add_t add,
+		usb_ep_t ep,
 		uhd_trans_status_t status,
 		iram_size_t nb_transfered);
 

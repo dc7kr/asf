@@ -70,6 +70,9 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: SCIF System Control Interface - UC3L implementation
 #include <scif_uc3l.h>
 

@@ -1771,55 +1771,19 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>common</name>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>unit_test</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/unit_test/suite.c</name>
-				</file>
-			</group>
-			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/write.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/read.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>services</name>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>uc3b0_b1</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common/services/clock/uc3b0_b1/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>storage</name>
-				<group>
-					<name>ctrl_access</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common/services/storage/ctrl_access/ctrl_access.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/services/serial/usart_serial.c</name>
-				</file>
-			</group>
-		</group>
-	</group>
-	<group>
 		<name>avr32</name>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1101</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../boards/evk1101/led.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../boards/evk1101/init.c</name>
+				</file>
+			</group>
+		</group>
 		<group>
 			<name>components</name>
 			<group>
@@ -1872,20 +1836,59 @@
 			</group>
 		</group>
 		<group>
-			<name>boards</name>
-			<group>
-				<name>evk1101</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../boards/evk1101/init.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
 			<name>utils</name>
 			<group>
 				<name>startup</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../utils/startup/trampoline_uc3.s82</name>
+				</file>
+			</group>
+		</group>
+	</group>
+	<group>
+		<name>common</name>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>unit_test</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/unit_test/suite.c</name>
+				</file>
+			</group>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/write.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/read.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>uc3b0_b1</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/clock/uc3b0_b1/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>storage</name>
+				<group>
+					<name>ctrl_access</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/storage/ctrl_access/ctrl_access.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/services/serial/usart_serial.c</name>
 				</file>
 			</group>
 		</group>

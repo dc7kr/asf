@@ -1735,36 +1735,6 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>common</name>
-		<group>
-			<name>services</name>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>uc3l</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../services/clock/uc3l/dfll.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../services/clock/uc3l/osc.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../services/clock/uc3l/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>applications</name>
-			<group>
-				<name>led_chaser</name>
-				<file>
-					<name>$PROJ_DIR$/../../led_example.c</name>
-				</file>
-			</group>
-		</group>
-	</group>
-	<group>
 		<name>avr32</name>
 		<group>
 			<name>boards</name>
@@ -1772,6 +1742,9 @@
 				<name>stk600</name>
 				<group>
 					<name>rcuc3l0</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../avr32/boards/stk600/rcuc3l0/led.c</name>
+					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../avr32/boards/stk600/rcuc3l0/init.c</name>
 					</file>
@@ -1814,6 +1787,36 @@
 				<name>startup</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../avr32/utils/startup/trampoline_uc3.s82</name>
+				</file>
+			</group>
+		</group>
+	</group>
+	<group>
+		<name>common</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>uc3l</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/clock/uc3l/dfll.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/clock/uc3l/osc.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/clock/uc3l/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
+		<group>
+			<name>applications</name>
+			<group>
+				<name>led_chaser</name>
+				<file>
+					<name>$PROJ_DIR$/../../led_example.c</name>
 				</file>
 			</group>
 		</group>

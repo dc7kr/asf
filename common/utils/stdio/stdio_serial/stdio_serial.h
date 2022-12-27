@@ -7,7 +7,7 @@
  * This file defines a useful set of functions for the Stdio Serial interface on AVR
  * devices.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -62,7 +62,7 @@
 #include "sysclk.h"
 #include "serial.h"
 
-#if defined(XMEGA) && defined(__GNUC__)
+#if XMEGA && defined(__GNUC__)
 	extern int _write (char c, int *f);
 	extern int _read (int *f);
 #endif
@@ -86,15 +86,15 @@ static inline void stdio_serial_init(volatile void *usart, const usart_serial_op
 	stdio_base = (void *)usart;
 	ptr_put = (int (*)(void volatile*,int))&usart_serial_putchar;
 	ptr_get = (void (*)(void volatile*,int*))&usart_serial_getchar;
-	#if defined(XMEGA)
+	#if XMEGA
 		usart_serial_init((USART_t *)usart,opt);
-	#elif defined(UC3)
+	#elif UC3
 		usart_serial_init(usart,(usart_serial_options_t *)opt);
 	#else
 		usart_serial_init((Uart *)usart,(usart_serial_options_t *)opt);
 	#endif
 	// For AVR GCC libc print redirection uses fdevopen
-	#if defined(XMEGA) && defined(__GNUC__)
+	#if XMEGA && defined(__GNUC__)
 		fdevopen((int (*)(char, FILE*))(_write),(int (*)(FILE*))(_read)); //for printf redirection
 	#endif
 }

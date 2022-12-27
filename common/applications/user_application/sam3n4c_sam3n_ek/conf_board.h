@@ -39,15 +39,20 @@
  *
  */
 
-#ifndef CONF_BOARD_H
-#define CONF_BOARD_H
+#ifndef CONF_BOARD_H_INCLUDED
+#define CONF_BOARD_H_INCLUDED
 
 /* Configure UART pins */
 #define CONF_BOARD_UART_CONSOLE
 
 /* Configure ADC example pins */
-//#define CONF_BOARD_ADC
+#define CONF_BOARD_ADC
 
+/*
+ * LED pins are not configured for PWM function here.
+ * Because those LED pins are enabled for PIO function by default.
+ * You can enable them according to application.
+ */
 /* Configure PWM LED0 pin */
 //#define CONF_BOARD_PWM_LED0
 
@@ -55,12 +60,17 @@
 //#define CONF_BOARD_PWM_LED1
 
 /* Configure SPI pins */
-//#define CONF_BOARD_SPI
+#define CONF_BOARD_SPI
 //#define CONF_BOARD_SPI_NPCS0
-//#define CONF_BOARD_SPI_NPCS1
-//#define CONF_BOARD_SPI_NPCS2
+#define CONF_BOARD_SPI_NPCS1
+#define CONF_BOARD_SPI_NPCS2
 //#define CONF_BOARD_SPI_NPCS3
 
+/*
+ * USART pins are not configured here.
+ * You can enable them according to application and external
+ * USART_DB board connected.
+ */
 /* Configure USART RXD pin */
 //#define CONF_BOARD_USART_RXD
 
@@ -83,9 +93,9 @@
 //#define CONF_BOARD_ADM3485_RE
 
 /* Configure SPI LCD control pin */
-//#define CONF_BOARD_ILI9225
+#define CONF_BOARD_ILI9225
 
 /* Configure Backlight control pin */
-//#define CONF_BOARD_AAT3193
+#define CONF_BOARD_AAT3193
 
-#endif // CONF_BOARD_H
+#endif /* CONF_BOARD_H_INCLUDED */

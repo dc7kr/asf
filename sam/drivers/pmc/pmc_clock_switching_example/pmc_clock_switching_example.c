@@ -56,9 +56,9 @@
  * Upon startup, the program configures PIOs for UART, PCK and buttons. The baud rate of
  * UART is configured as 2400 bps. The application performs some printf actions with the current
  * configuration (except 32KHz slow clock ) and waits for the button pressed to switch to the
- * next configuration. The PCK clock can be selected among PLLA, UPLL, SLCK, MAINCK and driven 
+ * next configuration. The PCK clock can be selected among PLLA, UPLL, SLCK, MAINCK and driven
  * on the PCK0 pin.
- * After the clock switches, the PCK output signal can be measured by oscilloscope and compared 
+ * After the clock switches, the PCK output signal can be measured by oscilloscope and compared
  * with the clock configuration.
  *
  * <ul>
@@ -133,6 +133,9 @@ static void button1_handler(uint32_t ul_id, uint32_t ul_mask)
  */
 static void configure_buttons(void)
 {
+      /* Enable the peripheral clock for PCK and push button */
+	pmc_enable_periph_clk(PIN_PUSHBUTTON_1_ID);
+
 	/* Adjust PIO debounce filter parameters, using 10 Hz filter. */
 	pio_set_debounce_filter(PIN_PUSHBUTTON_1_PIO, PIN_PUSHBUTTON_1_MASK, 10);
 
@@ -250,7 +253,7 @@ int main(void)
 {
     /* Initilize the SAM3 system */
 	sysclk_init();
-	board_init();    
+	board_init();
 
     /* Initialize the console uart */
 	configure_console();
@@ -260,13 +263,6 @@ int main(void)
 
 	/* Configure PCK0 */
 	gpio_configure_pin(PIN_PCK0, PIN_PCK0_FLAGS);
-
-    /* Enable the peripheral clock for PCK and push button */
-	pmc_enable_periph_clk(ID_PIOA);
-	pmc_enable_periph_clk(ID_PIOB);
-#if SAM3XA
-	pmc_enable_periph_clk(ID_PIOE);
-#endif
 
 	/* Configure the push button */
 	configure_buttons();
@@ -346,7 +342,7 @@ int main(void)
 
     /* Enable the PLLA clock, the mainck equals 12Mhz * (32-1+1) / 3 = 128Mhz */
 	pmc_enable_pllack((32 - 1), 0x3f, 3);
-    
+
 	/* If a new value for CSS field corresponds to PLL Clock, Program the PRES field first. */
 	pmc_switch_mck_to_mainck(PMC_MCKR_PRES_CLK_2);
 
@@ -415,7 +411,7 @@ int main(void)
 
     /* Enable the PLLB clock, the mainck equals (12Mhz * (7+1) / 1) = 96Mhz with initilize counter 0x3f */
 	pmc_enable_pllbck(7, 0x3f, 1);
-    
+
 	/* If a new value for CSS field corresponds to PLL Clock, Program the PRES field first. */
 	pmc_switch_mck_to_mainck(PMC_MCKR_PRES_CLK_2);
 

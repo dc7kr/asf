@@ -1,7 +1,8 @@
 /**
  * \file
  *
- * \brief Graphic library configured for the SDT028ATFT LCD panel using the ILI9341
+ * \brief Graphic library configured for the SDT028ATFT LCD panel using the
+ *        ILI9341 display controller.
  * display controller.
  *
  * This files includes the correct header files for the grapics service
@@ -157,49 +158,49 @@ void gfx_ili9341_set_orientation(uint8_t flags);
  * \ref gfx_generic_draw_horizontal_line
  */
 #define gfx_draw_horizontal_line(x, y, length, color)\
-		gfx_generic_draw_horizontal_line(x, y, length, color)
+	gfx_generic_draw_horizontal_line(x, y, length, color)
 
 /**
  * ILI9341 display driver uses generic gfx implementation for this function. See
  * \ref gfx_generic_draw_vertical_line
  */
 #define gfx_draw_vertical_line(x, y, length, color)\
-		gfx_generic_draw_vertical_line(x, y, length, color)
+	gfx_generic_draw_vertical_line(x, y, length, color)
 
 /**
  * ILI9341 display driver uses generic gfx implementation for this function. See
  * \ref gfx_generic_draw_line
  */
 #define gfx_draw_line(x1, y1, x2, y2, color)\
-		gfx_generic_draw_line(x1, y1, x2, y2, color)
+	gfx_generic_draw_line(x1, y1, x2, y2, color)
 
 /**
  * ILI9341 display driver uses generic gfx implementation for this function. See
  * \ref gfx_generic_draw_rect
  */
 #define gfx_draw_rect(x, y, width, height, color)\
-		gfx_generic_draw_rect(x, y, width, height, color)
+	gfx_generic_draw_rect(x, y, width, height, color)
 
 /**
  * ILI9341 display driver uses generic gfx implementation for this function. See
  * \ref gfx_generic_draw_filled_rect
  */
 #define gfx_draw_filled_rect(x, y, width, height, color)\
-		gfx_generic_draw_filled_rect(x, y, width, height, color)
+	gfx_generic_draw_filled_rect(x, y, width, height, color)
 
 /**
  * ILI9341 display driver uses generic gfx implementation for this function. See
  * \ref gfx_generic_draw_circle
  */
 #define gfx_draw_circle(x, y, radius, color, octant_mask)\
-		gfx_generic_draw_circle(x, y, radius, color, octant_mask)
+	gfx_generic_draw_circle(x, y, radius, color, octant_mask)
 
 /**
  * ILI9341 display driver uses generic gfx implementation for this function. See
  * \ref gfx_generic_draw_filled_circle
  */
 #define gfx_draw_filled_circle(x, y, radius, color, quadrant_mask)\
-		gfx_generic_draw_filled_circle(x, y, radius, color,\
+	gfx_generic_draw_filled_circle(x, y, radius, color,\
 		quadrant_mask)
 
 /**
@@ -207,7 +208,7 @@ void gfx_ili9341_set_orientation(uint8_t flags);
  * \ref gfx_generic_get_pixmap
  */
 #define gfx_get_pixmap(pixmap, map_width, map_x, map_y, x, y, width, height)\
-		gfx_generic_get_pixmap(pixmap, map_width, map_x, map_y, x, y,\
+	gfx_generic_get_pixmap(pixmap, map_width, map_x, map_y, x, y,\
 		width, height)
 
 /**
@@ -215,7 +216,7 @@ void gfx_ili9341_set_orientation(uint8_t flags);
  * \ref gfx_generic_put_pixmap
  */
 #define gfx_put_pixmap(pixmap, map_width, map_x, map_y, x, y, width, height)\
-		gfx_generic_put_pixmap(pixmap, map_width, map_x, map_y, x, y,\
+	gfx_generic_put_pixmap(pixmap, map_width, map_x, map_y, x, y,\
 		width, height)
 
 /**
@@ -223,15 +224,15 @@ void gfx_ili9341_set_orientation(uint8_t flags);
  * \ref gfx_generic_put_bitmap
  */
 #define gfx_put_bitmap(bmp, map_x, map_y, x, y, width, height)\
-		gfx_generic_put_bitmap(bmp, map_x, map_y, x, y, width, height)
+	gfx_generic_put_bitmap(bmp, map_x, map_y, x, y, width, height)
 
 /**
  * ILI9341 display driver uses generic gfx implementation for this function. See
  * \ref gfx_generic_draw_bitmap_tiled
  */
 #define gfx_draw_bitmap_tiled(bmp, x1, y1, x2, y2, tile_origin_x,\
-		tile_origin_y)\
-		gfx_generic_draw_bitmap_tiled(bmp, x1, y1, x2, y2,\
+			tile_origin_y)\
+	gfx_generic_draw_bitmap_tiled(bmp, x1, y1, x2, y2,\
 		tile_origin_x, tile_origin_y)
 
 /**
@@ -288,21 +289,21 @@ void gfx_ili9341_set_orientation(uint8_t flags);
  * \ref ili9341_copy_pixels_to_screen
  */
 #define gfx_copy_pixels_to_screen(pixels, count)\
-		ili9341_copy_pixels_to_screen(pixels, count)
+	ili9341_copy_pixels_to_screen(pixels, count)
 
 /**
  * ILI9341 display driver specific function, see
  * \ref ili9341_copy_pixels_from_screen
  */
 #define gfx_copy_pixels_from_screen(pixels, count)\
-		ili9341_copy_pixels_from_screen(pixels, count)
+	ili9341_copy_pixels_from_screen(pixels, count)
 
 /**
  * ILI9341 display driver specific function available for ATmega and ATXmega
  * devices, see \ref ili9341_copy_progmem_pixels_to_screen
  */
 #define gfx_copy_progmem_pixels_to_screen(pixels, count)\
-		ili9341_copy_progmem_pixels_to_screen(pixels, count)
+	ili9341_copy_progmem_pixels_to_screen(pixels, count)
 
 /**
  * ILI9341 display driver specific function, see

@@ -3,7 +3,7 @@
  *
  * \brief  This file contains the demo main functions.
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -294,7 +294,7 @@ static void process_wheel(void)
   static unsigned char  previous_position_angle = 0;
   static int            previous_leds_intensity_direction = DIRECTION_STABLE;
   int                   leds_intensity_direction;
-  static char           first_call = true;
+  static bool           first_call = true;
 
 
   // Special case for the first call.

@@ -67,6 +67,7 @@ CSRCS = \
        avr32/applications/uc3c-scope-meter-and-filtering/remote_task.c \
        avr32/applications/uc3c-scope-meter-and-filtering/sinus.c \
        avr32/boards/uc3c_ek/init.c                        \
+       avr32/boards/uc3c_ek/led.c                         \
        avr32/components/display/et024006dhu/et024006dhu.c \
        avr32/components/touch/at42qt1060/at42qt1060.c     \
        avr32/drivers/adcifa/adcifa.c                      \

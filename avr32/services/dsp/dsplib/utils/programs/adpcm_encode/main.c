@@ -1,6 +1,6 @@
 /**
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -160,6 +160,7 @@ int main(int argc, char *_argv[])
   _file_out = fopen(_argv[2], "wb");
   if (!_file_out)
   {
+    fclose(_file);
     printf("\t[ FAILED ]\n");
     return 0;
   }

@@ -41,7 +41,7 @@
 #ifndef CONF_HX8347A_H_INCLUDED
 #define CONF_HX8347A_H_INCLUDED
 
-#include <parts.h>
+#include <compiler.h>
 
 /**
  * \brief Select a SPI clock speed
@@ -54,7 +54,7 @@
  */
 #define CONF_HX8347A_CLOCK_SPEED   500000UL
 
-#if defined(XMEGA) || defined(__DOXYGEN__)
+#if XMEGA || defined(__DOXYGEN__)
 
 /**
  * \name XMEGA typical configurations
@@ -85,7 +85,7 @@
 /** @} */
 #endif /* XMEGA */
 
-#if defined(UC3)
+#if UC3
 
 /**
  * \name UC3 typical configurations

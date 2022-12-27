@@ -3,7 +3,7 @@
  *
  * \brief User Interface
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,13 +39,7 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "udc.h"
-#include "udi_hid_generic.h"
-#include "board.h"
-#include "gpio.h"
-#include "eic.h"
+#include <asf.h>
 #include "ui.h"
 
 static uint8_t ui_hid_report[UDI_HID_REPORT_OUT_SIZE];
@@ -61,7 +55,7 @@ ISR(ui_wakeup_isr, AVR32_GPIO_IRQ_GROUP, 0)
 	// Clear External Interrupt Line else Wakeup event always enabled
 	eic_clear_interrupt_line(&AVR32_EIC, EXT_NMI);
 	// It is a wakeup then send wakeup USB
-	udc_wakeup();
+	udc_remotewakeup();
 }
 
 
@@ -210,7 +204,7 @@ void ui_led_change(uint8_t *report)
  * Human interface on UC3C_EK :
  * - PWR led is on when power present
  * - Led 0 is on when USB line is in IDLE mode, and off in SUSPEND mode
- * - Led 1 blinks when USB Host have checked and enabled HID generic interface
+ * - Led 1 blinks when USB host has checked and enabled HID generic interface
  * - Led 2 and 3 are linked on HID events LED 2 and 3
  * - Event buttons are linked to switch PB0, PB1
  * - The PB0 and PB1 can be used to wakeup USB Host in remote wakeup mode.

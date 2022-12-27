@@ -52,6 +52,8 @@ extern "C" {
 /**
  * \defgroup sam_drivers_adc_group Analog-to-digital Converter (ADC)
  *
+ * See \ref sam_adc_quickstart.
+ *
  * Driver for the Analog-to-digital Converter. This driver provides access to the main 
  * features of the ADC controller.
  *
@@ -249,7 +251,7 @@ void adc_configure_timing(Adc *p_adc, const uint8_t uc_tracking,
 	p_adc->ADC_MR |= ADC_MR_TRANSFER(uc_transfer)
 			| settling | ADC_MR_TRACKTIM(uc_tracking);
 }
-#elif  SAM3N
+#elif SAM3N
 /**
  * \brief Configure ADC timing.
  *
@@ -337,6 +339,20 @@ void adc_enable_channel(Adc *p_adc, const enum adc_channel_num_t adc_ch)
 }
 
 /**
+ * \brief Enable all ADC channels.
+ *
+ * \param p_adc Pointer to an ADC instance.
+ */
+void adc_enable_all_channel(Adc *p_adc)
+{
+#if SAM3S || SAM4S || SAM3N || SAM3XA
+	p_adc->ADC_CHER = 0xFFFF;
+#elif SAM3U
+	p_adc->ADC_CHER = 0xFF;
+#endif
+}
+
+/**
  * \brief Disable the specified ADC channel.
  *
  * \param p_adc Pointer to an ADC instance.
@@ -345,6 +361,20 @@ void adc_enable_channel(Adc *p_adc, const enum adc_channel_num_t adc_ch)
 void adc_disable_channel(Adc *p_adc, const enum adc_channel_num_t adc_ch)
 {
 	p_adc->ADC_CHDR = 1 << adc_ch;
+}
+
+/**
+ * \brief Disable all ADC channel.
+ *
+ * \param p_adc Pointer to an ADC instance.
+ */
+void adc_disable_all_channel(Adc *p_adc)
+{
+#if SAM3S || SAM4S || SAM3N || SAM3XA
+	p_adc->ADC_CHDR = 0xFFFF;
+#elif SAM3U
+	p_adc->ADC_CHDR = 0xFF;
+#endif
 }
 
 /**
@@ -430,7 +460,7 @@ void adc_disable_tag(Adc *p_adc)
  */
 enum adc_channel_num_t adc_get_tag(const Adc *p_adc)
 {
-	return (p_adc->ADC_LCDR & ADC_LCDR_CHNB_Msk) >> ADC_LCDR_CHNB_Pos;
+	return (enum adc_channel_num_t)((p_adc->ADC_LCDR & ADC_LCDR_CHNB_Msk) >> ADC_LCDR_CHNB_Pos);
 }
 #endif
 
@@ -655,12 +685,21 @@ void adc_disable_interrupt(Adc *p_adc, const uint32_t ul_source)
  *
  * \return ADC status structure.
  */
-struct adc_status_t adc_get_status(const Adc *p_adc)
+uint32_t adc_get_status(const Adc *p_adc)
 {
-	struct adc_status_t adc_status;
-	adc_status.isr_status = p_adc->ADC_ISR ;
-	adc_status.ovre_status = p_adc->ADC_OVER;
-	return adc_status;
+	return p_adc->ADC_ISR;
+}
+
+/**
+ * \brief Get ADC interrupt and overrun error status.
+ *
+ * \param p_adc Pointer to an ADC instance.
+ *
+ * \return ADC status structure.
+ */
+uint32_t adc_get_overrun_status(const Adc *p_adc)
+{
+	return p_adc->ADC_OVER;
 }
 #elif SAM3U
 /**
@@ -670,11 +709,9 @@ struct adc_status_t adc_get_status(const Adc *p_adc)
  *
  * \retval ADC status structure.
  */
-struct adc_status_t adc_get_status(const Adc *p_adc)
+uint32_t adc_get_status(const Adc *p_adc)
 {
-	struct adc_status_t adc_status;
-	adc_status.all_status = p_adc->ADC_SR;
-	return adc_status;
+	return p_adc->ADC_SR;
 }
 #endif
 
@@ -876,6 +913,7 @@ void adc_check(Adc *p_adc, const uint32_t ul_mck)
  */
 Pdc *adc_get_pdc_base(const Adc *p_adc)
 {
+	p_adc = p_adc;
 	return PDC_ADC;
 }
 

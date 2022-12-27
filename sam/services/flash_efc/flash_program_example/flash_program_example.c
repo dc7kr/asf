@@ -96,12 +96,12 @@
  *     -I- Locking last page
  *     -I- Try to program the locked page...
  *     -I- Please open Segger's JMem program
- *     -I- Read memory at address 0x0043FF00 to check contents
+ *     -I- Read memory at address 0xxxxxxxxx to check contents
  *     -I- Press any key to continue...
  *     -I- Good job!
  *     -I- Now set the security bit
  *     -I- Press any key to continue to see what happened...
- *     -I- Setting GPNVM #0
+ *     -I- Setting security bit
  *     -I- All tests done
  * \endcode
  * 
@@ -176,7 +176,7 @@ int main(void)
 	}
 
 	/* Unlock page */
-	puts("-I- Unlocking last page\r");
+	printf("-I- Unlocking last page\n\r");
 	ul_rc = flash_unlock(ul_last_page_addr,
 			ul_last_page_addr + IFLASH_PAGE_SIZE - 1, 0, 0);
 	if (ul_rc != FLASH_RC_OK) {
@@ -185,7 +185,7 @@ int main(void)
 	}
 
 	/* Write page */
-	puts("-I- Writing last page with walking bit pattern\r");
+	printf("-I- Writing last page with walking bit pattern\n\r");
 	for (ul_idx = 0; ul_idx < (IFLASH_PAGE_SIZE / 4); ul_idx++) {
 		ul_page_buffer[ul_idx] = 1 << (ul_idx % 32);
 	}
@@ -211,18 +211,18 @@ int main(void)
 	}
 
 	/* Validate page */
-	puts("-I- Checking page contents ");
+	printf("-I- Checking page contents ");
 	for (ul_idx = 0; ul_idx < (IFLASH_PAGE_SIZE / 4); ul_idx++) {
-		puts(".");
+		printf(".");
 		if (pul_last_page[ul_idx] != ul_page_buffer[ul_idx]) {
-			puts("\n\r-F- data error\r");
+			printf("\n\r-F- data error\n\r");
 			return 0;
 		}
 	}
-	puts("OK\r");
+	printf("OK\n\r");
 
 	/* Lock page */
-	puts("-I- Locking last page\r");
+	printf("-I- Locking last page\n\r");
 	ul_rc = flash_lock(ul_last_page_addr,
 			ul_last_page_addr + IFLASH_PAGE_SIZE - 1, 0, 0);
 	if (ul_rc != FLASH_RC_OK) {
@@ -231,32 +231,32 @@ int main(void)
 	}
 
 	/* Check if the associated region is locked. */
-	puts("-I- Try to program the locked page ...\r");
+	printf("-I- Try to program the locked page ...\n\r");
 	ul_rc = flash_write(ul_last_page_addr, ul_page_buffer,
 			IFLASH_PAGE_SIZE, 1);
 	if (ul_rc != FLASH_RC_OK) {
 		printf("-I- The page to be programmed belongs to locked region. Error %lu\n\r", ul_rc);
 	}
 
-	puts("-I- Please open Segger's JMem program \r");
-	printf("-I- Read memory at address 0x%08lu to check contents\n\r",
+	printf("-I- Please open Segger's JMem program \n\r");
+	printf("-I- Read memory at address 0x%08x to check contents\n\r",
 			ul_last_page_addr);
-	puts("-I- Press any key to continue...\r");
+	printf("-I- Press any key to continue...\n\r");
 	while (0 != uart_read(CONSOLE_UART, &uc_key));
 
-	puts("-I- Good job!\n\r"
+	printf("-I- Good job!\n\r"
 			"-I- Now set the security bit \n\r"
-			"-I- Press any key to continue to see what happened...\r");
+			"-I- Press any key to continue to see what happened...\n\r");
 	while (0 != uart_read(CONSOLE_UART, &uc_key));
 
 	/* Set security bit */
-	puts("-I- Setting security bit \r");
+	printf("-I- Setting security bit \n\r");
 	ul_rc = flash_enable_security_bit();
 	if (ul_rc != FLASH_RC_OK) {
 		printf("-F- Set security bit error %lu\n\r", ul_rc);
 	}
 
-	puts("-I- All tests done\r");
+	printf("-I- All tests done\n\r");
 
 	while (1) {
 		/* Do nothing */

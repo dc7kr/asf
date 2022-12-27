@@ -78,7 +78,7 @@
 //! To authorize the High speed
 #if (UC3A3||UC3A4)
 #  define  USB_DEVICE_HS_SUPPORT
-#elif (SAM3XA)
+#elif (SAM3XA||SAM3U)
 #  define  USB_DEVICE_HS_SUPPORT
 #endif
 //@}
@@ -113,12 +113,35 @@
 #define  USB_DEVICE_NB_INTERFACE       3
 
 //! 5 endpoints used by CDC and MSC interfaces
+#if SAM3U
+// (3 | USB_EP_DIR_IN)  // CDC Notify endpoint
+// (6 | USB_EP_DIR_IN)  // CDC TX
+// (5 | USB_EP_DIR_OUT) // CDC RX
+// (1 | USB_EP_DIR_IN)  // MSC IN
+// (2 | USB_EP_DIR_OUT) // MSC OUT
+#  define  USB_DEVICE_MAX_EP           6
+#  if defined(USB_DEVICE_HS_SUPPORT)
+// In HS mode, size of bulk endpoints are 512
+// If CDC and MSC endpoints all uses 2 banks, DPRAM is not enough: 4 bulk
+// endpoints requires 4K bytes. So reduce the number of banks of CDC bulk
+// endpoints to use less DPRAM. Keep MSC setting to keep MSC performance.
+#     define  UDD_BULK_NB_BANK(ep) ((ep == 5 || ep== 6) ? 1 : 2)
+#endif
+#else
 // (3 | USB_EP_DIR_IN)  // CDC Notify endpoint
 // (4 | USB_EP_DIR_IN)  // CDC TX
 // (5 | USB_EP_DIR_OUT) // CDC RX
 // (1 | USB_EP_DIR_IN)  // MSC IN
 // (2 | USB_EP_DIR_OUT) // MSC OUT
-#define  USB_DEVICE_MAX_EP             5
+#  define  USB_DEVICE_MAX_EP           5
+#  if SAM3XA && defined(USB_DEVICE_HS_SUPPORT)
+// In HS mode, size of bulk endpoints are 512
+// If CDC and MSC endpoints all uses 2 banks, DPRAM is not enough: 4 bulk
+// endpoints requires 4K bytes. So reduce the number of banks of CDC bulk
+// endpoints to use less DPRAM. Keep MSC setting to keep MSC performance.
+#     define  UDD_BULK_NB_BANK(ep) ((ep == 4 || ep== 5) ? 1 : 2)
+#  endif
+#endif
 //@}
 
 //@}
@@ -160,9 +183,15 @@
  * @{
  */
 //! Endpoint numbers definition
-#define  UDI_CDC_COMM_EP               (3 | USB_EP_DIR_IN)	// Notify endpoint
-#define  UDI_CDC_DATA_EP_IN            (4 | USB_EP_DIR_IN)	// TX
-#define  UDI_CDC_DATA_EP_OUT           (5 | USB_EP_DIR_OUT)	// RX
+#if SAM3U
+#  define  UDI_CDC_COMM_EP               (3 | USB_EP_DIR_IN) // Notify endpoint
+#  define  UDI_CDC_DATA_EP_IN            (6 | USB_EP_DIR_IN) // TX
+#  define  UDI_CDC_DATA_EP_OUT           (5 | USB_EP_DIR_OUT)// RX
+#else
+#  define  UDI_CDC_COMM_EP               (3 | USB_EP_DIR_IN) // Notify endpoint
+#  define  UDI_CDC_DATA_EP_IN            (4 | USB_EP_DIR_IN) // TX
+#  define  UDI_CDC_DATA_EP_OUT           (5 | USB_EP_DIR_OUT)// RX
+#endif
 
 //! Interface numbers
 #define  UDI_CDC_COMM_IFACE_NUMBER     0

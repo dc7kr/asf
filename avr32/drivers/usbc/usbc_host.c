@@ -90,8 +90,8 @@ extern void udc_start(void);
 #endif
 
 /**
- * \ingroup usb_host_group
- * \defgroup uhd_group USB Host Driver (UHD)
+ * \ingroup uhd_group
+ * \defgroup uhd_usbb_group USBC Host Driver
  *
  * \section USB_CONF USB dual role configuration
  * The defines UHD_ENABLE and UDD_ENABLE must be added in project to allow
@@ -736,18 +736,6 @@ bool uhd_ep_alloc(
 
 void uhd_ep_free(usb_add_t add, usb_ep_t endp)
 {
-#ifdef USB_HOST_HUB_SUPPORT
-	if (endp == 0) {
-		// Control endpoint does not be unallocated
-#error TODO the list address must be updated
-		if (uhd_ctrl_request_timeout
-				&& (uhd_ctrl_request_first->add == add)) {
-			// Disable setup request if on this device
-			uhd_ctrl_request_end(UHD_TRANS_DISCONNECT);
-		}
-		return;
-	}
-#endif
 	// Search endpoint(s) in all pipes
 	for (uint8_t pipe = 0; pipe < AVR32_USBC_EPT_NUM; pipe++) {
 		if (add != uhd_udesc_get_uhaddr(pipe)) {
@@ -755,39 +743,35 @@ void uhd_ep_free(usb_add_t add, usb_ep_t endp)
 		}
 		if (endp != 0xFF) {
 			// Disable specific endpoint number
-
-			// Check endpoint number
-			if ((endp & USB_EP_ADDR_MASK) != uhd_udesc_get_epnum(pipe)) {
-				continue; // Mismatch
-			}
-
-			// Check endpoint and pipe direction
-			if (endp & USB_EP_DIR_IN) {
-				// Endpoint IN
-				if (AVR32_USBC_UPCFG0_PTOKEN_IN != uhd_get_pipe_token(pipe)) {
-					continue; // Mismatch
+				if (!((endp == 0) && (0 == uhd_udesc_get_epnum(pipe)))) {
+					// It is not the control endpoint
+					if (endp != uhd_get_pipe_endpoint_address(pipe)) {
+						continue; // Mismatch
+					}
 				}
-			} else {
-				// Endpoint OUT
-				if (AVR32_USBC_UPCFG0_PTOKEN_OUT != uhd_get_pipe_token(pipe)) {
-					continue; // Mismatch
-				}
-			}
 		}
-		// Disable pipe
-		uhd_disable_pipe(pipe);
-		// Stop transfer on this pipe
-#ifndef USB_HOST_HUB_SUPPORT
+
 		if (pipe == 0) {
-			// Endpoint control
+			// Disable and stop transfer on control endpoint
+#ifdef USB_HOST_HUB_SUPPORT
+#error TODO the list address must be updated
+			if (uhd_ctrl_request_timeout
+				&& (uhd_ctrl_request_first->add == add)) {
+				uhd_ctrl_request_end(UHD_TRANS_DISCONNECT);
+			}
+#else
+			uhd_disable_pipe(pipe);
 			if (uhd_ctrl_request_timeout) {
 				uhd_ctrl_request_end(UHD_TRANS_DISCONNECT);
 			}
+#endif
 			continue;
 		}
-#endif
+
 		// Endpoint interrupt, bulk or isochronous
-		uhd_ep_abort_pipe(pipe, UHD_TRANS_DISCONNECT);
+		// Disable and stop transfer on this pipe
+		uhd_disable_pipe(pipe);
+		uhd_pipe_finish_job(pipe, UHD_TRANS_DISCONNECT);
 	}
 }
 
@@ -1143,7 +1127,7 @@ static void uhd_sof_interrupt(void)
 		// Force error pipe event
 		uhd_raise_pipe_error(ctz(uhd_pipes_error));
 	}
-	
+
 	// Notify the UHC
 	uhc_notify_sof(false);
 
@@ -1164,7 +1148,7 @@ static void uhd_ctrl_interrupt(void)
 	if (Is_uhd_pipe_error(0)) {
 		if (!Is_uhd_pipe_frozen(0)) {
 			// Stop the NEW transfer
-			uhd_freeze_pipe(0);			
+			uhd_freeze_pipe(0);
 			uhd_ack_pipe_error(0);
 			// Here a OLD transfer can be always on_going
 			// A new error pipe, or other pipe events, or SOF events must be waited
@@ -1172,7 +1156,7 @@ static void uhd_ctrl_interrupt(void)
 			return;
 		}
 	}
-	
+
 	// Disable setup, IN and OUT interrupts of control endpoint
 	AVR32_USBC.upcon0clr = AVR32_USBC_UPCON0CLR_TXSTPEC_MASK
 			| AVR32_USBC_UPCON0CLR_RXINEC_MASK
@@ -1565,11 +1549,7 @@ static uint8_t uhd_get_pipe(usb_add_t add, usb_ep_t endp)
 		if (add != uhd_udesc_get_uhaddr(pipe)) {
 			continue;
 		}
-		if ((endp & USB_EP_ADDR_MASK) != uhd_udesc_get_epnum(pipe)) {
-			continue;
-		}
-		if ((!(endp & USB_EP_DIR_IN)) != (AVR32_USBC_UPCFG0_PTOKEN_IN
-				!= uhd_get_pipe_token(pipe))) {
+		if (endp != uhd_get_pipe_endpoint_address(pipe)) {
 			continue;
 		}
 		break;
@@ -1678,9 +1658,11 @@ static void uhd_pipe_trans_complet(uint8_t pipe)
 				// of UHD_ENDPOINT_MAX_TRANS Bytes
 				next_trans = max_trans;
 			}
+
 			// In case of USB low speed and high CPU frequency,
 			// be sure to wait end of ACK on IN pipe.
 			while (!Is_uhd_pipe_frozen(pipe));
+
 			if (next_trans < pipe_size) {
 				// Use the cache buffer for Bulk or Interrupt size endpoint
 				uhd_in_request_number(pipe, 1);
@@ -1708,6 +1690,10 @@ static void uhd_pipe_trans_complet(uint8_t pipe)
 			cpu_irq_restore(flags);
 			return;
 		}
+		// Pipe is not freeze automaticaly in case of incomplet transfer
+		if (0 != uhd_get_in_request_number(pipe)) {
+			uhd_freeze_pipe(pipe);
+		}
 	}
 
 uhd_pipe_trans_complet_end:
@@ -1732,7 +1718,7 @@ static void uhd_pipe_interrupt(uint8_t pipe)
 	if (Is_uhd_pipe_error(pipe)) {
 		if (!Is_uhd_pipe_frozen(pipe)) {
 			// Stop the NEW transfer
-			uhd_freeze_pipe(pipe);			
+			uhd_freeze_pipe(pipe);
 			uhd_ack_pipe_error(pipe);
 			// Here a OLD transfer can be always on_going
 			// A new error pipe, or other pipe events, or SOF events must be waited
@@ -1746,10 +1732,6 @@ static void uhd_pipe_interrupt(uint8_t pipe)
 	uhd_pipes_error &= ~(1<<pipe);
 
 	if (Is_uhd_in_received(pipe)) {
-		// In case of USB low speed and high CPU frequency,
-		// be sure to wait end of ACK on IN pipe.
-		while (!Is_uhd_pipe_frozen(pipe));
-
 		// IN packet received
 		uhd_ack_in_received(pipe);
 		uhd_pipe_trans_complet(pipe);
@@ -1820,7 +1802,9 @@ static void uhd_pipe_finish_job(uint8_t pipe, uhd_trans_status_t status)
 		return; // No callback linked to job
 	}
 	ptr_job->call_end(uhd_udesc_get_uhaddr(pipe),
+			uhd_get_pipe_endpoint_address(pipe),
 			status, ptr_job->nb_trans);
 }
 
+//@}
 //@}

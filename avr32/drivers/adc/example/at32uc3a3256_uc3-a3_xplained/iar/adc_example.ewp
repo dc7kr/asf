@@ -1751,24 +1751,15 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>common</name>
-		<group>
-			<name>services</name>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>uc3a3_a4</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/clock/uc3a3_a4/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-	</group>
-	<group>
 		<name>avr32</name>
 		<group>
 			<name>drivers</name>
+			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../gpio/gpio.c</name>
+				</file>
+			</group>
 			<group>
 				<name>adc</name>
 				<group>
@@ -1800,12 +1791,6 @@
 				</file>
 			</group>
 			<group>
-				<name>gpio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../gpio/gpio.c</name>
-				</file>
-			</group>
-			<group>
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../usart/usart.c</name>
@@ -1825,6 +1810,30 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../utils/startup/trampoline_uc3.s82</name>
 				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>uc3_a3_xplained</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/uc3_a3_xplained/led.c</name>
+				</file>
+			</group>
+		</group>
+	</group>
+	<group>
+		<name>common</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>uc3a3_a4</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/uc3a3_a4/sysclk.c</name>
+					</file>
+				</group>
 			</group>
 		</group>
 	</group>

@@ -2100,11 +2100,11 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>clock</name>
+				<name>ioport</name>
 				<group>
 					<name>xmega</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/clock/xmega/sysclk.c</name>
+						<name>$PROJ_DIR$/../../../../../../common/services/ioport/xmega/ioport_compat.c</name>
 					</file>
 				</group>
 			</group>
@@ -2118,11 +2118,11 @@
 				</group>
 			</group>
 			<group>
-				<name>ioport</name>
+				<name>clock</name>
 				<group>
 					<name>xmega</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/ioport/xmega/ioport_compat.c</name>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/xmega/sysclk.c</name>
 					</file>
 				</group>
 			</group>

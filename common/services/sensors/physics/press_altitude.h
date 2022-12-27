@@ -14,7 +14,7 @@
  * atmosphere, but the actual rate varies from day to day and throughout the
  * day.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -50,11 +50,10 @@
  *
  */
 
-#ifndef _press_altitude_h_
-#define _press_altitude_h_
+#ifndef _SENSOR_PRESSURE_ALTITUDE_H_
+#define _SENSOR_PRESSURE_ALTITUDE_H_
 
 #include "physics.h"
-
 
 /*! \brief Specify the (corrected) pressure-altitude sea level pressure.
  *
@@ -94,5 +93,4 @@ extern bool   pressure_isa_layer(int index = 0);
  */
 extern scalar pressure_altitude(scalar P);
 
-
-#endif // _press_altitude_h_
+#endif

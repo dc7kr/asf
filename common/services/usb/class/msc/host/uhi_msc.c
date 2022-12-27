@@ -56,7 +56,10 @@
 #endif
 
 /**
- * \addtogroup uhi_msc_group
+ * \ingroup uhi_msc_group
+ * \defgroup uhi_msc_group_internal Implementation of UHI Mass Storage Class
+ *
+ * Class internal implementation 
  * @{
  */
 
@@ -187,15 +190,18 @@ static void uhi_msc_scsi_request_sense_done(bool b_cbw_succes);
 static void uhi_msc_scsi(uhi_msc_scsi_callback_t callback, uint8_t *payload);
 static void uhi_msc_cbw_sent(
 		usb_add_t add,
+		usb_ep_t ep,
 		uhd_trans_status_t status,
 		iram_size_t nb_transfered);
 static void uhi_msc_data_transfered(
 		usb_add_t add,
+		usb_ep_t ep,
 		uhd_trans_status_t status,
 		iram_size_t nb_transfered);
 static void uhi_msc_csw_wait(void);
 static void uhi_msc_csw_received(
 		usb_add_t add,
+		usb_ep_t ep,
 		uhd_trans_status_t status,
 		iram_size_t nb_transfered);
 static void uhi_msc_cbw_rst_stall(
@@ -893,6 +899,7 @@ static void uhi_msc_scsi(uhi_msc_scsi_callback_t callback, uint8_t *payload)
  */
 static void uhi_msc_cbw_sent(
 		usb_add_t add,
+		usb_ep_t ep,
 		uhd_trans_status_t status,
 		iram_size_t nb_transfered)
 {
@@ -938,6 +945,7 @@ static void uhi_msc_cbw_sent(
  */
 static void uhi_msc_data_transfered(
 		usb_add_t add,
+		usb_ep_t ep,
 		uhd_trans_status_t status,
 		iram_size_t nb_transfered)
 {
@@ -982,6 +990,7 @@ static void uhi_msc_csw_wait(void)
  */
 static void uhi_msc_csw_received(
 		usb_add_t add,
+		usb_ep_t ep,
 		uhd_trans_status_t status,
 		iram_size_t nb_transfered)
 {

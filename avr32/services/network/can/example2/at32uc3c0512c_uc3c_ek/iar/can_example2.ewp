@@ -1770,12 +1770,9 @@
 				</file>
 			</group>
 			<group>
-				<name>pm</name>
+				<name>canif</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/pm/pm_uc3c.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/pm/power_clocks_lib.c</name>
+					<name>$PROJ_DIR$/../../../../../../drivers/canif/canif.c</name>
 				</file>
 			</group>
 			<group>
@@ -1785,21 +1782,33 @@
 				</file>
 			</group>
 			<group>
+				<name>pm</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pm/power_clocks_lib.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pm/pm_uc3c.c</name>
+				</file>
+			</group>
+			<group>
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/usart/usart.c</name>
 				</file>
 			</group>
 			<group>
-				<name>canif</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/canif/canif.c</name>
-				</file>
-			</group>
-			<group>
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/flashc/flashc.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>uc3c_ek</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../boards/uc3c_ek/led.c</name>
 				</file>
 			</group>
 		</group>

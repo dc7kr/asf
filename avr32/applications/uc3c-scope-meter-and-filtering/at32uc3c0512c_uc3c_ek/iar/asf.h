@@ -91,6 +91,9 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: Peripheral Event Controller (PEVC) Driver
 #include <pevc.h>
 

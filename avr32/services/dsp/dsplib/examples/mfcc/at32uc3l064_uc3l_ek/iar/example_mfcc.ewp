@@ -342,6 +342,7 @@
 					<state>$PROJ_DIR$/../../../../generic/basic/transforms</state>
 					<state>$PROJ_DIR$/../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/flashcdw</state>
 					<state>$PROJ_DIR$/../../../../at32uc</state>
 					<state>$PROJ_DIR$/../../../../utils/programs/adpcm_streaming/docsrc</state>
@@ -491,6 +492,7 @@
 					<state>$PROJ_DIR$/../../../../generic/basic/transforms</state>
 					<state>$PROJ_DIR$/../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/flashcdw</state>
 					<state>$PROJ_DIR$/../../../../at32uc</state>
 					<state>$PROJ_DIR$/../../../../utils/programs/adpcm_streaming/docsrc</state>
@@ -1249,6 +1251,7 @@
 					<state>$PROJ_DIR$/../../../../generic/basic/transforms</state>
 					<state>$PROJ_DIR$/../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/flashcdw</state>
 					<state>$PROJ_DIR$/../../../../at32uc</state>
 					<state>$PROJ_DIR$/../../../../utils/programs/adpcm_streaming/docsrc</state>
@@ -1398,6 +1401,7 @@
 					<state>$PROJ_DIR$/../../../../generic/basic/transforms</state>
 					<state>$PROJ_DIR$/../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/flashcdw</state>
 					<state>$PROJ_DIR$/../../../../at32uc</state>
 					<state>$PROJ_DIR$/../../../../utils/programs/adpcm_streaming/docsrc</state>
@@ -1919,9 +1923,6 @@
 									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp32_realmul.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp16_intmul.c</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp32_complex_abs.c</name>
 								</file>
 								<file>
@@ -2016,6 +2017,9 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp16_dotmul.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp16_intmul.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../generic/basic/vectors/vect_dsp16_add.c</name>
@@ -2185,9 +2189,24 @@
 				</file>
 			</group>
 			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../drivers/gpio/gpio.c</name>
+				</file>
+			</group>
+			<group>
 				<name>flashcdw</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../drivers/flashcdw/flashcdw.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>uc3l_ek</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../boards/uc3l_ek/led.c</name>
 				</file>
 			</group>
 		</group>

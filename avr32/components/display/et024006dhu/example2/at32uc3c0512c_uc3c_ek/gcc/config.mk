@@ -56,6 +56,7 @@ TARGET = et024006dhu_example2.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/uc3c_ek/led.c                         \
        avr32/components/display/et024006dhu/et024006dhu.c \
        avr32/components/display/et024006dhu/example2/et024006dhu_example2.c \
        avr32/drivers/ebi/smc/smc.c                        \

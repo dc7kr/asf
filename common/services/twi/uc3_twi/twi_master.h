@@ -64,9 +64,4 @@ static inline int twi_master_setup(twi_master_t twi, twi_master_options_t *opt)
   return(status);
 }
 
-int twi_master_write(twi_master_t twi, const twi_package_t *package);
-int twi_master_read(twi_master_t twi, const twi_package_t *package);
-void twi_master_enable(twi_master_t twi);
-void twi_master_disable(twi_master_t twi);
-
 #endif  // _TWI_MASTER_H_

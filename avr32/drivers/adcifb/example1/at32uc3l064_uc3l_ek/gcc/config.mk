@@ -56,6 +56,7 @@ TARGET = adcifb_example1.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/uc3l_ek/led.c                         \
        avr32/drivers/adcifb/adcifb.c                      \
        avr32/drivers/adcifb/example1/adcifb_example1.c    \
        avr32/drivers/flashcdw/flashcdw.c                  \

@@ -3,7 +3,7 @@
  *
  * \brief This module defines a collection of matrix classes.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,36 +39,24 @@
  *
  */
 
-
-#ifndef _matrix_h_
-#define _matrix_h_
-
-
+#ifndef _MATRIX_MATH_H_
+#define _MATRIX_MATH_H_
 
 #include "vector.h"
 
-
-
 namespace math {
 
-
-
-//! \brief 3-Dimensional Matrix Class
-
+/** \brief 3-Dimensional Matrix Class */
 class matrix3d {
 private:
 
-
-	//! \brief column vector storage
-
+	/** \brief column vector storage */
 	vector3d  C[3];
-
 
 public:
 
-
-	//! \name class construction and destruction
-	// @{
+	/** \name class construction and destruction */
+	/** @{ */
 	matrix3d () {}
 
 	matrix3d
@@ -87,8 +75,7 @@ public:
 		C[2] = vector3d (m13, m23, m33);
 		}
 
-	// this ctor is not intended to be an implied type converter
-
+	/* this ctor is not intended to be an implied type converter */
 	explicit matrix3d
 		(const scalar * m)
 		{
@@ -96,10 +83,7 @@ public:
 		C[1] = vector3d (m[1], m[4], m[7]);
 		C[2] = vector3d (m[2], m[5], m[8]);
 		}
-	// @}
-
-
-	// class public methods
+	/** @} */
 
 	const matrix3d adjoint () const;
 	const matrix3d inverse () const;
@@ -108,68 +92,63 @@ public:
 		{ return C[0].dot (C[1].cross (C[2])); }
 
 	void  identity ()
-		{
+	{
 		C[0] = vector3d (1, 0, 0);
 		C[1] = vector3d (0, 1, 0);
 		C[2] = vector3d (0, 0, 1);
-		}
+	}
 
 	void  transpose ()
-		{
+	{
 		matrix3d const m (*this);
 
 		C[0] = vector3d (m.C[0][0], m.C[1][0], m.C[2][0]);
 		C[1] = vector3d (m.C[0][1], m.C[1][1], m.C[2][1]);
 		C[2] = vector3d (m.C[0][2], m.C[1][2], m.C[2][2]);
-		}
+	}
 
 	void  zero () { C[2] = C[1] = C[0] = vector3d (0, 0, 0); }
 
-
-	//! \name class member operators
-	// @{
+	/** \name class member operators */
+	/** @{ */
 	scalar & operator() (int i, int j)
-		{
-		// assert ((0 <= i) && (i <= 2) && (0 <= j) && (j <= 2));
+	{
 		return C[j][i];
-		}
+	}
+	
 	const scalar & operator() (int i, int j) const
-		{
-		// assert ((0 <= i) && (i <= 2) && (0 <= j) && (j <= 2));
+	{
 		return C[j][i];
-		}
-
-	// vector3d & operator[] (int i);
-	// const vector3d & operator[] (int i) const;
+	}
 
 	const vector3d operator * (const vector3d & v) const
 		{ return ((C[0] * v.x) + (C[1] * v.y) + (C[2] * v.z)); }
 
 	const matrix3d & operator += (const matrix3d & b)
-		{
+	{
 		C[0] += b.C[0]; C[1] += b.C[1]; C[2] += b.C[2];
 		return *this;
-		}
+	}
 
 	const matrix3d & operator -= (const matrix3d & b)
-		{
+	{
 		C[0] -= b.C[0]; C[1] -= b.C[1]; C[2] -= b.C[2];
 		return *this;
-		}
+	}
 
 	const matrix3d & operator *= (const matrix3d & b)
-		{
+	{
 		matrix3d const m (*this);
 
 		C[0] = m * b.C[0]; C[1] = m * b.C[1]; C[2] = m * b.C[2];
 		return *this;
-		}
+	}
 
 	const matrix3d & operator *= (const scalar & s)
-		{
+	{
 		C[0] *= s; C[1] *= s; C[2] *= s;
 		return *this;
-		}
+	}
 
 	const matrix3d operator + (const matrix3d & m) const
 		{ return matrix3d (C[0] + m.C[0], C[1] + m.C[1], C[2] + m.C[2]); }
@@ -181,37 +160,31 @@ public:
 		{
 		return matrix3d ((*this) * m.C[0], (*this) * m.C[1], (*this) * m.C[2]);
 		}
-	// @}
+	/** @} */
 
-
-	//! \name class friend operators
-	// @{
+	/** \name class friend operators */
+	/** @{ */
 	friend const matrix3d operator * (const scalar & s, const matrix3d & A)
 		{ return (matrix3d (A) *= s); }
 
 	friend const matrix3d operator - (const matrix3d & A)
 		{ return (matrix3d (A) *= -1); }
-	// @}
+	/** @} */
 };
 
 
-//! \brief 4-Dimensional Matrix Class
-
+/** \brief 4-Dimensional Matrix Class */
 class matrix4d {
 
 private:
 
-
-	//! \brief column vector storage
-
+	/** \brief column vector storage */
 	vector4d C[4];
-
 
 public:
 
-
-	//! \name class construction and destruction
-	// @{
+	/** \name class construction and destruction */
+	/** @{ */
 	matrix4d () {}
 
 	matrix4d
@@ -233,123 +206,111 @@ public:
 		C[3] = vector4d (m14, m24, m34, m44);
 		}
 
-	// this ctor is not intended to be an implied type converter
-
-	explicit matrix4d
-		(const scalar * m)
-		{
+	/* this ctor is not intended to be an implied type converter */
+	explicit matrix4d (const scalar * m)
+	{
 		C[0] = vector4d (m[0], m[4], m[8],  m [12]);
 		C[1] = vector4d (m[1], m[5], m[9],  m [13]);
 		C[2] = vector4d (m[2], m[6], m[10], m [14]);
 		C[3] = vector4d (m[3], m[7], m[11], m [15]);
-		}
-	// @}
-
-
-	// class public methods
+	}
+	/** @} */
 
 	const matrix4d adjoint () const;
 	const matrix4d inverse () const;
 	const scalar determinant () const;
 
-	void  identity ()
-		{
+	void identity ()
+	{
 		C[0] = vector4d (1, 0, 0, 0);
 		C[1] = vector4d (0, 1, 0, 0);
 		C[2] = vector4d (0, 0, 1, 0);
 		C[3] = vector4d (0, 0, 0, 1);
-		}
+	}
 
-	void  transpose ()
-		{
+	void transpose ()
+	{
 		matrix4d const m (*this);
 
 		C[0] = vector4d (m.C[0][0], m.C[1][0], m.C[2][0], m.C[3][0]);
 		C[1] = vector4d (m.C[0][1], m.C[1][1], m.C[2][1], m.C[3][1]);
 		C[2] = vector4d (m.C[0][2], m.C[1][2], m.C[2][2], m.C[3][2]);
 		C[3] = vector4d (m.C[0][3], m.C[1][3], m.C[2][3], m.C[3][3]);
-		}
+	}
 
-	void  zero () { C[3] = C[2] = C[1] = C[0] = vector4d (0, 0, 0, 0); }
+	void zero () { C[3] = C[2] = C[1] = C[0] = vector4d (0, 0, 0, 0); }
 
-
-	//! \name class member operators
-	// @{
+	/** \name class member operators */
+	/** @{ */
 	scalar & operator() (int i, int j)
-		{
-		// assert ((0 <= i) && (i <= 3) && (0 <= j) && (j <= 3));
+	{
 		return C[j][i];
-		}
+	}
 	const scalar & operator() (int i, int j) const
-		{
-		// assert ((0 <= i) && (i <= 3) && (0 <= j) && (j <= 3));
+	{
 		return C[j][i];
-		}
-
-	// vector4d & operator[] (int i);
-	// const vector4d & operator[] (int i) const;
+	}
 
 	const vector4d operator * (const vector4d & v) const
-		{
+	{
 		return ((C[0] * v.x) + (C[1] * v.y) + (C[2] * v.z) + (C[3] * v.w));
-		}
+	}
 
 	const matrix4d & operator += (const matrix4d & b)
-		{
+	{
 		C[0] += b.C[0]; C[1] += b.C[1];
 		C[2] += b.C[2]; C[3] += b.C[3];
 
 		return *this;
-		}
+	}
 
 	const matrix4d & operator -= (const matrix4d & b)
-		{
+	{
 		C[0] -= b.C[0]; C[1] -= b.C[1];
 		C[2] -= b.C[2]; C[3] -= b.C[3];
 
 		return *this;
-		}
+	}
 
 	const matrix4d & operator *= (const matrix4d & b)
-		{
+	{
 		matrix4d const m (*this);
 
 		C[0] = m * b.C[0]; C[1] = m * b.C[1];
 		C[2] = m * b.C[2]; C[3] = m * b.C[3];
 
 		return *this;
-		}
+	}
 
 	const matrix4d & operator *= (const scalar & s)
-		{
+	{
 		C[0] *= s; C[1] *= s;
 		C[2] *= s; C[3] *= s;
 
 		return *this;
-		}
+	}
 
 	const matrix4d operator + (const matrix4d & m) const
-		{
+	{
 		return matrix4d
 			(C[0] + m.C[0], C[1] + m.C[1],
 			 C[2] + m.C[2], C[3] + m.C[3]);
-		}
+	}
 
 	const matrix4d operator - (const matrix4d & m) const
-		{
+	{
 		return matrix4d
 			(C[0] - m.C[0], C[1] - m.C[1],
 			 C[2] - m.C[2], C[3] - m.C[3]);
-		}
+	}
 
 	const matrix4d operator * (const matrix4d & m) const
-		{
+	{
 		return matrix4d
 			((*this) * m.C[0], (*this) * m.C[1],
 			 (*this) * m.C[2], (*this) * m.C[3]);
-		}
-	// @}
-
+	}
+	/** @} */
 
 	friend const matrix4d operator * (const scalar & s, const matrix4d & A)
 		{ return (matrix4d (A) *= s); }
@@ -358,10 +319,6 @@ public:
 		{ return (matrix4d (A) *= -1); }
 };
 
+}
 
-
-}  // namespace math
-
-
-
-#endif // _matrix_h_
+#endif

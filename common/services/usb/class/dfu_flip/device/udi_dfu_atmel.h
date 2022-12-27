@@ -3,7 +3,7 @@
  *
  * \brief USB Device Atmel Firmware Upgrade (Atmel DFU) interface definitions.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -54,31 +54,19 @@ extern "C" {
 #endif
 
 /**
- * \ingroup udi_group
- * \defgroup udi_dfu_atmel_group UDI for Device Firmware Upgrade Atmel specific
- *
- * The DFU from Atmel is based on DFU specification,
- * but does not implement same protocol.
- *
- * The USB Device Atmel DFU class implement both version:
- *
- * The "doc7618: USB DFU Bootloader Bootloader" describes the
- * FLIP USB DFU Protocol version 1 used by Mega parts.
- *
- * The "AVR32760: AVR32 UC3 USB DFU Bootloader Protocol"
- * and the "AVR4023: FLIP USB DFU Protocol" describes the
- * FLIP USB DFU Protocol version 2 used by UC3 and Xmega.
+ * \addtogroup udi_dfu_atmel_group_udc
  * @{
  */
-
 //! Global structure which contains standard UDI API for UDC
 extern UDC_DESC_STORAGE udi_api_t udi_api_dfu_atmel;
+//@}
 
 /**
- * \name Interface Descriptor
+ * \ingroup udi_dfu_atmel_group
+ * \defgroup udi_dfu_atmel_group_desc USB interface descriptors
  *
- * The following structures provide the interface descriptor.
- * It must be implemented in USB configuration descriptor.
+ * The following structures provide predefined USB interface descriptors.
+ * It must be used to define the final USB descriptors.
  */
 //@{
 
@@ -107,8 +95,27 @@ typedef struct {
 //@}
 
 
-
-
+/**
+ * \ingroup udi_group
+ * \defgroup udi_dfu_atmel_group UDI for Device Firmware Upgrade Atmel specific
+ *
+ * The DFU from Atmel is based on DFU specification,
+ * but does not implement same protocol.
+ *
+ * The USB Device Atmel DFU class implement both version:
+ * - The <A href="http://www.atmel.com/Images/doc7618.pdf">
+ * doc7618: USB DFU Bootloader Datasheet</A> describes the
+ * FLIP USB DFU Protocol version 1 used by Mega devices.
+ * - The <A href="http://www.atmel.com/Images/doc32131.pdf">
+ * AVR32760: AVR32 UC3 USB DFU Bootloader Protocol</A>  and the
+ * <A href="http://www.atmel.com/Images/doc8457.pdf">
+ * AVR4023: FLIP USB DFU Protocol</A> describes the
+ * FLIP USB DFU Protocol version 2 used by UC3 and Xmega devices.
+ *
+ * The interface between the DFU Atmel Class and device is done through the 
+ * \ref isp service.
+ * @{
+ */
 //@}
 
 #ifdef __cplusplus

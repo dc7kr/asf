@@ -400,10 +400,10 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/xmega_a3bu_xplained</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../nvm</state>
@@ -679,10 +679,10 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/xmega_a3bu_xplained</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../nvm</state>
@@ -1423,10 +1423,10 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/xmega_a3bu_xplained</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../nvm</state>
@@ -1702,10 +1702,10 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/xmega_a3bu_xplained</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../nvm</state>
@@ -2093,20 +2093,20 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>clock</name>
-				<group>
-					<name>xmega</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/clock/xmega/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>ioport</name>
 				<group>
 					<name>xmega</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../common/services/ioport/xmega/ioport_compat.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>xmega</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/xmega/sysclk.c</name>
 					</file>
 				</group>
 			</group>

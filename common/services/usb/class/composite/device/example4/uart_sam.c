@@ -39,18 +39,11 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
+#include <asf.h>
 #include "conf_example.h"
-#include "usb_protocol_cdc.h"
-#include "sysclk.h"
 #include "uart.h"
-#include "usart.h"
-#include "gpio.h"
 #include "main.h"
 #include "ui.h"
-#include "udi_cdc.h"
-#include "sleepmgr.h"
 
 static sam_usart_opt_t usart_options;
 

@@ -6,7 +6,7 @@
  *
  * This file contains the functions to apply the ISP clock settings.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -256,7 +256,7 @@ int conf_clocks_uc3_extosc0(void)
   opt.pll_freq = (pll_freq < AVR32_PM_PLL_VCO_RANGE0_MIN_FREQ) ? 1 : 0,        // Set to 1 for VCO frequency range 80-180MHz, set to 0 for VCO frequency range 160-240Mhz.
 
 
-  scif_pll_setup(SCIF_PLL0, opt); // lockcount in main clock for the PLL wait lock
+  scif_pll_setup(SCIF_PLL0, &opt); // lockcount in main clock for the PLL wait lock
 
   /* Enable PLL0 */
   scif_pll_enable(SCIF_PLL0);

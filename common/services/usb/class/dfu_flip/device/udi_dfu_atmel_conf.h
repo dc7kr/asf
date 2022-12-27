@@ -4,7 +4,7 @@
  * \brief Default Atmel DFU configuration for a USB Device
  * with a single interface Atmel DFU
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -47,10 +47,7 @@
 #include "flip_protocol.h"
 
 /**
- * \ingroup udi_dfu_atmel_group
- * \defgroup udi_dfu_atmel_group_conf Default Atmel DFU configuration
- * for a USB Device with a single interface Atmel DFU
- *
+ * \addtogroup udi_dfu_atmel_group_single_desc
  * @{
  */
 

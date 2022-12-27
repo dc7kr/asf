@@ -110,6 +110,9 @@
 // From module: PWM - UC3 A/B implementation
 #include <pwm.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: RTC - Real Time Counter
 #include <rtc.h>
 

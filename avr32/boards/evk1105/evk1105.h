@@ -8,7 +8,7 @@
  *
  * To use this board, define BOARD=EVK1105.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -272,6 +272,12 @@
 #define ET024006DHU_EBI_NCS_PIN         AVR32_EBI_NCS_0_1_PIN
 #define ET024006DHU_EBI_NCS_FUNCTION    AVR32_EBI_NCS_0_1_FUNCTION
 
+#define ET024006_IFACE_MODE             ET024006_IFACE_MODE_EBI
+#define ET024006_CMD_ADDR               ((volatile unsigned short int *) AVR32_EBI_CS0_ADDRESS)
+// The select signal connected to address line 21,
+// this implies an address offset of 0x200000.
+#define ET024006_PARAM_ADDR             ((volatile unsigned short int *) (AVR32_EBI_CS0_ADDRESS + 0x00200000))
+
 //! @}
 /*! \name Optional SPI connection to the TFT
  */
@@ -419,9 +425,6 @@
 
 //! Phy Address (set through strap options)
 #define EXTPHY_PHY_ADDR             0x01
-
-//! Configure the ethernet phy component to use the DP83848 phy
-#define PHY_DP83848
 
 //! @}
 

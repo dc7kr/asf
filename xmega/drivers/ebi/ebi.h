@@ -290,7 +290,7 @@ static inline void ebi_sdram_set_row_bits(struct ebi_sdram_config *config,
 static inline void ebi_sdram_set_col_bits(struct ebi_sdram_config *config,
 		const uint8_t bits)
 {
-	Assert(bits >= 8 || bits <= 11);
+	Assert(bits >= 8 && bits <= 11);
 
 	config->sdramctrla &= ~EBI_SDCOL_gm;
 	config->sdramctrla |= (bits - 8) << EBI_SDCOL_gp;

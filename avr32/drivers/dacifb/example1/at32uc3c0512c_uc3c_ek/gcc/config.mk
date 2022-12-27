@@ -56,6 +56,7 @@ TARGET = dacifb_example1.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/uc3c_ek/led.c                         \
        avr32/drivers/dacifb/dacifb.c                      \
        avr32/drivers/dacifb/example1/dacifb_example1.c    \
        avr32/drivers/dacifb/example1/sinus.c              \

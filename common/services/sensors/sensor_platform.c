@@ -46,7 +46,6 @@
 
 #include    <delay.h>
 
-
 /**
  * \brief Verify Board Support for the ASF Common Sensor Service
  *
@@ -61,15 +60,13 @@
 #   warning "The target board is not configured for the ASF sensor service."
 #endif
 
+/** \internal Sensor Platform Timing Definitions */
+/** @{ */
+#define SENSOR_START_DELAY_MSEC (50)    /** Settling delay time (in milliseconds) */
+/** @} */
 
-//! \internal Sensor Platform Timing Definitions
-// @{
-#define	SENSOR_START_DELAY_MSEC (50)	// settling delay time (in milliseconds)
-// @}
-
-
-//! \internal Sensor Bus Interface Implementations
-// @{
+/** \internal Sensor Bus Interface Implementations */
+/** @{ */
 
 #if defined(CONF_SENSOR_BUS_TWI)
 #   define BUSIO_TYPE       (BUS_TYPE_TWI)
@@ -89,48 +86,26 @@
 #   warning "Unknown common sensor service bus configuration."
 #endif
 
-// @}
+/** @} */
 
+/** \internal Sensor Hardware Descriptor Macro */
+/** @{ */
 
-//! \internal Sensor Hardware Descriptor Macro
-// @{
-
-#define SENSOR_HAL_DESC(sensor_type, name) {         \
-	.bus.type      = BUSIO_TYPE,                     \
-	.bus.id        = &BUSIO_IF,                      \
-	.bus.addr      = name##_bus_addr + BUSIO_OFFSET, \
-	.bus.no_wait   = false,                          \
-	.mcu_sigint    = name##_sigint,                  \
-	.mcu_sigout    = name##_sigout,                  \
-	.orientation   = name##_orientation,             \
-	.dev_type      = sensor_type,                    \
-	.sensor_init   = name##_init                     \
-	}
-
-// @}
-
-
-/**
- * \brief Delay in milliseconds.
- *
- * \param msecs Delay in milliseconds
- */
-void mdelay(unsigned long msecs)
-{
-	cpu_delay_ms(msecs, sysclk_get_cpu_hz());
+#define SENSOR_HAL_DESC(sensor_type, name) { \
+		.bus.type      = BUSIO_TYPE, \
+		.bus.id        = &BUSIO_IF, \
+		.bus.addr      = name ## _bus_addr + BUSIO_OFFSET, \
+		.bus.no_wait   = false,	\
+		.mcu_sigint    = name ## _sigint, \
+		.mcu_sigout    = name ## _sigout, \
+		.orientation   = name ## _orientation, \
+		.dev_type      = sensor_type, \
+		.sensor_init   = name ## _init \
 }
 
-/**
- * \brief Delay in microseconds.
- *
- * \param usecs Delay in microseconds
- */
-void udelay(unsigned long usecs)
-{
-	cpu_delay_us(usecs, sysclk_get_cpu_hz());
-}
+/** @} */
 
-/*! \brief This function returns the current timestamp counter value.
+/** \brief This function returns the current timestamp counter value.
  *
  * The timestamp facility is implemented in terms of the XMEGA or UC3
  * timer and clock function APIs.
@@ -142,21 +117,23 @@ uint32_t sensor_timestamp(void)
 	uint32_t tsc = 0;
 
 #if UC3
-	/*! \todo
+	/** \todo
 	 *
 	 * Implement this interface in terms of XMEGA and UC3 timer/counter (TC)
 	 * facilities exposed through ASF drivers.  A free running counter with
 	 * microsecond resolution is desireable.  Ideally, the counter value
-	 * should be updated without using interrupts and attached to a clock that
+	 * should be updated without using interrupts and attached to a clock
+	 *that
 	 * will be available while the MCU is in lower power modes.
 	 */
-	tsc = cpu_cy_2_us(Get_system_register(AVR32_COUNT), sysclk_get_cpu_hz());
+	tsc = cpu_cy_2_us(Get_system_register(AVR32_COUNT),
+			sysclk_get_cpu_hz());
 #endif
 
 	return tsc;
 }
 
-/*! \brief Install a sensor device interrupt handler
+/** \brief Install a sensor device interrupt handler
  *
  * This routine will enable interrupts on the pin specified by the \c intr_pin
  * parameter and call a user-defined callback \c handler when an interrupt is
@@ -165,14 +142,15 @@ uint32_t sensor_timestamp(void)
  * the \c handler parameter set to 0 (the NULL pointer) will cause interrupts to
  * be disabled for the specified GPIO pin.
  *
- * \param   intr_pin    Board-specific interrupt / GPIO pin interface to the MCU.
+ * \param   intr_pin    Board-specific interrupt / GPIO pin interface to the
+ *MCU.
  * \param   handler     The address of a user-defined interrupt handler.
  * \param   arg         An optional address passed to the interrupt handler.
  *
  * \return  bool        \c true if the call succeeds, else \c false.
  */
-bool sensor_irq_connect(uint32_t intr_pin, void(*handler)(volatile void *),
-	void * arg)
+bool sensor_irq_connect(uint32_t intr_pin, void (*handler)(volatile void *),
+		void *arg)
 {
 	bool status = false;
 
@@ -183,7 +161,7 @@ bool sensor_irq_connect(uint32_t intr_pin, void(*handler)(volatile void *),
 	return status;
 }
 
-/*! \brief Fetch the sensor hardware descriptor list
+/** \brief Fetch the sensor hardware descriptor list
  *
  * This routine returns the system address of a table of sensor hardware
  * descriptors along with the number of descriptors in the \c dev_count
@@ -199,7 +177,7 @@ bool sensor_irq_connect(uint32_t intr_pin, void(*handler)(volatile void *),
  */
 sensor_hal_t *sensor_list(size_t *dev_count)
 {
-	/*! \internal Sensor Device List
+	/** \internal Sensor Device List
 	 *
 	 * When a new driver is added to the API a HAL descriptor indicating
 	 * the sensor type, xxx_init() function prefix, bus address (where
@@ -207,68 +185,67 @@ sensor_hal_t *sensor_list(size_t *dev_count)
 	 * conditionally allocated in this table.
 	 */
 	static sensor_hal_t sensor_dev_list[] = {
-
-#ifdef  INCLUDE_AK8975          // AKM 3-axis electronic compass
-		SENSOR_HAL_DESC (SENSOR_TYPE_COMPASS, ak8975),
+#ifdef  INCLUDE_AK8975          /* AKM 3-axis electronic compass */
+		SENSOR_HAL_DESC(SENSOR_TYPE_COMPASS, ak8975),
 #endif
 
-#ifdef  INCLUDE_BMA020          // Bosch 3-axis accelerometer
-		SENSOR_HAL_DESC (SENSOR_TYPE_ACCELEROMETER, bma020),
+#ifdef  INCLUDE_BMA020          /* Bosch 3-axis accelerometer */
+		SENSOR_HAL_DESC(SENSOR_TYPE_ACCELEROMETER, bma020),
 #endif
 
-#ifdef  INCLUDE_BMA150          // Bosch 3-axis accelerometer
-		SENSOR_HAL_DESC (SENSOR_TYPE_ACCELEROMETER, bma150),
+#ifdef  INCLUDE_BMA150          /* Bosch 3-axis accelerometer */
+		SENSOR_HAL_DESC(SENSOR_TYPE_ACCELEROMETER, bma150),
 #endif
 
-#ifdef  INCLUDE_BMA180          // Bosch 3-axis accelerometer
-		SENSOR_HAL_DESC (SENSOR_TYPE_ACCELEROMETER, bma180),
+#ifdef  INCLUDE_BMA180          /* Bosch 3-axis accelerometer */
+		SENSOR_HAL_DESC(SENSOR_TYPE_ACCELEROMETER, bma180),
 #endif
 
-#ifdef  INCLUDE_BMA220          // Bosch 3-axis accelerometer
-		SENSOR_HAL_DESC (SENSOR_TYPE_ACCELEROMETER, bma220),
+#ifdef  INCLUDE_BMA220          /* Bosch 3-axis accelerometer */
+		SENSOR_HAL_DESC(SENSOR_TYPE_ACCELEROMETER, bma220),
 #endif
 
-#ifdef  INCLUDE_BMA222          // Bosch 3-axis accelerometer
-		SENSOR_HAL_DESC (SENSOR_TYPE_ACCELEROMETER, bma222),
+#ifdef  INCLUDE_BMA222          /* Bosch 3-axis accelerometer */
+		SENSOR_HAL_DESC(SENSOR_TYPE_ACCELEROMETER, bma222),
 #endif
 
-#ifdef  INCLUDE_BMA250          // Bosch 3-axis accelerometer
-		SENSOR_HAL_DESC (SENSOR_TYPE_ACCELEROMETER, bma250),
+#ifdef  INCLUDE_BMA250          /* Bosch 3-axis accelerometer */
+		SENSOR_HAL_DESC(SENSOR_TYPE_ACCELEROMETER, bma250),
 #endif
 
-#ifdef  INCLUDE_BMP085          // Bosch barometric pressure sensor
-		SENSOR_HAL_DESC (SENSOR_TYPE_BAROMETER, bmp085),
+#ifdef  INCLUDE_BMP085          /* Bosch barometric pressure sensor */
+		SENSOR_HAL_DESC(SENSOR_TYPE_BAROMETER, bmp085),
 #endif
 
-#ifdef  INCLUDE_BMP180          // Bosch barometric pressure sensor
-		SENSOR_HAL_DESC (SENSOR_TYPE_BAROMETER, bmp180),
+#ifdef  INCLUDE_BMP180          /* Bosch barometric pressure sensor */
+		SENSOR_HAL_DESC(SENSOR_TYPE_BAROMETER, bmp180),
 #endif
 
-#ifdef  INCLUDE_HMC5883L        // Honeywell 3-axis magnetometer
-		SENSOR_HAL_DESC (SENSOR_TYPE_COMPASS, hmc5883l),
+#ifdef  INCLUDE_HMC5883L        /* Honeywell 3-axis magnetometer */
+		SENSOR_HAL_DESC(SENSOR_TYPE_COMPASS, hmc5883l),
 #endif
 
-#ifdef  INCLUDE_IMU3000         // InvenSense 3-axis gyroscope/IMU
-		SENSOR_HAL_DESC (SENSOR_TYPE_GYROSCOPE, imu3000),
+#ifdef  INCLUDE_IMU3000         /* InvenSense 3-axis gyroscope/IMU */
+		SENSOR_HAL_DESC(SENSOR_TYPE_GYROSCOPE, imu3000),
 #endif
 
-#ifdef  INCLUDE_ITG3200         // InvenSense 3-axis gyroscope
-		SENSOR_HAL_DESC (SENSOR_TYPE_GYROSCOPE, itg3200),
+#ifdef  INCLUDE_ITG3200         /* InvenSense 3-axis gyroscope */
+		SENSOR_HAL_DESC(SENSOR_TYPE_GYROSCOPE, itg3200),
 #endif
 
 #if (defined(INCLUDE_KXTF9) || defined(INCLUDE_KXTI9))
-                                // Kionix 3-axis accelerometer
-		SENSOR_HAL_DESC (SENSOR_TYPE_ACCELEROMETER, kxtf9),
+		/* Kionix 3-axis accelerometer */
+		SENSOR_HAL_DESC(SENSOR_TYPE_ACCELEROMETER, kxtf9),
 #endif
 
-#ifdef  INCLUDE_SFH5712         // Osram SFH5712 light sensor
-		SENSOR_HAL_DESC (SENSOR_TYPE_LIGHT, sfh5712),
+#ifdef  INCLUDE_SFH5712         /* Osram SFH5712 light sensor */
+		SENSOR_HAL_DESC(SENSOR_TYPE_LIGHT, sfh5712),
 #endif
 
-#ifdef  INCLUDE_SFH7770         // Osram SFH7770 light/prox sensor
-		SENSOR_HAL_DESC ((SENSOR_TYPE_LIGHT | SENSOR_TYPE_PROXIMITY), sfh7770),
+#ifdef  INCLUDE_SFH7770         /* Osram SFH7770 light/prox sensor */
+		SENSOR_HAL_DESC((SENSOR_TYPE_LIGHT | SENSOR_TYPE_PROXIMITY),
+				sfh7770),
 #endif
-
 	};
 
 	*dev_count = ARRAYSIZE(sensor_dev_list);
@@ -276,7 +253,7 @@ sensor_hal_t *sensor_list(size_t *dev_count)
 	return sensor_dev_list;
 }
 
-/*! \brief Find a sensor hardware descriptor
+/** \brief Find a sensor hardware descriptor
  *
  * This routine returns the address of a sensor hardware descriptor, based on
  * the sensor type specified in the \c type parameter.  The first hardware
@@ -292,16 +269,15 @@ sensor_hal_t *sensor_list(size_t *dev_count)
  *
  * \return  The address of the sensor hardware descriptor, or NULL if not found
  */
-sensor_hal_t * sensor_find(sensor_type_t type)
+sensor_hal_t *sensor_find(sensor_type_t type)
 {
 	size_t dev_count;
-	sensor_hal_t * const dev_list = sensor_list(&dev_count);
+	sensor_hal_t *const dev_list = sensor_list(&dev_count);
 
-	// Find the specified sensor type in the device list.
+	/* Find the specified sensor type in the device list. */
 
 	for (int index = 0; index < dev_count; ++index) {
-
-		// Test device against input type(s) bitmask.
+		/* Test device against input type(s) bitmask. */
 
 		if ((dev_list[index].dev_type & type) == type) {
 			return &dev_list [index];
@@ -311,7 +287,7 @@ sensor_hal_t * sensor_find(sensor_type_t type)
 	return 0;
 }
 
-/*! \brief Initialize the Sensor Platform Hardware
+/** \brief Initialize the Sensor Platform Hardware
  *
  * This function initializes the Atmel \c Xplained platform hardware and
  * must be called once from the client application before any of the Sensors
@@ -327,7 +303,7 @@ bool sensor_platform_init(void)
 {
 	bool initialized = false;
 
-	// Initialize the system clock and all clocks derived from it.
+	/* Initialize the system clock and all clocks derived from it. */
 
 	sysclk_init();
 
@@ -338,13 +314,13 @@ bool sensor_platform_init(void)
 
 	board_init();
 
-	// Initialize the sensor bus I/O interface.
+	/* Initialize the sensor bus I/O interface. */
 
 	if (BUSIO_TYPE != BUS_TYPE_UNKNOWN) {
 		initialized = sensor_bus_init(&BUSIO_IF, BUSIO_SPEED);
-	};
+	}
 
-	// Initialize C Standard I/O (stdio) Redirection.
+	/* Initialize C Standard I/O (stdio) Redirection. */
 
 #if defined(CONF_STDIO_REDIRECT)
 #  if defined(CONF_STDIO_USB)
@@ -371,20 +347,20 @@ bool sensor_platform_init(void)
 	stdio_serial_init(&CONFIG_USART_IF, &USART_SERIAL_OPTIONS);
 #  endif
 
-#  if defined(__GNUC__) && defined(UC3)
-	// Specify that stdout and stdin should not be buffered.
+#  if defined(__GNUC__) && UC3
+	/* Specify that stdout and stdin should not be buffered. */
 
 	setbuf(stdout, NULL);
-	setbuf(stdin,  NULL);
+	setbuf(stdin, NULL);
 #  endif
-#endif  // defined(CONF_STDIO_REDIRECT)
+#endif  /* defined(CONF_STDIO_REDIRECT) */
 
 	/* Sensor devices typically require time to settle after power
 	 * is applied.  Wait here for a standard time.  (Individual sensor
 	 * drivers may need to wait an additional period during initialization
 	 * if the device is particularly slow to settle.)
 	 */
-	mdelay(SENSOR_START_DELAY_MSEC);
+	delay_ms(SENSOR_START_DELAY_MSEC);
 
 	return initialized;
 }

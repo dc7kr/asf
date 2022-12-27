@@ -14,7 +14,7 @@
  * atmosphere, but the actual rate varies from day to day and throughout the
  * day.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -50,27 +50,17 @@
  *
  */
 
-
-// includes
-
 #include "press_altitude.h"
-
 
 namespace {
 
-
-// types
-
-typedef struct {                // ISA_LAYER - atmospheric layer parameters
-	scalar height_bottom;       // height above sea level @ bottom of layer
-	scalar static_press;        // static pressure at layer base
-	scalar standard_temp;       // standard temperature at layer base
-	scalar lapse_rate;          // layer lapse rate -dT/dz (T temp, z height)
-
+/** ISA_LAYER - atmospheric layer parameters */
+typedef struct {                
+	scalar height_bottom;    /**< Height above sea level @ bottom of layer */
+	scalar static_press;     /**< Static pressure at layer base */
+	scalar standard_temp;    /**< Standard temperature at layer base */
+	scalar lapse_rate;       /**< Layer lapse rate -dT/dz (T temp, z height) */
 } ISA_LAYER;
-
-
-// constants
 
 const int layer_min (0);
 const int layer_max (6);
@@ -92,31 +82,31 @@ const ISA_LAYER layer_table [] =
 	{  71000,          3.95642,           214.65,          -0.002   }
 	};
 
-// Barometric calculations use the layer table entry selected by this index.
-
+/** Barometric calculations use the layer table entry selected by this index. */
 int layer = 0;
 
-// layer table access convenience macros
-
+/** \name Layer table access convenience macros */
+/** @{ */
 #define Pb      (layer_table [(layer)].static_press)
 #define Tb      (layer_table [(layer)].standard_temp)
 #define Lb      (layer_table [(layer)].lapse_rate)
 #define Hb      (layer_table [(layer)].height_bottom)
+/** @} */
 
-// ISA pressure altitude precalculated constants
-
+/** \name ISA pressure altitude precalculated constants */
+/** @{ */
 #define R_g0    (-1 * CONST_REAL_GAS / CONST_STANDARD_GRAVITY)
 
 scalar RL_g0    (R_g0 * Lb);
 scalar RT_g0    (R_g0 * Tb);
 
 scalar P_bias   (0 /* current SL pressure(Pa) - 1 atm */);
+/** @} */
+
+}
 
 
-}  // local namespace
-
-
-/*! \brief Specify the (corrected) pressure-altitude sea level pressure.
+/** \brief Specify the (corrected) pressure-altitude sea level pressure.
  *
  * This routine will calculate a bias to correct the ISA standard pressure
  * at sea level (1 atm. = 101 325 Pa) for local variations in barometric
@@ -130,7 +120,7 @@ void pressure_sea_level(scalar P)
 	P_bias = P - Pb;
 }
 
-/*! \brief Specify a pressure-altitude layer
+/** \brief Specify a pressure-altitude layer
  *
  * The routine sets the pressure_altitude() function to use a specified
  * "layer" in domain [0, 6].  By default layer 0 is assumed.  Calling
@@ -157,7 +147,7 @@ bool pressure_isa_layer(int index)
 	return false;
 }
 
-/*! \brief Get an ISA pressure altitude
+/** \brief Get an ISA pressure altitude
  *
  * Given atmospheric pressure "P" in pascals, this routine returns the
  * associated barometric altitude ("pressure altitude") using

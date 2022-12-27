@@ -545,13 +545,17 @@ extern void *pvPortRealloc( void *pv, size_t xSize );
  */
 #define ISR0_FREERTOS(...) _Pragma(#__VA_ARGS__)
 #define ISR_FREERTOS(func, int_grp, int_lvl)    \
-	static void func##_not_naked(void); \
+	ISR0_FREERTOS(optimize = no_inline) static portBASE_TYPE func##_not_naked(void); \
 	ISR0_FREERTOS(shadow_registers = full) \
-	__interrupt static void func(void) { \
-	portENTER_SWITCHING_ISR(); \
-	func##_not_naked(); \
-	portEXIT_SWITCHING_ISR(); } \
-	static void func##_not_naked(void)
+	static void func(void) \
+	{ \
+		portENTER_SWITCHING_ISR(); \
+		func##_not_naked(); \
+		/* portEXIT_SWITCHING_ISR() expects an input parameter in R12. */ \
+		/* This parameter is the return value of func##_not_naked() */ \
+		portEXIT_SWITCHING_ISR(); \
+	} \
+	ISR0_FREERTOS(optimize = no_inline) static portBASE_TYPE func##_not_naked(void)
 
 /*
  * The ISR used depends on whether the cooperative or

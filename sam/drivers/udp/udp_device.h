@@ -46,8 +46,8 @@
 #include "preprocessor.h"
 
 
-//! \ingroup usb_device_group
-//! \defgroup udd_group USB Device Driver (UDD)
+//! \ingroup udd_group
+//! \defgroup udd_udp_group USB Device Port Driver
 //! UDP low-level driver for USB device mode
 //!
 //! @{

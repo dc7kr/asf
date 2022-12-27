@@ -3,7 +3,7 @@
  *
  * \brief Analog-to-Digital Converter (ADC/ADC12B) driver for SAM.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -148,17 +148,6 @@ enum adc_settling_time_t{
 	ADC_SETTLING_TIME_3 = ADC_MR_SETTLING_AST17
 };    
 #endif
-/* Definitions for ADC status structure including interrupt and overrun error status */
-#if SAM3S || SAM4S ||  SAM3N || SAM3XA
-struct adc_status_t{
-	uint32_t isr_status;
-	uint32_t ovre_status;
-};
-#elif SAM3U
-struct adc_status_t{
-	uint32_t all_status;
-};
-#endif
 
 #if SAM3S || SAM4S ||  SAM3N || SAM3XA
 uint32_t adc_init(Adc *p_adc, const uint32_t ul_mck, 
@@ -181,6 +170,7 @@ void adc_set_comparison_channel(Adc *p_adc, const enum adc_channel_num_t channel
 void adc_set_writeprotect(Adc *p_adc, const uint32_t ul_enable);
 uint32_t adc_get_writeprotect_status(const Adc *p_adc);
 void adc_check(Adc* p_adc, const uint32_t ul_mck);
+uint32_t adc_get_overrun_status(const Adc *p_adc);
 #elif SAM3U
 uint32_t adc_init(Adc * p_adc, const uint32_t ul_mck, const uint32_t ul_adc_clock,
 		const uint32_t ul_startuptime);
@@ -193,13 +183,15 @@ void adc_start(Adc *p_adc);
 void adc_stop(Adc *p_adc);
 void adc_enable_channel(Adc *p_adc, const enum adc_channel_num_t adc_ch);
 void adc_disable_channel(Adc *p_adc, const enum adc_channel_num_t adc_ch);
+void adc_enable_all_channel(Adc *p_adc);
+void adc_disable_all_channel(Adc *p_adc);
 uint32_t adc_get_channel_status(const Adc *p_adc, const enum adc_channel_num_t adc_ch);
 uint32_t adc_get_channel_value(const Adc *p_adc,const  enum adc_channel_num_t adc_ch);
 uint32_t adc_get_latest_value(const Adc *p_adc);
 uint32_t adc_get_actual_adc_clock(const Adc *p_adc, const uint32_t ul_mck);
 void adc_enable_interrupt(Adc *p_adc, const uint32_t ul_source);
 void adc_disable_interrupt(Adc *p_adc, const uint32_t ul_source);
-struct adc_status_t adc_get_status(const Adc *p_adc);
+uint32_t adc_get_status(const Adc *p_adc);
 uint32_t adc_get_interrupt_mask(const Adc *p_adc);
 Pdc *adc_get_pdc_base(const Adc *p_adc);
 
@@ -238,6 +230,8 @@ void adc12b_start(Adc12b *p_adc);
 void adc12b_stop(Adc12b *p_adc);
 void adc12b_enable_channel(Adc12b *p_adc, const enum adc_channel_num_t adc_ch);
 void adc12b_disable_channel(Adc12b *p_adc, const enum adc_channel_num_t adc_ch);
+void adc12b_enable_all_channel(Adc12b *p_adc);
+void adc12b_disable_all_channel(Adc12b *p_adc);
 uint32_t adc12b_get_channel_status(const Adc12b *p_adc,const enum adc_channel_num_t adc_ch);
 uint32_t adc12b_get_channel_value(const Adc12b *p_adc, const enum adc_channel_num_t adc_ch);
 uint32_t adc12b_get_latest_value(const Adc12b *p_adc);
@@ -250,7 +244,7 @@ uint32_t adc12b_get_actual_adc_clock(const Adc12b *p_adc, const uint32_t ul_mck)
 void adc12b_enable_interrupt(Adc12b *p_adc, const uint32_t ul_source);
 void adc12b_disable_interrupt(Adc12b *p_adc, const uint32_t ul_source);
 uint32_t adc12b_get_interrupt_mask(const Adc12b *p_adc);
-struct adc_status_t adc12b_get_status(const Adc12b *p_adc);
+uint32_t adc12b_get_status(const Adc12b *p_adc);
 void adc12b_set_bias_current(Adc12b *p_adc, const uint8_t uc_ibctl);
 Pdc *adc12b_get_pdc_base(const Adc12b *p_adc);
 #endif
@@ -263,4 +257,208 @@ Pdc *adc12b_get_pdc_base(const Adc12b *p_adc);
 /**INDENT-ON**/
 /// @endcond
 
+/**
+ * \page sam_adc_quickstart Quickstart guide for SAM ADC driver
+ *
+ * This is the quickstart guide for the \ref adc_group "SAM ADC driver",
+ * with step-by-step instructions on how to configure and use the driver in a
+ * selection of use cases.
+ *
+ * The use cases contain several code fragments. The code fragments in the
+ * steps for setup can be copied into a custom initialization function, while
+ * the steps for usage can be copied into, e.g., the main application function.
+ *
+ * \section adc_basic_use_case Basic use case
+ * In this basic use case, the ADC module and single channel are configured for:
+ * - 12-bit, unsigned conversions
+ * - Internal bandgap as 3.3 V reference
+ * - ADC clock rate of at most 6.4 MHz and maxium sample rate is 1 MHz
+ * - Software triggering of conversions
+ * - Interrupt-based conversion handling
+ * - Single channel measurement
+ * - ADC_CHANNEL_5 as positive input
+ *
+ * \subsection sam_adc_quickstart_prereq Prerequisites
+ * -# \ref sysclk_group "System Clock Management (Sysclock)"
+ * -# \ref pmc_group "Power Management Controller (PMC)"
+ *
+ * \section adc_basic_use_case_setup Setup steps
+ * \subsection adc_basic_use_case_setup_code Example code
+ * Add to application C-file:
+ * \code
+ *   void ADC_IrqHandler(void)
+ *   {
+ *       // Check the ADC conversion status
+ *       if ((adc_get_status(ADC).isr_status & ADC_ISR_DRDY) ==	ADC_ISR_DRDY)
+ *       {
+ *       // Get latest digital data value from ADC and can be used by application
+ *           uint32_t result = adc_get_latest_value(ADC);
+ *       }
+ *   }
+ *   void adc_setup(void)
+ *   {
+ *       adc_init(ADC, sysclk_get_main_hz(), ADC_CLOCK, 8);
+ *
+ *       adc_configure_timing(ADC, 0, ADC_SETTLING_TIME_3, 1);
+ *
+ *       adc_set_resolution(ADC, ADC_MR_LOWRES_BITS_12);
+ *
+ *       adc_enable_channel(ADC, ADC_CHANNEL_5);
+ *
+ *       adc_enable_interrupt(ADC, ADC_IER_DRDY);
+ *
+ *       adc_configure_trigger(ADC, ADC_TRIG_SW, 0);
+ *   }
+ * \endcode
+ *
+ * \subsection adc_basic_use_case_setup_flow Workflow
+ * -# Define the interrupt service handler in the application:
+ *   - \code
+ *   void ADC_IrqHandler(void)
+ *   {
+ *       //Check the ADC conversion status 
+ *       if ((adc_get_status(ADC).isr_status & ADC_ISR_DRDY) ==	ADC_ISR_DRDY)
+ *       {
+ *       //Get latest digital data value from ADC and can be used by application
+ *           uint32_t result = adc_get_latest_value(ADC);
+ *       }
+ *   }
+ * \endcode
+ *   - \note Get ADC status and check if the conversion is finished. If done, read the last ADC result data.
+ * -# Initialize the given ADC with the specified ADC clock and startup time:
+ *   - \code adc_init(ADC, sysclk_get_main_hz(), ADC_CLOCK, 8); \endcode
+ *   - \note The ADC clock range is between master clock / 2 and master clock / 512.
+ * The function sysclk_get_main_hz() is used to get the master clock frequency while ADC_CLOCK gives the ADC clock frequency.
+ * -# Configure ADC timing:
+ *   - \code adc_configure_timing(ADC, 0, ADC_SETTLING_TIME_3, 1); \endcode
+ *   - \note Tracking Time = (0 + 1) * ADC Clock period
+ * Settling Time =  ADC_SETTLING_TIME_3 * ADC Clock period
+ * Transfer Time = (1 * 2 + 3) * ADC CLock period
+ * -# Set the ADC resolution.
+ *   - \code adc_set_resolution(ADC, ADC_MR_LOWRES_BITS_12); \endcode
+ *   - \note The resolution value can be set to 10 bits or 12 bits.
+ * -# Enable the specified ADC channel:
+ *   - \code adc_enable_channel(ADC, ADC_CHANNEL_5); \endcode
+ * -# Enable ADC interrupts:
+ *   - \code adc_enable_interrupt(ADC, ADC_IER_DRDY); \endcode
+ * -# Configure software conversion trigger:
+ *   - \code adc_configure_trigger(ADC, ADC_TRIG_SW, 0); \endcode
+ *
+ * \section adc_basic_use_case_usage Usage steps
+ * \subsection adc_basic_use_case_usage_code Example code
+ * Add to, e.g., main loop in application C-file:
+ * \code
+ *    adc_start(ADC);
+ * \endcode
+ *
+ * \subsection adc_basic_use_case_usage_flow Workflow
+ * -# Start ADC conversion on channel:
+ *   - \code adc_start(ADC); \endcode
+ *
+ * \section adc_use_cases Advanced use cases
+ * For more advanced use of the ADC driver, see the following use cases:
+ * - \subpage adc_use_case_1 : 12-bits unsigned, comparison event happen and interrupt
+ * driven
+ */
+/**
+ * \page adc_use_case_1 Use case #1
+ * In this use case the ADC module and one channel are configured for:
+ * - 12-bit, unsigned conversions
+ * - Internal bandgap as 3.3 V reference
+ * - ADC clock rate of at most 6.4 MHz and maxium sample rate is 1 MHz
+ * - Software triggering of conversions
+ * - Comparison event happen and interrupt handling
+ * - Single channel measurement
+ * - ADC_CHANNEL_5 as positive input
+ *
+ * \section adc_use_case_1_setup Setup steps
+ * \subsection adc_use_case_1_setup_code Example code
+ * Add to application C-file:
+ * \code
+ *   void ADC_IrqHandler(void)
+ *   {
+ *       // Check the ADC conversion status 
+ *       if ((adc_get_status(ADC).isr_status & ADC_ISR_COMPE) == ADC_ISR_COMPE)
+ *       {
+ *           // Get comparison mode of ADC
+ *           uint32_t ul_mode = adc_get_comparison_mode(ADC);
+ *           // Get latest digital data value from ADC and can be used by application
+ *           uint16_t us_adc = adc_get_channel_value(ADC, ADC_CHANNEL_5);
+ *       }
+ *   }
+ * \endcode
+ *
+ * \code
+ *   void adc_setup(void)
+ *   {
+ *       adc_init(ADC, sysclk_get_main_hz(), ADC_CLOCK, 8);
+ *
+ *       adc_configure_timing(ADC, 0, ADC_SETTLING_TIME_3, 1);
+ *
+ *       adc_set_resolution(ADC, ADC_MR_LOWRES_BITS_12);
+ *
+ *       adc_enable_channel(ADC, ADC_CHANNEL_5);
+ *
+ *       adc_set_comparison_channel(ADC, ADC_CHANNEL_5);
+ *       adc_set_comparison_mode(ADC, ADC_EMR_CMPMODE_IN);
+ *       adc_set_comparison_window(ADC, MAX_DIGITAL, 0);
+ *
+ *       adc_enable_interrupt(ADC, ADC_IER_COMPE);
+ *
+ *       adc_configure_trigger(ADC, ADC_TRIG_TIO_CH_0, 0);
+ *   }
+ * \endcode
+ *
+ * \subsection adc_basic_use_case_setup_flow Workflow
+ * -# Define the interrupt service handler in the application:
+ *   - \code
+ *   void ADC_IrqHandler(void)
+ *   {
+ *       // Check the ADC conversion status
+ *       if ((adc_get_status(ADC).isr_status & ADC_ISR_COMPE) == ADC_ISR_COMPE)
+ *       {
+ *           // Get comparison mode of ADC
+ *           uint32_t ul_mode = adc_get_comparison_mode(ADC);
+ *           // Get latest digital data value from ADC and can be used by application
+ *           uint16_t us_adc = adc_get_channel_value(ADC, ADC_CHANNEL_5);
+ *       }
+ *   }
+ * \endcode
+ *   - \note Get ADC status and check if comparison event occurred. If occurred, read the ADC channel value and comparison mode.
+ * -# Initialize the given ADC with the specified ADC clock and startup time:
+ *   - \code adc_init(ADC, sysclk_get_main_hz(), ADC_CLOCK, 10); \endcode
+ *   - \note The ADC clock range is between master clock/2 and master clock/512.
+ * The function sysclk_get_main_hz() is used to get the master clock frequency while ADC_CLOCK gives the ADC clock frequency.
+ * -# Configure ADC timing:
+ *   - \code adc_configure_timing(ADC, 0, ADC_SETTLING_TIME_3, 1); \endcode
+ *   - \note Tracking Time = (0 + 1) * ADC Clock period
+ * Settling Time =  ADC_SETTLING_TIME_3 * ADC Clock period
+ * Transfer Time = (1 * 2 + 3) * ADC CLock period
+ * -# Set the ADC resolution.
+ *   - \code adc_set_resolution(ADC, ADC_MR_LOWRES_BITS_12); \endcode
+ *   - \note The resolution value can be set to 10 bits or 12 bits.
+ * -# Enable the specified ADC channel:
+ *   - \code adc_enable_channel(ADC, ADC_CHANNEL_5); \endcode
+ * -# Set the comparison ADC channel, mode and window:
+ *   - \code adc_set_comparison_channel(ADC, ADC_CHANNEL_5);
+ * adc_set_comparison_mode(ADC, ADC_EMR_CMPMODE_IN);
+ * adc_set_comparison_window(ADC, us_high_threshold, us_low_threshold); \endcode
+ *   - \note The high and low threshold of comparison window can be set by the user.
+ * An event will be generated whenever the converted data is in the comparison window.
+ * -# Enable ADC interrupts:
+ *   - \code adc_enable_interrupt(ADC, ADC_IER_COMPE); \endcode
+ * -# Configure software conversion trigger:
+ *   - \code adc_configure_trigger(ADC, ADC_TRIG_SW, 0); \endcode
+ *
+ * \section adc_use_case_1_usage Usage steps
+ * \subsection adc_use_case_1_usage_code Example code
+ * Add to, e.g., main loop in application C-file:
+ * \code
+ *    adc_start(ADC);
+ * \endcode
+ *
+ * \subsection adc_use_case_1_usage_flow Workflow
+ * -# Start ADC conversion on the configured channels:
+ *   - \code adc_start(ADC); \endcode
+ */
 #endif /* ADC_H_INCLUDED */

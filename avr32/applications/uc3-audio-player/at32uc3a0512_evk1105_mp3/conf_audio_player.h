@@ -4,7 +4,7 @@
  *
  * \brief Audio player configuration file.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -142,7 +142,7 @@
 
 
 // ***** USB Support *******************************************
-#if defined(UC3A3) && UC3A3
+#if UC3A3
   #define USB_HIGH_SPEED_SUPPORT      true
 #endif
 #if (defined(SUPPORT_USB_MS) && SUPPORT_USB_MS == true)

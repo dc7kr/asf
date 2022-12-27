@@ -39,117 +39,48 @@
  *
  */
 
+#ifndef _SENSOR_BUS_H_
+#define _SENSOR_BUS_H_
 
-#ifndef _sensor_bus_h_
-#define _sensor_bus_h_
-
+#include <status_codes.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-
-// Atmel Software Framework (ASF) Interfaces
-
-#include <compiler.h>
-#include <status_codes.h>
-
-
-//! \brief Platform Bus Type Constants
-
-typedef enum {                          // bus_type_t
-
-	BUS_TYPE_UNKNOWN,                   //!< unknown bus
-	BUS_TYPE_TWI,                       //!< TWI/I2C bus
-	BUS_TYPE_SPI,                       //!< SPI bus
-	BUS_TYPE_PMBUS,                     //!< PMBus protocol
-	BUS_TYPE_SMBUS                      //!< SMBus protocol
-
+/** \brief Platform Bus Type Constants */
+typedef enum {
+	BUS_TYPE_UNKNOWN,                   /**< Unknown bus */
+	BUS_TYPE_TWI,                       /**< TWI/I2C bus */
+	BUS_TYPE_SPI,                       /**< SPI bus */
+	BUS_TYPE_PMBUS,                     /**< PMBus protocol */
+	BUS_TYPE_SMBUS                      /**< SMBus protocol */
 } bus_type_t;
 
-
-//! \brief Platform Bus Status Constants
-
+/** \brief Platform Bus Status Constants */
 typedef status_code_t bus_status_t;
 
-
-//! \internal Platform Bus Interface Types
+/** \internal Platform Bus Interface Types */
 
 #if UC3
-#if defined(AVR32_TWI)
-typedef volatile avr32_twi_t    twi_bus_t;
+typedef volatile avr32_spi_t *spi_if;
 #else
-typedef volatile avr32_twim_t   twi_bus_t;
-#endif
-typedef volatile avr32_spi_t    spi_bus_t;
-#else
-typedef /* volatile */ TWI_t    twi_bus_t;
-typedef /* volatile */ SPI_t    spi_bus_t;
+typedef SPI_t *spi_if;
 #endif
 
-
-//! \brief Platform Bus Interface Descriptor
-
-typedef struct {                        // bus_desc_t
-
-	bus_type_t      type;               //!< bus type and protocol
-	twi_bus_t       *id;                //!< bus interface address
-	uint16_t        addr;               //!< device bus address
-	bus_status_t    status;             //!< bus transaction status
-	bool            no_wait;            //!< bus transaction non-wait option
-
-	/**
-	 * \internal
-	 *
-	 * o Design and implement a full-featured bus abstraction.
-	 *
-	 *   Once the ASF bus drivers have improved and matured, revisit the
-	 *   bus abstraction.  For example, it could be useful to implement a
-	 *   separate configurable bus interface library with improved state
-	 *   detection and reporting, in addition to support for SMBus and
-	 *   PMBus protocols on the AVR TWI interfaces that support these.
-	 *
-	 * o Review for reentrancy problems that might arise if these interfaces
-	 *   are executed via separate asynchronous execution threads (RTOS or
-	 *   ISRs, for example).
-	 */
-
-#if 0
-	/**
-	 * \internal
-	 *
-	 * \name Bus Event Counters
-	 * @{
-	 */
-	uint32_t        read_req_count;     //!< number of read transactions
-	uint32_t        write_req_count;    //!< number of write transactions
-	uint32_t        total_err_count;    //!< number of transaction errors
-	uint32_t        addr_err_count;     //!< transaction address errors
-	uint32_t        data_err_count;     //!< transaction data errors
-	uint32_t        busy_err_count;     //!< resource busy errors
-	uint32_t        tout_err_count;     //!< transaction timeouts
-	// @}
-#endif
-
-#if 0
-	/**
-	 * \internal
-	 *
-	 * \name System Bus I/O Access Interfaces
-	 * @{
-	 */
-	size_t (*bus_read)(struct bus_desc *, uint8_t, void *, size_t);
-	size_t (*bus_write)(struct bus_desc *, uint8_t, const void *, size_t);
-	bool   (*bus_probe)(struct bus_desc *, int);
-	// @}
-#endif
-
+/** \brief Platform Bus Interface Descriptor */
+typedef struct {
+	bus_type_t type;                    /**< Bus type and protocol */
+	volatile void *id;                  /**< Bus interface address */
+	uint16_t addr;                      /**< Device bus address */
+	bus_status_t status;                /**< Bus transaction status */
+	bool no_wait;                       /**< Bus transaction non-wait option */
 } bus_desc_t;
 
+/** \name System Bus I/O Access Methods */
+/** @{ */
 
-//! \name System Bus I/O Access Methods
-//@{
-/*! \internal Initialize the bus I/O interface.
+/** \internal Initialize the bus I/O interface.
  *
  * \param   busif   The address of a system bus (registers) interface.
  * \param   speed   The bus data rate.
@@ -159,7 +90,7 @@ typedef struct {                        // bus_desc_t
  */
 bool bus_init(volatile void *busif, uint32_t speed);
 
-/*! \brief Read multiple Bytes from a bus interface.
+/** \brief Read multiple Bytes from a bus interface.
  *
  * \param   bus     An initialized bus interface descriptor.
  * \param   addr    The device register or memory address.
@@ -171,7 +102,7 @@ bool bus_init(volatile void *busif, uint32_t speed);
  */
 size_t bus_read(bus_desc_t *bus, uint8_t addr, void *data, size_t count);
 
-/*! \brief Write multiple Bytes to a bus interface.
+/** \brief Write multiple Bytes to a bus interface.
  *
  * \param   bus     An initialized bus interface descriptor.
  * \param   addr    The device register or memory address.
@@ -183,7 +114,7 @@ size_t bus_read(bus_desc_t *bus, uint8_t addr, void *data, size_t count);
  */
 size_t bus_write(bus_desc_t *bus, uint8_t addr, const void *data, size_t count);
 
-/*! \brief Determine the existence of a bus device
+/** \brief Determine the existence of a bus device
  *
  * This routine determines the existence of a device located at a bus interface
  * and address specified by an initialized \c bus descriptor.
@@ -198,7 +129,7 @@ size_t bus_write(bus_desc_t *bus, uint8_t addr, const void *data, size_t count);
  */
 bool bus_probe(bus_desc_t *bus, int arg);
 
-/*! \brief Read a single Byte from a bus interface.
+/** \brief Read a single Byte from a bus interface.
  *
  * \param   bus     An initialized bus interface descriptor.
  * \param   addr    The device register or memory address.
@@ -206,7 +137,7 @@ bool bus_probe(bus_desc_t *bus, int arg);
  * \return A value fetched from the device.  This value is
  *         undefined in the event of an I/O error.
  */
-static inline uint8_t bus_get (bus_desc_t *bus, uint8_t addr)
+static inline uint8_t bus_get(bus_desc_t *bus, uint8_t addr)
 {
 	uint8_t data = 0;
 	bus_read(bus, addr, &data, sizeof(uint8_t));
@@ -214,7 +145,7 @@ static inline uint8_t bus_get (bus_desc_t *bus, uint8_t addr)
 	return data;
 }
 
-/*! \brief Write a single Byte to a bus interface.
+/** \brief Write a single Byte to a bus interface.
  *
  * \param   bus     An initialized bus interface descriptor.
  * \param   addr    The device register or memory address.
@@ -222,12 +153,12 @@ static inline uint8_t bus_get (bus_desc_t *bus, uint8_t addr)
  *
  * \return  Nothing
  */
-static inline void bus_put (bus_desc_t *bus, uint8_t addr, uint8_t data)
+static inline void bus_put(bus_desc_t *bus, uint8_t addr, uint8_t data)
 {
 	bus_write(bus, addr, &data, sizeof(uint8_t));
 }
 
-/*! \brief Clear a bit at a bus device register or memory address.
+/** \brief Clear a bit at a bus device register or memory address.
  *
  * \param   bus     An initialized bus interface descriptor.
  * \param   addr    The device register or memory address.
@@ -235,13 +166,13 @@ static inline void bus_put (bus_desc_t *bus, uint8_t addr, uint8_t data)
  *
  * \return  Nothing
  */
-static inline void bus_reg_bitclear (bus_desc_t *bus, uint8_t addr,
-	uint8_t mask)
+static inline void bus_reg_bitclear(bus_desc_t *bus, uint8_t addr,
+		uint8_t mask)
 {
 	bus_put(bus, addr, ~mask & bus_get(bus, addr));
 }
 
-/*! \brief Set a bit at a bus device register or memory address.
+/** \brief Set a bit at a bus device register or memory address.
  *
  * \param   bus     An initialized bus interface descriptor.
  * \param   addr    The device register or memory address.
@@ -249,12 +180,12 @@ static inline void bus_reg_bitclear (bus_desc_t *bus, uint8_t addr,
  *
  * \return  Nothing
  */
-static inline void bus_reg_bitset (bus_desc_t *bus, uint8_t addr, uint8_t mask)
+static inline void bus_reg_bitset(bus_desc_t *bus, uint8_t addr, uint8_t mask)
 {
 	bus_put(bus, addr, mask | bus_get(bus, addr));
 }
 
-/*! \brief Read a field stored at a device register or memory address
+/** \brief Read a field stored at a device register or memory address
  *
  * This routine reads a specified value from a bit field within a 1-Byte
  * device register or memory address. The set bits in the mask parameter
@@ -267,9 +198,9 @@ static inline void bus_reg_bitset (bus_desc_t *bus, uint8_t addr, uint8_t mask)
  *
  * \return  The value stored in the register or memory field.
  */
-uint8_t bus_reg_fieldget (bus_desc_t *bus, uint8_t addr, uint8_t mask);
+uint8_t bus_reg_fieldget(bus_desc_t *bus, uint8_t addr, uint8_t mask);
 
-/*! \brief Write a field stored at a device register or memory address
+/** \brief Write a field stored at a device register or memory address
  *
  * This routine writes a specified value to a bit field within a 1-Byte
  * device register or memory address. The set bits in the mask parameter
@@ -284,57 +215,13 @@ uint8_t bus_reg_fieldget (bus_desc_t *bus, uint8_t addr, uint8_t mask);
  *
  * \return  Nothing
  */
-void bus_reg_fieldset (bus_desc_t *bus, uint8_t addr, uint8_t mask,
-	uint8_t value);
-//@}
+void bus_reg_fieldset(bus_desc_t *bus, uint8_t addr, uint8_t mask,
+		uint8_t value);
 
-/*! \brief Increment bus event counters.
- *
- * This routine is called by the bus interface implementations to update bus
- * event counters when the \c CONF_EVENT_COUNTERS configuration constant is
- * used to build a system.  User applications do not call this function.  The
- * event counters can be printed on a serial console or inspected in a debugger
- * when debugging bus transactions in an application.
- *
- * \param   bus     An initialized bus interface descriptor.
- * \param   read    Set \c true to indicate a read transaction.
- *
- * \return  Nothing
- */
-#if 0
-static inline void bus_event_count (bus_desc_t *bus, bool read)
-{
-	if (read) {
-		++(bus->read_req_count);
-	} else {
-		++(bus->write_req_count);
-	}
-
-	if (STATUS_OK != bus->status) {
-
-		++(bus->total_err_count);
-
-		switch (bus->status) {
-			case ERR_BAD_ADDRESS:
-				++(bus->addr_err_count);
-				break;
-			case ERR_BAD_DATA:
-				++(bus->data_err_count);
-				break;
-			case ERR_BUSY:
-				++(bus->busy_err_count);
-				break;
-			case ERR_TIMEOUT:
-				++(bus->tout_err_count);
-				break;
-		}
-	}
-}
-#endif
-
+/** @} */
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* _sensor_bus_h_ */
+#endif

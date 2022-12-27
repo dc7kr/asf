@@ -327,20 +327,19 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../host/mouse</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../avr32/components/joystick/skrhabe010</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/eic</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards/evk1104</state>
-					<state>$PROJ_DIR$/../../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../device/mouse</state>
 					<state>$PROJ_DIR$/../../../../../../../uhc</state>
-					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../device</state>
@@ -469,20 +468,19 @@
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../host/mouse</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../avr32/components/joystick/skrhabe010</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/eic</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards/evk1104</state>
-					<state>$PROJ_DIR$/../../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../device/mouse</state>
 					<state>$PROJ_DIR$/../../../../../../../uhc</state>
-					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../device</state>
@@ -1220,20 +1218,19 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../host/mouse</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../avr32/components/joystick/skrhabe010</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/eic</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards/evk1104</state>
-					<state>$PROJ_DIR$/../../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../device/mouse</state>
 					<state>$PROJ_DIR$/../../../../../../../uhc</state>
-					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../device</state>
@@ -1362,20 +1359,19 @@
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../host/mouse</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../avr32/components/joystick/skrhabe010</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/eic</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards/evk1104</state>
-					<state>$PROJ_DIR$/../../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../device/mouse</state>
 					<state>$PROJ_DIR$/../../../../../../../uhc</state>
-					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../device</state>

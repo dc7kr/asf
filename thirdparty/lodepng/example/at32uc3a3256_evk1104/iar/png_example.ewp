@@ -1871,6 +1871,15 @@
 				</group>
 			</group>
 		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1104</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/boards/evk1104/led.c</name>
+				</file>
+			</group>
+		</group>
 	</group>
 	<group>
 		<name>common</name>

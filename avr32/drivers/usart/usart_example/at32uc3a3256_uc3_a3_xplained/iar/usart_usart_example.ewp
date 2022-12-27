@@ -1731,10 +1731,16 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>gpio</name>
+				<name>usart</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../gpio/gpio.c</name>
+					<name>$PROJ_DIR$/../../../usart.c</name>
 				</file>
+				<group>
+					<name>usart_example</name>
+					<file>
+						<name>$PROJ_DIR$/../../usart_example.c</name>
+					</file>
+				</group>
 			</group>
 			<group>
 				<name>flashc</name>
@@ -1755,15 +1761,18 @@
 				</file>
 			</group>
 			<group>
-				<name>usart</name>
-				<group>
-					<name>usart_example</name>
-					<file>
-						<name>$PROJ_DIR$/../../usart_example.c</name>
-					</file>
-				</group>
+				<name>gpio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../usart.c</name>
+					<name>$PROJ_DIR$/../../../../gpio/gpio.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>uc3_a3_xplained</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/uc3_a3_xplained/led.c</name>
 				</file>
 			</group>
 		</group>

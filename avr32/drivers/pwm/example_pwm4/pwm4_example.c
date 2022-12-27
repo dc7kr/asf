@@ -6,7 +6,7 @@
  *
  * This file provides an example for the PWM4 on AVR32 UC3 devices.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -113,7 +113,7 @@ static void local_start_highfreq_clock(void)
   pcl_switch_to_osc(PCL_OSC0, FOSC0, OSC0_STARTUP);
 
   /* Setup PLL0 on Osc0, mul=7 ,no divisor, lockcount=16, ie. (16Mhzx7)/(div2) = 56MHz output */
-  scif_pll_setup(SCIF_PLL0, opt); // lockcount in main clock for the PLL wait lock
+  scif_pll_setup(SCIF_PLL0, &opt); // lockcount in main clock for the PLL wait lock
 
   /* Enable PLL0 */
   scif_pll_enable(SCIF_PLL0);

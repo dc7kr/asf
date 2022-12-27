@@ -3,7 +3,7 @@
  *
  * \brief Main functions for USB host mass storage and mouse composite example
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,18 +39,9 @@
  *
  */
 
-#include "compiler.h"
-#include "preprocessor.h"
-#include "board.h"
-#include "gpio.h"
-#include "sysclk.h"
-#include "sleepmgr.h"
+#include <asf.h>
 #include "conf_usb_host.h"
-#include "uhc.h"
 #include "ui.h"
-#include "uhi_msc_mem.h"
-#include "navigation.h"
-#include "file.h"
 #include "main.h"
 
 static uint16_t main_usb_sof_counter = 0;
@@ -153,7 +144,7 @@ void main_usb_sof_event(void)
 void main_usb_connection_event(uhc_device_t * dev, bool b_present)
 {
 	if (!b_present) {
-		lun_state = 0; // LUN is unplug, reset flag
+		lun_state = 0; // LUN is unplugged, reset flag
 	}
 	ui_usb_connection_event(b_present);
 }

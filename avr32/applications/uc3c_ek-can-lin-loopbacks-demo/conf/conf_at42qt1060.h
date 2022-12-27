@@ -3,7 +3,7 @@
  *
  * \brief AVR AT42QT1060 Configuration File
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -44,18 +44,7 @@
 
 #include "board.h"
 
-#if BOARD == EVK1105
-	#define AT42QT1060_DETECT_PIN             AVR32_PIN_PA22
-	#define AT42QT1060_EIC_EXTINT_FUNCTION    AVR32_EIC_EXTINT_1_FUNCTION
-	#define AT42QT1060_EIC_EXTINT_IRQ         AVR32_EIC_IRQ_1
-	#define AT42QT1060_EIC_LINE               AVR32_EIC_INT1
-	#define AT42QT1060_EIC_EXTINT_LEVEL       0
-	#define AT42QT1060_TWI                    (&AVR32_TWI)
-	#define AT42QT1060_TWI_SCL_PIN            AVR32_TWI_SCL_0_0_PIN
-	#define AT42QT1060_TWI_SCL_FUNCTION       AVR32_TWI_SCL_0_0_FUNCTION
-	#define AT42QT1060_TWI_SDA_PIN            AVR32_TWI_SDA_0_0_PIN
-	#define AT42QT1060_TWI_SDA_FUNCTION       AVR32_TWI_SDA_0_0_FUNCTION
-#elif BOARD == UC3C_EK
+#if BOARD == UC3C_EK
 	#define AT42QT1060_DETECT_PIN             AVR32_PIN_PC07
 	#define AT42QT1060_TWI                    (&AVR32_TWIM0)
 	#define AT42QT1060_TWI_SCL_PIN            AVR32_TWIMS0_TWCK_0_0_PIN
@@ -73,14 +62,7 @@
 /*! Threshold value for touch sensors.
  *  A measured value above this value will count as a detect
  */
-#if BOARD == EVK1105
-	#define AT42QT1060_KEY_0_NTHR_VALUE      15
-	#define AT42QT1060_KEY_1_NTHR_VALUE      15
-	#define AT42QT1060_KEY_2_NTHR_VALUE      15
-	#define AT42QT1060_KEY_3_NTHR_VALUE      15
-	#define AT42QT1060_KEY_4_NTHR_VALUE      15
-	#define AT42QT1060_KEY_5_NTHR_VALUE      10
-#elif BOARD == UC3C_EK
+#if BOARD == UC3C_EK
 	#define AT42QT1060_KEY_0_NTHR_VALUE      15
 	#define AT42QT1060_KEY_1_NTHR_VALUE      20
 	#define AT42QT1060_KEY_2_NTHR_VALUE      20

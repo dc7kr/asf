@@ -3,7 +3,7 @@
  *
  * \brief Commonly used includes, types and macros.
  *
- * Copyright (c) 2009-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -56,8 +56,10 @@
 #endif
 #include "preprocessor.h"
 
-#include "parts.h"
-
+#include <parts.h>
+#include <avr32/io.h>
+#include "header_files/uc3d_defines_fix.h"
+#include "header_files/uc3l3_l4_defines_fix.h"
 
 //_____ D E C L A R A T I O N S ____________________________________________
 

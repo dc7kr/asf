@@ -54,14 +54,21 @@ void gfx_set_clipping(gfx_coord_t min_x, gfx_coord_t min_y,
 {
 #ifdef CONF_GFX_USE_CLIPPING
 	/* Limit clipping region to within display panel boundaries. */
-	if (min_x < 0)
+	if (min_x < 0) {
 		min_x = 0;
-	if (min_y < 0)
+	}
+
+	if (min_y < 0) {
 		min_y = 0;
-	if (max_x >= gfx_width)
+	}
+
+	if (max_x >= gfx_width) {
 		max_x = gfx_width - 1;
-	if (max_y >= gfx_height)
+	}
+
+	if (max_y >= gfx_height) {
 		max_y = gfx_height - 1;
+	}
 
 	gfx_min_x = min_x;
 	gfx_min_y = min_y;
@@ -104,7 +111,6 @@ void gfx_generic_draw_filled_rect(gfx_coord_t x, gfx_coord_t y,
 	}
 
 #ifdef CONF_GFX_USE_CLIPPING
-
 	/* Nothing to do if entire rectangle is outside clipping region. */
 	if ((x > gfx_max_x) || (y > gfx_max_y) ||
 			((x + width) <= gfx_min_x) ||
@@ -130,7 +136,6 @@ void gfx_generic_draw_filled_rect(gfx_coord_t x, gfx_coord_t y,
 	y2 = y + height - 1;
 
 #ifdef CONF_GFX_USE_CLIPPING
-
 	/* Clip if outside right X limit. */
 	if (x2 > gfx_max_x) {
 		x2 = gfx_max_x;
@@ -379,7 +384,6 @@ void gfx_generic_get_pixmap(gfx_color_t *pixmap, gfx_coord_t map_width,
 	Assert(height > 0);
 
 #ifdef CONF_GFX_USE_CLIPPING
-
 	/* Nothing to do if entire rectangle is outside clipping region. */
 	if ((x > gfx_max_x) || (y > gfx_max_y) ||
 			((x + width) <= gfx_min_x) ||
@@ -407,7 +411,6 @@ void gfx_generic_get_pixmap(gfx_color_t *pixmap, gfx_coord_t map_width,
 	y2 = y + height - 1;
 
 #ifdef CONF_GFX_USE_CLIPPING
-
 	/* Clip if outside right X limit. */
 	if (x2 > gfx_max_x) {
 		x2 = gfx_max_x;
@@ -475,7 +478,6 @@ void gfx_generic_put_pixmap(const gfx_color_t *pixmap, gfx_coord_t map_width,
 	Assert(height > 0);
 
 #ifdef CONF_GFX_USE_CLIPPING
-
 	/* Nothing to do if entire rectangle is outside clipping region. */
 	if ((x > gfx_max_x) || (y > gfx_max_y) ||
 			((x + width) <= gfx_min_x) ||
@@ -503,7 +505,6 @@ void gfx_generic_put_pixmap(const gfx_color_t *pixmap, gfx_coord_t map_width,
 	y2 = y + height - 1;
 
 #ifdef CONF_GFX_USE_CLIPPING
-
 	/* Clip if outside right X limit. */
 	if (x2 > gfx_max_x) {
 		x2 = gfx_max_x;
@@ -607,7 +608,9 @@ void gfx_generic_put_bitmap(const struct gfx_bitmap *bmp,
 	gfx_coord_t y2;
 	gfx_coord_t map_width = bmp->width;
 	gfx_color_t *pixmap;
+#if XMEGA
 	gfx_color_t PROGMEM_PTR_T progmem_pixmap;
+#endif
 
 	/* Nothing to do if width or height is zero. */
 	if ((width == 0) || (height == 0)) {
@@ -623,7 +626,6 @@ void gfx_generic_put_bitmap(const struct gfx_bitmap *bmp,
 	Assert(height > 0);
 
 #ifdef CONF_GFX_USE_CLIPPING
-
 	/* Nothing to do if entire rectangle is outside clipping region. */
 	if ((x > gfx_max_x) || (y > gfx_max_y) ||
 			((x + width) <= gfx_min_x) ||
@@ -651,7 +653,6 @@ void gfx_generic_put_bitmap(const struct gfx_bitmap *bmp,
 	y2 = y + height - 1;
 
 #ifdef CONF_GFX_USE_CLIPPING
-
 	/* Clip if outside right X limit. */
 	if (x2 > gfx_max_x) {
 		x2 = gfx_max_x;
@@ -671,6 +672,9 @@ void gfx_generic_put_bitmap(const struct gfx_bitmap *bmp,
 		break;
 
 	case GFX_BITMAP_RAM:
+#if !XMEGA
+	case GFX_BITMAP_PROGMEM:
+#endif
 		pixmap = bmp->data.pixmap;
 
 		/* Offset into pixmap. */
@@ -707,6 +711,7 @@ void gfx_generic_put_bitmap(const struct gfx_bitmap *bmp,
 
 		break;
 
+#if XMEGA
 	case GFX_BITMAP_PROGMEM:
 		progmem_pixmap = bmp->data.progmem;
 
@@ -745,5 +750,6 @@ void gfx_generic_put_bitmap(const struct gfx_bitmap *bmp,
 		}
 
 		break;
+#endif
 	}
 }

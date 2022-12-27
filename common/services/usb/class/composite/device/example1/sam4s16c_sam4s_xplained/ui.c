@@ -39,17 +39,8 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "udi_msc.h"
-#include "udc.h"
-#include "udi_hid_mouse.h"
-#include "board.h"
-#include "led.h"
+#include <asf.h>
 #include "ui.h"
-#include "pio.h"
-#include "pio_handler.h"
-#include "pmc.h"
 
 #define  MOUSE_MOVE_RANGE  3
 #define  MOUSE_MOVE_COUNT  50
@@ -78,7 +69,7 @@ static void ui_wakeup_handler(uint32_t id, uint32_t mask)
 {
 	if (WAKEUP_PIO_ID == id && WAKEUP_PIO_MASK == mask) {
 		// It is a wakeup then send wakeup USB
-		udc_wakeup();
+		udc_remotewakeup();
 	}
 }
 
@@ -204,7 +195,7 @@ void ui_stop_write(void)
  * \defgroup UI User Interface
  *
  * Human interface on SAM4S Xplained:
- * - Led 0 (D9) blinks when USB Host have checked and enabled HID and MSC interface
+ * - Led 0 (D9) blinks when USB host has checked and enabled HID and MSC interface
  * - Led 1 (D10) is on during read/write operation
  * - No mouse buttons are linked
  * - SW1/BP1 is used to move mouse around

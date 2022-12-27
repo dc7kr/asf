@@ -4,7 +4,7 @@
  *
  * \brief FreeRTOS Serial Port management example for AVR32 UC3.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -135,6 +135,12 @@ static portBASE_TYPE prvUSART_ISR_NonNakedBehaviour( void )
 			xQueueSendFromISR(xRxedChars, &cChar, &xHigherPriorityTaskWoken);
 		portEXIT_CRITICAL();
 	}
+
+	/* Using data memory barriers in the IRQ handler to make sure that:
+	- the request has been disasserted, and that
+	- the (potential) write in the idr has been done 
+	... before returning from the handler */
+	usart->csr;
 
 	/* The return value will be used by portEXIT_SWITCHING_ISR() to know if it
 	should perform a vTaskSwitchContext(). */

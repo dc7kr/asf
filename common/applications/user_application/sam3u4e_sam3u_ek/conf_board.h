@@ -39,15 +39,24 @@
  *
  */
 
-#ifndef CONF_BOARD_H
-#define CONF_BOARD_H
+#ifndef CONF_BOARD_H_INCLUDED
+#define CONF_BOARD_H_INCLUDED
 
 /* Configure UART pins */
 #define CONF_BOARD_UART_CONSOLE
 
+/*
+ * PB0 is configured for LED not for ADC trigger by default.
+ * You can enable them according to application.
+ */
 /* Configure ADC example pins */
 //#define CONF_BOARD_ADC
 
+/*
+ * LED pins are not configured for PWM function here.
+ * Because those LED pins are enabled for PIO function by default.
+ * You can enable them according to application.
+ */
 /* Configure PWM LED0 pin */
 //#define CONF_BOARD_PWM_LED0
 
@@ -58,17 +67,21 @@
 //#define CONF_BOARD_PWM_LED2
 
 /* Configure SPI pins */
-//#define CONF_BOARD_SPI
-//#define CONF_BOARD_SPI_NPCS0
+#define CONF_BOARD_SPI
+#define CONF_BOARD_SPI_NPCS0
 //#define CONF_BOARD_SPI_NPCS1
-//#define CONF_BOARD_SPI_NPCS2
+#define CONF_BOARD_SPI_NPCS2
 //#define CONF_BOARD_SPI_NPCS3
 
+/*
+ * USART pins are configured as basic serial port by default.
+ * You can enable other pins according application.
+ */
 /* Configure USART RXD pin */
-//#define CONF_BOARD_USART_RXD
+#define CONF_BOARD_USART_RXD
 
 /* Configure USART TXD pin */
-//#define CONF_BOARD_USART_TXD
+#define CONF_BOARD_USART_TXD
 
 /* Configure USART CTS pin */
 //#define CONF_BOARD_USART_CTS
@@ -85,12 +98,12 @@
 /* Configure RS485 transceiver RE pin */
 //#define CONF_BOARD_ADM3485_RE
 
-//#define CONF_BOARD_SMC_PSRAM
+#define CONF_BOARD_SMC_PSRAM
 
 /* Configure LCD EBI pins */
-//#define CONF_BOARD_HX8347A
+#define CONF_BOARD_HX8347A
 
 /* Configure Backlight control pin */
-//#define CONF_BOARD_AAT3194
+#define CONF_BOARD_AAT3194
 
-#endif // CONF_BOARD_H
+#endif /* CONF_BOARD_H_INCLUDED */

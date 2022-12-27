@@ -82,6 +82,9 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: Sensors - Common Sensor Service
 #include <sensor.h>
 
@@ -92,6 +95,13 @@
 // From module: System Clock Control - UC3 A3/A4 implementation
 #include <sysclk.h>
 
+// From module: TWI - Two-Wire Interface - UC3 A3/A4/C/D/L implementation
+#include <twi_master.h>
+#include <uc3_twim/twi_master.h>
+
+// From module: TWI - Two-Wire Master Interface
+#include <twim.h>
+
 // From module: UC3-A3 Xplained board support
 #include <led.h>
 
@@ -101,11 +111,11 @@
 // From module: USB Device CDC (Single Interface Device)
 #include <udi_cdc.h>
 
-// From module: USB Device Stack Core
+// From module: USB Device CDC Standard I/O (stdio)
+#include <stdio_usb.h>
+
+// From module: USB Device Stack Core (Common API)
 #include <udc.h>
 #include <udd.h>
-
-// From module: USB/CDC Standard I/O (stdio)
-#include <stdio_usb.h>
 
 #endif // ASF_H

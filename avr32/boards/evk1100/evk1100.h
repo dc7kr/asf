@@ -372,9 +372,6 @@
 //! Phy Address (set through strap options)
 #define EXTPHY_PHY_ADDR             0x01
 
-//! Configure the ethernet phy component to use the DP83848 phy
-#define PHY_DP83848
-
 //! @}
 
 #endif  // !EVK1100_REVA

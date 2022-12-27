@@ -47,7 +47,7 @@
 
 #if (SAM3S || SAM3U || SAM3N || SAM3XA || SAM4S)
 # include "sam/sleepmgr.h"
-#elif defined(XMEGA)
+#elif XMEGA
 # include "xmega/sleepmgr.h"
 #elif (defined(__GNUC__) && defined(__AVR32__)) || (defined(__ICCAVR32__) || defined(__AAVR32__))
 # include "uc3/sleepmgr.h"

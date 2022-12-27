@@ -3,7 +3,7 @@
  *
  * \brief USB host driver for Mass Storage Class interface.
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -54,8 +54,11 @@ extern "C" {
 #endif
 
 /**
- * \ingroup uhi_group
- * \defgroup uhi_msc_group UHI for Mass Storage Class
+ * \ingroup uhi_msc_group
+ * \defgroup uhi_msc_group_uhc Interface with USB Host Core (UHC)
+ *
+ * Structures and functions required by UHC.
+ * 
  * @{
  */
 
@@ -75,6 +78,17 @@ uhc_enum_status_t uhi_msc_install(uhc_device_t* dev);
 void uhi_msc_enable(uhc_device_t* dev);
 void uhi_msc_uninstall(uhc_device_t* dev);
 //@}
+
+//@}
+
+/**
+ * \ingroup uhi_group
+ * \defgroup uhi_msc_group UHI for Mass Storage Class
+ *
+ * Common APIs used by high level application to use this USB host class.
+ *
+ * @{
+ */
 
 /**
  * \name Struct to access at Logical Unit Numbers (LUNs)

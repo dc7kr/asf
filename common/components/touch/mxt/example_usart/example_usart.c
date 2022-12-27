@@ -75,7 +75,7 @@
  * serial port object (COMx on windows, /dev/ttyxxx on your chosen linux flavour).
  *
  * Connect a terminal application to the serial port object with the settings
- * BAUD: 115200
+ * Baud: 57600
  * Data bits: 8-bit
  * Stop bits: 1 bit
  * Parity: None
@@ -155,12 +155,6 @@ static void mxt_set_config(struct mxt_device *device)
 
 static void mxt_handler(struct mxt_device *device)
 {
-	/* USART tx buffer length */
-	uint8_t tx_len = STRING_LENGTH * MAX_ENTRIES;
-
-	/* Text buffer */
-	char buf[STRING_LENGTH];
-
 	/* USART tx buffer initialized to 0 */
 	char tx_buf[STRING_LENGTH * MAX_ENTRIES] = {0};
 	uint8_t i = 0; /* Iterator */
@@ -171,16 +165,16 @@ static void mxt_handler(struct mxt_device *device)
 	/* Collect touch events and put the data in a string,
 	 * maximum 2 events at the time */
 	do {
-		/* Read next next touch event in the queue, if the read fails,
-		 * check if there is more messages in the queue and try another
-		 * read */
+		/* Temporary buffer for each new touch event line */
+		char buf[STRING_LENGTH];
+	
+		/* Read next next touch event in the queue, discard if read fails */
 		if (mxt_read_touch_event(device, &touch_event) != STATUS_OK) {
 			continue;
 		}
 
-		/* Format a new entry in the data string that will be sent over
-		 * USART */
-		sprintf(buf, "Nr: %2d X:%4d Y:%4d Status:0x%2x\n\r",
+		/* Format a new entry in the data string that will be sent over USART */
+		sprintf(buf, "Nr: %1d, X:%4d, Y:%4d, Status:0x%2x\n\r",
 				touch_event.id, touch_event.x, touch_event.y,
 				touch_event.status);
 
@@ -192,11 +186,9 @@ static void mxt_handler(struct mxt_device *device)
 		 * if we have reached the maximum numbers of events */
 	} while ((mxt_is_message_pending(device)) & (i < MAX_ENTRIES));
 
-	tx_len = i * STRING_LENGTH; /* Find the length of the string to send */
-
 	/* If there is any entries in the buffer, send them over USART */
 	if (i > 0) {
-		usart_serial_write_packet(USART_SERIAL_EXAMPLE, (uint8_t *)tx_buf, tx_len);
+		usart_serial_write_packet(USART_SERIAL_EXAMPLE, (uint8_t *)tx_buf, strlen(tx_buf));
 	}
 }
 
@@ -221,23 +213,19 @@ int main(void)
 	sysclk_init(); /* Initialize system clocks */
 	board_init();  /* Initialize board */
 
-#if UC3
-	gpio_enable_gpio_pin(MAXTOUCH_CHG_PIN);
-#endif
-
 	/* Setup TWI master to communicate to maXTouch device */
-	if (twi_master_setup(TWI_INTERFACE, &twi_opt) != STATUS_OK) {
+	if (twi_master_setup(MAXTOUCH_TWI_INTERFACE, &twi_opt) != STATUS_OK) {
 		Assert(false);
 	}
 
-	/* Check if the maXTouch device is available on TWI_INTERFACE bus
+	/* Check if the maXTouch device is available on MAXTOUCH_TWI_INTERFACE bus
 	 * and MAXTOUCH_DEVICE_ADR address */
-	if (mxt_probe_device(TWI_INTERFACE, MAXTOUCH_DEVICE_ADR) != STATUS_OK) {
+	if (mxt_probe_device(MAXTOUCH_TWI_INTERFACE, MAXTOUCH_DEVICE_ADR) != STATUS_OK) {
 		Assert(false);
 	}
 
 	/* Initialize the maXTouch device */
-	if (mxt_init_device(&device, TWI_INTERFACE, MAXTOUCH_DEVICE_ADR,
+	if (mxt_init_device(&device, MAXTOUCH_TWI_INTERFACE, MAXTOUCH_DEVICE_ADR,
 			MAXTOUCH_CHG_PIN) != STATUS_OK) {
 		Assert(false);
 	}
@@ -274,7 +262,7 @@ int main(void)
 	while (true) {
 		/* Check for any pending messages and run message handler if any
 		 * message is found in the queue */
-		if(mxt_is_message_pending(&device)) {
+		if (mxt_is_message_pending(&device)) {
 			mxt_handler(&device);
 		}
 	}

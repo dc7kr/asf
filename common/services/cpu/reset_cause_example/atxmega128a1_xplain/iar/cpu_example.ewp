@@ -2044,20 +2044,20 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>cpu</name>
-				<group>
-					<name>reset_cause_example</name>
-					<file>
-						<name>$PROJ_DIR$/../../reset_cause_example.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>ioport</name>
 				<group>
 					<name>xmega</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../ioport/xmega/ioport_compat.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>cpu</name>
+				<group>
+					<name>reset_cause_example</name>
+					<file>
+						<name>$PROJ_DIR$/../../reset_cause_example.c</name>
 					</file>
 				</group>
 			</group>

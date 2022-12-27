@@ -42,24 +42,6 @@
 #ifndef UOTGHS_DEVICE_H_INCLUDED
 #define UOTGHS_DEVICE_H_INCLUDED
 
-/**
- * \defgroup sam_uotghs_group USB On-The-Go High-speed (UOTGHS)
- *
- * \par Purpose
- *
- * This driver offers API to access SAM UOTGHS registers.
- *
- * \par Usage
- *
- *
- * \sa \ref Uotghs : SAM UOTGHS registers.
- *
- * \section dependencies Dependencies
- *
- *
- * @{
- */
-
 #include "compiler.h"
 #include "preprocessor.h"
 
@@ -71,8 +53,8 @@ extern "C" {
 /**INDENT-ON**/
 /// @endcond
 
-//! \ingroup usb_device_group
-//! \defgroup udd_group USB Device Driver (UDD)
+//! \ingroup udd_group
+//! \defgroup udd_udphs_group USB On-The-Go High-Speed Port for device mode (UOTGHS)
 //! UOTGHS low-level driver for USB device mode
 //!
 //! @{
@@ -661,6 +643,9 @@ typedef struct {
 //! @}
 
 //! @}
+//! @}
+//! @}
+//! @}
 
 
 /// @cond 0
@@ -670,7 +655,5 @@ typedef struct {
 #endif
 /**INDENT-ON**/
 /// @endcond
-
-//@}
 
 #endif /* UOTGHS_DEVICE_H_INCLUDED */

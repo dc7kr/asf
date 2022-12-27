@@ -4,7 +4,7 @@
  *
  * \brief Resistive Touch driver
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -63,10 +63,10 @@
 #include "rtouch.h"
 #include "conf_rtouch.h"
 
-#ifdef AVR32_ADCIFA
-#include "adcifa.h"
+#if defined(AVR32_ADCIFA)
+# include "adcifa.h"
 #else
-#include "adc.h"
+# include "adc.h"
 #endif
 
 /*============================ PRIVATE TYPES =================================*/
@@ -205,8 +205,8 @@ static void inline rtouch_enable_adc_int(void)
 {
 #ifdef AVR32_ADCIFA
 	volatile avr32_adcifa_t *adcifa = &RTOUCH_ADC;
-  // Enable interrupt for sequencer 0.
-  adcifa->ier = 0x1;
+	// Enable interrupt for sequencer 0.
+	adcifa->ier = 0x1;
 #else
 	volatile avr32_adc_t *adc = &RTOUCH_ADC;
 	adc->ier = RTOUCH_ADC_XL_CHANNEL | RTOUCH_ADC_YL_CHANNEL
@@ -220,8 +220,8 @@ static void inline rtouch_disable_adc_int(void)
 {
 #ifdef AVR32_ADCIFA
 	volatile avr32_adcifa_t *adcifa = &RTOUCH_ADC;
-  // Enable interrupt for sequencer 0.
-  adcifa->idr = 0x1;
+	// Enable interrupt for sequencer 0.
+	adcifa->idr = 0x1;
 #else
 	volatile avr32_adc_t *adc = &RTOUCH_ADC;
 	adc->idr = RTOUCH_ADC_XL_CHANNEL | RTOUCH_ADC_YL_CHANNEL
@@ -376,23 +376,21 @@ static void rtouch_start_read(uint32_t channel)
 {
 #ifdef AVR32_ADCIFA
 	volatile avr32_adcifa_t *adcifa = &RTOUCH_ADC;
-  s_current_channel = channel;
+	s_current_channel = channel;
 
-  if (channel < 8)
-  {
-    adcifa_sequence_conversion_opt[0].channel_p = channel;                              // Positive Channel
-    adcifa_sequence_conversion_opt[0].channel_n = AVR32_ADCIFA_INN_GNDANA;              // Negative Channel
-    adcifa_sequence_conversion_opt[0].gain      = ADCIFA_SHG_1;                         // Gain of the conversion
-  }
-  else
-  {
-    adcifa_sequence_conversion_opt[0].channel_p = AVR32_ADCIFA_INP_GNDANA;              // Positive Channel
-    adcifa_sequence_conversion_opt[0].channel_n = channel;                              // Negative Channel
-    adcifa_sequence_conversion_opt[0].gain      = ADCIFA_SHG_1;                         // Gain of the conversion
-  }
-  adcifa_configure_sequencer(adcifa, 0, &adcifa_sequence_opt, adcifa_sequence_conversion_opt);
+	if (channel < 8) {
+		adcifa_sequence_conversion_opt[0].channel_p = channel;                              // Positive Channel
+		adcifa_sequence_conversion_opt[0].channel_n = AVR32_ADCIFA_INN_GNDANA;              // Negative Channel
+		adcifa_sequence_conversion_opt[0].gain      = ADCIFA_SHG_1;                         // Gain of the conversion
+	}
+	else {
+		adcifa_sequence_conversion_opt[0].channel_p = AVR32_ADCIFA_INP_GNDANA;              // Positive Channel
+		adcifa_sequence_conversion_opt[0].channel_n = channel;                              // Negative Channel
+		adcifa_sequence_conversion_opt[0].gain      = ADCIFA_SHG_1;                         // Gain of the conversion
+	}
+	adcifa_configure_sequencer(adcifa, 0, &adcifa_sequence_opt, adcifa_sequence_conversion_opt);
 
-  adcifa_start_sequencer(adcifa, 0);
+	adcifa_start_sequencer(adcifa, 0);
 #else
 	volatile avr32_adc_t *adc = &RTOUCH_ADC;
 	// disable all touch channels
@@ -411,16 +409,14 @@ static uint32_t inline rtouch_get_adc_value(void)
 #ifdef AVR32_ADCIFA
 	uint32_t value;
 
-  if (s_current_channel < 8)
-  {
-    value = ADCIFA_read_resx_sequencer_0(0);
-  }
-  else
-  {
-    value = (~ADCIFA_read_resx_sequencer_0(0));
-  }
+	if (s_current_channel < 8) {
+		value = ADCIFA_read_resx_sequencer_0(0);
+	}
+	else {
+		value = (~ADCIFA_read_resx_sequencer_0(0));
+	}
 
-  return value;
+	return value;
 #else
 	volatile avr32_adc_t *adc = &RTOUCH_ADC;
 	return adc->lcdr;
@@ -615,8 +611,8 @@ static void inline rtouch_prepare_adc(void)
 
 #ifdef AVR32_ADCIFA
 	volatile avr32_adcifa_t *adcifa = &RTOUCH_ADC;
-  // configure ADCIFA
-  adcifa_configure(adcifa, &adcifa_opt, FOSC0);
+	// configure ADCIFA
+	adcifa_configure(adcifa, &adcifa_opt, FOSC0);
 #else
 	volatile avr32_adc_t *adc = &RTOUCH_ADC;
 	adc_configure(adc);
@@ -790,24 +786,24 @@ void rtouch_compute_calibration_matrix(
 	int32_t Xp2 = points->point3.panelX;
 	int32_t Yp2 = points->point3.panelY;
 
-    // Compute coefficients for X calibration.
-    matrix->A = ((Xp0 - Xp2) * (Yr1 - Yr2)) - ((Xp1 - Xp2) * (Yr0 - Yr2));
-    matrix->B = ((Xr0 - Xr2) * (Xp1 - Xp2)) - ((Xp0 - Xp2) * (Xr1 - Xr2));
-    matrix->C =
+	// Compute coefficients for X calibration.
+	matrix->A = ((Xp0 - Xp2) * (Yr1 - Yr2)) - ((Xp1 - Xp2) * (Yr0 - Yr2));
+	matrix->B = ((Xr0 - Xr2) * (Xp1 - Xp2)) - ((Xp0 - Xp2) * (Xr1 - Xr2));
+	matrix->C =
 		Yr0 * ((Xr2 * Xp1) - (Xr1 * Xp2)) +
-    	Yr1 * ((Xr0 * Xp2) - (Xr2 * Xp0)) +
+		Yr1 * ((Xr0 * Xp2) - (Xr2 * Xp0)) +
 		Yr2 * ((Xr1 * Xp0) - (Xr0 * Xp1));
 
-    // Compute coefficients for X calibration.
-    matrix->D = ((Yp0 - Yp2) * (Yr1 - Yr2)) - ((Yp1 - Yp2) * (Yr0 - Yr2));
-    matrix->E = ((Xr0 - Xr2) * (Yp1 - Yp2)) - ((Yp0 - Yp2) * (Xr1 - Xr2));
-    matrix->F =
+	// Compute coefficients for X calibration.
+	matrix->D = ((Yp0 - Yp2) * (Yr1 - Yr2)) - ((Yp1 - Yp2) * (Yr0 - Yr2));
+	matrix->E = ((Xr0 - Xr2) * (Yp1 - Yp2)) - ((Yp0 - Yp2) * (Xr1 - Xr2));
+	matrix->F =
 		Yr0 * ((Xr2 * Yp1) - (Xr1 * Yp2)) +
 		Yr1 * ((Xr0 * Yp2) - (Xr2 * Yp0)) +
 		Yr2 * ((Xr1 * Yp0) - (Xr0 * Yp1));
 
-    // Compute common denominator.
-    matrix->K = ((Xr0 - Xr2) * (Yr1 - Yr2)) - ((Xr1 - Xr2) * (Yr0 - Yr2));
+	// Compute common denominator.
+	matrix->K = ((Xr0 - Xr2) * (Yr1 - Yr2)) - ((Xr1 - Xr2) * (Yr0 - Yr2));
 }
 
 
@@ -891,18 +887,18 @@ void rtouch_process_samples( void )
 	rtouch.rawY >>= (RTOUCH_SAMPLESCALE + 1);
 
 	// Compute calibrated X position.
-    int32_t panelX =
-    	(rtouch.calibration_matrix->A * rtouch.rawX) +
+	int32_t panelX =
+		(rtouch.calibration_matrix->A * rtouch.rawX) +
 		(rtouch.calibration_matrix->B * rtouch.rawY) +
 		rtouch.calibration_matrix->C;
-    panelX /= tempK;
+	panelX /= tempK;
 
 	// Compute calibrated Y position.
-    int32_t panelY =
-    	(rtouch.calibration_matrix->D * rtouch.rawX) +
+	int32_t panelY =
+	(rtouch.calibration_matrix->D * rtouch.rawX) +
 		(rtouch.calibration_matrix->E * rtouch.rawY) +
 		rtouch.calibration_matrix->F;
-    panelY /= tempK;
+	panelY /= tempK;
 
 	// Finished processing, so state is now "touched".
 	rtouch.state = RTOUCH_TOUCHED;

@@ -7,7 +7,7 @@
  * This file defines a useful set of functions for the DIP204 interface on
  * AVR32 devices.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -50,6 +50,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include "board.h"
+#include "conf_dip204.h"
 #include "dip204.h"
 #include "gpio.h"
 #include "compiler.h"
@@ -70,34 +71,9 @@
 /*! Read Data from DDRAM */
 #define DIP204_READ_DATA                 0xFE
 
-#define DIP204_PERIOD_MAX               50
+#define DIP204_PERIOD_MAX                  50
 
-#define DIP204_CGRAM_BASE_ADDR          0x40
-
-#ifndef DIP204_BACKLIGHT_PIN
-#define DIP204_BACKLIGHT_PIN        AVR32_PWM_6_1_PIN
-#  warning 'The DIP204_BACKLIGHT_PIN should be customized for the application'
-#endif
-#ifndef DIP204_PWM_CHANNEL
-#define DIP204_PWM_CHANNEL        6
-#  warning 'The DIP204_PWM_CHANNEL should be customized for the application'
-#endif
-#ifndef DIP204_PWM_PIN
-#define DIP204_PWM_PIN              AVR32_PWM_6_1_PIN
-#  warning 'The DIP204_PWM_PIN should be customized for the application'
-#endif
-#ifndef DIP204_PWM_FUNCTION
-#define DIP204_PWM_FUNCTION         AVR32_PWM_6_1_FUNCTION
-#  warning 'The DIP204_PWM_FUNCTION should be customized for the application'
-#endif
-#ifndef DIP204_SPI
-#define DIP204_SPI                  (&AVR32_SPI)
-#  warning 'The DIP204_SPI should be customized for the application'
-#endif
-#ifndef DIP204_SPI_NPCS
-#define DIP204_SPI_NPCS             1
-#  warning 'The DIP204_SPI_NPCS should be customized for the application'
-#endif
+#define DIP204_CGRAM_BASE_ADDR           0x40
 
 static void dip204_write_byte(unsigned char byte);
 static void dip204_read_byte(unsigned char *byte);

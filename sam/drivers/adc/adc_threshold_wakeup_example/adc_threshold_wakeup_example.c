@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief ADC12 threshold wakeup example for SAM.
+ * \brief ADC threshold wakeup example for SAM.
  *
  * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
@@ -40,87 +40,89 @@
  */
 
 /**
- *  \mainpage ADC12 Threshold Wakeup Example
+ * \mainpage ADC Threshold Wakeup Example
  *
- *  \section Purpose
+ * \section Purpose
  *
- *  The adc12_threshold_wakeup example demonstrates how to use ADC with
- *  threshold wakeup.
+ * The adc_threshold_wakeup example demonstrates how to use ADC with
+ * threshold wakeup.
  *
- *  \section Requirements
+ * \section Requirements
  *
- *  This package can be used with SAM3-EK. To enable full scale measurement
- *  of the potentiometer by default configuration, close jumper JP18 on 1 and 2.
- * 
+ * This example can be used on any SAM3/4 boards.
  *
- *  \section Description
- *  This example uses TIOA0 as external trigger instead of software trigger for
- *  ADC conversion. The TIOA0 is a 1ms period square wave. The rising edge
- *  during each period would trigger the ADC to start a conversion on the given 
- *  channel which is connected to the potentiometer. This example shows a menu as 
- *  below upon running:
- *  \code
- *  -- Menu Choices for this example--
- *  -- 0: Display voltage on potentiometer.--
- *  -- 1: Display thresholds.--
- *  -- 2: Modify low threshold.--
- *  -- 3: Modify high threshold.--
- *  -- 4: Choose comparison mode.--
- *  -- i: Display ADC information.--
- *  -- m: Display this main menu.--
- *  -- c: Set Auto Calibration Mode. --
- *  -- s: Enter sleep mode.--
- *  \endcode
- *  With the user interface, comparison window and mode could be set. The ADC
- *  supports 4 kinds of comparison events as follows:
+ * ADVREF must be set to 3300 mv in order to enable full scale measurement
+ * of the potentiometer. Please refer to the board schematics for ADVREF 
+ * jumper configuration.
  *
- *  - Lower than the low threshold.
- *  - Higher than the high threshold.
- *  - In the comparison window.
- *  - Out of the comparison window.
+ * \section Description
+ * This example uses TIOA0 as external trigger instead of software trigger for
+ * ADC conversion. The TIOA0 is a 1ms period square wave. The rising edge
+ * during each period would trigger the ADC to start a conversion on the given 
+ * channel which is connected to the potentiometer. This example shows a menu as 
+ * below upon running:
+ * \code
+ * -- Menu Choices for this example--
+ * -- 0: Display voltage on potentiometer.--
+ * -- 1: Display thresholds.--
+ * -- 2: Modify low threshold.--
+ * -- 3: Modify high threshold.--
+ * -- 4: Choose comparison mode.--
+ * -- i: Display ADC information.--
+ * -- m: Display this main menu.--
+ * -- c: Set Auto Calibration Mode. --
+ * -- s: Enter sleep mode.--
+ * \endcode
+ * With the user interface, comparison window and mode could be set. The ADC
+ * supports 4 kinds of comparison events as follows:
  *
- *  If the target gets an 'S' or 's' from user's input, the core fall in sleep
- *  by __WFI. Tuning the potentiometer to enable the ADC input fall into the
- *  comparison window and then generate a trigger event. The comparison event
- *  will wake the system up.
+ * - Lower than the low threshold.
+ * - Higher than the high threshold.
+ * - In the comparison window.
+ * - Out of the comparison window.
  *
- *  \section Usage
+ * If the target gets an 'S' or 's' from user's input, the core falls into 
+ * sleep mode thanks to the __WFI. Turning the potentiometer to enable the ADC input fall into the
+ * comparison window will trigger an event. This comparison event
+ * will wake the system up.
  *
- *  -# Build the program and download it into the evaluation board. Please
- *     refer to the
- *     <a href="http://www.atmel.com/dyn/resources/prod_documents/6421B.pdf">
- *     SAM-BA User Guide</a>, the
- *     <a href="http://www.atmel.com/dyn/resources/prod_documents/doc6310.pdf">
- *     GNU-Based Software Development</a>
- *     application note or the
- *     <a href="http://www.iar.com/website1/1.0.1.0/78/1/">
- *     IAR EWARM User and reference guides</a>,
- *     depending on the solutions that users choose.
- *  -# On the computer, open and configure a terminal application
- *     (e.g., HyperTerminal on Microsoft Windows) with these settings:
- *    - 115200 bauds
- *    - 8 bits of data
- *    - No parity
- *    - 1 stop bit
- *    - No flow control
- *  -# In the terminal window, the
- *     following text should appear (values depend on the board and the chip used):
- *     \code
- *      -- ADC12 Threshold Wakeup Example xxx --
- *      -- xxxxxx-xx
- *      -- Compiled: xxx xx xxxx xx:xx:xx --
- *      -- Menu Choices for this example--
- *      -- 0: Display voltage on potentiometer.--
- *      -- 1: Display thresholds.--
- *      -- 2: Modify low threshold.--
- *      -- 3: Modify high threshold.--
- *      -- 4: Choose comparison mode.--
- *      -- i: Display ADC information.--
- *      -- m: Display this main menu.--
- *      -- c: Set Auto Calibration Mode. --
- *      -- s: Enter sleep mode.--
- *     \endcode
- *  -# Input the command according to the menu.
+ * \section Usage
+ *
+ * -# Build the program and download it into the evaluation board. Please
+ *    refer to the
+ *    <a href="http://www.atmel.com/dyn/resources/prod_documents/6421B.pdf">
+ *    SAM-BA User Guide</a>, the
+ *    <a href="http://www.atmel.com/dyn/resources/prod_documents/doc6310.pdf">
+ *    GNU-Based Software Development</a>
+ *    application note or the
+ *    <a href="http://www.iar.com/website1/1.0.1.0/78/1/">
+ *    IAR EWARM User and reference guides</a>,
+ *    depending on the solutions that users choose.
+ * -# On the computer, open and configure a terminal application
+ *    (e.g., HyperTerminal on Microsoft Windows) with these settings:
+ *   - 115200 bauds
+ *   - 8 bits of data
+ *   - No parity
+ *   - 1 stop bit
+ *   - No flow control
+ * -# In the terminal window, the
+ *    following text should appear (values depend on the board and the chip used):
+ *    \code
+ *     -- ADC Threshold Wakeup Example xxx --
+ *     -- xxxxxx-xx
+ *     -- Compiled: xxx xx xxxx xx:xx:xx --
+ *     -- Menu Choices for this example--
+ *     -- 0: Display voltage on potentiometer.--
+ *     -- 1: Display thresholds.--
+ *     -- 2: Modify low threshold.--
+ *     -- 3: Modify high threshold.--
+ *     -- 4: Choose comparison mode.--
+ *     -- i: Display ADC information.--
+ *     -- m: Display this main menu.--
+ *     -- c: Set Auto Calibration Mode. --
+ *     -- s: Enter sleep mode.--
+ *    \endcode
+ * -# Input the command according to the menu.
  *
  */
 
@@ -148,10 +150,10 @@
 #endif
 
 #define STRING_EOL    "\r"
-#define STRING_HEADER "-- ADC12 Threshold Wakeup Example --\r\n" \
+#define STRING_HEADER "-- ADC Threshold Wakeup Example --\r\n" \
 		"-- "BOARD_NAME" --\r\n" \
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
-#define MENU_HEADER "-- Menu Choices for this example--\n\r" \
+#define MENU_HEADER "\n\r-- Menu Choices for this example--\n\r" \
 		"-- 0: Display voltage on potentiometer.--\n\r" \
 		"-- 1: Display thresholds.--\n\r" \
 		"-- 2: Modify low threshold.--\n\r" \
@@ -161,9 +163,9 @@
 		"-- m: Display this main menu.--\n\r" \
 		"-- s: Enter sleep mode.--\n\r"
 
-/** Low threshold*/
+/** Low threshold */
 static uint16_t gs_us_low_threshold = 0;
-/** High threshold*/
+/** High threshold */
 static uint16_t gs_us_high_threshold = 0;
 
 void ADC_Handler(void)
@@ -174,7 +176,7 @@ void ADC_Handler(void)
 	/* Disable Compare Interrupt. */
 	adc_disable_interrupt(ADC, ADC_IDR_COMPE);
 
-	if ((adc_get_status(ADC).isr_status & ADC_ISR_COMPE) == ADC_ISR_COMPE) {
+	if ((adc_get_status(ADC) & ADC_ISR_COMPE) == ADC_ISR_COMPE) {
 		ul_mode = adc_get_comparison_mode(ADC);
 		us_adc = adc_get_channel_value(ADC, ADC_CHANNEL_POTENTIOMETER);
 
@@ -193,13 +195,13 @@ void ADC_Handler(void)
 
 		case 2:
 			printf("-ISR-:Potentiometer voltage %d mv is in the comparison " 
-				"window:%d mv-%d mv!\n\r", us_adc * VOLT_REF / MAX_DIGITAL, 
+				"window:%d-%d mv!\n\r", us_adc * VOLT_REF / MAX_DIGITAL, 
 				gs_us_low_threshold * VOLT_REF / MAX_DIGITAL, gs_us_high_threshold * VOLT_REF / MAX_DIGITAL);
 			break;
 
 		case 3:
 			printf("-ISR-:Potentiometer voltage %d mv is out of the comparison" 
-				" window:%d mv-%d mv!\n\r", us_adc * VOLT_REF / MAX_DIGITAL, 
+				" window:%d-%d mv!\n\r", us_adc * VOLT_REF / MAX_DIGITAL, 
 				gs_us_low_threshold * VOLT_REF / MAX_DIGITAL, gs_us_high_threshold * VOLT_REF / MAX_DIGITAL);
 			break;
 		}
@@ -207,32 +209,34 @@ void ADC_Handler(void)
 }
 
 /**
- *  \brief TC0 configuration.
- *
- * Configure Timer Counter 0 (TC0) to generate an interrupt every second. This
- * interrupt will be used to display the number of bytes received on the USART.
+ * \brief Configure Timer Counter 0 (TC0) to generate an interrupt every 
+ * second. This interrupt will be used to display the number of bytes 
+ * received on the UART.
  */
 static void configure_tc0(void)
 {
 	/* Enable TC0 peripheral clock. */
 	pmc_enable_periph_clk(ID_TC0);
+	
 	/* Configure TC for a 1s (= 1Hz) tick. */
 	tc_init(TC0, 0, 0x4 | TC_CMR_ACPC_SET | TC_CMR_WAVE
 			| TC_CMR_ACPA_CLEAR | (0x2 << 13));
+			
 	/* 50% duty, 1s frequency */
 	TC0->TC_CHANNEL[0].TC_RA = 16384;
 	TC0->TC_CHANNEL[0].TC_RC = 32768;
-
 }
 
-/** Display main menu. */
+/**
+ * \brief Display main menu.
+ */
 static void display_menu(void)
 {
 	puts(MENU_HEADER);
 }
 
-/** Display current information,including
- * voltage on potentiometer, thresholds and comparison mode.
+/** 
+ * \brief Display ADC information.
  */
 static void display_info(void)
 {
@@ -243,17 +247,19 @@ static void display_info(void)
 			gs_us_high_threshold * VOLT_REF / MAX_DIGITAL);
 	printf("-I- Voltage on potentiometer: %u mv.\n\r",
 			(unsigned int)(ul_adc_value * VOLT_REF / MAX_DIGITAL));
-	printf("-I- Comparison mode is %u\n\r.",
+	printf("-I- Comparison mode is %u.\n\r",
 			(unsigned int)(ADC->ADC_EMR & ADC_EMR_CMPMODE_Msk));
 }
 
-/** Fall asleep by __WFI.
- * Enable interrupt first, and disable it after wake up.
+/** 
+ * \brief Enter sleep mode using WFI instruction.
+ * Enable interrupt first and then disable it after wake up.
  */
 static void enter_asleep(void)
 {
 	while (1) {
-		puts("The device is going to fall in sleep!\r");
+		puts("Now switching the device into sleep mode...\r");
+
 		/* Clear status register. */
 		adc_get_status(ADC);
 
@@ -305,12 +311,12 @@ static uint8_t get_comparison_mode(void)
 }
 
 /**
- * \brief Get voltage from user input (the range
- * is 0~3300 (mv)).
+ * \brief Get voltage from user input (range from 0 to 3300 mv).
  */
 static int16_t get_voltage(void)
 {
-	uint8_t c_counter = 0, c_char;
+	uint8_t c_counter = 0;
+	uint8_t c_char = 0;
 	int16_t s_value = 0;
 	int8_t c_length = 0;
 	int8_t c_str_temp[5] = { 0 };
@@ -398,14 +404,12 @@ static void configure_console(void)
 }
 
 /**
- *  \brief adc12_threshold_wakeup Application entry point.
+ * \brief Example entry point.
  *
- *  Initialize adc to 12-bit, enable channel 5
- *  , hardware trigger with TIOA0 every second
- *  and start conversion.
+ * Initialize ADC to 12-bit, enable channel "ADC_CHANNEL_POTENTIOMETER", then 
+ * enable hardware trigger with TIOA0 every second. Finally, start conversion.
  *
- *  \return Unused (ANSI-C compatibility).
- *  \callgraph
+ * \return Unused (ANSI-C compatibility).
  */
 int main(void)
 {
@@ -413,11 +417,12 @@ int main(void)
 	int16_t s_adc_value;
 	int16_t s_threshold = 0;
 
-	/* Initialize the SAM3 system. */
+	/* Initilize the system. */
 	sysclk_init();
-	/* Disable watchdog. */
-	WDT->WDT_MR = WDT_MR_WDDIS;
+	board_init();
+
 	configure_console();
+	
 	/* Output example information. */
 	puts(STRING_HEADER);
 
@@ -443,34 +448,32 @@ int main(void)
 
 	/* Hardware trigger TIOA0. */
 	adc_configure_trigger(ADC, ADC_TRIG_TIO_CH_0, 0);
-	/*Enable channels for x,y and z. */
+	/* Enable channels for x,y and z. */
 	adc_enable_channel(ADC, ADC_CHANNEL_POTENTIOMETER);
 
 	/* Configure TC. */
 	configure_tc0();
 
-	/*Channel 5 has to be compared. */
+	/* Channel 5 has to be compared. */
 	adc_set_comparison_channel(ADC, ADC_CHANNEL_POTENTIOMETER);
-	/*Compare mode, in the window */
+	/* Compare mode, in the window. */
 	adc_set_comparison_mode(ADC, ADC_EMR_CMPMODE_IN);
 
 	/* Set up Threshold. */
 	adc_set_comparison_window(ADC, gs_us_high_threshold, gs_us_low_threshold);
 
-	/* Enable adc interrupt. */
+	/* Enable ADC interrupt. */
 	NVIC_EnableIRQ(ADC_IRQn);
-
-	/* Disable Compare Interrupt. */
-	adc_disable_interrupt(ADC, ADC_IDR_COMPE);
 
 	/* Start TC0 and hardware trigger. */
 	tc_start(TC0, 0);
 
-	/*Display main menu. */
+	/* Display main menu. */
 	display_menu();
 
 	while (1) {
-		while (uart_read(CONSOLE_UART, &c_choice));
+		while (uart_read(CONSOLE_UART, &c_choice)) {
+		}
 		printf("%c\r\n", c_choice);
 
 		switch (c_choice) {
@@ -499,10 +502,10 @@ int main(void)
 						gs_us_high_threshold);
 				/* Renew low threshold. */
 				gs_us_low_threshold = s_adc_value;
-				printf("Low threshold is set to 0x%x(%d%%)\n\r",
+				printf("Setting low threshold to %d mv (reg value to 0x%x ~%d%%)\n\r",
+						gs_us_low_threshold * VOLT_REF / MAX_DIGITAL,
 						gs_us_low_threshold,
-						gs_us_low_threshold * 100 /
-						MAX_DIGITAL);
+						gs_us_low_threshold * 100 / MAX_DIGITAL);
 			}
 			break;
 
@@ -519,8 +522,10 @@ int main(void)
 
 				/* Renew high threshold. */
 				gs_us_high_threshold = s_adc_value;
-				printf("High threshold is set to 0x%x(%d%%)\n\r", gs_us_high_threshold, 
-				gs_us_high_threshold * 100 / MAX_DIGITAL);
+				printf("Setting high threshold to %d mv (reg value to 0x%x ~%d%%)\n\r",
+						gs_us_high_threshold * VOLT_REF / MAX_DIGITAL, 
+						gs_us_high_threshold, 
+						gs_us_high_threshold * 100 / MAX_DIGITAL);
 			}
 			break;
 		case '4':
@@ -549,6 +554,6 @@ int main(void)
 			enter_asleep();
 			break;
 		}
-		puts("Press \'m\' or \'M\' to display the main menu again!!\r");
+		puts("Press \'m\' or \'M\' to display the main menu again!\r");
 	}
 }

@@ -3,7 +3,7 @@
  *
  * \brief ADCIFB channel configuration
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -48,4 +48,3 @@
 #define EXAMPLE_ADCIFB_CHANNEL_MASK AT32UC3L_EK_VBAT_ADC_CHANNEL
 #define EXAMPLE_ADCIFB_CHANNEL_NAME "VBAT"
 //! @}
-

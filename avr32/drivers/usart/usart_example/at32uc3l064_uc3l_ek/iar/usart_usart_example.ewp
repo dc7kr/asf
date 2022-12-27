@@ -1741,12 +1741,6 @@
 				</file>
 			</group>
 			<group>
-				<name>flashcdw</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../flashcdw/flashcdw.c</name>
-				</file>
-			</group>
-			<group>
 				<name>pm</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../pm/pm_uc3l.c</name>
@@ -1768,9 +1762,24 @@
 				</file>
 			</group>
 			<group>
+				<name>flashcdw</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../flashcdw/flashcdw.c</name>
+				</file>
+			</group>
+			<group>
 				<name>scif</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../scif/scif_uc3l.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>uc3l_ek</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/uc3l_ek/led.c</name>
 				</file>
 			</group>
 		</group>

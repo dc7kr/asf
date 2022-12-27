@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief This example uses the mXT143E Xplained kit as a touch pad
+ * \brief Trackpad demo for mXT143E Xplained
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *
@@ -44,29 +44,42 @@
  *
  * \section intro Introduction
  * This example will create a HID class USB mouse on the host computer and
- * emulate a trackpad.
+ * emulate a trackpad on the mXT143E Xplained.
  *
  * \section files Main files:
- * - example_hid.c: maXTouch component HID example file
- * - conf_mxt.h: configuration of the maXTouch component
- * - conf_board.h: configuration of board
- * - conf_clock.h: configuration of system clock
- * - conf_example.h: configuration of example
- * - conf_sleepmgr.h: configuration of sleep manager
- * - conf_twim.h: configuration of TWI driver
- * - conf_usb.h: configuration of USART driver
+ * - example_hid.c: main example implementation
+ * - example_hid.h: function prototypes for the USB stack
+ * - ui.c: user interface implementation
+ * - ui.h: user interface function prototypes
+ * - conf_example.h: example configuration
+ * - conf_board.h: board configuration
+ * - conf_clock.h: system clock driver configuration
+ * - conf_ili9341.h: display driver configuration
+ * - conf_mxt.h: maXTouch driver configuration
+ * - conf_sleepmgr.h: sleep manager configuration
+ * - conf_sysfont.h: system font configuration
+ * - conf_twim.h: TWI driver configuration
+ * - conf_usb.h: USB stack configuration
+ * - UC3 only: conf_spi_master.h: SPI master service configuration
+ * - XMEGA only: conf_usart_spi.h: USART SPI service configuration
  *
  * \section apiinfo maXTouch lowlevel component API
- * The maXTouch component API can be found \ref mxt_group "here".
+ * The maXTouch component API can be found \ref mxt_group "here", while the
+ * graphics service API can be found \ref gfx_group "here".
  *
  * \section deviceinfo Device Info
- * All UC3 and XMEGA devices with a TWI module can be used with this component
+ * This example has been tested with the mXT143E Xplained on the following kits:
+ * - UC3-A3 Xplained
+ * - XMEGA-A3BU Xplained
  *
  * \section exampledescription Description of the example
- * When the XMEGA-A3BU Xplained kit is connected to a host computer supporting
- * USB HID class it will create a mouse device. The surface of the maXTouch kit
- * will function as a trackpad. First finger on the trackpad will move the pointer
- * and the second finger will emulate left clicks on a mouse.
+ * When the Xplained board is connected to a host computer supporting the USB
+ * HID class, it will create a mouse device. The mXT143E Xplained's display will
+ * then function as a trackpad, with visualization of the touch's trail.
+ *
+ * The first finger on the trackpad will move the cursor and the second finger
+ * will emulate a left or right click, depending on whether the second finger
+ * touches on the left or right side of the first finger.
  *
  * \section compinfo Compilation Info
  * This software was written for the GNU GCC and IAR for AVR.
@@ -78,16 +91,17 @@
  */
 
 #include <asf.h>
+#include <conf_example.h>
 #include "ui.h"
-#include "conf_example.h"
 
-uint8_t new_touch_event = 0;
+
+//! Flag to indicate if HID is currently enabled
 static bool main_b_mouse_enable = false;
 
 /**
- * \brief Setting predefined maXTouch configuration
+ * \brief Set the predefined, optimal maXTouch configuration
  *
- * \ param *device Pointer to mxt_device struct
+ * \param *device Pointer to mxt_device struct
  */
 static void mxt_set_config(struct mxt_device *device)
 {
@@ -136,6 +150,19 @@ static void mxt_set_config(struct mxt_device *device)
 			MXT_PROCG_TOUCHSUPPRESSION_T48, 0), &t48_object);
 }
 
+/**
+ * \brief Main application function
+ *
+ * This function ensures that the hardware and drivers are initialized before
+ * entering an infinite work loop.
+ *
+ * In the work loop, the maXTouch device is polled for new touch events and any
+ * new event is passed on to the user interface implementation for processing.
+ * The loop then attempts to enter sleep.
+ *
+ * The user interface processing itself is not started by the work loop, but by
+ * the USB callback function for start of frame.
+ */
 int main(void)
 {
 #ifdef USB_DEVICE_LOW_SPEED
@@ -204,6 +231,22 @@ int main(void)
 			MXT_GEN_COMMANDPROCESSOR_T6, 0) +
 			MXT_GEN_COMMANDPROCESSOR_CALIBRATE, 0x1);
 
+	/* Initialize the graphical library */
+	gfx_init();
+	/* Set correct landscape orientation */
+	gfx_set_orientation(GFX_SWITCH_XY | GFX_FLIP_Y);
+	/* Set background color */
+	gfx_draw_filled_rect(0, 0, gfx_get_width(), gfx_get_height(),
+			COLOR_BACKGROUND);
+	/* Draw the help text */
+	gfx_draw_string("Middle finger to move cursor", 80, 105,
+			&sysfont, GFX_COLOR_TRANSPARENT, COLOR_RED);
+	gfx_draw_string("Index finger to left click", 80, 115,
+			&sysfont, GFX_COLOR_TRANSPARENT, COLOR_BLUE);
+	gfx_draw_string("Ring finger to right click", 80, 125,
+			&sysfont, GFX_COLOR_TRANSPARENT, COLOR_GREEN);
+
+	/* Initialize the user interface */
 	ui_init();
 	ui_powerdown();
 
@@ -216,18 +259,18 @@ int main(void)
 		main_vbus_action(true);
 	}
 
-	/* The main loop manages only the power mode
-	 * because the USB management is done by interrupt */
+	/* Check if there are any new touch data pending */
 	while (true) {
 		if (mxt_is_message_pending(&device)) {
-			if (mxt_read_touch_event(&device, &touch_event) == STATUS_OK) {
-				new_touch_event = 1;
+			if (mxt_read_touch_event(&device, &ui_touch_event) == STATUS_OK) {
+				ui_flag_new_touch_event();
 			}
 		}
 
+		/* Try to sleep */
 		sleepmgr_enter_sleep();
 
-#ifdef   USB_DEVICE_LOW_SPEED
+#ifdef USB_DEVICE_LOW_SPEED
 		/* No USB "Keep alive" interrupt available in low speed
 		 * to scan mouse interface then use main loop */
 		if (main_b_mouse_enable) {
@@ -242,6 +285,16 @@ int main(void)
 	}
 }
 
+/**
+ * \name Callback functions for the USB stack
+ * @{
+ */
+
+/**
+ * \brief Handle Vbus state change
+ *
+ * Called by USB stack when Vbus line changes state.
+ */
 void main_vbus_action(bool b_high)
 {
 	if (b_high) {
@@ -253,16 +306,33 @@ void main_vbus_action(bool b_high)
 	}
 }
 
+/**
+ * \brief Handle suspend of bus
+ *
+ * Called by USB stack when host suspends the bus.
+ */
 void main_suspend_action(void)
 {
 	ui_powerdown();
 }
 
+/**
+ * \brief Handle resume of bus
+ *
+ * Called by USB stack when the bus resumes from suspend.
+ */
 void main_resume_action(void)
 {
 	ui_wakeup();
 }
 
+/**
+ * \brief Handle start of frame
+ *
+ * Called by USB stack when a start of frame is received, i.e., every
+ * millisecond during normal operation. This function triggers processing
+ * of the user interface if the HID interface has been enabled.
+ */
 void main_sof_action(void)
 {
 	if (!main_b_mouse_enable) {
@@ -271,23 +341,49 @@ void main_sof_action(void)
 	ui_process(udd_get_frame_number());
 }
 
+/**
+ * \brief Handle enabling of remote wake-up
+ *
+ * This is called by the USB stack when the host requests remote wake-up to be
+ * enabled, and will request the user interface to enable wake-up.
+ */
 void main_remotewakeup_enable(void)
 {
 	ui_wakeup_enable();
 }
 
+/**
+ * \brief Handle disabling of remote wake-up
+ *
+ * This is called by the USB stack when the host requests remote wake-up to be
+ * disabled, and will request the user interface to disable wake-up.
+ */
 void main_remotewakeup_disable(void)
 {
 	ui_wakeup_disable();
 }
 
+/**
+ * \brief Handle HID interface enable
+ *
+ * Called by the USB stack when the host enables the mouse interface.
+ *
+ * \retval true Signal that mouse started up OK
+ */
 bool main_mouse_enable(void)
 {
 	main_b_mouse_enable = true;
 	return true;
 }
 
+/**
+ * \brief Handle HID interface disable
+ *
+ * Called by the USB stack when the host disables the mouse interface.
+ */
 void main_mouse_disable(void)
 {
 	main_b_mouse_enable = false;
 }
+
+/** @} */

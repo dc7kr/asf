@@ -3,7 +3,7 @@
  *
  * \brief SENSORS_XPLAINED_BOARD extension board adaptation.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,14 +39,12 @@
  *
  */
 
-
 #include    "sensors_xplained.h"
 #include    <sysclk.h>
 
 #if UC3
 #   include <eic.h>
 #endif
-
 
 #if UC3
 #   define PIN_OUTPUT_FLAGS         (GPIO_DIR_OUTPUT | GPIO_INIT_HIGH)
@@ -55,7 +53,6 @@
 #   define PIN_OUTPUT_FLAGS         (IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH)
 #   define PIN_INPUT_FLAGS          (IOPORT_DIR_INPUT)
 #endif
-
 
 #if defined(__AVR32__) || defined(__ICCAVR32__)
 #  if !defined(AVR32_GPIO_IRQ_GROUP)
@@ -81,16 +78,16 @@
 #  else
 #    define EIC_INT_LVL             0
 #  endif
-#endif //(__AVR32__) || (__ICCAVR32__)
+#endif /* (__AVR32__) || (__ICCAVR32__) */
 
-
-// Don't include interrupt definitions without a valid board configuration.
+/* Don't include interrupt definitions without a valid board configuration. */
 
 #if defined(SENSORS_XPLAINED_BOARD) && defined(COMMON_SENSOR_PLATFORM)
 
-
-//! \internal Sensor Board GPIO interrupt handler callback pointers
-// @{
+/*! \internal
+ * \name Sensor Board GPIO interrupt handler callback pointers
+ * @{
+ */
 static SENSOR_IRQ_HANDLER sensor_pin3_handler;
 static volatile void *sensor_pin3_arg;
 
@@ -99,9 +96,10 @@ static volatile void *sensor_pin4_arg;
 
 static SENSOR_IRQ_HANDLER sensor_pin5_handler;
 static volatile void *sensor_pin5_arg;
-// @}
+/*! @} */
 
 #if UC3
+
 /*! \internal Sensor Board GPIO interrupt handler
  *
  * This is the default ISR for the Xplained Sensor board GPIO pins.  If
@@ -113,26 +111,22 @@ static volatile void *sensor_pin5_arg;
 ISR(gpio_irq_handler, AVR32_GPIO_IRQ_GROUP, GPIO_INT_LVL)
 {
 	if (gpio_get_pin_interrupt_flag(SENSOR_BOARD_PIN3)) {
-
-		(sensor_pin3_handler)(sensor_pin3_arg);
+		sensor_pin3_handler(sensor_pin3_arg);
 
 		gpio_clear_pin_interrupt_flag(SENSOR_BOARD_PIN3);
-		}
-	else if (gpio_get_pin_interrupt_flag(SENSOR_BOARD_PIN4)) {
-
-		(sensor_pin4_handler)(sensor_pin4_arg);
+	} else if (gpio_get_pin_interrupt_flag(SENSOR_BOARD_PIN4)) {
+		sensor_pin4_handler(sensor_pin4_arg);
 
 		gpio_clear_pin_interrupt_flag(SENSOR_BOARD_PIN4);
-		}
-	else if (gpio_get_pin_interrupt_flag(SENSOR_BOARD_PIN5)) {
-
-		(sensor_pin5_handler)(sensor_pin5_arg);
+	} else if (gpio_get_pin_interrupt_flag(SENSOR_BOARD_PIN5)) {
+		sensor_pin5_handler(sensor_pin5_arg);
 
 		gpio_clear_pin_interrupt_flag(SENSOR_BOARD_PIN5);
-		}
+	}
 }
 
 #elif XMEGA
+
 /*! \internal Sensor Board GPIO interrupt handler
  *
  * This is the default ISR for the Xplained Sensor board GPIO pins.  The
@@ -143,31 +137,28 @@ ISR(gpio_irq_handler, AVR32_GPIO_IRQ_GROUP, GPIO_INT_LVL)
  */
 ISR(SENSOR_BOARD_PORT_vect)
 {
-	PORT_t * const port = &(SENSOR_BOARD_PORT);
+	PORT_t *const port = &(SENSOR_BOARD_PORT);
 
-	// Call the interrupt handler, if any, then clear the interrupt flag.
+	/* Call the interrupt handler, if any, then clear the interrupt flag. */
 
 	if (sensor_pin3_handler && (port->IN & PIN2_bm)) {
-		// Note: header pin 3 = io port pin 2
-		(sensor_pin3_handler)(sensor_pin3_arg);
+		/* Note: header pin 3 = io port pin 2 */
+		sensor_pin3_handler(sensor_pin3_arg);
 		port->INTFLAGS = PIN2_bm;
-		}
-
-	else if (sensor_pin4_handler && (port->IN & PIN3_bm)) {
-		// Note: header pin 4 = io port pin 3
-		(sensor_pin4_handler)(sensor_pin4_arg);
+	} else if (sensor_pin4_handler && (port->IN & PIN3_bm)) {
+		/* Note: header pin 4 = io port pin 3 */
+		sensor_pin4_handler(sensor_pin4_arg);
 		port->INTFLAGS = PIN3_bm;
-		}
-
-	else if (sensor_pin5_handler && (port->IN & PIN4_bm)) {
-		// Note: header pin 5 = io port pin 4
-		(sensor_pin5_handler)(sensor_pin5_arg);
+	} else if (sensor_pin5_handler && (port->IN & PIN4_bm)) {
+		/* Note: header pin 5 = io port pin 4 */
+		sensor_pin5_handler(sensor_pin5_arg);
 		port->INTFLAGS = PIN4_bm;
-		}
+	}
 }
 #endif
 
 #if defined(SENSOR_PIN3_EIC_LINE)
+
 /*! \internal Sensor Board external interrupt handler - PIN3
  *
  * This is the ISR for the Xplained Sensor board GPIO PIN3 for configurations
@@ -177,13 +168,14 @@ ISR(SENSOR_BOARD_PORT_vect)
  */
 ISR(eic_pin3_handler, AVR32_EIC_IRQ_GROUP, EIC_INT_LVL)
 {
-	(sensor_pin3_handler)(sensor_pin3_arg);     // call handler in driver
+	sensor_pin3_handler(sensor_pin3_arg);     /* call handler in driver */
 
 	eic_clear_interrupt_line(&AVR32_EIC, SENSOR_PIN3_EIC_LINE);
 }
 #endif
 
 #if defined(SENSOR_PIN4_EIC_LINE)
+
 /*! \internal Sensor Board external interrupt handler - PIN4
  *
  * This is the ISR for the Xplained Sensor board GPIO PIN4 for configurations
@@ -193,13 +185,14 @@ ISR(eic_pin3_handler, AVR32_EIC_IRQ_GROUP, EIC_INT_LVL)
  */
 ISR(eic_pin4_handler, AVR32_EIC_IRQ_GROUP, EIC_INT_LVL)
 {
-	(sensor_pin4_handler)(sensor_pin4_arg);     // call handler in driver
+	sensor_pin4_handler(sensor_pin4_arg);     /* call handler in driver */
 
 	eic_clear_interrupt_line(&AVR32_EIC, SENSOR_PIN4_EIC_LINE);
 }
 #endif
 
 #if defined(SENSOR_PIN5_EIC_LINE)
+
 /*! \internal Sensor Board external interrupt handler - PIN5
  *
  * This is the ISR for the Xplained Sensor board GPIO PIN5 for configurations
@@ -209,13 +202,14 @@ ISR(eic_pin4_handler, AVR32_EIC_IRQ_GROUP, EIC_INT_LVL)
  */
 ISR(eic_pin5_handler, AVR32_EIC_IRQ_GROUP, EIC_INT_LVL)
 {
-	(sensor_pin5_handler)(sensor_pin5_arg);     // call handler in driver
+	sensor_pin5_handler(sensor_pin5_arg);     /* call handler in driver */
 
 	eic_clear_interrupt_line(&AVR32_EIC, SENSOR_PIN5_EIC_LINE);
 }
 #endif
 
 #if UC3
+
 /*! \internal Enable a general purpose I/O pin interrupt.
  *
  * This routine enables interrupts on a specified general purpose I/O pin.
@@ -228,9 +222,11 @@ static void gpio_irq_connect(uint32_t gpio_pin, uint32_t gpio_irq)
 	irq_register_handler(gpio_irq_handler, gpio_irq, GPIO_INT_LVL);
 	gpio_enable_pin_interrupt(gpio_pin, GPIO_RISING_EDGE);
 }
+
 #endif
 
 #if defined(SYSCLK_EIC)
+
 /*! \brief Enable an EIC interrupt line.
  *
  * This routine maps a GPIO pin and peripheral function to a specified EIC line.
@@ -262,6 +258,7 @@ static void eic_irq_connect(uint32_t eic_line, uint32_t eic_pin,
 	eic_enable_line(&AVR32_EIC, eic_line);
 	eic_enable_interrupt_line(&AVR32_EIC, eic_line);
 }
+
 #endif
 
 /*! \brief Install a sensor interrupt handler
@@ -289,93 +286,92 @@ bool sensor_board_irq_connect(uint32_t gpio_pin,
 		SENSOR_IRQ_HANDLER handler, void *arg)
 {
 	bool status = false;
+	
 #if XMEGA
-	PORT_t	*port;		// pointer to port struct
-#endif
+	PORT_t *sensor_port;
+#endif	
 
+	/* Ensure that the caller has specified a function address. */
 
-	// Ensure that the caller has specified a function address.
+	if (handler == NULL) {
+		return status;
+	}
 
-	if (handler == NULL) { return status; }
-
-	// Save the interrupt flag state and disable MCU interrupts.
+	/* Save the interrupt flag state and disable MCU interrupts. */
 
 	irqflags_t const irq_flags = cpu_irq_save();
 
 	cpu_irq_disable();
 
-	// Initialize an interrupt for a specified I/O pin.
+	/* Initialize an interrupt for a specified I/O pin. */
 
 	if (SENSOR_BOARD_PIN3 == gpio_pin) {
-
 		sensor_pin3_handler = handler;
 		sensor_pin3_arg     = arg;
 
 #if UC3
 #  if defined(SENSOR_PIN3_EIC_LINE)
 		eic_irq_connect(SENSOR_PIN3_EIC_LINE, SENSOR_PIN3_EIC_PIN,
-				SENSOR_PIN3_EIC_FUNC, SENSOR_PIN3_EIC_IRQ, eic_pin3_handler);
+				SENSOR_PIN3_EIC_FUNC, SENSOR_PIN3_EIC_IRQ,
+				eic_pin3_handler);
 #  else
 		gpio_irq_connect(gpio_pin, SENSOR_PIN3_IRQ);
 #  endif
 #elif XMEGA
-		port = ioport_pin_to_port(SENSOR_BOARD_PIN3);
-		port->INTCTRL = PORT_INT0LVL_LO_gc;  // use int 0, low level
-		port->INT0MASK |= ioport_pin_to_mask(SENSOR_BOARD_PIN3);
-		port->PIN3CTRL = IOPORT_RISING;
+		sensor_port = ioport_pin_to_port(SENSOR_BOARD_PIN3);
+		sensor_port->INTCTRL   = PORT_INT0LVL_LO_gc;
+		sensor_port->INT0MASK |= ioport_pin_to_mask(SENSOR_BOARD_PIN3);
+		ioport_set_pin_sense_mode(SENSOR_BOARD_PIN3, IOPORT_SENSE_RISING);
 #endif
 		status = true;
-
 	} else if (SENSOR_BOARD_PIN4 == gpio_pin) {
-
 		sensor_pin4_handler = handler;
 		sensor_pin4_arg     = arg;
 
 #if UC3
 #  if defined(SENSOR_PIN4_EIC_LINE)
 		eic_irq_connect(SENSOR_PIN4_EIC_LINE, SENSOR_PIN4_EIC_PIN,
-				SENSOR_PIN4_EIC_FUNC, SENSOR_PIN4_EIC_IRQ, eic_pin4_handler);
+				SENSOR_PIN4_EIC_FUNC, SENSOR_PIN4_EIC_IRQ,
+				eic_pin4_handler);
 #  else
 		gpio_irq_connect(gpio_pin, SENSOR_PIN4_IRQ);
 #  endif
 #elif XMEGA
-		port = ioport_pin_to_port(SENSOR_BOARD_PIN4);
-		port->INTCTRL = PORT_INT0LVL_LO_gc;  // use int 0, low level
-		port->INT0MASK |= ioport_pin_to_mask(SENSOR_BOARD_PIN4);
-		port->PIN4CTRL = IOPORT_RISING;
+		sensor_port = ioport_pin_to_port(SENSOR_BOARD_PIN4);
+		sensor_port->INTCTRL   = PORT_INT0LVL_LO_gc;
+		sensor_port->INT0MASK |= ioport_pin_to_mask(SENSOR_BOARD_PIN4);
+		ioport_set_pin_sense_mode(SENSOR_BOARD_PIN4, IOPORT_SENSE_RISING);
 #endif
 		status = true;
-
 	} else if (SENSOR_BOARD_PIN5 == gpio_pin) {
-
 		sensor_pin5_handler = handler;
 		sensor_pin5_arg     = arg;
 
 #if UC3
 #  if defined(SENSOR_PIN5_EIC_LINE)
 		eic_irq_connect(SENSOR_PIN5_EIC_LINE, SENSOR_PIN5_EIC_PIN,
-				SENSOR_PIN5_EIC_FUNC, SENSOR_PIN5_EIC_IRQ, eic_pin5_handler);
+				SENSOR_PIN5_EIC_FUNC, SENSOR_PIN5_EIC_IRQ,
+				eic_pin5_handler);
 #  else
 		gpio_irq_connect(gpio_pin, SENSOR_PIN5_IRQ);
 #  endif
 #elif XMEGA
-		port = ioport_pin_to_port(SENSOR_BOARD_PIN5);
-		port->INTCTRL = PORT_INT0LVL_LO_gc;  // use int 0, low level
-		port->INT0MASK |= ioport_pin_to_mask(SENSOR_BOARD_PIN5);
-		port->PIN5CTRL = IOPORT_RISING;
+		sensor_port = ioport_pin_to_port(SENSOR_BOARD_PIN5);
+		sensor_port->INTCTRL   = PORT_INT0LVL_LO_gc;
+		sensor_port->INT0MASK |= ioport_pin_to_mask(SENSOR_BOARD_PIN5);
+		ioport_set_pin_sense_mode(SENSOR_BOARD_PIN5, IOPORT_SENSE_RISING);
 #endif
 		status = true;
 	}
 
-	// Restore the MCU interrupt flag state.
+	/* Restore the MCU interrupt flag state. */
 
 	cpu_irq_restore(irq_flags);
 
 	return status;
 }
 
-#endif // defined(SENSORS_XPLAINED_BOARD) && defined(COMMON_SENSOR_PLATFORM)
-
+#endif /* defined(SENSORS_XPLAINED_BOARD) && defined(COMMON_SENSOR_PLATFORM) */
 
 /*! \brief Initialize sensor board target resources
  *
@@ -402,29 +398,22 @@ void sensor_board_init(void)
 	gpio_configure_pin(SENSOR_BOARD_PIN5, PIN_INPUT_FLAGS);
 
 #elif (EXT_BOARD == SENSORS_XPLAINED_PRESSURE_1)
-
 	gpio_configure_pin(SENSOR_BOARD_PIN3, PIN_OUTPUT_FLAGS);
 	gpio_configure_pin(SENSOR_BOARD_PIN4, PIN_INPUT_FLAGS);
 
 #elif (EXT_BOARD == SENSORS_XPLAINED_LIGHTPROX_1)
-
 	gpio_configure_pin(SENSOR_BOARD_PIN3, PIN_INPUT_FLAGS);
 
 #elif (EXT_BOARD == SENSORS_XPLAINED_BREADBOARD)
-
 	gpio_configure_pin(SENSOR_BOARD_PIN4, PIN_INPUT_FLAGS);
-
 #endif
 
-	// Global Interrupt Disable
-
+	/* Global Interrupt Disable */
 	cpu_irq_disable();
 
-	// Initialize interrupt vector table support.
-
+	/* Initialize interrupt vector table support. */
 	irq_initialize_vectors();
 
-	// Global Interrupt Enable
-
+	/* Global Interrupt Enable */
 	cpu_irq_enable();
 }

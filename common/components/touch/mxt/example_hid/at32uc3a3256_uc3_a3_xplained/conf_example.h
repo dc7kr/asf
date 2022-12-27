@@ -44,12 +44,22 @@
 #include <compiler.h>
 #include <board.h>
 
+/* Some color definitions */
+#define COLOR_RED   GFX_COLOR(0xFF, 0x00, 0x00)
+#define COLOR_GREEN GFX_COLOR(0x00, 0xFF, 0x00)
+#define COLOR_BLUE  GFX_COLOR(0x00, 0x00, 0xFF)
+#define COLOR_BLACK GFX_COLOR(0x00, 0x00, 0x00)
+#define COLOR_WHITE GFX_COLOR(0xFF, 0xFF, 0xFF)
+
+/* Background color */
+#define COLOR_BACKGROUND COLOR_BLACK
+
 /*! \name maXTouch configuration
  */
 /** @{ */
-#define TWI_INTERFACE                    &AVR32_TWIM0
+#define TWI_INTERFACE                    MXT143E_XPLAINED_TWI
 #define MAXTOUCH_DEVICE_ADR              0x4A
-#define MAXTOUCH_CHG_PIN                 AVR32_PIN_PX57
+#define MAXTOUCH_CHG_PIN                 MXT143E_XPLAINED_CHG
 /* @} */
 
 #endif /* CONF_EXAMPLE_H */

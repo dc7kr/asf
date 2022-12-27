@@ -82,6 +82,9 @@
 // From module: PWMA - Pulse Width Modulation A
 #include <pwma.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: QTouch Library for AVR UC3 L0
 #include <touch_api_at32uc3l.h>
 

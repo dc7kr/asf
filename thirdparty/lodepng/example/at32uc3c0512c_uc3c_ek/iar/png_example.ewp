@@ -1815,12 +1815,6 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>scif</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../avr32/drivers/scif/scif_uc3c.c</name>
-				</file>
-			</group>
-			<group>
 				<name>ebi</name>
 				<group>
 					<name>sdramc</name>
@@ -1845,6 +1839,12 @@
 				</file>
 			</group>
 			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/drivers/gpio/gpio.c</name>
+				</file>
+			</group>
+			<group>
 				<name>pm</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../avr32/drivers/pm/power_clocks_lib.c</name>
@@ -1854,21 +1854,21 @@
 				</file>
 			</group>
 			<group>
-				<name>flashc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../avr32/drivers/flashc/flashc.c</name>
-				</file>
-			</group>
-			<group>
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../avr32/drivers/usart/usart.c</name>
 				</file>
 			</group>
 			<group>
-				<name>gpio</name>
+				<name>flashc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../avr32/drivers/gpio/gpio.c</name>
+					<name>$PROJ_DIR$/../../../../../avr32/drivers/flashc/flashc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>scif</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/drivers/scif/scif_uc3c.c</name>
 				</file>
 			</group>
 		</group>
@@ -1884,6 +1884,15 @@
 				<name>startup</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../avr32/utils/startup/trampoline_uc3.s82</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>uc3c_ek</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/boards/uc3c_ek/led.c</name>
 				</file>
 			</group>
 		</group>

@@ -1779,30 +1779,6 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>clock</name>
-				<group>
-					<name>uc3c</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../clock/uc3c/sysclk.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../clock/uc3c/pll.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../clock/uc3c/osc.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>sleepmgr</name>
-				<group>
-					<name>uc3</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../sleepmgr/uc3/sleepmgr.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>usb</name>
 				<group>
 					<name>class</name>
@@ -1812,6 +1788,9 @@
 							<name>device</name>
 							<group>
 								<name>mouse</name>
+								<file>
+									<name>$PROJ_DIR$/../../../udi_hid_mouse_desc.c</name>
+								</file>
 								<group>
 									<name>example</name>
 									<group>
@@ -1827,9 +1806,6 @@
 								<file>
 									<name>$PROJ_DIR$/../../../udi_hid_mouse.c</name>
 								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../udi_hid_mouse_desc.c</name>
-								</file>
 							</group>
 							<file>
 								<name>$PROJ_DIR$/../../../../udi_hid.c</name>
@@ -1841,6 +1817,30 @@
 					<name>udc</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../udc/udc.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>sleepmgr</name>
+				<group>
+					<name>uc3</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../sleepmgr/uc3/sleepmgr.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>uc3c</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../clock/uc3c/sysclk.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../clock/uc3c/pll.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../clock/uc3c/osc.c</name>
 					</file>
 				</group>
 			</group>

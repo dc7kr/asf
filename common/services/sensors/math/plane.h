@@ -5,7 +5,7 @@
  *
  * This module implements a class modeling a plane in 3-dimensional space.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -45,24 +45,19 @@
 #ifndef _plane_h_
 #define _plane_h_
 
-
 #include "vector.h"
-
 
 namespace math {
 
-
-//! \brief 3-dimensional plane class declaration
-
+/** \brief 3-dimensional plane class declaration */
 class plane {
 
 public:
 
 	typedef math::vector3d vector;
 
-
-	//! \name class construction and destruction
-	// @{
+	/** \name Class construction and destruction */
+	/** @{ */
 	explicit plane (scalar a = 1, scalar b = 0, scalar c = 0, scalar d = 0)
 		: n (vector (a, b, c)), d (d) {}
 
@@ -76,11 +71,10 @@ public:
 		n = v1.cross (v2);
 		d = -(n.dot (p1));
 	}
-	// @}
+	/** @} */
 
-
-	//! \name class public methods
-	// @{
+	/** \name Class public methods */
+	/** @{ */
 	const vector & normal () const { return n; }
 	const scalar & shift () const  { return d; }
 
@@ -89,18 +83,14 @@ public:
 
 	const bool pointInPlane (const vector & p) const
 		{ return (0 == distanceToPlane (p)); }
-	// @}
-
+	/** @} */
 
 private:
 
-
-	vector n;     //!< a plane normal vector
-	scalar d;     //!< a plane-shift constant
+	vector n;     /**< A plane normal vector */
+	scalar d;     /**< A plane-shift constant */
 };
 
+}
 
-}  // namespace math
-
-
-#endif  // _plane_h_
+#endif

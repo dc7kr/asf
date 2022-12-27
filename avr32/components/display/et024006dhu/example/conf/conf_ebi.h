@@ -7,7 +7,7 @@
  * \note The values defined in this file are device-specific. See the device
  *       datasheet for further information.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -90,7 +90,7 @@
 #define EBI_NCS_0                   ET024006DHU_EBI_NCS
 #endif
 #elif BOARD == UC3C_EK
-#define EBI_ADDR_22		    AVR32_EBI_ADDR_22
+#define EBI_ADDR_22                 AVR32_EBI_ADDR_22
 #define EBI_NCS_0                   ET024006DHU_EBI_NCS
 #elif BOARD == EVK1104
 #define EBI_ADDR_21                 ET024006DHU_EBI_ADDR_21

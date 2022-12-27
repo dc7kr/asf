@@ -3,7 +3,7 @@
  *
  * \brief Default PHDC configuration for a USB Device with a single interface
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -43,10 +43,7 @@
 #define _UDI_PHDC_CONF_H_
 
 /**
- * \ingroup udi_phdc_group
- * \defgroup udi_phdc_group_conf Default PHDC configuration for a USB Device
- * with a single interface PHDC
- *
+ * \addtogroup udi_phdc_group_single_desc
  * @{
  */
 

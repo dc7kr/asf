@@ -46,10 +46,7 @@
 #include "conf_usb.h"
 
 /**
- * \ingroup udi_vendor_group
- * \defgroup udi_vendor_group_conf Default configuration for a USB Device
- * with a single interface based on vendor class
- *
+ * \addtogroup udi_vendor_group_single_desc
  * @{
  */
 

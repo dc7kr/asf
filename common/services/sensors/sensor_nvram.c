@@ -6,7 +6,7 @@
  * This module provides general access to the NVRAM interfaces
  * in the Atmel Software Framework.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -42,12 +42,10 @@
  *
  */
 
+#include "sensor_nvram.h"
 
-#include    "sensor_nvram.h"
-
-#include    <sysclk.h>
-#include    <string.h>
-
+#include <sysclk.h>
+#include <string.h>
 
 #if defined(AVR32_FLASHC)
 #   define SYSCLK_FLASH_REGS    (SYSCLK_FLASHC_REGS)
@@ -57,8 +55,7 @@
 #   define flash_memcpy         flashcdw_memcpy
 #endif
 
-
-/*! \brief Write a buffer to non-volatile RAM
+/** \brief Write a buffer to non-volatile RAM
  *
  * This routine writes \c count Bytes to the NVRAM destination pointed
  * to by \c dst from the source buffer pointed to by \c src.
@@ -71,29 +68,23 @@
  */
 void nvram_write(nvram_addr_t dst, const void *src, size_t count)
 {
-
-#if defined(XMEGA)
-
+#if XMEGA
 	nvm_wait_until_ready();
-	nvm_user_sig_write_buffer((flash_addr_t) (dst + SENSOR_NVM_OFFSET), src,
-		count, true);
-											// check for blank, erase if needed
-
-#elif defined(UC3)
-
-	const bool            erase_page = true;
-	volatile void * const flash_addr =
-		(volatile void *)(dst + SENSOR_NVM_BASE + SENSOR_NVM_OFFSET);
+	nvm_user_sig_write_buffer((flash_addr_t)(dst + SENSOR_NVM_OFFSET),
+			src, count, true);
+	/* check for blank, erase if needed */
+#elif UC3
+	const bool erase_page = true;
+	volatile void *const flash_addr
+		= (volatile void *)(dst + SENSOR_NVM_BASE + SENSOR_NVM_OFFSET);
 
 	sysclk_enable_pbb_module(SYSCLK_FLASH_REGS);
-	(void) flash_memcpy(flash_addr, src, count, erase_page);
+	(void)flash_memcpy(flash_addr, src, count, erase_page);
 	sysclk_disable_pbb_module(SYSCLK_FLASH_REGS);
-
 #endif
-
 }
 
-/*! \brief Read a buffer from non-volatile RAM
+/** \brief Read a buffer from non-volatile RAM
  *
  * This routine reads \c count Bytes from the NVRAM source pointed
  * to by \c src to the destination buffer pointed to by \c dst.
@@ -106,18 +97,11 @@ void nvram_write(nvram_addr_t dst, const void *src, size_t count)
  */
 void nvram_read(nvram_addr_t src, void *dst, size_t count)
 {
-	// irqflags_t const flags = cpu_irq_save();
-
-#if defined(XMEGA)
-
+#if XMEGA
 	nvm_wait_until_ready();
-	nvm_user_sig_read_buffer((flash_addr_t) (src + SENSOR_NVM_OFFSET), dst, count);
-
-#elif defined(UC3)
-
+	nvm_user_sig_read_buffer((flash_addr_t)(src + SENSOR_NVM_OFFSET), dst,
+			count);
+#elif UC3
 	memcpy(dst, (void *)(src + SENSOR_NVM_BASE + SENSOR_NVM_OFFSET), count);
-
 #endif
-
-	// cpu_irq_restore(flags);
 }

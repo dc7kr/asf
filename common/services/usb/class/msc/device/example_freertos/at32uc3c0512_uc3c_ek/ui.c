@@ -39,11 +39,7 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "udi_msc.h"
-#include "board.h"
-#include "gpio.h"
+#include <asf.h>
 #include "ui.h"
 
 void ui_init(void)
@@ -100,7 +96,7 @@ void ui_process(uint16_t framenumber)
  *
  * Human interface on UC3C_EK :
  * - Led 0 is on when USB line is in IDLE mode, and off in SUSPEND mode
- * - Led 1 blinks when USB Host have checked and enabled MSC interface
+ * - Led 1 blinks when USB host has checked and enabled MSC interface
  * - Led 2 is on during read operation
  * - Led 3 is on during write operation
  *

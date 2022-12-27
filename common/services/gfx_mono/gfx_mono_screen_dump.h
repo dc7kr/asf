@@ -3,7 +3,7 @@
  *
  * \brief Service for performing a screen dump to XPM image file
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -83,9 +83,9 @@ extern "C" {
 
 #define XPM_HEADER _XPM_HEADER(GFX_MONO_LCD_WIDTH, GFX_MONO_LCD_HEIGHT)
 
-#if defined(UC3)
+#if UC3
 typedef avr32_usart_t dump_usart_t;
-#elif defined(XMEGA)
+#elif XMEGA
 typedef USART_t dump_usart_t;
 #endif
 

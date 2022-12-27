@@ -213,14 +213,10 @@ static void run_osc32_test(const struct test_case *test)
 	bool status;
 
 	osc_enable(OSC_ID_OSC32);
-	osc32_startup_timeout = (OSC_RCSYS_NOMINAL_HZ/1000) *
-		(BOARD_OSC32_STARTUP_US/1000);
+	osc32_startup_timeout = OSC_RCSYS_NOMINAL_HZ/4;
+	// wait for 1s
 	for (wait = 0; wait < osc32_startup_timeout; wait++) {
 		//waiting the 32KHz oscillator ready
-		__asm__("nop");
-		__asm__("nop");
-		__asm__("nop");
-		__asm__("nop");
 		__asm__("nop");
 	};
 	status = osc_is_ready(OSC_ID_OSC32);

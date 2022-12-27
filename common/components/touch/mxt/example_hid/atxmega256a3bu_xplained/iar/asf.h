@@ -57,6 +57,12 @@
 // From module: Delay routines
 #include <delay.h>
 
+// From module: GFX - Graphic Library
+#include <gfx.h>
+
+// From module: GFX - System Font
+#include <sysfont.h>
+
 // From module: GPIO - General purpose Input/Output
 #include <gpio.h>
 
@@ -69,8 +75,21 @@
 // From module: Interrupt management - XMEGA implementation
 #include <interrupt.h>
 
+// From module: LCD - ILI9341 Display Controller
+#include <ili9341.h>
+
 // From module: NVM - Non Volatile Memory
 #include <nvm.h>
+
+// From module: PMIC - Programmable Multi-level Interrupt Controller
+#include <pmic.h>
+
+// From module: Part identification macros
+#include <parts.h>
+
+// From module: SPI - XMEGA implementation
+#include <usart_spi.h>
+#include <xmega_usart_spi/usart_spi.h>
 
 // From module: Sleep Controller driver
 #include <sleep.h>
@@ -92,10 +111,13 @@
 #include <twim.h>
 #include <twis.h>
 
+// From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter
+#include <usart.h>
+
 // From module: USB Device HID Mouse (Single Interface Device)
 #include <udi_hid_mouse.h>
 
-// From module: USB Device Stack Core
+// From module: USB Device Stack Core (Common API)
 #include <udc.h>
 #include <udd.h>
 
@@ -107,7 +129,6 @@
 
 // From module: XMEGA compiler driver
 #include <compiler.h>
-#include <parts.h>
 #include <status_codes.h>
 
 // From module: XMEGA-A3BU Xplained LED support enabled

@@ -69,6 +69,9 @@
 // From module: Interrupt management - UC3 implementation
 #include <interrupt.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: System Clock Control - UC3 L0 implementation
 #include <sysclk.h>
 

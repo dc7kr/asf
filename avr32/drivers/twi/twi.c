@@ -45,7 +45,6 @@
 
 #include <avr32/io.h>
 #include "compiler.h"
-#include "intc.h"
 #include "twi.h"
 
 
@@ -80,80 +79,70 @@ static twi_slave_fct_t twi_slave_fct;
 #endif
 
 
+#define CONF_TWI_IRQ_LINE          AVR32_TWI_IRQ
+#define CONF_TWI_IRQ_GROUP         AVR32_TWI_IRQ_GROUP
+
+
 /*! \brief TWI interrupt handler.
  */
-#if (defined __GNUC__)
-__attribute__((__interrupt__))
-#elif (defined __ICCAVR32__)
-__interrupt
-#endif
-static void twi_master_interrupt_handler(void)
+ISR(twi_master_interrupt_handler, CONF_TWI_IRQ_GROUP, CONF_TWI_IRQ_LEVEL)
 {
-  // get masked status register value
-  int status = twi_inst->sr & twi_it_mask;
+	// get masked status register value
+	int status = twi_inst->sr & twi_it_mask;
 
-  // this is a NACK
-  if (status & AVR32_TWI_SR_NACK_MASK)
-  {
-    goto nack;
-  }
-  // this is a RXRDY
-  else if (status & AVR32_TWI_SR_RXRDY_MASK)
-  {
-    // get data from Receive Holding Register
-    *twi_rx_data = twi_inst->rhr;
-    twi_rx_data++;
-    // last byte to receive
-    if(--twi_rx_nb_bytes==1)
-    {
-      // set stop bit
-      twi_inst->cr = AVR32_TWI_STOP_MASK;
-    }
-    // receive complete
-    if (twi_rx_nb_bytes==0)
-    {
-      // finish the receive operation
-      goto complete;
-    }
-  }
-  // this is a TXRDY
-  else if (status & AVR32_TWI_SR_TXRDY_MASK)
-  {
-    // decrease transmited bytes number
-    twi_tx_nb_bytes--;
-    // no more bytes to transmit
-    if (twi_tx_nb_bytes <= 0)
-    {
-      // enable TXCOMP IT and unmask all others IT
-      twi_it_mask = AVR32_TWI_IER_TXCOMP_MASK;
-      twi_inst->idr = ~0UL;
-      twi_inst->ier = twi_it_mask;
-    }
-    else
-    {
-      // put the byte in the Transmit Holding Register
-      twi_inst->thr = *twi_tx_data++;
-    }
-  }
-  // this is a TXCOMP
-  else if (status & AVR32_TWI_SR_TXCOMP_MASK)
-  {
-    // finish the transmit operation
-    goto complete;
-  }
+	// this is a NACK
+	if (status & AVR32_TWI_SR_NACK_MASK) {
+		goto nack;
+	}
+	// this is a RXRDY
+	else if (status & AVR32_TWI_SR_RXRDY_MASK) {
+		// get data from Receive Holding Register
+		*twi_rx_data = twi_inst->rhr;
+		twi_rx_data++;
+		// last byte to receive
+		if (--twi_rx_nb_bytes == 1) {
+			// set stop bit
+			twi_inst->cr = AVR32_TWI_STOP_MASK;
+		}
+		// receive complete
+		if (twi_rx_nb_bytes == 0) {
+			// finish the receive operation
+			goto complete;
+		}
+	}
+	// this is a TXRDY
+	else if (status & AVR32_TWI_SR_TXRDY_MASK) {
+		// decrease transmited bytes number
+		twi_tx_nb_bytes--;
+		// no more bytes to transmit
+		if (twi_tx_nb_bytes <= 0) {
+			// enable TXCOMP IT and unmask all others IT
+			twi_it_mask = AVR32_TWI_IER_TXCOMP_MASK;
+			twi_inst->idr = ~0UL;
+			twi_inst->ier = twi_it_mask;
+		} else {
+			// put the byte in the Transmit Holding Register
+			twi_inst->thr = *twi_tx_data++;
+		}
+	}
+	// this is a TXCOMP
+	else if (status & AVR32_TWI_SR_TXCOMP_MASK) {
+		// finish the transmit operation
+		goto complete;
+	}
 
-  return;
+	return;
 
 nack:
-  twi_nack = true;
+	twi_nack = true;
 
 complete:
-  // disable all interrupts
-  twi_inst->idr = ~0UL;
-  twi_inst->sr;
-  twi_busy = false;
+	// disable all interrupts
+	twi_inst->idr = ~0UL;
+	twi_inst->sr;
+	twi_busy = false;
 
-  return;
+	return;
 }
 
 
@@ -161,74 +150,66 @@ complete:
 
 /*! \brief TWI interrupt handler.
  */
-#if (defined __GNUC__)
-__attribute__((__interrupt__))
-#elif (defined __ICCAVR32__)
-__interrupt
-#endif
-static void twi_slave_interrupt_handler(void)
+ISR(twi_slave_interrupt_handler, AVR32_TWI_IRQ_GROUP, CONF_TWI_IRQ_LEVEL)
 {
-  // get masked status register value
-  int status = twi_inst->sr;
+	// get masked status register value
+	int status = twi_inst->sr;
 
-  if( (twi_it_mask & AVR32_TWI_IER_EOSACC_MASK)
-  &&  (status & AVR32_TWI_SR_EOSACC_MASK) )
-  {
-    // Disable All interrupts
-    twi_inst->idr = AVR32_TWI_IDR_TXRDY_MASK|AVR32_TWI_IDR_RXRDY_MASK|AVR32_TWI_IER_EOSACC_MASK;
-    // Reenable detection slave access
-    twi_it_mask = AVR32_TWI_IER_SVACC_MASK;
-    twi_inst->ier = twi_it_mask;
-    // Signal EOF access
-    twi_slave_fct.stop();
-  }else
+	if( (twi_it_mask & AVR32_TWI_IER_EOSACC_MASK)
+			&&  (status & AVR32_TWI_SR_EOSACC_MASK) ) {
 
-  if( (twi_it_mask & AVR32_TWI_IER_SVACC_MASK)
-  &&  (status & AVR32_TWI_SR_SVACC_MASK ) )
-  {
-    twi_inst->idr = AVR32_TWI_IDR_SVACC_MASK;
-    // A slave is selected, then check direction
-    if( status & AVR32_TWI_SR_SVREAD_MASK )
-    {
-      // enable flag to signal data transmition
-      twi_it_mask = AVR32_TWI_IER_TXRDY_MASK;
-      twi_inst->ier = twi_it_mask;
-      // Transmit a data to master
-      twi_inst->thr = twi_slave_fct.tx();
-    }else{
-      // enable flag to signal data reception
-      twi_it_mask = AVR32_TWI_IER_RXRDY_MASK|AVR32_TWI_IER_EOSACC_MASK;
-      twi_inst->ier = twi_it_mask;
-    }
-  }else
+		// Disable All interrupts
+		twi_inst->idr = AVR32_TWI_IDR_TXRDY_MASK
+				| AVR32_TWI_IDR_RXRDY_MASK
+				| AVR32_TWI_IER_EOSACC_MASK;
 
-  // this is a RXRDY
-  if( (twi_it_mask & AVR32_TWI_IER_RXRDY_MASK)
-  &&  (status & AVR32_TWI_SR_RXRDY_MASK ) )
-  {
-    // Get data from Receive Holding Register
-    twi_slave_fct.rx( twi_inst->rhr );
-  }else
+		// Reenable detection slave access
+		twi_it_mask = AVR32_TWI_IER_SVACC_MASK;
+		twi_inst->ier = twi_it_mask;
 
-  // this is a TXRDY
-  if( (twi_it_mask & AVR32_TWI_IER_TXRDY_MASK)
-  &&  (status & AVR32_TWI_SR_TXRDY_MASK ) )
-  {
-    // Byte transmited
-    if( status & AVR32_TWI_SR_NACK_MASK )
-    {
-      // Last Byte
-      // Clear flag NACK
-      twi_inst->rhr;
-      // Renable IT select slave
-      twi_it_mask = AVR32_TWI_IER_EOSACC_MASK;
-      twi_inst->ier = twi_it_mask;
-    }else{
-      // Transmit a data to master
-      twi_inst->thr = twi_slave_fct.tx();
-    }
-  }
-  return;
+		// Signal EOF access
+		twi_slave_fct.stop();
+
+	} else if( (twi_it_mask & AVR32_TWI_IER_SVACC_MASK)
+			&&  (status & AVR32_TWI_SR_SVACC_MASK ) ) {
+		twi_inst->idr = AVR32_TWI_IDR_SVACC_MASK;
+		// A slave is selected, then check direction
+		if ( status & AVR32_TWI_SR_SVREAD_MASK ) {
+			// enable flag to signal data transmition
+			twi_it_mask = AVR32_TWI_IER_TXRDY_MASK;
+			twi_inst->ier = twi_it_mask;
+			// Transmit a data to master
+			twi_inst->thr = twi_slave_fct.tx();
+		} else {
+			// enable flag to signal data reception
+			twi_it_mask = AVR32_TWI_IER_RXRDY_MASK
+					| AVR32_TWI_IER_EOSACC_MASK;
+			twi_inst->ier = twi_it_mask;
+		}
+
+	// this is a RXRDY
+	} else if( (twi_it_mask & AVR32_TWI_IER_RXRDY_MASK)
+			&&  (status & AVR32_TWI_SR_RXRDY_MASK ) ) {
+		// Get data from Receive Holding Register
+		twi_slave_fct.rx( twi_inst->rhr );
+
+	// this is a TXRDY
+	} else if( (twi_it_mask & AVR32_TWI_IER_TXRDY_MASK)
+			&&  (status & AVR32_TWI_SR_TXRDY_MASK ) ) {
+		// Byte transmited
+		if ( status & AVR32_TWI_SR_NACK_MASK ) {
+			// Last Byte
+			// Clear flag NACK
+			twi_inst->rhr;
+			// Renable IT select slave
+			twi_it_mask = AVR32_TWI_IER_EOSACC_MASK;
+			twi_inst->ier = twi_it_mask;
+		} else {
+			// Transmit a data to master
+			twi_inst->thr = twi_slave_fct.tx();
+		}
+	}
+	return;
 }
 
 #endif
@@ -241,119 +222,116 @@ static void twi_slave_interrupt_handler(void)
  * \param pba_hz The current running PBA clock frequency
  * \return TWI_SUCCESS
  */
-static int twi_set_speed(volatile avr32_twi_t *twi, unsigned int speed, unsigned long pba_hz)
+static int twi_set_speed(volatile avr32_twi_t *twi, unsigned int speed,
+		unsigned long pba_hz)
 {
-  unsigned int ckdiv = 0;
-  unsigned int c_lh_div;
+	unsigned int ckdiv = 0;
+	unsigned int c_lh_div;
 
-  c_lh_div = pba_hz / (speed * 2) - 4;
+	c_lh_div = pba_hz / (speed * 2) - 4;
 
-  // cldiv must fit in 8 bits, ckdiv must fit in 3 bits
-  while ((c_lh_div > 0xFF) && (ckdiv < 0x7))
-  {
-    // increase clock divider
-    ckdiv++;
-    // divide cldiv value
-    c_lh_div /= 2;
-  }
+	// cldiv must fit in 8 bits, ckdiv must fit in 3 bits
+	while ((c_lh_div > 0xFF) && (ckdiv < 0x7)) {
+		// increase clock divider
+		ckdiv++;
 
-  // set clock waveform generator register
-  twi->cwgr = ((c_lh_div << AVR32_TWI_CWGR_CLDIV_OFFSET) |
-              (c_lh_div << AVR32_TWI_CWGR_CHDIV_OFFSET) |
-              (ckdiv << AVR32_TWI_CWGR_CKDIV_OFFSET));
+		// divide cldiv value
+		c_lh_div /= 2;
+	}
 
-  return TWI_SUCCESS;
+	// set clock waveform generator register
+	twi->cwgr = ((c_lh_div << AVR32_TWI_CWGR_CLDIV_OFFSET) |
+			(c_lh_div << AVR32_TWI_CWGR_CHDIV_OFFSET) |
+			(ckdiv << AVR32_TWI_CWGR_CKDIV_OFFSET));
+
+	return TWI_SUCCESS;
 }
 
 
 int twi_master_init(volatile avr32_twi_t *twi, const twi_options_t *opt)
 {
-  bool global_interrupt_enabled = Is_global_interrupt_enabled();
-  int status = TWI_SUCCESS;
+	irqflags_t flags = sysreg_read(AVR32_SR);
+	int status = TWI_SUCCESS;
 
-  // Set pointer to TWIM instance for IT
-  twi_inst = twi;
+	// Set pointer to TWIM instance for IT
+	twi_inst = twi;
 
-  // Disable TWI interrupts
-  if (global_interrupt_enabled) Disable_global_interrupt();
-  twi->idr = ~0UL;
-  twi->sr;
+	// Disable TWI interrupts
+	cpu_irq_disable();
+	twi->idr = ~0UL;
+	twi->sr;
 
-  // Reset TWI
-  twi->cr = AVR32_TWI_CR_SWRST_MASK;
-  if (global_interrupt_enabled) Enable_global_interrupt();
+	// Reset TWI
+	twi->cr = AVR32_TWI_CR_SWRST_MASK;
+	cpu_irq_restore(flags);
 
-  // Dummy read in SR
-  twi->sr;
+	// Dummy read in SR
+	twi->sr;
 
-  // Disable all interrupts
-  Disable_global_interrupt();
+	// register Register twim_master_interrupt_handler interrupt
+	// on level CONF_TWI_IRQ_LEVEL
+	flags = cpu_irq_save();
+	irq_register_handler(&twi_master_interrupt_handler, CONF_TWI_IRQ_LINE,
+			CONF_TWI_IRQ_LEVEL);
+	cpu_irq_restore(flags);
 
-  // Register TWI handler on level 2
-  INTC_register_interrupt( &twi_master_interrupt_handler, AVR32_TWI_IRQ, AVR32_INTC_INT1);
+	// Select the speed
+	twi_set_speed(twi, opt->speed, opt->pba_hz);
 
-  // Enable all interrupts
-  Enable_global_interrupt();
+	// Probe the component
+	//status = twi_probe(twi, opt->chip);
 
-  // Select the speed
-  twi_set_speed(twi, opt->speed, opt->pba_hz);
-
-  // Probe the component
-  //status = twi_probe(twi, opt->chip);
-
-  return status;
+	return status;
 }
 
 
 #ifndef AVR32_TWI_180_H_INCLUDED
 
-int twi_slave_init(volatile avr32_twi_t *twi, const twi_options_t *opt, const twi_slave_fct_t *slave_fct)
+int twi_slave_init(volatile avr32_twi_t *twi, const twi_options_t *opt,
+		const twi_slave_fct_t *slave_fct)
 {
-  bool global_interrupt_enabled = Is_global_interrupt_enabled();
+	irqflags_t flags = sysreg_read(AVR32_SR);
 
-  // Set pointer to TWIM instance for IT
-  twi_inst = twi;
+	// Set pointer to TWIM instance for IT
+	twi_inst = twi;
 
-  // Disable TWI interrupts
-  if (global_interrupt_enabled) Disable_global_interrupt();
-  twi->idr = ~0UL;
-  twi->sr;
+	// Disable TWI interrupts
+	cpu_irq_disable();
+	twi->idr = ~0UL;
+	twi->sr;
 
-  // Reset TWI
-  twi->cr = AVR32_TWI_CR_SWRST_MASK;
+	// Reset TWI
+	twi->cr = AVR32_TWI_CR_SWRST_MASK;
+	cpu_irq_restore(flags);
 
-  if (global_interrupt_enabled) Enable_global_interrupt();
+	// Dummy read in SR
+	twi->sr;
 
-  // Dummy read in SR
-  twi->sr;
+	// register Register twim_master_interrupt_handler interrupt
+	// on level CONF_TWI_IRQ_LEVEL
+	flags = cpu_irq_save();
+	irq_register_handler(&twi_slave_interrupt_handler, CONF_TWI_IRQ_LINE,
+			CONF_TWI_IRQ_LEVEL);
+	cpu_irq_restore(flags);
 
-  // Disable all interrupts
-  Disable_global_interrupt();
+	// Set slave address
+	twi->smr = (opt->chip << AVR32_TWI_SMR_SADR_OFFSET);
 
-  // Register TWI handler on level 2
-  INTC_register_interrupt( &twi_slave_interrupt_handler, AVR32_TWI_IRQ, AVR32_INTC_INT1);
+	// Disable master transfer
+	twi->cr = AVR32_TWI_CR_MSDIS_MASK;
 
-  // Enable all interrupts
-  Enable_global_interrupt();
+	// Enable slave
+	twi->cr = AVR32_TWI_CR_SVEN_MASK;
 
-  // Set slave address
-  twi->smr = (opt->chip << AVR32_TWI_SMR_SADR_OFFSET);
+	// get a pointer to applicative routines
+	twi_slave_fct = *slave_fct;
 
-  // Disable master transfer
-  twi->cr = AVR32_TWI_CR_MSDIS_MASK;
+	// Slave Access Interrupt Enable
+	twi_it_mask = AVR32_TWI_IER_SVACC_MASK;
+	twi->ier = twi_it_mask;
 
-  // Enable slave
-  twi->cr = AVR32_TWI_CR_SVEN_MASK;
-
-  // get a pointer to applicative routines
-  twi_slave_fct = *slave_fct;
-
-  // Slave Access Interrupt Enable
-  twi_it_mask = AVR32_TWI_IER_SVACC_MASK;
-  twi->ier = twi_it_mask;
-
-  // Everything went ok
-  return TWI_SUCCESS;
+	// Everything went ok
+	return TWI_SUCCESS;
 }
 
 #endif
@@ -361,32 +339,30 @@ int twi_slave_init(volatile avr32_twi_t *twi, const twi_options_t *opt, const tw
 
 void twi_disable_interrupt(volatile avr32_twi_t *twi)
 {
-  bool global_interrupt_enabled = Is_global_interrupt_enabled();
-
-  if (global_interrupt_enabled) Disable_global_interrupt();
-  twi->idr = ~0UL;
-  twi->sr;
-  if (global_interrupt_enabled) Enable_global_interrupt();
+	irqflags_t flags = cpu_irq_save();
+	twi->idr = ~0UL;
+	twi->sr;
+	cpu_irq_restore(flags);
 }
 
 
 int twi_probe(volatile avr32_twi_t *twi, char chip_addr)
 {
-  twi_package_t package;
-  char data[1] = {0};
+	twi_package_t package;
+	char data[1] = {0};
 
-  // data to send
-  package.buffer = data;
-  // chip address
-  package.chip = chip_addr;
-  // frame length
-  package.length = 1;
-  // address length
-  package.addr_length = 0;
-  // internal chip address
-  package.addr[0] = 0;
-  // perform a master write access
-  return (twi_master_write(twi, &package));
+	// data to send
+	package.buffer = data;
+	// chip address
+	package.chip = chip_addr;
+	// frame length
+	package.length = 1;
+	// address length
+	package.addr_length = 0;
+	// internal chip address
+	package.addr[0] = 0;
+	// perform a master write access
+	return (twi_master_write(twi, &package));
 }
 
 /**
@@ -419,195 +395,193 @@ static uint32_t twi_mk_addr(const uint8_t *addr, int len)
 
 int twi_master_read(volatile avr32_twi_t *twi, const twi_package_t *package)
 {
-  // check argument
-  if (package->length == 0)
-  {
-    return TWI_INVALID_ARGUMENT;
-  }
+	// check argument
+	if (package->length == 0) {
+		return TWI_INVALID_ARGUMENT;
+	}
 
-  while( twi_is_busy() ) {
-    cpu_relax();
-  };
+	while (twi_is_busy()) {
+		cpu_relax();
+	};
 
-  twi_nack = false;
-  twi_busy = true;
+	twi_nack = false;
+	twi_busy = true;
 
-  // set read mode, slave address and 3 internal address byte length
-  twi->mmr = (package->chip << AVR32_TWI_MMR_DADR_OFFSET) |
-             ((package->addr_length << AVR32_TWI_MMR_IADRSZ_OFFSET) & AVR32_TWI_MMR_IADRSZ_MASK) |
-             (1 << AVR32_TWI_MMR_MREAD_OFFSET);
+	// set read mode, slave address and 3 internal address byte length
+	twi->mmr = (package->chip << AVR32_TWI_MMR_DADR_OFFSET) |
+			((package->addr_length << AVR32_TWI_MMR_IADRSZ_OFFSET) & AVR32_TWI_MMR_IADRSZ_MASK) |
+			(1 << AVR32_TWI_MMR_MREAD_OFFSET);
 
-  // Set pointer to TWIM instance for IT
-  twi_inst = twi;
+	// Set pointer to TWIM instance for IT
+	twi_inst = twi;
 
-  // set internal address for remote chip
-  twi->iadr = twi_mk_addr(package->addr, package->addr_length);
+	// set internal address for remote chip
+	twi->iadr = twi_mk_addr(package->addr, package->addr_length);
 
-  // get a pointer to applicative data
-  twi_rx_data = package->buffer;
+	// get a pointer to applicative data
+	twi_rx_data = package->buffer;
 
-  // get a copy of nb bytes to read
-  twi_rx_nb_bytes = package->length;
+	// get a copy of nb bytes to read
+	twi_rx_nb_bytes = package->length;
 
-  // Enable master transfer
-  twi->cr =  AVR32_TWI_CR_MSEN_MASK;
+	// Enable master transfer
+	twi->cr =  AVR32_TWI_CR_MSEN_MASK;
 
-  // Send start condition
-  twi->cr = AVR32_TWI_START_MASK;
+	// Send start condition
+	twi->cr = AVR32_TWI_START_MASK;
 
-  // only one byte to receive
-  if(twi_rx_nb_bytes == 1)
-  {
-    // set stop bit
-    twi->cr = AVR32_TWI_STOP_MASK;
-  }
+	// only one byte to receive
+	if (twi_rx_nb_bytes == 1) {
+		// set stop bit
+		twi->cr = AVR32_TWI_STOP_MASK;
+	}
 
-  // mask NACK and RXRDY interrupts
-  twi_it_mask = AVR32_TWI_IER_NACK_MASK | AVR32_TWI_IER_RXRDY_MASK;
+	// mask NACK and RXRDY interrupts
+	twi_it_mask = AVR32_TWI_IER_NACK_MASK | AVR32_TWI_IER_RXRDY_MASK;
 
-  // update IMR through IER
-  twi->ier = twi_it_mask;
+	// update IMR through IER
+	twi->ier = twi_it_mask;
 
-  // get data
-  while( twi_is_busy() ) {
-    cpu_relax();
-  }
+	// get data
+	while (twi_is_busy()) {
+		cpu_relax();
+	}
 
-  // Disable master transfer
-  twi->cr =  AVR32_TWI_CR_MSDIS_MASK;
+	// Disable master transfer
+	twi->cr =  AVR32_TWI_CR_MSDIS_MASK;
 
-  if( twi_nack )
-    return TWI_RECEIVE_NACK;
+	if (twi_nack) {
+		return TWI_RECEIVE_NACK;
+	}
 
-  return TWI_SUCCESS;
+	return TWI_SUCCESS;
 }
 
 
 int twi_master_write(volatile avr32_twi_t *twi, const twi_package_t *package)
 {
-  // No data to send
-  if (package->length == 0)
-  {
-    return TWI_INVALID_ARGUMENT;
-  }
+	// No data to send
+	if (package->length == 0) {
+		return TWI_INVALID_ARGUMENT;
+	}
 
-  while( twi_is_busy() ) {
-    cpu_relax();
-  };
+	while (twi_is_busy()) {
+		cpu_relax();
+	};
 
-  twi_nack = false;
-  twi_busy = true;
+	twi_nack = false;
+	twi_busy = true;
 
-  // Enable master transfer, disable slave
-  twi->cr =   AVR32_TWI_CR_MSEN_MASK
+	// Enable master transfer, disable slave
+	twi->cr =   AVR32_TWI_CR_MSEN_MASK
 #ifndef AVR32_TWI_180_H_INCLUDED
-            | AVR32_TWI_CR_SVDIS_MASK
+			| AVR32_TWI_CR_SVDIS_MASK
 #endif
-            ;
+			;
 
-  // set write mode, slave address and 3 internal address byte length
-  twi->mmr = (0 << AVR32_TWI_MMR_MREAD_OFFSET) |
-             (package->chip << AVR32_TWI_MMR_DADR_OFFSET) |
-             ((package->addr_length << AVR32_TWI_MMR_IADRSZ_OFFSET) & AVR32_TWI_MMR_IADRSZ_MASK);
+	// set write mode, slave address and 3 internal address byte length
+	twi->mmr = (0 << AVR32_TWI_MMR_MREAD_OFFSET) |
+			(package->chip << AVR32_TWI_MMR_DADR_OFFSET) |
+			((package->addr_length << AVR32_TWI_MMR_IADRSZ_OFFSET) & AVR32_TWI_MMR_IADRSZ_MASK);
 
-  // Set pointer to TWIM instance for IT
-  twi_inst = twi;
+	// Set pointer to TWI instance for IT
+	twi_inst = twi;
 
-  // set internal address for remote chip
-  twi->iadr = twi_mk_addr(package->addr, package->addr_length);
+	// set internal address for remote chip
+	twi->iadr = twi_mk_addr(package->addr, package->addr_length);
 
-  // get a pointer to applicative data
-  twi_tx_data = package->buffer;
+	// get a pointer to applicative data
+	twi_tx_data = package->buffer;
 
-  // get a copy of nb bytes to write
-  twi_tx_nb_bytes = package->length;
+	// get a copy of nb bytes to write
+	twi_tx_nb_bytes = package->length;
 
-  // put the first byte in the Transmit Holding Register
-  twi->thr = *twi_tx_data++;
+	// put the first byte in the Transmit Holding Register
+	twi->thr = *twi_tx_data++;
 
-  // mask NACK and TXRDY interrupts
-  twi_it_mask = AVR32_TWI_IER_NACK_MASK | AVR32_TWI_IER_TXRDY_MASK;
+	// mask NACK and TXRDY interrupts
+	twi_it_mask = AVR32_TWI_IER_NACK_MASK | AVR32_TWI_IER_TXRDY_MASK;
 
-  // update IMR through IER
-  twi->ier = twi_it_mask;
+	// update IMR through IER
+	twi->ier = twi_it_mask;
 
-  // send data
-  while( twi_is_busy() ) {
-    cpu_relax();
-  }
+	// send data
+	while (twi_is_busy()) {
+		cpu_relax();
+	}
 
-  // Disable master transfer
-  twi->cr =  AVR32_TWI_CR_MSDIS_MASK;
+	// Disable master transfer
+	twi->cr =  AVR32_TWI_CR_MSDIS_MASK;
 
-  if( twi_nack )
-    return TWI_RECEIVE_NACK;
+	if (twi_nack) {
+		return TWI_RECEIVE_NACK;
+	}
 
-  return TWI_SUCCESS;
+	return TWI_SUCCESS;
 }
 
 
 //! This function is not blocking.
 int twi_master_write_ex(volatile avr32_twi_t *twi, const twi_package_t *package)
 {
-  int status = TWI_SUCCESS;
+	int status = TWI_SUCCESS;
 
-  if( twi_nack )
-    status = TWI_RECEIVE_NACK;  // Previous transaction returns a NACK
+	if (twi_nack) {
+		status = TWI_RECEIVE_NACK;  // Previous transaction returns a NACK
 
-  else if( twi_tx_nb_bytes )
-    return TWI_BUSY;          // Still transmitting...
+	} else if (twi_tx_nb_bytes) {
+		return TWI_BUSY;          // Still transmitting...
+	}
 
-  // No data to send
-  if (package->length == 0)
-  {
-    return TWI_INVALID_ARGUMENT;
-  }
+	// No data to send
+	if (package->length == 0) {
+		return TWI_INVALID_ARGUMENT;
+	}
 
-  twi_nack = false;
+	twi_nack = false;
 
-  // Enable master transfer, disable slave
-  twi->cr =   AVR32_TWI_CR_MSEN_MASK
+	// Enable master transfer, disable slave
+	twi->cr =   AVR32_TWI_CR_MSEN_MASK
 #ifndef AVR32_TWI_180_H_INCLUDED
-            | AVR32_TWI_CR_SVDIS_MASK
+			| AVR32_TWI_CR_SVDIS_MASK
 #endif
-            ;
+			;
 
-  // set write mode, slave address and 3 internal address byte length
-  twi->mmr = (0 << AVR32_TWI_MMR_MREAD_OFFSET) |
-             (package->chip << AVR32_TWI_MMR_DADR_OFFSET) |
-             ((package->addr_length << AVR32_TWI_MMR_IADRSZ_OFFSET) & AVR32_TWI_MMR_IADRSZ_MASK);
+	// set write mode, slave address and 3 internal address byte length
+	twi->mmr = (0 << AVR32_TWI_MMR_MREAD_OFFSET) |
+			(package->chip << AVR32_TWI_MMR_DADR_OFFSET) |
+			((package->addr_length << AVR32_TWI_MMR_IADRSZ_OFFSET) & AVR32_TWI_MMR_IADRSZ_MASK);
 
-  // Set pointer to TWIM instance for IT
-  twi_inst = twi;
+	// Set pointer to TWIM instance for IT
+	twi_inst = twi;
 
-  // set internal address for remote chip
-  twi->iadr = twi_mk_addr(package->addr, package->addr_length);
+	// set internal address for remote chip
+	twi->iadr = twi_mk_addr(package->addr, package->addr_length);
 
-  // get a pointer to applicative data
-  twi_tx_data = package->buffer;
+	// get a pointer to applicative data
+	twi_tx_data = package->buffer;
 
-  // get a copy of nb bytes to write
-  twi_tx_nb_bytes = package->length;
+	// get a copy of nb bytes to write
+	twi_tx_nb_bytes = package->length;
 
-  // put the first byte in the Transmit Holding Register
-  twi->thr = *twi_tx_data++;
+	// put the first byte in the Transmit Holding Register
+	twi->thr = *twi_tx_data++;
 
-  // mask NACK and TXRDY interrupts
-  twi_it_mask = AVR32_TWI_IER_NACK_MASK | AVR32_TWI_IER_TXRDY_MASK;
+	// mask NACK and TXRDY interrupts
+	twi_it_mask = AVR32_TWI_IER_NACK_MASK | AVR32_TWI_IER_TXRDY_MASK;
 
-  // update IMR through IER
-  twi->ier = twi_it_mask;
+	// update IMR through IER
+	twi->ier = twi_it_mask;
 
-  return status;
+	return status;
 }
 
 
 bool twi_is_busy(void)
 {
-  if( twi_busy ) {
-    return true;          // Still receiving/transmitting...
-  }
-  else {
-    return false;
-  }
+	if (twi_busy) {
+		return true;          // Still receiving/transmitting...
+	} else {
+		return false;
+	}
 }

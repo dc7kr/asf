@@ -4,7 +4,7 @@
  * \brief Default HID generic configuration for a USB Device
  * with a single interface HID
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -48,10 +48,7 @@ extern "C" {
 #endif
 
 /**
- * \ingroup udi_hid_generic_group
- * \defgroup udi_hid_generic_group_conf Default HID generic configuration
- * for a USB Device with a single interface HID
- *
+ * \addtogroup udi_hid_generic_group_single_desc
  * @{
  */
 

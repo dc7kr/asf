@@ -44,7 +44,7 @@
 /*! \name Configuration
  */
 /** @{ */
-#define TWI_INTERFACE           (&TWIC)
+#define TWI_INTERFACE           MXT143E_XPLAINED_TWI
 #define CONF_TWIM_INTLVL        (TWI_MASTER_INTLVL_LO_gc)
 #define CONF_PMIC_INTLVL        (PMIC_LOLVLEN_bm)
 /* @} */

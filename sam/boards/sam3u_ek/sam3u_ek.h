@@ -104,7 +104,7 @@
  * - \ref PIN_ADC0_AD6
  * - \ref PIN_ADC0_AD7
  * - \ref PINS_ADC
- * 
+ *
  *
  * \section EBI
  * - \ref PIN_EBI_DATA_BUS
@@ -321,9 +321,15 @@
 /** Define HX8347A register select signal. */
 #define BOARD_LCD_RS                (1 << 1)
 
+/** Define MCP980X TWI instance. */
+#define BOARD_MCP980X_TWI_INSTANCE  (TWI0)
+/** Define MCP980X base address. */
+#define BOARD_MCP980X_ADDR          (0x48u)
+
 //! LED #0 pin definition (BLUE).
-#define LED0_GPIO 		(PIO_PB0_IDX)
-#define LED0_FLAGS (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
+#define LED_0_NAME    "green LED D2"
+#define LED0_GPIO     (PIO_PB0_IDX)
+#define LED0_FLAGS    (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
 
 #define PIN_LED_0   {1 << 0, PIOB, ID_PIOB, PIO_OUTPUT_0, PIO_DEFAULT}
 #define PIN_LED_0_MASK 1 << 0
@@ -332,9 +338,10 @@
 #define PIN_LED_0_TYPE PIO_OUTPUT_0
 #define PIN_LED_0_ATTR PIO_DEFAULT
 
-//! LED #1 pin definition (GREEN). 
-#define LED1_GPIO 		(PIO_PB1_IDX)
-#define LED1_FLAGS (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
+//! LED #1 pin definition (GREEN)
+#define LED_1_NAME    "green LED D3"
+#define LED1_GPIO     (PIO_PB1_IDX)
+#define LED1_FLAGS    (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
 
 #define PIN_LED_1   {1 << 1, PIOB, ID_PIOB, PIO_OUTPUT_1, PIO_DEFAULT}
 #define PIN_LED_1_MASK 1 << 1
@@ -343,7 +350,7 @@
 #define PIN_LED_1_TYPE PIO_OUTPUT_1
 #define PIN_LED_1_ATTR PIO_DEFAULT
 
-//! LED #2 pin definition (RED). 
+//! LED #2 pin definition (RED).
 #define LED2_GPIO 		(PIO_PB2_IDX)
 #define LED2_GPIO_FLAGS (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
 
@@ -373,8 +380,9 @@
 #define PIN_PUSHBUTTON_2    {1 << 19, PIOA, ID_PIOA, PIO_INPUT, PIO_DEGLITCH | PIO_PULLUP}
 
 //! Push button #0 definition.
-#define GPIO_PUSH_BUTTON_1			(PIO_PA18_IDX)
-#define GPIO_PUSH_BUTTON_1_FLAGS	(PIO_INPUT | PIO_PULLUP | PIO_DEGLITCH | PIO_IT_RISE_EDGE)
+#define PUSHBUTTON_1_NAME    "USR-LEFT"
+#define GPIO_PUSH_BUTTON_1    (PIO_PA18_IDX)
+#define GPIO_PUSH_BUTTON_1_FLAGS    (PIO_INPUT | PIO_PULLUP | PIO_DEGLITCH | PIO_IT_RISE_EDGE)
 
 #define PIN_PUSHBUTTON_1    {1 << 18, PIOA, ID_PIOA, PIO_INPUT, PIO_DEGLITCH | PIO_PULLUP}
 #define PIN_PUSHBUTTON_1_MASK 1 << 18
@@ -383,9 +391,10 @@
 #define PIN_PUSHBUTTON_1_TYPE PIO_INPUT
 #define PIN_PUSHBUTTON_1_ATTR PIO_DEGLITCH | PIO_PULLUP | PIO_IT_RISE_EDGE
 
-//! Push button #1 definition. 
-#define GPIO_PUSH_BUTTON_2			(PIO_PA19_IDX)
-#define GPIO_PUSH_BUTTON_2_FLAGS	(PIO_INPUT | PIO_PULLUP | PIO_DEGLITCH | PIO_IT_FALL_EDGE)
+//! Push button #1 definition.
+#define PUSHBUTTON_2_NAME    "USR-RIGHT"
+#define GPIO_PUSH_BUTTON_2    (PIO_PA19_IDX)
+#define GPIO_PUSH_BUTTON_2_FLAGS    (PIO_INPUT | PIO_PULLUP | PIO_DEGLITCH | PIO_IT_FALL_EDGE)
 
 #define PIN_PUSHBUTTON_2    {1 << 19, PIOA, ID_PIOA, PIO_INPUT, PIO_DEGLITCH | PIO_PULLUP}
 #define PIN_PUSHBUTTON_2_MASK 1 << 19
@@ -450,16 +459,18 @@
 #define CHANNEL_PWM_LED2 2
 
 //! PWM LED0 pin definitions.
-#define PIN_PWM_LED0_GPIO   PIO_PB0_IDX
-#define PIN_PWM_LED0_FLAGS  (PIO_PERIPH_A | PIO_DEFAULT)
+#define PIN_PWM_LED0_GPIO    PIO_PB0_IDX
+#define PIN_PWM_LED0_FLAGS   (PIO_PERIPH_A | PIO_DEFAULT)
+#define PIN_PWM_LED0_CHANNEL 0
 
 //! PWM LED1 pin definitions.
-#define PIN_PWM_LED1_GPIO   PIO_PB1_IDX
-#define PIN_PWM_LED1_FLAGS  (PIO_PERIPH_A | PIO_DEFAULT)
+#define PIN_PWM_LED1_GPIO    PIO_PB1_IDX
+#define PIN_PWM_LED1_FLAGS   (PIO_PERIPH_A | PIO_DEFAULT)
+#define PIN_PWM_LED1_CHANNEL 1
 
 //! PWM LED2 pin definitions.
-#define PIN_PWM_LED2_GPIO   PIO_PB2_IDX
-#define PIN_PWM_LED2_FLAGS  (PIO_PERIPH_A | PIO_DEFAULT)
+#define PIN_PWM_LED2_GPIO    PIO_PB2_IDX
+#define PIN_PWM_LED2_FLAGS   (PIO_PERIPH_A | PIO_DEFAULT)
 
 //! SPI0 MISO pin definition.
 #define PIN_SPI0_MISO  {1 << 13, PIOA, ID_PIOA, PIO_PERIPH_A, PIO_DEFAULT}
@@ -539,6 +550,18 @@
 #define PIN_TWI_TWCK1    {0x1 << 25, PIOA, ID_PIOA, PIO_PERIPH_A, PIO_DEFAULT}
 #define PINS_TWI1     PIN_TWI_TWD1, PIN_TWI_TWCK1
 
+/** TWI0 pins definition */
+#define TWI0_DATA_GPIO   PIO_PA9_IDX
+#define TWI0_DATA_FLAGS  (PIO_PERIPH_A | PIO_DEFAULT)
+#define TWI0_CLK_GPIO    PIO_PA10_IDX
+#define TWI0_CLK_FLAGS   (PIO_PERIPH_A | PIO_DEFAULT)
+
+/** TWI1 pins definition */
+#define TWI1_DATA_GPIO   PIO_PA24_IDX
+#define TWI1_DATA_FLAGS  (PIO_PERIPH_A | PIO_DEFAULT)
+#define TWI1_CLK_GPIO    PIO_PA25_IDX
+#define TWI1_CLK_FLAGS   (PIO_PERIPH_A | PIO_DEFAULT)
+
 //! USART0
 #define PIN_USART0_RXD    {0x1 << 19, PIOA, ID_PIOA, PIO_PERIPH_A, PIO_DEFAULT}
 #define PIN_USART0_RXD_IDX        (PIO_PA19_IDX)
@@ -607,6 +630,12 @@
 /* TXD pin configuration. */
 #define PIN_USART_TXD_IDX          PIN_USART1_TXD_IDX
 #define PIN_USART_TXD_FLAGS        (PIO_PERIPH_A | PIO_DEFAULT)
-#define PIN_USART_TXD_IO_FLAGS     (PIO_OUTPUT_0 | PIO_DEFAULT) 
+#define PIN_USART_TXD_IO_FLAGS     (PIO_OUTPUT_0 | PIO_DEFAULT)
+
+/* ISO7816 example relate PIN definition. */
+#define ISO7816_USART_ID           ID_USART0
+#define ISO7816_USART              USART0
+#define PIN_ISO7816_RST_IDX        PIO_PA15_IDX
+#define PIN_ISO7816_RST_FLAG       (PIO_OUTPUT_0 | PIO_DEFAULT) 
 
 #endif  // _SAM3U_EK_H_

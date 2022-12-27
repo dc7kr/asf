@@ -134,140 +134,140 @@ typedef struct ast_calendar_t {
 
 /* Function Declarations */
 
-extern void ast_enable(volatile avr32_ast_t *ast);
+void ast_enable(volatile avr32_ast_t *ast);
 
-extern void ast_disable(volatile avr32_ast_t *ast);
+void ast_disable(volatile avr32_ast_t *ast);
 
-extern int ast_init_calendar(volatile avr32_ast_t *ast, uint8_t osc_type,
+int ast_init_calendar(volatile avr32_ast_t *ast, uint8_t osc_type,
 		uint8_t psel, ast_calendar_t ast_calendar);
 
-extern int ast_init_counter(volatile avr32_ast_t *ast, uint8_t osc_type,
+int ast_init_counter(volatile avr32_ast_t *ast, uint8_t osc_type,
 		uint8_t psel, uint32_t ast_counter);
 
-extern int ast_configure_digital_tuner(volatile avr32_ast_t *ast,
+int ast_configure_digital_tuner(volatile avr32_ast_t *ast,
 		uint32_t input_freq, uint32_t tuned_freq);
 
-extern void ast_init_digital_tuner(volatile avr32_ast_t *ast, bool add,
+void ast_init_digital_tuner(volatile avr32_ast_t *ast, bool add,
 		uint8_t value, uint8_t exp);
 
-extern void ast_disable_digital_tuner(volatile avr32_ast_t *ast);
+void ast_disable_digital_tuner(volatile avr32_ast_t *ast);
 
-extern int ast_change_clk_source(volatile avr32_ast_t *ast, uint8_t osc_type,
+int ast_change_clk_source(volatile avr32_ast_t *ast, uint8_t osc_type,
 		uint8_t psel);
 
-extern void ast_set_calendar_value(volatile avr32_ast_t *ast,
+void ast_set_calendar_value(volatile avr32_ast_t *ast,
 		ast_calendar_t ast_calendar);
 
-extern void ast_set_counter_value(volatile avr32_ast_t *ast,
+void ast_set_counter_value(volatile avr32_ast_t *ast,
 		uint32_t ast_counter);
 
-extern ast_calendar_t ast_get_calendar_value(volatile avr32_ast_t *ast);
+ast_calendar_t ast_get_calendar_value(volatile avr32_ast_t *ast);
 
-extern uint32_t ast_get_counter_value(volatile avr32_ast_t *ast);
+uint32_t ast_get_counter_value(volatile avr32_ast_t *ast);
 
-extern void ast_set_alarm0_value(volatile avr32_ast_t *ast,
+void ast_set_alarm0_value(volatile avr32_ast_t *ast,
 		uint32_t alarm_value);
 
-extern void ast_set_alarm1_value(volatile avr32_ast_t *ast,
+void ast_set_alarm1_value(volatile avr32_ast_t *ast,
 		uint32_t alarm_value);
 
-extern void ast_enable_alarm0(volatile avr32_ast_t *ast);
+void ast_enable_alarm0(volatile avr32_ast_t *ast);
 
-extern void ast_disable_alarm0(volatile avr32_ast_t *ast);
+void ast_disable_alarm0(volatile avr32_ast_t *ast);
 
-extern void ast_enable_alarm1(volatile avr32_ast_t *ast);
+void ast_enable_alarm1(volatile avr32_ast_t *ast);
 
-extern void ast_disable_alarm1(volatile avr32_ast_t *ast);
+void ast_disable_alarm1(volatile avr32_ast_t *ast);
 
-extern void ast_set_periodic0_value(volatile avr32_ast_t *ast,
+void ast_set_periodic0_value(volatile avr32_ast_t *ast,
 		avr32_ast_pir0_t pir);
 
-extern void ast_set_periodic1_value(volatile avr32_ast_t *ast,
+void ast_set_periodic1_value(volatile avr32_ast_t *ast,
 		avr32_ast_pir1_t pir);
 
-extern void ast_enable_periodic0(volatile avr32_ast_t *ast);
+void ast_enable_periodic0(volatile avr32_ast_t *ast);
 
-extern void ast_disable_periodic0(volatile avr32_ast_t *ast);
+void ast_disable_periodic0(volatile avr32_ast_t *ast);
 
-extern void ast_enable_periodic1(volatile avr32_ast_t *ast);
+void ast_enable_periodic1(volatile avr32_ast_t *ast);
 
-extern void ast_disable_periodic1(volatile avr32_ast_t *ast);
+void ast_disable_periodic1(volatile avr32_ast_t *ast);
 
-extern void ast_clear_status_flag(volatile avr32_ast_t *ast,
+void ast_clear_status_flag(volatile avr32_ast_t *ast,
 		uint32_t status_mask);
 
-extern void ast_clear_alarm_status_flag(volatile avr32_ast_t *ast,
+void ast_clear_alarm_status_flag(volatile avr32_ast_t *ast,
 		uint32_t alarm_channel);
 
-extern void ast_clear_periodic_status_flag(volatile avr32_ast_t *ast,
+void ast_clear_periodic_status_flag(volatile avr32_ast_t *ast,
 		uint32_t periodic_channel);
 
-extern void ast_clear_ovf_status_flag(volatile avr32_ast_t *ast);
+void ast_clear_ovf_status_flag(volatile avr32_ast_t *ast);
 
-extern void ast_clear_ready_status_flag(volatile avr32_ast_t *ast);
+void ast_clear_ready_status_flag(volatile avr32_ast_t *ast);
 
-extern void ast_clear_clkrdy_status_flag(volatile avr32_ast_t *ast);
+void ast_clear_clkrdy_status_flag(volatile avr32_ast_t *ast);
 
-extern void ast_clear_all_status_flags(volatile avr32_ast_t *ast);
+void ast_clear_all_status_flags(volatile avr32_ast_t *ast);
 
-extern void ast_enable_interrupt(volatile avr32_ast_t *ast,
+void ast_enable_interrupt(volatile avr32_ast_t *ast,
 		uint32_t interrupt_mask);
 
-extern void ast_enable_alarm_interrupt(volatile avr32_ast_t *ast,
+void ast_enable_alarm_interrupt(volatile avr32_ast_t *ast,
 		uint8_t alarm_channel);
 
-extern void ast_enable_periodic_interrupt(volatile avr32_ast_t *ast,
+void ast_enable_periodic_interrupt(volatile avr32_ast_t *ast,
 		uint8_t periodic_channel);
 
-extern void ast_enable_ovf_interrupt(volatile avr32_ast_t *ast);
+void ast_enable_ovf_interrupt(volatile avr32_ast_t *ast);
 
-extern void ast_enable_ready_interrupt(volatile avr32_ast_t *ast);
+void ast_enable_ready_interrupt(volatile avr32_ast_t *ast);
 
-extern void ast_enable_clkrdy_interrupt(volatile avr32_ast_t *ast);
+void ast_enable_clkrdy_interrupt(volatile avr32_ast_t *ast);
 
-extern void ast_disable_interrupt(volatile avr32_ast_t *ast,
+void ast_disable_interrupt(volatile avr32_ast_t *ast,
 		uint32_t interrupt_mask);
 
-extern void ast_disable_alarm_interrupt(volatile avr32_ast_t *ast,
+void ast_disable_alarm_interrupt(volatile avr32_ast_t *ast,
 		uint8_t alarm_channel);
 
-extern void ast_disable_periodic_interrupt(volatile avr32_ast_t *ast,
+void ast_disable_periodic_interrupt(volatile avr32_ast_t *ast,
 		uint8_t periodic_channel);
 
-extern void ast_disable_ovf_interrupt(volatile avr32_ast_t *ast);
+void ast_disable_ovf_interrupt(volatile avr32_ast_t *ast);
 
-extern void ast_disable_ready_interrupt(volatile avr32_ast_t *ast);
+void ast_disable_ready_interrupt(volatile avr32_ast_t *ast);
 
-extern void ast_disable_clkrdy_interrupt(volatile avr32_ast_t *ast);
+void ast_disable_clkrdy_interrupt(volatile avr32_ast_t *ast);
 
-extern void ast_disable_all_interrupts(volatile avr32_ast_t *ast);
+void ast_disable_all_interrupts(volatile avr32_ast_t *ast);
 
-extern void ast_enable_async_wakeup(volatile avr32_ast_t *ast,
+void ast_enable_async_wakeup(volatile avr32_ast_t *ast,
 		uint32_t wakeup_mask);
 
-extern void ast_enable_alarm_async_wakeup(volatile avr32_ast_t *ast,
+void ast_enable_alarm_async_wakeup(volatile avr32_ast_t *ast,
 		uint8_t alarm_channel);
 
-extern void ast_enable_periodic_async_wakeup(volatile avr32_ast_t *ast,
+void ast_enable_periodic_async_wakeup(volatile avr32_ast_t *ast,
 		uint8_t periodic_channel);
 
-extern void ast_enable_ovf_async_wakeup(volatile avr32_ast_t *ast);
+void ast_enable_ovf_async_wakeup(volatile avr32_ast_t *ast);
 
-extern void ast_disable_async_wakeup(volatile avr32_ast_t *ast,
+void ast_disable_async_wakeup(volatile avr32_ast_t *ast,
 		uint32_t wakeup_mask);
 
-extern void ast_disable_alarm_async_wakeup(volatile avr32_ast_t *ast,
+void ast_disable_alarm_async_wakeup(volatile avr32_ast_t *ast,
 		uint8_t alarm_channel);
 
-extern void ast_disable_periodic_async_wakeup(volatile avr32_ast_t *ast,
+void ast_disable_periodic_async_wakeup(volatile avr32_ast_t *ast,
 		uint8_t periodic_channel);
 
-extern void ast_disable_ovf_async_wakeup(volatile avr32_ast_t *ast);
+void ast_disable_ovf_async_wakeup(volatile avr32_ast_t *ast);
 
-extern void ast_enable_counter_clear_on_alarm(volatile avr32_ast_t *ast,
+void ast_enable_counter_clear_on_alarm(volatile avr32_ast_t *ast,
 		uint8_t alarm_channel);
 
-extern void ast_clear_prescalar(volatile avr32_ast_t *ast);
+void ast_clear_prescalar(volatile avr32_ast_t *ast);
 
 /**
  * \}

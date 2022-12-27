@@ -43,7 +43,7 @@
 #define _UART_H_
 
 /*! \brief Called by CDC interface
- * Callback running when CDC device have receiv data
+ * Callback running when CDC device have received data
  */
 void uart_rx_notify(void);
 

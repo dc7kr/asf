@@ -76,6 +76,9 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: SCIF System Control Interface - UC3D implementation
 #include <scif_uc3d.h>
 
@@ -85,6 +88,9 @@
 // From module: SPI - UC3 implementation
 #include <spi_master.h>
 #include <spi_master.h>
+
+// From module: STK600-RCUC3D board support
+#include <led.h>
 
 // From module: Sleep manager - UC3 implementation
 #include <sleepmgr.h>
@@ -108,7 +114,7 @@
 // From module: USB Device MSC (Single Interface Device)
 #include <udi_msc.h>
 
-// From module: USB Device Stack Core
+// From module: USB Device Stack Core (Common API)
 #include <udc.h>
 #include <udd.h>
 

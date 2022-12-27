@@ -294,6 +294,14 @@
 #define ET024006DHU_BL_FUNCTION      AVR32_TC1_A1_0_FUNCTION
 #define ET024006DHU_BL_TC_CHANNEL_ID 1
 #define ET024006DHU_BL_TC_INSTANCE   &AVR32_TC1
+
+
+#define ET024006_IFACE_MODE       ET024006_IFACE_MODE_EBI
+#define ET024006_CMD_ADDR         ((volatile unsigned short int *) AVR32_EBI_CS0_ADDRESS)
+// The select signal connected to address line 21,
+// this implies an address offset of 0x200000.
+#define ET024006_PARAM_ADDR       ((volatile unsigned short int *) (AVR32_EBI_CS0_ADDRESS + 0x00200000))
+
 //! @}
 
 /*! \name Optional SPI connection to the ET024006DHU display

@@ -86,7 +86,7 @@ static void mdelay(uint16_t ms)
 
 void light_single_led(uint8_t led_pin){
 	//clear all LEDs
-	#ifdef XMEGA
+	#if XMEGA
 	  gpio_set_pin_group_high(LED_CHASER_PORT_ID, LED_CHASER_PORT_MASK);
 	#else
 	  gpio_set_group_high(LED_CHASER_PORT_ID, LED_CHASER_PORT_MASK);

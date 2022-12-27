@@ -249,6 +249,7 @@
 #define PINS_LEDS   PIN_USER_LED1, PIN_USER_LED2, PIN_USER_LED3, PIN_POWER_LED
 
 /*! LED #0 pin definition (BLUE). */
+#define LED_0_NAME      "blue LED D2"
 #define LED0_GPIO       (PIO_PA12_IDX)
 #define LED0_FLAGS      (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
 
@@ -260,6 +261,7 @@
 #define PIN_LED_0_ATTR  PIO_DEFAULT
 
 /*! LED #1 pin definition (GREEN). */
+#define LED_1_NAME      "green LED D4"
 #define LED1_GPIO       (PIO_PB13_IDX)
 #define LED1_FLAGS      (PIO_TYPE_PIO_OUTPUT_1 | PIO_DEFAULT)
 
@@ -318,6 +320,7 @@
 
 /** Push button #0 definition.
  *  Attributes = pull-up + debounce + interrupt on rising edge. */
+#define PUSHBUTTON_1_NAME    "LEFT CLICK"
 #define GPIO_PUSH_BUTTON_1           (PIO_PE7_IDX)
 #define GPIO_PUSH_BUTTON_1_FLAGS\
 	(PIO_INPUT | PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_RISE_EDGE)
@@ -332,6 +335,7 @@
 
 /** Push button #1 definition.
  *  Attributes = pull-up + debounce + interrupt on falling edge. */
+#define PUSHBUTTON_2_NAME    "RIGHT CLICK"
 #define GPIO_PUSH_BUTTON_2           (PIO_PB23_IDX)
 #define GPIO_PUSH_BUTTON_2_FLAGS\
 	(PIO_INPUT | PIO_PULLUP | PIO_DEBOUNCE | PIO_IT_FALL_EDGE)
@@ -428,16 +432,18 @@
 #define CHANNEL_PWM_LED2 2
 
 /*! PWM LED0 pin definitions. */
-#define PIN_PWM_LED0_GPIO   PIO_PB13_IDX
-#define PIN_PWM_LED0_FLAGS  (PIO_PERIPH_B | PIO_DEFAULT)
+#define PIN_PWM_LED0_GPIO    PIO_PB13_IDX
+#define PIN_PWM_LED0_FLAGS   (PIO_PERIPH_B | PIO_DEFAULT)
+#define PIN_PWM_LED0_CHANNEL 1
 
 /*! PWM LED1 pin definitions. */
-#define PIN_PWM_LED1_GPIO   PIO_PB12_IDX
-#define PIN_PWM_LED1_FLAGS  (PIO_PERIPH_B | PIO_DEFAULT)
+#define PIN_PWM_LED1_GPIO    PIO_PB12_IDX
+#define PIN_PWM_LED1_FLAGS   (PIO_PERIPH_B | PIO_DEFAULT)
+#define PIN_PWM_LED1_CHANNEL 0
 
 /*! PWM LED2 pin definitions. */
-#define PIN_PWM_LED2_GPIO   PIO_PA13_IDX
-#define PIN_PWM_LED2_FLAGS  (PIO_PERIPH_B | PIO_DEFAULT)
+#define PIN_PWM_LED2_GPIO    PIO_PA13_IDX
+#define PIN_PWM_LED2_FLAGS   (PIO_PERIPH_B | PIO_DEFAULT)
 
 /**
  * \file
@@ -866,6 +872,22 @@
 /*! List of all CAN0 definitions. */
 #define PINS_CAN0    PIN_CAN0_TXD, PIN_CAN0_RXD
 
+/** CAN0 transceiver PIN RS. */
+#define PIN_CAN0_TR_RS_IDX        PIO_PB20_IDX
+#define PIN_CAN0_TR_RS_FLAGS      (PIO_TYPE_PIO_OUTPUT_0 | PIO_DEFAULT)
+
+/** CAN0 transceiver PIN EN. */
+#define PIN_CAN0_TR_EN_IDX        PIO_PB21_IDX
+#define PIN_CAN0_TR_EN_FLAGS      (PIO_TYPE_PIO_OUTPUT_0 | PIO_DEFAULT)
+
+/** CAN0 PIN RX. */
+#define PIN_CAN0_RX_IDX           (PIO_PA1_IDX)
+#define PIN_CAN0_RX_FLAGS         (PIO_PERIPH_A | PIO_DEFAULT)
+
+/** CAN0 PIN TX. */
+#define PIN_CAN0_TX_IDX           (PIO_PA0_IDX)
+#define PIN_CAN0_TX_FLAGS         (PIO_PERIPH_A | PIO_DEFAULT)
+
 /*! CAN1 RXEN: Select input for high speed mode or ultra low current sleep mode */
 #define PIN_CAN1_TRANSCEIVER_RXEN\
 	{ PIO_PE16, PIOE, ID_PIOE, PIO_OUTPUT_1, PIO_DEFAULT }
@@ -884,6 +906,22 @@
 
 /*! List of all CAN1 definitions. */
 #define PINS_CAN1    PIN_CAN1_TXD, PIN_CAN1_RXD
+
+/** CAN1 transceiver PIN RS. */
+#define PIN_CAN1_TR_RS_IDX        PIO_PE15_IDX
+#define PIN_CAN1_TR_RS_FLAGS      (PIO_TYPE_PIO_OUTPUT_0 | PIO_DEFAULT)
+
+/** CAN1 transceiver PIN EN. */
+#define PIN_CAN1_TR_EN_IDX        PIO_PE16_IDX
+#define PIN_CAN1_TR_EN_FLAGS      (PIO_TYPE_PIO_OUTPUT_0 | PIO_DEFAULT)
+
+/** CAN1 PIN RX. */
+#define PIN_CAN1_RX_IDX           (PIO_PB15_IDX)
+#define PIN_CAN1_RX_FLAGS         (PIO_PERIPH_A | PIO_DEFAULT)
+
+/** CAN1 PIN TX. */
+#define PIN_CAN1_TX_IDX           (PIO_PB14_IDX)
+#define PIN_CAN1_TX_FLAGS         (PIO_PERIPH_A | PIO_DEFAULT)
 
 /**
  * \file
@@ -1351,16 +1389,10 @@
 
 /*! TWI ID for EEPROM application to use */
 #define BOARD_ID_TWI_EEPROM         ID_TWI0
-/*! TWI ID for SLAVE application to use */
-#define BOARD_ID_TWI_SLAVE          ID_TWI0
 /*! TWI Base for TWI EEPROM application to use */
 #define BOARD_BASE_TWI_EEPROM       TWI0
-/*! TWI Base for TWI SLAVE application to use */
-#define BOARD_BASE_TWI_SLAVE        TWI0
 /*! TWI pins for EEPROM application to use */
 #define BOARD_PINS_TWI_EEPROM       PINS_TWI0
-/*! TWI pins for TWI SLAVE application to use */
-#define BOARD_PINS_TWI_SLAVE        PINS_TWI0
 
 /*! USART RX pin for application */
 #define BOARD_PIN_USART_RXD        PIN_USART0_RXD
@@ -1400,5 +1432,11 @@
 #define PIN_USART_TXD_IDX          PIN_USART0_TXD_IDX
 #define PIN_USART_TXD_FLAGS        (PIO_PERIPH_A | PIO_DEFAULT)
 #define PIN_USART_TXD_IO_FLAGS     (PIO_OUTPUT_0 | PIO_DEFAULT)
+
+/* ISO7816 example relate PIN definition. */
+#define ISO7816_USART_ID           ID_USART0
+#define ISO7816_USART              USART0
+#define PIN_ISO7816_RST_IDX        PIO_PA15_IDX
+#define PIN_ISO7816_RST_FLAG       (PIO_OUTPUT_0 | PIO_DEFAULT)
 
 #endif  /* _SAM3X_EK_H_ */

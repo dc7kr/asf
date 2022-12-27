@@ -56,6 +56,7 @@ TARGET = twi_master_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/evk1105/led.c                         \
        avr32/drivers/flashc/flashc.c                      \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \
@@ -82,6 +83,7 @@ INC_PATH = \
        avr32/drivers/intc                                 \
        avr32/drivers/pm                                   \
        avr32/drivers/twi                                  \
+       avr32/drivers/twi/master_example                   \
        avr32/drivers/usart                                \
        avr32/utils                                        \
        avr32/utils/debug                                  \
@@ -126,7 +128,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=EVK1105
+       -D BOARD=EVK1105                                   \
+       -D CONFIG_INTERRUPT_FORCE_INTC
 
 # Extra flags to use when linking
 LDFLAGS = \

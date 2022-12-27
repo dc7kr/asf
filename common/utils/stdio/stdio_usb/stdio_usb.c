@@ -113,7 +113,7 @@ void stdio_usb_init (volatile void * usart)
 
 	// For AVR GCC libc print redirection uses fdevopen.
 
-	#if defined(XMEGA) && defined(__GNUC__)
+	#if XMEGA && defined(__GNUC__)
 		fdevopen((int (*)(char, FILE*))(_write),(int (*)(FILE*))(_read));
 	#endif
 }

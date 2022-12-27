@@ -1827,6 +1827,9 @@
 			<group>
 				<name>evk1100</name>
 				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1100/led.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1100/init.c</name>
 				</file>
 			</group>

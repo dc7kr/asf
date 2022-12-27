@@ -326,12 +326,12 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/pm</state>
-					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/flashc</state>
@@ -340,7 +340,7 @@
 					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards/evk1101</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/components/joystick/skrhabe010</state>
@@ -465,12 +465,12 @@
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/pm</state>
-					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/flashc</state>
@@ -479,7 +479,7 @@
 					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards/evk1101</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/components/joystick/skrhabe010</state>
@@ -1213,12 +1213,12 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/pm</state>
-					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/flashc</state>
@@ -1227,7 +1227,7 @@
 					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards/evk1101</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/components/joystick/skrhabe010</state>
@@ -1352,12 +1352,12 @@
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/pm</state>
-					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/flashc</state>
@@ -1366,7 +1366,7 @@
 					<state>$PROJ_DIR$/../../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards/evk1101</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/components/joystick/skrhabe010</state>

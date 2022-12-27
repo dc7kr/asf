@@ -412,9 +412,10 @@
 					<name>newCCIncludePaths</name>
 					<state></state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -655,9 +656,10 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1403,9 +1405,10 @@
 					<name>newCCIncludePaths</name>
 					<state></state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1646,9 +1649,10 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1984,6 +1988,15 @@
 	</configuration>
 	<group>
 		<name>mega</name>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>stk600</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/stk600/init.c</name>
+				</file>
+			</group>
+		</group>
 		<group>
 			<name>drivers</name>
 			<group>

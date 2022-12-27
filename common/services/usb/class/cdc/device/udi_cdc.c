@@ -72,16 +72,13 @@
 #endif
 
 /**
- * \addtogroup udi_cdc_group
+ * \ingroup udi_cdc_group
+ * \defgroup udi_cdc_group_udc Interface with USB Device Core (UDC)
+ *
+ * Structures and functions required by UDC.
  *
  * @{
  */
-
-/**
- * \name Interface for UDC
- */
-//@{
-
 bool udi_cdc_comm_enable(void);
 void udi_cdc_comm_disable(void);
 bool udi_cdc_comm_setup(void);
@@ -147,6 +144,13 @@ UDC_DESC_STORAGE udi_api_t udi_api_cdc_data_3 = {
 #endif
 //@}
 
+/**
+ * \ingroup udi_cdc_group
+ * \defgroup udi_cdc_group_internal Implementation of UDI CDC
+ *
+ * Class internal implementation
+ * @{
+ */
 
 /**
  * \name Internal routines

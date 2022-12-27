@@ -40,11 +40,7 @@
  *
  */
 
-#include "compiler.h"
-#include "preprocessor.h"
-#include "board.h"
-#include "gpio.h"
-#include "sysclk.h"
+#include <asf.h>
 #include "conf_access.h"
 #include "main.h"
 

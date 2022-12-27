@@ -13,7 +13,7 @@
  * Arithmetic functions that do not require the \a Q parameter assume that
  * both operands have the same \a Q format (the same number of fractional bits).
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -49,38 +49,30 @@
  *
  */
 
-
-// includes
+#ifndef _FIXED_MATH_TYPE_H_
+#define _FIXED_MATH_TYPE_H_
 
 #include <assert.h>
 #include <stdint.h>
 #include <stdbool.h>
 #include <math.h>
 
-
-
-#ifndef _fixed_t_h_
-#define _fixed_t_h_
-
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-
-
-//! \brief Signed fixed-point format storage type.
-
+/** \brief Signed fixed-point format storage type. */
 typedef int32_t fixed_t;
 
-
-//! \brief Rounding conversion from floating-point to integer.
 #if 0
-static inline long round (double x)
-	{ return (x >= 0 ? (long)(x + 0.5) : (long)(x - 0.5)); }
+/** \brief Rounding conversion from floating-point to integer. */
+static inline long round(double x)
+{
+	return (x >= 0 ? (long)(x + 0.5) : (long)(x - 0.5));
+}
 #endif
 
-
-/*! \brief fixed point \a Q format conversion
+/** \brief fixed point \a Q format conversion
  *
  * This routine performs a change of exponent operation where
  * fixed-point value \a a in \a q1 format is converted to \a q2
@@ -98,13 +90,12 @@ static inline fixed_t fixed_conv(fixed_t a, int q1, int q2)
 	return (q1 == q2) ? a : ((q2 > q1) ? a << (q2 - q1) : a >> (q1 - q2));
 }
 
-
-/*! \name Type Conversion Primitives
+/** \name Type Conversion Primitives
  * @{
  */
 static inline fixed_t long_to_fixed(long n, int Q)
 {
-	return ((fixed_t) n << Q);
+	return ((fixed_t)n << Q);
 }
 
 static inline fixed_t float_to_fixed(float x, int Q)
@@ -124,17 +115,16 @@ static inline long fixed_to_long(fixed_t f, int Q)
 
 static inline float fixed_to_float(fixed_t f, int Q)
 {
-	return ((float) f / (1L << Q));
+	return ((float)f / (1L << Q));
 }
 
 static inline double fixed_to_double(fixed_t f, int Q)
 {
-	return ((double) f / (1L << Q));
+	return ((double)f / (1L << Q));
 }
-// @}
+/** @} */
 
-
-/*! \name Addition and Subtraction Primitives
+/** \name Addition and Subtraction Primitives
  * @{
  */
 static inline fixed_t fixed_add(fixed_t a, fixed_t b)
@@ -144,7 +134,7 @@ static inline fixed_t fixed_add(fixed_t a, fixed_t b)
 
 static inline fixed_t fixed_addl(fixed_t a, long b, int Q)
 {
-	return (a + long_to_fixed (b, Q));
+	return (a + long_to_fixed(b, Q));
 }
 
 static inline fixed_t fixed_sub(fixed_t a, fixed_t b)
@@ -154,51 +144,49 @@ static inline fixed_t fixed_sub(fixed_t a, fixed_t b)
 
 static inline fixed_t fixed_subl(fixed_t a, long b, int Q)
 {
-	return (a - long_to_fixed (b, Q));
+	return (a - long_to_fixed(b, Q));
 }
-// @}
+/** @} */
 
-
-/*! \name Multiplication and Division Primitives
+/** \name Multiplication and Division Primitives
  * @{
  */
 static inline fixed_t fixed_mul(fixed_t a, fixed_t b, int Q)
 {
-	return (((int64_t) a * b) >> Q);
+	return (((int64_t)a * b) >> Q);
 }
 
 static inline fixed_t fixed_mull(fixed_t a, long b)
 {
-	return ((int64_t) a * b);
+	return ((int64_t)a * b);
 }
 
 static inline fixed_t fixed_mul_rounded(fixed_t a, fixed_t b, int Q)
 {
-	return ((((int64_t) a * b) + (1L << (Q - 1))) >> Q);
+	return ((((int64_t)a * b) + (1L << (Q - 1))) >> Q);
 }
 
 static inline fixed_t fixed_div(fixed_t a, fixed_t b, int Q)
 {
-	return (((int64_t) a << Q) / b);
+	return (((int64_t)a << Q) / b);
 }
 
 static inline fixed_t fixed_divl(fixed_t a, long b)
 {
-	return ((int64_t) a / b);
+	return ((int64_t)a / b);
 }
 
 static inline fixed_t fixed_div_rounded(fixed_t a, fixed_t b, int Q)
 {
-	return ((((int64_t) a << Q) + (b >> 1)) / b);
+	return ((((int64_t)a << Q) + (b >> 1)) / b);
 }
-// @}
+/** @} */
 
-
-/*! \name Algebraic and Transcendental Functions
+/** \name Algebraic and Transcendental Functions
  * @{
  */
 
-/*! \brief Calculate the square root of an integer
+/** \brief Calculate the square root of an integer
  *
  * This routine calculates the integer square root, \a isqrt(), of a positive
  * integer argument \a n:
@@ -216,10 +204,10 @@ static inline fixed_t fixed_div_rounded(fixed_t a, fixed_t b, int Q)
  * \return  The integer square root.
  */
 extern fixed_t fixed_sqrt(fixed_t f, int Q);
-// @}
 
+/** @} */
 
-/*! \name fixed-point resolution and range utilities
+/** \name fixed-point resolution and range utilities
  *
  * The fixed_range() and fixed_resolution() utilities can be used to define,
  * verify, test, and characterize fixed-point formats for applications that
@@ -227,9 +215,7 @@ extern fixed_t fixed_sqrt(fixed_t f, int Q);
  * @{
  */
 
-// static inline double log2(double x) { return (log (x) / log (2)); }
-
-/*! \brief signed fixed-point range
+/** \brief signed fixed-point range
  *
  * Given a signed fixed-point format \p Qm.f, where \a f represents the number
  * of fractional bits and \a m the number of integer bits, this routine
@@ -248,7 +234,7 @@ extern fixed_t fixed_sqrt(fixed_t f, int Q);
  */
 extern int fixed_range(double x_min, double x_max);
 
-/*! \brief signed fixed-point resolution
+/** \brief signed fixed-point resolution
  *
  * Given a signed fixed-point format \p Qm.f, where \a f represents the number
  * of fractional bits and \a m the number of integer bits, this routine
@@ -262,11 +248,11 @@ extern int fixed_range(double x_min, double x_max);
  *          a fixed-point implementation.
  */
 extern int fixed_resolution(double epsilon);
-// @}
 
+/** @} */
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif  // _fixed_t_h_
+#endif

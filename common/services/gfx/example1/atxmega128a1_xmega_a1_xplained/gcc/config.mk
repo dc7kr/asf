@@ -51,6 +51,8 @@ CSRCS = \
        common/services/gfx/example1/example1.c            \
        common/services/gfx/gfx_generic.c                  \
        common/services/gfx/gfx_ili9341_sdt028atft.c       \
+       common/services/gfx/gfx_text.c                     \
+       common/services/gfx/sysfont.c                      \
        common/services/ioport/xmega/ioport_compat.c       \
        common/services/spi/xmega_usart_spi/usart_spi.c    \
        xmega/boards/xmega_a1_xplained/init.c              \

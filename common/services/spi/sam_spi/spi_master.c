@@ -68,14 +68,17 @@
  */
 void spi_master_init(Spi *p_spi)
 {
-#if (SAM3S || SAM3N || SAM3U)
+#if (SAM4S || SAM3S || SAM3N || SAM3U)
 	sysclk_enable_peripheral_clock(ID_SPI);
 #elif (SAM3XA)
 	if (p_spi == SPI0) {
 		sysclk_enable_peripheral_clock(ID_SPI0);
-	} else if (p_spi == SPI1) {
+	} 
+	#ifdef SPI1
+	else if (p_spi == SPI1) {
 		sysclk_enable_peripheral_clock(ID_SPI1);
 	}
+	#endif
 #endif
 	spi_reset(p_spi);
 	spi_set_master_mode(p_spi);

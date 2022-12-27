@@ -4,7 +4,7 @@
  *
  * \brief AT42QT1060 template configuration file.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -55,18 +55,18 @@
 
 #if !defined(AT42QT1060_TWI)
 #warning "Using a default AT42QT1060 mapping. Verify all AT42QT1060_TWI* defines according to the current board."
-#if (UC3A0 || UC3A1 || UC3B)
-#define AT42QT1060_TWI                  (&AVR32_TWI)
-#define AT42QT1060_TWI_SCL_PIN          AVR32_TWI_SCL_0_0_PIN
-#define AT42QT1060_TWI_SCL_FUNCTION     AVR32_TWI_SCL_0_0_FUNCTION
-#define AT42QT1060_TWI_SDA_PIN          AVR32_TWI_SDA_0_0_PIN
-#define AT42QT1060_TWI_SDA_FUNCTION     AVR32_TWI_SDA_0_0_FUNCTION
-#else
+#if (UC3A3 || UC3A4 || UC3C || UC3L)
 #define AT42QT1060_TWI                  (&AVR32_TWIM0)
 #define AT42QT1060_TWI_SCL_PIN          AVR32_TWIMS0_TWCK_0_0_PIN
 #define AT42QT1060_TWI_SCL_FUNCTION     AVR32_TWIMS0_TWCK_0_0_FUNCTION
 #define AT42QT1060_TWI_SDA_PIN          AVR32_TWIMS0_TWD_0_0_PIN
 #define AT42QT1060_TWI_SDA_FUNCTION     AVR32_TWIMS0_TWD_0_0_FUNCTION
+#else
+#define AT42QT1060_TWI                  (&AVR32_TWI)
+#define AT42QT1060_TWI_SCL_PIN          AVR32_TWI_SCL_0_0_PIN
+#define AT42QT1060_TWI_SCL_FUNCTION     AVR32_TWI_SCL_0_0_FUNCTION
+#define AT42QT1060_TWI_SDA_PIN          AVR32_TWI_SDA_0_0_PIN
+#define AT42QT1060_TWI_SDA_FUNCTION     AVR32_TWI_SDA_0_0_FUNCTION
 #endif
 #endif // #if !defined(AT42QT1060_TWI)
 

@@ -1739,15 +1739,6 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>cpu</name>
-				<group>
-					<name>reset_cause_example</name>
-					<file>
-						<name>$PROJ_DIR$/../../reset_cause_example.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>clock</name>
 				<group>
 					<name>uc3b0_b1</name>
@@ -1756,31 +1747,43 @@
 					</file>
 				</group>
 			</group>
+			<group>
+				<name>cpu</name>
+				<group>
+					<name>reset_cause_example</name>
+					<file>
+						<name>$PROJ_DIR$/../../reset_cause_example.c</name>
+					</file>
+				</group>
+			</group>
 		</group>
 	</group>
 	<group>
 		<name>avr32</name>
 		<group>
-			<name>drivers</name>
+			<name>boards</name>
 			<group>
-				<name>flashc</name>
+				<name>evk1101</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../avr32/drivers/flashc/flashc.c</name>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1101/led.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1101/init.c</name>
 				</file>
 			</group>
+		</group>
+		<group>
+			<name>drivers</name>
 			<group>
 				<name>gpio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/gpio/gpio.c</name>
 				</file>
 			</group>
-		</group>
-		<group>
-			<name>boards</name>
 			<group>
-				<name>evk1101</name>
+				<name>flashc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1101/init.c</name>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/flashc/flashc.c</name>
 				</file>
 			</group>
 		</group>

@@ -48,7 +48,7 @@ void ioport_configure_port_pin(void *port, pin_mask_t pin_mask,
 
 	for (pin = 0; pin < 8; pin++) {
 		if (pin_mask & (1 << pin)) {
-			*((uint8_t *)port + PORT_PIN0CTRL + pin) = flags;
+			*((uint8_t *)port + PORT_PIN0CTRL + pin) = flags >> 8;
 		}
 	}
 	/* Select direction and initial pin state */

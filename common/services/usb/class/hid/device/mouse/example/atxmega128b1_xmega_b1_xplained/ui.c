@@ -3,7 +3,7 @@
  *
  * \brief User Interface
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,12 +39,7 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "udc.h"
-#include "udi_hid_mouse.h"
-#include "board.h"
-#include "led.h"
+#include <asf.h>
 #include "ui.h"
 
 #define  MOUSE_MOVE_RANGE  3
@@ -100,7 +95,7 @@ ISR(PORTE_INT0_vect)
 	port = ioport_pin_to_port(GPIO_PUSH_BUTTON_0);
 	port->INTFLAGS = 0x01; // Ack interrupt
 	// It is a wakeup then send wakeup USB
-	udc_wakeup();
+	udc_remotewakeup();
 }
 
 void ui_wakeup(void)
@@ -143,7 +138,7 @@ void ui_process(uint16_t framenumber)
  * Human interface on XMEGA-B1 Xplained:
  * - Led 0 and the RED led close to USB connector are on
  *   when USB line is in IDLE mode, and off in SUSPEND mode
- * - Led 1 blinks when USB Host have checked and enabled HID mouse interface
+ * - Led 1 blinks when USB host has checked and enabled HID mouse interface
  * - Mouse move are linked at switches 0 (right), 1 (left), 2 (down), 3 (up)
  * - All switches can be used to wakeup USB Host in remote wakeup mode.
  */

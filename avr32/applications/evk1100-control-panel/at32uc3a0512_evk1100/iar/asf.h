@@ -69,12 +69,6 @@
 // From module: EVK1100 board support
 #include <led.h>
 
-// From module: Ethernet Physical (DP83848)
-#include <dp83848.h>
-
-// From module: Ethernet Physical Device Manager
-#include <ethernet_phy.h>
-
 // From module: FAT file system
 #include <fat.h>
 #include <file.h>
@@ -140,6 +134,9 @@
 
 // From module: PWM - UC3 A/B implementation
 #include <pwm.h>
+
+// From module: Part identification macros
+#include <parts.h>
 
 // From module: SD/MMC card access using SPI
 #include <sd_mmc_spi.h>

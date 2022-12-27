@@ -56,6 +56,7 @@ TARGET = intc_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/stk600/rcuc3d/led.c                   \
        avr32/drivers/flashcdw/flashcdw.c                  \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/example/interrupt_usart_example.c \

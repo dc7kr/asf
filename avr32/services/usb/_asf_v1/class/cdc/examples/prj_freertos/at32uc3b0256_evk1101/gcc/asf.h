@@ -111,6 +111,9 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: TC - Timer/Counter
 #include <tc.h>
 

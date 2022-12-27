@@ -69,6 +69,9 @@
 // From module: PMIC - Programmable Multi-level Interrupt Controller
 #include <pmic.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: RTC - Real Time Counter
 #include <rtc.h>
 
@@ -87,7 +90,6 @@
 
 // From module: XMEGA compiler driver
 #include <compiler.h>
-#include <parts.h>
 #include <status_codes.h>
 
 #endif // ASF_H

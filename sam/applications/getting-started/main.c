@@ -85,10 +85,10 @@
  *     -- xxxxxx-xx
  *     -- Compiled: xxx xx xxxx xx:xx:xx --
  *    \endcode
- * -# Pressing and release button 1 should make the first LED stop & restart
+ * -# Press and release button 1 should make the first LED stop & restart
  *    blinking.
- * -# If the button 2 available, pressing button 2 should make the other LED stop & restart
- *    blinking.
+ * -# If the button 2 available, press button 2 should make the other LED
+ *    stop & restart blinking.
  *
  */
 
@@ -106,6 +106,23 @@
 #define STRING_HEADER "-- Getting Started Example --\r\n" \
 		"-- "BOARD_NAME" --\r\n" \
 		"-- Compiled: "__DATE__" "__TIME__" --"STRING_EOL
+
+/** Default name definition for LEDs and push buttons */
+#ifndef LED_0_NAME
+#define LED_0_NAME           "LED0"
+#endif
+
+#ifndef LED_1_NAME
+#define LED_1_NAME           "LED1"
+#endif
+
+#ifndef PUSHBUTTON_1_NAME
+#define PUSHBUTTON_1_NAME    "PB1"
+#endif
+
+#ifndef PUSHBUTTON_2_NAME
+#define PUSHBUTTON_2_NAME    "PB2"
+#endif
 
 /** LED0 blinking control. */
 volatile bool g_b_led0_active = true;
@@ -138,12 +155,12 @@ static void ProcessButtonEvt(uint8_t uc_button)
 	} else {
 		g_b_led1_active = !g_b_led1_active;
 
-		/* Enable LED#2 and TC if they were enabled */
+		/* Enable LED#1 and TC if they were enabled */
 		if (g_b_led1_active) {
 			gpio_set_pin_low(LED1_GPIO);
 			tc_start(TC0, 0);
 		}
-		/* Disable LED#2 and TC if they were disabled */
+		/* Disable LED#1 and TC if they were disabled */
 		else {
 			gpio_set_pin_high(LED1_GPIO);
 			tc_stop(TC0, 0);
@@ -165,7 +182,7 @@ void SysTick_Handler(void)
 /**
  *  \brief Handler for Button 1 rising edge interrupt.
  *
- *  Handle process led1 status change.
+ *  Handle process LED0 status change.
  */
 static void Button1_Handler(uint32_t id, uint32_t mask)
 {
@@ -177,7 +194,7 @@ static void Button1_Handler(uint32_t id, uint32_t mask)
 /**
  *  \brief Handler for Button 2 falling edge interrupt.
  *
- *  Handle process led2 status change.
+ *  Handle process LED1 status change.
  */
 static void Button2_Handler(uint32_t id, uint32_t mask)
 {
@@ -194,40 +211,34 @@ static void Button2_Handler(uint32_t id, uint32_t mask)
  */
 static void configure_buttons(void)
 {
-	/* Adjust pio debounce filter patameters, uses 10 Hz filter. */
+	/* Configure Pushbutton 1 */
+	pmc_enable_periph_clk(PIN_PUSHBUTTON_1_ID);
 	pio_set_debounce_filter(PIN_PUSHBUTTON_1_PIO, PIN_PUSHBUTTON_1_MASK, 10);
-
-	/* Initialize pios interrupt handlers, see PIO definition in board.h. */
-	pio_handler_set(PIN_PUSHBUTTON_1_PIO, PIN_PUSHBUTTON_1_ID, PIN_PUSHBUTTON_1_MASK, PIN_PUSHBUTTON_1_ATTR, Button1_Handler);	/* Interrupt on rising edge  */
-
-	/* Enable PIO controller IRQs. */
+	pio_handler_set(PIN_PUSHBUTTON_1_PIO, PIN_PUSHBUTTON_1_ID,
+			PIN_PUSHBUTTON_1_MASK, PIN_PUSHBUTTON_1_ATTR, Button1_Handler); /* Interrupt on rising edge  */
 	NVIC_EnableIRQ((IRQn_Type) PIN_PUSHBUTTON_1_ID);
-
-	/* Enable PIO line interrupts. */
+	pio_handler_set_priority(PIN_PUSHBUTTON_1_PIO, (IRQn_Type) PIN_PUSHBUTTON_1_ID, IRQ_PRIOR_PIO);
 	pio_enable_interrupt(PIN_PUSHBUTTON_1_PIO, PIN_PUSHBUTTON_1_MASK);
 
 #ifndef BOARD_NO_PUSHBUTTON_2
 	/* Configure Pushbutton 2 */
+	pmc_enable_periph_clk(PIN_PUSHBUTTON_2_ID);
 	pio_set_debounce_filter(PIN_PUSHBUTTON_2_PIO, PIN_PUSHBUTTON_2_MASK, 10);
-	pio_handler_set(PIN_PUSHBUTTON_2_PIO, PIN_PUSHBUTTON_2_ID, PIN_PUSHBUTTON_2_MASK, PIN_PUSHBUTTON_2_ATTR, Button2_Handler);	/* Interrupt on falling edge */
+	pio_handler_set(PIN_PUSHBUTTON_2_PIO, PIN_PUSHBUTTON_2_ID,
+			PIN_PUSHBUTTON_2_MASK, PIN_PUSHBUTTON_2_ATTR, Button2_Handler); /* Interrupt on falling edge */
 	NVIC_EnableIRQ((IRQn_Type) PIN_PUSHBUTTON_2_ID);
+	pio_handler_set_priority(PIN_PUSHBUTTON_2_PIO, (IRQn_Type) PIN_PUSHBUTTON_2_ID, IRQ_PRIOR_PIO);
 	pio_enable_interrupt(PIN_PUSHBUTTON_2_PIO, PIN_PUSHBUTTON_2_MASK);
-#endif	
+#endif
 }
 
 /**
- *  Interrupt handler for TC0 interrupt. Toggles the state of LED\#2.
+ *  Interrupt handler for TC0 interrupt. Toggles the state of LED1.
  */
 void TC0_Handler(void)
 {
-	volatile uint32_t ul_dummy;
-	
 	/* Clear status bit to acknowledge interrupt */
-	ul_dummy = tc_get_status(TC0, 0);
-	
-	/* Avoid compiler warning */
-	if (ul_dummy)
-		;
+	tc_get_status(TC0, 0);
 
     /** Toggle LED state. */
 	gpio_toggle_pin(LED1_GPIO);
@@ -307,22 +318,13 @@ static void mdelay(uint32_t ul_dly_ticks)
  *  \return Unused (ANSI-C compatibility).
  */
 int main(void)
-{	
+{
 	/* Initilize the SAM system */
 	sysclk_init();
-	board_init();	
+	board_init();
 
 	/* Initialize the console uart */
 	configure_console();
-
-	/* Enable the PMC clocks of the push buttons */
-	pmc_enable_periph_clk(ID_PIOA);
-	pmc_enable_periph_clk(ID_PIOB);
-	pmc_enable_periph_clk(ID_PIOC);
-
-#if SAM3XA
-	pmc_enable_periph_clk(ID_PIOE);
-#endif
 
 	/* Output example information */
 	puts(STRING_HEADER);
@@ -334,25 +336,18 @@ int main(void)
 		while (1);
 	}
 
-	/* PIO configuration for LEDs and Buttons */
-	pio_handler_set_priority(PIOA, PIOA_IRQn, IRQ_PRIOR_PIO);
-	pio_handler_set_priority(PIOB, PIOB_IRQn, IRQ_PRIOR_PIO);
-	pio_handler_set_priority(PIOC, PIOC_IRQn, IRQ_PRIOR_PIO);
-
-#if SAM3XA
-	pio_handler_set_priority(PIOE, PIOE_IRQn, IRQ_PRIOR_PIO);
-#endif
-
 	puts("Configure TC.\r");
 	configure_tc();
 
 	puts("Configure buttons with debouncing.\r");
 	configure_buttons();
 
-	puts("Press USRBP1 to Start/Stop the blue LED D2 blinking.\r");
+	printf("Press %s to start/stop the %s blinking.\n\r",
+			PUSHBUTTON_1_NAME, LED_0_NAME);
 
 #ifndef BOARD_NO_PUSHBUTTON_2
-	puts("Press USRBP2 to Start/Stop the green LED D3 blinking.\r");
+	printf("Press %s to start/stop the %s blinking.\n\r",
+			PUSHBUTTON_2_NAME, LED_1_NAME);
 #endif
 
 	while (1) {

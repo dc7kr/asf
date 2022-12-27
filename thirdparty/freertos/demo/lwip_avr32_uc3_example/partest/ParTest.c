@@ -4,7 +4,7 @@
  *
  * \brief FreeRTOS Led Driver example for AVR32 UC3.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -50,10 +50,6 @@
 /*-----------------------------------------------------------
  * Simple parallel port IO routines.
  *-----------------------------------------------------------*/
-#if BOARD == UC3_C2_XPLAINED
-#define LED_Display(led)
-#endif
-
 
 #define partstALL_OUTPUTS_OFF     ( ( unsigned portCHAR ) 0x00 )
 #define partstMAX_OUTPUT_LED      ( ( unsigned portCHAR ) LED_COUNT )

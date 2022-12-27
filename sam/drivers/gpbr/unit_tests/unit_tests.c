@@ -114,7 +114,7 @@ volatile void *volatile stdio_base;
 /** Normal mode flag. */
 #define NORMAL_MODE_FLAG             0xffffffff
 
-/** GPBR uint test const written data */
+/** GPBR unit test const written data */
 #define GPBR_UNIT_TEST_CONST_DATA (0xdeadbeef)
 
 

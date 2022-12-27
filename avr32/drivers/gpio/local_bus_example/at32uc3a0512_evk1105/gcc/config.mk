@@ -56,6 +56,7 @@ TARGET = gpio_local_bus_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/evk1105/led.c                         \
        avr32/drivers/flashc/flashc.c                      \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/gpio/local_bus_example/gpio_local_bus_example.c \

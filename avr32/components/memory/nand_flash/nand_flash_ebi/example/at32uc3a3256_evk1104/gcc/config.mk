@@ -57,6 +57,7 @@ TARGET = nand_flash_ebi_example.elf
 # List of C source files.
 CSRCS = \
        avr32/boards/evk1104/init.c                        \
+       avr32/boards/evk1104/led.c                         \
        avr32/components/memory/nand_flash/nand_flash_ebi/example/nf_example.c \
        avr32/components/memory/nand_flash/nand_flash_ebi/nf.c \
        avr32/drivers/ebi/smc/smc.c                        \

@@ -75,6 +75,9 @@
 // From module: Memory Control Access Interface
 #include <ctrl_access.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: SD/MMC card access using SPI
 #include <sd_mmc_spi.h>
 #include <sd_mmc_spi_mem.h>

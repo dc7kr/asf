@@ -4,7 +4,7 @@
  *
  * \brief System Control InterFace(SCIF) driver.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -334,7 +334,7 @@ long int scif_enable_extosc(scif_osc_t osc)
 /**
  ** PLL0/PLL1 Functions
  **/
-long int scif_pll_setup(scif_pll_t pll, const scif_pll_opt_t opt)
+long int scif_pll_setup(scif_pll_t pll, const scif_pll_opt_t *opt)
 {
 
   u_avr32_scif_pll_t   u_avr32_scif_pll;
@@ -342,11 +342,11 @@ long int scif_pll_setup(scif_pll_t pll, const scif_pll_opt_t opt)
   // Read Register
   u_avr32_scif_pll.PLL[pll] = AVR32_SCIF.PLL[pll] ;
   // Modify Configuration
-  u_avr32_scif_pll.PLL[pll].pllosc  = opt.osc;
-  u_avr32_scif_pll.PLL[pll].pllopt  = opt.pll_freq | (opt.pll_div2 << 1) | (opt.pll_wbwdisable << 2);
-  u_avr32_scif_pll.PLL[pll].plldiv   = opt.div;
-  u_avr32_scif_pll.PLL[pll].pllmul  = opt.mul;
-  u_avr32_scif_pll.PLL[pll].pllcount= opt.lockcount;
+  u_avr32_scif_pll.PLL[pll].pllosc  = opt->osc;
+  u_avr32_scif_pll.PLL[pll].pllopt  = opt->pll_freq | (opt->pll_div2 << 1) | (opt->pll_wbwdisable << 2);
+  u_avr32_scif_pll.PLL[pll].plldiv  = opt->div;
+  u_avr32_scif_pll.PLL[pll].pllmul  = opt->mul;
+  u_avr32_scif_pll.PLL[pll].pllcount= opt->lockcount;
   AVR32_ENTER_CRITICAL_REGION( );
   // Unlock the write-protected PLL0 register
   SCIF_UNLOCK(AVR32_SCIF_PLL + 4*pll);
@@ -610,7 +610,7 @@ long int scif_stop_gclk(unsigned int gclk)
 
 long int scif_gc_setup(unsigned int gclk, scif_gcctrl_oscsel_t clk_src, unsigned int diven, unsigned int divfactor)
 {
-  int restart_gc = false;
+  bool restart_gc = false;
 
 
   // Change the division factor to conform to the equation: fgclk = fsrc/divfactor = fsrc/(2*(div+1))

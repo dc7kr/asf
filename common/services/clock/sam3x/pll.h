@@ -57,7 +57,7 @@ extern "C" {
  * @{
  */
 
-#define PLL_OUTPUT_MIN_HZ	96000000
+#define PLL_OUTPUT_MIN_HZ	84000000
 #define PLL_OUTPUT_MAX_HZ	192000000
 
 #define PLL_INPUT_MIN_HZ	8000000

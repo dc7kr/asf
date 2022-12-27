@@ -39,12 +39,7 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "udc.h"
-#include "udi_hid_kbd.h"
-#include "board.h"
-#include "led.h"
+#include <asf.h>
 #include "ui.h"
 
 //! Sequence process running each \c SEQUENCE_PERIOD ms
@@ -162,7 +157,7 @@ ISR(PORTB_INT0_vect)
 	port = ioport_pin_to_port(GPIO_PUSH_BUTTON_0);
 	port->INTFLAGS = 0x01; // Ack interrupt
 	// It is a wakeup then send wakeup USB
-	udc_wakeup();
+	udc_remotewakeup();
 }
 
 void ui_wakeup(void)
@@ -254,7 +249,7 @@ void ui_kbd_led(uint8_t value)
  *
  * Human interface on STK600:
  * - Led 0 is on when USB line is in IDLE mode, and off in SUSPEND mode
- * - Led 1 blinks when USB Host have checked and enabled HID Keyboard interface
+ * - Led 1 blinks when USB host has checked and enabled HID Keyboard interface
  * - Led 2 displays numeric lock status.
  * - Led 3 displays caps lock status.
  * - The switch 0 open a note pad application on Windows O.S.

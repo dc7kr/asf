@@ -3,7 +3,7 @@
  *
  * \brief XMEGA-A3BU Xplained demo application
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -178,20 +178,20 @@ int main(void)
 	}
 
 	// If we have battery power and RTC is running, don't initialize RTC32
-	if (rtc32_vbat_system_check(false) != VBAT_STATUS_OK) {
-		rtc32_init();
+	if (rtc_vbat_system_check(false) != VBAT_STATUS_OK) {
+		rtc_init();
 
 		// Set current time to after production date
 		rtc_timestamp = production_date_get_timestamp() + 1;
-		rtc32_set_time(rtc_timestamp);
+		rtc_set_time(rtc_timestamp);
 	}
 
 	// Get current time
-	rtc_timestamp = rtc32_get_time();
+	rtc_timestamp = rtc_get_time();
 	// Make sure RTC has not been set to a too early date .
 	if (rtc_timestamp < FIRST_POSSIBLE_TIMESTAMP) {
 		// Set time to 01.01.2011 00:00:00
-		rtc32_set_time(FIRST_POSSIBLE_TIMESTAMP);
+		rtc_set_time(FIRST_POSSIBLE_TIMESTAMP);
 	}
 
 	// Initialize USB CDC class

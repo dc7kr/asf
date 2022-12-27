@@ -3,7 +3,7 @@
  *
  * \brief Display current date and time
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -114,7 +114,7 @@ static void display_date_time_application(void)
 	gfx_mono_draw_filled_rect(0, 0, 128, 32, GFX_PIXEL_CLR);
 
 	// Get current timestamp from the RTC32
-	rtc_timestamp = rtc32_get_time();
+	rtc_timestamp = rtc_get_time();
 
 	// Get timezone settings
 	tz_hours_temp = timezone_get_hours();
@@ -137,7 +137,7 @@ static void display_date_time_application(void)
 			break;
 		}
 
-		rtc_timestamp = rtc32_get_time();
+		rtc_timestamp = rtc_get_time();
 
 		// Update printed time if the time has changed
 		if(rtc_timestamp != past_timestamp) {
@@ -212,7 +212,7 @@ static void set_date_application(void)
 	tz_minutes = timezone_get_minutes();
 
 	// Get current time
-	current_timestamp = rtc32_get_time();
+	current_timestamp = rtc_get_time();
 
 	// Convert the current timestamp to a datestruct
 	calendar_timestamp_to_date_tz(current_timestamp, tz_hours, tz_minutes,
@@ -268,7 +268,7 @@ static void set_date_application(void)
 	// Date OK, change.
 
 	// Get current time
-	current_timestamp = rtc32_get_time();
+	current_timestamp = rtc_get_time();
 	// Convert the current timestamp to a datestruct
 	calendar_timestamp_to_date_tz(current_timestamp, tz_hours, tz_minutes,
 		&date);
@@ -281,7 +281,7 @@ static void set_date_application(void)
 	new_timestamp =
 			calendar_date_to_timestamp_tz(&date, tz_hours, tz_minutes);
 	// Set new timestamp
-	rtc32_set_time(new_timestamp);
+	rtc_set_time(new_timestamp);
 }
 
 /**
@@ -317,7 +317,7 @@ static void set_time_application(void)
 	tz_hours = timezone_get_hours();
 	tz_minutes = timezone_get_minutes();
 
-	timestamp = rtc32_get_time();
+	timestamp = rtc_get_time();
 
 	calendar_timestamp_to_date_tz(timestamp, tz_hours, tz_minutes, &date);
 
@@ -343,7 +343,7 @@ static void set_time_application(void)
 	timestamp = calendar_date_to_timestamp_tz(&date, tz_hours, tz_minutes);
 
 	if(timestamp != 0) {
-		rtc32_set_time(timestamp);
+		rtc_set_time(timestamp);
 	}
 }
 

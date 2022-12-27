@@ -45,14 +45,14 @@
  *  \par Purpose
  *
  *  This example demonstrates the hardware handshaking mode (i.e., RTS/CTS)
- *  provided by the USART peripherals on SAM3 microcontrollers. The practical
+ *  provided by the USART peripherals on SAM microcontrollers. The practical
  *  use of hardware handshaking is that it allows to stop transfer on the USART
  *  without losing any data in the process. This is very useful for applications
  *  that need to program slow memories for example.
  *
  *  \par Requirements
  *
- *  This example can be used on all SAM3-EK. 
+ *  This example can be used on all SAM EK. 
  *  It requires a serial line with hardware control support (TXD and RXD cross 
  *  over, RTS and CTS cross over) to connect the board and PC.
  *  
@@ -121,7 +121,7 @@
 #define ALL_INTERRUPT_MASK  0xffffffff
 
 /** Timer counter frequency in Hz. */
-#define TC_FREQ             4
+#define TC_FREQ             1
 
 #define STRING_EOL    "\r"
 #define STRING_HEADER "--USART Hardware Handshaking Example --\r\n" \
@@ -154,21 +154,23 @@ void USART_Handler(void)
 {
 	uint32_t ul_status;
 
+	tc_stop(TC0, 0);
+
 	/* Read USART status. */
 	ul_status = usart_get_status(BOARD_USART);
 
 	/* Receive buffer is full. */
 	if (ul_status & US_CSR_RXBUFF) {
 		g_ul_bytes_received += 1;
-		/* Restart transfer if BPS is not high enough. */
 		if (g_ul_bytes_received < MAX_BPS) {
+			/* Restart transfer if BPS is not high enough. */
 			pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
-		}
-		/* Otherwise disable interrupt. */
-		else {
+		} else {
+			/* Otherwise disable interrupt. */
 			usart_disable_interrupt(BOARD_USART, US_IDR_RXBUFF);
 		}
 	}
+	tc_start(TC0, 0);
 }
 
 /**
@@ -194,18 +196,18 @@ void TC0_Handler(void)
 		sprintf((char *)g_puc_string, "Bps: %4lu; Tot: %6lu\r\n",
 				g_ul_bytes_received, bytes_total);
 		usart_write_line(BOARD_USART, (char *)g_puc_string);
-		g_ul_bytes_received = 0;
 
 		/* Resume transfer if needed. */
-		if (pdc_read_rx_counter(g_p_pdc) == 0) {
+		if (g_ul_bytes_received >= MAX_BPS) {
 			pdc_rx_init(g_p_pdc, &g_st_packet, NULL);
 			usart_enable_interrupt(BOARD_USART, US_IER_RXBUFF);
 		}
+		g_ul_bytes_received = 0;
 	}
 }
 
 /**
- *  Configure Timer Counter 0 to generate an interrupt every 250ms.
+ *  Configure Timer Counter 0 to generate an interrupt every second.
  */
 static void configure_tc(void)
 {
@@ -219,7 +221,7 @@ static void configure_tc(void)
 	/* Configure PMC. */
 	pmc_enable_periph_clk(ID_TC0);
 
-    /** Configure TC for a 4Hz frequency and trigger on RC compare. */
+    /** Configure TC for a 1Hz frequency and trigger on RC compare. */
 	tc_find_mck_divisor(TC_FREQ, ul_sysclk, &ul_div, &ul_tcclks, ul_sysclk);
 	tc_init(TC0, 0, ul_tcclks | TC_CMR_CPCTRG);
 	tc_write_rc(TC0, 0, (ul_sysclk / ul_div) / TC_FREQ);
@@ -309,7 +311,7 @@ static void configure_console(void)
  */
 int main(void)
 {
-	/* Initialize the SAM3 system. */
+	/* Initialize the system. */
 	sysclk_init();
 	board_init();
 

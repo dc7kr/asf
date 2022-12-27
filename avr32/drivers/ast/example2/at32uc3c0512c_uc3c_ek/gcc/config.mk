@@ -56,6 +56,7 @@ TARGET = ast_example2.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/uc3c_ek/led.c                         \
        avr32/drivers/ast/ast.c                            \
        avr32/drivers/ast/example2/ast_example2.c          \
        avr32/drivers/flashc/flashc.c                      \

@@ -85,6 +85,12 @@ extern "C" {
 //! Perform a CRC calculation on the boot loader section
 #define CRC_APP            NVM_CMD_APP_CRC_gc
 
+//! Flag to indicate whether DMA is supported
+#if !(XMEGA_C3 || XMEGA_C4)
+# define DMA_SUPPORTED
+#endif
+
+
 //! Enum to indicate whether to use CRC-16 or CRC-32
 enum crc_16_32_t {
 	CRC_16BIT,
@@ -106,8 +112,10 @@ void crc_io_checksum_byte_start(enum crc_16_32_t crc_16_32);
 void crc_io_checksum_byte_add(uint8_t data);
 uint32_t crc_io_checksum_byte_stop(void);
 
+#ifdef DMA_SUPPORTED
 void crc_dma_checksum_start(uint8_t dma_channel, enum crc_16_32_t crc_16_32);
 uint32_t crc_dma_checksum_stop(void);
+#endif
 //! @}
 
 #ifdef __cplusplus

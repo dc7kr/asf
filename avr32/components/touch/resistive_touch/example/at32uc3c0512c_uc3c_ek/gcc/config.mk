@@ -56,6 +56,7 @@ TARGET = resitive_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/uc3c_ek/led.c                         \
        avr32/components/display/et024006dhu/et024006dhu.c \
        avr32/components/touch/resistive_touch/example/rtouch_calibrate.c \
        avr32/components/touch/resistive_touch/example/rtouch_example.c \

@@ -65,9 +65,17 @@
 
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
-#include <pio_handler.h>
+
+// From module: Part identification macros
+#include <parts.h>
+
+// From module: SAM3S EK2 LED support enabled
+#include <led.h>
 
 // From module: SAM3SD8 startup code
 #include <exceptions.h>
+
+// From module: pio_handler support enabled
+#include <pio_handler.h>
 
 #endif // ASF_H

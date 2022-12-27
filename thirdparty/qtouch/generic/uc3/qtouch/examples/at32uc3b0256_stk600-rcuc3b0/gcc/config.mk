@@ -75,7 +75,7 @@ ASSRCS = \
 # List of include paths.
 INC_PATH = \
        avr32/boards                                       \
-       avr32/boards/stk600/rcuc3b                         \
+       avr32/boards/stk600/rcuc3b0                        \
        avr32/drivers/flashc                               \
        avr32/drivers/gpio                                 \
        avr32/drivers/intc                                 \
@@ -130,7 +130,7 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=STK600_RCUC3B                             \
+       -D BOARD=STK600_RCUC3B0                            \
        -D QT_DELAY_CYCLES=5                               \
        -D QT_NUM_CHANNELS=32                              \
        -D SNS=A                                           \

@@ -3,7 +3,7 @@
  *
  * \brief UART functions
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,16 +39,10 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "usb_protocol_cdc.h"
-#include "sysclk.h"
+#include <asf.h>
 #include "uart.h"
-#include "usart.h"
-#include "gpio.h"
 #include "main.h"
 #include "ui.h"
-#include "udi_cdc.h"
 
 static usart_options_t usart0_options;
 static usart_options_t usart_options;

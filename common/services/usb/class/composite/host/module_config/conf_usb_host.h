@@ -3,7 +3,7 @@
  *
  * \brief USB host configuration file
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -50,7 +50,7 @@
  */
 
 //! Array of UHI APIs Define the list of UHI supported by USB host.
-#define USB_HOST_UHI        // UHI_MSC, UHI_HID_MOUSE
+#define USB_HOST_UHI        // UHI_MSC, UHI_HID_MOUSE, UHI_CDC
 
 //! Maximum current allowed on Vbus (mA)
 #define USB_HOST_POWER_MAX  500
@@ -108,6 +108,7 @@
  * USB Interface Configuration
  * @{
  */
+
 /**
  * Configuration of HID Mouse interface
  * @{
@@ -118,14 +119,24 @@
 #define UHI_HID_MOUSE_EVENT_BTN_MIDDLE(b_state)
 #define UHI_HID_MOUSE_EVENT_MOUVE(x,y,scroll)
 //@}
-//@}
+
 /**
  * Configuration of MSC interface
  * @{
  */
 #define UHI_MSC_CHANGE(dev,b_plug)
 //@}
+
+/**
+ * Configuration of CDC interface
+ * @{
+ */
+#define UHI_CDC_CHANGE(dev,b_plug)
+#define UHI_CDC_RX_NOTIFY()
 //@}
+
+//@}
+
 
 //@}
 

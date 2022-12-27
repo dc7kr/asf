@@ -4,7 +4,7 @@
  * \brief USB Device Personal Healthcare Device Class (PHDC)
  * interface definitions.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -72,17 +72,19 @@ extern "C" {
 #endif
 
 /**
- * \ingroup udi_group
- * \defgroup udi_phdc_group UDI for Personal Healthcare Device Class
- *
+ * \addtogroup udi_phdc_group_udc
  * @{
  */
+//! Global struture which contains standard UDI API for UDC
+extern UDC_DESC_STORAGE udi_api_t udi_api_phdc;
+//@}
 
 /**
- * \name Interface Descriptor
+ * \ingroup udi_phdc_group
+ * \defgroup udi_phdc_group_desc USB interface descriptors
  *
- * The following structures provide the interface descriptor.
- * It must be implemented in USB configuration descriptor.
+ * The following structures provide predefined USB interface descriptors.
+ * It must be used to define the final USB descriptors.
  */
 //@{
 
@@ -284,17 +286,14 @@ COMPILER_PACK_RESET();
 }
 //@}
 
-
-//! Global struture which contains standard UDI API for UDC
-extern UDC_DESC_STORAGE udi_api_t udi_api_phdc;
-
 /**
- * \name Interface for application
+ * \ingroup udi_group
+ * \defgroup udi_phdc_group USB Device Interface (UDI) for Personal Healthcare Device Class (PHDC)
  *
- * These routines are used by memory to transfer his data
- * to/from USB PHDC endpoints.
+ * Common APIs used by high level application to use this USB class.
+ *
+ * @{
  */
-//@{
 
 //! Structure used in argument for routines
 //! udi_phdc_senddata and udi_phdc_waitdata
@@ -329,7 +328,6 @@ bool udi_phdc_senddata(udi_phdc_metadata_t * metadata,
 bool udi_phdc_waitdata(udi_phdc_metadata_t * metadata,
 		void (*callback) (uint16_t));
 
-//! @}
 //! @}
 
 #ifdef __cplusplus

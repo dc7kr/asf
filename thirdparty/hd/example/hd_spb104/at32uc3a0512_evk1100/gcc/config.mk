@@ -157,6 +157,7 @@ INC_PATH = \
        common/services/storage/ctrl_access                \
        common/utils                                       \
        thirdparty/hd/example                              \
+       thirdparty/hd/example/hd_spb104/at32uc3a0512_evk1100 \
        thirdparty/hd/example/ports/avr32                  \
        thirdparty/hd/example/ports/avr32/conf             \
        thirdparty/hd/v2.6/include                         \

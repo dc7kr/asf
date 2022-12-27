@@ -9,7 +9,7 @@
  *
  * To use this board, define BOARD=UC3_L0_XPLAINED
  *
- * Copyright (c) 2010-2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -215,6 +215,23 @@ extern "C" {
 #define USART0_SYSCLK            SYSCLK_USART1
 // @}
 
+/** \name MXT143E Xplained top module
+ * @{
+ */
+#define MXT143E_XPLAINED_SPI           &AVR32_SPI
+#define MXT143E_XPLAINED_TWI           &AVR32_TWIM0
+#define MXT143E_XPLAINED_CS            (AVR32_PIN_PA08)
+#define MXT143E_XPLAINED_SCK           (AVR32_SPI_SCK_0_1_PIN)
+#define MXT143E_XPLAINED_SCK_FUNCTION  (AVR32_SPI_SCK_0_1_FUNCTION)
+#define MXT143E_XPLAINED_MOSI          (AVR32_SPI_MOSI_0_1_PIN)
+#define MXT143E_XPLAINED_MOSI_FUNCTION (AVR32_SPI_MOSI_0_1_FUNCTION)
+#define MXT143E_XPLAINED_MISO          (AVR32_SPI_MISO_0_1_PIN)
+#define MXT143E_XPLAINED_MISO_FUNCTION (AVR32_SPI_MISO_0_1_FUNCTION)
+#define MXT143E_XPLAINED_CHG           (AVR32_PIN_PB11)
+#define MXT143E_XPLAINED_DC            (AVR32_PIN_PB10)
+#define MXT143E_XPLAINED_BACKLIGHT     (AVR32_PIN_PB07)
+#define MXT143E_XPLAINED_LCD_RESET     (AVR32_PIN_PB06)
+/** @} */
 
 /*! \name TWI Master connections to GPIO
  *

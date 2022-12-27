@@ -6,7 +6,7 @@
  *
  * This file is the AT42QT1060 driver.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -48,12 +48,8 @@
 #include "gpio.h"
 #include "conf_at42qt1060.h"
 #include "at42qt1060.h"
-#if BOARD == EVK1105
-#include "eic.h"
-#endif
 #include "cycle_counter.h"
-
-#  if (UC3A3 || UC3C || UC3L)
+#if (UC3A3 || UC3A4 || UC3C || UC3L)
 #include "twim.h"
 #else
 #include "twi.h"
@@ -158,17 +154,6 @@ ISR(at42qt1060_detect_int_handler,AVR32_GPIO_IRQ_GROUP,0)
 	}
 }
 
-#if BOARD == EVK1105
-/** \brief Interrupt handler for the EIC controller line.
- */
-ISR(at42qt1060_detect_eic_int_handler, AT42QT1060_EIC_EXTINT_IRQ,AT42QT1060_EIC_EXTINT_LEVEL)
-{
-	eic_clear_interrupt_line(&AVR32_EIC, AT42QT1060_EIC_LINE);
-	if(at42qt1060.touch_detect_callback)
-		at42qt1060.touch_detect_callback();
-}
-#endif
-
 /** \brief Register a normal pin interrupt for the touch event.
  *
  */
@@ -190,37 +175,6 @@ void at42qt1060_register_int(void (*touch_detect_callback)(void))
 
 	return;
 }
-
-#if BOARD == EVK1105
-/** \brief Register an external interrupt handler for the touch event.
- *
- */
-void at42qt1060_register_eic_int(void (*touch_detect_callback)(void))
-{
-
-	eic_options_t eic_options[1];
-	at42qt1060.touch_detect_callback = touch_detect_callback;
-	gpio_enable_module_pin(AT42QT1060_DETECT_PIN, AT42QT1060_EIC_EXTINT_FUNCTION);
-
-	// register Register at42qt1060_detect_eic_int_handler interrupt on level AT42QT1060_EIC_EXTINT_LEVEL
-	irqflags_t flags = cpu_irq_save();
-	irq_register_handler(at42qt1060_detect_eic_int_handler,
-			AT42QT1060_EIC_EXTINT_IRQ, AT42QT1060_EIC_EXTINT_LEVEL);
-
-	eic_options[0].eic_mode = EIC_MODE_EDGE_TRIGGERED;
-	eic_options[0].eic_level = EIC_EDGE_FALLING_EDGE;
-	eic_options[0].eic_async = EIC_SYNCH_MODE;
-	eic_options[0].eic_line = AT42QT1060_EIC_LINE;
-
-	eic_init(&AVR32_EIC, &eic_options[0], 1);
-	eic_enable_lines(&AVR32_EIC, (1 << eic_options[0].eic_line));
-	eic_enable_interrupt_lines(&AVR32_EIC, (1 << eic_options[0].eic_line));
-
-	cpu_irq_restore(flags);
-
-	return;
-}
-#endif
 
 void at42qt1060_init(int32_t fcpu)
 {

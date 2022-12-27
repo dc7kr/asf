@@ -3,7 +3,7 @@
  *
  * \brief This module defines a collection of vector classes.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,21 +39,14 @@
  *
  */
 
-
-#ifndef _vector_h_
-#define _vector_h_
-
-
+#ifndef _VECTOR_MATH_H_
+#define _VECTOR_MATH_H_
 
 #include "precision.h"
 
-
-
 namespace math {
 
-
-
-/*! \brief Calculate the determinant of a 2x2 matrix.
+/** \brief Calculate the determinant of a 2x2 matrix.
  *
  * This routine calculates the determinant of a 2x2 matrix consisting of
  * entries \p a, \p b, \p c, and \p d arranged in the matrix
@@ -70,7 +63,7 @@ inline scalar det (scalar a, scalar b, scalar c, scalar d)
 	return ((a * d) - (b * c));
 }
 
-/*! \brief Calculate the determinant of a 3x3 matrix.
+/** \brief Calculate the determinant of a 3x3 matrix.
  *
  * This routine calculates the determinant of a 3x3 matrix consisting of
  * entries arranged in the matrix as follows:
@@ -91,33 +84,24 @@ inline scalar det (scalar a1, scalar b1, scalar c1,
 		+ c1 * det (a2, b2, a3, b3));
 }
 
-
-//! \brief Ordered 2-tuple implementing Euclidean vector operations
-
+/** \brief Ordered 2-tuple implementing Euclidean vector operations */
 class vector2d {
 
 public:
 
-
-	//! \name vector element storage
-	// @{
-
+	/** \name vector element storage */
+	/** @{ */
 	scalar x, y;
+	/** @} */
 
-	// @}
-
-
-	//! \name class construction and destruction
-	// @{
-
+	/** \name class construction and destruction */
+	/** @{ */
 	explicit vector2d (scalar x = 0, scalar y = 0)
 		: x (x), y (y) {}
+	/** @} */
 
-	// @}
-
-
-	//! \name class public methods
-	// @{
+	/** \name class public methods */
+	/** @{ */
 	const scalar dot (const vector2d & v) const
 		{ return ((x * v.x) + (y * v.y)); }
 
@@ -132,16 +116,15 @@ public:
 
 	bool nearlyEquals (const vector2d & v, const scalar & e) const
 		{ return (fabs (x - v.x) < e) && (fabs (y - v.y) < e); }
-	// @}
+	/** @} */
 
-
-	//! \name class member operators
-	// @{
+	/** \name class member operators */
+	/** @{ */
 	scalar & operator() (int i)
-		{ /* assert ((0 <= i) && (i < 2)); */ return *(&x + i); }
+		{ return *(&x + i); }
 
 	const scalar & operator() (int i) const
-		{ /* assert ((0 <= i) && (i < 2)); */ return *(&x + i); }
+		{ return *(&x + i); }
 
 	scalar & operator[] (int i)
 		{ return this->operator () (i); }
@@ -150,28 +133,28 @@ public:
 		{ return this->operator () (i); }
 
 	const vector2d & operator += (const vector2d & v)
-		{
+	{
 		x += v.x; y += v.y;
 		return *this;
-		}
+	}
 
 	const vector2d & operator -= (const vector2d & v)
-		{
+	{
 		x -= v.x; y -= v.y;
 		return *this;
-		}
+	}
 
 	const vector2d & operator *= (const scalar & s)
-		{
+	{
 		x *= s; y *= s;
 		return *this;
-		}
+	}
 
 	const vector2d & operator /= (const scalar & s)
-		{
+	{
 		x /= s; y /= s;
 		return *this;
-		}
+	}
 
 	const vector2d operator + (const vector2d & v) const
 		{ return vector2d (x + v.x, y + v.y); }
@@ -190,53 +173,45 @@ public:
 
 	bool operator != (const vector2d & v) const
 		{ return ! (v == *this); }
-	// @}
+	/** @} */
 
 
-	//! \name class friend operators
-	// @{
+	/** \name class friend operators */
+	/** @{ */
 	friend const vector2d operator * (const scalar & s, const vector2d & v)
 		{ return (vector2d (v) *= s); }
 
 	friend const vector2d operator - (const vector2d & u)
 		{ return vector2d (-u.x, -u.y); }
-	// @}
+	/** @} */
 };
 
-//! \brief Ordered 3-tuple implementing Euclidean vector operations
-
+/** \brief Ordered 3-tuple implementing Euclidean vector operations */
 class vector3d
 	{
 public:
 
-
-	//! \name vector element storage
-	// @{
-
+	/** \name vector element storage */
+	/** @{ */
 	scalar x, y, z;
+	/** @} */
 
-	// @}
-
-
-	//! \brief class construction and destruction
-	// @{
-
+	/** \brief class construction and destruction */
+	/** @{ */
 	explicit vector3d (scalar x = 0, scalar y = 0, scalar z = 0)
 		: x (x), y (y), z (z) {}
+	/** @} */
 
-	// @}
-
-
-	//! \name class public methods
-	// @{
+	/** \name class public methods */
+	/** @{ */
 	const scalar dot (const vector3d & v) const
 		{ return ((x * v.x) + (y * v.y) + (z * v.z)); }
 
 	const vector3d cross (const vector3d & v) const
-		{
+	{
 		return vector3d (det (y, z, v.y, v.z),
 			-det (x, z, v.x, v.z), det (x, y, v.x, v.y));
-		}
+	}
 
 	void  normalize ()
 		{ (*this) /= this->mag (); }
@@ -248,20 +223,19 @@ public:
 		{ return (*this) / this->mag (); }
 
 	bool nearlyEquals (const vector3d & v, const scalar & e) const
-		{
+	{
 		return (fabs (x - v.x) < e) && (fabs (y - v.y) < e)
 			&& (fabs (z - v.z) < e);
-		}
-	// @}
+	}
+	/** @} */
 
-
-	//! \name class member operators
-	// @{
+	/** \name class member operators */
+	/** @{ */
 	scalar & operator() (int i)
-		{ /* assert ((0 <= i) && (i < 2)); */ return *(&x + i); }
+		{ return *(&x + i); }
 
 	const scalar & operator() (int i) const
-		{ /* assert ((0 <= i) && (i < 2)); */ return *(&x + i); }
+		{ return *(&x + i); }
 
 	scalar & operator[] (int i)
 		{ return this->operator () (i); }
@@ -270,28 +244,28 @@ public:
 		{ return this->operator () (i); }
 
 	const vector3d & operator += (const vector3d & v)
-		{
+	{
 		x += v.x; y += v.y; z += v.z;
 		return *this;
-		}
+	}
 
 	const vector3d & operator -= (const vector3d & v)
-		{
+	{
 		x -= v.x; y -= v.y; z -= v.z;
 		return *this;
-		}
+	}
 
 	const vector3d & operator *= (const scalar & s)
-		{
+	{
 		x *= s; y *= s; z *= s;
 		return *this;
-		}
+	}
 
 	const vector3d & operator /= (const scalar & s)
-		{
+	{
 		x /= s; y /= s; z /= s;
 		return *this;
-		}
+	}
 
 	const vector3d operator + (const vector3d & v) const
 		{ return vector3d (x + v.x, y + v.y, z + v.z); }
@@ -310,53 +284,46 @@ public:
 
 	bool operator != (const vector3d & v) const
 		{ return ! (v == *this); }
-	// @}
+	/** @} */
 
-
-	// class friend operators
-	// @{
+	/** \name class friend operators */
+	/** @{ */
 	friend const vector3d operator * (const scalar & s, const vector3d & v)
 		{ return (vector3d (v) *= s); }
 
 	friend const vector3d operator - (const vector3d & u)
 		{ return vector3d (-u.x, -u.y, -u.z); }
-	// @}
+	/** @} */
 	};
 
-//! \brief Augmented 3-dimensional vector / homogeneous vector / projected point
-
+/** \brief Augmented 3-dimensional vector / homogeneous vector / projected point */
 class vector4h {
 public:
 
-
-	//! \name homogeneous vector element storage
-	// @{
-
+	/** \name homogeneous vector element storage */
+	/** @{ */
 	scalar x, y, z, w;
+	/** @} */
 
-	// @}
-
-
-	//! \name class construction and destruction
-	// @{
+	/** \name class construction and destruction */
+	/** @{ */
 	explicit vector4h (scalar x = 0, scalar y = 0, scalar z = 0, scalar w = 1)
 		: x (x), y (y), z (z), w (w) {}
 
 	explicit vector4h (const vector3d & v)
 		: x (v.x), y (v.y), z (v.z), w (1) {}
-	// @}
+	/** @} */
 
-
-	//! \name class public methods
-	// @{
+	/** \name class public methods */
+	/** @{ */
 	const scalar dot (const vector4h & v) const
 		{ return ((x * v.x) + (y * v.y) + (z * v.z)); }
 
 	const vector4h cross (const vector4h & v) const
-		{
+	{
 		return vector4h (det (y, z, v.y, v.z),
 			-det (x, z, v.x, v.z), det (x, y, v.x, v.y));
-		}
+	}
 
 	void  normalize ()
 		{ (*this) /= this->mag (); }
@@ -368,20 +335,19 @@ public:
 		{ return (*this) / this->mag (); }
 
 	bool nearlyEquals (const vector4h & v, const scalar & e) const
-		{
+	{
 		return (fabs (x - v.x) < e) && (fabs (y - v.y) < e)
 			&& (fabs (z - v.z) < e);
-		}
-	// @}
+	}
+	/** @} */
 
-
-	//! \name class member operators
-	// @{
+	/** \name class member operators */
+	/** @{ */
 	scalar & operator() (int i)
-		{ /* assert ((0 <= i) && (i < 2)); */ return *(&x + i); }
+		{ return *(&x + i); }
 
 	const scalar & operator() (int i) const
-		{ /* assert ((0 <= i) && (i < 2)); */ return *(&x + i); }
+		{ return *(&x + i); }
 
 	scalar & operator[] (int i)
 		{ return this->operator () (i); }
@@ -390,28 +356,28 @@ public:
 		{ return this->operator () (i); }
 
 	const vector4h & operator += (const vector4h & v)
-		{
+	{
 		x += v.x; y += v.y; z += v.z;
 		return *this;
-		}
+	}
 
 	const vector4h & operator -= (const vector4h & v)
-		{
+	{
 		x -= v.x; y -= v.y; z -= v.z;
 		return *this;
-		}
+	}
 
 	const vector4h & operator *= (const scalar & s)
-		{
+	{
 		x *= s; y *= s; z *= s;
 		return *this;
-		}
+	}
 
 	const vector4h & operator /= (const scalar & s)
-		{
+	{
 		x /= s; y /= s; z /= s;
 		return *this;
-		}
+	}
 
 	const vector4h operator + (const vector4h & v) const
 		{ return vector4h (x + v.x, y + v.y, z + v.z); }
@@ -430,43 +396,37 @@ public:
 
 	bool operator != (const vector4h & v) const
 		{ return ! (v == *this); }
-	// @}
+	/** @} */
 
-
-	//! \name class friend operators
-	// @{
+	/** \name class friend operators */
+	/** @{ */
 	friend const vector4h operator * (const scalar & s, const vector4h & v)
 		{ return (vector4h (v) *= s); }
 
 	friend const vector4h operator - (const vector4h & u)
 		{ return vector4h (-u.x, -u.y, -u.z); }
-	// @}
+	/** @} */
 };
 
-//! \brief Ordered 4-tuple implementing Euclidean vector operations
-
+/** \brief Ordered 4-tuple implementing Euclidean vector operations */
 class vector4d
-	{
+{
 public:
 
-
-	//! \name vector element storage
-
+	/** \name vector element storage */
 	scalar x, y, z, w;
 
-
-	//! \name class construction and destruction
-	// @{
+	/** \name class construction and destruction */
+	/** @{ */
 	explicit vector4d (scalar x = 0, scalar y = 0, scalar z = 0, scalar w = 0)
 		: x (x), y (y), z (z), w (w) {}
 
 	explicit vector4d (const vector4h & v)
 		: x (v.x), y (v.y), z (v.z), w (v.w) {}
-	// @}
+	/** @} */
 
-
-	//! \name class public methods
-	// @{
+	/** \name class public methods */
+	/** @{ */
 	const scalar dot (const vector4d & v) const
 		{ return ((x * v.x) + (y * v.y) + (z * v.z) + (w * v.w)); }
 
@@ -480,20 +440,19 @@ public:
 		{ return (*this) / this->mag (); }
 
 	bool nearlyEquals (const vector4d & v, const scalar & e) const
-		{
+	{
 		return (fabs (x - v.x) < e) && (fabs (y - v.y) < e)
 			&& (fabs (z - v.z) < e) && (fabs (w - v.z) < e);
-		}
-	// @}
+	}
+	/** @} */
 
-
-	//! \name class member operators
-	// @{
+	/** \name class member operators */
+	/** @{ */
 	scalar & operator() (int i)
-		{ /* assert ((0 <= i) && (i < 2)); */ return *(&x + i); }
+		{ return *(&x + i); }
 
 	const scalar & operator() (int i) const
-		{ /* assert ((0 <= i) && (i < 2)); */ return *(&x + i); }
+		{ return *(&x + i); }
 
 	scalar & operator[] (int i)
 		{ return this->operator () (i); }
@@ -502,32 +461,32 @@ public:
 		{ return this->operator () (i); }
 
 	const vector4d & operator += (const vector4d & v)
-		{
+	{
 		x += v.x; y += v.y; z += v.z; w += v.w;
 
 		return *this;
-		}
+	}
 
 	const vector4d & operator -= (const vector4d & v)
-		{
+	{
 		x -= v.x; y -= v.y; z -= v.z; w -= v.w;
 
 		return *this;
-		}
+	}
 
 	const vector4d & operator *= (const scalar & s)
-		{
+	{
 		x *= s; y *= s; z *= s; w *= s;
 
 		return *this;
-		}
+	}
 
 	const vector4d & operator /= (const scalar & s)
-		{
+	{
 		x /= s; y /= s; z /= s; w /= s;
 
 		return *this;
-		}
+	}
 
 	const vector4d operator + (const vector4d & v) const
 		{ return (vector4d (*this) += v); }
@@ -546,18 +505,18 @@ public:
 
 	bool operator != (const vector4d & v) const
 		{ return ! (v == *this); }
-	// @}
+	/** @} */
 
-
+	/** \name class friend operators */
+	/** @{ */
 	friend const vector4d operator * (const scalar & s, const vector4d & v)
 		{ return (vector4d (v) *= s); }
 
 	friend const vector4d operator - (const vector4d & u)
 		{ return vector4d (-u.x, -u.y, -u.z, -u.w); }
-	};
+	/** @} */
+};
 
+}
 
-}  // namespace math
-
-
-#endif // _vector_h_
+#endif

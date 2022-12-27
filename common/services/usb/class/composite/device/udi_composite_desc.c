@@ -1,9 +1,9 @@
 /**
  * \file
  *
- * \brief Descriptors for an USB Device composite
+ * \brief Descriptors for an USB Composite Device
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

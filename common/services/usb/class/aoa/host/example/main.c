@@ -39,12 +39,10 @@
  *
  */
 
-#include "asf.h"
-
+#include <asf.h>
 #include "conf_usb_host.h"
 #include "ui.h"
 #include "main.h"
-#include "pm.h"
 
 /*! \brief Main function. Execution starts here.
  *

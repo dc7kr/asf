@@ -3,7 +3,7 @@
  *
  * \brief USB Device Atmel Firmware Upgrade (DFU) interface definitions.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -59,17 +59,14 @@
 #  error Bootloader protocol not supported (FLIP_PROTOCOL_VERSION)
 #endif
 
-
 /**
- * \addtogroup udi_dfu_atmel_group
+ * \ingroup udi_dfu_atmel_group
+ * \defgroup udi_dfu_atmel_group_udc Interface with USB Device Core (UDC)
+ *
+ * Structures and functions required by UDC.
+ *
  * @{
  */
-
-/**
- * \name Interface for UDC
- */
-//@{
-
 bool udi_dfu_atmel_enable(void);
 void udi_dfu_atmel_disable(void);
 bool udi_dfu_atmel_setup(void);
@@ -83,9 +80,16 @@ UDC_DESC_STORAGE udi_api_t udi_api_dfu_atmel = {
 	.getsetting = udi_dfu_atmel_getsetting,
 	.sof_notify = NULL,
 };
-
 //@}
 
+
+/**
+ * \ingroup udi_dfu_atmel_group
+ * \defgroup udi_dfu_atmel_group_internal Implementation of UDI DFU Atmel Class
+ *
+ * Class internal implementation
+ * @{
+ */
 
 /**
  * \name Internal routines to manage DFU requests
@@ -455,7 +459,7 @@ static bool udi_dfu_flip_msg_decode(void)
 	udi_dfu_atmel_reset_protocol();
 	udi_dfu_atmel_upload_callback = NULL;
 
-	// To restart ISP in case of USB cable is unplug during program load
+	// To restart ISP in case of USB cable is unplugged during program load
 	isp_force_boot_isp(true);
 
 	// Decode Atmel command ID

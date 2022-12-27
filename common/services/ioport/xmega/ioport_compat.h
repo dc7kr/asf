@@ -75,41 +75,41 @@ typedef uint8_t port_id_t;
 
 /** \name Initial Output State Flags */
 /** @{ */
-#define IOPORT_INIT_LOW           (0 << 9) /*!< Initial Output State Low */
-#define IOPORT_INIT_HIGH          (1 << 9) /*!< Initial Output State High */
+#define IOPORT_INIT_LOW           (0 << 1) /*!< Initial Output State Low */
+#define IOPORT_INIT_HIGH          (1 << 1) /*!< Initial Output State High */
 /** @} */
 
 /** \name Input/Sense Configuration Flags */
 /** @{ */
-#define IOPORT_BOTHEDGES          (0 << 0) /*!< Sense Both Edges */
-#define IOPORT_RISING             (1 << 0) /*!< Sense Risign Edge */
-#define IOPORT_FALLING            (2 << 0) /*!< Sense Falling Edge */
-#define IOPORT_LEVEL              (3 << 0) /*!< Sense Low Level */
-#define IOPORT_INPUT_DISABLE      (7 << 0) /*!< Input Buffer Disabled */
+#define IOPORT_BOTHEDGES          (0 << 8) /*!< Sense Both Edges */
+#define IOPORT_RISING             (1 << 8) /*!< Sense Risign Edge */
+#define IOPORT_FALLING            (2 << 8) /*!< Sense Falling Edge */
+#define IOPORT_LEVEL              (3 << 8) /*!< Sense Low Level */
+#define IOPORT_INPUT_DISABLE      (7 << 8) /*!< Input Buffer Disabled */
 /** @} */
 
 /** \name Output and Pull Configuration Flags */
 /** @{ */
-#define IOPORT_TOTEM              (0 << 3) /*!< Normal push/pull output */
-#define IOPORT_BUSKEEPER          (1 << 3) /*!< Bus Keeper */
-#define IOPORT_PULL_DOWN          (2 << 3) /*!< Pull-Down (when input) */
-#define IOPORT_PULL_UP            (3 << 3) /*!< Pull-Up (when input) */
-#define IOPORT_WIRED_OR           (4 << 3) /*!< Wired OR */
-#define IOPORT_WIRED_AND          (5 << 3) /*!< Wired AND */
-#define IOPORT_WIRED_OR_PULL_DOWN (6 << 3) /*!< Wired OR and Pull-Down */
-#define IOPORT_WIRED_AND_PULL_UP  (7 << 3) /*!< Wired AND and Pull-Up */
+#define IOPORT_TOTEM              (0 << 11) /*!< Normal push/pull output */
+#define IOPORT_BUSKEEPER          (1 << 11) /*!< Bus Keeper */
+#define IOPORT_PULL_DOWN          (2 << 11) /*!< Pull-Down (when input) */
+#define IOPORT_PULL_UP            (3 << 11) /*!< Pull-Up (when input) */
+#define IOPORT_WIRED_OR           (4 << 11) /*!< Wired OR */
+#define IOPORT_WIRED_AND          (5 << 11) /*!< Wired AND */
+#define IOPORT_WIRED_OR_PULL_DOWN (6 << 11) /*!< Wired OR and Pull-Down */
+#define IOPORT_WIRED_AND_PULL_UP  (7 << 11) /*!< Wired AND and Pull-Up */
 /** @} */
 
 /** \name Inverted I/O Configuration Flags */
 /** @{ */
-#define IOPORT_INV_ENABLED        (1 << 6) /* !< I/O is Inverted */
-#define IOPORT_INV_DISABLE        (0 << 6) /* !< I/O is Not Inverted */
+#define IOPORT_INV_ENABLED        (1 << 14) /*!< I/O is Inverted */
+#define IOPORT_INV_DISABLE        (0 << 14) /*!< I/O is Not Inverted */
 /** @} */
 
 /** \name Slew Rate Limit Configuration Flags */
 /** @{ */
-#define IOPORT_SRL_ENABLED        (1 << 7) /* !< Slew Rate Limit Enabled */
-#define IOPORT_SRL_DISABLED       (0 << 7) /* !< Slew Rate Limit Disabled */
+#define IOPORT_SRL_ENABLED        (1 << 15) /*!< Slew Rate Limit Enabled */
+#define IOPORT_SRL_DISABLED       (0 << 15) /*!< Slew Rate Limit Disabled */
 /** @} */
 
 /**

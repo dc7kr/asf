@@ -4,7 +4,7 @@
  * \brief Initialization of memories
  * Specific XMEGA functions to initialiaze the memories
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -40,8 +40,7 @@
  *
  */
 
-#include "compiler.h"
-#include "sysclk.h"
+#include <asf.h>
 #include "conf_access.h"
 #include "unit_tests.h"
 

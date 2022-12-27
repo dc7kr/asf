@@ -56,6 +56,7 @@ TARGET = tpa6130a2_example.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/evk1105/led.c                         \
        avr32/components/audio/amp/tpa6130a2/example/tpa6130_example.c \
        avr32/components/audio/amp/tpa6130a2/tpa6130.c     \
        avr32/drivers/abdac/abdac.c                        \

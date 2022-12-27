@@ -57,12 +57,6 @@
 // From module: EVK1105 board support
 #include <led.h>
 
-// From module: Ethernet Physical (DP83848)
-#include <dp83848.h>
-
-// From module: Ethernet Physical Device Manager
-#include <ethernet_phy.h>
-
 // From module: FLASHC - Flash Controller
 #include <flashc.h>
 
@@ -84,6 +78,9 @@
 // From module: PM Power Manager- UC3 A0/A1/A3/A4/B0/B1 implementation
 #include <power_clocks_lib.h>
 #include <sleep.h>
+
+// From module: Part identification macros
+#include <parts.h>
 
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter
 #include <usart.h>

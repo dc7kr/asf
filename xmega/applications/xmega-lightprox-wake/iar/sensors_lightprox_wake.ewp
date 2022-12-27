@@ -400,7 +400,6 @@
 					<state>$PROJ_DIR$/../../../../common/services/sensors</state>
 					<state>$PROJ_DIR$/../../../utils</state>
 					<state>$PROJ_DIR$/../conf</state>
-					<state>$PROJ_DIR$/../../../../common/services</state>
 					<state>$PROJ_DIR$/../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../common/utils/stdio/stdio_usb</state>
@@ -692,7 +691,6 @@
 					<state>$PROJ_DIR$/../../../../common/services/sensors</state>
 					<state>$PROJ_DIR$/../../../utils</state>
 					<state>$PROJ_DIR$/../conf</state>
-					<state>$PROJ_DIR$/../../../../common/services</state>
 					<state>$PROJ_DIR$/../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../common/utils/stdio/stdio_usb</state>
@@ -1449,7 +1447,6 @@
 					<state>$PROJ_DIR$/../../../../common/services/sensors</state>
 					<state>$PROJ_DIR$/../../../utils</state>
 					<state>$PROJ_DIR$/../conf</state>
-					<state>$PROJ_DIR$/../../../../common/services</state>
 					<state>$PROJ_DIR$/../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../common/utils/stdio/stdio_usb</state>
@@ -1741,7 +1738,6 @@
 					<state>$PROJ_DIR$/../../../../common/services/sensors</state>
 					<state>$PROJ_DIR$/../../../utils</state>
 					<state>$PROJ_DIR$/../conf</state>
-					<state>$PROJ_DIR$/../../../../common/services</state>
 					<state>$PROJ_DIR$/../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../common/utils/stdio/stdio_usb</state>
@@ -2099,21 +2095,6 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>thirdparty</name>
-		<group>
-			<name>sensors</name>
-			<group>
-				<name>libs</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../thirdparty/sensors/libs/iar/libsensors-atxmega128b1-debug.r90</name>
-					</file>
-				</group>
-			</group>
-		</group>
-	</group>
-	<group>
 		<name>xmega</name>
 		<group>
 			<name>drivers</name>
@@ -2129,10 +2110,10 @@
 			<group>
 				<name>twi</name>
 				<file>
-					<name>$PROJ_DIR$/../../../drivers/twi/twim.c</name>
+					<name>$PROJ_DIR$/../../../drivers/twi/twis.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../drivers/twi/twis.c</name>
+					<name>$PROJ_DIR$/../../../drivers/twi/twim.c</name>
 				</file>
 			</group>
 			<group>
@@ -2161,7 +2142,112 @@
 	<group>
 		<name>common</name>
 		<group>
+			<name>utils</name>
+			<group>
+				<name>stdio</name>
+				<group>
+					<name>stdio_usb</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/utils/stdio/stdio_usb/stdio_usb.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/utils/stdio/read.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/utils/stdio/write.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
 			<name>services</name>
+			<group>
+				<name>sensors</name>
+				<group>
+					<name>drivers</name>
+					<group>
+						<name>invensense</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/invensense/imu3000.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/invensense/itg3200.c</name>
+						</file>
+					</group>
+					<group>
+						<name>bosch</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma150.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma_axis.inc.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma020.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma250.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma180.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma222.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bmp.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma220.c</name>
+						</file>
+					</group>
+					<group>
+						<name>honeywell</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/honeywell/hmc5883l.c</name>
+						</file>
+					</group>
+					<group>
+						<name>osram</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/osram/sfh5712.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/osram/sfh7770.c</name>
+						</file>
+					</group>
+					<group>
+						<name>kionix</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/kionix/kxtf9.c</name>
+						</file>
+					</group>
+					<group>
+						<name>akm</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/akm/ak8975.c</name>
+						</file>
+					</group>
+				</group>
+				<group>
+					<name>physics</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/physics/physics.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_nvram.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_platform.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_bus.c</name>
+				</file>
+			</group>
 			<group>
 				<name>sleepmgr</name>
 				<group>
@@ -2180,10 +2266,10 @@
 						<group>
 							<name>device</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../common/services/usb/class/cdc/device/udi_cdc.c</name>
+								<name>$PROJ_DIR$/../../../../common/services/usb/class/cdc/device/udi_cdc_desc.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../common/services/usb/class/cdc/device/udi_cdc_desc.c</name>
+								<name>$PROJ_DIR$/../../../../common/services/usb/class/cdc/device/udi_cdc.c</name>
 							</file>
 						</group>
 					</group>
@@ -2196,25 +2282,13 @@
 				</group>
 			</group>
 			<group>
-				<name>sensors</name>
+				<name>clock</name>
 				<group>
-					<name>physics</name>
+					<name>xmega</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../common/services/sensors/physics/physics.c</name>
+						<name>$PROJ_DIR$/../../../../common/services/clock/xmega/sysclk.c</name>
 					</file>
 				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_bus.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_platform.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_nvram.c</name>
-				</file>
 			</group>
 			<group>
 				<name>ioport</name>
@@ -2224,33 +2298,6 @@
 						<name>$PROJ_DIR$/../../../../common/services/ioport/xmega/ioport_compat.c</name>
 					</file>
 				</group>
-			</group>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>xmega</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../common/services/clock/xmega/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>stdio</name>
-				<group>
-					<name>stdio_usb</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../common/utils/stdio/stdio_usb/stdio_usb.c</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../common/utils/stdio/write.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../common/utils/stdio/read.c</name>
-				</file>
 			</group>
 		</group>
 		<group>

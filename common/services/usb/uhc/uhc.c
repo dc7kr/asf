@@ -3,7 +3,7 @@
  *
  * \brief USB Host Controller (UHC)
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -69,7 +69,10 @@
 #endif
 
 /**
- * \addtogroup uhc_group
+ * \ingroup uhc_group
+ * \defgroup uhc_group_interne Implementation of UHC
+ *
+ * Internal implementation 
  * @{
  */
 
@@ -735,13 +738,14 @@ static void uhc_enumeration_step15(
 				UHC_ENUM_DISCONNECT : UHC_ENUM_FAIL);
 		return;
 	}
-	UHC_ENUM_EVENT(uhc_dev_enum, UHC_ENUM_SUCCESS);
 
 	// Enable all UHIs supported
 	for (uint8_t i = 0; i < UHC_NB_UHI; i++) {
 		uhc_uhis[i].enable(uhc_dev_enum);
 	}
 	uhc_enum_try = 0;
+	
+	UHC_ENUM_EVENT(uhc_dev_enum, UHC_ENUM_SUCCESS);
 }
 
 /**

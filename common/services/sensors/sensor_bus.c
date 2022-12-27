@@ -39,15 +39,13 @@
  *
  */
 
+#include <asf.h>
 
-//! \internal Sensor Platform Board Configuration
+/** \internal Sensor Platform Board Configuration */
+#include "conf_sensors.h"
+#include "sensor_bus.h"
 
-#include    <conf_sensors.h>
-#include    "sensor_bus.h"
-
-
-
-/*! \brief Read a field stored at a device register or memory address
+/** \brief Read a field stored at a device register or memory address
  *
  * This routine reads a specified value from a bit field within a 1-Byte
  * device register or memory address. The set bits in the mask parameter
@@ -60,13 +58,13 @@
  *
  * \return  The value stored in the register or memory field.
  */
-uint8_t bus_reg_fieldget (bus_desc_t *bus, uint8_t addr, uint8_t mask)
+uint8_t bus_reg_fieldget(bus_desc_t *bus, uint8_t addr, uint8_t mask)
 {
 	uint8_t const value = mask & bus_get(bus, addr);
 	return (value / (mask & ~(mask << 1)));
 }
 
-/*! \brief Write a field stored at a device register or memory address
+/** \brief Write a field stored at a device register or memory address
  *
  * This routine writes a specified value to a bit field within a 1-Byte
  * device register or memory address. The set bits in the mask parameter
@@ -81,30 +79,25 @@ uint8_t bus_reg_fieldget (bus_desc_t *bus, uint8_t addr, uint8_t mask)
  *
  * \return  Nothing
  */
-void bus_reg_fieldset (bus_desc_t *bus, uint8_t addr, uint8_t mask,
-        uint8_t value)
+void bus_reg_fieldset(bus_desc_t *bus, uint8_t addr, uint8_t mask,
+		uint8_t value)
 {
-	uint8_t const reg = ~mask & bus_get(bus, addr);
+	uint8_t const reg = ~mask &bus_get(bus, addr);
+
 	value *= (mask & ~(mask << 1));
 	bus_put(bus, addr, reg | (value & mask));
 }
 
+/** \internal Sensor API Bus I/O Implementations */
 
-
-//! \internal Sensor API Bus I/O Implementations
-
-
-#if defined(CONF_FRAMEWORK_BUS) && defined(CONF_SENSOR_BUS_SPI)
-
-
-#include    <spi/spi_master.h>
+#if defined(CONF_SENSOR_BUS_SPI)
 
 #define spi_bus_init    bus_init
 #define spi_bus_read    bus_read
 #define spi_bus_write   bus_write
 #define spi_bus_probe   bus_probe
 
-/*! \internal Initialize the SPI master bus I/O interface.
+/** \internal Initialize the SPI master bus I/O interface.
  *
  * \param   bus        The address of an AVR or AVR32 bus interface descriptor.
  * \param   bus_speed  The bus data rate.
@@ -114,10 +107,10 @@ void bus_reg_fieldset (bus_desc_t *bus, uint8_t addr, uint8_t mask,
  */
 bool spi_bus_init(volatile void *bus, uint32_t bus_speed)
 {
-	spi_bus_t *const spi = (spi_bus_t *)bus;
+	spi_if const spi = (spi_if)bus;
 	struct spi_device device;
 
-	// Initialize the Atmel Software Framework SPI master driver.
+	/* Initialize the Atmel Software Framework SPI master driver. */
 
 	spi_master_init(spi);
 	spi_master_setup_device(spi, &device, SPI_MODE_0, bus_speed, 0);
@@ -126,7 +119,7 @@ bool spi_bus_init(volatile void *bus, uint32_t bus_speed)
 	return spi_is_enabled(spi);
 }
 
-/*! \internal Read bytes from remote device using SPI (master) interface
+/** \internal Read bytes from remote device using SPI (master) interface
  *
  * This routine reads "count" Bytes of data into location "data" from
  * a specified SPI "bus_id" device register or memory address, "addr".
@@ -145,7 +138,7 @@ bool spi_bus_init(volatile void *bus, uint32_t bus_speed)
 size_t spi_bus_read
 	(bus_desc_t *bus, uint8_t addr, void *data, size_t count)
 {
-	spi_bus_t *const spi = (spi_bus_t *)bus->id;
+	spi_if const spi = (spi_if)bus->id;
 	struct spi_device device = { .id = bus->addr };
 
 	spi_select_device(spi, &device);
@@ -155,7 +148,7 @@ size_t spi_bus_read
 	return (STATUS_OK == bus->status) ? count : 0;
 }
 
-/*! \internal Write bytes to remote device using SPI (master) interface
+/** \internal Write bytes to remote device using SPI (master) interface
  *
  * This routine writes "count" Bytes of data from location "data" to
  * a specified SPI "bus_id" device register or memory address, "addr".
@@ -173,7 +166,7 @@ size_t spi_bus_read
 size_t spi_bus_write
 	(bus_desc_t *bus, uint8_t addr, const void *data, size_t count)
 {
-	spi_bus_t *const spi = (spi_bus_t *)bus->id;
+	spi_if const spi = (spi_if)bus->id;
 	struct spi_device device = { .id = bus->addr };
 
 	spi_select_device(spi, &device);
@@ -183,7 +176,7 @@ size_t spi_bus_write
 	return (STATUS_OK == bus->status) ? count : 0;
 }
 
-/*! \internal Determine the existence of a bus device
+/** \internal Determine the existence of a bus device
  *
  * This routine determines the existence of a device located at a bus interface
  * and address specified by an initialized \c bus descriptor.
@@ -202,21 +195,16 @@ bool spi_bus_probe(bus_desc_t *bus, int arg)
 	return false;
 }
 
-#endif // defined(CONF_FRAMEWORK_BUS) && defined(CONF_SENSOR_BUS_SPI)
+#endif /* defined(CONF_SENSOR_BUS_SPI) */
 
-
-
-#if defined(CONF_FRAMEWORK_BUS) && defined(CONF_SENSOR_BUS_TWI)
-
-
-#include    <twi/twi_master.h>
+#if defined(CONF_SENSOR_BUS_TWI)
 
 #define twi_bus_init    bus_init
 #define twi_bus_read    bus_read
 #define twi_bus_write   bus_write
 #define twi_bus_probe   bus_probe
 
-/*! \internal Initialize the TWI (master) bus I/O interface.
+/** \internal Initialize the TWI (master) bus I/O interface.
  *
  * \param   bus        The address of an AVR or AVR32 bus interface descriptor.
  * \param   bus_speed  The bus data rate.
@@ -226,18 +214,18 @@ bool spi_bus_probe(bus_desc_t *bus, int arg)
  */
 bool twi_bus_init(volatile void *bus, uint32_t bus_speed)
 {
-	twi_bus_t * const twi = (twi_bus_t *)bus;
+	twi_master_t const twi = (twi_master_t)bus;
 
-	// Specify TWI master bus configuration options.
+	/* Specify TWI master bus configuration options. */
 
 	twi_options_t twi_options = { .speed = bus_speed, .chip = 0 };
 
-	// Initialize the Atmel Software Framework TWI master driver.
+	/* Initialize the Atmel Software Framework TWI master driver. */
 
-	return (STATUS_OK == twi_master_setup (twi, &twi_options));
+	return (STATUS_OK == twi_master_setup(twi, &twi_options));
 }
 
-/*! \internal Read bytes from remote device using TWI (master) interface
+/** \internal Read bytes from remote device using TWI (master) interface
  *
  * This routine reads "count" Bytes of data into location "data" from
  * a specified TWI "bus_id" device register or memory address, "addr".
@@ -258,17 +246,18 @@ size_t twi_bus_read
 {
 	twi_package_t const pkg = {
 		.chip        = bus->addr,
-		.addr[0]     = addr,
+		.addr        = {addr},
 		.addr_length = sizeof(addr),
 		.buffer      = data,
 		.length      = count,
-		.no_wait     = bus->no_wait};
+		.no_wait     = bus->no_wait
+	};
 
-	bus->status = twi_master_read(bus->id, &pkg);
+	bus->status = twi_master_read((twi_master_t)(bus->id), &pkg);
 	return (STATUS_OK == bus->status) ? count : 0;
 }
 
-/*! \internal Write bytes to remote device using TWI (master) interface
+/** \internal Write bytes to remote device using TWI (master) interface
  *
  * This routine writes "count" Bytes of data from location "data" to
  * a specified TWI "bus_id" device register or memory address, "addr".
@@ -283,22 +272,23 @@ size_t twi_bus_read
  * \return The number of Bytes written, which may be less than the
  *         requested number of Bytes in the event of an error.
  */
-size_t twi_bus_write (bus_desc_t *bus, uint8_t addr, const void *data,
-	size_t count)
+size_t twi_bus_write(bus_desc_t *bus, uint8_t addr, const void *data,
+		size_t count)
 {
 	twi_package_t const pkg = {
 		.chip        = bus->addr,
-		.addr[0]     = addr,
+		.addr        = {addr},
 		.addr_length = sizeof(addr),
-		.buffer      = (void *) data,
+		.buffer      = (void *)data,
 		.length      = count,
-		.no_wait     = bus->no_wait};
+		.no_wait     = bus->no_wait
+	};
 
-	bus->status = twi_master_write(bus->id, &pkg);
+	bus->status = twi_master_write((twi_master_t)(bus->id), &pkg);
 	return (STATUS_OK == bus->status) ? count : 0;
 }
 
-/*! \internal Determine the existence of a bus device
+/** \internal Determine the existence of a bus device
  *
  * This routine determines the existence of a device located at a bus interface
  * and address specified by an initialized \c bus descriptor.
@@ -317,4 +307,4 @@ bool twi_bus_probe(bus_desc_t *bus, int arg)
 	return false;
 }
 
-#endif // defined(CONF_FRAMEWORK_BUS) && defined(CONF_SENSOR_BUS_TWI)
+#endif /* defined(CONF_SENSOR_BUS_TWI) */

@@ -43,4 +43,7 @@
 
 #define CONF_BOARD_TWI
 
+/* Enable the maXTouch mXT143E Xplained top module */
+#define CONF_BOARD_ENABLE_MXT143E_XPLAINED
+
 #endif /* CONF_BOARD_H_INCLUDED */

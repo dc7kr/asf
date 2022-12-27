@@ -91,7 +91,6 @@ ASSRCS = \
 INC_PATH = \
        avr32/boards                                       \
        avr32/boards/uc3c_ek                               \
-       avr32/components/joystick/skrhabe010               \
        avr32/drivers/eic                                  \
        avr32/drivers/flashc                               \
        avr32/drivers/gpio                                 \

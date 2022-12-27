@@ -1,9 +1,9 @@
 /**
  * \file
  *
- * \brief Descriptors for an USB Device composite MSC and HID mouse
+ * \brief Descriptors for an USB Composite Device MSC and HID mouse
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *

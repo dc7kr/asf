@@ -3,7 +3,7 @@
  *
  * \brief Default descriptors for a USB Device with a single interface HID mouse
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -47,8 +47,12 @@
 
 /**
  * \ingroup udi_hid_mouse_group
- * \defgroup udi_hid_mouse_group_desc Default descriptors for a USB Device
- * with a single interface HID mouse
+ * \defgroup udi_hid_mouse_group_single_desc USB device descriptors for a single interface
+ *
+ * The following structures provide the USB device descriptors required
+ * for USB Device with a single interface HID mouse.
+ *
+ * It is ready to use and do not require more definition.
  *
  * @{
  */
@@ -56,7 +60,6 @@
 //! Only one interface for this device
 #define  USB_DEVICE_NB_INTERFACE       1
 
-/**INDENT-OFF**/
 //! USB Device Descriptor
 COMPILER_WORD_ALIGNED
 UDC_DESC_STORAGE usb_dev_desc_t udc_device_desc = {
@@ -156,5 +159,4 @@ UDC_DESC_STORAGE udc_config_t udc_config = {
 };
 
 //@}
-/**INDENT-ON**/
 //@}

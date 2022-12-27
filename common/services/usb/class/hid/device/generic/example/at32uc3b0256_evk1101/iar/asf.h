@@ -76,6 +76,9 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: Sleep manager - UC3 implementation
 #include <sleepmgr.h>
 #include <uc3/sleepmgr.h>
@@ -86,7 +89,7 @@
 // From module: USB Device HID Generic (Single Interface Device)
 #include <udi_hid_generic.h>
 
-// From module: USB Device Stack Core
+// From module: USB Device Stack Core (Common API)
 #include <udc.h>
 #include <udd.h>
 

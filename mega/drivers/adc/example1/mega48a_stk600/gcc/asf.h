@@ -53,12 +53,17 @@
 // From module: ADC - Analog to Digital Converter
 #include <adc.h>
 
+// From module: Generic board support
+#include <board.h>
+
 // From module: Interrupt management - megaAVR implementation
 #include <interrupt.h>
 
 // From module: MEGA compiler driver
 #include <compiler.h>
-#include <parts.h>
 #include <status_codes.h>
+
+// From module: Part identification macros
+#include <parts.h>
 
 #endif // ASF_H

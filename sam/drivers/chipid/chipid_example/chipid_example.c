@@ -51,7 +51,7 @@
  *
  * \par Requirements
  *
- * This package can be used with AT91SAM evaluation kits.
+ * This example can be used on any SAM3/4 boards.
  *
  * \par Description
  *

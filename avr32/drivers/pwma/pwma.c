@@ -79,7 +79,7 @@ void pwma_set_channels_value( volatile avr32_pwma_t *pwma,
   // Set the common duty cycle value.
   pwma->isduty = duty_cycles;
   // Define the interlinked channels
-#if (UC3D)
+#if (UC3D || UC3L0128 || UC3L0256 || UC3L3_L4)
   pwma->chgroup[0].ischset = channel_mask_low;
 #else
   pwma->ischset0 = channel_mask_low;
@@ -94,7 +94,7 @@ void pwma_set_channels_value( volatile avr32_pwma_t *pwma,
   // Set the common duty cycle value.
   pwma->isduty = duty_cycles;
   // Define the interlinked channels
-#if (UC3D)
+#if (UC3D || UC3L0128 || UC3L0256 || UC3L3_L4 )
   pwma->chgroup[1].ischset = channel_mask_high;
 #else
   pwma->ischset1 = channel_mask_high;

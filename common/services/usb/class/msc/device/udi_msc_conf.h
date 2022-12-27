@@ -4,7 +4,7 @@
  * \brief Default MSC configuration for a USB Device
  * with a single interface MSC
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -44,10 +44,7 @@
 #define _UDI_MSC_CONF_H_
 
 /**
- * \ingroup udi_msc_group
- * \defgroup udi_msc_group_conf Default MSC configuration for a USB Device
- * with a single interface MSC
- *
+ * \addtogroup udi_msc_group_single_desc
  * @{
  */
 

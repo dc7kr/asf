@@ -42,24 +42,6 @@
 #ifndef UDPHS_DEVICE_H_INCLUDED
 #define UDPHS_DEVICE_H_INCLUDED
 
-/**
- * \defgroup sam_udphs_group USB High-Speed Device Port (UDPHS)
- *
- * \par Purpose
- *
- * This driver offers API to access SAM UDPHS registers.
- *
- * \par Usage
- *
- *
- * \sa \ref Udphs : SAM UDPHS registers.
- *
- * \section dependencies Dependencies
- *
- *
- * @{
- */
-
 #include "compiler.h"
 #include "preprocessor.h"
 
@@ -71,8 +53,8 @@ extern "C" {
 /**INDENT-ON**/
 /// @endcond
 
-//! \ingroup usb_device_group
-//! \defgroup udd_group USB Device Driver (UDD)
+//! \ingroup udd_group
+//! \defgroup udd_udphs_group USB Device High-Speed Port (UDPHS)
 //! UDPHS low-level driver for USB device mode
 //!
 //! @{
@@ -342,7 +324,7 @@ extern "C" {
 
 
 //! @name UDPHS Device control endpoint
-//! These macros contorl the endpoints.
+//! These macros control the endpoints.
 //! @{
 
 //! @name UDPHS Device handle endpoint statuses
@@ -735,7 +717,9 @@ typedef struct {
 //! @}
 
 //! @}
-
+//! @}
+//! @}
+//! @}
 
 /// @cond 0
 /**INDENT-OFF**/
@@ -745,6 +729,5 @@ typedef struct {
 /**INDENT-ON**/
 /// @endcond
 
-//@}
 
 #endif /* UDPHS_DEVICE_H_INCLUDED */

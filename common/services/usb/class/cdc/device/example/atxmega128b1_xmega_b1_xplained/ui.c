@@ -3,7 +3,7 @@
  *
  * \brief User Interface
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,10 +39,7 @@
  *
  */
 
-#include "compiler.h"
-#include "conf_usb.h"
-#include "board.h"
-#include "led.h"
+#include <asf.h>
 #include "ui.h"
 
 void ui_init(void)
@@ -124,7 +121,7 @@ void ui_process(uint16_t framenumber)
  * Human interface on XMEGA-B1 Xplained:
  * - Led 0 and the RED led close to USB connector are on
  *   when USB line is in IDLE mode, and off in SUSPEND mode
- * - Led 1 blinks when USB Host have checked and enabled CDC interface
+ * - Led 1 blinks when USB host has checked and enabled CDC interface
  * - Led 2 is on during data transfer from CDC to UART
  * - Led 3 is on during data transfer from UART to CDC
  */

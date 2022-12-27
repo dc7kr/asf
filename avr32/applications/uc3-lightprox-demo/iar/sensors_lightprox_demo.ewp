@@ -329,10 +329,10 @@
 					<state>$PROJ_DIR$/../../../../common/services/usb/class/cdc/device</state>
 					<state>$PROJ_DIR$/../../../../common/services/sensors</state>
 					<state>$PROJ_DIR$/../../../boards</state>
+					<state>$PROJ_DIR$/../../../drivers/twim</state>
 					<state>$PROJ_DIR$/../../../drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../drivers/pm</state>
 					<state>$PROJ_DIR$/../../../drivers/eic</state>
-					<state>$PROJ_DIR$/../../../../common/services</state>
 					<state>$PROJ_DIR$/../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../utils</state>
 					<state>$PROJ_DIR$/../../../drivers/gpio</state>
@@ -343,6 +343,7 @@
 					<state>$PROJ_DIR$/../../../../common/services/usb/udc</state>
 					<state>$PROJ_DIR$/../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../drivers/cpu/cycle_counter</state>
+					<state>$PROJ_DIR$/../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../../../boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../common/boards</state>
@@ -474,10 +475,10 @@
 					<state>$PROJ_DIR$/../../../../common/services/usb/class/cdc/device</state>
 					<state>$PROJ_DIR$/../../../../common/services/sensors</state>
 					<state>$PROJ_DIR$/../../../boards</state>
+					<state>$PROJ_DIR$/../../../drivers/twim</state>
 					<state>$PROJ_DIR$/../../../drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../drivers/pm</state>
 					<state>$PROJ_DIR$/../../../drivers/eic</state>
-					<state>$PROJ_DIR$/../../../../common/services</state>
 					<state>$PROJ_DIR$/../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../utils</state>
 					<state>$PROJ_DIR$/../../../drivers/gpio</state>
@@ -488,6 +489,7 @@
 					<state>$PROJ_DIR$/../../../../common/services/usb/udc</state>
 					<state>$PROJ_DIR$/../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../drivers/cpu/cycle_counter</state>
+					<state>$PROJ_DIR$/../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../../../boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../common/boards</state>
@@ -1228,10 +1230,10 @@
 					<state>$PROJ_DIR$/../../../../common/services/usb/class/cdc/device</state>
 					<state>$PROJ_DIR$/../../../../common/services/sensors</state>
 					<state>$PROJ_DIR$/../../../boards</state>
+					<state>$PROJ_DIR$/../../../drivers/twim</state>
 					<state>$PROJ_DIR$/../../../drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../drivers/pm</state>
 					<state>$PROJ_DIR$/../../../drivers/eic</state>
-					<state>$PROJ_DIR$/../../../../common/services</state>
 					<state>$PROJ_DIR$/../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../utils</state>
 					<state>$PROJ_DIR$/../../../drivers/gpio</state>
@@ -1242,6 +1244,7 @@
 					<state>$PROJ_DIR$/../../../../common/services/usb/udc</state>
 					<state>$PROJ_DIR$/../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../drivers/cpu/cycle_counter</state>
+					<state>$PROJ_DIR$/../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../../../boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../common/boards</state>
@@ -1373,10 +1376,10 @@
 					<state>$PROJ_DIR$/../../../../common/services/usb/class/cdc/device</state>
 					<state>$PROJ_DIR$/../../../../common/services/sensors</state>
 					<state>$PROJ_DIR$/../../../boards</state>
+					<state>$PROJ_DIR$/../../../drivers/twim</state>
 					<state>$PROJ_DIR$/../../../drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../drivers/pm</state>
 					<state>$PROJ_DIR$/../../../drivers/eic</state>
-					<state>$PROJ_DIR$/../../../../common/services</state>
 					<state>$PROJ_DIR$/../../../../common/utils/stdio/stdio_usb</state>
 					<state>$PROJ_DIR$/../../../utils</state>
 					<state>$PROJ_DIR$/../../../drivers/gpio</state>
@@ -1387,6 +1390,7 @@
 					<state>$PROJ_DIR$/../../../../common/services/usb/udc</state>
 					<state>$PROJ_DIR$/../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../drivers/cpu/cycle_counter</state>
+					<state>$PROJ_DIR$/../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../../../boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../common/boards</state>
@@ -1799,21 +1803,6 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>thirdparty</name>
-		<group>
-			<name>sensors</name>
-			<group>
-				<name>libs</name>
-				<group>
-					<name>iar</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../thirdparty/sensors/libs/iar/libsensors-at32uc3a3-debug.r82</name>
-					</file>
-				</group>
-			</group>
-		</group>
-	</group>
-	<group>
 		<name>avr32</name>
 		<group>
 			<name>drivers</name>
@@ -1845,15 +1834,21 @@
 				</file>
 			</group>
 			<group>
+				<name>flashc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../drivers/flashc/flashc.c</name>
+				</file>
+			</group>
+			<group>
 				<name>gpio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../drivers/gpio/gpio.c</name>
 				</file>
 			</group>
 			<group>
-				<name>flashc</name>
+				<name>twim</name>
 				<file>
-					<name>$PROJ_DIR$/../../../drivers/flashc/flashc.c</name>
+					<name>$PROJ_DIR$/../../../drivers/twim/twim.c</name>
 				</file>
 			</group>
 			<group>
@@ -1888,19 +1883,112 @@
 	<group>
 		<name>common</name>
 		<group>
-			<name>applications</name>
+			<name>utils</name>
 			<group>
-				<name>sensors</name>
+				<name>stdio</name>
 				<group>
-					<name>lightprox_demo</name>
+					<name>stdio_usb</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../common/applications/sensors/lightprox_demo/main.c</name>
+						<name>$PROJ_DIR$/../../../../common/utils/stdio/stdio_usb/stdio_usb.c</name>
 					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/utils/stdio/read.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/utils/stdio/write.c</name>
+				</file>
 			</group>
 		</group>
 		<group>
 			<name>services</name>
+			<group>
+				<name>sensors</name>
+				<group>
+					<name>drivers</name>
+					<group>
+						<name>invensense</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/invensense/imu3000.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/invensense/itg3200.c</name>
+						</file>
+					</group>
+					<group>
+						<name>bosch</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma150.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma020.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma250.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma_axis.inc.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma220.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma180.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bma222.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/bosch/bmp.c</name>
+						</file>
+					</group>
+					<group>
+						<name>honeywell</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/honeywell/hmc5883l.c</name>
+						</file>
+					</group>
+					<group>
+						<name>akm</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/akm/ak8975.c</name>
+						</file>
+					</group>
+					<group>
+						<name>osram</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/osram/sfh5712.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/osram/sfh7770.c</name>
+						</file>
+					</group>
+					<group>
+						<name>kionix</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/kionix/kxtf9.c</name>
+						</file>
+					</group>
+				</group>
+				<group>
+					<name>physics</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/services/sensors/physics/physics.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_nvram.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_platform.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_bus.c</name>
+				</file>
+			</group>
 			<group>
 				<name>usb</name>
 				<group>
@@ -1935,62 +2023,11 @@
 				</group>
 			</group>
 			<group>
-				<name>sensors</name>
-				<group>
-					<name>drivers</name>
-					<group>
-						<name>platform</name>
-						<group>
-							<name>avr32</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../common/services/sensors/drivers/platform/avr32/twim.c</name>
-							</file>
-						</group>
-					</group>
-				</group>
-				<group>
-					<name>physics</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../common/services/sensors/physics/physics.c</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_nvram.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_platform.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../common/services/sensors/sensor_bus.c</name>
-				</file>
-			</group>
-			<group>
 				<name>sleepmgr</name>
 				<group>
 					<name>uc3</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../common/services/sleepmgr/uc3/sleepmgr.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../common/utils/stdio/read.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../common/utils/stdio/write.c</name>
-				</file>
-				<group>
-					<name>stdio_usb</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../common/utils/stdio/stdio_usb/stdio_usb.c</name>
 					</file>
 				</group>
 			</group>
@@ -2002,6 +2039,18 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../common/boards/sensors_xplained/sensors_xplained.c</name>
 				</file>
+			</group>
+		</group>
+		<group>
+			<name>applications</name>
+			<group>
+				<name>sensors</name>
+				<group>
+					<name>lightprox_demo</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../common/applications/sensors/lightprox_demo/main.c</name>
+					</file>
+				</group>
 			</group>
 		</group>
 	</group>

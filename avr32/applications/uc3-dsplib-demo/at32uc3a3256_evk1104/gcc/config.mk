@@ -62,6 +62,7 @@ CSRCS = \
        avr32/applications/uc3-dsplib-demo/dsp_process.c   \
        avr32/applications/uc3-dsplib-demo/dsp_sprintf.c   \
        avr32/applications/uc3-dsplib-demo/gui.c           \
+       avr32/boards/evk1104/led.c                         \
        avr32/components/audio/amp/tpa6130a2/tpa6130.c     \
        avr32/components/display/et024006dhu/et024006dhu.c \
        avr32/components/touch/qt60168/qt60168.c           \

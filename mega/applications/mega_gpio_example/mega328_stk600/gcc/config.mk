@@ -46,13 +46,15 @@ TARGET = mega_gpio_example.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
-       mega/applications/mega_gpio_example/mega_gpio_example.c
+       mega/applications/mega_gpio_example/mega_gpio_example.c \
+       mega/boards/stk600/init.c
 
 # Assembler source files located from the top-level source directory
 ASSRCS = 
 
 # Include path located from the top-level source directory
 INC_PATH = \
+       common/boards                                      \
        common/utils                                       \
        mega/applications/mega_gpio_example                \
        mega/applications/mega_gpio_example/mega328_stk600 \

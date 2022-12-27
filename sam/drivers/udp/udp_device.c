@@ -59,8 +59,8 @@
 #endif
 
 /**
- * \ingroup usb_device_group
- * \defgroup udd_group USB Device Driver (UDD)
+ * \ingroup udd_group
+ * \defgroup udd_udp_group USB Device Port Driver
  *
  * \section UDP_CONF UDP Custom configuration
  * The following UDP driver configuration must be included in the conf_usb.h
@@ -591,7 +591,7 @@ uint16_t udd_get_micro_frame_number(void)
 }
 
 
-void udd_send_wake_up(void)
+void udd_send_remotewakeup(void)
 {
 #ifndef UDD_NO_SLEEP_MGR
 	if (!udd_b_idle)

@@ -56,6 +56,7 @@ TARGET = dmaca_example1.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/evk1104/led.c                         \
        avr32/drivers/aes/aes.c                            \
        avr32/drivers/dmaca/ram_aes_ram_example/ram_aes_ram_example.c \
        avr32/drivers/flashc/flashc.c                      \

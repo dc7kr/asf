@@ -151,6 +151,8 @@ typedef struct
 	void *buffer;
 	//! How many bytes do we want to write.
 	uint32_t length;
+	//! Whether to wait if bus is busy (false) or return immediately (true)
+	bool no_wait;
 }
 twim_package_t;
 

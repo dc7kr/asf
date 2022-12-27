@@ -56,6 +56,7 @@ TARGET = dmaca_example2.elf
 
 # List of C source files.
 CSRCS = \
+       avr32/boards/uc3_a3_xplained/led.c                 \
        avr32/drivers/dmaca/ram_to_ram_example/ram_to_ram_example.c \
        avr32/drivers/flashc/flashc.c                      \
        avr32/drivers/gpio/gpio.c                          \

@@ -86,14 +86,14 @@
  */
 #define P_ON_TO_CLKM_ATTEMPTS       ((uint8_t) \
                                      (P_ON_TO_CLKM_AVAILABLE_MAX_US \
-									 / TRX_POLL_WAIT_TIME_US))
+                                     / TRX_POLL_WAIT_TIME_US))
 
 /**
  * Ratio between max time to transceiver poll delay
  */
 #define SLEEP_TO_TRX_OFF_ATTEMPTS   ((uint8_t) \
                                      (SLEEP_TO_TRX_OFF_MAX_US \
-									 / TRX_POLL_WAIT_TIME_US))
+                                     / TRX_POLL_WAIT_TIME_US))
 
 
 /**

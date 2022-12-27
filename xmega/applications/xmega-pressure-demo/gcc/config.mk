@@ -50,6 +50,21 @@ CSRCS = \
        common/boards/sensors_xplained/sensors_xplained.c  \
        common/services/clock/xmega/sysclk.c               \
        common/services/ioport/xmega/ioport_compat.c       \
+       common/services/sensors/drivers/akm/ak8975.c       \
+       common/services/sensors/drivers/bosch/bma020.c     \
+       common/services/sensors/drivers/bosch/bma150.c     \
+       common/services/sensors/drivers/bosch/bma180.c     \
+       common/services/sensors/drivers/bosch/bma220.c     \
+       common/services/sensors/drivers/bosch/bma222.c     \
+       common/services/sensors/drivers/bosch/bma250.c     \
+       common/services/sensors/drivers/bosch/bma_axis.inc.c \
+       common/services/sensors/drivers/bosch/bmp.c        \
+       common/services/sensors/drivers/honeywell/hmc5883l.c \
+       common/services/sensors/drivers/invensense/imu3000.c \
+       common/services/sensors/drivers/invensense/itg3200.c \
+       common/services/sensors/drivers/kionix/kxtf9.c     \
+       common/services/sensors/drivers/osram/sfh5712.c    \
+       common/services/sensors/drivers/osram/sfh7770.c    \
        common/services/sensors/physics/physics.c          \
        common/services/sensors/sensor.c                   \
        common/services/sensors/sensor_bus.c               \
@@ -76,7 +91,6 @@ ASSRCS = \
 # Include path located from the top-level source directory
 INC_PATH = \
        common/boards                                      \
-       common/services                                    \
        common/services/clock                              \
        common/services/delay                              \
        common/services/gpio                               \
@@ -104,12 +118,10 @@ INC_PATH = \
        ./xmega/applications/xmega-pressure-demo/gcc      
 
 # Library paths from the top-level source directory
-LIB_PATH =  \
-       thirdparty/sensors/libs/gcc                       
+LIB_PATH = 
 
 # Libraries to link with the project
 LIBS =  \
-       sensors-atxmega256a3bu-debug                       \
        m                                                 
 
 # Additional options for debugging. By default the common Makefile.in will

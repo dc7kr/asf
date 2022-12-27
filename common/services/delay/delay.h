@@ -38,8 +38,8 @@
  * \asf_license_stop
  *
  */
-#ifndef _delay_h_
-#define _delay_h_
+#ifndef _DELAY_H_
+#define _DELAY_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -48,10 +48,12 @@ extern "C" {
 
 #include <sysclk.h>
 
-#if defined(UC3)
-#	include <cycle_counter.h>
-#elif defined(XMEGA)
-#	include "xmega/cycle_counter.h"
+#if UC3
+#   include <cycle_counter.h>
+#elif XMEGA
+#   include "xmega/cycle_counter.h"
+#elif SAM
+#   include "sam/cycle_counter.h"
 #endif
 
 
@@ -130,4 +132,4 @@ extern "C" {
  * @}
  */
 
-#endif /* _delay_h_ */
+#endif /* _DELAY_H_ */

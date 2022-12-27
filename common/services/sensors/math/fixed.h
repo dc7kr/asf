@@ -19,7 +19,7 @@
  * implication, the location of a virtual fixed decimal point within the
  * mantissa.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -55,61 +55,43 @@
  *
  */
 
-
-// includes
+#ifndef _FIXED_MATH_H_
+#define _FIXED_MATH_H_
 
 #include "fixed_t.h"
 
-
-
-#ifndef _fixed_h_
-#define _fixed_h_
-
 #ifdef  __cplusplus
-
 
 namespace math {
 
-
-
-//! \brief fixed point type
-
+/** \brief Fixed point type */
 class fixed {
 
 private:
-
-
-	//! \brief class private constants
-
+	/** \brief class private constants */
 	enum { Q_DFLT = 15 };
 
-
-	//! \name class private attributes
-	// @{
+	/** \name class private attributes */
+	/** @{ */
 	fixed_t val;
 	int     Q;
-	// @}
+	/** @} */
 
-
-	//! \brief fixed point "Q" format conversion
-
+	/** \brief fixed point "Q" format conversion */
 	inline fixed_t fixed_conv (const fixed & f) const
 		{ return ::fixed_conv (f.val, f.Q, Q); }
 
-	inline int QI () const { return 32 - Q; }  // the number of integer bits
-	inline int QF () const { return Q; }       // the number of fraction bits
+	inline int QI () const { return 32 - Q; }  /* the number of integer bits */
+	inline int QF () const { return Q; }       /* the number of fraction bits */
 
 	inline double resolution () const { return 1.0 / (1L << Q); }
 
 	inline double min () const { return -(1L << QI ()); }
 	inline double max () const { return +(1L << QI ()) - resolution (); }
 
-
 public:
-
-
-	//! \name class construction and type conversion
-	// @{
+	/** \name class construction and type conversion */
+	/** @{ */
 	fixed () : val (0), Q (Q_DFLT) {}
 	fixed (int            n, int q = Q_DFLT) : val (long_to_fixed  (n,q)), Q (q) {}
 	fixed (unsigned int   n, int q = Q_DFLT) : val (long_to_fixed  (n,q)), Q (q) {}
@@ -132,17 +114,15 @@ public:
 	inline operator unsigned long  () const { return fixed_to_long   (val,Q); }
 	inline operator float ()          const { return fixed_to_float  (val,Q); }
 	inline operator double ()         const { return fixed_to_double (val,Q); }
-	// @}
-
+	/** @} */
 
 	fixed ceil  () const;
 	fixed floor () const;
 	fixed sqrt  () const;
 
-
-	//! \name class member operators (<fixed> op <fixed> operands)
-	// @{
-	const fixed & operator += (const fixed & f)
+	/** \name class member operators (<fixed> op <fixed> operands) */
+	/** @{ */
+ 	const fixed & operator += (const fixed & f)
 		{ val = ::fixed_add (val, fixed_conv (f)); return *this; }
 
 	const fixed & operator -= (const fixed & f)
@@ -183,11 +163,10 @@ public:
 
 	bool operator <= (const fixed & f) const
 		{ return (val <= fixed_conv (f)); }
-	// @}
+	/** @} */
 
-
-	//! \name class member operators (<fixed> unary operators)
-	// @{
+	/** \name class member operators (<fixed> unary operators) */
+	/** @{ */
 	bool operator ! () const { return 0 == val; }
 
 	const fixed operator + () const { return fixed (*this); }
@@ -195,11 +174,10 @@ public:
 
 	const fixed & operator ++ () { *this += 1; return *this; }
 	const fixed & operator -- () { *this -= 1; return *this; }
-	// @}
+	/** @} */
 
-
-	//! \name class member operators (<fixed> op type <T> operands)
-	// @{
+	/** \name class member operators (<fixed> op type <T> operands) */
+	/** @{ */
 	template <typename T> const fixed & operator += (const T & n)
 		{ val = ::fixed_add (val, fixed(n, Q).val); return *this; }
 	template <typename T> const fixed & operator -= (const T & n)
@@ -231,11 +209,10 @@ public:
 		{ return (*this >= fixed(n)); }
 	template <typename T> bool operator <= (const T & n) const
 		{ return (*this <= fixed(n)); }
-	// @}
+	/** @} */
 
-
-	//! \name class friend operators (type <T> op <fixed> operands)
-	// @{
+	/** \name class friend operators (type <T> op <fixed> operands) */
+	/** @{ */
 	template <typename T> friend const T & operator += (T & a, const fixed & b)
 		{ a = a + T (b); return a; }
 	template <typename T> friend const T & operator -= (T & a, const fixed & b)
@@ -266,31 +243,23 @@ public:
 		{ return fixed(a, b.Q) >= b; }
 	template <typename T> friend bool operator <= (const T a, const fixed & b)
 		{ return fixed(a, b.Q) <= b; }
-	// @}
+	/** @} */
 };
 
+}
 
-
-}  // namespace math
-
-
-//! \brief round up value
-
+/** \brief round up value */
 inline math::fixed ceil (math::fixed const & f) { return f.ceil (); }
 
-//! \brief round down value
-
+/** \brief round down value */
 inline math::fixed floor (math::fixed const & f) { return f.floor (); }
 
-//! \brief absolute value
-
+/** \brief absolute value */
 inline math::fixed fabs (math::fixed const & f) { return (f < 0) ? -f : f; }
 
-//! \brief square root
-
+/** \brief square root */
 inline math::fixed sqrt (math::fixed const & f) { return f.sqrt (); }
 
+#endif
 
-#endif // __cplusplus
-
-#endif // _fixed_h_
+#endif

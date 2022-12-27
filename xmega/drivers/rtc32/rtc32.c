@@ -3,7 +3,7 @@
  *
  * \brief AVR XMEGA 32-bit Real Time Counter driver
  *
- * Copyright (c) 2010 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2010-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -87,16 +87,16 @@ typedef struct RTC32_struct2 {
  * \internal
  * \brief Driver private struct
  */
-struct rtc32_data_struct {
+struct rtc_data_struct {
 	//! Callback function to use on alarm
-	rtc32_callback_t callback;
+	rtc_callback_t callback;
 };
 
 /**
  * \internal
  * \brief Driver private data
  */
-struct rtc32_data_struct rtc32_data;
+struct rtc_data_struct rtc_data;
 
 /**
  * \internal
@@ -105,7 +105,7 @@ struct rtc32_data_struct rtc32_data;
  * \retval true  Is busy
  * \retval false Is ready
  */
-static __always_inline bool rtc32_is_busy(void)
+static __always_inline bool rtc_is_busy(void)
 {
 	return RTC32.SYNCCTRL & RTC32_SYNCBUSY_bm;
 }
@@ -116,7 +116,7 @@ static __always_inline bool rtc32_is_busy(void)
  *
  * \return Counter value
  */
-static inline uint32_t rtc32_get_counter(void)
+static inline uint32_t rtc_get_counter(void)
 {
 	RTC32.SYNCCTRL = RTC32_SYNCCNT_bm;
 	while (RTC32.SYNCCTRL & RTC32_SYNCCNT_bm);
@@ -128,11 +128,11 @@ static inline uint32_t rtc32_get_counter(void)
  *
  * \param time Time value to set
  */
-void rtc32_set_time(uint32_t time)
+void rtc_set_time(uint32_t time)
 {
 	RTC32.CTRL = 0;
 
-	while (rtc32_is_busy());
+	while (rtc_is_busy());
 
 	RTC32.CNT = time;
 	RTC32.CTRL = RTC32_ENABLE_bm;
@@ -143,24 +143,24 @@ void rtc32_set_time(uint32_t time)
  *
  * \return Current time value
  */
-uint32_t rtc32_get_time(void)
+uint32_t rtc_get_time(void)
 {
-	return rtc32_get_counter();
+	return rtc_get_counter();
 }
 
 /**
  * \brief Set alarm time
  *
  * Will set absolute time of the alarm that will call the callback function
- * specified by \ref rtc32_set_callback on expiration. Alternatively, you may
- * use \ref rtc32_alarm_has_triggered to check if the alarm has expired.
+ * specified by \ref rtc_set_callback on expiration. Alternatively, you may
+ * use \ref rtc_alarm_has_triggered to check if the alarm has expired.
  *
  * Any pending alarm will be overwritten with this function.
  *
  * \param time Absolute time value. See also \ref rtc32_min_alarm_time
  * \pre Needs interrupts disabled if used from several contexts
  */
-void rtc32_set_alarm(uint32_t time)
+void rtc_set_alarm(uint32_t time)
 {
 	RTC32.INTCTRL = RTC32_COMPARE_INT_LEVEL;
 	RTC32.COMP = time;
@@ -173,7 +173,7 @@ void rtc32_set_alarm(uint32_t time)
  * \retval true  Alarm has triggered
  * \retval false Alarm is pending
  */
-bool rtc32_alarm_has_triggered(void)
+bool rtc_alarm_has_triggered(void)
 {
 	// Interrupt enable is used on pending alarm
 	return !(RTC32.INTCTRL & RTC32_COMPARE_INT_LEVEL);
@@ -184,9 +184,9 @@ bool rtc32_alarm_has_triggered(void)
  *
  * \param callback Callback function pointer
  */
-void rtc32_set_callback(rtc32_callback_t callback)
+void rtc_set_callback(rtc_callback_t callback)
 {
-	rtc32_data.callback = callback;
+	rtc_data.callback = callback;
 }
 
 /**
@@ -227,7 +227,7 @@ static void udelay(uint16_t us)
  *
  * \returns Battery backup system status.
  */
-enum vbat_status_code rtc32_vbat_system_check(bool first_time_startup)
+enum vbat_status_code rtc_vbat_system_check(bool first_time_startup)
 {
 	enum vbat_status_code vbat_status;
 	uint8_t flags = VBAT.STATUS;
@@ -300,10 +300,10 @@ static void vbat_init(void)
  * RTC32.
  *
  * \note When the backup system is used, the function \ref
- * rtc32_vbat_system_check should be called to determine if a re-initialization
+ * rtc_vbat_system_check should be called to determine if a re-initialization
  * must be done.
  */
-void rtc32_init(void)
+void rtc_init(void)
 {
 	sysclk_enable_module(SYSCLK_PORT_GEN, SYSCLK_RTC);
 	// Set up VBAT system and start oscillator
@@ -312,19 +312,19 @@ void rtc32_init(void)
 	// Disable the RTC32 module before setting it up
 	RTC32.CTRL = 0;
 
-	while (rtc32_is_busy());
+	while (rtc_is_busy());
 
 	// Set up maximum period and start at 0
 	RTC32.PER = 0xffffffff;
 	RTC32.CNT = 0;
 
-	while (rtc32_is_busy());
+	while (rtc_is_busy());
 
 	RTC32.INTCTRL = 0;
 	RTC32.CTRL = RTC32_ENABLE_bm;
 
 	// Make sure it's sync'ed before return
-	while (rtc32_is_busy());
+	while (rtc_is_busy());
 }
 
 /**
@@ -337,6 +337,6 @@ void rtc32_init(void)
 ISR(RTC32_COMP_vect)
 {
 	RTC32.INTCTRL = 0;
-	if (rtc32_data.callback)
-		rtc32_data.callback(rtc32_get_time());
+	if (rtc_data.callback)
+		rtc_data.callback(rtc_get_time());
 }

@@ -62,7 +62,7 @@
  * - Switch PLLA clock as MCK and enable PCK output
  * - Switch PLLB clock as MCK and enable PCK output (for SAM3S)
  * - Switch UPLL clock as MCK and enable PCK output (for SAM3XA and SAM3U)
- * - Test entering and exiting of sleep mode 
+ * - Test entering and exiting of sleep mode
  *
  * \section files Main Files
  * - \ref unit_tests.c
@@ -129,7 +129,7 @@ static void run_periph_clk_cfg_test(const struct test_case *test)
 #  define PERIPH_ID_START     ID_UART0
 #  define PERIPH_ID_END       ID_PWM
 #elif (SAM3XA)
-#  define PERIPH_ID_START     ID_SDRAMC
+#  define PERIPH_ID_START     ID_PIOA
 #  define PERIPH_ID_END       ID_CAN1
 #elif (SAM3U)
 #  define PERIPH_ID_START     ID_UART
@@ -188,9 +188,9 @@ static uint32_t is_serial_output_done(void)
 }
 
 /**
- * \brief Switch slow clock as MCK and enable PCK output, 
+ * \brief Switch slow clock as MCK and enable PCK output,
  * and check if it can be used.
- * 
+ *
  *
  * \param test Current test case.
  */
@@ -306,7 +306,7 @@ static void run_switch_pllack_as_mck_test(const struct test_case *test)
 #if (SAM3S || SAM4S)
 /**
  * \brief Switch PLLB clock as MCK and enable PCK output,
- * and check if it can be used. 
+ * and check if it can be used.
  *
  * \param test Current test case.
  */
@@ -320,8 +320,8 @@ static void run_switch_pllbck_as_mck_test(const struct test_case *test)
 	/* First, switch main clock as MCK */
 	rc0 = pmc_switch_mck_to_mainck(PMC_MCKR_PRES_CLK_1);
 
-	/* Enable the PLLB clock, the mainck equals (12Mhz * (7+1) / 1) = 96Mhz 
-	 * with the initialize counter be 0x3f 
+	/* Enable the PLLB clock, the mainck equals (12Mhz * (7+1) / 1) = 96Mhz
+	 * with the initialize counter be 0x3f
 	 */
 	pmc_enable_pllbck(7, 0x3f, 1);
 
@@ -343,7 +343,7 @@ static void run_switch_pllbck_as_mck_test(const struct test_case *test)
 #if (SAM3XA || SAM3U)
 /**
  * \brief Switch UPLL clock as MCK and enable PCK output,
- * and check if it can be used. 
+ * and check if it can be used.
  *
  * \param test Current test case.
  */

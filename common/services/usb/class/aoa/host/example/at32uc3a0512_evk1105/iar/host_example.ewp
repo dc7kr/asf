@@ -344,12 +344,12 @@
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/pwm</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/flashc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../avr32/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/intc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/components/touch/qt1081</state>
@@ -491,12 +491,12 @@
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/pwm</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/flashc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../avr32/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/intc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/components/touch/qt1081</state>
@@ -1247,12 +1247,12 @@
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/pwm</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/flashc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../avr32/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/intc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/components/touch/qt1081</state>
@@ -1394,12 +1394,12 @@
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/pwm</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/flashc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../avr32/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/intc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/components/touch/qt1081</state>
@@ -1892,15 +1892,6 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../avr32/boards/evk1105/led.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>services</name>
-			<group>
-				<name>delay</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../avr32/services/delay/delay.c</name>
 				</file>
 			</group>
 		</group>

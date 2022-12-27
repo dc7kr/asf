@@ -82,6 +82,9 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: SCIF System Control Interface - UC3C implementation
 #include <scif_uc3c.h>
 
@@ -102,7 +105,7 @@
 #include <uhi_hid_mouse.h>
 
 // From module: USB Host MSC (Multiple classes support)
-#include <uhi_msc.h>
+#include <uhi_msc_mem.h>
 
 // From module: USB Host stack core
 #include <uhc.h>

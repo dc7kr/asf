@@ -94,7 +94,7 @@ void ui_usb_enum_event(uhc_device_t *dev, uhc_enum_status_t status);
 void ui_usb_message_reception(void);
 
 /** \brief Called when Bulk IN Transfer is finished */
-void read_complete(usb_add_t add, uhd_trans_status_t, iram_size_t);
+void read_complete(usb_add_t add, usb_ep_t ep, uhd_trans_status_t, iram_size_t);
 
 /**
  * \name Commands from accessory to Android device

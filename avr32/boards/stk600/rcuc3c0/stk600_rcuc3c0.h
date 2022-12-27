@@ -10,7 +10,7 @@
  *
  * To use this board, define BOARD=STK600_UC3C0.
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -75,10 +75,26 @@
 // #define FOSC1           12000000                              //!< Osc1 frequency: Hz.
 // #define OSC1_STARTUP    AVR32_SCIF_OSCCTRL1_STARTUP_2048_RCOSC  //!< Osc1 startup time: RCOsc periods.
 
-
-
 //! @}
 
+#define BOARD_OSC0_HZ           16000000
+#define BOARD_OSC0_STARTUP_US   2000
+#define BOARD_OSC0_IS_XTAL      true
+#define BOARD_OSC32_HZ          32768
+#define BOARD_OSC32_STARTUP_US  71000
+#define BOARD_OSC32_IS_XTAL     true
+
+/*! \name SDRAM Definitions
+ */
+//! @{
+
+//! Part header file of used SDRAM(s).
+#define SDRAM_PART_HDR  "mt48lc16m16a2tg7e/mt48lc16m16a2tg7e.h"
+
+//! Data bus width to use the SDRAM(s) with (16 or 32 bits; always 16 bits on
+//! UC3).
+#define SDRAM_DBW       16
+//! @}
 //! Number of LEDs.
 #define LED_COUNT   8
 
@@ -120,5 +136,80 @@
 #define GPIO_PUSH_BUTTON_SW7_PRESSED    0
 //! @}
 
+/*! \name SPI Connections of the AT45DBX Data Flash Memory
+ */
+//! @{
+#define AT45DBX_SPI                 (&AVR32_SPI1)
+#define AT45DBX_SPI_NPCS            1
+#define AT45DBX_SPI_SCK_PIN         AVR32_SPI1_SCK_0_1_PIN
+#define AT45DBX_SPI_SCK_FUNCTION    AVR32_SPI1_SCK_0_1_FUNCTION
+#define AT45DBX_SPI_MISO_PIN        AVR32_SPI1_MISO_0_1_PIN
+#define AT45DBX_SPI_MISO_FUNCTION   AVR32_SPI1_MISO_0_1_FUNCTION
+#define AT45DBX_SPI_MOSI_PIN        AVR32_SPI1_MOSI_0_1_PIN
+#define AT45DBX_SPI_MOSI_FUNCTION   AVR32_SPI1_MOSI_0_1_FUNCTION
+#define AT45DBX_SPI_NPCS0_PIN       AVR32_SPI1_NPCS_1_2_PIN
+#define AT45DBX_SPI_NPCS0_FUNCTION  AVR32_SPI1_NPCS_1_2_FUNCTION
+//! @}
+
+/*! \name ET024006DHU TFT display
+ */
+//! @{
+
+#define ET024006DHU_TE_PIN              AVR32_PIN_PD19
+#define ET024006DHU_RESET_PIN           AVR32_PIN_PD16
+#define ET024006DHU_BL_PIN              AVR32_TC0_B0_0_2_PIN
+#define ET024006DHU_BL_FUNCTION         AVR32_TC0_B0_0_2_FUNCTION
+#define ET024006DHU_DNC_PIN             AVR32_EBI_ADDR_22_PIN
+#define ET024006DHU_DNC_FUNCTION        AVR32_EBI_ADDR_22_FUNCTION
+#define ET024006DHU_EBI_NCS_PIN         AVR32_EBI_NCS_PIN
+#define ET024006DHU_EBI_NCS_FUNCTION    AVR32_EBI_NCS_FUNCTION
+
+//! @}
+/*! \name Optional SPI connection to the TFT
+ */
+//! @{
+
+#define ET024006DHU_SPI                  (&AVR32_SPI1)
+#define ET024006DHU_SPI_NPCS             1
+#define ET024006DHU_SPI_SCK_PIN          AVR32_SPI1_SCK_0_1_PIN
+#define ET024006DHU_SPI_SCK_FUNCTION     AVR32_SPI1_SCK_0_1_FUNCTION
+#define ET024006DHU_SPI_MISO_PIN         AVR32_SPI1_MISO_0_1_PIN
+#define ET024006DHU_SPI_MISO_FUNCTION    AVR32_SPI1_MISO_0_1_FUNCTION
+#define ET024006DHU_SPI_MOSI_PIN         AVR32_SPI1_MOSI_0_1_PIN
+#define ET024006DHU_SPI_MOSI_FUNCTION    AVR32_SPI1_MOSI_0_1_FUNCTION
+#define ET024006DHU_SPI_NPCS_PIN         AVR32_SPI1_NPCS_2_2_PIN
+#define ET024006DHU_SPI_NPCS_FUNCTION    AVR32_SPI1_NPCS_2_2_FUNCTION
+
+//! @}
+
+/*! \name LCD Connections of the ET024006DHU display
+ */
+//! @{
+#define ET024006DHU_SMC_USE_NCS           0
+#define ET024006DHU_SMC_COMPONENT_CS      "smc_et024006dhu.h"
+
+#define ET024006DHU_EBI_DATA_0    AVR32_EBI_DATA_0
+#define ET024006DHU_EBI_DATA_1    AVR32_EBI_DATA_1
+#define ET024006DHU_EBI_DATA_2    AVR32_EBI_DATA_2
+#define ET024006DHU_EBI_DATA_3    AVR32_EBI_DATA_3
+#define ET024006DHU_EBI_DATA_4    AVR32_EBI_DATA_4
+#define ET024006DHU_EBI_DATA_5    AVR32_EBI_DATA_5
+#define ET024006DHU_EBI_DATA_6    AVR32_EBI_DATA_6
+#define ET024006DHU_EBI_DATA_7    AVR32_EBI_DATA_7
+#define ET024006DHU_EBI_DATA_8    AVR32_EBI_DATA_8
+#define ET024006DHU_EBI_DATA_9    AVR32_EBI_DATA_9
+#define ET024006DHU_EBI_DATA_10   AVR32_EBI_DATA_10
+#define ET024006DHU_EBI_DATA_11   AVR32_EBI_DATA_11
+#define ET024006DHU_EBI_DATA_12   AVR32_EBI_DATA_12
+#define ET024006DHU_EBI_DATA_13   AVR32_EBI_DATA_13
+#define ET024006DHU_EBI_DATA_14   AVR32_EBI_DATA_14
+#define ET024006DHU_EBI_DATA_15   AVR32_EBI_DATA_15
+
+#define ET024006DHU_EBI_ADDR_21   AVR32_EBI_ADDR_22
+
+#define ET024006DHU_EBI_NWE       AVR32_EBI_NWE0
+#define ET024006DHU_EBI_NRD       AVR32_EBI_NRD
+#define ET024006DHU_EBI_NCS       AVR32_EBI_NCS_0
+//! @}
 
 #endif  // _STK600_RCUCA0_H_

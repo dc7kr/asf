@@ -3,7 +3,7 @@
  *
  * \brief AT86RFX configuration
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -70,7 +70,7 @@
 #define EXT_INT_ISR_PRIORITY            1
 
  //! RESET pin of transceiver
-#define TRX_RST       					(AVR32_PIN_PA17)
+#define TRX_RST                         (AVR32_PIN_PA17)
  //! Sleep Transceiver pin
 #define SLP_TR                          (AVR32_PIN_PA19)
 //! @}
@@ -78,11 +78,11 @@
 /**
  * This macro saves the trx interrupt status and disables the trx interrupt.
  */
-#define ENTER_TRX_REGION()           	DISABLE_TRX_IRQ()
+#define ENTER_TRX_REGION()              DISABLE_TRX_IRQ()
 /**
  *  This macro restores the transceiver interrupt status
  */
-#define LEAVE_TRX_REGION()           	ENABLE_TRX_IRQ()
+#define LEAVE_TRX_REGION()              ENABLE_TRX_IRQ()
 
 #if (UC3)
 /* This macro saves the global interrupt status */
@@ -111,20 +111,30 @@
 #define AT86RFX_TX_STATUS_NOTIFY(status)
 //@}
 
-/*! \name SPI Connections of the AT86RFX transceiver
- */
-//! @{
-#define AT86RFX_SPI                  (&AVR32_SPI0)
-#define AT86RFX_SPI_NPCS             0
-#define AT86RFX_SPI_SCK_PIN          AVR32_SPI0_SCK_0_0_PIN
-#define AT86RFX_SPI_SCK_FUNCTION     AVR32_SPI0_SCK_0_0_FUNCTION
-#define AT86RFX_SPI_MISO_PIN         AVR32_SPI0_MISO_0_0_PIN
-#define AT86RFX_SPI_MISO_FUNCTION    AVR32_SPI0_MISO_0_0_FUNCTION
-#define AT86RFX_SPI_MOSI_PIN         AVR32_SPI0_MOSI_0_0_PIN
-#define AT86RFX_SPI_MOSI_FUNCTION    AVR32_SPI0_MOSI_0_0_FUNCTION
-#define AT86RFX_SPI_NPCS_PIN         AVR32_SPI0_NPCS_0_0_PIN
-#define AT86RFX_SPI_NPCS_FUNCTION    AVR32_SPI0_NPCS_0_0_FUNCTION
-#define AT86RFX_SPI_BAUDRATE         (48000)
-//! @}
+#if !defined(AT86RFX_SPI)              || \
+    !defined(AT86RFX_SPI_NPCS)         || \
+    !defined(AT86RFX_SPI_SCK_PIN)      || \
+    !defined(AT86RFX_SPI_SCK_FUNCTION) || \
+    !defined(AT86RFX_SPI_MISO_PIN)     || \
+    !defined(AT86RFX_SPI_MISO_FUNCTION)|| \
+    !defined(AT86RFX_SPI_MOSI_PIN)     || \
+    !defined(AT86RFX_SPI_MOSI_FUNCTION)|| \
+    !defined(AT86RFX_SPI_NPCS_PIN)     || \
+    !defined(AT86RFX_SPI_NPCS_FUNCTION)|| \
+    !defined(AT86RFX_SPI_MISO_PIN)     || \
+    !defined(AT86RFX_SPI_BAUDRATE) 
+#  warning The AT86RFX SPI setups configuration to use in the driver is missing. Default configuration is used.
+#  define AT86RFX_SPI                  (&AVR32_SPI0)
+#  define AT86RFX_SPI_NPCS             0
+#  define AT86RFX_SPI_SCK_PIN          AVR32_SPI0_SCK_0_0_PIN
+#  define AT86RFX_SPI_SCK_FUNCTION     AVR32_SPI0_SCK_0_0_FUNCTION
+#  define AT86RFX_SPI_MISO_PIN         AVR32_SPI0_MISO_0_0_PIN
+#  define AT86RFX_SPI_MISO_FUNCTION    AVR32_SPI0_MISO_0_0_FUNCTION
+#  define AT86RFX_SPI_MOSI_PIN         AVR32_SPI0_MOSI_0_0_PIN
+#  define AT86RFX_SPI_MOSI_FUNCTION    AVR32_SPI0_MOSI_0_0_FUNCTION
+#  define AT86RFX_SPI_NPCS_PIN         AVR32_SPI0_NPCS_0_0_PIN
+#  define AT86RFX_SPI_NPCS_FUNCTION    AVR32_SPI0_NPCS_0_0_FUNCTION
+#  define AT86RFX_SPI_BAUDRATE         (48000)
+#endif
 
 #endif /* CONF_AT86RFX_H */

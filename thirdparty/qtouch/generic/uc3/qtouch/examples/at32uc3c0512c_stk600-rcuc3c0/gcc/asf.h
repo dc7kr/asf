@@ -72,6 +72,9 @@
 // From module: Interrupt management - UC3 implementation
 #include <interrupt.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: STK600-RCUC3C0 board support
 #include <led.h>
 

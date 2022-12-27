@@ -11,7 +11,7 @@
  *
  * To use this board, define BOARD=STK600_UC3L.
  *
- * Copyright (c) 2009 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -118,5 +118,18 @@
 #define GPIO_PUSH_BUTTON_SW7_PRESSED    0
 //! @}
 
+//! \name SPI Connections of the AT45DBX Data Flash Memory
+// @{
+#define AT45DBX_SPI                 (&AVR32_SPI)
+#define AT45DBX_SPI_NPCS            0
+#define AT45DBX_SPI_SCK_PIN         AVR32_SPI_SCK_0_0_PIN
+#define AT45DBX_SPI_SCK_FUNCTION    AVR32_SPI_SCK_0_0_FUNCTION
+#define AT45DBX_SPI_MISO_PIN        AVR32_SPI_MISO_0_0_PIN
+#define AT45DBX_SPI_MISO_FUNCTION   AVR32_SPI_MISO_0_0_FUNCTION
+#define AT45DBX_SPI_MOSI_PIN        AVR32_SPI_MOSI_0_0_PIN
+#define AT45DBX_SPI_MOSI_FUNCTION   AVR32_SPI_MOSI_0_0_FUNCTION
+#define AT45DBX_SPI_NPCS0_PIN       AVR32_SPI_NPCS_0_0_PIN
+#define AT45DBX_SPI_NPCS0_FUNCTION  AVR32_SPI_NPCS_0_0_FUNCTION
+//! @}
 
 #endif  // _STK600_RCUC3L0_H_

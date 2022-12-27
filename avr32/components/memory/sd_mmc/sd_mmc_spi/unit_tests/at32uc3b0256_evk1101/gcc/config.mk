@@ -57,6 +57,7 @@ TARGET = spi_unit_tests.elf
 # List of C source files.
 CSRCS = \
        avr32/boards/evk1101/init.c                        \
+       avr32/boards/evk1101/led.c                         \
        avr32/components/memory/sd_mmc/sd_mmc_spi/sd_mmc_spi.c \
        avr32/components/memory/sd_mmc/sd_mmc_spi/sd_mmc_spi_mem.c \
        avr32/components/memory/sd_mmc/sd_mmc_spi/unit_tests/unit_tests.c \

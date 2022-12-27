@@ -44,9 +44,9 @@
 #include <parts.h>
 #include <stdbool.h>
 
-#if defined(XMEGA)
+#if XMEGA
 # include "xmega_reset_cause.h"
-#elif defined(__AVR32__) || defined(__ICCAVR32__)
+#elif UC3
 # include "avr32_reset_cause.h"
 #else
 # error Unsupported chip type

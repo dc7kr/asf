@@ -2039,11 +2039,11 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>ioport</name>
+				<name>sleepmgr</name>
 				<group>
 					<name>xmega</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/ioport/xmega/ioport_compat.c</name>
+						<name>$PROJ_DIR$/../../../../../../common/services/sleepmgr/xmega/sleepmgr.c</name>
 					</file>
 				</group>
 			</group>
@@ -2057,11 +2057,11 @@
 				</group>
 			</group>
 			<group>
-				<name>sleepmgr</name>
+				<name>ioport</name>
 				<group>
 					<name>xmega</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/sleepmgr/xmega/sleepmgr.c</name>
+						<name>$PROJ_DIR$/../../../../../../common/services/ioport/xmega/ioport_compat.c</name>
 					</file>
 				</group>
 			</group>

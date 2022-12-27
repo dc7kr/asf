@@ -76,6 +76,12 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
+// From module: RZ600S board support
+#include <led.h>
+
 // From module: SPI - Serial Peripheral Interface
 #include <spi.h>
 
@@ -96,7 +102,7 @@
 // From module: USB Device CDC (Single Interface Device)
 #include <udi_cdc.h>
 
-// From module: USB Device Stack Core
+// From module: USB Device Stack Core (Common API)
 #include <udc.h>
 #include <udd.h>
 

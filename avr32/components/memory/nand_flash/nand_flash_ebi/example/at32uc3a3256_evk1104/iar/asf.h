@@ -88,6 +88,9 @@
 #include <power_clocks_lib.h>
 #include <sleep.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: Standard serial I/O (stdio) - UC3 implementation
 #include <stdio_serial.h>
 

@@ -14,7 +14,7 @@
  * \author               Atmel Corporation: http://www.atmel.com \n
  *                       Support and FAQ: http://support.atmel.no/
  *
- *   Copyright (c) 2010, Atmel Corporation All rights reserved.
+ *   Copyright (c) 2010-2012, Atmel Corporation All rights reserved.
  *  
  * \asf_license_start
  *
@@ -53,7 +53,7 @@
 
 /*============================ INCLUDES ======================================*/
 #ifdef _DEBUG_INTERFACE_
-#include "parts.h"
+#include <compiler.h>
 #include "BitBangSPI_Master.h"
 #include "QDebugTransport.h"
 

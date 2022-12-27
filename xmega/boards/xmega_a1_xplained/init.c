@@ -84,6 +84,7 @@ void board_init(void)
 	ioport_configure_pin(MXT143E_XPLAINED_MISO, IOPORT_DIR_INPUT);
 	ioport_configure_pin(MXT143E_XPLAINED_CS, IOPORT_DIR_OUTPUT
 			| IOPORT_INIT_HIGH);
+	ioport_configure_pin(MXT143E_XPLAINED_CHG, IOPORT_DIR_INPUT);
 	ioport_configure_pin(MXT143E_XPLAINED_DC, IOPORT_DIR_OUTPUT);
 	#ifndef MXT143E_XPLAINED_BACKLIGHT_DISABLE
 	ioport_configure_pin(MXT143E_XPLAINED_BACKLIGHT, IOPORT_DIR_OUTPUT
@@ -138,5 +139,8 @@ void board_init(void)
 	 * GPIO pin mapping, interrupt controller options, etc.
 	 */
 	sensor_board_init ();
+#elif EXT_BOARD == SECURITY_XPLAINED
+   // Only ATSHA204 I2C devices are supported.
+   security_board_init();
 #endif
 }

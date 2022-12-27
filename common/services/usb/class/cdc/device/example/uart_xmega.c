@@ -3,7 +3,7 @@
  *
  * \brief UART functions for AVR Xmega
  *
- * Copyright (c) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011 - 2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -39,15 +39,11 @@
  *
  */
 
-#include "compiler.h"
+#include <asf.h>
 #include "conf_board.h"
-#include "conf_usb.h"
-#include "usb_protocol_cdc.h"
-#include "sysclk.h"
 #include "uart.h"
 #include "main.h"
 #include "ui.h"
-#include "udi_cdc.h"
 
 void uart_config(usb_cdc_line_coding_t * cfg)
 {

@@ -110,6 +110,8 @@ void twi_enable_interrupt(Twi *p_twi, uint32_t ul_sources);
 void twi_disable_interrupt(Twi *p_twi, uint32_t ul_sources);
 uint32_t twi_get_interrupt_status(Twi *p_twi);
 uint32_t twi_get_interrupt_mask(Twi *p_twi);
+uint8_t twi_read_byte(Twi *p_twi);
+void twi_write_byte(Twi *p_twi, uint8_t uc_byte);
 void twi_enable_slave_mode(Twi *p_twi);
 void twi_disable_slave_mode(Twi *p_twi);
 void twi_slave_init(Twi *p_twi, uint32_t ul_device_addr);

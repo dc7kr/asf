@@ -72,6 +72,9 @@
 // From module: NVM - Non Volatile Memory
 #include <nvm.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: Sleep Controller driver
 #include <sleep.h>
 
@@ -84,7 +87,9 @@
 
 // From module: XMEGA compiler driver
 #include <compiler.h>
-#include <parts.h>
 #include <status_codes.h>
+
+// From module: Xplain LED support enabled
+#include <led.h>
 
 #endif // ASF_H

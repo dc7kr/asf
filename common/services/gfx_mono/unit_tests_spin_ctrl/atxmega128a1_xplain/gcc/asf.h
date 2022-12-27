@@ -81,6 +81,9 @@
 // From module: PMIC - Programmable Multi-level Interrupt Controller
 #include <pmic.h>
 
+// From module: Part identification macros
+#include <parts.h>
+
 // From module: Standard serial I/O (stdio) - XMEGA implementation
 #include <stdio_serial.h>
 
@@ -95,7 +98,9 @@
 
 // From module: XMEGA compiler driver
 #include <compiler.h>
-#include <parts.h>
 #include <status_codes.h>
+
+// From module: Xplain LED support enabled
+#include <led.h>
 
 #endif // ASF_H
