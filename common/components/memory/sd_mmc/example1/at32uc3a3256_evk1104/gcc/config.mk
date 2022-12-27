@@ -102,7 +102,7 @@ INC_PATH = \
        common/services/serial/uc3_usart                   \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./common/components/memory/sd_mmc/example1/at32uc3a3256_evk1104/gcc
+       common/components/memory/sd_mmc/example1/at32uc3a3256_evk1104/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

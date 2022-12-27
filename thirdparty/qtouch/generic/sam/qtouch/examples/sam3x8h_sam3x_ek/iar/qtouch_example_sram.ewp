@@ -165,6 +165,7 @@
 					<state>_SNS1_SNSK1_SAME_PORT_</state>
 					<state>_SNS2_SNSK2_SAME_PORT_</state>
 					<state>BOARD=SAM3X_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>SNSK2=E</state>
 					<state>__SAM3X8H__</state>
 					<state>SNSK1=F</state>
@@ -475,6 +476,7 @@
 					<state>_SNS1_SNSK1_SAME_PORT_</state>
 					<state>_SNS2_SNSK2_SAME_PORT_</state>
 					<state>BOARD=SAM3X_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>SNSK2=E</state>
 					<state>__SAM3X8H__</state>
 					<state>SNSK1=F</state>
@@ -1111,6 +1113,7 @@
 					<state>_SNS1_SNSK1_SAME_PORT_</state>
 					<state>_SNS2_SNSK2_SAME_PORT_</state>
 					<state>BOARD=SAM3X_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>SNSK2=E</state>
 					<state>__SAM3X8H__</state>
 					<state>SNSK1=F</state>
@@ -1421,6 +1424,7 @@
 					<state>_SNS1_SNSK1_SAME_PORT_</state>
 					<state>_SNS2_SNSK2_SAME_PORT_</state>
 					<state>BOARD=SAM3X_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>SNSK2=E</state>
 					<state>__SAM3X8H__</state>
 					<state>SNSK1=F</state>
@@ -1952,6 +1956,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>wdt</name>
@@ -2015,24 +2022,6 @@
 	<group>
 		<name>common</name>
 		<group>
-			<name>services</name>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>sam3x</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common/services/clock/sam3x/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/services/serial/usart_serial.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
 			<name>utils</name>
 			<group>
 				<name>interrupt</name>
@@ -2047,6 +2036,24 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/read.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam3x</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/clock/sam3x/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/services/serial/usart_serial.c</name>
 				</file>
 			</group>
 		</group>

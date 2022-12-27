@@ -91,7 +91,7 @@ INC_PATH = \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/utils \
-       ./avr32/applications/uc3-uart-bootloader/at32uc3l0_128_256/gcc
+       avr32/applications/uc3-uart-bootloader/at32uc3l0_128_256/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

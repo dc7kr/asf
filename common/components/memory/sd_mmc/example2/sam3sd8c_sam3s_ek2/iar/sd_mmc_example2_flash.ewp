@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
@@ -472,6 +473,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
@@ -1107,6 +1109,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
@@ -1416,6 +1419,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
@@ -1987,15 +1991,15 @@
 			</group>
 			<group>
 				<name>fatfs-port-r0.09</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/diskio.c</name>
-				</file>
 				<group>
 					<name>sam</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam/fattime.c</name>
+						<name>$PROJ_DIR$/../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam/fattime_rtc.c</name>
 					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/diskio.c</name>
+				</file>
 			</group>
 		</group>
 	</group>
@@ -2028,6 +2032,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>

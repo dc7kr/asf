@@ -106,10 +106,10 @@
 #include <task.h>
 #include <timers.h>
 
-// From module: GFX - Graphic Library
+// From module: GFX Color - Color Graphic Library
 #include <gfx.h>
 
-// From module: GFX - System Font
+// From module: GFX Color - System Font
 #include <sysfont.h>
 
 // From module: GPIO - General purpose Input/Output
@@ -121,6 +121,9 @@
 // From module: Graphical Widget Library Toolkit
 #include <win.h>
 #include <wtk.h>
+
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
 
 // From module: Interrupt management - SAM implementation
 #include <interrupt.h>
@@ -164,9 +167,6 @@
 
 // From module: RTC - Real Time Clock
 #include <rtc.h>
-
-// From module: SAM Toolkit Demo Application
-#include <bitmaps.h>
 
 // From module: SAM4S EK LED support enabled
 #include <led.h>

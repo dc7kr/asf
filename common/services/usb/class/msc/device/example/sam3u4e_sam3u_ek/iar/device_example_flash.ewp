@@ -166,6 +166,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -481,6 +482,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -794,7 +796,7 @@
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
-					<state></state>
+					<state>--config_def __ICFEDIT_size_cstack__=16K</state>
 				</option>
 				<option>
 					<name>IlinkLowLevelInterfaceSlave</name>
@@ -1122,6 +1124,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -1437,6 +1440,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -1750,7 +1754,7 @@
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
-					<state></state>
+					<state>--config_def __ICFEDIT_size_cstack__=16K</state>
 				</option>
 				<option>
 					<name>IlinkLowLevelInterfaceSlave</name>
@@ -1927,9 +1931,12 @@
 							<group>
 								<name>iar</name>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi/ftl_lib/iar/lib_nand_flash_cortexm3_3u.a</name>
+									<name>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi/ftl_lib/iar/lib_nand_flash_cortexm3.a</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi/ftl_lib/nand_flash_mem.c</name>
+							</file>
 						</group>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi/nand_flash_spare_scheme.c</name>
@@ -2100,6 +2107,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 		</group>

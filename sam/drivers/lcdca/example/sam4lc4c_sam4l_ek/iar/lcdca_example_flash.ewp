@@ -149,7 +149,7 @@
 				</option>
 				<option>
 					<name>OGUseCmsisDspLib</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 			</data>
 		</settings>
@@ -167,8 +167,8 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=SAM4L_EK</state>
+					<state>__SAM4LC4C__</state>
 					<state>ARM_MATH_CM4=true</state>
-					<state>__ATSAM4LC4C__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -469,8 +469,8 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=SAM4L_EK</state>
+					<state>__SAM4LC4C__</state>
 					<state>ARM_MATH_CM4=true</state>
-					<state>__ATSAM4LC4C__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1113,7 +1113,7 @@
 				</option>
 				<option>
 					<name>OGUseCmsisDspLib</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 			</data>
 		</settings>
@@ -1131,8 +1131,8 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=SAM4L_EK</state>
+					<state>__SAM4LC4C__</state>
 					<state>ARM_MATH_CM4=true</state>
-					<state>__ATSAM4LC4C__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1433,8 +1433,8 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=SAM4L_EK</state>
+					<state>__SAM4LC4C__</state>
 					<state>ARM_MATH_CM4=true</state>
-					<state>__ATSAM4LC4C__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1947,6 +1947,9 @@
 								</file>
 							</group>
 							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam4l/source/templates/system_sam4l.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam4l/source/templates/exceptions.c</name>
 							</file>
 						</group>
@@ -1955,13 +1958,19 @@
 			</group>
 		</group>
 		<group>
-			<name>drivers</name>
+			<name>boards</name>
 			<group>
-				<name>usart</name>
+				<name>sam4l_ek</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../usart/usart.c</name>
+					<name>$PROJ_DIR$/../../../../../boards/sam4l_ek/board_monitor.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/sam4l_ek/init.c</name>
 				</file>
 			</group>
+		</group>
+		<group>
+			<name>drivers</name>
 			<group>
 				<name>lcdca</name>
 				<file>
@@ -1981,6 +1990,12 @@
 				</file>
 			</group>
 			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../usart/usart.c</name>
+				</file>
+			</group>
+			<group>
 				<name>pdca</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../pdca/pdca.c</name>
@@ -1990,15 +2005,6 @@
 				<name>bpm</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../bpm/bpm.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>sam4l_ek</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../boards/sam4l_ek/init.c</name>
 				</file>
 			</group>
 		</group>

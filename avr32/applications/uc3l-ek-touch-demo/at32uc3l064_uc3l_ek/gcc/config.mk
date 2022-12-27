@@ -107,7 +107,7 @@ INC_PATH = \
        common/services/clock                              \
        common/services/delay                              \
        common/utils \
-       ./avr32/applications/uc3l-ek-touch-demo/at32uc3l064_uc3l_ek/gcc
+       avr32/applications/uc3l-ek-touch-demo/at32uc3l064_uc3l_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \

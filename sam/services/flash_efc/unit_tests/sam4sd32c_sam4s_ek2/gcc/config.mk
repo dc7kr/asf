@@ -64,6 +64,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
        sam/services/flash_efc/flash_efc.c                 \
@@ -81,6 +82,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
        common/utils                                       \
@@ -102,7 +104,7 @@ INC_PATH = \
        sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
        thirdparty/CMSIS/Lib/GCC \
-       ./sam/services/flash_efc/unit_tests/sam4sd32c_sam4s_ek2/gcc
+       sam/services/flash_efc/unit_tests/sam4sd32c_sam4s_ek2/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
@@ -110,7 +112,8 @@ LIB_PATH =  \
 
 # List of libraries to use during linking.
 LIBS =  \
-       arm_cortexM4l_math                                
+       arm_cortexM4l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam4s/sam4sd32/gcc/flash.ld
@@ -154,7 +157,8 @@ CPPFLAGS = \
        -D BOARD=SAM4S_EK2                                 \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_                                 \
-       -D __SAM4SD32C__
+       -D __SAM4SD32C__                                   \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

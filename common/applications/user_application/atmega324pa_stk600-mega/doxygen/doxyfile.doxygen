@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../main.c ../../../../../mega/boards/stk600/rcx_x/init.c  ../conf_board.h ../../../../../mega/utils/compiler.h ../../../../utils/parts.h ../../../../../mega/utils/status_codes.h ../../../../boards/board.h ../../../../utils/interrupt/interrupt_avr8.h ../../../../../mega/utils/assembler.h ../../../../utils/interrupt.h ../../../../../mega/utils/progmem.h
+INPUT                  =  ../../main.c ../../../../../mega/boards/stk600/rcx_x/init.c  ../../../../../mega/utils/assembler.h ../../../../utils/parts.h ../../../../../mega/utils/status_codes.h ../../../../boards/board.h ../../../../../mega/utils/compiler.h ../../../../utils/interrupt/interrupt_avr8.h ../../../../utils/interrupt.h ../../../../../mega/utils/progmem.h ../config/conf_board.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../utils ../../../../boards ../../../../../mega/utils ..
+INCLUDE_PATH           =  ../config ../../../../utils ../../../../boards ../../../../../mega/utils
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

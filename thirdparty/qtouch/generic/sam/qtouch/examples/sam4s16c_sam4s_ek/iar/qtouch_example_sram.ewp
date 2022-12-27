@@ -1976,18 +1976,18 @@
 		<group>
 			<name>utils</name>
 			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+			</group>
+			<group>
 				<name>stdio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/write.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/read.c</name>
-				</file>
-			</group>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
 				</file>
 			</group>
 		</group>
@@ -2011,10 +2011,10 @@
 								</file>
 							</group>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4s/source/templates/exceptions.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4s/source/templates/system_sam4s.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4s/source/templates/system_sam4s.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4s/source/templates/exceptions.c</name>
 							</file>
 						</group>
 					</group>
@@ -2024,30 +2024,33 @@
 		<group>
 			<name>drivers</name>
 			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pio/pio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pio/pio_handler.c</name>
+				</file>
+			</group>
+			<group>
 				<name>wdt</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/wdt/wdt.c</name>
 				</file>
 			</group>
 			<group>
-				<name>pio</name>
+				<name>pmc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pio/pio_handler.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pio/pio.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>
 				<name>uart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/uart/uart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 			<group>

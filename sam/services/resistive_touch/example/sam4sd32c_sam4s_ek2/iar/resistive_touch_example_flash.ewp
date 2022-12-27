@@ -319,6 +319,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9325</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/.</state>
@@ -594,6 +595,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9325</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1261,6 +1263,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9325</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1536,6 +1539,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9325</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1988,6 +1992,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 		</group>

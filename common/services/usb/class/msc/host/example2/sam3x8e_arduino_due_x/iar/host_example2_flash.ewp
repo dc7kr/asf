@@ -164,6 +164,7 @@
 					<name>CCDefines</name>
 					<state>UHD_ENABLE</state>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -296,11 +297,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-r0.09/src</state>
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
@@ -309,6 +310,7 @@
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart</state>
@@ -470,6 +472,7 @@
 					<name>ADefines</name>
 					<state>UHD_ENABLE</state>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -569,11 +572,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-r0.09/src</state>
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
@@ -582,6 +585,7 @@
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart</state>
@@ -1102,6 +1106,7 @@
 					<name>CCDefines</name>
 					<state>UHD_ENABLE</state>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1234,11 +1239,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-r0.09/src</state>
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
@@ -1247,6 +1252,7 @@
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart</state>
@@ -1408,6 +1414,7 @@
 					<name>ADefines</name>
 					<state>UHD_ENABLE</state>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1507,11 +1514,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-r0.09/src</state>
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
@@ -1520,6 +1527,7 @@
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart</state>
@@ -1900,6 +1908,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>rtc</name>
@@ -2037,6 +2048,18 @@
 		<group>
 			<name>fatfs</name>
 			<group>
+				<name>fatfs-port-r0.09</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam/fattime_rtc.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/diskio.c</name>
+				</file>
+			</group>
+			<group>
 				<name>fatfs-r0.09</name>
 				<group>
 					<name>src</name>
@@ -2050,18 +2073,6 @@
 						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-r0.09/src/ff.c</name>
 					</file>
 				</group>
-			</group>
-			<group>
-				<name>fatfs-port-r0.09</name>
-				<group>
-					<name>sam</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam/fattime.c</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/diskio.c</name>
-				</file>
 			</group>
 		</group>
 	</group>

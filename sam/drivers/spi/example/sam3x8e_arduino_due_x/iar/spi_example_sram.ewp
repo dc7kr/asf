@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -303,6 +304,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -462,6 +464,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -569,6 +572,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -1087,6 +1091,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1227,6 +1232,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -1386,6 +1392,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1493,6 +1500,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -1937,6 +1945,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>

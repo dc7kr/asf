@@ -167,6 +167,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>__SAM3SD8C__</state>
 				</option>
@@ -481,6 +482,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>__SAM3SD8C__</state>
 				</option>
@@ -1121,6 +1123,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>__SAM3SD8C__</state>
 				</option>
@@ -1435,6 +1438,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>__SAM3SD8C__</state>
 				</option>
@@ -1965,6 +1969,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>udp</name>
@@ -2033,15 +2040,6 @@
 				</group>
 			</group>
 			<group>
-				<name>storage</name>
-				<group>
-					<name>ctrl_access</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../storage/ctrl_access/ctrl_access.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>sleepmgr</name>
 				<group>
 					<name>sam</name>
@@ -2056,6 +2054,15 @@
 					<name>sam</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../delay/sam/cycle_counter.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>storage</name>
+				<group>
+					<name>ctrl_access</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../storage/ctrl_access/ctrl_access.c</name>
 					</file>
 				</group>
 			</group>
@@ -2109,13 +2116,13 @@
 				<group>
 					<name>source</name>
 					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/list.c</name>
+					</file>
+					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/croutine.c</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/queue.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/list.c</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/tasks.c</name>

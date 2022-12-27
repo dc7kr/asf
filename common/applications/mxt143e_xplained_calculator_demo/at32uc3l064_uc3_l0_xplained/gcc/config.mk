@@ -126,7 +126,7 @@ INC_PATH = \
        common/services/wtk                                \
        common/utils                                       \
        common/utils/membag \
-       ./common/applications/mxt143e_xplained_calculator_demo/at32uc3l064_uc3_l0_xplained/gcc
+       common/applications/mxt143e_xplained_calculator_demo/at32uc3l064_uc3_l0_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

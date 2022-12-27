@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3N4C__</state>
 				</option>
 				<option>
@@ -314,6 +315,7 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -465,6 +467,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3N4C__</state>
 				</option>
 				<option>
@@ -583,6 +586,7 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1093,6 +1097,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3N4C__</state>
 				</option>
 				<option>
@@ -1244,6 +1249,7 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1395,6 +1401,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3N4C__</state>
 				</option>
 				<option>
@@ -1513,6 +1520,7 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1966,6 +1974,9 @@
 			<group>
 				<name>pmc</name>
 				<file>
+					<name>$PROJ_DIR$/../../../../pmc/sleep.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
 				</file>
 			</group>
@@ -1973,15 +1984,6 @@
 				<name>efc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../efc/efc.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>services</name>
-			<group>
-				<name>flash_efc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../services/flash_efc/flash_efc.c</name>
 				</file>
 			</group>
 		</group>
@@ -1994,6 +1996,15 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../boards/sam3n_ek/init.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>services</name>
+			<group>
+				<name>flash_efc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../services/flash_efc/flash_efc.c</name>
 				</file>
 			</group>
 		</group>

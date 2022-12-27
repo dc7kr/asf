@@ -48,4 +48,5 @@
 
 # Include the common Makefile, which will also include the project specific
 # config.mk file.
-include ../../../../../sam/utils/make/Makefile.in
+MAKEFILE_PATH = ../../../../../sam/utils/make/Makefile.sam.in
+include $(MAKEFILE_PATH)

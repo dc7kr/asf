@@ -80,7 +80,7 @@ INC_PATH = \
        xmega/drivers/spi                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/components/memory/data_flash/at45dbx/example/atxmega32a4u_stk600-rc044x/gcc
+       common/components/memory/data_flash/at45dbx/example/atxmega32a4u_stk600-rc044x/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

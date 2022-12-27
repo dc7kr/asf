@@ -54,6 +54,7 @@
 #define US_MR_USART_MODE_IS07816_T_0        US_MR_USART_MODE_ISO7816_T0
 #define US_MR_USART_MODE_IS07816_T_1        US_MR_USART_MODE_ISO7816_T1
 #define US_MR_NBSTOP_2_BIT                  US_MR_NBSTOP_2
+#define US_MR_NBSTOP_1_5_BIT                US_MR_NBSTOP_1_5
 #define US_MR_NBSTOP_1_BIT                  US_MR_NBSTOP_1
 #define US_MR_CHRL_8_BIT                    US_MR_CHRL_8
 #define US_MR_PAR_NO                        US_MR_PAR_NONE
@@ -84,9 +85,9 @@
 
 // These defines are used to keep compatibility with existing 
 // sam/drivers/tc implementation from SAM3/4 products with SAM4L product. 
-#define	TC_SMMR 	           TC_SMC
+#define	TC_SMMR                TC_SMC
 #define	TC_CMR_LDRA_RISING     TC_CMR_LDRA_POS_EDGE_TIOA
-#define	TC_CMR_LDRB_FALLING	   TC_CMR_LDRB_NEG_EDGE_TIOA
+#define	TC_CMR_LDRB_FALLING    TC_CMR_LDRB_NEG_EDGE_TIOA
 #define	TC_CMR_ETRGEDG_FALLING TC_CMR_ETRGEDG_NEG_EDGE
 
 // These defines are used to keep compatibility with existing 
@@ -97,5 +98,25 @@
 #define SPI_WPSR_WPVS_Msk      SPI_WPSR_SPIWPVS_Msk
 #define SPI_WPSR_WPVSRC_Pos    SPI_WPSR_SPIWPVSRC_Pos
 #define SPI_WPSR_WPVSRC_Msk    SPI_WPSR_SPIWPVSRC_Msk
+
+// These defines are used to keep compatibility with existing 
+// sam/drivers/crccu implementation from SAM3/4 products with SAM4L product. 
+#define	CRCCU_DMA_EN 	          CRCCU_DMAEN
+#define	CRCCU_DMA_DIS             CRCCU_DMADIS
+#define	CRCCU_DMA_SR	          CRCCU_DMASR
+#define	CRCCU_DMA_IER 	          CRCCU_DMAIER
+#define	CRCCU_DMA_IDR             CRCCU_DMAIDR
+#define	CRCCU_DMA_IMR	          CRCCU_DMAIMR
+#define	CRCCU_DMA_ISR	          CRCCU_DMAISR
+#define	CRCCU_DMA_EN_DMAEN 	      CRCCU_DMAEN_DMAEN
+#define	CRCCU_DMA_DIS_DMADIS      CRCCU_DMADIS_DMADIS
+#define	CRCCU_DMA_SR_DMASR        CRCCU_DMASR_DMASR
+#define	CRCCU_DMA_IER_DMAIER      CRCCU_DMAIER_DMAIER
+#define	CRCCU_DMA_IDR_DMAIDR      CRCCU_DMAIDR_DMAIDR
+#define	CRCCU_DMA_IMR_DMAIMR      CRCCU_DMAIMR_DMAIMR
+#define	CRCCU_DMA_ISR_DMAISR      CRCCU_DMAISR_DMAISR
+#define	CRCCU_MR_PTYPE_CCITT8023  CRCCU_MR_PTYPE(0)
+#define	CRCCU_MR_PTYPE_CASTAGNOLI CRCCU_MR_PTYPE(1)
+#define	CRCCU_MR_PTYPE_CCITT16    CRCCU_MR_PTYPE(2)
 
 #endif  // SAM4L_PATCH_ASF_H_INCLUDED

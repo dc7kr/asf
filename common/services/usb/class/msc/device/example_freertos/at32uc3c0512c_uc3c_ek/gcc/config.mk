@@ -139,7 +139,7 @@ INC_PATH = \
        common/utils                                       \
        thirdparty/freertos/freertos-7.0.0/source/include  \
        thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3 \
-       ./common/services/usb/class/msc/device/example_freertos/at32uc3c0512c_uc3c_ek/gcc
+       common/services/usb/class/msc/device/example_freertos/at32uc3c0512c_uc3c_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

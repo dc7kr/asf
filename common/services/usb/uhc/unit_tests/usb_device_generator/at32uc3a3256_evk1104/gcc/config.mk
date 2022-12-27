@@ -91,7 +91,7 @@ INC_PATH = \
        common/services/usb/uhc/unit_tests/usb_device_generator \
        common/services/usb/uhc/unit_tests/usb_device_generator/at32uc3a3256_evk1104 \
        common/utils \
-       ./common/services/usb/uhc/unit_tests/usb_device_generator/at32uc3a3256_evk1104/gcc
+       common/services/usb/uhc/unit_tests/usb_device_generator/at32uc3a3256_evk1104/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

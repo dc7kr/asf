@@ -116,7 +116,7 @@ INC_PATH = \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/utils \
-       ./avr32/applications/uc3-dsplib-demo/at32uc3a3256_evk1104/gcc
+       avr32/applications/uc3-dsplib-demo/at32uc3a3256_evk1104/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \

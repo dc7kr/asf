@@ -89,7 +89,7 @@ INC_PATH = \
        common/services/cpu                                \
        common/services/cpu/reset_cause_example/atuc128d3_stk600-rcuc3d \
        common/utils \
-       ./common/services/cpu/reset_cause_example/atuc128d3_stk600-rcuc3d/gcc
+       common/services/cpu/reset_cause_example/atuc128d3_stk600-rcuc3d/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

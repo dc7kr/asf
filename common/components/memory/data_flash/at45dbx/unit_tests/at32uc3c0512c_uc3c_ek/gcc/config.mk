@@ -103,7 +103,7 @@ INC_PATH = \
        common/services/spi/uc3_spi                        \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./common/components/memory/data_flash/at45dbx/unit_tests/at32uc3c0512c_uc3c_ek/gcc
+       common/components/memory/data_flash/at45dbx/unit_tests/at32uc3c0512c_uc3c_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

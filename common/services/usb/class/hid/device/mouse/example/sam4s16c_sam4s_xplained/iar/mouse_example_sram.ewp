@@ -313,6 +313,7 @@
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/../../../../..</state>
@@ -583,6 +584,7 @@
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/../../../../..</state>
@@ -1245,6 +1247,7 @@
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/../../../../..</state>
@@ -1515,6 +1518,7 @@
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/../../../../..</state>
@@ -1867,15 +1871,6 @@
 	<group>
 		<name>common</name>
 		<group>
-			<name>utils</name>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
 			<name>services</name>
 			<group>
 				<name>usb</name>
@@ -1888,10 +1883,10 @@
 							<group>
 								<name>mouse</name>
 								<file>
-									<name>$PROJ_DIR$/../../../udi_hid_mouse_desc.c</name>
+									<name>$PROJ_DIR$/../../../udi_hid_mouse.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../udi_hid_mouse.c</name>
+									<name>$PROJ_DIR$/../../../udi_hid_mouse_desc.c</name>
 								</file>
 								<group>
 									<name>example</name>
@@ -1938,6 +1933,15 @@
 				</group>
 			</group>
 		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+			</group>
+		</group>
 	</group>
 	<group>
 		<name>sam</name>
@@ -1980,6 +1984,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>

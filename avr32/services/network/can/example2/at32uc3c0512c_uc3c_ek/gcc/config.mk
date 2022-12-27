@@ -69,7 +69,10 @@ CSRCS = \
        avr32/drivers/usart/usart.c                        \
        avr32/services/network/can/can.c                   \
        avr32/services/network/can/example2/can_example2.c \
-       avr32/utils/debug/print_funcs.c
+       avr32/utils/debug/print_funcs.c                    \
+       common/services/clock/uc3c/osc.c                   \
+       common/services/clock/uc3c/pll.c                   \
+       common/services/clock/uc3c/sysclk.c
 
 # List of assembler source files.
 ASSRCS = \
@@ -82,6 +85,7 @@ INC_PATH = \
        avr32/boards                                       \
        avr32/boards/uc3c_ek                               \
        avr32/drivers/canif                                \
+       avr32/drivers/cpu/cycle_counter                    \
        avr32/drivers/flashc                               \
        avr32/drivers/gpio                                 \
        avr32/drivers/intc                                 \
@@ -94,8 +98,10 @@ INC_PATH = \
        avr32/utils/debug                                  \
        avr32/utils/preprocessor                           \
        common/boards                                      \
+       common/services/clock                              \
+       common/services/delay                              \
        common/utils \
-       ./avr32/services/network/can/example2/at32uc3c0512c_uc3c_ek/gcc
+       avr32/services/network/can/example2/at32uc3c0512c_uc3c_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

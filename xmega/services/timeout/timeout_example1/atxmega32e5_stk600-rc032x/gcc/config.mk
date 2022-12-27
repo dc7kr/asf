@@ -79,7 +79,7 @@ INC_PATH = \
        xmega/services/timeout/timeout_example1/atxmega32e5_stk600-rc032x \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/services/timeout/timeout_example1/atxmega32e5_stk600-rc032x/gcc
+       xmega/services/timeout/timeout_example1/atxmega32e5_stk600-rc032x/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

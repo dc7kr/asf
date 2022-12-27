@@ -302,6 +302,7 @@
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../common/components/memory/virtual_mem</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
@@ -576,6 +577,7 @@
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../common/components/memory/virtual_mem</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
@@ -1242,6 +1244,7 @@
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../common/components/memory/virtual_mem</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
@@ -1516,6 +1519,7 @@
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../common/components/memory/virtual_mem</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../common/services/clock</state>
@@ -1982,6 +1986,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>rtc</name>
@@ -2029,24 +2036,24 @@
 		<group>
 			<name>fatfs</name>
 			<group>
-				<name>fatfs-port-r0.09</name>
-				<group>
-					<name>sam</name>
-					<file>
-						<name>$PROJ_DIR$/../../../fatfs-port-r0.09/sam/fattime.c</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../fatfs-port-r0.09/diskio.c</name>
-				</file>
-			</group>
-			<group>
 				<name>example</name>
 				<file>
 					<name>$PROJ_DIR$/../../fatfs_access_example.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../memories_initialization_sam.c</name>
+				</file>
+			</group>
+			<group>
+				<name>fatfs-port-r0.09</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../fatfs-port-r0.09/sam/fattime_rtc.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../fatfs-port-r0.09/diskio.c</name>
 				</file>
 			</group>
 			<group>

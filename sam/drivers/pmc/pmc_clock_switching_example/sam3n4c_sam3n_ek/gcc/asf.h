@@ -62,6 +62,9 @@
 // From module: Generic board support
 #include <board.h>
 
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
+
 // From module: Interrupt management - SAM implementation
 #include <interrupt.h>
 
@@ -86,9 +89,6 @@
 
 // From module: System Clock Control - SAM3N implementation
 #include <sysclk.h>
-
-// From module: TC - Timer Counter
-#include <tc.h>
 
 // From module: UART - Univ. Async Rec/Trans
 #include <uart.h>

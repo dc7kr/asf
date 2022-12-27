@@ -173,7 +173,7 @@ INC_PATH = \
        common/utils                                       \
        thirdparty/dlmalloc                                \
        thirdparty/newlib_addons/libs/include \
-       ./avr32/applications/uc3-audio-player/at32uc3a0512_evk1105_wav/gcc
+       avr32/applications/uc3-audio-player/at32uc3a0512_evk1105_wav/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \

@@ -63,6 +63,7 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c                     \
+       sam/boards/sam4l_ek/board_monitor.c                \
        sam/boards/sam4l_ek/init.c                         \
        sam/drivers/bpm/bpm.c                              \
        sam/drivers/flashcalw/flashcalw.c                  \
@@ -72,6 +73,7 @@ CSRCS = \
        sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam4l/source/templates/exceptions.c \
        sam/utils/cmsis/sam4l/source/templates/gcc/startup_sam4l.c \
+       sam/utils/cmsis/sam4l/source/templates/system_sam4l.c \
        sam/utils/syscalls/gcc/syscalls.c
 
 # List of assembler source files.
@@ -104,7 +106,7 @@ INC_PATH = \
        sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
        thirdparty/CMSIS/Lib/GCC \
-       ./sam/drivers/lcdca/unit_tests/sam4lc4c_sam4l_ek/gcc
+       sam/drivers/lcdca/unit_tests/sam4lc4c_sam4l_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
@@ -112,7 +114,8 @@ LIB_PATH =  \
 
 # List of libraries to use during linking.
 LIBS =  \
-       arm_cortexM4l_math                                
+       arm_cortexM4l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam4l/sam4l4/gcc/flash.ld
@@ -156,7 +159,8 @@ CPPFLAGS = \
        -D BOARD=SAM4L_EK                                  \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_                                 \
-       -D __ATSAM4LC4C__
+       -D __SAM4LC4C__                                    \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

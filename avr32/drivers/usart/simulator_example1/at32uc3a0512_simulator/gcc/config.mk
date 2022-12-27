@@ -85,7 +85,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/utils \
-       ./avr32/drivers/usart/simulator_example1/at32uc3a0512_simulator/gcc
+       avr32/drivers/usart/simulator_example1/at32uc3a0512_simulator/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

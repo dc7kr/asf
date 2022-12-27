@@ -93,7 +93,7 @@ INC_PATH = \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/utils \
-       ./avr32/components/accelerometer/lis3l06al/example/at32uc3b0256_evk1101/gcc
+       avr32/components/accelerometer/lis3l06al/example/at32uc3b0256_evk1101/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

@@ -314,6 +314,7 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -584,6 +585,7 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1246,6 +1248,7 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1516,6 +1519,7 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1975,6 +1979,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>udp</name>
@@ -1997,10 +2004,10 @@
 			<group>
 				<name>sam4s_ek2</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4s_ek2/led.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4s_ek2/init.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4s_ek2/init.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4s_ek2/led.c</name>
 				</file>
 			</group>
 		</group>

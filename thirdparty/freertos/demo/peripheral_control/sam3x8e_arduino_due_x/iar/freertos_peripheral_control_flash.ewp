@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
@@ -322,6 +323,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards/arduino_due_x</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/uotghs</state>
@@ -476,6 +478,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
@@ -602,6 +605,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards/arduino_due_x</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/uotghs</state>
@@ -1115,6 +1119,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
@@ -1274,6 +1279,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards/arduino_due_x</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/uotghs</state>
@@ -1428,6 +1434,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
@@ -1554,6 +1561,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards/arduino_due_x</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/uotghs</state>
@@ -2014,6 +2022,15 @@
 				</file>
 			</group>
 			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/drivers/usart/usart.c</name>
@@ -2026,12 +2043,6 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/drivers/pio/pio_handler.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 			<group>

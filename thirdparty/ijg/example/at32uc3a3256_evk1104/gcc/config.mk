@@ -146,7 +146,7 @@ INC_PATH = \
        common/utils                                       \
        thirdparty/ijg                                     \
        thirdparty/ijg/example \
-       ./thirdparty/ijg/example/at32uc3a3256_evk1104/gcc 
+       thirdparty/ijg/example/at32uc3a3256_evk1104/gcc   
 
 # Additional search paths for libraries.
 LIB_PATH = 

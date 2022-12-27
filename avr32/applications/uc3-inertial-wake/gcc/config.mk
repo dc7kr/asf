@@ -134,7 +134,7 @@ INC_PATH = \
        common/services/usb/udc                            \
        common/utils                                       \
        common/utils/stdio/stdio_usb \
-       ./avr32/applications/uc3-inertial-wake/gcc        
+       avr32/applications/uc3-inertial-wake/gcc          
 
 # Additional search paths for libraries.
 LIB_PATH = 

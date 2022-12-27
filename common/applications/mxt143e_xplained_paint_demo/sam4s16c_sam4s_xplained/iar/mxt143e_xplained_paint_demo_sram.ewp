@@ -1928,6 +1928,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1968,13 +1971,13 @@
 					<name>$PROJ_DIR$/../../../../services/gfx/gfx_generic.c</name>
 				</file>
 				<file>
+					<name>$PROJ_DIR$/../../../../services/gfx/gfx_text.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../services/gfx/gfx_ili9341_sdt028atft.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../services/gfx/sysfont.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../services/gfx/gfx_text.c</name>
 				</file>
 			</group>
 			<group>

@@ -115,7 +115,7 @@ INC_PATH = \
        common/services/usb/udc                            \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./common/services/usb/class/hid/device/mouse/unit_tests/atuc256l4u_stk600-rcuc3l4/gcc
+       common/services/usb/class/hid/device/mouse/unit_tests/atuc256l4u_stk600-rcuc3l4/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

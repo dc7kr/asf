@@ -79,7 +79,7 @@ INC_PATH = \
        xmega/drivers/usart                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/utils/stdio/stdio_serial/stdio_serial_example/atxmega128a1_xmega_a1_xplained/gcc
+       common/utils/stdio/stdio_serial/stdio_serial_example/atxmega128a1_xmega_a1_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

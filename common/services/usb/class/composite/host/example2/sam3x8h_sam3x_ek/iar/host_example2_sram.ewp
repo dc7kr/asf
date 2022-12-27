@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>UHD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -300,6 +301,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-r0.09/src</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3x_ek</state>
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
@@ -309,8 +311,8 @@
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../msc/host</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
@@ -318,7 +320,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/rtc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -471,6 +473,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>UHD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -575,6 +578,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-r0.09/src</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3x_ek</state>
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
@@ -584,8 +588,8 @@
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../msc/host</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
@@ -593,7 +597,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/rtc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1105,6 +1109,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>UHD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -1242,6 +1247,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-r0.09/src</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3x_ek</state>
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
@@ -1251,8 +1257,8 @@
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../msc/host</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
@@ -1260,7 +1266,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/rtc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1413,6 +1419,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>UHD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -1517,6 +1524,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-r0.09/src</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/sam3x_ek</state>
 					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
@@ -1526,8 +1534,8 @@
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../msc/host</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
@@ -1535,7 +1543,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/rtc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1916,15 +1924,18 @@
 				</file>
 			</group>
 			<group>
+				<name>rtc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/rtc/rtc.c</name>
+				</file>
+			</group>
+			<group>
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
-			</group>
-			<group>
-				<name>rtc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/rtc/rtc.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>
@@ -2079,15 +2090,15 @@
 			</group>
 			<group>
 				<name>fatfs-port-r0.09</name>
-				<group>
-					<name>sam</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam/fattime.c</name>
-					</file>
-				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/diskio.c</name>
 				</file>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam/fattime_rtc.c</name>
+					</file>
+				</group>
 			</group>
 		</group>
 	</group>

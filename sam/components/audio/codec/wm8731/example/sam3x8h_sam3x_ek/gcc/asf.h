@@ -65,6 +65,9 @@
 // From module: Generic board support
 #include <board.h>
 
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
+
 // From module: Interrupt management - SAM implementation
 #include <interrupt.h>
 
@@ -123,9 +126,6 @@
 
 // From module: WM8731 Audio Codec
 #include <wm8731.h>
-
-// From module: WM8731 Audio Codec Example
-#include <xmodem.h>
 
 // From module: pio_handler support enabled
 #include <pio_handler.h>

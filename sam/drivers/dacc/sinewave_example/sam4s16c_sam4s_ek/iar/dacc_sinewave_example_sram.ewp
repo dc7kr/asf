@@ -304,6 +304,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4s_ek</state>
@@ -571,6 +572,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4s_ek</state>
@@ -1230,6 +1232,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4s_ek</state>
@@ -1497,6 +1500,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4s_ek</state>
@@ -1943,16 +1947,19 @@
 			<group>
 				<name>pmc</name>
 				<file>
+					<name>$PROJ_DIR$/../../../../pmc/sleep.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
 				</file>
 			</group>
 			<group>
 				<name>pio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
+					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
+					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
 				</file>
 			</group>
 			<group>

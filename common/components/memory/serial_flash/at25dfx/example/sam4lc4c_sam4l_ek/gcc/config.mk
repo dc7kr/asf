@@ -59,14 +59,18 @@ CSRCS = \
        common/services/clock/sam4l/osc.c                  \
        common/services/clock/sam4l/pll.c                  \
        common/services/clock/sam4l/sysclk.c               \
+       common/services/delay/sam/cycle_counter.c          \
        common/services/spi/sam_spi/spi_master.c           \
        common/utils/interrupt/interrupt_sam_nvic.c        \
+       sam/boards/sam4l_ek/board_monitor.c                \
        sam/boards/sam4l_ek/init.c                         \
        sam/drivers/bpm/bpm.c                              \
        sam/drivers/flashcalw/flashcalw.c                  \
        sam/drivers/spi/spi.c                              \
+       sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam4l/source/templates/exceptions.c \
        sam/utils/cmsis/sam4l/source/templates/gcc/startup_sam4l.c \
+       sam/utils/cmsis/sam4l/source/templates/system_sam4l.c \
        sam/utils/syscalls/gcc/syscalls.c
 
 # List of assembler source files.
@@ -79,6 +83,7 @@ INC_PATH = \
        common/components/memory/serial_flash/at25dfx/example \
        common/components/memory/serial_flash/at25dfx/example/sam4lc4c_sam4l_ek \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/ioport                             \
        common/services/spi                                \
        common/services/spi/sam_spi                        \
@@ -88,6 +93,7 @@ INC_PATH = \
        sam/drivers/bpm                                    \
        sam/drivers/flashcalw                              \
        sam/drivers/spi                                    \
+       sam/drivers/usart                                  \
        sam/utils                                          \
        sam/utils/cmsis/sam4l/include                      \
        sam/utils/cmsis/sam4l/source/templates             \
@@ -95,7 +101,7 @@ INC_PATH = \
        sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
        thirdparty/CMSIS/Lib/GCC \
-       ./common/components/memory/serial_flash/at25dfx/example/sam4lc4c_sam4l_ek/gcc
+       common/components/memory/serial_flash/at25dfx/example/sam4lc4c_sam4l_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
@@ -103,7 +109,8 @@ LIB_PATH =  \
 
 # List of libraries to use during linking.
 LIBS =  \
-       arm_cortexM4l_math                                
+       arm_cortexM4l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam4l/sam4l4/gcc/flash.ld
@@ -145,7 +152,8 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM4=true                               \
        -D BOARD=SAM4L_EK                                  \
-       -D __ATSAM4LC4C__
+       -D __SAM4LC4C__                                    \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

@@ -162,10 +162,11 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>__SAM3X8E__</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>VIRTUAL_MEMORY_ENABLE</state>
+					<state>__SAM3X8E__</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -298,7 +299,7 @@
 					<state>$PROJ_DIR$/../../../../../cdc/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../msc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
@@ -318,10 +319,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/arduino_due_x</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/arduino_due_x</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -471,10 +473,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>__SAM3X8E__</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>VIRTUAL_MEMORY_ENABLE</state>
+					<state>__SAM3X8E__</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -574,7 +577,7 @@
 					<state>$PROJ_DIR$/../../../../../cdc/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../msc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
@@ -594,10 +597,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/arduino_due_x</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/arduino_due_x</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1106,10 +1110,11 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>__SAM3X8E__</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>VIRTUAL_MEMORY_ENABLE</state>
+					<state>__SAM3X8E__</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1242,7 +1247,7 @@
 					<state>$PROJ_DIR$/../../../../../cdc/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../msc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
@@ -1262,10 +1267,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/arduino_due_x</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/arduino_due_x</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1415,10 +1421,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>__SAM3X8E__</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>VIRTUAL_MEMORY_ENABLE</state>
+					<state>__SAM3X8E__</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1518,7 +1525,7 @@
 					<state>$PROJ_DIR$/../../../../../cdc/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../msc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
@@ -1538,10 +1545,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/arduino_due_x</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards/arduino_due_x</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1917,6 +1925,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 		</group>

@@ -164,6 +164,7 @@
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>__SAM3N4C__</state>
 				</option>
@@ -297,7 +298,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../gpbr</state>
@@ -316,7 +317,8 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -468,6 +470,7 @@
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>__SAM3N4C__</state>
 				</option>
@@ -568,7 +571,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../gpbr</state>
@@ -587,7 +590,8 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1098,6 +1102,7 @@
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>__SAM3N4C__</state>
 				</option>
@@ -1231,7 +1236,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../gpbr</state>
@@ -1250,7 +1255,8 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1402,6 +1408,7 @@
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>__SAM3N4C__</state>
 				</option>
@@ -1502,7 +1509,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../gpbr</state>
@@ -1521,7 +1528,8 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1891,16 +1899,10 @@
 				</file>
 			</group>
 			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
-				</file>
-			</group>
-			<group>
 				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pmc/sleep.c</name>
+				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
 				</file>
@@ -1909,6 +1911,15 @@
 				<name>wdt</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../wdt/wdt.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
 				</file>
 			</group>
 			<group>

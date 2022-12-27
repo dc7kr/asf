@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../../../../avr32/boards/evk1100/init.c ../../../../../avr32/drivers/gpio/gpio.c ../../../../../avr32/boards/evk1100/led.c ../../main.c  ../../../../../avr32/utils/compiler.h ../../../../../avr32/utils/preprocessor/stringz.h ../../../../../avr32/boards/evk1100/evk1100.h ../../../../../avr32/drivers/gpio/gpio.h ../../../../utils/parts.h ../../../../boards/board.h ../../../../../avr32/utils/header_files/uc3l3_l4_defines_fix.h ../../../../../avr32/boards/evk1100/led.h ../../../../../avr32/utils/preprocessor/tpaste.h ../../../../../avr32/utils/preprocessor/preprocessor.h ../../../../utils/interrupt/interrupt_avr32.h ../../../../../avr32/utils/status_codes.h ../../../../utils/interrupt.h ../../../../../avr32/utils/startup/trampoline_uc3.h ../../../../../avr32/utils/header_files/uc3d_defines_fix.h ../conf_board.h ../../../../../avr32/utils/preprocessor/mrepeat.h
+INPUT                  =  ../../../../../avr32/boards/evk1100/init.c ../../../../../avr32/drivers/gpio/gpio.c ../../../../../avr32/boards/evk1100/led.c ../../main.c  ../config/conf_board.h ../../../../../avr32/utils/compiler.h ../../../../../avr32/boards/evk1100/evk1100.h ../../../../../avr32/utils/status_codes.h ../../../../../avr32/drivers/gpio/gpio.h ../../../../utils/parts.h ../../../../boards/board.h ../../../../../avr32/utils/header_files/uc3l3_l4_defines_fix.h ../../../../../avr32/boards/evk1100/led.h ../../../../../avr32/utils/preprocessor/tpaste.h ../../../../../avr32/utils/preprocessor/preprocessor.h ../../../../utils/interrupt/interrupt_avr32.h ../../../../../avr32/utils/preprocessor/stringz.h ../../../../utils/interrupt.h ../../../../../avr32/utils/startup/trampoline_uc3.h ../../../../../avr32/utils/header_files/uc3d_defines_fix.h ../../../../../avr32/utils/preprocessor/mrepeat.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  .. ../../../../../avr32/utils/preprocessor ../../../../boards ../../../../../avr32/boards ../../../../../avr32/utils ../../../../../avr32/boards/evk1100 ../../../../../avr32/drivers/gpio ../../../../utils
+INCLUDE_PATH           =  ../../../../../avr32/drivers/gpio ../../../../boards ../../../../../avr32/boards ../../../../../avr32/utils ../../../../../avr32/boards/evk1100 ../../../../../avr32/utils/preprocessor ../../../../utils ../config
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

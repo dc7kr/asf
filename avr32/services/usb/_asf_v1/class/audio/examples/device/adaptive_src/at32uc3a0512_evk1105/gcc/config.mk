@@ -139,7 +139,7 @@ INC_PATH = \
        common/boards                                      \
        common/utils                                       \
        thirdparty/newlib_addons/libs/include \
-       ./avr32/services/usb/_asf_v1/class/audio/examples/device/adaptive_src/at32uc3a0512_evk1105/gcc
+       avr32/services/usb/_asf_v1/class/audio/examples/device/adaptive_src/at32uc3a0512_evk1105/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \

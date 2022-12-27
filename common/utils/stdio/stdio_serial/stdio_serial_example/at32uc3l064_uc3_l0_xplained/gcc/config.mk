@@ -95,7 +95,7 @@ INC_PATH = \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
        common/utils/stdio/stdio_serial/stdio_serial_example/at32uc3l064_uc3_l0_xplained \
-       ./common/utils/stdio/stdio_serial/stdio_serial_example/at32uc3l064_uc3_l0_xplained/gcc
+       common/utils/stdio/stdio_serial/stdio_serial_example/at32uc3l064_uc3_l0_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

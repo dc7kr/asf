@@ -98,7 +98,7 @@ INC_PATH = \
        common/services/clock                              \
        common/services/sleepmgr                           \
        common/utils \
-       ./avr32/drivers/pdca/example/atuc128d3_stk600-rcuc3d/gcc
+       avr32/drivers/pdca/example/atuc128d3_stk600-rcuc3d/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

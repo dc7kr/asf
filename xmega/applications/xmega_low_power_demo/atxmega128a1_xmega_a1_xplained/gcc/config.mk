@@ -77,7 +77,7 @@ INC_PATH = \
        xmega/drivers/wdt                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/applications/xmega_low_power_demo/atxmega128a1_xmega_a1_xplained/gcc
+       xmega/applications/xmega_low_power_demo/atxmega128a1_xmega_a1_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

@@ -74,6 +74,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/uotghs/uotghs_device.c                 \
        sam/utils/cmsis/sam3x/source/templates/exceptions.c \
        sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.c \
@@ -121,15 +122,19 @@ INC_PATH = \
        sam/utils/header_files                             \
        sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
+       thirdparty/CMSIS/Lib/GCC                           \
        thirdparty/freertos/freertos-7.0.0/source/include  \
        thirdparty/freertos/freertos-7.0.0/source/portable/gcc/sam \
-       ./common/services/usb/class/msc/device/example_freertos/sam3x8h_sam3x_ek/gcc
+       common/services/usb/class/msc/device/example_freertos/sam3x8h_sam3x_ek/gcc
 
 # Additional search paths for libraries.
-LIB_PATH = 
+LIB_PATH =  \
+       thirdparty/CMSIS/Lib/GCC                          
 
 # List of libraries to use during linking.
-LIBS = 
+LIBS =  \
+       arm_cortexM3l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3x/sam3x8/gcc/flash.ld
@@ -170,12 +175,14 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D ACCESS_USB_ENABLED                              \
+       -D ARM_MATH_CM3=true                               \
        -D BOARD=SAM3X_EK                                  \
        -D FREERTOS_USED                                   \
        -D SD_MMC_ENABLE                                   \
        -D UDD_ENABLE                                      \
        -D VIRTUAL_MEMORY_ENABLE                           \
-       -D __SAM3X8H__
+       -D __SAM3X8H__                                     \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

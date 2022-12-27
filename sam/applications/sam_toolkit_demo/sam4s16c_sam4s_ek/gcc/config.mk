@@ -52,6 +52,7 @@ TARGET_SRAM = sam_toolkit_demo_sram.elf
 
 # List of C source files.
 CSRCS = \
+       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/nand_flash_mem.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_ecc_sw.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_model.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_raw_smc.c \
@@ -118,6 +119,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/rtc/rtc.c                              \
        sam/drivers/spi/spi.c                              \
        sam/drivers/supc/supc.c                            \
@@ -133,7 +135,7 @@ CSRCS = \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
        sam/utils/syscalls/gcc/syscalls.c                  \
        thirdparty/fatfs/fatfs-port-r0.09/diskio.c         \
-       thirdparty/fatfs/fatfs-port-r0.09/sam/fattime.c    \
+       thirdparty/fatfs/fatfs-port-r0.09/sam/fattime_rtc.c \
        thirdparty/fatfs/fatfs-r0.09/src/ff.c              \
        thirdparty/fatfs/fatfs-r0.09/src/option/ccsbcs.c   \
        thirdparty/freertos/freertos-7.0.0/source/croutine.c \
@@ -159,6 +161,7 @@ INC_PATH = \
        common/services/delay                              \
        common/services/gfx                                \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
        common/services/sleepmgr                           \
@@ -212,7 +215,7 @@ INC_PATH = \
        thirdparty/qtouch/generic/include                  \
        thirdparty/qtouch/generic/sam/qtouch/common        \
        thirdparty/qtouch/qdebug \
-       ./sam/applications/sam_toolkit_demo/sam4s16c_sam4s_ek/gcc
+       sam/applications/sam_toolkit_demo/sam4s16c_sam4s_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
@@ -224,7 +227,8 @@ LIB_PATH =  \
 LIBS =  \
        _nand_flash_cortexm4                               \
        arm_cortexM4l_math                                 \
-       sam4s-32qt-k-8rs-gnu                              
+       sam4s-32qt-k-8rs-gnu                               \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam4s/sam4s16/gcc/flash.ld
@@ -284,7 +288,8 @@ CPPFLAGS = \
        -D _QTOUCH_                                        \
        -D _SNS1_SNSK1_SAME_PORT_                          \
        -D _SNS2_SNSK2_SAME_PORT_                          \
-       -D __SAM4S16C__
+       -D __SAM4S16C__                                    \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

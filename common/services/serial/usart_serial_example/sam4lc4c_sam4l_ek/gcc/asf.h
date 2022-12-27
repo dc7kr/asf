@@ -56,6 +56,9 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: FLASHCALW Controller Software Driver
 #include <flashcalw.h>
 
@@ -73,11 +76,13 @@
 
 // From module: Power Management
 #include <bpm.h>
-#include <sleep.h>
 
 // From module: SAM4L startup code
 #include <exceptions.h>
 #include <system_sam4l.h>
+
+// From module: SAM4L-EK LED support enabled
+#include <led.h>
 
 // From module: System Clock Control - SAM4L implementation
 #include <sysclk.h>

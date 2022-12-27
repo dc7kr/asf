@@ -81,7 +81,7 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: RZ600S
+// From module: RZ600
 #include <led.h>
 
 // From module: SPI - Serial Peripheral Interface

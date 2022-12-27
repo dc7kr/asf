@@ -326,7 +326,7 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pm</state>
@@ -354,7 +354,7 @@
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
-					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
+					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
 					<state>$PROJ_DIR$/.</state>
@@ -477,7 +477,7 @@
 				<option>
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../../../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pm</state>
@@ -505,7 +505,7 @@
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
-					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
+					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1237,7 +1237,7 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pm</state>
@@ -1265,7 +1265,7 @@
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
-					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
+					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1388,7 +1388,7 @@
 				<option>
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../../../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pm</state>
@@ -1416,7 +1416,7 @@
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
-					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
+					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
 					<state>$PROJ_DIR$/.</state>

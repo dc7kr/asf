@@ -99,7 +99,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/storage/ctrl_access                \
        common/utils \
-       ./avr32/components/memory/sd_mmc/sd_mmc_spi/example/at32uc3b0256_evk1101/gcc
+       avr32/components/memory/sd_mmc/sd_mmc_spi/example/at32uc3b0256_evk1101/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

@@ -74,7 +74,7 @@ INC_PATH = \
        thirdparty/qtouch/generic/avr8/qmatrix/examples/example_qm_mega_stk600/atmega128rfa1_stk600/include \
        thirdparty/qtouch/generic/include                  \
        thirdparty/qtouch/qdebug \
-       ./thirdparty/qtouch/generic/avr8/qmatrix/examples/example_qm_mega_stk600/atmega128rfa1_stk600/gcc
+       thirdparty/qtouch/generic/avr8/qmatrix/examples/example_qm_mega_stk600/atmega128rfa1_stk600/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH =  \

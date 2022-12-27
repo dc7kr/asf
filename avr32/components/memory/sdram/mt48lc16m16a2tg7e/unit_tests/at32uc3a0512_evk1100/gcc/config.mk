@@ -106,7 +106,7 @@ INC_PATH = \
        common/services/serial/uc3_usart                   \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./avr32/components/memory/sdram/mt48lc16m16a2tg7e/unit_tests/at32uc3a0512_evk1100/gcc
+       avr32/components/memory/sdram/mt48lc16m16a2tg7e/unit_tests/at32uc3a0512_evk1100/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

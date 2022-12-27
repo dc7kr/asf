@@ -63,6 +63,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/rstc/rstc.c                            \
        sam/drivers/tc/tc.c                                \
        sam/drivers/uart/uart.c                            \
@@ -128,6 +129,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
        common/utils                                       \
@@ -148,6 +150,7 @@ INC_PATH = \
        sam/utils/header_files                             \
        sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
+       thirdparty/CMSIS/Lib/GCC                           \
        thirdparty/freertos/demo/common/include            \
        thirdparty/freertos/demo/lwip_avr32_uc3_example/network/basictftp \
        thirdparty/freertos/demo/lwip_avr32_uc3_example/network/basicweb \
@@ -160,13 +163,16 @@ INC_PATH = \
        thirdparty/lwip/lwip-1.4.0/src/include/ipv4        \
        thirdparty/lwip/lwip-1.4.0/src/include/lwip        \
        thirdparty/lwip/lwip-port-1.4.0/sam/include \
-       ./thirdparty/freertos/demo/lwip_sam_example/sam3x8h_sam3x_ek/gcc
+       thirdparty/freertos/demo/lwip_sam_example/sam3x8h_sam3x_ek/gcc
 
 # Additional search paths for libraries.
-LIB_PATH = 
+LIB_PATH =  \
+       thirdparty/CMSIS/Lib/GCC                          
 
 # List of libraries to use during linking.
-LIBS = 
+LIBS =  \
+       arm_cortexM3l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3x/sam3x8/gcc/flash.ld
@@ -206,11 +212,13 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
+       -D ARM_MATH_CM3=true                               \
        -D BOARD=SAM3X_EK                                  \
        -D FREERTOS_USED                                   \
        -D HTTP_USED=1                                     \
        -D TFTP_USED=1                                     \
-       -D __SAM3X8H__
+       -D __SAM3X8H__                                     \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

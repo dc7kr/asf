@@ -106,7 +106,7 @@ INC_PATH = \
        common/utils                                       \
        thirdparty/lodepng                                 \
        thirdparty/lodepng/example \
-       ./thirdparty/lodepng/example/at32uc3c0512c_uc3c_ek/gcc
+       thirdparty/lodepng/example/at32uc3c0512c_uc3c_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

@@ -170,6 +170,7 @@
 					<state>__SAM3SD8C__</state>
 					<state>SNS1=C</state>
 					<state>QT_DELAY_CYCLES=5</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>_QTOUCH_</state>
 					<state>QT_NUM_CHANNELS=32</state>
 					<state>SNS2=A</state>
@@ -483,6 +484,7 @@
 					<state>__SAM3SD8C__</state>
 					<state>SNS1=C</state>
 					<state>QT_DELAY_CYCLES=5</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>_QTOUCH_</state>
 					<state>QT_NUM_CHANNELS=32</state>
 					<state>SNS2=A</state>
@@ -1122,6 +1124,7 @@
 					<state>__SAM3SD8C__</state>
 					<state>SNS1=C</state>
 					<state>QT_DELAY_CYCLES=5</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>_QTOUCH_</state>
 					<state>QT_NUM_CHANNELS=32</state>
 					<state>SNS2=A</state>
@@ -1435,6 +1438,7 @@
 					<state>__SAM3SD8C__</state>
 					<state>SNS1=C</state>
 					<state>QT_DELAY_CYCLES=5</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>_QTOUCH_</state>
 					<state>QT_NUM_CHANNELS=32</state>
 					<state>SNS2=A</state>
@@ -1996,6 +2000,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>

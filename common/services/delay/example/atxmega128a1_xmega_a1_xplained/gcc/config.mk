@@ -71,7 +71,7 @@ INC_PATH = \
        xmega/drivers/cpu                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/services/delay/example/atxmega128a1_xmega_a1_xplained/gcc
+       common/services/delay/example/atxmega128a1_xmega_a1_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

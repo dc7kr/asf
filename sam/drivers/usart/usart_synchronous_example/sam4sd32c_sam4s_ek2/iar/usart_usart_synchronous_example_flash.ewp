@@ -314,6 +314,7 @@
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -583,6 +584,7 @@
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1244,6 +1246,7 @@
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1513,6 +1516,7 @@
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1861,46 +1865,58 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>common</name>
+		<name>sam</name>
 		<group>
-			<name>utils</name>
+			<name>drivers</name>
 			<group>
-				<name>stdio</name>
+				<name>usart</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
+					<name>$PROJ_DIR$/../../../usart.c</name>
 				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
-				</file>
-			</group>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>services</name>
-			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
-				</file>
-			</group>
-			<group>
-				<name>clock</name>
 				<group>
-					<name>sam4s</name>
+					<name>usart_synchronous_example</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam4s/sysclk.c</name>
+						<name>$PROJ_DIR$/../../usart_synchronous_example.c</name>
 					</file>
 				</group>
 			</group>
+			<group>
+				<name>pdc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pdc/pdc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../uart/uart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>tc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../tc/tc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
+				</file>
+			</group>
 		</group>
-	</group>
-	<group>
-		<name>sam</name>
 		<group>
 			<name>utils</name>
 			<group>
@@ -1929,54 +1945,6 @@
 			</group>
 		</group>
 		<group>
-			<name>drivers</name>
-			<group>
-				<name>pdc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pdc/pdc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../uart/uart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>tc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../tc/tc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
-				</file>
-			</group>
-			<group>
-				<name>usart</name>
-				<group>
-					<name>usart_synchronous_example</name>
-					<file>
-						<name>$PROJ_DIR$/../../usart_synchronous_example.c</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../usart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
 			<name>boards</name>
 			<group>
 				<name>sam4s_ek2</name>
@@ -1986,6 +1954,45 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../boards/sam4s_ek2/led.c</name>
 				</file>
+			</group>
+		</group>
+	</group>
+	<group>
+		<name>common</name>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
+				</file>
+			</group>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>services</name>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
+			</group>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam4s</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam4s/sysclk.c</name>
+					</file>
+				</group>
 			</group>
 		</group>
 	</group>

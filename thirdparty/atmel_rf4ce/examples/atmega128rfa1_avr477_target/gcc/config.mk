@@ -66,7 +66,7 @@ INC_PATH = \
        thirdparty/atmel_rf4ce/examples/atmega128rfa1_avr477_target \
        thirdparty/atmel_rf4ce/lib                         \
        thirdparty/atmel_rf4ce/lib/inc \
-       ./thirdparty/atmel_rf4ce/examples/atmega128rfa1_avr477_target/gcc
+       thirdparty/atmel_rf4ce/examples/atmega128rfa1_avr477_target/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH =  \

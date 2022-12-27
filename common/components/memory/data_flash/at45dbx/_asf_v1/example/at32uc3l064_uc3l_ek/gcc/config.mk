@@ -98,7 +98,7 @@ INC_PATH = \
        common/components/memory/data_flash/at45dbx/_asf_v1/example \
        common/services/storage/ctrl_access                \
        common/utils \
-       ./common/components/memory/data_flash/at45dbx/_asf_v1/example/at32uc3l064_uc3l_ek/gcc
+       common/components/memory/data_flash/at45dbx/_asf_v1/example/at32uc3l064_uc3l_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

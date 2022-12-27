@@ -168,7 +168,7 @@ INC_PATH = \
        thirdparty/lwip/lwip-1.4.0/src/include/ipv4        \
        thirdparty/lwip/lwip-1.4.0/src/include/lwip        \
        thirdparty/lwip/lwip-port-1.4.0/at32uc3/include \
-       ./thirdparty/freertos/demo/lwip_avr32_uc3_dhcp_example/at32uc3a0512_evk1100/gcc
+       thirdparty/freertos/demo/lwip_avr32_uc3_dhcp_example/at32uc3a0512_evk1100/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

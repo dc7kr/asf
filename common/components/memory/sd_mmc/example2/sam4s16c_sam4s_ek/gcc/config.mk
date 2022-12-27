@@ -69,6 +69,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/rtc/rtc.c                              \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
@@ -77,7 +78,7 @@ CSRCS = \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
        sam/utils/syscalls/gcc/syscalls.c                  \
        thirdparty/fatfs/fatfs-port-r0.09/diskio.c         \
-       thirdparty/fatfs/fatfs-port-r0.09/sam/fattime.c    \
+       thirdparty/fatfs/fatfs-port-r0.09/sam/fattime_rtc.c \
        thirdparty/fatfs/fatfs-r0.09/src/ff.c              \
        thirdparty/fatfs/fatfs-r0.09/src/option/ccsbcs.c
 
@@ -117,7 +118,7 @@ INC_PATH = \
        thirdparty/CMSIS/Lib/GCC                           \
        thirdparty/fatfs/fatfs-port-r0.09/sam              \
        thirdparty/fatfs/fatfs-r0.09/src \
-       ./common/components/memory/sd_mmc/example2/sam4s16c_sam4s_ek/gcc
+       common/components/memory/sd_mmc/example2/sam4s16c_sam4s_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
@@ -125,7 +126,8 @@ LIB_PATH =  \
 
 # List of libraries to use during linking.
 LIBS =  \
-       arm_cortexM4l_math                                
+       arm_cortexM4l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam4s/sam4s16/gcc/flash.ld
@@ -168,7 +170,8 @@ CPPFLAGS = \
        -D ARM_MATH_CM4=true                               \
        -D BOARD=SAM4S_EK                                  \
        -D SD_MMC_ENABLE                                   \
-       -D __SAM4S16C__
+       -D __SAM4S16C__                                    \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

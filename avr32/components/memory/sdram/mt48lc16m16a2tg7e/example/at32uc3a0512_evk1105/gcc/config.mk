@@ -93,7 +93,7 @@ INC_PATH = \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/utils \
-       ./avr32/components/memory/sdram/mt48lc16m16a2tg7e/example/at32uc3a0512_evk1105/gcc
+       avr32/components/memory/sdram/mt48lc16m16a2tg7e/example/at32uc3a0512_evk1105/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

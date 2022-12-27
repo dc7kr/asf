@@ -163,9 +163,10 @@
 				<option>
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
+					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3U4E__</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>UDD_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -320,6 +321,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -472,9 +474,10 @@
 				<option>
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
+					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3U4E__</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>UDD_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -596,6 +599,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1107,9 +1111,10 @@
 				<option>
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
+					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3U4E__</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>UDD_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -1264,6 +1269,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1416,9 +1422,10 @@
 				<option>
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
+					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3U4E__</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>UDD_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -1540,6 +1547,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -2019,6 +2027,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>

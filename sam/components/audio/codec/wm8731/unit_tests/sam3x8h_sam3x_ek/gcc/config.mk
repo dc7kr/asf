@@ -52,7 +52,9 @@ TARGET_SRAM = wm8731_unit_tests_sram.elf
 
 # List of C source files.
 CSRCS = \
+       common/components/memory/eeprom/at24cxx/at24cxx.c  \
        common/services/clock/sam3x/sysclk.c               \
+       common/services/delay/sam/cycle_counter.c          \
        common/services/serial/usart_serial.c              \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        common/utils/stdio/read.c                          \
@@ -66,6 +68,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/ssc/ssc.c                              \
        sam/drivers/twi/twi.c                              \
        sam/drivers/uart/uart.c                            \
@@ -81,8 +84,11 @@ ASSRCS =
 # List of include paths.
 INC_PATH = \
        common/boards                                      \
+       common/components/memory/eeprom/at24cxx            \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
        common/services/twi                                \
@@ -105,14 +111,18 @@ INC_PATH = \
        sam/utils/cmsis/sam3x/source/templates             \
        sam/utils/header_files                             \
        sam/utils/preprocessor                             \
-       thirdparty/CMSIS/Include \
-       ./sam/components/audio/codec/wm8731/unit_tests/sam3x8h_sam3x_ek/gcc
+       thirdparty/CMSIS/Include                           \
+       thirdparty/CMSIS/Lib/GCC \
+       sam/components/audio/codec/wm8731/unit_tests/sam3x8h_sam3x_ek/gcc
 
 # Additional search paths for libraries.
-LIB_PATH = 
+LIB_PATH =  \
+       thirdparty/CMSIS/Lib/GCC                          
 
 # List of libraries to use during linking.
-LIBS = 
+LIBS =  \
+       arm_cortexM3l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3x/sam3x8/gcc/flash.ld
@@ -152,10 +162,12 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
+       -D ARM_MATH_CM3=true                               \
        -D BOARD=SAM3X_EK                                  \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_                                 \
-       -D __SAM3X8H__
+       -D __SAM3X8H__                                     \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

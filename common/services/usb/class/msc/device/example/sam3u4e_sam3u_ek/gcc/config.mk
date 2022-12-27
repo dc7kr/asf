@@ -52,6 +52,7 @@ TARGET_SRAM = device_example_sram.elf
 
 # List of C source files.
 CSRCS = \
+       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/nand_flash_mem.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_ecc_sw.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_model.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_raw_nfc.c \
@@ -79,6 +80,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/udphs/udphs_device.c                   \
        sam/utils/cmsis/sam3u/source/templates/exceptions.c \
        sam/utils/cmsis/sam3u/source/templates/gcc/startup_sam3u.c \
@@ -122,16 +124,20 @@ INC_PATH = \
        sam/utils/cmsis/sam3u/source/templates             \
        sam/utils/header_files                             \
        sam/utils/preprocessor                             \
-       thirdparty/CMSIS/Include \
-       ./common/services/usb/class/msc/device/example/sam3u4e_sam3u_ek/gcc
+       thirdparty/CMSIS/Include                           \
+       thirdparty/CMSIS/Lib/GCC \
+       common/services/usb/class/msc/device/example/sam3u4e_sam3u_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
-       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/gcc
+       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/gcc \
+       thirdparty/CMSIS/Lib/GCC                          
 
 # List of libraries to use during linking.
 LIBS =  \
-       _nand_flash_cortexm3_3u                           
+       _nand_flash_cortexm3                               \
+       arm_cortexM3l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3u/sam3u4/gcc/flash.ld
@@ -172,11 +178,15 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D ACCESS_USB_ENABLED                              \
+       -D ARM_MATH_CM3=true                               \
        -D BOARD=SAM3U_EK                                  \
        -D SD_MMC_ENABLE                                   \
        -D UDD_ENABLE                                      \
        -D VIRTUAL_MEMORY_ENABLE                           \
-       -D __SAM3U4E__
+       -D __SAM3U4E__                                     \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \
+                                                          \
+       -Wl,--defsym,__stack_size__=16K

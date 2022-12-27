@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3S4C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK</state>
 				</option>
 				<option>
@@ -318,6 +319,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9325</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/.</state>
@@ -470,6 +472,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3S4C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK</state>
 				</option>
 				<option>
@@ -592,6 +595,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9325</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1103,6 +1107,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3S4C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK</state>
 				</option>
 				<option>
@@ -1258,6 +1263,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9325</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1410,6 +1416,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3S4C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK</state>
 				</option>
 				<option>
@@ -1532,6 +1539,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9325</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1972,6 +1980,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 		</group>

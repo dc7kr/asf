@@ -169,7 +169,7 @@ INC_PATH = \
        thirdparty/lwip/lwip-1.3.2/src/include             \
        thirdparty/lwip/lwip-1.3.2/src/include/ipv4        \
        thirdparty/lwip/lwip-port-1.3.2/hd/if/include \
-       ./thirdparty/hd/example/hd_spb104/at32uc3a3256_evk1104/gcc
+       thirdparty/hd/example/hd_spb104/at32uc3a3256_evk1104/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \

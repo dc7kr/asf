@@ -294,7 +294,6 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -302,6 +301,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained</state>
@@ -556,7 +556,6 @@
 				<option>
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -564,6 +563,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained</state>
@@ -1210,7 +1210,6 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -1218,6 +1217,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained</state>
@@ -1472,7 +1472,6 @@
 				<option>
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -1480,6 +1479,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained</state>
@@ -1839,6 +1839,9 @@
 			<group>
 				<name>pmc</name>
 				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
 			</group>
@@ -1849,24 +1852,6 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/drivers/pio/pio.c</name>
-				</file>
-			</group>
-			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/uart/uart.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>sam4s_xplained</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained/init.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained/led.c</name>
 				</file>
 			</group>
 		</group>
@@ -1895,6 +1880,18 @@
 						</group>
 					</group>
 				</group>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>sam4s_xplained</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained/init.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/boards/sam4s_xplained/led.c</name>
+				</file>
 			</group>
 		</group>
 	</group>

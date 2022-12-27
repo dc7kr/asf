@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -295,12 +296,15 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../sam3u/source/templates</state>
 					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3u_ek</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
 					<state>$PROJ_DIR$/../../../sam3u/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
@@ -454,6 +458,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -553,12 +558,15 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../sam3u/source/templates</state>
 					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3u_ek</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
 					<state>$PROJ_DIR$/../../../sam3u/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
@@ -1071,6 +1079,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -1203,12 +1212,15 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../sam3u/source/templates</state>
 					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3u_ek</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
 					<state>$PROJ_DIR$/../../../sam3u/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
@@ -1362,6 +1374,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -1461,12 +1474,15 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../sam3u/source/templates</state>
 					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3u_ek</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
 					<state>$PROJ_DIR$/../../../sam3u/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
@@ -1841,6 +1857,15 @@
 					<name>$PROJ_DIR$/../../../../../drivers/pio/pio.c</name>
 				</file>
 			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/sleep.c</name>
+				</file>
+			</group>
 		</group>
 		<group>
 			<name>utils</name>
@@ -1878,6 +1903,18 @@
 	</group>
 	<group>
 		<name>common</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam3u</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam3u/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
 		<group>
 			<name>utils</name>
 			<group>

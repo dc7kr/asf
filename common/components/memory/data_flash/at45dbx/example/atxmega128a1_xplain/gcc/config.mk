@@ -77,7 +77,7 @@ INC_PATH = \
        xmega/drivers/spi                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/components/memory/data_flash/at45dbx/example/atxmega128a1_xplain/gcc
+       common/components/memory/data_flash/at45dbx/example/atxmega128a1_xplain/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

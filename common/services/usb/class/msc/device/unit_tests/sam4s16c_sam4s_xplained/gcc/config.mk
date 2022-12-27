@@ -72,6 +72,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/uart/uart.c                            \
        sam/drivers/udp/udp_device.c                       \
        sam/drivers/usart/usart.c                          \
@@ -89,6 +90,7 @@ INC_PATH = \
        common/components/memory/virtual_mem               \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
        common/services/sleepmgr                           \
@@ -116,7 +118,7 @@ INC_PATH = \
        sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
        thirdparty/CMSIS/Lib/GCC \
-       ./common/services/usb/class/msc/device/unit_tests/sam4s16c_sam4s_xplained/gcc
+       common/services/usb/class/msc/device/unit_tests/sam4s16c_sam4s_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
@@ -124,7 +126,8 @@ LIB_PATH =  \
 
 # List of libraries to use during linking.
 LIBS =  \
-       arm_cortexM4l_math                                
+       arm_cortexM4l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam4s/sam4s16/gcc/flash.ld
@@ -171,7 +174,8 @@ CPPFLAGS = \
        -D UDD_ENABLE                                      \
        -D VIRTUAL_MEMORY_ENABLE                           \
        -D _ASSERT_ENABLE_                                 \
-       -D __SAM4S16C__
+       -D __SAM4S16C__                                    \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

@@ -87,7 +87,7 @@ INC_PATH = \
        common/services/clock/example3/at32uc3b0256_evk1101 \
        common/services/delay                              \
        common/utils \
-       ./common/services/clock/example3/at32uc3b0256_evk1101/gcc
+       common/services/clock/example3/at32uc3b0256_evk1101/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

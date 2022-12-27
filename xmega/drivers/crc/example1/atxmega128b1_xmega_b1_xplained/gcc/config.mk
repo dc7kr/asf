@@ -76,7 +76,7 @@ INC_PATH = \
        xmega/drivers/nvm                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/drivers/crc/example1/atxmega128b1_xmega_b1_xplained/gcc
+       xmega/drivers/crc/example1/atxmega128b1_xmega_b1_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

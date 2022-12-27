@@ -61,6 +61,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
        sam/drivers/wdt/wdt.c                              \
@@ -98,20 +99,24 @@ INC_PATH = \
        sam/utils/header_files                             \
        sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
+       thirdparty/CMSIS/Lib/GCC                           \
        thirdparty/qtouch/generic/include                  \
        thirdparty/qtouch/generic/sam/qtouch/common        \
        thirdparty/qtouch/generic/sam/qtouch/examples      \
        thirdparty/qtouch/generic/sam/qtouch/examples/sam3s4c_sam3s_ek \
        thirdparty/qtouch/qdebug \
-       ./thirdparty/qtouch/generic/sam/qtouch/examples/sam3s4c_sam3s_ek/gcc
+       thirdparty/qtouch/generic/sam/qtouch/examples/sam3s4c_sam3s_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
+       thirdparty/CMSIS/Lib/GCC                           \
        thirdparty/qtouch/generic/sam/qtouch/lib/gcc      
 
 # List of libraries to use during linking.
 LIBS =  \
-       sam3s-32qt-k-8rs-gnu                              
+       arm_cortexM3l_math                                 \
+       sam3s-32qt-k-8rs-gnu                               \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3s/sam3s4/gcc/flash.ld
@@ -151,6 +156,7 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
+       -D ARM_MATH_CM3=true                               \
        -D BOARD=SAM3S_EK                                  \
        -D QT_DELAY_CYCLES=5                               \
        -D QT_NUM_CHANNELS=32                              \
@@ -162,7 +168,8 @@ CPPFLAGS = \
        -D _QTOUCH_                                        \
        -D _SNS1_SNSK1_SAME_PORT_                          \
        -D _SNS2_SNSK2_SAME_PORT_                          \
-       -D __SAM3S4C__
+       -D __SAM3S4C__                                     \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

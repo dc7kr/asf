@@ -141,7 +141,7 @@ INC_PATH = \
        common/utils                                       \
        common/utils/stdio/stdio_serial                    \
        thirdparty/newlib_addons/libs/include \
-       ./avr32/applications/evk1104-usb-msc-sd-demo/at32uc3a3256_evk1104/gcc
+       avr32/applications/evk1104-usb-msc-sd-demo/at32uc3a3256_evk1104/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \

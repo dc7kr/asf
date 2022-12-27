@@ -97,7 +97,7 @@ INC_PATH = \
        common/services/serial/uc3_usart                   \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./common/services/clock/unit_tests/atuc128d3_stk600-rcuc3d/gcc
+       common/services/clock/unit_tests/atuc128d3_stk600-rcuc3d/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

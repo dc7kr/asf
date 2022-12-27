@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -302,6 +303,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
@@ -460,6 +462,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -566,6 +569,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
@@ -1083,6 +1087,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1222,6 +1227,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
@@ -1380,6 +1386,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1486,6 +1493,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
@@ -1857,15 +1865,18 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>twi</name>
+				<name>pmc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/twi/twi.c</name>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
+				<name>twi</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/twi/twi.c</name>
 				</file>
 			</group>
 			<group>

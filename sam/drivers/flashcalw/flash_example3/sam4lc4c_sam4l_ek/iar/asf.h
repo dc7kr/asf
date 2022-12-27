@@ -76,11 +76,13 @@
 
 // From module: Power Management
 #include <bpm.h>
-#include <sleep.h>
 
 // From module: SAM4L startup code
 #include <exceptions.h>
 #include <system_sam4l.h>
+
+// From module: SAM4L-EK LED support enabled
+#include <led.h>
 
 // From module: Standard serial I/O (stdio) - SAM implementation
 #include <stdio_serial.h>

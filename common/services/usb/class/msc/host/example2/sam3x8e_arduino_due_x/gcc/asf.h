@@ -71,6 +71,9 @@
 // From module: Generic board support
 #include <board.h>
 
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
+
 // From module: Interrupt management - SAM implementation
 #include <interrupt.h>
 
@@ -107,7 +110,7 @@
 #include <uart.h>
 
 // From module: USB Host MSC (Single Class support)
-#include <uhi_msc.h>
+#include <uhi_msc_mem.h>
 
 // From module: USB Host stack core
 #include <uhc.h>

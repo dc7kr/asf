@@ -300,9 +300,11 @@
 					<state>$PROJ_DIR$/../../../../header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4s_xplained</state>
-					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
@@ -560,9 +562,11 @@
 					<state>$PROJ_DIR$/../../../../header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4s_xplained</state>
-					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
@@ -1212,9 +1216,11 @@
 					<state>$PROJ_DIR$/../../../../header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4s_xplained</state>
-					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
@@ -1472,9 +1478,11 @@
 					<state>$PROJ_DIR$/../../../../header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4s_xplained</state>
-					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
@@ -1842,6 +1850,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1892,6 +1903,18 @@
 	</group>
 	<group>
 		<name>common</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam4s</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam4s/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
 		<group>
 			<name>utils</name>
 			<group>

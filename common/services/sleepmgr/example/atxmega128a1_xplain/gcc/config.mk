@@ -73,7 +73,7 @@ INC_PATH = \
        xmega/drivers/sleep                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/services/sleepmgr/example/atxmega128a1_xplain/gcc
+       common/services/sleepmgr/example/atxmega128a1_xplain/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

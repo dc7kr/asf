@@ -126,7 +126,7 @@ INC_PATH = \
        common/services/wtk/example2_icon/at32uc3l064_uc3_l0_xplained \
        common/utils                                       \
        common/utils/membag \
-       ./common/services/wtk/example2_icon/at32uc3l064_uc3_l0_xplained/gcc
+       common/services/wtk/example2_icon/at32uc3l064_uc3_l0_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

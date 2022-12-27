@@ -27,8 +27,8 @@
 				</option>
 				<option>
 					<name>Variant</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GEndianMode</name>
@@ -59,7 +59,7 @@
 				<option>
 					<name>FPU</name>
 					<version>2</version>
-					<state>0</state>
+					<state>5</state>
 				</option>
 				<option>
 					<name>OGCoreOrChip</name>
@@ -135,13 +135,13 @@
 				</option>
 				<option>
 					<name>GFPUCoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GBECoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>OGUseCmsis</name>
@@ -297,6 +297,7 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
+					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/source/templates</state>
@@ -566,6 +567,7 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
+					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/source/templates</state>
@@ -957,8 +959,8 @@
 				</option>
 				<option>
 					<name>Variant</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GEndianMode</name>
@@ -989,7 +991,7 @@
 				<option>
 					<name>FPU</name>
 					<version>2</version>
-					<state>0</state>
+					<state>5</state>
 				</option>
 				<option>
 					<name>OGCoreOrChip</name>
@@ -1065,13 +1067,13 @@
 				</option>
 				<option>
 					<name>GFPUCoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GBECoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>OGUseCmsis</name>
@@ -1227,6 +1229,7 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
+					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/source/templates</state>
@@ -1496,6 +1499,7 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
+					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/source/templates</state>
@@ -1911,6 +1915,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>usart</name>
@@ -1953,6 +1960,24 @@
 	<group>
 		<name>common</name>
 		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam4e</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam4e/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
 			<name>utils</name>
 			<group>
 				<name>stdio</name>
@@ -1968,24 +1993,6 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
 				</file>
-			</group>
-		</group>
-		<group>
-			<name>services</name>
-			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
-				</file>
-			</group>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>sam4e</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam4e/sysclk.c</name>
-					</file>
-				</group>
 			</group>
 		</group>
 	</group>

@@ -3,7 +3,7 @@
  *
  * \brief SAM HSMCI driver
  *
- * Copyright (c) 2012 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2012 - 2013 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -94,7 +94,7 @@
 #  define hsmci_debug(...)
 #endif
 
-#if (SAM3S || SAM4S)
+#if (SAM3S || SAM4S || SAM4E)
   // PDC is used for transferts
 #elif (SAM3U || SAM3XA)
   // DMA is used for transferts
@@ -448,7 +448,8 @@ bool hsmci_adtc_start(sdmmc_cmd_def_t cmd, uint32_t arg, uint16_t block_size, ui
 
 	if (cmd & SDMMC_CMD_SDIO_BYTE) {
 			cmdr |= HSMCI_CMDR_TRTYP_BYTE;
-			HSMCI->HSMCI_BLKR = (block_size << HSMCI_BLKR_BCNT_Pos);
+			// Value 0 corresponds to a 512-byte transfer
+			HSMCI->HSMCI_BLKR = ((block_size % 512) << HSMCI_BLKR_BCNT_Pos);
 	} else {
 		HSMCI->HSMCI_BLKR = (block_size << HSMCI_BLKR_BLKLEN_Pos) |
 				(nb_block << HSMCI_BLKR_BCNT_Pos);

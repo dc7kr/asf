@@ -72,7 +72,7 @@ INC_PATH = \
        xmega/drivers/cpu                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/services/ioport/example2/atxmega32e5_stk600-rc032x/gcc
+       common/services/ioport/example2/atxmega32e5_stk600-rc032x/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

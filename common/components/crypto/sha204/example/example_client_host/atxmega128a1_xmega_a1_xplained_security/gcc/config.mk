@@ -98,7 +98,7 @@ INC_PATH = \
        xmega/drivers/usart                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/components/crypto/sha204/example/example_client_host/atxmega128a1_xmega_a1_xplained_security/gcc
+       common/components/crypto/sha204/example/example_client_host/atxmega128a1_xmega_a1_xplained_security/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

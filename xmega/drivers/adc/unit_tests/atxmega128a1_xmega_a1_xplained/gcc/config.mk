@@ -82,7 +82,6 @@ INC_PATH = \
        xmega/boards                                       \
        xmega/boards/xmega_a1_xplained                     \
        xmega/drivers/adc                                  \
-       xmega/drivers/adc/unit_tests                       \
        xmega/drivers/adc/unit_tests/atxmega128a1_xmega_a1_xplained \
        xmega/drivers/cpu                                  \
        xmega/drivers/dac                                  \
@@ -92,7 +91,7 @@ INC_PATH = \
        xmega/drivers/usart                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/drivers/adc/unit_tests/atxmega128a1_xmega_a1_xplained/gcc
+       xmega/drivers/adc/unit_tests/atxmega128a1_xmega_a1_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

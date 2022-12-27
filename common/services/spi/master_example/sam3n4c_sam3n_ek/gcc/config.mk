@@ -53,7 +53,7 @@ TARGET_SRAM = spi_master_example_sram.elf
 # List of C source files.
 CSRCS = \
        common/services/clock/sam3n/sysclk.c               \
-       common/services/spi/master_example/spi_master_example_sam3.c \
+       common/services/spi/master_example/spi_master_example_sam.c \
        common/services/spi/sam_spi/spi_master.c           \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3n_ek/init.c                         \
@@ -61,6 +61,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/spi/spi.c                              \
        sam/utils/cmsis/sam3n/source/templates/exceptions.c \
        sam/utils/cmsis/sam3n/source/templates/gcc/startup_sam3n.c \
@@ -75,6 +76,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/spi                                \
        common/services/spi/master_example/sam3n4c_sam3n_ek \
        common/services/spi/sam_spi                        \
@@ -89,14 +91,18 @@ INC_PATH = \
        sam/utils/cmsis/sam3n/source/templates             \
        sam/utils/header_files                             \
        sam/utils/preprocessor                             \
-       thirdparty/CMSIS/Include \
-       ./common/services/spi/master_example/sam3n4c_sam3n_ek/gcc
+       thirdparty/CMSIS/Include                           \
+       thirdparty/CMSIS/Lib/GCC \
+       common/services/spi/master_example/sam3n4c_sam3n_ek/gcc
 
 # Additional search paths for libraries.
-LIB_PATH = 
+LIB_PATH =  \
+       thirdparty/CMSIS/Lib/GCC                          
 
 # List of libraries to use during linking.
-LIBS = 
+LIBS =  \
+       arm_cortexM3l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3n/sam3n4/gcc/flash.ld
@@ -136,8 +142,10 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
+       -D ARM_MATH_CM3=true                               \
        -D BOARD=SAM3N_EK                                  \
-       -D __SAM3N4C__
+       -D __SAM3N4C__                                     \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

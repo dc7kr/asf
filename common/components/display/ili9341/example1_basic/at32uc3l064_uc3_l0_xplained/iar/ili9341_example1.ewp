@@ -338,8 +338,8 @@
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashcdw</state>
+					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -473,8 +473,8 @@
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashcdw</state>
+					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1217,8 +1217,8 @@
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashcdw</state>
+					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1352,8 +1352,8 @@
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashcdw</state>
+					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>

@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3S4C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK</state>
 					<state>AT45DBX_ENABLE</state>
 				</option>
@@ -302,6 +303,7 @@
 					<state>$PROJ_DIR$/../../../fatfs-port-r0.09/sam</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam3s/include</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/spi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
@@ -478,6 +480,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3S4C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK</state>
 					<state>AT45DBX_ENABLE</state>
 				</option>
@@ -584,6 +587,7 @@
 					<state>$PROJ_DIR$/../../../fatfs-port-r0.09/sam</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam3s/include</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/spi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
@@ -1119,6 +1123,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3S4C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK</state>
 					<state>AT45DBX_ENABLE</state>
 				</option>
@@ -1258,6 +1263,7 @@
 					<state>$PROJ_DIR$/../../../fatfs-port-r0.09/sam</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam3s/include</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/spi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
@@ -1434,6 +1440,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3S4C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK</state>
 					<state>AT45DBX_ENABLE</state>
 				</option>
@@ -1540,6 +1547,7 @@
 					<state>$PROJ_DIR$/../../../fatfs-port-r0.09/sam</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam3s/include</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/spi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
@@ -1930,6 +1938,9 @@
 									<name>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/iar/lib_nand_flash_cortexm3.a</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/nand_flash_mem.c</name>
+							</file>
 						</group>
 						<file>
 							<name>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/nand_flash_ecc_sw.c</name>
@@ -2071,6 +2082,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>ebi</name>
@@ -2139,24 +2153,24 @@
 		<group>
 			<name>fatfs</name>
 			<group>
-				<name>fatfs-port-r0.09</name>
-				<group>
-					<name>sam</name>
-					<file>
-						<name>$PROJ_DIR$/../../../fatfs-port-r0.09/sam/fattime.c</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../fatfs-port-r0.09/diskio.c</name>
-				</file>
-			</group>
-			<group>
 				<name>example</name>
 				<file>
 					<name>$PROJ_DIR$/../../fatfs_access_example.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../memories_initialization_sam.c</name>
+				</file>
+			</group>
+			<group>
+				<name>fatfs-port-r0.09</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../fatfs-port-r0.09/sam/fattime_rtc.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../fatfs-port-r0.09/diskio.c</name>
 				</file>
 			</group>
 			<group>

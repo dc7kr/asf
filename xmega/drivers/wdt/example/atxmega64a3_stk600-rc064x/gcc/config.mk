@@ -73,7 +73,7 @@ INC_PATH = \
        xmega/drivers/wdt/example/atxmega64a3_stk600-rc064x \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/drivers/wdt/example/atxmega64a3_stk600-rc064x/gcc
+       xmega/drivers/wdt/example/atxmega64a3_stk600-rc064x/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

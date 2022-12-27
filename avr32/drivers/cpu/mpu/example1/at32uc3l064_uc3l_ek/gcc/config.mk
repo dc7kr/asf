@@ -98,7 +98,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/utils \
-       ./avr32/drivers/cpu/mpu/example1/at32uc3l064_uc3l_ek/gcc
+       avr32/drivers/cpu/mpu/example1/at32uc3l064_uc3l_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

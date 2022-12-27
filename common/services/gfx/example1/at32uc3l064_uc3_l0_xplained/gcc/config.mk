@@ -104,7 +104,7 @@ INC_PATH = \
        common/services/spi                                \
        common/services/spi/uc3_spi                        \
        common/utils \
-       ./common/services/gfx/example1/at32uc3l064_uc3_l0_xplained/gcc
+       common/services/gfx/example1/at32uc3l064_uc3_l0_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

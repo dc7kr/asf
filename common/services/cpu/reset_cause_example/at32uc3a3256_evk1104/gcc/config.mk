@@ -87,7 +87,7 @@ INC_PATH = \
        common/services/cpu                                \
        common/services/cpu/reset_cause_example/at32uc3a3256_evk1104 \
        common/utils \
-       ./common/services/cpu/reset_cause_example/at32uc3a3256_evk1104/gcc
+       common/services/cpu/reset_cause_example/at32uc3a3256_evk1104/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

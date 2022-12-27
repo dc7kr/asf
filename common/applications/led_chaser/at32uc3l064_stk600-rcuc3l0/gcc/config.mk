@@ -92,7 +92,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/utils \
-       ./common/applications/led_chaser/at32uc3l064_stk600-rcuc3l0/gcc
+       common/applications/led_chaser/at32uc3l064_stk600-rcuc3l0/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

@@ -59,10 +59,10 @@
 // From module: Delay routines
 #include <delay.h>
 
-// From module: GFX - Graphic Library
+// From module: GFX Color - Color Graphic Library
 #include <gfx.h>
 
-// From module: GFX - System Font
+// From module: GFX Color - System Font
 #include <sysfont.h>
 
 // From module: GPIO - General purpose Input/Output
@@ -115,9 +115,6 @@
 
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter
 #include <usart.h>
-
-// From module: Widget calculator example
-#include <widget_gui.h>
 
 // From module: XMEGA compiler driver
 #include <compiler.h>

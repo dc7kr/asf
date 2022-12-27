@@ -79,7 +79,7 @@ INC_PATH = \
        xmega/drivers/sleep                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/drivers/aes/example1/atxmega256a3bu_xmega_a3bu_xplained/gcc
+       xmega/drivers/aes/example1/atxmega256a3bu_xmega_a3bu_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

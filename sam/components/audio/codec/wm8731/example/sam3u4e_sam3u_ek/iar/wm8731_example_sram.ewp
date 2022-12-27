@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -315,6 +316,7 @@
 					<state>$PROJ_DIR$/../../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/ssc</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/twi</state>
@@ -468,6 +470,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -587,6 +590,7 @@
 					<state>$PROJ_DIR$/../../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/ssc</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/twi</state>
@@ -1099,6 +1103,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -1251,6 +1256,7 @@
 					<state>$PROJ_DIR$/../../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/ssc</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/twi</state>
@@ -1404,6 +1410,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -1523,6 +1530,7 @@
 					<state>$PROJ_DIR$/../../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/ssc</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/twi</state>
@@ -1916,6 +1924,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>

@@ -90,7 +90,7 @@ INC_PATH = \
        common/services/calendar/example1/atuc256l4u_stk600-rcuc3l4 \
        common/services/clock                              \
        common/utils \
-       ./common/services/calendar/example1/atuc256l4u_stk600-rcuc3l4/gcc
+       common/services/calendar/example1/atuc256l4u_stk600-rcuc3l4/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

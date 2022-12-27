@@ -92,7 +92,7 @@ INC_PATH = \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/utils \
-       ./avr32/drivers/dmaca/ram_aes_ram_example/at32uc3a3256s_evk1104/gcc
+       avr32/drivers/dmaca/ram_aes_ram_example/at32uc3a3256s_evk1104/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

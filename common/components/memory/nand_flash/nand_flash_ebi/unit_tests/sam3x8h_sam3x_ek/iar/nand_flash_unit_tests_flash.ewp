@@ -163,9 +163,10 @@
 				<option>
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -319,6 +320,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../services/storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -471,9 +473,10 @@
 				<option>
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -594,6 +597,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../services/storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1105,9 +1109,10 @@
 				<option>
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1261,6 +1266,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../services/storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1413,9 +1419,10 @@
 				<option>
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1536,6 +1543,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../services/storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1902,6 +1910,9 @@
 									<name>$PROJ_DIR$/../../../ftl_lib/iar/lib_nand_flash_cortexm3.a</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../ftl_lib/nand_flash_mem.c</name>
+							</file>
 						</group>
 						<group>
 							<name>unit_tests</name>
@@ -1910,7 +1921,7 @@
 							</file>
 						</group>
 						<file>
-							<name>$PROJ_DIR$/../../../nand_flash_spare_scheme.c</name>
+							<name>$PROJ_DIR$/../../../nand_flash_raw_nfc.c</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../nand_flash_ecc_sw.c</name>
@@ -1919,7 +1930,7 @@
 							<name>$PROJ_DIR$/../../../nand_flash_model.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../nand_flash_raw_nfc.c</name>
+							<name>$PROJ_DIR$/../../../nand_flash_spare_scheme.c</name>
 						</file>
 					</group>
 				</group>
@@ -2045,13 +2056,13 @@
 				</file>
 			</group>
 			<group>
-				<name>ebi</name>
-				<group>
-					<name>smc</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../sam/drivers/ebi/smc/smc.c</name>
-					</file>
-				</group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
 			</group>
 			<group>
 				<name>uart</name>
@@ -2060,10 +2071,13 @@
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/pmc.c</name>
-				</file>
+				<name>ebi</name>
+				<group>
+					<name>smc</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../sam/drivers/ebi/smc/smc.c</name>
+					</file>
+				</group>
 			</group>
 		</group>
 		<group>

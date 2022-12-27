@@ -164,6 +164,7 @@
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -319,6 +320,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../services/storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -472,6 +474,7 @@
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -594,6 +597,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../services/storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1106,6 +1110,7 @@
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -1261,6 +1266,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../services/storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1414,6 +1420,7 @@
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -1536,6 +1543,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../services/storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1899,9 +1907,12 @@
 							<group>
 								<name>iar</name>
 								<file>
-									<name>$PROJ_DIR$/../../../ftl_lib/iar/lib_nand_flash_cortexm3_3u.a</name>
+									<name>$PROJ_DIR$/../../../ftl_lib/iar/lib_nand_flash_cortexm3.a</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../ftl_lib/nand_flash_mem.c</name>
+							</file>
 						</group>
 						<group>
 							<name>unit_tests</name>
@@ -2034,6 +2045,15 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+			</group>
+			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/uart/uart.c</name>
+				</file>
 			</group>
 			<group>
 				<name>ebi</name>
@@ -2043,12 +2063,6 @@
 						<name>$PROJ_DIR$/../../../../../../../../sam/drivers/ebi/smc/smc.c</name>
 					</file>
 				</group>
-			</group>
-			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/uart/uart.c</name>
-				</file>
 			</group>
 		</group>
 		<group>

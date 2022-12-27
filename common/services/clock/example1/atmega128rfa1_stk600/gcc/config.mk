@@ -68,7 +68,7 @@ INC_PATH = \
        mega/boards/stk600/rc128x_rfx                      \
        mega/drivers/cpu                                   \
        mega/utils \
-       ./common/services/clock/example1/atmega128rfa1_stk600/gcc
+       common/services/clock/example1/atmega128rfa1_stk600/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

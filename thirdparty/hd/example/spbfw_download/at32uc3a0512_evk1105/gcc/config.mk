@@ -105,7 +105,7 @@ INC_PATH = \
        thirdparty/hd/example/spbfw_download/ports/avr32   \
        thirdparty/hd/example/spbfw_download/util          \
        thirdparty/hd/v2.6/include \
-       ./thirdparty/hd/example/spbfw_download/at32uc3a0512_evk1105/gcc
+       thirdparty/hd/example/spbfw_download/at32uc3a0512_evk1105/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

@@ -162,6 +162,7 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -312,6 +313,7 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -463,6 +465,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -580,6 +583,7 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1090,6 +1094,7 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -1240,6 +1245,7 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1391,6 +1397,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -1508,6 +1515,7 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1895,6 +1903,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pmc/sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>pio</name>
@@ -1938,16 +1949,34 @@
 			<group>
 				<name>sam3x_ek</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../boards/sam3x_ek/init.c</name>
+					<name>$PROJ_DIR$/../../../../../boards/sam3x_ek/led.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../boards/sam3x_ek/led.c</name>
+					<name>$PROJ_DIR$/../../../../../boards/sam3x_ek/init.c</name>
 				</file>
 			</group>
 		</group>
 	</group>
 	<group>
 		<name>common</name>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+			</group>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
+				</file>
+			</group>
+		</group>
 		<group>
 			<name>services</name>
 			<group>
@@ -1964,24 +1993,6 @@
 						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam3x/sysclk.c</name>
 					</file>
 				</group>
-			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
-				</file>
-			</group>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
 			</group>
 		</group>
 	</group>

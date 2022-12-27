@@ -60,7 +60,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
-       sam/drivers/uart/uart.c                            \
+       sam/drivers/pmc/sleep.c                            \
        sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
@@ -75,12 +75,12 @@ INC_PATH = \
        common/services/clock                              \
        common/services/clock/example3/sam4sd32c_sam4s_ek2 \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/utils                                       \
        sam/boards                                         \
        sam/boards/sam4s_ek2                               \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
-       sam/drivers/uart                                   \
        sam/utils                                          \
        sam/utils/cmsis/sam4s/include                      \
        sam/utils/cmsis/sam4s/source/templates             \
@@ -88,7 +88,7 @@ INC_PATH = \
        sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
        thirdparty/CMSIS/Lib/GCC \
-       ./common/services/clock/example3/sam4sd32c_sam4s_ek2/gcc
+       common/services/clock/example3/sam4sd32c_sam4s_ek2/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
@@ -96,7 +96,8 @@ LIB_PATH =  \
 
 # List of libraries to use during linking.
 LIBS =  \
-       arm_cortexM4l_math                                
+       arm_cortexM4l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam4s/sam4sd32/gcc/flash.ld
@@ -138,7 +139,8 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM4=true                               \
        -D BOARD=SAM4S_EK2                                 \
-       -D __SAM4SD32C__
+       -D __SAM4SD32C__                                   \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

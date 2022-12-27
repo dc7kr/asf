@@ -78,7 +78,7 @@ INC_PATH = \
        xmega/drivers/usart                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/components/display/hx8347a/example2/atxmega128a1_xplain/gcc
+       common/components/display/hx8347a/example2/atxmega128a1_xplain/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

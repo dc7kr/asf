@@ -107,7 +107,7 @@ INC_PATH = \
        common/services/fifo                               \
        common/utils                                       \
        thirdparty/newlib_addons/libs/include \
-       ./avr32/applications/evk11xx-uc3b-usb-hid-qtouch-debug/at32uc3b1256/gcc
+       avr32/applications/evk11xx-uc3b-usb-hid-qtouch-debug/at32uc3b1256/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \

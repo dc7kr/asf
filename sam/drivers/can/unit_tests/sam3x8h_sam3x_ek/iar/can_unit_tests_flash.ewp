@@ -163,9 +163,10 @@
 				<option>
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -315,6 +316,7 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -466,9 +468,10 @@
 				<option>
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -585,6 +588,7 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1095,9 +1099,10 @@
 				<option>
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1247,6 +1252,7 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1398,9 +1404,10 @@
 				<option>
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1517,6 +1524,7 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1975,6 +1983,9 @@
 			</group>
 			<group>
 				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pmc/sleep.c</name>
+				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
 				</file>

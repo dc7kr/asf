@@ -398,10 +398,10 @@
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
 					<state>$PROJ_DIR$/../../../../../utils/membag</state>
-					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
@@ -411,14 +411,14 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/boards/xmega_a3bu_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -688,10 +688,10 @@
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
 					<state>$PROJ_DIR$/../../../../../utils/membag</state>
-					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
@@ -701,14 +701,14 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/boards/xmega_a3bu_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1443,10 +1443,10 @@
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
 					<state>$PROJ_DIR$/../../../../../utils/membag</state>
-					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
@@ -1456,14 +1456,14 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/boards/xmega_a3bu_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1733,10 +1733,10 @@
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
 					<state>$PROJ_DIR$/../../../../../utils/membag</state>
-					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
@@ -1746,14 +1746,14 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/boards/xmega_a3bu_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -2107,6 +2107,12 @@
 					<file>
 						<name>$PROJ_DIR$/../../widget_gui.c</name>
 					</file>
+					<group>
+						<name>atxmega256a3bu_xmega_a3bu_xplained</name>
+						<file>
+							<name>$PROJ_DIR$/../touch_interface.c</name>
+						</file>
+					</group>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../wtk.c</name>

@@ -68,6 +68,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/spi/spi.c                              \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
@@ -107,14 +108,18 @@ INC_PATH = \
        sam/utils/cmsis/sam3n/source/templates             \
        sam/utils/header_files                             \
        sam/utils/preprocessor                             \
-       thirdparty/CMSIS/Include \
-       ./common/components/memory/sd_mmc/unit_tests/sam3n4c_sam3n_ek/gcc
+       thirdparty/CMSIS/Include                           \
+       thirdparty/CMSIS/Lib/GCC \
+       common/components/memory/sd_mmc/unit_tests/sam3n4c_sam3n_ek/gcc
 
 # Additional search paths for libraries.
-LIB_PATH = 
+LIB_PATH =  \
+       thirdparty/CMSIS/Lib/GCC                          
 
 # List of libraries to use during linking.
-LIBS = 
+LIBS =  \
+       arm_cortexM3l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3n/sam3n4/gcc/flash.ld
@@ -154,10 +159,12 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
+       -D ARM_MATH_CM3=true                               \
        -D BOARD=SAM3N_EK                                  \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_                                 \
-       -D __SAM3N4C__
+       -D __SAM3N4C__                                     \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

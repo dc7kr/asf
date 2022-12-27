@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -298,9 +299,12 @@
 					<state>$PROJ_DIR$/../../../../header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../sam3s8/include</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
@@ -454,6 +458,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -556,9 +561,12 @@
 					<state>$PROJ_DIR$/../../../../header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../sam3s8/include</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
@@ -1071,6 +1079,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -1206,9 +1215,12 @@
 					<state>$PROJ_DIR$/../../../../header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../sam3s8/include</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
@@ -1362,6 +1374,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -1464,9 +1477,12 @@
 					<state>$PROJ_DIR$/../../../../header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../sam3s8/include</state>
+					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
@@ -1829,6 +1845,15 @@
 					<name>$PROJ_DIR$/../../../../../drivers/pio/pio.c</name>
 				</file>
 			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/sleep.c</name>
+				</file>
+			</group>
 		</group>
 		<group>
 			<name>utils</name>
@@ -1885,6 +1910,18 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
 				</file>
+			</group>
+		</group>
+		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam3s</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam3s/sysclk.c</name>
+					</file>
+				</group>
 			</group>
 		</group>
 	</group>

@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../.. ../../../../pmic ../../../../../utils .. ../../../../../../common/services/serial ../../../../../../common/services/ioport ../../../../../../common/services/serial/xmega_usart ../../../../usart ../../../../nvm ../../../../../../common/services/sleepmgr ../../../../../../common/utils ../../.. ../../../../../../common/services/clock ../../../../../../common/utils/stdio/stdio_serial ../../../../../boards/xmega_a1_xplained ../../../../../boards ../../../../../../common/services/gpio ../../../../../../common/boards ../../../../../utils/preprocessor ../../../../dac ../../../../sleep ../../../../cpu
+INCLUDE_PATH           =  ../../../../../boards/xmega_a1_xplained ../../../../../../common/services/serial ../../../../../boards ../../../../pmic ../../../../../../common/services/clock ../../../../cpu ../../../../../../common/utils/stdio/stdio_serial ../../../../../../common/boards ../../../../../utils/preprocessor ../../../../../utils .. ../../../../../../common/services/serial/xmega_usart ../../../../usart ../../../../../../common/utils ../../../../dac ../../../../nvm ../../../../../../common/services/sleepmgr ../../../../sleep ../../../../../../common/services/gpio ../../.. ../../../../../../common/services/ioport
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

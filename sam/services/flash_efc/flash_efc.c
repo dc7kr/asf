@@ -3,7 +3,7 @@
  *
  * \brief Embedded Flash service for SAM.
  *
- * Copyright (c) 2011-2012 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2011-2013 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -137,7 +137,7 @@ static void translate_address(Efc **pp_efc, uint32_t ul_addr,
 	uint16_t us_page;
 	uint16_t us_offset;
 
-#if (SAM3XA || SAM3U4 || SAM4SD16 || SAM4SD32)
+#if (SAM3XA || SAM3U4)
 	if (ul_addr >= IFLASH1_ADDR) {
 		p_efc = EFC1;
 		us_page = (ul_addr - IFLASH1_ADDR) / IFLASH1_PAGE_SIZE;
@@ -147,13 +147,33 @@ static void translate_address(Efc **pp_efc, uint32_t ul_addr,
 		us_page = (ul_addr - IFLASH0_ADDR) / IFLASH0_PAGE_SIZE;
 		us_offset = (ul_addr - IFLASH0_ADDR) % IFLASH0_PAGE_SIZE;
 	}
+#elif (SAM4SD16 || SAM4SD32)
+	uint32_t uc_gpnvm2;
+	uc_gpnvm2 = flash_is_gpnvm_set(2);
+	if (ul_addr >= IFLASH1_ADDR) {
+		if(uc_gpnvm2 == FLASH_RC_YES) {
+			p_efc = EFC0;
+		} else {
+			p_efc = EFC1;
+		}
+		us_page = (ul_addr - IFLASH1_ADDR) / IFLASH1_PAGE_SIZE;
+		us_offset = (ul_addr - IFLASH1_ADDR) % IFLASH1_PAGE_SIZE;
+	} else {
+		if(uc_gpnvm2 == FLASH_RC_YES) {
+			p_efc = EFC1;
+		} else {
+			p_efc = EFC0;
+		}
+		us_page = (ul_addr - IFLASH0_ADDR) / IFLASH0_PAGE_SIZE;
+		us_offset = (ul_addr - IFLASH0_ADDR) % IFLASH0_PAGE_SIZE;
+	}
 #elif (SAM3SD8)
 	p_efc = EFC;
 	us_page = (ul_addr - IFLASH0_ADDR) / IFLASH0_PAGE_SIZE;
 	us_offset = (ul_addr - IFLASH0_ADDR) % IFLASH0_PAGE_SIZE;
 #else
-	assert(ul_addr >= IFLASH_ADDR);
-	assert(ul_addr <= (IFLASH_ADDR + IFLASH_SIZE));
+	Assert(ul_addr >= IFLASH_ADDR);
+	Assert(ul_addr <= (IFLASH_ADDR + IFLASH_SIZE));
 
 	p_efc = EFC;
 	us_page = (ul_addr - IFLASH_ADDR) / IFLASH_PAGE_SIZE;
@@ -190,14 +210,31 @@ static void compute_address(Efc *p_efc, uint16_t us_page, uint16_t us_offset,
 /* Dual bank flash */
 #ifdef EFC1
 	/* Compute address */
+#if (SAM4SD16 || SAM4SD32)
+	uint32_t uc_gpnvm2;
+	uc_gpnvm2 = flash_is_gpnvm_set(2);
+	if (p_efc == EFC0) {
+		if(uc_gpnvm2 == FLASH_RC_YES) {
+			ul_addr = IFLASH1_ADDR + us_page * IFLASH_PAGE_SIZE + us_offset;
+		} else {
+			ul_addr = IFLASH0_ADDR + us_page * IFLASH_PAGE_SIZE + us_offset;
+		}
+	} else {
+		if(uc_gpnvm2 == FLASH_RC_YES) {
+			ul_addr = IFLASH0_ADDR + us_page * IFLASH_PAGE_SIZE + us_offset;
+		} else {
+			ul_addr = IFLASH1_ADDR + us_page * IFLASH_PAGE_SIZE + us_offset;
+		}
+	}
+#else
 	ul_addr = (p_efc == EFC0) ?
 			IFLASH0_ADDR + us_page * IFLASH_PAGE_SIZE + us_offset :
 			IFLASH1_ADDR + us_page * IFLASH_PAGE_SIZE + us_offset;
-
+#endif
 /* One bank flash */
 #else
-	/* Stop warning */
-	p_efc = p_efc;
+	/* avoid Cppcheck Warning */
+	UNUSED(p_efc);
 	/* Compute address */
 	ul_addr = IFLASH_ADDR + us_page * IFLASH_PAGE_SIZE + us_offset;
 #endif
@@ -726,9 +763,17 @@ uint32_t flash_is_locked(uint32_t ul_start, uint32_t ul_end)
 	uint32_t ul_count = 0;
 	uint32_t ul_bit = 0;
 
-	assert(ul_end >= ul_start);
-	assert((ul_start >= IFLASH_ADDR)
-			&& (ul_end <= IFLASH_ADDR + IFLASH_SIZE));
+	Assert(ul_end >= ul_start);
+
+#ifdef EFC1
+	Assert(((ul_start >= IFLASH0_ADDR) 
+				&& (ul_end <= IFLASH0_ADDR + IFLASH0_SIZE))
+				|| ((ul_start >= IFLASH1_ADDR)
+					&& (ul_end <= IFLASH1_ADDR + IFLASH1_SIZE)));
+#else
+	Assert((ul_start >= IFLASH_ADDR) 
+				&& (ul_end <= IFLASH_ADDR + IFLASH_SIZE));
+#endif
 
 	/* Compute page numbers */
 	translate_address(&p_efc, ul_start, &us_start_page, 0);
@@ -741,7 +786,7 @@ uint32_t flash_is_locked(uint32_t ul_start, uint32_t ul_end)
 
 	/* Retrieve lock status */
 	ul_error = efc_perform_command(p_efc, EFC_FCMD_GLB, 0);
-	assert(!ul_error);
+	Assert(!ul_error);
 
 	/* Skip unrequested regions (if necessary) */
 	ul_status = efc_get_result(p_efc);
@@ -828,6 +873,7 @@ uint32_t flash_clear_gpnvm(uint32_t ul_gpnvm)
  *
  * \retval 1 If the given GPNVM bit is currently set.
  * \retval 0 If the given GPNVM bit is currently cleared.
+ * otherwise returns an error code.
  */
 uint32_t flash_is_gpnvm_set(uint32_t ul_gpnvm)
 {
@@ -864,6 +910,7 @@ uint32_t flash_enable_security_bit(void)
  *
  * \retval 1 If the security bit is currently set.
  * \retval 0 If the security bit is currently cleared.
+ * otherwise returns an error code.
  */
 uint32_t flash_is_security_bit_enabled(void)
 {

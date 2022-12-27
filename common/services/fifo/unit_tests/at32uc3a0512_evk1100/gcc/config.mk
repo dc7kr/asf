@@ -97,7 +97,7 @@ INC_PATH = \
        common/services/serial/uc3_usart                   \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./common/services/fifo/unit_tests/at32uc3a0512_evk1100/gcc
+       common/services/fifo/unit_tests/at32uc3a0512_evk1100/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

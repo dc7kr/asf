@@ -162,11 +162,12 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>TFTP_USED=1</state>
-					<state>__SAM3X8H__</state>
 					<state>HTTP_USED=1</state>
-					<state>BOARD=SAM3X_EK</state>
 					<state>FREERTOS_USED</state>
+					<state>TFTP_USED=1</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>BOARD=SAM3X_EK</state>
+					<state>__SAM3X8H__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -325,6 +326,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-port-1.4.0/sam/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/tc</state>
@@ -478,11 +480,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>TFTP_USED=1</state>
-					<state>__SAM3X8H__</state>
 					<state>HTTP_USED=1</state>
-					<state>BOARD=SAM3X_EK</state>
 					<state>FREERTOS_USED</state>
+					<state>TFTP_USED=1</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>BOARD=SAM3X_EK</state>
+					<state>__SAM3X8H__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -608,6 +611,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-port-1.4.0/sam/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/tc</state>
@@ -1120,11 +1124,12 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>TFTP_USED=1</state>
-					<state>__SAM3X8H__</state>
 					<state>HTTP_USED=1</state>
-					<state>BOARD=SAM3X_EK</state>
 					<state>FREERTOS_USED</state>
+					<state>TFTP_USED=1</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>BOARD=SAM3X_EK</state>
+					<state>__SAM3X8H__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1283,6 +1288,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-port-1.4.0/sam/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/tc</state>
@@ -1436,11 +1442,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>TFTP_USED=1</state>
-					<state>__SAM3X8H__</state>
 					<state>HTTP_USED=1</state>
-					<state>BOARD=SAM3X_EK</state>
 					<state>FREERTOS_USED</state>
+					<state>TFTP_USED=1</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>BOARD=SAM3X_EK</state>
+					<state>__SAM3X8H__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1566,6 +1573,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-port-1.4.0/sam/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/tc</state>
@@ -2020,10 +2028,10 @@
 							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/api/sockets.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/api/err.c</name>
+							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/api/api_msg.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/api/api_msg.c</name>
+							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/api/err.c</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/api/tcpip.c</name>
@@ -2170,12 +2178,6 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
-				</file>
-			</group>
-			<group>
 				<name>clock</name>
 				<group>
 					<name>sam3x</name>
@@ -2183,6 +2185,12 @@
 						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam3x/sysclk.c</name>
 					</file>
 				</group>
+			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
 			</group>
 		</group>
 	</group>
@@ -2202,6 +2210,15 @@
 		</group>
 		<group>
 			<name>drivers</name>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+			</group>
 			<group>
 				<name>rstc</name>
 				<file>
@@ -2239,12 +2256,6 @@
 				<name>tc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/drivers/tc/tc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 		</group>

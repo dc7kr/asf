@@ -162,11 +162,12 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>BOARD=SAM3S_EK2</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3SD8C__</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>UDD_ENABLE</state>
-					<state>BOARD=SAM3S_EK2</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -296,15 +297,15 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../serial</state>
-					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils/stdio/stdio_serial</state>
@@ -317,8 +318,9 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/.</state>
@@ -470,11 +472,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>BOARD=SAM3S_EK2</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3SD8C__</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>UDD_ENABLE</state>
-					<state>BOARD=SAM3S_EK2</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -571,15 +574,15 @@
 				<option>
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../serial</state>
-					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils/stdio/stdio_serial</state>
@@ -592,8 +595,9 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1104,11 +1108,12 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>BOARD=SAM3S_EK2</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3SD8C__</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>UDD_ENABLE</state>
-					<state>BOARD=SAM3S_EK2</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1238,15 +1243,15 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../serial</state>
-					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils/stdio/stdio_serial</state>
@@ -1259,8 +1264,9 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1412,11 +1418,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>BOARD=SAM3S_EK2</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3SD8C__</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>UDD_ENABLE</state>
-					<state>BOARD=SAM3S_EK2</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1513,15 +1520,15 @@
 				<option>
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../serial/sam_uart</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../serial</state>
-					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils/stdio/stdio_serial</state>
@@ -1534,8 +1541,9 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1916,6 +1924,12 @@
 		<group>
 			<name>drivers</name>
 			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart/uart.c</name>
+				</file>
+			</group>
+			<group>
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart/usart.c</name>
@@ -1935,11 +1949,8 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
-			</group>
-			<group>
-				<name>uart</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/uart/uart.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>
@@ -1991,36 +2002,6 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>usb</name>
-				<group>
-					<name>class</name>
-					<group>
-						<name>cdc</name>
-						<group>
-							<name>device</name>
-							<group>
-								<name>unit_tests</name>
-								<file>
-									<name>$PROJ_DIR$/../../unit_tests.c</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../udi_cdc.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../udi_cdc_desc.c</name>
-							</file>
-						</group>
-					</group>
-				</group>
-				<group>
-					<name>udc</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../udc/udc.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>sleepmgr</name>
 				<group>
 					<name>sam</name>
@@ -2034,6 +2015,36 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../serial/usart_serial.c</name>
 				</file>
+			</group>
+			<group>
+				<name>usb</name>
+				<group>
+					<name>class</name>
+					<group>
+						<name>cdc</name>
+						<group>
+							<name>device</name>
+							<file>
+								<name>$PROJ_DIR$/../../../udi_cdc.c</name>
+							</file>
+							<group>
+								<name>unit_tests</name>
+								<file>
+									<name>$PROJ_DIR$/../../unit_tests.c</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../udi_cdc_desc.c</name>
+							</file>
+						</group>
+					</group>
+				</group>
+				<group>
+					<name>udc</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../udc/udc.c</name>
+					</file>
+				</group>
 			</group>
 			<group>
 				<name>clock</name>

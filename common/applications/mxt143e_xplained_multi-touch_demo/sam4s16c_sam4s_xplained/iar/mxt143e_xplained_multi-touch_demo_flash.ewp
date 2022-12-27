@@ -1895,42 +1895,6 @@
 			</group>
 		</group>
 		<group>
-			<name>drivers</name>
-			<group>
-				<name>twi</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../sam/drivers/twi/twi.c</name>
-				</file>
-			</group>
-			<group>
-				<name>spi</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../sam/drivers/spi/spi.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pdc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../sam/drivers/pdc/pdc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../sam/drivers/pio/pio_handler.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../sam/drivers/pio/pio.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
 			<name>utils</name>
 			<group>
 				<name>cmsis</name>
@@ -1955,6 +1919,45 @@
 						</group>
 					</group>
 				</group>
+			</group>
+		</group>
+		<group>
+			<name>drivers</name>
+			<group>
+				<name>spi</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/spi/spi.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pdc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/pdc/pdc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>twi</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/twi/twi.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/pio/pio_handler.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/pio/pio.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 		</group>
 	</group>
@@ -1986,13 +1989,13 @@
 					<name>$PROJ_DIR$/../../../../services/gfx/gfx_generic.c</name>
 				</file>
 				<file>
+					<name>$PROJ_DIR$/../../../../services/gfx/gfx_text.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../services/gfx/gfx_ili9341_sdt028atft.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../services/gfx/sysfont.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../services/gfx/gfx_text.c</name>
 				</file>
 			</group>
 			<group>

@@ -162,6 +162,7 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -303,6 +304,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3x_ek</state>
@@ -461,6 +463,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -569,6 +572,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3x_ek</state>
@@ -1086,6 +1090,7 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -1227,6 +1232,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3x_ek</state>
@@ -1385,6 +1391,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -1493,6 +1500,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3x_ek</state>
@@ -1857,6 +1865,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../sleep.c</name>
+				</file>
 				<group>
 					<name>pmc_clock_failure_detect_example</name>
 					<file>
@@ -1918,10 +1929,10 @@
 			<group>
 				<name>sam3x_ek</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../boards/sam3x_ek/init.c</name>
+					<name>$PROJ_DIR$/../../../../../boards/sam3x_ek/led.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../boards/sam3x_ek/led.c</name>
+					<name>$PROJ_DIR$/../../../../../boards/sam3x_ek/init.c</name>
 				</file>
 			</group>
 		</group>
@@ -1931,18 +1942,18 @@
 		<group>
 			<name>utils</name>
 			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
-				</file>
-			</group>
-			<group>
 				<name>interrupt</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+			</group>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
 				</file>
 			</group>
 		</group>

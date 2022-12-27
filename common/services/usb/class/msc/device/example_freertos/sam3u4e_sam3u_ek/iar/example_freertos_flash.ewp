@@ -167,6 +167,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -482,6 +483,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -1123,6 +1125,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -1438,6 +1441,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -2070,6 +2074,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 		</group>

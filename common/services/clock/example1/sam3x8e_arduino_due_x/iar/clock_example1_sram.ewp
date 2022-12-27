@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -301,6 +302,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
@@ -457,6 +459,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -562,6 +565,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
@@ -1077,6 +1081,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1215,6 +1220,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
@@ -1371,6 +1377,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1476,6 +1483,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
@@ -1829,41 +1837,14 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>common</name>
-		<group>
-			<name>services</name>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>sam3x</name>
-					<file>
-						<name>$PROJ_DIR$/../../../sam3x/sysclk.c</name>
-					</file>
-				</group>
-				<group>
-					<name>example1</name>
-					<file>
-						<name>$PROJ_DIR$/../../clock_example1_sam.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-			</group>
-		</group>
-	</group>
-	<group>
 		<name>sam</name>
 		<group>
 			<name>drivers</name>
 			<group>
 				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
@@ -1917,6 +1898,36 @@
 				<name>arduino_due_x</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/boards/arduino_due_x/init.c</name>
+				</file>
+			</group>
+		</group>
+	</group>
+	<group>
+		<name>common</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam3x</name>
+					<file>
+						<name>$PROJ_DIR$/../../../sam3x/sysclk.c</name>
+					</file>
+				</group>
+				<group>
+					<name>example1</name>
+					<file>
+						<name>$PROJ_DIR$/../../clock_example1_sam.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
 				</file>
 			</group>
 		</group>

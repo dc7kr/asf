@@ -90,7 +90,7 @@ INC_PATH = \
        common/services/spi/master_example/at32uc3a0512_evk1105 \
        common/services/spi/uc3_spi                        \
        common/utils \
-       ./common/services/spi/master_example/at32uc3a0512_evk1105/gcc
+       common/services/spi/master_example/at32uc3a0512_evk1105/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

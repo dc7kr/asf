@@ -107,7 +107,7 @@ INC_PATH = \
        common/services/usb/class/hid/device/mouse/example/at32uc3a0512_evk1100 \
        common/services/usb/udc                            \
        common/utils \
-       ./common/services/usb/class/hid/device/mouse/example/at32uc3a0512_evk1100/gcc
+       common/services/usb/class/hid/device/mouse/example/at32uc3a0512_evk1100/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

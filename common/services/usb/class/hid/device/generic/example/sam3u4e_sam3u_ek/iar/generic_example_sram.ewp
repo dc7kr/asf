@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -298,6 +299,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../clock</state>
@@ -465,6 +467,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -567,6 +570,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../clock</state>
@@ -1093,6 +1097,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -1228,6 +1233,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../clock</state>
@@ -1395,6 +1401,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -1497,6 +1504,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../clock</state>
@@ -1970,6 +1978,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>

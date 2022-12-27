@@ -103,7 +103,7 @@ INC_PATH = \
        common/services/delay                              \
        common/services/sleepmgr                           \
        common/utils \
-       ./avr32/drivers/adcifb/example2/at32uc3l064_uc3_l0_xplained/gcc
+       avr32/drivers/adcifb/example2/at32uc3l064_uc3_l0_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

@@ -27,8 +27,8 @@
 				</option>
 				<option>
 					<name>Variant</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GEndianMode</name>
@@ -59,7 +59,7 @@
 				<option>
 					<name>FPU</name>
 					<version>2</version>
-					<state>0</state>
+					<state>5</state>
 				</option>
 				<option>
 					<name>OGCoreOrChip</name>
@@ -135,13 +135,13 @@
 				</option>
 				<option>
 					<name>GFPUCoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GBECoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>OGUseCmsis</name>
@@ -299,12 +299,13 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/source/templates</state>
@@ -567,12 +568,13 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/source/templates</state>
@@ -955,8 +957,8 @@
 				</option>
 				<option>
 					<name>Variant</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GEndianMode</name>
@@ -987,7 +989,7 @@
 				<option>
 					<name>FPU</name>
 					<version>2</version>
-					<state>0</state>
+					<state>5</state>
 				</option>
 				<option>
 					<name>OGCoreOrChip</name>
@@ -1063,13 +1065,13 @@
 				</option>
 				<option>
 					<name>GFPUCoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GBECoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>OGUseCmsis</name>
@@ -1227,12 +1229,13 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/source/templates</state>
@@ -1495,12 +1498,13 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/source/templates</state>
@@ -1898,6 +1902,9 @@
 						<name>$PROJ_DIR$/../../unit_tests.c</name>
 					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>uart</name>

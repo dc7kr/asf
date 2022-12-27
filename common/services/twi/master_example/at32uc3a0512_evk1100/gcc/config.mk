@@ -89,7 +89,7 @@ INC_PATH = \
        common/services/twi/master_example                 \
        common/services/twi/master_example/at32uc3a0512_evk1100 \
        common/utils \
-       ./common/services/twi/master_example/at32uc3a0512_evk1100/gcc
+       common/services/twi/master_example/at32uc3a0512_evk1100/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

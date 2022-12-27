@@ -295,7 +295,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/ebi/smc</state>
@@ -315,7 +315,8 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -565,7 +566,7 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/ebi/smc</state>
@@ -585,7 +586,8 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1227,7 +1229,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/ebi/smc</state>
@@ -1247,7 +1249,8 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1497,7 +1500,7 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/ebi/smc</state>
@@ -1517,7 +1520,8 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1867,69 +1871,6 @@
 	<group>
 		<name>sam</name>
 		<group>
-			<name>drivers</name>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/pio/pio.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/pio/pio_handler.c</name>
-				</file>
-			</group>
-			<group>
-				<name>ebi</name>
-				<group>
-					<name>smc</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../drivers/ebi/smc/smc.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>usart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/usart/usart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/uart/uart.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>components</name>
-			<group>
-				<name>display</name>
-				<group>
-					<name>ili9325</name>
-					<file>
-						<name>$PROJ_DIR$/../../../ili9325.c</name>
-					</file>
-					<group>
-						<name>example</name>
-						<file>
-							<name>$PROJ_DIR$/../../ili9325_example.c</name>
-						</file>
-					</group>
-				</group>
-				<group>
-					<name>aat31xx</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../aat31xx/aat31xx.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
 			<name>utils</name>
 			<group>
 				<name>cmsis</name>
@@ -1968,6 +1909,72 @@
 				</file>
 			</group>
 		</group>
+		<group>
+			<name>drivers</name>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pio/pio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pio/pio_handler.c</name>
+				</file>
+			</group>
+			<group>
+				<name>ebi</name>
+				<group>
+					<name>smc</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../drivers/ebi/smc/smc.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/usart/usart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/uart/uart.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>components</name>
+			<group>
+				<name>display</name>
+				<group>
+					<name>ili9325</name>
+					<group>
+						<name>example</name>
+						<file>
+							<name>$PROJ_DIR$/../../ili9325_example.c</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../ili9325.c</name>
+					</file>
+				</group>
+				<group>
+					<name>aat31xx</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../aat31xx/aat31xx.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
 	</group>
 	<group>
 		<name>common</name>
@@ -1992,12 +1999,6 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../common/services/serial/usart_serial.c</name>
-				</file>
-			</group>
-			<group>
 				<name>clock</name>
 				<group>
 					<name>sam4s</name>
@@ -2005,6 +2006,12 @@
 						<name>$PROJ_DIR$/../../../../../../../common/services/clock/sam4s/sysclk.c</name>
 					</file>
 				</group>
+			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
 			</group>
 		</group>
 	</group>

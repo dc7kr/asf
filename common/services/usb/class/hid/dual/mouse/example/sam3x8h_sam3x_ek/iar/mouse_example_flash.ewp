@@ -164,6 +164,7 @@
 					<name>CCDefines</name>
 					<state>UHD_ENABLE</state>
 					<state>__SAM3X8H__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>UDD_ENABLE</state>
 				</option>
@@ -317,6 +318,7 @@
 					<state>$PROJ_DIR$/../../../../../device</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -470,6 +472,7 @@
 					<name>ADefines</name>
 					<state>UHD_ENABLE</state>
 					<state>__SAM3X8H__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>UDD_ENABLE</state>
 				</option>
@@ -590,6 +593,7 @@
 					<state>$PROJ_DIR$/../../../../../device</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1102,6 +1106,7 @@
 					<name>CCDefines</name>
 					<state>UHD_ENABLE</state>
 					<state>__SAM3X8H__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>UDD_ENABLE</state>
 				</option>
@@ -1255,6 +1260,7 @@
 					<state>$PROJ_DIR$/../../../../../device</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1408,6 +1414,7 @@
 					<name>ADefines</name>
 					<state>UHD_ENABLE</state>
 					<state>__SAM3X8H__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>UDD_ENABLE</state>
 				</option>
@@ -1528,6 +1535,7 @@
 					<state>$PROJ_DIR$/../../../../../device</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1990,6 +1998,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>pio</name>
@@ -2008,33 +2019,6 @@
 			</group>
 		</group>
 		<group>
-			<name>utils</name>
-			<group>
-				<name>cmsis</name>
-				<group>
-					<name>sam3x</name>
-					<group>
-						<name>source</name>
-						<group>
-							<name>templates</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
-							</file>
-							<group>
-								<name>iar</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/iar/startup_sam3x.c</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/exceptions.c</name>
-							</file>
-						</group>
-					</group>
-				</group>
-			</group>
-		</group>
-		<group>
 			<name>boards</name>
 			<group>
 				<name>sam3x_ek</name>
@@ -2044,6 +2028,33 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam3x_ek/led.c</name>
 				</file>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>cmsis</name>
+				<group>
+					<name>sam3x</name>
+					<group>
+						<name>source</name>
+						<group>
+							<name>templates</name>
+							<group>
+								<name>iar</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/iar/startup_sam3x.c</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/exceptions.c</name>
+							</file>
+						</group>
+					</group>
+				</group>
 			</group>
 		</group>
 	</group>

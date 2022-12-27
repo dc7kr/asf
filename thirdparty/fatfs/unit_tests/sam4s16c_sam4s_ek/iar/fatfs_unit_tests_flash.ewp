@@ -303,6 +303,7 @@
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards/sam4s_ek</state>
@@ -582,6 +583,7 @@
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards/sam4s_ek</state>
@@ -1253,6 +1255,7 @@
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards/sam4s_ek</state>
@@ -1532,6 +1535,7 @@
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../sam/boards/sam4s_ek</state>
@@ -1918,6 +1922,9 @@
 									<name>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/iar/lib_nand_flash_cortexm4.a</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/nand_flash_mem.c</name>
+							</file>
 						</group>
 						<file>
 							<name>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/nand_flash_ecc_sw.c</name>
@@ -2065,6 +2072,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>ebi</name>
@@ -2104,7 +2114,7 @@
 				<group>
 					<name>sam</name>
 					<file>
-						<name>$PROJ_DIR$/../../../fatfs-port-r0.09/sam/fattime.c</name>
+						<name>$PROJ_DIR$/../../../fatfs-port-r0.09/sam/fattime_rtc.c</name>
 					</file>
 				</group>
 				<file>

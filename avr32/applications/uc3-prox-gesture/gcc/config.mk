@@ -132,7 +132,7 @@ INC_PATH = \
        common/services/twi                                \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./avr32/applications/uc3-prox-gesture/gcc         
+       avr32/applications/uc3-prox-gesture/gcc           
 
 # Additional search paths for libraries.
 LIB_PATH = 

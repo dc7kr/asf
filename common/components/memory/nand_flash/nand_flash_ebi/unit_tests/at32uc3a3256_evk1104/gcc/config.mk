@@ -109,7 +109,7 @@ INC_PATH = \
        common/services/storage/ecc_hamming                \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./common/components/memory/nand_flash/nand_flash_ebi/unit_tests/at32uc3a3256_evk1104/gcc
+       common/components/memory/nand_flash/nand_flash_ebi/unit_tests/at32uc3a3256_evk1104/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 
@@ -126,7 +126,7 @@ DBGFLAGS =
 
 # Application optimization used during compilation and linking:
 # -O0, -O1, -O2, -O3 or -Os
-OPTIMIZATION = -O1
+OPTIMIZATION = -Os
 
 # Extra flags to use when archiving.
 ARFLAGS = 

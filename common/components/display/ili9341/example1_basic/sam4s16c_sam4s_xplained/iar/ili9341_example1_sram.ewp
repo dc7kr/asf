@@ -1890,15 +1890,24 @@
 			<group>
 				<name>sam4s_xplained</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam4s_xplained/led.c</name>
+					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam4s_xplained/init.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam4s_xplained/init.c</name>
+					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam4s_xplained/led.c</name>
 				</file>
 			</group>
 		</group>
 		<group>
 			<name>drivers</name>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+			</group>
 			<group>
 				<name>pio</name>
 				<file>
@@ -1906,12 +1915,6 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio_handler.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 			<group>

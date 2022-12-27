@@ -52,12 +52,14 @@ TARGET_SRAM = examples_arm_linear_interp_example_sram.elf
 
 # List of C source files.
 CSRCS = \
+       common/services/clock/sam4s/sysclk.c               \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam4s_xplained/init.c                   \
        sam/boards/sam4s_xplained/led.c                    \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
@@ -72,7 +74,9 @@ ASSRCS =
 # List of include paths.
 INC_PATH = \
        common/boards                                      \
+       common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/utils                                       \
        sam/boards                                         \
        sam/boards/sam4s_xplained                          \
@@ -88,7 +92,7 @@ INC_PATH = \
        thirdparty/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/sam4s16c_sam4s_xplained \
        thirdparty/CMSIS/Include                           \
        thirdparty/CMSIS/Lib/GCC \
-       ./thirdparty/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/sam4s16c_sam4s_xplained/gcc
+       thirdparty/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/sam4s16c_sam4s_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
@@ -96,7 +100,8 @@ LIB_PATH =  \
 
 # List of libraries to use during linking.
 LIBS =  \
-       arm_cortexM4l_math                                
+       arm_cortexM4l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam4s/sam4s16/gcc/flash.ld
@@ -138,7 +143,8 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM4=true                               \
        -D BOARD=SAM4S_XPLAINED                            \
-       -D __SAM4S16C__
+       -D __SAM4S16C__                                    \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

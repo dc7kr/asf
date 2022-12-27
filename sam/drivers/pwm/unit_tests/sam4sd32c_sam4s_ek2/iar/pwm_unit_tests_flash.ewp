@@ -315,6 +315,7 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -586,6 +587,7 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1249,6 +1251,7 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1520,6 +1523,7 @@
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1899,6 +1903,9 @@
 			<group>
 				<name>pmc</name>
 				<file>
+					<name>$PROJ_DIR$/../../../../pmc/sleep.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
 				</file>
 			</group>
@@ -1965,10 +1972,10 @@
 			<group>
 				<name>stdio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
 				</file>
 			</group>
 			<group>

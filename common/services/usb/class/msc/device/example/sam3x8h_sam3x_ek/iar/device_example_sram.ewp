@@ -166,6 +166,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -481,6 +482,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -794,7 +796,7 @@
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
-					<state></state>
+					<state>--config_def __ICFEDIT_size_cstack__=16K</state>
 				</option>
 				<option>
 					<name>IlinkLowLevelInterfaceSlave</name>
@@ -1122,6 +1124,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -1437,6 +1440,7 @@
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -1750,7 +1754,7 @@
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
-					<state></state>
+					<state>--config_def __ICFEDIT_size_cstack__=16K</state>
 				</option>
 				<option>
 					<name>IlinkLowLevelInterfaceSlave</name>
@@ -1930,6 +1934,9 @@
 									<name>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi/ftl_lib/iar/lib_nand_flash_cortexm3.a</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi/ftl_lib/nand_flash_mem.c</name>
+							</file>
 						</group>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../components/memory/nand_flash/nand_flash_ebi/nand_flash_spare_scheme.c</name>
@@ -1964,21 +1971,6 @@
 		</group>
 		<group>
 			<name>services</name>
-			<group>
-				<name>storage</name>
-				<group>
-					<name>ctrl_access</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../storage/ctrl_access/ctrl_access.c</name>
-					</file>
-				</group>
-				<group>
-					<name>ecc_hamming</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../storage/ecc_hamming/ecc-sw.c</name>
-					</file>
-				</group>
-			</group>
 			<group>
 				<name>sleepmgr</name>
 				<group>
@@ -2033,6 +2025,21 @@
 					<name>sam</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../delay/sam/cycle_counter.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>storage</name>
+				<group>
+					<name>ctrl_access</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../storage/ctrl_access/ctrl_access.c</name>
+					</file>
+				</group>
+				<group>
+					<name>ecc_hamming</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../storage/ecc_hamming/ecc-sw.c</name>
 					</file>
 				</group>
 			</group>
@@ -2112,6 +2119,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 		</group>

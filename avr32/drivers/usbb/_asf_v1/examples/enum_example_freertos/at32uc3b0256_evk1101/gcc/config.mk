@@ -54,7 +54,7 @@ PROG_CLOCK = int
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET = freertos_example.elf
+TARGET = usbb_example.elf
 
 # List of C source files.
 CSRCS = \
@@ -121,7 +121,7 @@ INC_PATH = \
        common/utils                                       \
        thirdparty/freertos/freertos-7.0.0/source/include  \
        thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3 \
-       ./avr32/drivers/usbb/_asf_v1/examples/enum_example_freertos/at32uc3b0256_evk1101/gcc
+       avr32/drivers/usbb/_asf_v1/examples/enum_example_freertos/at32uc3b0256_evk1101/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

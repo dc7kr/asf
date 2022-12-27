@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3N4C__</state>
 				</option>
 				<option>
@@ -314,6 +315,7 @@
 					<state>$PROJ_DIR$/../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/.</state>
@@ -466,6 +468,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3N4C__</state>
 				</option>
 				<option>
@@ -584,6 +587,7 @@
 					<state>$PROJ_DIR$/../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1095,6 +1099,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3N4C__</state>
 				</option>
 				<option>
@@ -1246,6 +1251,7 @@
 					<state>$PROJ_DIR$/../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1398,6 +1404,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3N4C__</state>
 				</option>
 				<option>
@@ -1516,6 +1523,7 @@
 					<state>$PROJ_DIR$/../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1884,15 +1892,18 @@
 				</file>
 			</group>
 			<group>
-				<name>usart</name>
+				<name>pmc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/usart/usart.c</name>
+					<name>$PROJ_DIR$/../../../../../../drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
+				<name>usart</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/pmc/pmc.c</name>
+					<name>$PROJ_DIR$/../../../../../../drivers/usart/usart.c</name>
 				</file>
 			</group>
 			<group>
@@ -1900,6 +1911,30 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/uart/uart.c</name>
 				</file>
+			</group>
+		</group>
+		<group>
+			<name>components</name>
+			<group>
+				<name>display</name>
+				<group>
+					<name>ili9225</name>
+					<file>
+						<name>$PROJ_DIR$/../../../ili9225.c</name>
+					</file>
+					<group>
+						<name>example</name>
+						<file>
+							<name>$PROJ_DIR$/../../ili9225_example.c</name>
+						</file>
+					</group>
+				</group>
+				<group>
+					<name>aat31xx</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../aat31xx/aat31xx.c</name>
+					</file>
+				</group>
 			</group>
 		</group>
 		<group>
@@ -1912,9 +1947,6 @@
 						<name>source</name>
 						<group>
 							<name>templates</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3n/source/templates/exceptions.c</name>
-							</file>
 							<group>
 								<name>iar</name>
 								<file>
@@ -1924,32 +1956,11 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3n/source/templates/system_sam3n.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3n/source/templates/exceptions.c</name>
+							</file>
 						</group>
 					</group>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>components</name>
-			<group>
-				<name>display</name>
-				<group>
-					<name>ili9225</name>
-					<group>
-						<name>example</name>
-						<file>
-							<name>$PROJ_DIR$/../../ili9225_example.c</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../ili9225.c</name>
-					</file>
-				</group>
-				<group>
-					<name>aat31xx</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../aat31xx/aat31xx.c</name>
-					</file>
 				</group>
 			</group>
 		</group>

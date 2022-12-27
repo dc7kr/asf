@@ -96,7 +96,7 @@ INC_PATH = \
        common/services/sleepmgr                           \
        common/services/sleepmgr/example/at32uc3a3256_evk1104 \
        common/utils \
-       ./common/services/sleepmgr/example/at32uc3a3256_evk1104/gcc
+       common/services/sleepmgr/example/at32uc3a3256_evk1104/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -296,6 +297,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3u/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -465,6 +467,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -565,6 +568,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3u/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -1093,6 +1097,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -1226,6 +1231,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3u/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -1395,6 +1401,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -1495,6 +1502,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3u/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -1947,15 +1955,15 @@
 						<name>source</name>
 						<group>
 							<name>templates</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3u/source/templates/system_sam3u.c</name>
+							</file>
 							<group>
 								<name>iar</name>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3u/source/templates/iar/startup_sam3u.c</name>
 								</file>
 							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3u/source/templates/system_sam3u.c</name>
-							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3u/source/templates/exceptions.c</name>
 							</file>
@@ -1970,6 +1978,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>

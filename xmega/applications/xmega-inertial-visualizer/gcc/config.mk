@@ -118,7 +118,7 @@ INC_PATH = \
        xmega/drivers/usb                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/applications/xmega-inertial-visualizer/gcc
+       xmega/applications/xmega-inertial-visualizer/gcc  
 
 # Library paths from the top-level source directory
 LIB_PATH = 

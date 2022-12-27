@@ -105,7 +105,7 @@ INC_PATH = \
        common/utils/membag                                \
        common/utils/membag/unit_tests/at32uc3l064_uc3_l0_xplained \
        common/utils/stdio/stdio_serial \
-       ./common/utils/membag/unit_tests/at32uc3l064_uc3_l0_xplained/gcc
+       common/utils/membag/unit_tests/at32uc3l064_uc3_l0_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

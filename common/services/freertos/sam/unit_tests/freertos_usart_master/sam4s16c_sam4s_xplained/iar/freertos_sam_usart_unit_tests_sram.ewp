@@ -317,6 +317,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/.</state>
@@ -590,6 +591,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1255,6 +1257,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1528,6 +1531,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../boards</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1974,18 +1978,18 @@
 				</file>
 			</group>
 			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../utils/stdio/write.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../utils/stdio/read.c</name>
-				</file>
-			</group>
-			<group>
 				<name>unit_test</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../utils/unit_test/suite.c</name>
+				</file>
+			</group>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../utils/stdio/read.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../utils/stdio/write.c</name>
 				</file>
 			</group>
 		</group>
@@ -1994,12 +1998,6 @@
 		<name>sam</name>
 		<group>
 			<name>drivers</name>
-			<group>
-				<name>pdc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pdc/pdc.c</name>
-				</file>
-			</group>
 			<group>
 				<name>usart</name>
 				<file>
@@ -2016,15 +2014,24 @@
 				</file>
 			</group>
 			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
 				<name>uart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/uart/uart.c</name>
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
+				<name>pdc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/pmc.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pdc/pdc.c</name>
 				</file>
 			</group>
 		</group>

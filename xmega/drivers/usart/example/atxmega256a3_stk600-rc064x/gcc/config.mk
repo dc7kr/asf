@@ -73,7 +73,7 @@ INC_PATH = \
        xmega/drivers/usart/example/atxmega256a3_stk600-rc064x \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/drivers/usart/example/atxmega256a3_stk600-rc064x/gcc
+       xmega/drivers/usart/example/atxmega256a3_stk600-rc064x/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

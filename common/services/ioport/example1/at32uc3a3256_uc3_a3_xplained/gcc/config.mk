@@ -89,7 +89,7 @@ INC_PATH = \
        common/services/ioport/example1                    \
        common/services/ioport/example1/at32uc3a3256_uc3_a3_xplained \
        common/utils \
-       ./common/services/ioport/example1/at32uc3a3256_uc3_a3_xplained/gcc
+       common/services/ioport/example1/at32uc3a3256_uc3_a3_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

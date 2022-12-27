@@ -82,11 +82,13 @@
 
 // From module: Power Management
 #include <bpm.h>
-#include <sleep.h>
 
 // From module: SAM4L startup code
 #include <exceptions.h>
 #include <system_sam4l.h>
+
+// From module: SAM4L-EK LED support enabled
+#include <led.h>
 
 // From module: Sleep manager - SAM4L implementation
 #include <sam4l/sleepmgr.h>

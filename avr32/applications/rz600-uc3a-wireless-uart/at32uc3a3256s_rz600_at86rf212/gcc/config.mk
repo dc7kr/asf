@@ -110,7 +110,7 @@ INC_PATH = \
        common/services/usb/class/cdc/device               \
        common/services/usb/udc                            \
        common/utils \
-       ./avr32/applications/rz600-uc3a-wireless-uart/at32uc3a3256s_rz600_at86rf212/gcc
+       avr32/applications/rz600-uc3a-wireless-uart/at32uc3a3256s_rz600_at86rf212/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

@@ -103,7 +103,7 @@ INC_PATH = \
        common/services/twi                                \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./common/components/touch/mxt/example_usart/at32uc3l064_xplained/gcc
+       common/components/touch/mxt/example_usart/at32uc3l064_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

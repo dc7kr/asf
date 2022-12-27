@@ -114,7 +114,7 @@ INC_PATH = \
        common/boards                                      \
        common/utils                                       \
        thirdparty/newlib_addons/libs/include \
-       ./avr32/services/usb/_asf_v1/class/hid/examples/prj_standalone/at32uc3a3256_evk1104/gcc
+       avr32/services/usb/_asf_v1/class/hid/examples/prj_standalone/at32uc3a3256_evk1104/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \

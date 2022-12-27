@@ -162,11 +162,12 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>BOARD=SAM3S_EK2</state>
 					<state>__SAM3SD8C__</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>UDD_ENABLE</state>
-					<state>BOARD=SAM3S_EK2</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>VIRTUAL_MEMORY_ENABLE</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -302,13 +303,13 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../cdc</state>
 					<state>$PROJ_DIR$/../../../../../msc/device</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
@@ -319,6 +320,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -471,11 +473,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>BOARD=SAM3S_EK2</state>
 					<state>__SAM3SD8C__</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>UDD_ENABLE</state>
-					<state>BOARD=SAM3S_EK2</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>VIRTUAL_MEMORY_ENABLE</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -578,13 +581,13 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../cdc</state>
 					<state>$PROJ_DIR$/../../../../../msc/device</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
@@ -595,6 +598,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -1106,11 +1110,12 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>BOARD=SAM3S_EK2</state>
 					<state>__SAM3SD8C__</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>UDD_ENABLE</state>
-					<state>BOARD=SAM3S_EK2</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>VIRTUAL_MEMORY_ENABLE</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1246,13 +1251,13 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../cdc</state>
 					<state>$PROJ_DIR$/../../../../../msc/device</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
@@ -1263,6 +1268,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -1415,11 +1421,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>BOARD=SAM3S_EK2</state>
 					<state>__SAM3SD8C__</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>UDD_ENABLE</state>
-					<state>BOARD=SAM3S_EK2</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>VIRTUAL_MEMORY_ENABLE</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1522,13 +1529,13 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../cdc</state>
 					<state>$PROJ_DIR$/../../../../../msc/device</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
@@ -1539,6 +1546,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -1939,6 +1947,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>udp</name>
@@ -1999,6 +2010,9 @@
 						<name>composite</name>
 						<group>
 							<name>device</name>
+							<file>
+								<name>$PROJ_DIR$/../../../udi_composite_desc.c</name>
+							</file>
 							<group>
 								<name>example4</name>
 								<file>
@@ -2017,9 +2031,6 @@
 									<name>$PROJ_DIR$/../../main.c</name>
 								</file>
 							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../udi_composite_desc.c</name>
-							</file>
 						</group>
 					</group>
 					<group>

@@ -74,6 +74,7 @@ CSRCS = \
        common/services/gfx/gfx_text.c                     \
        common/services/gfx/sysfont.c                      \
        common/services/spi/uc3_spi/spi_master.c           \
+       common/services/wtk/example1_widgets/at32uc3a3256_uc3_a3_xplained/touch_interface.c \
        common/services/wtk/example1_widgets/example1.c    \
        common/services/wtk/example1_widgets/widget_gui.c  \
        common/services/wtk/win.c                          \
@@ -124,7 +125,7 @@ INC_PATH = \
        common/services/wtk/example1_widgets/at32uc3a3256_uc3_a3_xplained \
        common/utils                                       \
        common/utils/membag \
-       ./common/services/wtk/example1_widgets/at32uc3a3256_uc3_a3_xplained/gcc
+       common/services/wtk/example1_widgets/at32uc3a3256_uc3_a3_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

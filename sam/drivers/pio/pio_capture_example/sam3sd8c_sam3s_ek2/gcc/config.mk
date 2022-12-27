@@ -53,6 +53,7 @@ TARGET_SRAM = pio_capture_example_sram.elf
 # List of C source files.
 CSRCS = \
        common/services/clock/sam3s/sysclk.c               \
+       common/services/delay/sam/cycle_counter.c          \
        common/services/serial/usart_serial.c              \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        common/utils/stdio/read.c                          \
@@ -62,8 +63,9 @@ CSRCS = \
        sam/drivers/pdc/pdc.c                              \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_capture_example/pio_capture_example.c \
-       sam/drivers/pio/pio_capture_example/pio_handler_with_capture.c \
+       sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam3s8/source/templates/exceptions.c \
@@ -78,7 +80,9 @@ ASSRCS =
 INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
        common/utils                                       \
@@ -97,14 +101,18 @@ INC_PATH = \
        sam/utils/cmsis/sam3s8/source/templates            \
        sam/utils/header_files                             \
        sam/utils/preprocessor                             \
-       thirdparty/CMSIS/Include \
-       ./sam/drivers/pio/pio_capture_example/sam3sd8c_sam3s_ek2/gcc
+       thirdparty/CMSIS/Include                           \
+       thirdparty/CMSIS/Lib/GCC \
+       sam/drivers/pio/pio_capture_example/sam3sd8c_sam3s_ek2/gcc
 
 # Additional search paths for libraries.
-LIB_PATH = 
+LIB_PATH =  \
+       thirdparty/CMSIS/Lib/GCC                          
 
 # List of libraries to use during linking.
-LIBS = 
+LIBS =  \
+       arm_cortexM3l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3s/sam3sd8/gcc/flash.ld
@@ -144,8 +152,10 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
+       -D ARM_MATH_CM3=true                               \
        -D BOARD=SAM3S_EK2                                 \
-       -D __SAM3SD8C__
+       -D __SAM3SD8C__                                    \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

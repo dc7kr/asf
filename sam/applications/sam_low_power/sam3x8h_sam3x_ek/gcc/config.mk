@@ -57,7 +57,7 @@ CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
-       sam/applications/sam_low_power/low_power_example.c \
+       sam/applications/sam_low_power/main.c              \
        sam/applications/sam_low_power/sam3x8h_sam3x_ek/low_power_board.c \
        sam/boards/sam3x_ek/init.c                         \
        sam/boards/sam3x_ek/led.c                          \
@@ -68,6 +68,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/supc/supc.c                            \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
@@ -85,6 +86,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
        common/utils                                       \
@@ -107,14 +109,18 @@ INC_PATH = \
        sam/utils/cmsis/sam3x/source/templates             \
        sam/utils/header_files                             \
        sam/utils/preprocessor                             \
-       thirdparty/CMSIS/Include \
-       ./sam/applications/sam_low_power/sam3x8h_sam3x_ek/gcc
+       thirdparty/CMSIS/Include                           \
+       thirdparty/CMSIS/Lib/GCC \
+       sam/applications/sam_low_power/sam3x8h_sam3x_ek/gcc
 
 # Additional search paths for libraries.
-LIB_PATH = 
+LIB_PATH =  \
+       thirdparty/CMSIS/Lib/GCC                          
 
 # List of libraries to use during linking.
-LIBS = 
+LIBS =  \
+       arm_cortexM3l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3x/sam3x8/gcc/flash.ld
@@ -125,7 +131,7 @@ DEBUG_SCRIPT_FLASH = sam/boards/sam3x_ek/debug_scripts/gcc/sam3x_ek_flash.gdb
 DEBUG_SCRIPT_SRAM  = sam/boards/sam3x_ek/debug_scripts/gcc/sam3x_ek_sram.gdb
 
 # Project type parameter: all, sram or flash
-PROJECT_TYPE        = all
+PROJECT_TYPE        = flash
 
 # Additional options for debugging. By default the common Makefile.in will
 # add -g3.
@@ -154,8 +160,10 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
+       -D ARM_MATH_CM3=true                               \
        -D BOARD=SAM3X_EK                                  \
-       -D __SAM3X8H__
+       -D __SAM3X8H__                                     \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

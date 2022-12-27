@@ -109,7 +109,7 @@ INC_PATH = \
        xmega/drivers/usart                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/applications/mxt143e_xplained_calculator_demo/atxmega128b1_xmega_b1_xplained/gcc
+       common/applications/mxt143e_xplained_calculator_demo/atxmega128b1_xmega_b1_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

@@ -98,7 +98,7 @@ INC_PATH = \
        xmega/drivers/usb                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/services/usb/class/hid/device/mouse/unit_tests/atxmega256a3bu_stk600-rc064x/gcc
+       common/services/usb/class/hid/device/mouse/unit_tests/atxmega256a3bu_stk600-rc064x/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

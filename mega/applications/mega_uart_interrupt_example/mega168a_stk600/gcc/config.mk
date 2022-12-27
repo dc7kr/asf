@@ -61,7 +61,7 @@ INC_PATH = \
        mega/applications/mega_uart_interrupt_example      \
        mega/applications/mega_uart_interrupt_example/mega168a_stk600 \
        mega/utils \
-       ./mega/applications/mega_uart_interrupt_example/mega168a_stk600/gcc
+       mega/applications/mega_uart_interrupt_example/mega168a_stk600/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

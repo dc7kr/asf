@@ -294,9 +294,9 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../../utils/membag</state>
 					<state>$PROJ_DIR$/../../../../spi/sam_spi</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
@@ -310,7 +310,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../../utils/membag</state>
+					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
@@ -570,9 +570,9 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
+					<state>$PROJ_DIR$/../../../../../utils/membag</state>
 					<state>$PROJ_DIR$/../../../../spi/sam_spi</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
@@ -586,7 +586,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../../utils/membag</state>
+					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
@@ -1238,9 +1238,9 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../../utils/membag</state>
 					<state>$PROJ_DIR$/../../../../spi/sam_spi</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
@@ -1254,7 +1254,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../../utils/membag</state>
+					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
@@ -1514,9 +1514,9 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
+					<state>$PROJ_DIR$/../../../../../utils/membag</state>
 					<state>$PROJ_DIR$/../../../../spi/sam_spi</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
@@ -1530,7 +1530,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
-					<state>$PROJ_DIR$/../../../../../utils/membag</state>
+					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
@@ -1893,15 +1893,18 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>pdc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pdc/pdc.c</name>
-				</file>
-			</group>
-			<group>
 				<name>twi</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/drivers/twi/twi.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 			<group>
@@ -1920,9 +1923,9 @@
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
+				<name>pdc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pdc/pdc.c</name>
 				</file>
 			</group>
 		</group>
@@ -1983,6 +1986,12 @@
 					<file>
 						<name>$PROJ_DIR$/../../widget_gui.c</name>
 					</file>
+					<group>
+						<name>sam4s16c_sam4s_xplained</name>
+						<file>
+							<name>$PROJ_DIR$/../touch_interface.c</name>
+						</file>
+					</group>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../wtk.c</name>

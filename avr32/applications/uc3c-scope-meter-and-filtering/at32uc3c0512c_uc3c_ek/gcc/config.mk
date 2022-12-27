@@ -128,7 +128,7 @@ INC_PATH = \
        common/services/delay                              \
        common/services/sleepmgr                           \
        common/utils \
-       ./avr32/applications/uc3c-scope-meter-and-filtering/at32uc3c0512c_uc3c_ek/gcc
+       avr32/applications/uc3c-scope-meter-and-filtering/at32uc3c0512c_uc3c_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \

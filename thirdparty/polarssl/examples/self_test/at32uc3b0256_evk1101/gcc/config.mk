@@ -119,7 +119,7 @@ INC_PATH = \
        thirdparty/polarssl                                \
        thirdparty/polarssl/examples/self_test/at32uc3b0256_evk1101 \
        thirdparty/polarssl/include \
-       ./thirdparty/polarssl/examples/self_test/at32uc3b0256_evk1101/gcc
+       thirdparty/polarssl/examples/self_test/at32uc3b0256_evk1101/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

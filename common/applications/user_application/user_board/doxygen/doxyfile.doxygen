@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../../../boards/user_board/init.c ../../../../../sam/utils/cmsis/sam4l/source/templates/exceptions.c ../../main.c ../../../../utils/interrupt/interrupt_sam_nvic.c  ../../../../../sam/utils/preprocessor/mrepeat.h ../../../../../sam/utils/cmsis/sam4l/source/templates/system_sam4l.h ../../../../utils/parts.h ../../../../../sam/utils/cmsis/sam4l/include/sam4l_patch_asf.h ../../../../boards/board.h ../../../../../sam/utils/preprocessor/preprocessor.h ../../../../../sam/utils/header_files/io.h ../../../../utils/interrupt/interrupt_sam_nvic.h ../../../../../sam/utils/status_codes.h ../../../../../sam/utils/cmsis/sam4l/include/sam4l.h ../../../../boards/user_board/user_board.h ../../../../utils/interrupt.h ../../../../../sam/utils/preprocessor/stringz.h ../conf_board.h ../../../../../sam/utils/cmsis/sam4l/source/templates/exceptions.h ../../../../../sam/utils/preprocessor/tpaste.h ../../../../../sam/utils/compiler.h
+INPUT                  =  ../../../../../sam/utils/cmsis/sam4l/source/templates/exceptions.c ../../../../boards/user_board/init.c ../../../../../sam/utils/cmsis/sam4l/source/templates/system_sam4l.c ../../main.c ../../../../utils/interrupt/interrupt_sam_nvic.c  ../../../../../sam/utils/preprocessor/mrepeat.h ../../../../../sam/utils/cmsis/sam4l/source/templates/system_sam4l.h ../../../../utils/parts.h ../../../../../sam/utils/cmsis/sam4l/include/sam4l_patch_asf.h ../../../../boards/board.h ../../../../../sam/utils/preprocessor/preprocessor.h ../../../../../sam/utils/header_files/io.h ../../../../../sam/utils/cmsis/sam4l/source/templates/exceptions.h ../../../../../sam/utils/status_codes.h ../../../../../sam/utils/cmsis/sam4l/include/sam4l.h ../config/conf_board.h ../../../../utils/interrupt.h ../../../../../sam/utils/preprocessor/stringz.h ../../../../boards/user_board/user_board.h ../../../../utils/interrupt/interrupt_sam_nvic.h ../../../../../sam/utils/preprocessor/tpaste.h ../../../../../sam/utils/compiler.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../boards/user_board ../../../../../sam/utils/cmsis/sam4l/source/templates ../../../../../sam/utils ../../../../../sam/utils/header_files ../../../../boards ../../../../../sam/utils/preprocessor ../../../../utils .. ../../../../../sam/utils/cmsis/sam4l/include
+INCLUDE_PATH           =  ../../../../boards/user_board ../../../../../sam/utils/cmsis/sam4l/source/templates ../../../../../sam/utils ../../../../../sam/utils/header_files ../../../../boards ../../../../../sam/utils/preprocessor ../config ../../../../utils ../../../../../sam/utils/cmsis/sam4l/include
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

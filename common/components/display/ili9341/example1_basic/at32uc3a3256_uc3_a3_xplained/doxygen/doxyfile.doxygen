@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../../../avr32/utils ../../../../../../services/delay ../../.. ../../../../../../../avr32/drivers/gpio ../../../../../../services/clock ../../../../../../boards ../../../../../../services/spi .. ../../../../../../services/spi/uc3_spi ../../../../../../../avr32/boards ../../../../../../../avr32/drivers/flashc ../../../../../../services/ioport ../../../../../../../avr32/drivers/pdca ../../../../../../../avr32/drivers/cpu/cycle_counter ../../../../../../../avr32/utils/preprocessor ../../../../../../utils ../../../../../../../avr32/drivers/spi ../../../../../../../avr32/boards/uc3_a3_xplained
+INCLUDE_PATH           =  ../../../../../../services/delay ../../.. ../../../../../../../avr32/drivers/gpio ../../../../../../services/clock ../../../../../../../avr32/drivers/spi ../../../../../../services/spi .. ../../../../../../../avr32/drivers/pdca ../../../../../../../avr32/boards ../../../../../../boards ../../../../../../../avr32/drivers/flashc ../../../../../../services/ioport ../../../../../../../avr32/utils ../../../../../../../avr32/drivers/cpu/cycle_counter ../../../../../../../avr32/utils/preprocessor ../../../../../../utils ../../../../../../services/spi/uc3_spi ../../../../../../../avr32/boards/uc3_a3_xplained
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

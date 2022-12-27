@@ -79,7 +79,7 @@ INC_PATH = \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/utils \
-       ./avr32/applications/evk11xx-uc3b-bootselector/at32uc3b1256/gcc
+       avr32/applications/evk11xx-uc3b-bootselector/at32uc3b1256/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

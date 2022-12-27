@@ -298,7 +298,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
@@ -316,7 +316,8 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -570,7 +571,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
@@ -588,7 +589,8 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1234,7 +1236,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
@@ -1252,7 +1254,8 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1506,7 +1509,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4s/include</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
@@ -1524,7 +1527,8 @@
 					<state>$PROJ_DIR$/../../../../usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
+					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4s_xplained</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1889,9 +1893,36 @@
 				</file>
 			</group>
 			<group>
+				<name>rstc</name>
+				<group>
+					<name>unit_tests</name>
+					<file>
+						<name>$PROJ_DIR$/../../unit_tests.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../rstc.c</name>
+				</file>
+			</group>
+			<group>
 				<name>pmc</name>
 				<file>
+					<name>$PROJ_DIR$/../../../../pmc/sleep.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>wdt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../wdt/wdt.c</name>
+				</file>
+			</group>
+			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../usart/usart.c</name>
 				</file>
 			</group>
 			<group>
@@ -1902,30 +1933,6 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
 				</file>
-			</group>
-			<group>
-				<name>usart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../usart/usart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>wdt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../wdt/wdt.c</name>
-				</file>
-			</group>
-			<group>
-				<name>rstc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../rstc.c</name>
-				</file>
-				<group>
-					<name>unit_tests</name>
-					<file>
-						<name>$PROJ_DIR$/../../unit_tests.c</name>
-					</file>
-				</group>
 			</group>
 		</group>
 		<group>

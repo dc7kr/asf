@@ -89,7 +89,7 @@ INC_PATH = \
        xmega/drivers/usb                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/services/usb/class/hid/device/kbd/example/atxmega256a3bu_xmega_a3bu_xplained/gcc
+       common/services/usb/class/hid/device/kbd/example/atxmega256a3bu_xmega_a3bu_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

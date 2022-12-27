@@ -74,7 +74,7 @@ INC_PATH = \
        xmega/drivers/nvm                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/services/clock/example1/atxmega256a3bu_xmega_a3bu_xplained/gcc
+       common/services/clock/example1/atxmega256a3bu_xmega_a3bu_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

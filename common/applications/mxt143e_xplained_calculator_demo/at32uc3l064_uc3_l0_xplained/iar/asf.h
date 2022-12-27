@@ -65,10 +65,10 @@
 // From module: FLASH Controller Double-Word (FLASHCDW)
 #include <flashcdw.h>
 
-// From module: GFX - Graphic Library
+// From module: GFX Color - Color Graphic Library
 #include <gfx.h>
 
-// From module: GFX - System Font
+// From module: GFX Color - System Font
 #include <sysfont.h>
 
 // From module: GPIO - General-Purpose Input/Output
@@ -118,9 +118,6 @@
 
 // From module: UC3-L0 Xplained
 #include <led.h>
-
-// From module: Widget calculator example
-#include <widget_gui.h>
 
 // From module: maXTouch - mXT143E Controller
 #include <mxt_device.h>

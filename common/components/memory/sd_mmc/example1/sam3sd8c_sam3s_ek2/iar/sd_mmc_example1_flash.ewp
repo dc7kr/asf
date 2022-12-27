@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -467,6 +468,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -1097,6 +1099,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -1401,6 +1404,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -1871,24 +1875,6 @@
 	<group>
 		<name>common</name>
 		<group>
-			<name>utils</name>
-			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../utils/stdio/write.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../utils/stdio/read.c</name>
-				</file>
-			</group>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
 			<name>components</name>
 			<group>
 				<name>memory</name>
@@ -1912,12 +1898,6 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../services/serial/usart_serial.c</name>
-				</file>
-			</group>
-			<group>
 				<name>delay</name>
 				<group>
 					<name>sam</name>
@@ -1935,6 +1915,30 @@
 					</file>
 				</group>
 			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../services/serial/usart_serial.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+			</group>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/stdio/write.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/stdio/read.c</name>
+				</file>
+			</group>
 		</group>
 	</group>
 	<group>
@@ -1948,6 +1952,51 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam3s_ek2/init.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>drivers</name>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio_handler.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pdc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pdc/pdc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/usart/usart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>hsmci</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/hsmci/hsmci.c</name>
+				</file>
+			</group>
+			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/uart/uart.c</name>
 				</file>
 			</group>
 		</group>
@@ -1976,48 +2025,6 @@
 						</group>
 					</group>
 				</group>
-			</group>
-		</group>
-		<group>
-			<name>drivers</name>
-			<group>
-				<name>hsmci</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/hsmci/hsmci.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pdc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pdc/pdc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio_handler.c</name>
-				</file>
-			</group>
-			<group>
-				<name>usart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/usart/usart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/uart/uart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/pmc.c</name>
-				</file>
 			</group>
 		</group>
 	</group>

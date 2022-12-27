@@ -326,6 +326,7 @@
 					<state>$PROJ_DIR$/../../../../../thirdparty/qtouch/generic/include</state>
 					<state>$PROJ_DIR$/../../../../../common/utils/membag</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../drivers/rtc</state>
 					<state>$PROJ_DIR$/../../../../services/flash_efc</state>
 					<state>$PROJ_DIR$/../../../../drivers/spi</state>
 					<state>$PROJ_DIR$/..</state>
@@ -364,7 +365,7 @@
 					<state>$PROJ_DIR$/../../../../services/resistive_touch</state>
 					<state>$PROJ_DIR$/../../../../components/display/ili9325</state>
 					<state>$PROJ_DIR$/../../../../../common/services/usb/class/msc</state>
-					<state>$PROJ_DIR$/../../../../drivers/rtc</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
@@ -649,6 +650,7 @@
 					<state>$PROJ_DIR$/../../../../../thirdparty/qtouch/generic/include</state>
 					<state>$PROJ_DIR$/../../../../../common/utils/membag</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../drivers/rtc</state>
 					<state>$PROJ_DIR$/../../../../services/flash_efc</state>
 					<state>$PROJ_DIR$/../../../../drivers/spi</state>
 					<state>$PROJ_DIR$/..</state>
@@ -687,7 +689,7 @@
 					<state>$PROJ_DIR$/../../../../services/resistive_touch</state>
 					<state>$PROJ_DIR$/../../../../components/display/ili9325</state>
 					<state>$PROJ_DIR$/../../../../../common/services/usb/class/msc</state>
-					<state>$PROJ_DIR$/../../../../drivers/rtc</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
@@ -1364,6 +1366,7 @@
 					<state>$PROJ_DIR$/../../../../../thirdparty/qtouch/generic/include</state>
 					<state>$PROJ_DIR$/../../../../../common/utils/membag</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../drivers/rtc</state>
 					<state>$PROJ_DIR$/../../../../services/flash_efc</state>
 					<state>$PROJ_DIR$/../../../../drivers/spi</state>
 					<state>$PROJ_DIR$/..</state>
@@ -1402,7 +1405,7 @@
 					<state>$PROJ_DIR$/../../../../services/resistive_touch</state>
 					<state>$PROJ_DIR$/../../../../components/display/ili9325</state>
 					<state>$PROJ_DIR$/../../../../../common/services/usb/class/msc</state>
-					<state>$PROJ_DIR$/../../../../drivers/rtc</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
@@ -1687,6 +1690,7 @@
 					<state>$PROJ_DIR$/../../../../../thirdparty/qtouch/generic/include</state>
 					<state>$PROJ_DIR$/../../../../../common/utils/membag</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../drivers/rtc</state>
 					<state>$PROJ_DIR$/../../../../services/flash_efc</state>
 					<state>$PROJ_DIR$/../../../../drivers/spi</state>
 					<state>$PROJ_DIR$/..</state>
@@ -1725,7 +1729,7 @@
 					<state>$PROJ_DIR$/../../../../services/resistive_touch</state>
 					<state>$PROJ_DIR$/../../../../components/display/ili9325</state>
 					<state>$PROJ_DIR$/../../../../../common/services/usb/class/msc</state>
-					<state>$PROJ_DIR$/../../../../drivers/rtc</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
@@ -2184,7 +2188,7 @@
 				<group>
 					<name>sam</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam/fattime.c</name>
+						<name>$PROJ_DIR$/../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam/fattime_rtc.c</name>
 					</file>
 				</group>
 			</group>
@@ -2208,6 +2212,9 @@
 									<name>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/iar/lib_nand_flash_cortexm4.a</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/nand_flash_mem.c</name>
+							</file>
 						</group>
 						<file>
 							<name>$PROJ_DIR$/../../../../../common/components/memory/nand_flash/nand_flash_ebi/nand_flash_ecc_sw.c</name>
@@ -2568,6 +2575,9 @@
 			</group>
 			<group>
 				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/pmc/sleep.c</name>
+				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/pmc/pmc.c</name>
 				</file>

@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -317,6 +318,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9325</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
@@ -470,6 +472,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -591,6 +594,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9325</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
@@ -1103,6 +1107,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -1257,6 +1262,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9325</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
@@ -1410,6 +1416,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -1531,6 +1538,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9325</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
@@ -1960,6 +1968,15 @@
 				</file>
 			</group>
 			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
 				<name>ebi</name>
 				<group>
 					<name>smc</name>
@@ -1967,12 +1984,6 @@
 						<name>$PROJ_DIR$/../../../../../drivers/ebi/smc/smc.c</name>
 					</file>
 				</group>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../drivers/pmc/pmc.c</name>
-				</file>
 			</group>
 		</group>
 		<group>

@@ -115,7 +115,7 @@ INC_PATH = \
        common/services/usb/udc                            \
        common/utils                                       \
        common/utils/stdio/stdio_usb \
-       ./common/components/wireless/unit_tests/at32uc3a3256s_rz600_at86rf231/gcc
+       common/components/wireless/unit_tests/at32uc3a3256s_rz600_at86rf231/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

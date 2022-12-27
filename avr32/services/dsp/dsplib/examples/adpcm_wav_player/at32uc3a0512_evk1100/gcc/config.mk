@@ -105,7 +105,7 @@ INC_PATH = \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/utils \
-       ./avr32/services/dsp/dsplib/examples/adpcm_wav_player/at32uc3a0512_evk1100/gcc
+       avr32/services/dsp/dsplib/examples/adpcm_wav_player/at32uc3a0512_evk1100/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

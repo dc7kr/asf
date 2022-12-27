@@ -89,7 +89,7 @@ INC_PATH = \
        xmega/drivers/usart                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/drivers/aes/unit_tests/atxmega384c3_stk600-rc064x/gcc
+       xmega/drivers/aes/unit_tests/atxmega384c3_stk600-rc064x/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

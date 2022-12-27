@@ -88,7 +88,7 @@ INC_PATH = \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/utils \
-       ./avr32/drivers/eic/example1/at32uc3b0256_evk1101/gcc
+       avr32/drivers/eic/example1/at32uc3b0256_evk1101/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

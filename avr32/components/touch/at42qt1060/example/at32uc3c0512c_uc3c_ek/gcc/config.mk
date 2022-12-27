@@ -96,7 +96,7 @@ INC_PATH = \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/utils \
-       ./avr32/components/touch/at42qt1060/example/at32uc3c0512c_uc3c_ek/gcc
+       avr32/components/touch/at42qt1060/example/at32uc3c0512c_uc3c_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

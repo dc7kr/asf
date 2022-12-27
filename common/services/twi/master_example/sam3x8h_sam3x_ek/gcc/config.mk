@@ -60,6 +60,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/twi/twi.c                              \
        sam/drivers/uart/uart.c                            \
        sam/utils/cmsis/sam3x/source/templates/exceptions.c \
@@ -75,6 +76,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/twi                                \
        common/services/twi/master_example                 \
        common/services/twi/master_example/sam3x8h_sam3x_ek \
@@ -90,14 +92,18 @@ INC_PATH = \
        sam/utils/cmsis/sam3x/source/templates             \
        sam/utils/header_files                             \
        sam/utils/preprocessor                             \
-       thirdparty/CMSIS/Include \
-       ./common/services/twi/master_example/sam3x8h_sam3x_ek/gcc
+       thirdparty/CMSIS/Include                           \
+       thirdparty/CMSIS/Lib/GCC \
+       common/services/twi/master_example/sam3x8h_sam3x_ek/gcc
 
 # Additional search paths for libraries.
-LIB_PATH = 
+LIB_PATH =  \
+       thirdparty/CMSIS/Lib/GCC                          
 
 # List of libraries to use during linking.
-LIBS = 
+LIBS =  \
+       arm_cortexM3l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3x/sam3x8/gcc/flash.ld
@@ -137,8 +143,10 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
+       -D ARM_MATH_CM3=true                               \
        -D BOARD=SAM3X_EK                                  \
-       -D __SAM3X8H__
+       -D __SAM3X8H__                                     \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

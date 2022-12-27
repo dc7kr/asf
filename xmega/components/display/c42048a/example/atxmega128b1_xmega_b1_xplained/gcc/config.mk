@@ -83,7 +83,7 @@ INC_PATH = \
        xmega/drivers/tc                                   \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/components/display/c42048a/example/atxmega128b1_xmega_b1_xplained/gcc
+       xmega/components/display/c42048a/example/atxmega128b1_xmega_b1_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

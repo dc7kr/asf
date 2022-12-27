@@ -133,7 +133,7 @@ INC_PATH = \
        common/services/twi                                \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./common/services/sensors/unit_tests/at32uc3l064_uc3_l0_xplained_inertial_1/gcc
+       common/services/sensors/unit_tests/at32uc3l064_uc3_l0_xplained_inertial_1/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

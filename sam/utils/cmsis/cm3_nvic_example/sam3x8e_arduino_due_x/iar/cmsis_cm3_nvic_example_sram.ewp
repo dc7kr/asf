@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -303,6 +304,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
 					<state>$PROJ_DIR$/../../../sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/arduino_due_x</state>
@@ -462,6 +464,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -569,6 +572,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
 					<state>$PROJ_DIR$/../../../sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/arduino_due_x</state>
@@ -1087,6 +1091,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1227,6 +1232,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
 					<state>$PROJ_DIR$/../../../sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/arduino_due_x</state>
@@ -1386,6 +1392,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3X8E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1493,6 +1500,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../preprocessor</state>
 					<state>$PROJ_DIR$/../../../sam3x/include</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../boards/arduino_due_x</state>
@@ -1849,81 +1857,6 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>sam</name>
-		<group>
-			<name>drivers</name>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../drivers/pio/pio_handler.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../drivers/pio/pio.c</name>
-				</file>
-			</group>
-			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../drivers/uart/uart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>usart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../drivers/usart/usart.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>cmsis</name>
-				<group>
-					<name>sam3x</name>
-					<group>
-						<name>source</name>
-						<group>
-							<name>templates</name>
-							<group>
-								<name>iar</name>
-								<file>
-									<name>$PROJ_DIR$/../../../sam3x/source/templates/iar/startup_sam3x.c</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../sam3x/source/templates/exceptions.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../sam3x/source/templates/system_sam3x.c</name>
-							</file>
-						</group>
-					</group>
-				</group>
-				<group>
-					<name>cm3_nvic_example</name>
-					<file>
-						<name>$PROJ_DIR$/../../main.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>arduino_due_x</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../boards/arduino_due_x/init.c</name>
-				</file>
-			</group>
-		</group>
-	</group>
-	<group>
 		<name>common</name>
 		<group>
 			<name>utils</name>
@@ -1959,6 +1892,84 @@
 						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam3x/sysclk.c</name>
 					</file>
 				</group>
+			</group>
+		</group>
+	</group>
+	<group>
+		<name>sam</name>
+		<group>
+			<name>drivers</name>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pio/pio_handler.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pio/pio.c</name>
+				</file>
+			</group>
+			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/uart/uart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/sleep.c</name>
+				</file>
+			</group>
+			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/usart/usart.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>cmsis</name>
+				<group>
+					<name>sam3x</name>
+					<group>
+						<name>source</name>
+						<group>
+							<name>templates</name>
+							<group>
+								<name>iar</name>
+								<file>
+									<name>$PROJ_DIR$/../../../sam3x/source/templates/iar/startup_sam3x.c</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../sam3x/source/templates/system_sam3x.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../sam3x/source/templates/exceptions.c</name>
+							</file>
+						</group>
+					</group>
+				</group>
+				<group>
+					<name>cm3_nvic_example</name>
+					<file>
+						<name>$PROJ_DIR$/../../main.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>arduino_due_x</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/arduino_due_x/init.c</name>
+				</file>
 			</group>
 		</group>
 	</group>

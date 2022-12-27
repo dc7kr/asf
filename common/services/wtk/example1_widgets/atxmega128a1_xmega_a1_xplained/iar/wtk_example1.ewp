@@ -420,7 +420,7 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
 					<state>$PROJ_DIR$/../../../../../utils/membag</state>
-					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../components/touch/mxt</state>
@@ -435,7 +435,7 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -685,7 +685,7 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
 					<state>$PROJ_DIR$/../../../../../utils/membag</state>
-					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../components/touch/mxt</state>
@@ -700,7 +700,7 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1455,7 +1455,7 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
 					<state>$PROJ_DIR$/../../../../../utils/membag</state>
-					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../components/touch/mxt</state>
@@ -1470,7 +1470,7 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1720,7 +1720,7 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
 					<state>$PROJ_DIR$/../../../../../utils/membag</state>
-					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../components/touch/mxt</state>
@@ -1735,7 +1735,7 @@
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/twi</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -2087,6 +2087,12 @@
 					<file>
 						<name>$PROJ_DIR$/../../widget_gui.c</name>
 					</file>
+					<group>
+						<name>atxmega128a1_xmega_a1_xplained</name>
+						<file>
+							<name>$PROJ_DIR$/../touch_interface.c</name>
+						</file>
+					</group>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../wtk.c</name>

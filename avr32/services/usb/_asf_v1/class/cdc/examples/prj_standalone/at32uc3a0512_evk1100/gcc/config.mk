@@ -114,7 +114,7 @@ INC_PATH = \
        common/services/fifo                               \
        common/utils                                       \
        thirdparty/newlib_addons/libs/include \
-       ./avr32/services/usb/_asf_v1/class/cdc/examples/prj_standalone/at32uc3a0512_evk1100/gcc
+       avr32/services/usb/_asf_v1/class/cdc/examples/prj_standalone/at32uc3a0512_evk1100/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \

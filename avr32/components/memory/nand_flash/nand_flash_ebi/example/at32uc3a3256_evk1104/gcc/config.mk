@@ -106,7 +106,7 @@ INC_PATH = \
        common/services/serial/uc3_usart                   \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./avr32/components/memory/nand_flash/nand_flash_ebi/example/at32uc3a3256_evk1104/gcc
+       avr32/components/memory/nand_flash/nand_flash_ebi/example/at32uc3a3256_evk1104/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

@@ -57,6 +57,7 @@ CSRCS = \
        common/services/gfx/sysfont.c                      \
        common/services/ioport/xmega/ioport_compat.c       \
        common/services/spi/xmega_usart_spi/usart_spi.c    \
+       common/services/wtk/example1_widgets/atxmega128b1_xmega_b1_xplained/touch_interface.c \
        common/services/wtk/example1_widgets/example1.c    \
        common/services/wtk/example1_widgets/widget_gui.c  \
        common/services/wtk/win.c                          \
@@ -109,7 +110,7 @@ INC_PATH = \
        xmega/drivers/usart                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/services/wtk/example1_widgets/atxmega128b1_xmega_b1_xplained/gcc
+       common/services/wtk/example1_widgets/atxmega128b1_xmega_b1_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

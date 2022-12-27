@@ -162,6 +162,7 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -313,6 +314,7 @@
 					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../lwip-1.4.0/src/include/ipv4</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils</state>
@@ -321,8 +323,8 @@
 					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../lwip-port-1.4.0/sam/include</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/pio</state>
-					<state>$PROJ_DIR$/../../../lwip-1.4.0/src/include/ipv4</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -472,6 +474,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -590,6 +593,7 @@
 					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../lwip-1.4.0/src/include/ipv4</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils</state>
@@ -598,8 +602,8 @@
 					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../lwip-port-1.4.0/sam/include</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/pio</state>
-					<state>$PROJ_DIR$/../../../lwip-1.4.0/src/include/ipv4</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1108,6 +1112,7 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -1259,6 +1264,7 @@
 					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../lwip-1.4.0/src/include/ipv4</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils</state>
@@ -1267,8 +1273,8 @@
 					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../lwip-port-1.4.0/sam/include</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/pio</state>
-					<state>$PROJ_DIR$/../../../lwip-1.4.0/src/include/ipv4</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1418,6 +1424,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
@@ -1536,6 +1543,7 @@
 					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../lwip-1.4.0/src/include/ipv4</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils</state>
@@ -1544,8 +1552,8 @@
 					<state>$PROJ_DIR$/../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../lwip-port-1.4.0/sam/include</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/pio</state>
-					<state>$PROJ_DIR$/../../../lwip-1.4.0/src/include/ipv4</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -2014,13 +2022,13 @@
 							<name>$PROJ_DIR$/../../../lwip-1.4.0/src/api/netifapi.c</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../lwip-1.4.0/src/api/api_lib.c</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../lwip-1.4.0/src/api/api_msg.c</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../lwip-1.4.0/src/api/sockets.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../lwip-1.4.0/src/api/api_lib.c</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../lwip-1.4.0/src/api/netbuf.c</name>
@@ -2128,6 +2136,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>

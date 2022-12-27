@@ -56,6 +56,12 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: Delay routines
+#include <delay.h>
+
+// From module: EEPROM AT24CXX
+#include <at24cxx.h>
+
 // From module: FreeRTOS - Kernel 7.3.0
 #include <FreeRTOS.h>
 #include <FreeRTOS_CLI.h>
@@ -85,6 +91,9 @@
 
 // From module: Generic components of unit test framework
 #include <unit_test/suite.h>
+
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
 
 // From module: Interrupt management - SAM implementation
 #include <interrupt.h>

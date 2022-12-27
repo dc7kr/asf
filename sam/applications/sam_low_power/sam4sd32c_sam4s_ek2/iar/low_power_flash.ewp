@@ -317,6 +317,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -589,6 +590,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1253,6 +1255,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1525,6 +1528,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1925,15 +1929,18 @@
 				</file>
 			</group>
 			<group>
-				<name>gpbr</name>
+				<name>pmc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../drivers/gpbr/gpbr.c</name>
+					<name>$PROJ_DIR$/../../../../drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
+				<name>gpbr</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../drivers/pmc/pmc.c</name>
+					<name>$PROJ_DIR$/../../../../drivers/gpbr/gpbr.c</name>
 				</file>
 			</group>
 		</group>
@@ -1950,6 +1957,33 @@
 			</group>
 		</group>
 		<group>
+			<name>utils</name>
+			<group>
+				<name>cmsis</name>
+				<group>
+					<name>sam4s</name>
+					<group>
+						<name>source</name>
+						<group>
+							<name>templates</name>
+							<group>
+								<name>iar</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../utils/cmsis/sam4s/source/templates/iar/startup_sam4s.c</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../utils/cmsis/sam4s/source/templates/system_sam4s.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../utils/cmsis/sam4s/source/templates/exceptions.c</name>
+							</file>
+						</group>
+					</group>
+				</group>
+			</group>
+		</group>
+		<group>
 			<name>applications</name>
 			<group>
 				<name>sam_low_power</name>
@@ -1960,35 +1994,8 @@
 					</file>
 				</group>
 				<file>
-					<name>$PROJ_DIR$/../../low_power_example.c</name>
+					<name>$PROJ_DIR$/../../main.c</name>
 				</file>
-			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>cmsis</name>
-				<group>
-					<name>sam4s</name>
-					<group>
-						<name>source</name>
-						<group>
-							<name>templates</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../utils/cmsis/sam4s/source/templates/system_sam4s.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../utils/cmsis/sam4s/source/templates/exceptions.c</name>
-							</file>
-							<group>
-								<name>iar</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../utils/cmsis/sam4s/source/templates/iar/startup_sam4s.c</name>
-								</file>
-							</group>
-						</group>
-					</group>
-				</group>
 			</group>
 		</group>
 	</group>

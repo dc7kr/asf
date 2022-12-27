@@ -88,7 +88,7 @@ INC_PATH = \
        xmega/services/timeout/unit_tests/atxmega128a1_xmega_a1_xplained \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/services/timeout/unit_tests/atxmega128a1_xmega_a1_xplained/gcc
+       xmega/services/timeout/unit_tests/atxmega128a1_xmega_a1_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

@@ -109,7 +109,7 @@ INC_PATH = \
        xmega/drivers/usart                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/services/wtk/example2_icon/atxmega256a3bu_xmega_a3bu_xplained/gcc
+       common/services/wtk/example2_icon/atxmega256a3bu_xmega_a3bu_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

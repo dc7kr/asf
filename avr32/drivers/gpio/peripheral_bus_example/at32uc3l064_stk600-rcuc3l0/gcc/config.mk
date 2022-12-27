@@ -80,7 +80,7 @@ INC_PATH = \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/utils \
-       ./avr32/drivers/gpio/peripheral_bus_example/at32uc3l064_stk600-rcuc3l0/gcc
+       avr32/drivers/gpio/peripheral_bus_example/at32uc3l064_stk600-rcuc3l0/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

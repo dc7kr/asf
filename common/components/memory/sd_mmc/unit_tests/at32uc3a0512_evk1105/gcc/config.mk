@@ -106,7 +106,7 @@ INC_PATH = \
        common/services/spi/uc3_spi                        \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./common/components/memory/sd_mmc/unit_tests/at32uc3a0512_evk1105/gcc
+       common/components/memory/sd_mmc/unit_tests/at32uc3a0512_evk1105/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

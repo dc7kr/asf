@@ -98,7 +98,7 @@ INC_PATH = \
        thirdparty/dlmalloc                                \
        thirdparty/dlmalloc/examples/example1/conf         \
        thirdparty/newlib_addons/libs/include \
-       ./thirdparty/dlmalloc/examples/example1/at32uc3a0512_evk1105/gcc
+       thirdparty/dlmalloc/examples/example1/at32uc3a0512_evk1105/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \

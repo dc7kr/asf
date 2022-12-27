@@ -1893,15 +1893,18 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>pdc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pdc/pdc.c</name>
-				</file>
-			</group>
-			<group>
 				<name>twi</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/drivers/twi/twi.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 			<group>
@@ -1920,9 +1923,9 @@
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
+				<name>pdc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pdc/pdc.c</name>
 				</file>
 			</group>
 		</group>

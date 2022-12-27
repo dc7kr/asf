@@ -103,7 +103,7 @@ INC_PATH = \
        common/components/memory/data_flash/at45dbx/_asf_v1 \
        common/services/storage/ctrl_access                \
        common/utils \
-       ./avr32/services/fs/fat/fsaccess_example/at32uc3a0512_evk1105/gcc
+       avr32/services/fs/fat/fsaccess_example/at32uc3a0512_evk1105/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

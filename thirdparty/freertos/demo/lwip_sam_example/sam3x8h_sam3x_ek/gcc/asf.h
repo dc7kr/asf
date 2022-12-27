@@ -81,6 +81,9 @@
 // From module: Generic board support
 #include <board.h>
 
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
+
 // From module: IPv4 support in lwIP v140
 #include <lwip/autoip.h>
 #include <lwip/icmp.h>

@@ -92,7 +92,7 @@ INC_PATH = \
        thirdparty/qtouch/generic/uc3/qtouch/examples      \
        thirdparty/qtouch/generic/uc3/qtouch/examples/at32uc3a0512_stk600-rcuc3a0 \
        thirdparty/qtouch/qdebug \
-       ./thirdparty/qtouch/generic/uc3/qtouch/examples/at32uc3a0512_stk600-rcuc3a0/gcc
+       thirdparty/qtouch/generic/uc3/qtouch/examples/at32uc3a0512_stk600-rcuc3a0/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \

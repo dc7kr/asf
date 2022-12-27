@@ -1895,41 +1895,50 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam4s/source/templates/exceptions.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam4s/source/templates/system_sam4s.c</name>
+							</file>
 							<group>
 								<name>iar</name>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam4s/source/templates/iar/startup_sam4s.c</name>
 								</file>
 							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../sam/utils/cmsis/sam4s/source/templates/system_sam4s.c</name>
-							</file>
 						</group>
 					</group>
 				</group>
 			</group>
 		</group>
 		<group>
+			<name>boards</name>
+			<group>
+				<name>sam4s_ek2</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam4s_ek2/led.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam4s_ek2/init.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
 			<name>drivers</name>
-			<group>
-				<name>hsmci</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/hsmci/hsmci.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pdc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pdc/pdc.c</name>
-				</file>
-			</group>
 			<group>
 				<name>pio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio.c</name>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio_handler.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio_handler.c</name>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>
@@ -1939,27 +1948,21 @@
 				</file>
 			</group>
 			<group>
+				<name>pdc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pdc/pdc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>hsmci</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/hsmci/hsmci.c</name>
+				</file>
+			</group>
+			<group>
 				<name>uart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/drivers/uart/uart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>sam4s_ek2</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam4s_ek2/init.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam4s_ek2/led.c</name>
 				</file>
 			</group>
 		</group>
@@ -1967,7 +1970,31 @@
 	<group>
 		<name>common</name>
 		<group>
+			<name>components</name>
+			<group>
+				<name>memory</name>
+				<group>
+					<name>sd_mmc</name>
+					<group>
+						<name>unit_tests</name>
+						<file>
+							<name>$PROJ_DIR$/../../unit_tests.c</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../sd_mmc.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
+		<group>
 			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+			</group>
 			<group>
 				<name>stdio</name>
 				<file>
@@ -1983,15 +2010,18 @@
 					<name>$PROJ_DIR$/../../../../../../utils/unit_test/suite.c</name>
 				</file>
 			</group>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-			</group>
 		</group>
 		<group>
 			<name>services</name>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../services/delay/sam/cycle_counter.c</name>
+					</file>
+				</group>
+			</group>
 			<group>
 				<name>serial</name>
 				<file>
@@ -2005,33 +2035,6 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../services/clock/sam4s/sysclk.c</name>
 					</file>
-				</group>
-			</group>
-			<group>
-				<name>delay</name>
-				<group>
-					<name>sam</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../services/delay/sam/cycle_counter.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>components</name>
-			<group>
-				<name>memory</name>
-				<group>
-					<name>sd_mmc</name>
-					<file>
-						<name>$PROJ_DIR$/../../../sd_mmc.c</name>
-					</file>
-					<group>
-						<name>unit_tests</name>
-						<file>
-							<name>$PROJ_DIR$/../../unit_tests.c</name>
-						</file>
-					</group>
 				</group>
 			</group>
 		</group>

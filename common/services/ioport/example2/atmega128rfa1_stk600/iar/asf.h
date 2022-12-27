@@ -70,14 +70,14 @@
 // From module: Interrupt management - megaAVR and tinyAVR implementation
 #include <interrupt.h>
 
+// From module: MEGA compiler driver
+#include <compiler.h>
+#include <status_codes.h>
+
 // From module: Part identification macros
 #include <parts.h>
 
 // From module: System Clock Control - MEGA RF A1 implementation
 #include <sysclk.h>
-
-// From module: megaAVR and tinyAVR compiler driver
-#include <compiler.h>
-#include <status_codes.h>
 
 #endif // ASF_H

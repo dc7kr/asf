@@ -104,7 +104,7 @@ INC_PATH = \
        common/services/storage/ctrl_access                \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./avr32/components/memory/sd_mmc/sd_mmc_spi/unit_tests/at32uc3c0512c_uc3c_ek/gcc
+       avr32/components/memory/sd_mmc/sd_mmc_spi/unit_tests/at32uc3c0512c_uc3c_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

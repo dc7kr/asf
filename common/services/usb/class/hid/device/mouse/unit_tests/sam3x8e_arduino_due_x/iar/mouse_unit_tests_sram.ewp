@@ -163,9 +163,10 @@
 				<option>
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>__SAM3X8E__</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>__SAM3X8E__</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -319,6 +320,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/arduino_due_x</state>
@@ -472,9 +474,10 @@
 				<option>
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>__SAM3X8E__</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>__SAM3X8E__</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -595,6 +598,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/arduino_due_x</state>
@@ -1107,9 +1111,10 @@
 				<option>
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>__SAM3X8E__</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>__SAM3X8E__</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1263,6 +1268,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/arduino_due_x</state>
@@ -1416,9 +1422,10 @@
 				<option>
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>__SAM3X8E__</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>__SAM3X8E__</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1539,6 +1546,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/arduino_due_x</state>
@@ -1989,9 +1997,18 @@
 				</file>
 			</group>
 			<group>
+				<name>uotghs</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/uotghs/uotghs_device.c</name>
+				</file>
+			</group>
+			<group>
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>
@@ -2009,12 +2026,6 @@
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/uart/uart.c</name>
 				</file>
 			</group>
-			<group>
-				<name>uotghs</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/uotghs/uotghs_device.c</name>
-				</file>
-			</group>
 		</group>
 		<group>
 			<name>utils</name>
@@ -2026,15 +2037,15 @@
 						<name>source</name>
 						<group>
 							<name>templates</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
-							</file>
 							<group>
 								<name>iar</name>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/iar/startup_sam3x.c</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
+							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/exceptions.c</name>
 							</file>

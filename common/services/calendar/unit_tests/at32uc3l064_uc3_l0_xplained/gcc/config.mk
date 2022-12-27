@@ -99,7 +99,7 @@ INC_PATH = \
        common/services/serial/uc3_usart                   \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./common/services/calendar/unit_tests/at32uc3l064_uc3_l0_xplained/gcc
+       common/services/calendar/unit_tests/at32uc3l064_uc3_l0_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

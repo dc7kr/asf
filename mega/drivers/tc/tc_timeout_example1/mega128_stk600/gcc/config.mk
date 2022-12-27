@@ -62,7 +62,7 @@ INC_PATH = \
        mega/drivers/tc                                    \
        mega/drivers/tc/tc_timeout_example1/mega128_stk600 \
        mega/utils \
-       ./mega/drivers/tc/tc_timeout_example1/mega128_stk600/gcc
+       mega/drivers/tc/tc_timeout_example1/mega128_stk600/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

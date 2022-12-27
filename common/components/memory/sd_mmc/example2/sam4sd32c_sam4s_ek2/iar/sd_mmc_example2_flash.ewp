@@ -2027,6 +2027,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>hsmci</name>
@@ -2081,15 +2084,15 @@
 			</group>
 			<group>
 				<name>fatfs-port-r0.09</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/diskio.c</name>
-				</file>
 				<group>
 					<name>sam</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam/fattime.c</name>
+						<name>$PROJ_DIR$/../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam/fattime_rtc.c</name>
 					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/diskio.c</name>
+				</file>
 			</group>
 		</group>
 	</group>

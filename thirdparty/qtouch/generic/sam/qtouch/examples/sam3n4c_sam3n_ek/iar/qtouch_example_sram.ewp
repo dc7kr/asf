@@ -167,6 +167,7 @@
 					<state>BOARD=SAM3N_EK</state>
 					<state>__SAM3N4C__</state>
 					<state>SNS1=C</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>QT_DELAY_CYCLES=3</state>
 					<state>_QTOUCH_</state>
 					<state>QT_NUM_CHANNELS=32</state>
@@ -477,6 +478,7 @@
 					<state>BOARD=SAM3N_EK</state>
 					<state>__SAM3N4C__</state>
 					<state>SNS1=C</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>QT_DELAY_CYCLES=3</state>
 					<state>_QTOUCH_</state>
 					<state>QT_NUM_CHANNELS=32</state>
@@ -1113,6 +1115,7 @@
 					<state>BOARD=SAM3N_EK</state>
 					<state>__SAM3N4C__</state>
 					<state>SNS1=C</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>QT_DELAY_CYCLES=3</state>
 					<state>_QTOUCH_</state>
 					<state>QT_NUM_CHANNELS=32</state>
@@ -1423,6 +1426,7 @@
 					<state>BOARD=SAM3N_EK</state>
 					<state>__SAM3N4C__</state>
 					<state>SNS1=C</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>QT_DELAY_CYCLES=3</state>
 					<state>_QTOUCH_</state>
 					<state>QT_NUM_CHANNELS=32</state>
@@ -1912,15 +1916,15 @@
 							</group>
 						</group>
 						<group>
-							<name>examples</name>
-							<file>
-								<name>$PROJ_DIR$/../../qtouch_example.c</name>
-							</file>
-						</group>
-						<group>
 							<name>common</name>
 							<file>
 								<name>$PROJ_DIR$/../../../common/BitBangSPI_Master.c</name>
+							</file>
+						</group>
+						<group>
+							<name>examples</name>
+							<file>
+								<name>$PROJ_DIR$/../../qtouch_example.c</name>
 							</file>
 						</group>
 					</group>
@@ -1985,6 +1989,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>pio</name>
@@ -2036,15 +2043,15 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3n/source/templates/exceptions.c</name>
 							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3n/source/templates/system_sam3n.c</name>
-							</file>
 							<group>
 								<name>iar</name>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3n/source/templates/iar/startup_sam3n.c</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3n/source/templates/system_sam3n.c</name>
+							</file>
 						</group>
 					</group>
 				</group>

@@ -87,7 +87,7 @@ INC_PATH = \
        xmega/drivers/usart                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/components/memory/data_flash/at45dbx/unit_tests/atxmega128b1_xmega_b1_xplained/gcc
+       common/components/memory/data_flash/at45dbx/unit_tests/atxmega128b1_xmega_b1_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

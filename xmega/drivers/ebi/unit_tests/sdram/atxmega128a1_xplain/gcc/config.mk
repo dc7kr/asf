@@ -90,7 +90,7 @@ INC_PATH = \
        xmega/drivers/usart                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/drivers/ebi/unit_tests/sdram/atxmega128a1_xplain/gcc
+       xmega/drivers/ebi/unit_tests/sdram/atxmega128a1_xplain/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

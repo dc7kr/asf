@@ -84,7 +84,7 @@ INC_PATH = \
        xmega/drivers/tc                                   \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./thirdparty/qtouch/generic/avr8/qtouch/examples/example_qt_qt600/atxmega128a1_qt600/gcc
+       thirdparty/qtouch/generic/avr8/qtouch/examples/example_qt_qt600/atxmega128a1_qt600/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH =  \

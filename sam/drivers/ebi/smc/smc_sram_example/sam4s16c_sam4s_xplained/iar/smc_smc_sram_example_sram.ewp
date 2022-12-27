@@ -303,6 +303,7 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../../boards/sam4s_xplained</state>
@@ -570,6 +571,7 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../../boards/sam4s_xplained</state>
@@ -1229,6 +1231,7 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../../boards/sam4s_xplained</state>
@@ -1496,6 +1499,7 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../../boards/sam4s_xplained</state>
@@ -1855,6 +1859,54 @@
 	<group>
 		<name>sam</name>
 		<group>
+			<name>drivers</name>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../pio/pio_handler.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../pio/pio.c</name>
+				</file>
+			</group>
+			<group>
+				<name>ebi</name>
+				<group>
+					<name>smc</name>
+					<group>
+						<name>smc_sram_example</name>
+						<file>
+							<name>$PROJ_DIR$/../../smc_sram_example.c</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../smc.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../uart/uart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../usart/usart.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
 			<name>utils</name>
 			<group>
 				<name>cmsis</name>
@@ -1879,51 +1931,6 @@
 						</group>
 					</group>
 				</group>
-			</group>
-		</group>
-		<group>
-			<name>drivers</name>
-			<group>
-				<name>ebi</name>
-				<group>
-					<name>smc</name>
-					<group>
-						<name>smc_sram_example</name>
-						<file>
-							<name>$PROJ_DIR$/../../smc_sram_example.c</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../smc.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../pio/pio_handler.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../pio/pio.c</name>
-				</file>
-			</group>
-			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../uart/uart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>usart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../usart/usart.c</name>
-				</file>
 			</group>
 		</group>
 		<group>

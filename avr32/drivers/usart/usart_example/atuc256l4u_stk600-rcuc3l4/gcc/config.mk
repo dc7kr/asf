@@ -87,7 +87,7 @@ INC_PATH = \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/utils \
-       ./avr32/drivers/usart/usart_example/atuc256l4u_stk600-rcuc3l4/gcc
+       avr32/drivers/usart/usart_example/atuc256l4u_stk600-rcuc3l4/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

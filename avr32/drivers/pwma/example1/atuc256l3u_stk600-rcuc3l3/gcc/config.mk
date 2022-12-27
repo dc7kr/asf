@@ -95,7 +95,7 @@ INC_PATH = \
        common/services/clock                              \
        common/services/delay                              \
        common/utils \
-       ./avr32/drivers/pwma/example1/atuc256l3u_stk600-rcuc3l3/gcc
+       avr32/drivers/pwma/example1/atuc256l3u_stk600-rcuc3l3/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

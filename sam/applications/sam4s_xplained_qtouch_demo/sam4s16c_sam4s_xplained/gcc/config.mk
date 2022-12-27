@@ -62,6 +62,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/tc/tc.c                                \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
@@ -106,7 +107,7 @@ INC_PATH = \
        thirdparty/qtouch/generic/include                  \
        thirdparty/qtouch/generic/sam/qtouch/common        \
        thirdparty/qtouch/qdebug \
-       ./sam/applications/sam4s_xplained_qtouch_demo/sam4s16c_sam4s_xplained/gcc
+       sam/applications/sam4s_xplained_qtouch_demo/sam4s16c_sam4s_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
@@ -116,7 +117,8 @@ LIB_PATH =  \
 # List of libraries to use during linking.
 LIBS =  \
        arm_cortexM4l_math                                 \
-       sam4s-32qt-k-8rs-gnu                              
+       sam4s-32qt-k-8rs-gnu                               \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam4s/sam4s16/gcc/flash.ld
@@ -165,7 +167,8 @@ CPPFLAGS = \
        -D _DEBUG_INTERFACE_                               \
        -D _QTOUCH_                                        \
        -D _SNS1_SNSK1_SAME_PORT_                          \
-       -D __SAM4S16C__
+       -D __SAM4S16C__                                    \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

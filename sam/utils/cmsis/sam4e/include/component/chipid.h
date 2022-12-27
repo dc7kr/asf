@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * Copyright (c) 2012 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2013 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -117,15 +117,13 @@ typedef struct {
 #define   CHIPID_CIDR_ARCH_CAP7 (0x37u << 20) /**< \brief (CHIPID_CIDR) CAP7 Series */
 #define   CHIPID_CIDR_ARCH_CAP9 (0x39u << 20) /**< \brief (CHIPID_CIDR) CAP9 Series */
 #define   CHIPID_CIDR_ARCH_CAP11 (0x3Bu << 20) /**< \brief (CHIPID_CIDR) CAP11 Series */
-#define   CHIPID_CIDR_ARCH_CM4P (0x3Cu << 20) /**< \brief (CHIPID_CIDR) CM4P Series */
+#define   CHIPID_CIDR_ARCH_SAM4E (0x3Cu << 20) /**< \brief (CHIPID_CIDR) SAM4E Series */
 #define   CHIPID_CIDR_ARCH_AT91x40 (0x40u << 20) /**< \brief (CHIPID_CIDR) AT91x40 Series */
 #define   CHIPID_CIDR_ARCH_AT91x42 (0x42u << 20) /**< \brief (CHIPID_CIDR) AT91x42 Series */
 #define   CHIPID_CIDR_ARCH_AT91x55 (0x55u << 20) /**< \brief (CHIPID_CIDR) AT91x55 Series */
 #define   CHIPID_CIDR_ARCH_AT91SAM7Axx (0x60u << 20) /**< \brief (CHIPID_CIDR) AT91SAM7Axx Series */
 #define   CHIPID_CIDR_ARCH_AT91SAM7AQxx (0x61u << 20) /**< \brief (CHIPID_CIDR) AT91SAM7AQxx Series */
 #define   CHIPID_CIDR_ARCH_AT91x63 (0x63u << 20) /**< \brief (CHIPID_CIDR) AT91x63 Series */
-#define   CHIPID_CIDR_ARCH_SAM4CxxC (0x64u << 20) /**< \brief (CHIPID_CIDR) SAM4CxC Series (100-pin version) */
-#define   CHIPID_CIDR_ARCH_SAM4CxxE (0x66u << 20) /**< \brief (CHIPID_CIDR) SAM4CxE Series (144-pin version) */
 #define   CHIPID_CIDR_ARCH_AT91SAM7Sxx (0x70u << 20) /**< \brief (CHIPID_CIDR) AT91SAM7Sxx Series */
 #define   CHIPID_CIDR_ARCH_AT91SAM7XCxx (0x71u << 20) /**< \brief (CHIPID_CIDR) AT91SAM7XCxx Series */
 #define   CHIPID_CIDR_ARCH_AT91SAM7SExx (0x72u << 20) /**< \brief (CHIPID_CIDR) AT91SAM7SExx Series */
@@ -138,16 +136,7 @@ typedef struct {
 #define   CHIPID_CIDR_ARCH_SAM3XxC (0x84u << 20) /**< \brief (CHIPID_CIDR) SAM3XxC Series (100-pin version) */
 #define   CHIPID_CIDR_ARCH_SAM3XxE (0x85u << 20) /**< \brief (CHIPID_CIDR) SAM3XxE Series (144-pin version) */
 #define   CHIPID_CIDR_ARCH_SAM3XxG (0x86u << 20) /**< \brief (CHIPID_CIDR) SAM3XxG Series (208/217-pin version) */
-#define   CHIPID_CIDR_ARCH_SAM3SxA (0x88u << 20) /**< \brief (CHIPID_CIDR) SAM3SxASeries (48-pin version) */
-#define   CHIPID_CIDR_ARCH_SAM4SxA (0x88u << 20) /**< \brief (CHIPID_CIDR) SAM4SxA Series (48-pin version) */
-#define   CHIPID_CIDR_ARCH_SAM3SxB (0x89u << 20) /**< \brief (CHIPID_CIDR) SAM3SxB Series (64-pin version) */
-#define   CHIPID_CIDR_ARCH_SAM4SxB (0x89u << 20) /**< \brief (CHIPID_CIDR) SAM4SxB Series (64-pin version) */
-#define   CHIPID_CIDR_ARCH_SAM3SxC (0x8Au << 20) /**< \brief (CHIPID_CIDR) SAM3SxC Series (100-pin version) */
-#define   CHIPID_CIDR_ARCH_SAM4SxC (0x8Au << 20) /**< \brief (CHIPID_CIDR) SAM4SxC Series (100-pin version) */
 #define   CHIPID_CIDR_ARCH_AT91x92 (0x92u << 20) /**< \brief (CHIPID_CIDR) AT91x92 Series */
-#define   CHIPID_CIDR_ARCH_SAM3NxASAM4NxA (0x93u << 20) /**< \brief (CHIPID_CIDR) SAM3NxA/SAM4NxA Series (48-pin version) */
-#define   CHIPID_CIDR_ARCH_SAM3NxBSAM4NxB (0x94u << 20) /**< \brief (CHIPID_CIDR) SAM3NxB/SAM4NxB Series (64-pin version) */
-#define   CHIPID_CIDR_ARCH_SAM3NxCSAM4NxC (0x95u << 20) /**< \brief (CHIPID_CIDR) SAM3NxC/SAM4NxC Series (100-pin version) */
 #define   CHIPID_CIDR_ARCH_SAM3SDxB (0x99u << 20) /**< \brief (CHIPID_CIDR) SAM3SDxB Series (64-pin version) */
 #define   CHIPID_CIDR_ARCH_SAM3SDxC (0x9Au << 20) /**< \brief (CHIPID_CIDR) SAM3SDxC Series (100-pin version) */
 #define   CHIPID_CIDR_ARCH_SAM5A (0xA5u << 20) /**< \brief (CHIPID_CIDR) SAM5A */
@@ -166,10 +155,6 @@ typedef struct {
 /* -------- CHIPID_EXID : (CHIPID Offset: 0x4) Chip ID Extension Register -------- */
 #define CHIPID_EXID_EXID_Pos 0
 #define CHIPID_EXID_EXID_Msk (0xffffffffu << CHIPID_EXID_EXID_Pos) /**< \brief (CHIPID_EXID) Chip ID Extension */
-#define   CHIPID_EXID_EXID_SAM4C (0x0u << 0) /**< \brief (CHIPID_EXID) Dual Core */
-#define   CHIPID_EXID_EXID_SAM4CMP (0x1u << 0) /**< \brief (CHIPID_EXID) SAM4C (A301) */
-#define   CHIPID_EXID_EXID_SAM4CMS (0x2u << 0) /**< \brief (CHIPID_EXID) SAM4C (A101) */
-#define   CHIPID_EXID_EXID_SAM4CP (0x4u << 0) /**< \brief (CHIPID_EXID) SAM4C (CPL250) */
 
 /*@}*/
 

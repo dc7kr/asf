@@ -164,8 +164,9 @@
 					<name>CCDefines</name>
 					<state>__SAM3U4E__</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -297,11 +298,12 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../msc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
+					<state>$PROJ_DIR$/../../../../../hid/device</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
@@ -316,11 +318,11 @@
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
-					<state>$PROJ_DIR$/../../../../../hid/device</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -474,8 +476,9 @@
 					<name>ADefines</name>
 					<state>__SAM3U4E__</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -574,11 +577,12 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../msc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
+					<state>$PROJ_DIR$/../../../../../hid/device</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
@@ -593,11 +597,11 @@
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
-					<state>$PROJ_DIR$/../../../../../hid/device</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1110,8 +1114,9 @@
 					<name>CCDefines</name>
 					<state>__SAM3U4E__</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -1243,11 +1248,12 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../msc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
+					<state>$PROJ_DIR$/../../../../../hid/device</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
@@ -1262,11 +1268,11 @@
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
-					<state>$PROJ_DIR$/../../../../../hid/device</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1420,8 +1426,9 @@
 					<name>ADefines</name>
 					<state>__SAM3U4E__</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -1520,11 +1527,12 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../msc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/ebi/smc</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem</state>
+					<state>$PROJ_DIR$/../../../../../hid/device</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
@@ -1539,11 +1547,11 @@
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
-					<state>$PROJ_DIR$/../../../../../hid/device</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3u/include</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -2038,6 +2046,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 		</group>

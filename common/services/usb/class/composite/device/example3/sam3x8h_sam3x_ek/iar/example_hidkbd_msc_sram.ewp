@@ -162,10 +162,11 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>BOARD=SAM3X_EK</state>
-					<state>ACCESS_USB_ENABLED</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
+					<state>ACCESS_USB_ENABLED</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
 				<option>
@@ -319,6 +320,7 @@
 					<state>$PROJ_DIR$/../../../../../hid/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -471,10 +473,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>BOARD=SAM3X_EK</state>
-					<state>ACCESS_USB_ENABLED</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
+					<state>ACCESS_USB_ENABLED</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
 				<option>
@@ -595,6 +598,7 @@
 					<state>$PROJ_DIR$/../../../../../hid/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -1106,10 +1110,11 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>BOARD=SAM3X_EK</state>
-					<state>ACCESS_USB_ENABLED</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
+					<state>ACCESS_USB_ENABLED</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
 				<option>
@@ -1263,6 +1268,7 @@
 					<state>$PROJ_DIR$/../../../../../hid/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -1415,10 +1421,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>BOARD=SAM3X_EK</state>
-					<state>ACCESS_USB_ENABLED</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
+					<state>ACCESS_USB_ENABLED</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
 				<option>
@@ -1539,6 +1546,7 @@
 					<state>$PROJ_DIR$/../../../../../hid/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -1924,6 +1932,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1977,24 +1988,18 @@
 				</group>
 			</group>
 			<group>
+				<name>clock</name>
+				<group>
+					<name>sam3x</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../clock/sam3x/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
 				<name>usb</name>
 				<group>
 					<name>class</name>
-					<group>
-						<name>hid</name>
-						<group>
-							<name>device</name>
-							<group>
-								<name>kbd</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../hid/device/kbd/udi_hid_kbd.c</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../../../hid/device/udi_hid.c</name>
-							</file>
-						</group>
-					</group>
 					<group>
 						<name>composite</name>
 						<group>
@@ -2028,20 +2033,26 @@
 							</file>
 						</group>
 					</group>
+					<group>
+						<name>hid</name>
+						<group>
+							<name>device</name>
+							<group>
+								<name>kbd</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../hid/device/kbd/udi_hid_kbd.c</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../../hid/device/udi_hid.c</name>
+							</file>
+						</group>
+					</group>
 				</group>
 				<group>
 					<name>udc</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../udc/udc.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>sam3x</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../clock/sam3x/sysclk.c</name>
 					</file>
 				</group>
 			</group>

@@ -113,7 +113,7 @@ INC_PATH = \
        common/services/usb/udc                            \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./common/services/usb/class/cdc/device/unit_tests/atuc128d3_stk600-rcuc3d/gcc
+       common/services/usb/class/cdc/device/unit_tests/atuc128d3_stk600-rcuc3d/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

@@ -316,6 +316,7 @@
 					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -587,6 +588,7 @@
 					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1250,6 +1252,7 @@
 					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1521,6 +1524,7 @@
 					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1882,15 +1886,18 @@
 				</file>
 			</group>
 			<group>
-				<name>uart</name>
+				<name>pmc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../drivers/uart/uart.c</name>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
+				<name>uart</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../drivers/pmc/pmc.c</name>
+					<name>$PROJ_DIR$/../../../../../drivers/uart/uart.c</name>
 				</file>
 			</group>
 			<group>

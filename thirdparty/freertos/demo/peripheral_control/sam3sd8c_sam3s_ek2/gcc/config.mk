@@ -69,6 +69,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/uart/uart.c                            \
        sam/drivers/udp/udp_device.c                       \
        sam/drivers/usart/usart.c                          \
@@ -100,6 +101,7 @@ INC_PATH = \
        common/services/clock                              \
        common/services/freertos/sam                       \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
        common/services/sleepmgr                           \
@@ -123,18 +125,22 @@ INC_PATH = \
        sam/utils/header_files                             \
        sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
+       thirdparty/CMSIS/Lib/GCC                           \
        thirdparty/freertos/demo/peripheral_control        \
        thirdparty/freertos/demo/peripheral_control/demo-tasks \
        thirdparty/freertos/demo/peripheral_control/sam3sd8c_sam3s_ek2 \
        thirdparty/freertos/freertos-7.3.0/source/include  \
        thirdparty/freertos/freertos-7.3.0/source/portable/gcc/arm_cm3 \
-       ./thirdparty/freertos/demo/peripheral_control/sam3sd8c_sam3s_ek2/gcc
+       thirdparty/freertos/demo/peripheral_control/sam3sd8c_sam3s_ek2/gcc
 
 # Additional search paths for libraries.
-LIB_PATH = 
+LIB_PATH =  \
+       thirdparty/CMSIS/Lib/GCC                          
 
 # List of libraries to use during linking.
-LIBS = 
+LIBS =  \
+       arm_cortexM3l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3s/sam3sd8/gcc/flash.ld
@@ -174,9 +180,11 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
+       -D ARM_MATH_CM3=true                               \
        -D BOARD=SAM3S_EK2                                 \
        -D UDD_ENABLE                                      \
-       -D __SAM3SD8C__
+       -D __SAM3SD8C__                                    \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

@@ -105,7 +105,7 @@ INC_PATH = \
        common/utils/stdio/stdio_usb                       \
        common/utils/stdio/stdio_usb/stdio_usb_example     \
        common/utils/stdio/stdio_usb/stdio_usb_example/at32uc3a0512_evk1100 \
-       ./common/utils/stdio/stdio_usb/stdio_usb_example/at32uc3a0512_evk1100/gcc
+       common/utils/stdio/stdio_usb/stdio_usb_example/at32uc3a0512_evk1100/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

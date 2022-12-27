@@ -96,7 +96,7 @@ INC_PATH = \
        common/services/gfx/example1/at32uc3a0512_evk1105  \
        common/services/ioport                             \
        common/utils \
-       ./common/services/gfx/example1/at32uc3a0512_evk1105/gcc
+       common/services/gfx/example1/at32uc3a0512_evk1105/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

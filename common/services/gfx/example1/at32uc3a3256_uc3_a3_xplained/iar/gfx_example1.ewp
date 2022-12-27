@@ -327,6 +327,7 @@
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
@@ -338,9 +339,8 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
-					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/.</state>
@@ -464,6 +464,7 @@
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
@@ -475,9 +476,8 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
-					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1210,6 +1210,7 @@
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
@@ -1221,9 +1222,8 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
-					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1347,6 +1347,7 @@
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
@@ -1358,9 +1359,8 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
-					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/.</state>

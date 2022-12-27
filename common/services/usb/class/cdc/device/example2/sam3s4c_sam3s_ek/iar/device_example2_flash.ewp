@@ -164,6 +164,7 @@
 					<name>CCDefines</name>
 					<state>__SAM3S4C__</state>
 					<state>BOARD=SAM3S_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 				</option>
 				<option>
@@ -295,10 +296,10 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/include</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/include</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/source/templates</state>
@@ -314,6 +315,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -466,6 +468,7 @@
 					<name>ADefines</name>
 					<state>__SAM3S4C__</state>
 					<state>BOARD=SAM3S_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 				</option>
 				<option>
@@ -564,10 +567,10 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/include</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/include</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/source/templates</state>
@@ -583,6 +586,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1094,6 +1098,7 @@
 					<name>CCDefines</name>
 					<state>__SAM3S4C__</state>
 					<state>BOARD=SAM3S_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 				</option>
 				<option>
@@ -1225,10 +1230,10 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/include</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/include</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/source/templates</state>
@@ -1244,6 +1249,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1396,6 +1402,7 @@
 					<name>ADefines</name>
 					<state>__SAM3S4C__</state>
 					<state>BOARD=SAM3S_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>UDD_ENABLE</state>
 				</option>
 				<option>
@@ -1494,10 +1501,10 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/include</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/include</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/source/templates</state>
@@ -1513,6 +1520,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1879,10 +1887,10 @@
 								</file>
 							</group>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/source/templates/system_sam3s.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/source/templates/exceptions.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/source/templates/exceptions.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3s/source/templates/system_sam3s.c</name>
 							</file>
 						</group>
 					</group>
@@ -1901,15 +1909,18 @@
 				</file>
 			</group>
 			<group>
+				<name>udp</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp/udp_device.c</name>
+				</file>
+			</group>
+			<group>
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
-			</group>
-			<group>
-				<name>udp</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp/udp_device.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>

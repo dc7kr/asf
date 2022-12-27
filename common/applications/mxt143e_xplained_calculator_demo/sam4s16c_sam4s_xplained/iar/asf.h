@@ -59,10 +59,10 @@
 // From module: Delay routines
 #include <delay.h>
 
-// From module: GFX - Graphic Library
+// From module: GFX Color - Color Graphic Library
 #include <gfx.h>
 
-// From module: GFX - System Font
+// From module: GFX Color - System Font
 #include <sysfont.h>
 
 // From module: GPIO - General purpose Input/Output
@@ -124,9 +124,6 @@
 
 // From module: TWI - Two-wire Interface
 #include <twi.h>
-
-// From module: Widget calculator example
-#include <widget_gui.h>
 
 // From module: maXTouch - mXT143E Controller
 #include <mxt_device.h>

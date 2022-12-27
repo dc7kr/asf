@@ -62,6 +62,9 @@
 // From module: Generic board support
 #include <board.h>
 
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
+
 // From module: Interrupt management - SAM implementation
 #include <interrupt.h>
 
@@ -81,7 +84,7 @@
 // From module: SAM4S startup code
 #include <exceptions.h>
 
-// From module: Smart Card - ISO7816 smart card
+// From module: Smart Card - ISO7816 smart card using GPIO
 #include <iso7816.h>
 
 // From module: Standard serial I/O (stdio) - SAM implementation

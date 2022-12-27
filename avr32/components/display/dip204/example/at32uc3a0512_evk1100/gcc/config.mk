@@ -97,7 +97,7 @@ INC_PATH = \
        common/services/clock                              \
        common/services/delay                              \
        common/utils \
-       ./avr32/components/display/dip204/example/at32uc3a0512_evk1100/gcc
+       avr32/components/display/dip204/example/at32uc3a0512_evk1100/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

@@ -311,6 +311,7 @@
 					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils</state>
@@ -586,6 +587,7 @@
 					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils</state>
@@ -1253,6 +1255,7 @@
 					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils</state>
@@ -1528,6 +1531,7 @@
 					<state>$PROJ_DIR$/../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils/cmsis/sam4s/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../../../../../sam/utils</state>
@@ -1992,6 +1996,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 			</group>
 			<group>
 				<name>rtc</name>
@@ -2037,7 +2044,7 @@
 				<group>
 					<name>sam</name>
 					<file>
-						<name>$PROJ_DIR$/../../../fatfs-port-r0.09/sam/fattime.c</name>
+						<name>$PROJ_DIR$/../../../fatfs-port-r0.09/sam/fattime_rtc.c</name>
 					</file>
 				</group>
 				<file>

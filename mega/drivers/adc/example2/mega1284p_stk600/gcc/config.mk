@@ -61,7 +61,7 @@ INC_PATH = \
        mega/drivers/adc                                   \
        mega/drivers/adc/example2/mega1284p_stk600         \
        mega/utils \
-       ./mega/drivers/adc/example2/mega1284p_stk600/gcc  
+       mega/drivers/adc/example2/mega1284p_stk600/gcc    
 
 # Library paths from the top-level source directory
 LIB_PATH = 

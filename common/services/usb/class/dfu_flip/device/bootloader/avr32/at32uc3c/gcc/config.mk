@@ -106,7 +106,7 @@ INC_PATH = \
        common/services/usb/class/dfu_flip/device/bootloader/avr32/intc \
        common/services/usb/udc                            \
        common/utils \
-       ./common/services/usb/class/dfu_flip/device/bootloader/avr32/at32uc3c/gcc
+       common/services/usb/class/dfu_flip/device/bootloader/avr32/at32uc3c/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

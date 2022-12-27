@@ -52,6 +52,7 @@ TARGET_SRAM = device_unit_tests_sram.elf
 
 # List of C source files.
 CSRCS = \
+       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/nand_flash_mem.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_ecc_sw.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_model.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_raw_smc.c \
@@ -82,6 +83,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/uart/uart.c                            \
        sam/drivers/udp/udp_device.c                       \
        sam/drivers/usart/usart.c                          \
@@ -134,7 +136,7 @@ INC_PATH = \
        sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
        thirdparty/CMSIS/Lib/GCC \
-       ./common/services/usb/class/msc/device/unit_tests/sam4sd32c_sam4s_ek2/gcc
+       common/services/usb/class/msc/device/unit_tests/sam4sd32c_sam4s_ek2/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
@@ -144,7 +146,8 @@ LIB_PATH =  \
 # List of libraries to use during linking.
 LIBS =  \
        _nand_flash_cortexm4                               \
-       arm_cortexM4l_math                                
+       arm_cortexM4l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam4s/sam4sd32/gcc/flash.ld
@@ -191,7 +194,8 @@ CPPFLAGS = \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D UDD_ENABLE                                      \
        -D _ASSERT_ENABLE_                                 \
-       -D __SAM4SD32C__
+       -D __SAM4SD32C__                                   \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

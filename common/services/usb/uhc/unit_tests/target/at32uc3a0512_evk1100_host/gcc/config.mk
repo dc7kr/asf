@@ -111,7 +111,7 @@ INC_PATH = \
        common/services/usb/uhc/unit_tests/target/at32uc3a0512_evk1100_host \
        common/utils                                       \
        common/utils/stdio/stdio_serial \
-       ./common/services/usb/uhc/unit_tests/target/at32uc3a0512_evk1100_host/gcc
+       common/services/usb/uhc/unit_tests/target/at32uc3a0512_evk1100_host/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

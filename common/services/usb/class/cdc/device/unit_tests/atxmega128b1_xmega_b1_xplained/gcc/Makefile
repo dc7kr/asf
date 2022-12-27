@@ -48,4 +48,5 @@
 
 # Include the common Makefile, which will also include the project specific
 # config.mk file.
-include ../../../../../../../../../common/utils/make/Makefile.avr.in
+MAKEFILE_PATH = ../../../../../../../../../common/utils/make/Makefile.avr.in
+include $(MAKEFILE_PATH)

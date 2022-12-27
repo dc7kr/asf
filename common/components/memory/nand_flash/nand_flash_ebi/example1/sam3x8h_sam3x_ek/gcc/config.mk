@@ -53,6 +53,7 @@ TARGET_SRAM = nand_flash_example1_sram.elf
 # List of C source files.
 CSRCS = \
        common/components/memory/nand_flash/nand_flash_ebi/example1/nand_flash_raw_example.c \
+       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/nand_flash_mem.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_ecc_sw.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_model.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_raw_nfc.c \
@@ -72,6 +73,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
        sam/utils/cmsis/sam3x/source/templates/exceptions.c \
@@ -91,6 +93,7 @@ INC_PATH = \
        common/services/clock                              \
        common/services/delay                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
        common/services/storage/ctrl_access                \
@@ -110,16 +113,20 @@ INC_PATH = \
        sam/utils/cmsis/sam3x/source/templates             \
        sam/utils/header_files                             \
        sam/utils/preprocessor                             \
-       thirdparty/CMSIS/Include \
-       ./common/components/memory/nand_flash/nand_flash_ebi/example1/sam3x8h_sam3x_ek/gcc
+       thirdparty/CMSIS/Include                           \
+       thirdparty/CMSIS/Lib/GCC \
+       common/components/memory/nand_flash/nand_flash_ebi/example1/sam3x8h_sam3x_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
-       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/gcc
+       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/gcc \
+       thirdparty/CMSIS/Lib/GCC                          
 
 # List of libraries to use during linking.
 LIBS =  \
-       _nand_flash_cortexm3                              
+       _nand_flash_cortexm3                               \
+       arm_cortexM3l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3x/sam3x8/gcc/flash.ld
@@ -159,8 +166,10 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
+       -D ARM_MATH_CM3=true                               \
        -D BOARD=SAM3X_EK                                  \
-       -D __SAM3X8H__
+       -D __SAM3X8H__                                     \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

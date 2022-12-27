@@ -65,6 +65,9 @@
 // From module: Generic components of unit test framework
 #include <unit_test/suite.h>
 
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
+
 // From module: Interrupt management - SAM implementation
 #include <interrupt.h>
 

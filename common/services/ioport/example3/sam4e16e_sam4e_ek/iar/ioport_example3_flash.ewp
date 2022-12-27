@@ -27,8 +27,8 @@
 				</option>
 				<option>
 					<name>Variant</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GEndianMode</name>
@@ -59,7 +59,7 @@
 				<option>
 					<name>FPU</name>
 					<version>2</version>
-					<state>0</state>
+					<state>5</state>
 				</option>
 				<option>
 					<name>OGCoreOrChip</name>
@@ -135,13 +135,13 @@
 				</option>
 				<option>
 					<name>GFPUCoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GBECoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>OGUseCmsis</name>
@@ -294,12 +294,13 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../sam/utils</state>
-					<state>$PROJ_DIR$/../../../../clock</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/fpu</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4e/source/templates</state>
@@ -555,12 +556,13 @@
 				<option>
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../sam/utils</state>
-					<state>$PROJ_DIR$/../../../../clock</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/fpu</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4e/source/templates</state>
@@ -941,8 +943,8 @@
 				</option>
 				<option>
 					<name>Variant</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GEndianMode</name>
@@ -973,7 +975,7 @@
 				<option>
 					<name>FPU</name>
 					<version>2</version>
-					<state>0</state>
+					<state>5</state>
 				</option>
 				<option>
 					<name>OGCoreOrChip</name>
@@ -1049,13 +1051,13 @@
 				</option>
 				<option>
 					<name>GFPUCoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GBECoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>OGUseCmsis</name>
@@ -1208,12 +1210,13 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../sam/utils</state>
-					<state>$PROJ_DIR$/../../../../clock</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/fpu</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4e/source/templates</state>
@@ -1469,12 +1472,13 @@
 				<option>
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../sam/utils</state>
-					<state>$PROJ_DIR$/../../../../clock</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../sam/utils/fpu</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam4e/source/templates</state>
@@ -1861,6 +1865,9 @@
 			<name>drivers</name>
 			<group>
 				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>

@@ -110,7 +110,7 @@ INC_PATH = \
        common/services/spi/uc3_spi                        \
        common/services/twi                                \
        common/utils \
-       ./common/applications/mxt143e_xplained_multi-touch_demo/at32uc3l064_uc3_l0_xplained/gcc
+       common/applications/mxt143e_xplained_multi-touch_demo/at32uc3l064_uc3_l0_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

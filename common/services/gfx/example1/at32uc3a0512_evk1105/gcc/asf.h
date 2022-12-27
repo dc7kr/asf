@@ -68,10 +68,10 @@
 // From module: FLASHC - Flash Controller
 #include <flashc.h>
 
-// From module: GFX - Graphic Library
+// From module: GFX Color - Color Graphic Library
 #include <gfx.h>
 
-// From module: GFX - System Font
+// From module: GFX Color - System Font
 #include <sysfont.h>
 
 // From module: GPIO - General-Purpose Input/Output

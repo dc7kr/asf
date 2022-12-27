@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief Clock system configuration for the IL9341 example
+ * \brief Clock system driver configuration
  *
  * Copyright (c) 2012 Atmel Corporation. All rights reserved.
  *

@@ -52,6 +52,7 @@ TARGET_SRAM = fatfs_unit_tests_sram.elf
 
 # List of C source files.
 CSRCS = \
+       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/nand_flash_mem.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_ecc_sw.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_model.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_raw_smc.c \
@@ -72,6 +73,7 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
+       sam/drivers/pmc/sleep.c                            \
        sam/drivers/rtc/rtc.c                              \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
@@ -80,7 +82,7 @@ CSRCS = \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
        sam/utils/syscalls/gcc/syscalls.c                  \
        thirdparty/fatfs/fatfs-port-r0.09/diskio.c         \
-       thirdparty/fatfs/fatfs-port-r0.09/sam/fattime.c    \
+       thirdparty/fatfs/fatfs-port-r0.09/sam/fattime_rtc.c \
        thirdparty/fatfs/fatfs-r0.09/src/ff.c              \
        thirdparty/fatfs/fatfs-r0.09/src/option/ccsbcs.c   \
        thirdparty/fatfs/unit_tests/memories_initialization_sam.c \
@@ -97,6 +99,7 @@ INC_PATH = \
        common/services/clock                              \
        common/services/delay                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
        common/services/storage/ctrl_access                \
@@ -123,7 +126,7 @@ INC_PATH = \
        thirdparty/fatfs/fatfs-r0.09/src                   \
        thirdparty/fatfs/unit_tests                        \
        thirdparty/fatfs/unit_tests/sam4sd32c_sam4s_ek2 \
-       ./thirdparty/fatfs/unit_tests/sam4sd32c_sam4s_ek2/gcc
+       thirdparty/fatfs/unit_tests/sam4sd32c_sam4s_ek2/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
@@ -133,7 +136,8 @@ LIB_PATH =  \
 # List of libraries to use during linking.
 LIBS =  \
        _nand_flash_cortexm4                               \
-       arm_cortexM4l_math                                
+       arm_cortexM4l_math                                 \
+       m                                                 
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam4s/sam4sd32/gcc/flash.ld
@@ -177,7 +181,8 @@ CPPFLAGS = \
        -D BOARD=SAM4S_EK2                                 \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_                                 \
-       -D __SAM4SD32C__
+       -D __SAM4SD32C__                                   \
+       -D printf=iprintf
 
 # Extra flags to use when linking
 LDFLAGS = \

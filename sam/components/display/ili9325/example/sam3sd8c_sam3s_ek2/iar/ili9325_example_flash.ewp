@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -313,6 +314,7 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/.</state>
@@ -465,6 +467,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -582,6 +585,7 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1093,6 +1097,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -1243,6 +1248,7 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1395,6 +1401,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
 				<option>
@@ -1512,6 +1519,7 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1874,6 +1882,15 @@
 				</file>
 			</group>
 			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
 				<name>ebi</name>
 				<group>
 					<name>smc</name>
@@ -1889,43 +1906,10 @@
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
 				<name>uart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/uart/uart.c</name>
 				</file>
-			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>cmsis</name>
-				<group>
-					<name>sam3s8</name>
-					<group>
-						<name>source</name>
-						<group>
-							<name>templates</name>
-							<group>
-								<name>iar</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/iar/startup_sam3sd8.c</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/exceptions.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/system_sam3sd8.c</name>
-							</file>
-						</group>
-					</group>
-				</group>
 			</group>
 		</group>
 		<group>
@@ -1962,6 +1946,33 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../boards/sam3s_ek2/init.c</name>
 				</file>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>cmsis</name>
+				<group>
+					<name>sam3s8</name>
+					<group>
+						<name>source</name>
+						<group>
+							<name>templates</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/system_sam3sd8.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/exceptions.c</name>
+							</file>
+							<group>
+								<name>iar</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/iar/startup_sam3sd8.c</name>
+								</file>
+							</group>
+						</group>
+					</group>
+				</group>
 			</group>
 		</group>
 	</group>

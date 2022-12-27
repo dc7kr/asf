@@ -94,7 +94,7 @@ INC_PATH = \
        common/services/spi                                \
        common/services/spi/uc3_usart_spi                  \
        common/utils \
-       ./common/components/memory/data_flash/at45dbx/example/atuc256l4u_stk600-rcuc3l4/gcc
+       common/components/memory/data_flash/at45dbx/example/atuc256l4u_stk600-rcuc3l4/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

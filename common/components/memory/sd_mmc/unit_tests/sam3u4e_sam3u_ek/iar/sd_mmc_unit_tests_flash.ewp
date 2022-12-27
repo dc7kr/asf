@@ -164,6 +164,7 @@
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -470,6 +471,7 @@
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -1102,6 +1104,7 @@
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -1408,6 +1411,7 @@
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
@@ -1879,7 +1883,31 @@
 	<group>
 		<name>common</name>
 		<group>
+			<name>components</name>
+			<group>
+				<name>memory</name>
+				<group>
+					<name>sd_mmc</name>
+					<group>
+						<name>unit_tests</name>
+						<file>
+							<name>$PROJ_DIR$/../../unit_tests.c</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../sd_mmc.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
+		<group>
 			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+			</group>
 			<group>
 				<name>stdio</name>
 				<file>
@@ -1895,15 +1923,18 @@
 					<name>$PROJ_DIR$/../../../../../../utils/unit_test/suite.c</name>
 				</file>
 			</group>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-			</group>
 		</group>
 		<group>
 			<name>services</name>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../services/delay/sam/cycle_counter.c</name>
+					</file>
+				</group>
+			</group>
 			<group>
 				<name>serial</name>
 				<file>
@@ -1919,37 +1950,67 @@
 					</file>
 				</group>
 			</group>
-			<group>
-				<name>delay</name>
-				<group>
-					<name>sam</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../services/delay/sam/cycle_counter.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>components</name>
-			<group>
-				<name>memory</name>
-				<group>
-					<name>sd_mmc</name>
-					<file>
-						<name>$PROJ_DIR$/../../../sd_mmc.c</name>
-					</file>
-					<group>
-						<name>unit_tests</name>
-						<file>
-							<name>$PROJ_DIR$/../../unit_tests.c</name>
-						</file>
-					</group>
-				</group>
-			</group>
 		</group>
 	</group>
 	<group>
 		<name>sam</name>
+		<group>
+			<name>drivers</name>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio_handler.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+			</group>
+			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/uart/uart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>dmac</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/dmac/dmac.c</name>
+				</file>
+			</group>
+			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/usart/usart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>hsmci</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/hsmci/hsmci.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>sam3u_ek</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam3u_ek/led.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam3u_ek/init.c</name>
+				</file>
+			</group>
+		</group>
 		<group>
 			<name>utils</name>
 			<group>
@@ -1975,60 +2036,6 @@
 						</group>
 					</group>
 				</group>
-			</group>
-		</group>
-		<group>
-			<name>drivers</name>
-			<group>
-				<name>hsmci</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/hsmci/hsmci.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pio/pio_handler.c</name>
-				</file>
-			</group>
-			<group>
-				<name>dmac</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/dmac/dmac.c</name>
-				</file>
-			</group>
-			<group>
-				<name>usart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/usart/usart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/uart/uart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>sam3u_ek</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam3u_ek/init.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/boards/sam3u_ek/led.c</name>
-				</file>
 			</group>
 		</group>
 	</group>

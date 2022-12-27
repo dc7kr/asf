@@ -97,7 +97,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/utils \
-       ./avr32/drivers/freqm/example/at32uc3c0512c_uc3c_ek/gcc
+       avr32/drivers/freqm/example/at32uc3c0512c_uc3c_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

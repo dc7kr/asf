@@ -329,7 +329,7 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
-					<state>$PROJ_DIR$/../../../../twi</state>
+					<state>$PROJ_DIR$/../../../../../utils/membag</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
@@ -339,7 +339,7 @@
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../../utils/membag</state>
+					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
@@ -472,7 +472,7 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
-					<state>$PROJ_DIR$/../../../../twi</state>
+					<state>$PROJ_DIR$/../../../../../utils/membag</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
@@ -482,7 +482,7 @@
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../../utils/membag</state>
+					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
@@ -1224,7 +1224,7 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
-					<state>$PROJ_DIR$/../../../../twi</state>
+					<state>$PROJ_DIR$/../../../../../utils/membag</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
@@ -1234,7 +1234,7 @@
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../../utils/membag</state>
+					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
@@ -1367,7 +1367,7 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
-					<state>$PROJ_DIR$/../../../../twi</state>
+					<state>$PROJ_DIR$/../../../../../utils/membag</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
@@ -1377,7 +1377,7 @@
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../../utils/membag</state>
+					<state>$PROJ_DIR$/../../../../twi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
@@ -1807,6 +1807,12 @@
 					<file>
 						<name>$PROJ_DIR$/../../widget_gui.c</name>
 					</file>
+					<group>
+						<name>at32uc3a3256_uc3_a3_xplained</name>
+						<file>
+							<name>$PROJ_DIR$/../touch_interface.c</name>
+						</file>
+					</group>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../wtk.c</name>

@@ -90,7 +90,7 @@ INC_PATH = \
        xmega/drivers/usart                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/drivers/ebi/unit_tests/sram/atxmega128a1_stk600-rc100x/gcc
+       xmega/drivers/ebi/unit_tests/sram/atxmega128a1_stk600-rc100x/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

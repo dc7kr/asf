@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3N4C__</state>
 				</option>
 				<option>
@@ -468,6 +469,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3N4C__</state>
 				</option>
 				<option>
@@ -1099,6 +1101,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3N4C__</state>
 				</option>
 				<option>
@@ -1404,6 +1407,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3N4C__</state>
 				</option>
 				<option>
@@ -1929,17 +1933,20 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
-			</group>
-			<group>
-				<name>usart</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/usart/usart.c</name>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>
 				<name>spi</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/drivers/spi/spi.c</name>
+				</file>
+			</group>
+			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/usart/usart.c</name>
 				</file>
 			</group>
 			<group>

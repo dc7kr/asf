@@ -105,7 +105,7 @@ INC_PATH = \
        common/services/clock                              \
        common/services/delay                              \
        common/utils \
-       ./avr32/drivers/dacifb/example2/at32uc3c0512c_uc3c_ek/gcc
+       avr32/drivers/dacifb/example2/at32uc3c0512c_uc3c_ek/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

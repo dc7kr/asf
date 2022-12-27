@@ -77,7 +77,7 @@ INC_PATH = \
        xmega/drivers/tc/simulator_example1/xmega_a1_simulator \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/drivers/tc/simulator_example1/xmega_a1_simulator/gcc
+       xmega/drivers/tc/simulator_example1/xmega_a1_simulator/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

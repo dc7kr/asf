@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -303,6 +304,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards/sam3u_ek</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3u/include</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
@@ -459,6 +461,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -566,6 +569,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards/sam3u_ek</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3u/include</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
@@ -1081,6 +1085,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -1221,6 +1226,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards/sam3u_ek</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3u/include</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
@@ -1377,6 +1383,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM3U4E__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3U_EK</state>
 				</option>
 				<option>
@@ -1484,6 +1491,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../sam/boards/sam3u_ek</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3u/include</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
@@ -1839,6 +1847,33 @@
 	<group>
 		<name>sam</name>
 		<group>
+			<name>drivers</name>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pio/pio_handler.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pio/pio.c</name>
+				</file>
+			</group>
+			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/usart/usart.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
 			<name>utils</name>
 			<group>
 				<name>cmsis</name>
@@ -1863,30 +1898,6 @@
 						</group>
 					</group>
 				</group>
-			</group>
-		</group>
-		<group>
-			<name>drivers</name>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pio/pio_handler.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pio/pio.c</name>
-				</file>
-			</group>
-			<group>
-				<name>usart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/usart/usart.c</name>
-				</file>
 			</group>
 		</group>
 		<group>

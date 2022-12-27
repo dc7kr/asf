@@ -113,7 +113,7 @@ INC_PATH = \
        thirdparty/qtouch/devspecific/uc3/uc3l0/common     \
        thirdparty/qtouch/devspecific/uc3/uc3l0/include    \
        thirdparty/qtouch/qdebug \
-       ./avr32/applications/uc3-l0_xplained-demo/at32uc3l064_uc3_l0_xplained/gcc
+       avr32/applications/uc3-l0_xplained-demo/at32uc3l064_uc3_l0_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \

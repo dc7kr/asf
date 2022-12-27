@@ -1893,15 +1893,18 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>pdc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pdc/pdc.c</name>
-				</file>
-			</group>
-			<group>
 				<name>twi</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/drivers/twi/twi.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 			<group>
@@ -1920,9 +1923,9 @@
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
+				<name>pdc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../sam/drivers/pmc/pmc.c</name>
+					<name>$PROJ_DIR$/../../../../../../sam/drivers/pdc/pdc.c</name>
 				</file>
 			</group>
 		</group>
@@ -2019,21 +2022,12 @@
 				</file>
 			</group>
 			<group>
-				<name>clock</name>
-				<group>
-					<name>sam4s</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../clock/sam4s/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>gfx</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../gfx/gfx_ili9341_sdt028atft.c</name>
+					<name>$PROJ_DIR$/../../../../gfx/sysfont.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../gfx/sysfont.c</name>
+					<name>$PROJ_DIR$/../../../../gfx/gfx_ili9341_sdt028atft.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../gfx/gfx_generic.c</name>
@@ -2041,6 +2035,15 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../gfx/gfx_text.c</name>
 				</file>
+			</group>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam4s</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../clock/sam4s/sysclk.c</name>
+					</file>
+				</group>
 			</group>
 			<group>
 				<name>delay</name>

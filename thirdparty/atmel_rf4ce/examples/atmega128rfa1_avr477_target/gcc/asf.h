@@ -90,11 +90,11 @@
 // From module: Interrupt management - megaAVR and tinyAVR implementation
 #include <interrupt.h>
 
-// From module: Part identification macros
-#include <parts.h>
-
-// From module: megaAVR and tinyAVR compiler driver
+// From module: MEGA compiler driver
 #include <compiler.h>
 #include <status_codes.h>
+
+// From module: Part identification macros
+#include <parts.h>
 
 #endif // ASF_H

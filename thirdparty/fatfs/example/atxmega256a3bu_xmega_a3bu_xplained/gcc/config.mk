@@ -110,7 +110,7 @@ INC_PATH = \
        xmega/drivers/usart                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./thirdparty/fatfs/example/atxmega256a3bu_xmega_a3bu_xplained/gcc
+       thirdparty/fatfs/example/atxmega256a3bu_xmega_a3bu_xplained/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

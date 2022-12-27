@@ -163,6 +163,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>__SAM3N4C__</state>
 				</option>
@@ -473,6 +474,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>__SAM3N4C__</state>
 				</option>
@@ -1109,6 +1111,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>__SAM3N4C__</state>
 				</option>
@@ -1419,6 +1422,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>BOARD=SAM3N_EK</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>__SAM3N4C__</state>
 				</option>
@@ -2039,17 +2043,20 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
-			</group>
-			<group>
-				<name>spi</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../sam/drivers/spi/spi.c</name>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../sam/drivers/usart/usart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>spi</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../sam/drivers/spi/spi.c</name>
 				</file>
 			</group>
 			<group>
@@ -2087,15 +2094,15 @@
 			</group>
 			<group>
 				<name>fatfs-port-r0.09</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/diskio.c</name>
-				</file>
 				<group>
 					<name>sam</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam/fattime.c</name>
+						<name>$PROJ_DIR$/../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/sam/fattime_rtc.c</name>
 					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../thirdparty/fatfs/fatfs-port-r0.09/diskio.c</name>
+				</file>
 			</group>
 		</group>
 	</group>

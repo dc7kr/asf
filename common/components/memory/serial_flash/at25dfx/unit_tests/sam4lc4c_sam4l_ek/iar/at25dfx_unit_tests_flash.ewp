@@ -149,7 +149,7 @@
 				</option>
 				<option>
 					<name>OGUseCmsisDspLib</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 			</data>
 		</settings>
@@ -169,8 +169,8 @@
 					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM4L_EK</state>
+					<state>__SAM4LC4C__</state>
 					<state>ARM_MATH_CM4=true</state>
-					<state>__ATSAM4LC4C__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -313,6 +313,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
@@ -473,8 +474,8 @@
 					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM4L_EK</state>
+					<state>__SAM4LC4C__</state>
 					<state>ARM_MATH_CM4=true</state>
-					<state>__ATSAM4LC4C__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -584,6 +585,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
@@ -1117,7 +1119,7 @@
 				</option>
 				<option>
 					<name>OGUseCmsisDspLib</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 			</data>
 		</settings>
@@ -1137,8 +1139,8 @@
 					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM4L_EK</state>
+					<state>__SAM4LC4C__</state>
 					<state>ARM_MATH_CM4=true</state>
-					<state>__ATSAM4LC4C__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1281,6 +1283,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
@@ -1441,8 +1444,8 @@
 					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM4L_EK</state>
+					<state>__SAM4LC4C__</state>
 					<state>ARM_MATH_CM4=true</state>
-					<state>__ATSAM4LC4C__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1552,6 +1555,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/header_files</state>
@@ -1949,10 +1953,10 @@
 			<group>
 				<name>stdio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../utils/stdio/read.c</name>
+					<name>$PROJ_DIR$/../../../../../../../utils/stdio/write.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../utils/stdio/write.c</name>
+					<name>$PROJ_DIR$/../../../../../../../utils/stdio/read.c</name>
 				</file>
 			</group>
 			<group>
@@ -1984,9 +1988,6 @@
 				<group>
 					<name>sam4l</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../services/clock/sam4l/pll.c</name>
-					</file>
-					<file>
 						<name>$PROJ_DIR$/../../../../../../../services/clock/sam4l/dfll.c</name>
 					</file>
 					<file>
@@ -1994,6 +1995,18 @@
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../services/clock/sam4l/sysclk.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../services/clock/sam4l/pll.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../services/delay/sam/cycle_counter.c</name>
 					</file>
 				</group>
 			</group>
@@ -2026,33 +2039,6 @@
 	<group>
 		<name>sam</name>
 		<group>
-			<name>drivers</name>
-			<group>
-				<name>flashcalw</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw/flashcalw.c</name>
-				</file>
-			</group>
-			<group>
-				<name>bpm</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/bpm/bpm.c</name>
-				</file>
-			</group>
-			<group>
-				<name>usart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/usart/usart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>spi</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/spi/spi.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
 			<name>utils</name>
 			<group>
 				<name>cmsis</name>
@@ -2071,15 +2057,48 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/source/templates/exceptions.c</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/source/templates/system_sam4l.c</name>
+							</file>
 						</group>
 					</group>
 				</group>
 			</group>
 		</group>
 		<group>
+			<name>drivers</name>
+			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/usart/usart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>bpm</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/bpm/bpm.c</name>
+				</file>
+			</group>
+			<group>
+				<name>flashcalw</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw/flashcalw.c</name>
+				</file>
+			</group>
+			<group>
+				<name>spi</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/spi/spi.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
 			<name>boards</name>
 			<group>
 				<name>sam4l_ek</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/boards/sam4l_ek/board_monitor.c</name>
+				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/boards/sam4l_ek/init.c</name>
 				</file>

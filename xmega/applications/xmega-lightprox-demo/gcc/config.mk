@@ -117,7 +117,7 @@ INC_PATH = \
        xmega/drivers/usb                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/applications/xmega-lightprox-demo/gcc     
+       xmega/applications/xmega-lightprox-demo/gcc       
 
 # Library paths from the top-level source directory
 LIB_PATH = 

@@ -75,7 +75,7 @@ INC_PATH = \
        thirdparty/qtouch/generic/avr8                     \
        thirdparty/qtouch/generic/avr8/qmatrix/common      \
        thirdparty/qtouch/generic/include \
-       ./thirdparty/atmel_rf4ce/examples/atmega128rfa1_avr477_remote/gcc
+       thirdparty/atmel_rf4ce/examples/atmega128rfa1_avr477_remote/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH =  \

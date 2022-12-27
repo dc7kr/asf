@@ -333,12 +333,15 @@
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/flashc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/intc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -466,12 +469,15 @@
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/flashc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/intc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1208,12 +1214,15 @@
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/flashc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/intc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1341,12 +1350,15 @@
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/flashc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/intc</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1770,15 +1782,21 @@
 				</file>
 			</group>
 			<group>
-				<name>canif</name>
+				<name>flashc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/canif/canif.c</name>
+					<name>$PROJ_DIR$/../../../../../../drivers/flashc/flashc.c</name>
 				</file>
 			</group>
 			<group>
 				<name>scif</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/scif/scif_uc3c.c</name>
+				</file>
+			</group>
+			<group>
+				<name>canif</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/canif/canif.c</name>
 				</file>
 			</group>
 			<group>
@@ -1794,12 +1812,6 @@
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/usart/usart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>flashc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/flashc/flashc.c</name>
 				</file>
 			</group>
 		</group>
@@ -1843,6 +1855,27 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../utils/startup/trampoline_uc3.s82</name>
 				</file>
+			</group>
+		</group>
+	</group>
+	<group>
+		<name>common</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>uc3c</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../common/services/clock/uc3c/pll.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../common/services/clock/uc3c/sysclk.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../common/services/clock/uc3c/osc.c</name>
+					</file>
+				</group>
 			</group>
 		</group>
 	</group>

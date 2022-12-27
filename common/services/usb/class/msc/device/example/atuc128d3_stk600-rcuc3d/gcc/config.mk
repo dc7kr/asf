@@ -116,7 +116,7 @@ INC_PATH = \
        common/services/usb/class/msc/device/example/atuc128d3_stk600-rcuc3d \
        common/services/usb/udc                            \
        common/utils \
-       ./common/services/usb/class/msc/device/example/atuc128d3_stk600-rcuc3d/gcc
+       common/services/usb/class/msc/device/example/atuc128d3_stk600-rcuc3d/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

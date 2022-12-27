@@ -1995,6 +1995,15 @@
 				</file>
 			</group>
 			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
 				<name>tc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/tc/tc.c</name>
@@ -2004,12 +2013,6 @@
 				<name>wdt</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/wdt/wdt.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 			<group>

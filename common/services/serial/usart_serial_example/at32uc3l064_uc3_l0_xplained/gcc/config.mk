@@ -93,7 +93,7 @@ INC_PATH = \
        common/services/serial/usart_serial_example        \
        common/services/serial/usart_serial_example/at32uc3l064_uc3_l0_xplained \
        common/utils \
-       ./common/services/serial/usart_serial_example/at32uc3l064_uc3_l0_xplained/gcc
+       common/services/serial/usart_serial_example/at32uc3l064_uc3_l0_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

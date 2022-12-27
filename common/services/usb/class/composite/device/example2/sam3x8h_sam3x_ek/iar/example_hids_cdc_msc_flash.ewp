@@ -162,10 +162,11 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>BOARD=SAM3X_EK</state>
-					<state>ACCESS_USB_ENABLED</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
+					<state>ACCESS_USB_ENABLED</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
 				<option>
@@ -323,6 +324,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -475,10 +477,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>BOARD=SAM3X_EK</state>
-					<state>ACCESS_USB_ENABLED</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
+					<state>ACCESS_USB_ENABLED</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
 				<option>
@@ -603,6 +606,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -1114,10 +1118,11 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>BOARD=SAM3X_EK</state>
-					<state>ACCESS_USB_ENABLED</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
+					<state>ACCESS_USB_ENABLED</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
 				<option>
@@ -1275,6 +1280,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -1427,10 +1433,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>BOARD=SAM3X_EK</state>
-					<state>ACCESS_USB_ENABLED</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
+					<state>ACCESS_USB_ENABLED</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
 				</option>
 				<option>
@@ -1555,6 +1562,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../hid</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -1945,6 +1953,9 @@
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 		</group>

@@ -101,7 +101,7 @@ INC_PATH = \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/utils \
-       ./avr32/components/audio/amp/tpa6130a2/example/at32uc3a3256_evk1104/gcc
+       avr32/components/audio/amp/tpa6130a2/example/at32uc3a3256_evk1104/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

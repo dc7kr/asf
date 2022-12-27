@@ -61,7 +61,7 @@ INC_PATH = \
        mega/applications/mega_gpio_example                \
        mega/applications/mega_gpio_example/mega48a_stk600 \
        mega/utils \
-       ./mega/applications/mega_gpio_example/mega48a_stk600/gcc
+       mega/applications/mega_gpio_example/mega48a_stk600/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

@@ -25,7 +25,7 @@ DOXYFILE_ENCODING      = UTF-8
 # The PROJECT_NAME tag is a single word (or a sequence of words surrounded
 # by quotes) that should identify the project.
 
-PROJECT_NAME           = "USB Device HID Mouse for UC3-A3 Xplained"
+PROJECT_NAME           = "USB Device example using the mXT143E Xplained kit as mouse"
 
 # The PROJECT_NUMBER tag can be used to enter a project or revision number.
 # This could be handy for archiving the generated documentation or
@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../../../avr32/boards ../../../../../../services/spi/uc3_spi ../../../../../../../avr32/drivers/twim ../../../../../../../avr32/drivers/usbb ../../../../../../../avr32/drivers/pm ../../../../../../../avr32/drivers/eic ../../../../../../services/gfx ../.. ../../../../../../../avr32/utils ../../../../../../../avr32/drivers/gpio .. ../../../../../../services/sleepmgr ../../../../../../utils ../../../../../../../avr32/drivers/spi ../../.. ../../../../../../services/usb/class/hid/device/mouse ../../../../../../services/clock ../../../../../../services/usb/udc ../../../../../../services/usb ../../../../../../../avr32/drivers/cpu/cycle_counter ../../../../../../services/twi ../../../../../../../avr32/boards/uc3_a3_xplained ../../../../../../services/delay ../../../../../display/ili9341 ../../../../../../services/usb/class/hid/device ../../../../../../services/spi ../../../../../../boards ../../../../../../../avr32/drivers/flashc ../../../../../../services/ioport ../../../../../../../avr32/drivers/pdca ../../../../../../../avr32/utils/preprocessor ../../../../../../services/usb/class/hid
+INCLUDE_PATH           =  ../../../../../../../avr32/boards ../../../../../../../avr32/drivers/pdca ../../../../../../../avr32/drivers/twim ../../../../../../../avr32/drivers/usbb ../../../../../../../avr32/drivers/pm ../../../../../../../avr32/drivers/eic ../../../../../../services/gfx ../.. ../../../../../../../avr32/utils ../../../../../../../avr32/drivers/gpio .. ../../../../../../services/sleepmgr ../../../../../../utils ../../../../../../../avr32/drivers/spi ../../.. ../../../../../../services/usb/class/hid/device/mouse ../../../../../../services/clock ../../../../../../services/usb/udc ../../../../../../services/usb ../../../../../../../avr32/drivers/cpu/cycle_counter ../../../../../../services/twi ../../../../../../../avr32/boards/uc3_a3_xplained ../../../../../../services/delay ../../../../../display/ili9341 ../../../../../../services/usb/class/hid/device ../../../../../../services/spi ../../../../../../boards ../../../../../../../avr32/drivers/flashc ../../../../../../services/ioport ../../../../../../services/spi/uc3_spi ../../../../../../../avr32/utils/preprocessor ../../../../../../services/usb/class/hid
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

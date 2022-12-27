@@ -164,6 +164,7 @@
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
@@ -315,6 +316,7 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/.</state>
@@ -468,6 +470,7 @@
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
@@ -586,6 +589,7 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1098,6 +1102,7 @@
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
@@ -1249,6 +1254,7 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1402,6 +1408,7 @@
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM3SD8C__</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3S_EK2</state>
 				</option>
@@ -1520,6 +1527,7 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/include</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1882,6 +1890,15 @@
 				</file>
 			</group>
 			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../drivers/pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
 				<name>ebi</name>
 				<group>
 					<name>smc</name>
@@ -1897,43 +1914,10 @@
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
 				<name>uart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../drivers/uart/uart.c</name>
 				</file>
-			</group>
-		</group>
-		<group>
-			<name>utils</name>
-			<group>
-				<name>cmsis</name>
-				<group>
-					<name>sam3s8</name>
-					<group>
-						<name>source</name>
-						<group>
-							<name>templates</name>
-							<group>
-								<name>iar</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/iar/startup_sam3sd8.c</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/exceptions.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/system_sam3sd8.c</name>
-							</file>
-						</group>
-					</group>
-				</group>
 			</group>
 		</group>
 		<group>
@@ -1972,11 +1956,47 @@
 				</file>
 			</group>
 		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>cmsis</name>
+				<group>
+					<name>sam3s8</name>
+					<group>
+						<name>source</name>
+						<group>
+							<name>templates</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/exceptions.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/system_sam3sd8.c</name>
+							</file>
+							<group>
+								<name>iar</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../utils/cmsis/sam3s8/source/templates/iar/startup_sam3sd8.c</name>
+								</file>
+							</group>
+						</group>
+					</group>
+				</group>
+			</group>
+		</group>
 	</group>
 	<group>
 		<name>common</name>
 		<group>
 			<name>utils</name>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/utils/stdio/write.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common/utils/stdio/read.c</name>
+				</file>
+			</group>
 			<group>
 				<name>unit_test</name>
 				<file>
@@ -1987,15 +2007,6 @@
 				<name>interrupt</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-			</group>
-			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../common/utils/stdio/read.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../common/utils/stdio/write.c</name>
 				</file>
 			</group>
 		</group>

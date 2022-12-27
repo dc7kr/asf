@@ -89,7 +89,7 @@ INC_PATH = \
        common/boards                                      \
        common/services/clock                              \
        common/utils \
-       ./avr32/drivers/usart/usart_example2/at32uc3l064_uc3_l0_xplained/gcc
+       avr32/drivers/usart/usart_example2/at32uc3l064_uc3_l0_xplained/gcc
 
 # Additional search paths for libraries.
 LIB_PATH = 

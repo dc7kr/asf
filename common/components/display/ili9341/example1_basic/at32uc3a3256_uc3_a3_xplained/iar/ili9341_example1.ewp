@@ -323,23 +323,23 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../services/delay</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../../../services/spi</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/boards</state>
+					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
-					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -458,23 +458,23 @@
 				</option>
 				<option>
 					<name>AIncludePaths</name>
-					<state>$PROJ_DIR$/../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../services/delay</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../../../services/spi</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/boards</state>
+					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
-					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1202,23 +1202,23 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../services/delay</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../../../services/spi</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/boards</state>
+					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
-					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1337,23 +1337,23 @@
 				</option>
 				<option>
 					<name>AIncludePaths</name>
-					<state>$PROJ_DIR$/../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../services/delay</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../../../services/spi</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/boards</state>
+					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
-					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/boards/uc3_a3_xplained</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>

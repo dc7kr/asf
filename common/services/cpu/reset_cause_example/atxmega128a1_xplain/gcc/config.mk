@@ -69,7 +69,7 @@ INC_PATH = \
        xmega/drivers/cpu                                  \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./common/services/cpu/reset_cause_example/atxmega128a1_xplain/gcc
+       common/services/cpu/reset_cause_example/atxmega128a1_xplain/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

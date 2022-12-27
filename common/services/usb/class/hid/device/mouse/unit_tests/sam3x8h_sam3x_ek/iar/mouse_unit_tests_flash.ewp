@@ -163,10 +163,11 @@
 				<option>
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>__SAM3X8H__</state>
+					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3X_EK</state>
-					<state>UDD_ENABLE</state>
+					<state>__SAM3X8H__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -320,6 +321,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -472,10 +474,11 @@
 				<option>
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>__SAM3X8H__</state>
+					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3X_EK</state>
-					<state>UDD_ENABLE</state>
+					<state>__SAM3X8H__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -596,6 +599,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1107,10 +1111,11 @@
 				<option>
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>__SAM3X8H__</state>
+					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3X_EK</state>
-					<state>UDD_ENABLE</state>
+					<state>__SAM3X8H__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1264,6 +1269,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1416,10 +1422,11 @@
 				<option>
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>__SAM3X8H__</state>
+					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM3=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=SAM3X_EK</state>
-					<state>UDD_ENABLE</state>
+					<state>__SAM3X8H__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1540,6 +1547,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../..</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1989,9 +1997,18 @@
 				</file>
 			</group>
 			<group>
+				<name>uotghs</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/uotghs/uotghs_device.c</name>
+				</file>
+			</group>
+			<group>
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>
@@ -2009,10 +2026,16 @@
 					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/uart/uart.c</name>
 				</file>
 			</group>
+		</group>
+		<group>
+			<name>boards</name>
 			<group>
-				<name>uotghs</name>
+				<name>sam3x_ek</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam/drivers/uotghs/uotghs_device.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam3x_ek/init.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam3x_ek/led.c</name>
 				</file>
 			</group>
 		</group>
@@ -2026,9 +2049,6 @@
 						<name>source</name>
 						<group>
 							<name>templates</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
-							</file>
 							<group>
 								<name>iar</name>
 								<file>
@@ -2036,23 +2056,14 @@
 								</file>
 							</group>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/exceptions.c</name>
 							</file>
 						</group>
 					</group>
 				</group>
-			</group>
-		</group>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>sam3x_ek</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam3x_ek/init.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam3x_ek/led.c</name>
-				</file>
 			</group>
 		</group>
 	</group>

@@ -56,14 +56,14 @@
 #include <compiler.h>
 #include <status_codes.h>
 
-// From module: Cortex-M4 CMSIS DSP Convolution Example
-#include <math_helper.h>
-
 // From module: GPIO - General purpose Input/Output
 #include <gpio.h>
 
 // From module: Generic board support
 #include <board.h>
+
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
 
 // From module: Interrupt management - SAM implementation
 #include <interrupt.h>
@@ -83,6 +83,9 @@
 
 // From module: SAM4S startup code
 #include <exceptions.h>
+
+// From module: System Clock Control - SAM4S implementation
+#include <sysclk.h>
 
 // From module: pio_handler support enabled
 #include <pio_handler.h>

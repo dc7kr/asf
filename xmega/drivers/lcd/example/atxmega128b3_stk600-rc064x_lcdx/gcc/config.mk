@@ -83,7 +83,7 @@ INC_PATH = \
        xmega/drivers/tc                                   \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/drivers/lcd/example/atxmega128b3_stk600-rc064x_lcdx/gcc
+       xmega/drivers/lcd/example/atxmega128b3_stk600-rc064x_lcdx/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 

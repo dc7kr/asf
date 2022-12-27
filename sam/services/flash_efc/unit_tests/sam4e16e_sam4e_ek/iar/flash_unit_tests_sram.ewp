@@ -27,8 +27,8 @@
 				</option>
 				<option>
 					<name>Variant</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GEndianMode</name>
@@ -59,7 +59,7 @@
 				<option>
 					<name>FPU</name>
 					<version>2</version>
-					<state>0</state>
+					<state>5</state>
 				</option>
 				<option>
 					<name>OGCoreOrChip</name>
@@ -135,13 +135,13 @@
 				</option>
 				<option>
 					<name>GFPUCoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GBECoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>OGUseCmsis</name>
@@ -295,27 +295,28 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../drivers/uart</state>
-					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
+					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/include</state>
+					<state>$PROJ_DIR$/../../../../../drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4e_ek</state>
-					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -565,27 +566,28 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../drivers/uart</state>
-					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
+					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/include</state>
+					<state>$PROJ_DIR$/../../../../../drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4e_ek</state>
-					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -959,8 +961,8 @@
 				</option>
 				<option>
 					<name>Variant</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GEndianMode</name>
@@ -991,7 +993,7 @@
 				<option>
 					<name>FPU</name>
 					<version>2</version>
-					<state>0</state>
+					<state>5</state>
 				</option>
 				<option>
 					<name>OGCoreOrChip</name>
@@ -1067,13 +1069,13 @@
 				</option>
 				<option>
 					<name>GFPUCoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>GBECoreSlave</name>
-					<version>19</version>
-					<state>37</state>
+					<version>20</version>
+					<state>40</state>
 				</option>
 				<option>
 					<name>OGUseCmsis</name>
@@ -1227,27 +1229,28 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../drivers/uart</state>
-					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
+					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/include</state>
+					<state>$PROJ_DIR$/../../../../../drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4e_ek</state>
-					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1497,27 +1500,28 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../drivers/uart</state>
-					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../drivers/pmc</state>
+					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
+					<state>$PROJ_DIR$/../../../../../utils/fpu</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam4e/include</state>
+					<state>$PROJ_DIR$/../../../../../drivers/uart</state>
+					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam4e_ek</state>
-					<state>$PROJ_DIR$/../../../../../drivers/efc</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1905,15 +1909,18 @@
 		<group>
 			<name>drivers</name>
 			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/uart/uart.c</name>
+				</file>
+			</group>
+			<group>
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../drivers/pmc/pmc.c</name>
 				</file>
-			</group>
-			<group>
-				<name>uart</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../drivers/uart/uart.c</name>
+					<name>$PROJ_DIR$/../../../../../drivers/pmc/sleep.c</name>
 				</file>
 			</group>
 			<group>
@@ -1933,15 +1940,15 @@
 			<name>services</name>
 			<group>
 				<name>flash_efc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../flash_efc.c</name>
-				</file>
 				<group>
 					<name>unit_tests</name>
 					<file>
 						<name>$PROJ_DIR$/../../unit_tests.c</name>
 					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../flash_efc.c</name>
+				</file>
 			</group>
 		</group>
 	</group>

@@ -76,7 +76,7 @@ INC_PATH = \
        xmega/drivers/sleep                                \
        xmega/utils                                        \
        xmega/utils/preprocessor \
-       ./xmega/drivers/rtc/example/atxmega32d4_stk600-rc044x/gcc
+       xmega/drivers/rtc/example/atxmega32d4_stk600-rc044x/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH = 
