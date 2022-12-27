@@ -237,13 +237,16 @@
 					<name>CCDefines</name>
 					<state></state>
 					<state>TEST_HARNESS</state>
+					<state>STB_ON_SAL</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
+					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
 					<state>TAL_TYPE=AT86RF212B</state>
 					<state>BOARD=XMEGA_RF212B_ZIGBIT</state>
 					<state>BEACON_SUPPORT</state>
-					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -414,19 +417,21 @@
 					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/xmega_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/nvm</state>
-					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_if/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/at86rf212b/inc</state>
@@ -585,13 +590,16 @@
 				<option>
 					<name>ADefines</name>
 					<state>TEST_HARNESS</state>
+					<state>STB_ON_SAL</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
+					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
 					<state>TAL_TYPE=AT86RF212B</state>
 					<state>BOARD=XMEGA_RF212B_ZIGBIT</state>
 					<state>BEACON_SUPPORT</state>
-					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -724,19 +732,21 @@
 					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/xmega_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/nvm</state>
-					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_if/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/at86rf212b/inc</state>
@@ -1322,13 +1332,16 @@
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
 					<state>TEST_HARNESS</state>
+					<state>STB_ON_SAL</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
+					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
 					<state>TAL_TYPE=AT86RF212B</state>
 					<state>BOARD=XMEGA_RF212B_ZIGBIT</state>
 					<state>BEACON_SUPPORT</state>
-					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1499,19 +1512,21 @@
 					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/xmega_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/nvm</state>
-					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_if/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/at86rf212b/inc</state>
@@ -1670,13 +1685,16 @@
 				<option>
 					<name>ADefines</name>
 					<state>TEST_HARNESS</state>
+					<state>STB_ON_SAL</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
+					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
 					<state>TAL_TYPE=AT86RF212B</state>
 					<state>BOARD=XMEGA_RF212B_ZIGBIT</state>
 					<state>BEACON_SUPPORT</state>
-					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1809,19 +1827,21 @@
 					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/xmega_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/nvm</state>
-					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_if/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/at86rf212b/inc</state>
@@ -2303,13 +2323,13 @@
 						<group>
 							<name>inc</name>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_helper.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_timer_config.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_generic.h</name>
@@ -2336,7 +2356,7 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_scan.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_pib.c</name>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_poll.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_ind.c</name>
@@ -2351,10 +2371,10 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_start.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_poll.c</name>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_sync.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_sync.c</name>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_gts.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_misc.c</name>
@@ -2367,6 +2387,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_callback_wrapper.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_pib.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_extract_mhr.c</name>
@@ -2399,9 +2422,6 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_config.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_msg_const.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_internal.h</name>
 							</file>
 							<file>
@@ -2412,6 +2432,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_msg_types.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_msg_const.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_security.h</name>
@@ -2455,6 +2478,60 @@
 									<name>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc/bmm.h</name>
 								</file>
 							</group>
+						</group>
+					</group>
+					<group>
+						<name>sal</name>
+						<group>
+							<name>atxmega_sal</name>
+							<group>
+								<name>src</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../source/sal/atxmega_sal/src/sal.c</name>
+								</file>
+							</group>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal_generic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal_types.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal.h</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>stb</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb_help.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb_armcrypto.c</name>
+							</file>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb_armcrypto.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb_internal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb_generic.h</name>
+							</file>
 						</group>
 					</group>
 				</group>

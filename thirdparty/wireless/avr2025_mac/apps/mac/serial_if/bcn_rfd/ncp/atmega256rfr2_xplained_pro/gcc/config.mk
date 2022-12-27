@@ -67,6 +67,7 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_data_req.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_disassociate.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_dispatcher.c \
+       thirdparty/wireless/avr2025_mac/source/mac/src/mac_gts.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_mcps_data.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_misc.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_orphan.c \
@@ -86,6 +87,10 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/pal/pal.c   \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/src/bmm.c \
        thirdparty/wireless/avr2025_mac/source/resources/queue/src/qmm.c \
+       thirdparty/wireless/avr2025_mac/source/sal/atmegarf_sal/src/sal.c \
+       thirdparty/wireless/avr2025_mac/source/stb/src/stb.c \
+       thirdparty/wireless/avr2025_mac/source/stb/src/stb_armcrypto.c \
+       thirdparty/wireless/avr2025_mac/source/stb/src/stb_help.c \
        thirdparty/wireless/avr2025_mac/source/tal/atmegarfr2/src/tal.c \
        thirdparty/wireless/avr2025_mac/source/tal/atmegarfr2/src/tal_ed.c \
        thirdparty/wireless/avr2025_mac/source/tal/atmegarfr2/src/tal_init.c \
@@ -132,6 +137,8 @@ INC_PATH = \
        thirdparty/wireless/avr2025_mac/source/pal/mega/drivers/tc \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/inc \
        thirdparty/wireless/avr2025_mac/source/resources/queue/inc \
+       thirdparty/wireless/avr2025_mac/source/sal/inc     \
+       thirdparty/wireless/avr2025_mac/source/stb/inc     \
        thirdparty/wireless/avr2025_mac/source/tal/atmegarfr2/inc \
        thirdparty/wireless/avr2025_mac/source/tal/inc \
        thirdparty/wireless/avr2025_mac/apps/mac/serial_if/bcn_rfd/ncp/atmega256rfr2_xplained_pro/gcc
@@ -182,9 +189,16 @@ CPPFLAGS = \
        -D BEACON_SUPPORT                                  \
        -D BOARD=ATMEGA256RFR2_XPLAINED_PRO                \
        -D ENABLE_TSTAMP                                   \
+       -D GTS_SUPPORT                                     \
        -D HIGHEST_STACK_LAYER=MAC                         \
+       -D SAL_TYPE=ATMEGARF_SAL                           \
+       -D STB_ON_SAL                                      \
        -D TAL_TYPE=ATMEGARFR2                             \
        -D TEST_HARNESS
 
 # Extra flags to use when linking
 LDFLAGS = 
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 

@@ -236,7 +236,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state></state>
-					<state>ZRC_CMD_DISCOVERY</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>NLDE_HANDLE</state>
 					<state>SAL_TYPE=ATXMEGA_SAL</state>
@@ -244,7 +244,7 @@
 					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>RF4CE_TARGET</state>
 					<state>VENDOR_DATA</state>
-					<state>ENABLE_STACK_NVM</state>
+					<state>ZRC_CMD_DISCOVERY</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>RSSI_TO_LQI_MAPPING</state>
@@ -252,7 +252,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>BOARD=XMEGA_RF233_ZIGBIT</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
@@ -605,7 +604,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ZRC_CMD_DISCOVERY</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>NLDE_HANDLE</state>
 					<state>SAL_TYPE=ATXMEGA_SAL</state>
@@ -613,7 +612,7 @@
 					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>RF4CE_TARGET</state>
 					<state>VENDOR_DATA</state>
-					<state>ENABLE_STACK_NVM</state>
+					<state>ZRC_CMD_DISCOVERY</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>RSSI_TO_LQI_MAPPING</state>
@@ -621,7 +620,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>BOARD=XMEGA_RF233_ZIGBIT</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
@@ -1363,7 +1361,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
-					<state>ZRC_CMD_DISCOVERY</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>NLDE_HANDLE</state>
 					<state>SAL_TYPE=ATXMEGA_SAL</state>
@@ -1371,7 +1369,7 @@
 					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>RF4CE_TARGET</state>
 					<state>VENDOR_DATA</state>
-					<state>ENABLE_STACK_NVM</state>
+					<state>ZRC_CMD_DISCOVERY</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>RSSI_TO_LQI_MAPPING</state>
@@ -1379,7 +1377,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>BOARD=XMEGA_RF233_ZIGBIT</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
@@ -1732,7 +1729,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ZRC_CMD_DISCOVERY</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>NLDE_HANDLE</state>
 					<state>SAL_TYPE=ATXMEGA_SAL</state>
@@ -1740,7 +1737,7 @@
 					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>RF4CE_TARGET</state>
 					<state>VENDOR_DATA</state>
-					<state>ENABLE_STACK_NVM</state>
+					<state>ZRC_CMD_DISCOVERY</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>RSSI_TO_LQI_MAPPING</state>
@@ -1748,7 +1745,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>BOARD=XMEGA_RF233_ZIGBIT</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
@@ -2549,10 +2545,13 @@
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_data_req.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_data_extract_mhr.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_dispatcher.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_data_extract_mhr.c</name>
+								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_misc.c</name>

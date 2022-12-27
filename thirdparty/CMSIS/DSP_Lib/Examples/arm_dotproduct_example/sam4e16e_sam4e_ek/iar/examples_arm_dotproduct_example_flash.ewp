@@ -716,7 +716,7 @@
 				</option>
 				<option>
 					<name>IlinkIcfFile</name>
-					<state>$PROJ_DIR$/../../../../../../../sam/utils/linker_scripts/sam4e/sam4e16e/iar/flash.icf</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/linker_scripts/sam4e/sam4e16/iar/flash.icf</state>
 				</option>
 				<option>
 					<name>IlinkIcfFileSlave</name>
@@ -1630,7 +1630,7 @@
 				</option>
 				<option>
 					<name>IlinkIcfFile</name>
-					<state>$PROJ_DIR$/../../../../../../../sam/utils/linker_scripts/sam4e/sam4e16e/iar/flash.icf</state>
+					<state>$PROJ_DIR$/../../../../../../../sam/utils/linker_scripts/sam4e/sam4e16/iar/flash.icf</state>
 				</option>
 				<option>
 					<name>IlinkIcfFileSlave</name>

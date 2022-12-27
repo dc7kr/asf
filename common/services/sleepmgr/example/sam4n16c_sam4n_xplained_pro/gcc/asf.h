@@ -78,11 +78,11 @@
 // From module: RTT - Real Time Timer
 #include <rtt.h>
 
+// From module: SAM4N Xplained Pro LED support enabled
+#include <led.h>
+
 // From module: SAM4N startup code
 #include <exceptions.h>
-
-// From module: SSAM4N Xplained Pro LED support enabled
-#include <led.h>
 
 // From module: SUPC - Supply Controller
 #include <supc.h>

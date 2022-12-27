@@ -1062,6 +1062,17 @@ FORMULA_FONTSIZE       = 10
 
 FORMULA_TRANSPARENT    = YES
 
+# Enable the USE_MATHJAX option to render LaTeX formulas using MathJax (see
+# http://www.mathjax.org) which uses client side Javascript for the rendering
+# instead of using prerendered bitmaps. Use this if you do not have LaTeX
+# installed or if you want to formulas look prettier in the HTML output. When
+# enabled you may also need to install MathJax separately and configure the path
+# to it using the MATHJAX_RELPATH option.
+# The default value is: NO.
+# This tag requires that the tag GENERATE_HTML is set to YES.
+
+USE_MATHJAX            = NO
+
 # When the SEARCHENGINE tag is enabled doxygen will generate a search box
 # for the HTML output. The underlying search engine uses javascript
 # and DHTML and should work on any modern browser. Note that when using
@@ -1352,7 +1363,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../../../../../../sam/utils/header_files ../../../../../../../../../../common/boards ../../../../../../../addons/serial_interface ../../../../../../../../../../sam/utils/preprocessor ../../../../../../../../avr2025_mac/source/pal/common_sw_timer ../../../../../../../include ../../../../../../../../../../sam/utils/cmsis/sam4l/include ../../../../../../../../avr2025_mac/include ../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates ../../../../../../../../addons/sio2host/uart ../../../../../../../../../../common/services/serial ../../../../../../../addons/api_parser ../../../../../../../../../../common/utils ../.. ../../../../../../../../addons/sio2ncp/uart ../../../../../../../../../../sam/drivers/wdt ../../../../../../../../../../common/services/clock ../../../../../../../../../../sam/boards .. ../../../../../../../../../../common/utils/stdio/stdio_serial ../../../.. ../../../../../../../../avr2025_mac/source/pal ../../../../../../../../avr2025_mac/source/pal/common_hw_timer ../../../../../../../../../../common/services/delay ../../../../../../../../../../sam/utils ../../../../../../../../../../sam/drivers/tc ../../../../../../../../../../sam/drivers/usart ../../../../../../../../../../common/services/serial/sam_uart ../../../../../../../../../../sam/drivers/flashcalw ../../../../../../../../../../sam/boards/sam4l_xplained_pro ../../../../../../../../../../common/services/ioport ../../../../../../../../../../sam/drivers/bpm ../../../../../../../../avr2025_mac/source/pal/common_hw_timer/sam
+INCLUDE_PATH           =  ../../../../../../../../../../sam/utils/header_files ../../../../../../../../../../common/boards ../../../../../../../addons/serial_interface ../../../../../../../../../../sam/utils/preprocessor ../../../../../../../../avr2025_mac/source/pal/common_sw_timer ../../../../../../../include ../../../../../../../../../../sam/utils/cmsis/sam4l/include ../../../../../../../../avr2025_mac/include ../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates ../../../../../../../../avr2025_mac/source/pal ../../../../../../../../../../common/services/serial ../../../../../../../addons/api_parser ../../../../../../../../../../common/utils ../.. ../../../../../../../../addons/sio2ncp/uart ../../../../../../../../../../sam/drivers/wdt ../../../../../../../../../../common/services/clock ../../../../../../../../../../sam/boards .. ../../../../../../../../../../common/utils/stdio/stdio_serial ../../../../../../../../addons/sio2host/uart ../../../../../../../../avr2025_mac/source/pal/common_hw_timer ../../../../../../../../../../common/services/delay ../../../../../../../../../../sam/utils ../../../../../../../../../../sam/drivers/tc ../../../../../../../../../../sam/drivers/usart ../../../../../../../../../../common/services/serial/sam_uart ../../../../../../../../../../sam/drivers/flashcalw ../../../../../../../../../../sam/boards/sam4l_xplained_pro ../../../../../../../../../../common/services/ioport ../../../../../../../../../../sam/drivers/bpm ../../../../../../../../avr2025_mac/source/pal/common_hw_timer/sam
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the
@@ -1369,7 +1380,7 @@ INCLUDE_FILE_PATTERNS  =
 # undefined via #undef or recursively expanded use the := operator
 # instead of the = operator.
 
-PREDEFINED             = __DOXYGEN__ __AVR32_ABI_COMPILER__ __attribute__()= __GNUC__=4  ENABLE_STACK_NVM= BOARD=SAM4L_XPLAINED_PRO NLDE_HANDLE= __SAM4LC4C__= ZRC_CMD_DISCOVERY= VENDOR_DATA= MAC_USER_BUILD_CONFIG= ENABLE_TRX_SRAM= RF4CE_SECURITY= RSSI_TO_LQI_MAPPING= PBP_REC= ARM_MATH_CM4=true STB_ON_SAL= PBP_ORG= REDUCED_PARAM_CHECK= EXTERN_EEPROM_AVAILABLE=0 ZRC_PROFILE= CHANNEL_AGILITY= PRIVATE_NIB= RF4CE_PLATFORM= RF4CE_CALLBACK_PARAM= HIGHEST_STACK_LAYER=RF4CE SIO_HUB=
+PREDEFINED             = __DOXYGEN__ __AVR32_ABI_COMPILER__ __attribute__()= __GNUC__=4  ENABLE_STACK_NVM= BOARD=SAM4L_XPLAINED_PRO NLDE_HANDLE= __SAM4LC4C__= ZRC_CMD_DISCOVERY= VENDOR_DATA= MAC_USER_BUILD_CONFIG= ENABLE_TRX_SRAM= RF4CE_SECURITY= RSSI_TO_LQI_MAPPING= PBP_REC= ARM_MATH_CM4=true STB_ON_SAL= PBP_ORG= REDUCED_PARAM_CHECK= ZRC_PROFILE= CHANNEL_AGILITY= PRIVATE_NIB= RF4CE_PLATFORM= RF4CE_CALLBACK_PARAM= HIGHEST_STACK_LAYER=RF4CE SIO_HUB=
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then
 # this tag can be used to specify a list of macro names that should be expanded.

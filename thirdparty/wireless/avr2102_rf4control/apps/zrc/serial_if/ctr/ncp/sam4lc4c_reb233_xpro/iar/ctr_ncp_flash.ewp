@@ -166,14 +166,15 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
-					<state>DISABLE_TSTAMP_IRQ=1</state>
+					<state>__SAM4LC4C__</state>
 					<state>ZRC_CMD_DISCOVERY</state>
+					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>VENDOR_DATA</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>RSSI_TO_LQI_MAPPING</state>
@@ -182,10 +183,8 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
-					<state>__SAM4LC4C__</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
@@ -344,7 +343,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -510,14 +508,15 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
-					<state>DISABLE_TSTAMP_IRQ=1</state>
+					<state>__SAM4LC4C__</state>
 					<state>ZRC_CMD_DISCOVERY</state>
+					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>VENDOR_DATA</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>RSSI_TO_LQI_MAPPING</state>
@@ -526,10 +525,8 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
-					<state>__SAM4LC4C__</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
@@ -655,7 +652,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -1214,14 +1210,15 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
-					<state>DISABLE_TSTAMP_IRQ=1</state>
+					<state>__SAM4LC4C__</state>
 					<state>ZRC_CMD_DISCOVERY</state>
+					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>VENDOR_DATA</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>RSSI_TO_LQI_MAPPING</state>
@@ -1230,10 +1227,8 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
-					<state>__SAM4LC4C__</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
@@ -1392,7 +1387,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -1558,14 +1552,15 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
-					<state>DISABLE_TSTAMP_IRQ=1</state>
+					<state>__SAM4LC4C__</state>
 					<state>ZRC_CMD_DISCOVERY</state>
+					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>VENDOR_DATA</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>RSSI_TO_LQI_MAPPING</state>
@@ -1574,10 +1569,8 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
-					<state>__SAM4LC4C__</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
@@ -1703,7 +1696,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -2349,6 +2341,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_misc.c</name>
 							</file>
 							<file>
@@ -2367,10 +2362,10 @@
 						<group>
 							<name>inc</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/inc/mac_msg_type_data_ind.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/inc/mac.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/inc/mac.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/inc/mac_msg_type_data_ind.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/inc/mac_msg_const.h</name>
@@ -2565,10 +2560,10 @@
 						<group>
 							<name>inc</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/sal/inc/sal.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/sal/inc/sal_generic.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/sal/inc/sal_generic.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/sal/inc/sal.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/sal/inc/sal_types.h</name>
@@ -2850,9 +2845,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_adcife.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_wdt.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_bpm.h</name>
 							</file>
 							<file>
@@ -2911,6 +2903,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_usart2.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_wdt.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_abdacb.h</name>

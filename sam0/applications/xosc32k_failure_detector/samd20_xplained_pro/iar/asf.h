@@ -84,7 +84,7 @@
 // From module: SYSTEM - Interrupt Driver
 #include <system_interrupt.h>
 
-// From module: TC - Timer Counter
+// From module: TC - Timer Counter (Callback APIs)
 #include <tc.h>
 #include <tc_interrupt.h>
 

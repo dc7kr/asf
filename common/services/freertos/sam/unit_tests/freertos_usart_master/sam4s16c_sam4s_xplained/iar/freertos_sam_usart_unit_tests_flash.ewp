@@ -300,11 +300,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../../../../../serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pdc</state>
 					<state>$PROJ_DIR$/../../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/portable/iar/arm_cm3</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
@@ -574,11 +574,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../../../../../serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pdc</state>
 					<state>$PROJ_DIR$/../../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/portable/iar/arm_cm3</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
@@ -1240,11 +1240,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../../../../../serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pdc</state>
 					<state>$PROJ_DIR$/../../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/portable/iar/arm_cm3</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
@@ -1514,11 +1514,11 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4s/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../../../../../serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/pdc</state>
 					<state>$PROJ_DIR$/../../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/portable/iar/arm_cm3</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
@@ -1902,15 +1902,15 @@
 						<group>
 							<name>iar</name>
 							<group>
-								<name>arm_cm3</name>
+								<name>sam</name>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/portable/iar/arm_cm3/port.c</name>
+									<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/portable/iar/sam/port.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/portable/iar/arm_cm3/portasm.s</name>
+									<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/portable/iar/sam/portasm.s</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/portable/iar/arm_cm3/portmacro.h</name>
+									<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.3.0/source/portable/iar/sam/portmacro.h</name>
 								</file>
 							</group>
 						</group>
@@ -2116,15 +2116,6 @@
 				</file>
 			</group>
 			<group>
-				<name>unit_test</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../utils/unit_test/suite.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../utils/unit_test/suite.h</name>
-				</file>
-			</group>
-			<group>
 				<name>stdio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../utils/stdio/read.c</name>
@@ -2138,6 +2129,15 @@
 						<name>$PROJ_DIR$/../../../../../../../utils/stdio/stdio_serial/stdio_serial.h</name>
 					</file>
 				</group>
+			</group>
+			<group>
+				<name>unit_test</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../utils/unit_test/suite.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../utils/unit_test/suite.h</name>
+				</file>
 			</group>
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../utils/parts.h</name>
@@ -2157,6 +2157,15 @@
 		<name>sam</name>
 		<group>
 			<name>drivers</name>
+			<group>
+				<name>pdc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pdc/pdc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pdc/pdc.h</name>
+				</file>
+			</group>
 			<group>
 				<name>usart</name>
 				<file>
@@ -2203,15 +2212,6 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/uart/uart.h</name>
-				</file>
-			</group>
-			<group>
-				<name>pdc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pdc/pdc.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/pdc/pdc.h</name>
 				</file>
 			</group>
 		</group>

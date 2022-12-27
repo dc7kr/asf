@@ -2499,6 +2499,9 @@
 								<name>$PROJ_DIR$/../../../../../avr2025_mac/source/mac/src/mac_data_req.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../avr2025_mac/source/mac/src/mac_security.c</name>
 							</file>
 							<file>

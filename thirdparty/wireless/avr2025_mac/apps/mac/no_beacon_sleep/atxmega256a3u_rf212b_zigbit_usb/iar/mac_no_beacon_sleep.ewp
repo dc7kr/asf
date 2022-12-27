@@ -237,12 +237,14 @@
 					<name>CCDefines</name>
 					<state></state>
 					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
 					<state>TAL_TYPE=AT86RF212B</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>BOARD=XMEGA_RF212B_ZIGBIT</state>
-					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -413,6 +415,8 @@
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
@@ -577,12 +581,14 @@
 				<option>
 					<name>ADefines</name>
 					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
 					<state>TAL_TYPE=AT86RF212B</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>BOARD=XMEGA_RF212B_ZIGBIT</state>
-					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -715,6 +721,8 @@
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
@@ -1306,12 +1314,14 @@
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
 					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
 					<state>TAL_TYPE=AT86RF212B</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>BOARD=XMEGA_RF212B_ZIGBIT</state>
-					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1482,6 +1492,8 @@
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
@@ -1646,12 +1658,14 @@
 				<option>
 					<name>ADefines</name>
 					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
 					<state>TAL_TYPE=AT86RF212B</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>BOARD=XMEGA_RF212B_ZIGBIT</state>
-					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1784,6 +1798,8 @@
 					<state>$PROJ_DIR$/../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
@@ -2199,6 +2215,9 @@
 						<group>
 							<name>src</name>
 							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_gts.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_tx_coord_realignment_command.c</name>
 							</file>
 							<file>
@@ -2220,6 +2239,9 @@
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_scan.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_disassociate.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_data_ind.c</name>
 							</file>
 							<file>
@@ -2238,9 +2260,6 @@
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_orphan.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_disassociate.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_mcps_data.c</name>
 							</file>
 							<file>
@@ -2248,6 +2267,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_sync.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_rx_enable.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_dispatcher.c</name>
@@ -2263,9 +2285,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_beacon.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/mac/src/mac_rx_enable.c</name>
 							</file>
 						</group>
 						<group>
@@ -2283,6 +2302,9 @@
 								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_internal.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_msg_types.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_api.h</name>
 							</file>
 							<file>
@@ -2294,42 +2316,36 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_security.h</name>
 							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../source/mac/inc/mac_msg_types.h</name>
-							</file>
 						</group>
 					</group>
 					<group>
-						<name>resources</name>
+						<name>stb</name>
 						<group>
-							<name>queue</name>
-							<group>
-								<name>src</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../source/resources/queue/src/qmm.c</name>
-								</file>
-							</group>
-							<group>
-								<name>inc</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../source/resources/queue/inc/qmm.h</name>
-								</file>
-							</group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/stb/src/stb_armcrypto.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/stb/src/stb_help.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/stb/src/stb.c</name>
+							</file>
 						</group>
 						<group>
-							<name>buffer</name>
-							<group>
-								<name>src</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../source/resources/buffer/src/bmm.c</name>
-								</file>
-							</group>
-							<group>
-								<name>inc</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../source/resources/buffer/inc/bmm.h</name>
-								</file>
-							</group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/stb/inc/stb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/stb/inc/stb_generic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/stb/inc/stb_internal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/stb/inc/stb_armcrypto.h</name>
+							</file>
 						</group>
 					</group>
 					<group>
@@ -2338,6 +2354,9 @@
 							<name>at86rf212b</name>
 							<group>
 								<name>src</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf212b/src/tal_irq_handler.c</name>
+								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../source/tal/at86rf212b/src/tal.c</name>
 								</file>
@@ -2349,9 +2368,6 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../source/tal/at86rf212b/src/tal_tx.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../source/tal/at86rf212b/src/tal_irq_handler.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../source/tal/at86rf212b/src/tal_pwr_mgmt.c</name>
@@ -2422,6 +2438,63 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../source/tal/inc/tal_helper.h</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>resources</name>
+						<group>
+							<name>queue</name>
+							<group>
+								<name>src</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/resources/queue/src/qmm.c</name>
+								</file>
+							</group>
+							<group>
+								<name>inc</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/resources/queue/inc/qmm.h</name>
+								</file>
+							</group>
+						</group>
+						<group>
+							<name>buffer</name>
+							<group>
+								<name>src</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/resources/buffer/src/bmm.c</name>
+								</file>
+							</group>
+							<group>
+								<name>inc</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/resources/buffer/inc/bmm.h</name>
+								</file>
+							</group>
+						</group>
+					</group>
+					<group>
+						<name>sal</name>
+						<group>
+							<name>atxmega_sal</name>
+							<group>
+								<name>src</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../source/sal/atxmega_sal/src/sal.c</name>
+								</file>
+							</group>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/sal/inc/sal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/sal/inc/sal_types.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../source/sal/inc/sal_generic.h</name>
 							</file>
 						</group>
 					</group>
@@ -2638,15 +2711,6 @@
 				</file>
 			</group>
 			<group>
-				<name>tc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/tc/tc.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/tc/tc.h</name>
-				</file>
-			</group>
-			<group>
 				<name>nvm</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/nvm/nvm.c</name>
@@ -2656,6 +2720,15 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/nvm/nvm.h</name>
+				</file>
+			</group>
+			<group>
+				<name>tc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/tc/tc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../xmega/drivers/tc/tc.h</name>
 				</file>
 			</group>
 			<group>

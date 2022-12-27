@@ -2273,6 +2273,9 @@
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/instance/instance_emac.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/instance/instance_chipid.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/instance/instance_pioe.h</name>
 							</file>
 							<file>
@@ -2313,9 +2316,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/instance/instance_tc1.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/instance/instance_chipid.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/instance/instance_rtt.h</name>
@@ -2375,9 +2375,6 @@
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/component/component_matrix.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/component/component_twi.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/component/component_adc.h</name>
 							</file>
 							<file>
@@ -2397,6 +2394,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/component/component_rtt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/component/component_twi.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/component/component_trng.h</name>
@@ -2445,13 +2445,13 @@
 							</file>
 						</group>
 						<file>
-							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/sam3x8h.h</name>
-						</file>
-						<file>
 							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/sam3x8c.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/sam3a8c.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/sam3x8h.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include/sam3x8e.h</name>

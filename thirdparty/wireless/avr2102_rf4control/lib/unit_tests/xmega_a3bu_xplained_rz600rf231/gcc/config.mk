@@ -68,6 +68,7 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_data_req.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_disassociate.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_dispatcher.c \
+       thirdparty/wireless/avr2025_mac/source/mac/src/mac_gts.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_mcps_data.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_misc.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_orphan.c \
@@ -237,3 +238,7 @@ CPPFLAGS = \
 # Extra flags to use when linking
 LDFLAGS =  \
        -Wl,--section-start=.BOOT=0x40000                 
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 

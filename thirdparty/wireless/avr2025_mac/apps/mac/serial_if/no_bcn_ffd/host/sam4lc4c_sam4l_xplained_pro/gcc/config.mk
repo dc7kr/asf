@@ -47,8 +47,8 @@ PART = sam4lc4c
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = no_bcn_ffd_host_flash.elf
-TARGET_SRAM = no_bcn_ffd_host_sram.elf
+TARGET_FLASH = nobcn_ffd_host_flash.elf
+TARGET_SRAM = nobcn_ffd_host_sram.elf
 
 # List of C source files.
 CSRCS = \
@@ -182,3 +182,7 @@ CPPFLAGS = \
 
 # Extra flags to use when linking
 LDFLAGS = \
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 

@@ -171,6 +171,7 @@
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
 					<state>BEACON_SUPPORT</state>
 					<state>__SAM4LC4C__</state>
 					<state>ARM_MATH_CM4=true</state>
@@ -488,6 +489,7 @@
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
 					<state>BEACON_SUPPORT</state>
 					<state>__SAM4LC4C__</state>
 					<state>ARM_MATH_CM4=true</state>
@@ -1165,6 +1167,7 @@
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
 					<state>BEACON_SUPPORT</state>
 					<state>__SAM4LC4C__</state>
 					<state>ARM_MATH_CM4=true</state>
@@ -1482,6 +1485,7 @@
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
 					<state>BEACON_SUPPORT</state>
 					<state>__SAM4LC4C__</state>
 					<state>ARM_MATH_CM4=true</state>

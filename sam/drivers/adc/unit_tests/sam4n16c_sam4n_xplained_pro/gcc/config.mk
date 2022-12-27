@@ -47,8 +47,8 @@ PART = sam4n16c
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = sam4n_unit_tests_flash.elf
-TARGET_SRAM = sam4n_unit_tests_sram.elf
+TARGET_FLASH = adc_unit_tests_flash.elf
+TARGET_SRAM = adc_unit_tests_sram.elf
 
 # List of C source files.
 CSRCS = \
@@ -61,7 +61,7 @@ CSRCS = \
        common/utils/stdio/write.c                         \
        common/utils/unit_test/suite.c                     \
        sam/boards/sam4n_xplained_pro/init.c               \
-       sam/drivers/adc/adc_sam4n.c                        \
+       sam/drivers/adc/adc2.c                             \
        sam/drivers/adc/unit_tests/unit_tests.c            \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/pmc/sleep.c                            \
@@ -162,3 +162,7 @@ CPPFLAGS = \
 
 # Extra flags to use when linking
 LDFLAGS = \
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 

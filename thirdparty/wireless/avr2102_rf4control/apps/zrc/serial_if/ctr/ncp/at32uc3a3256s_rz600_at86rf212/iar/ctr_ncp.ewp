@@ -186,14 +186,14 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>UDD_ENABLE</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ZRC_CMD_DISCOVERY</state>
 					<state>VENDOR_DATA</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>TAL_TYPE=AT86RF212</state>
 					<state>RF4CE_SECURITY</state>
@@ -203,7 +203,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
@@ -377,7 +376,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212/inc</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -502,14 +500,14 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>UDD_ENABLE</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ZRC_CMD_DISCOVERY</state>
 					<state>VENDOR_DATA</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>TAL_TYPE=AT86RF212</state>
 					<state>RF4CE_SECURITY</state>
@@ -519,7 +517,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
@@ -560,7 +557,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212/inc</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -1161,14 +1157,14 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>UDD_ENABLE</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ZRC_CMD_DISCOVERY</state>
 					<state>VENDOR_DATA</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>TAL_TYPE=AT86RF212</state>
 					<state>RF4CE_SECURITY</state>
@@ -1178,7 +1174,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
@@ -1352,7 +1347,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212/inc</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -1477,14 +1471,14 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>UDD_ENABLE</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ZRC_CMD_DISCOVERY</state>
 					<state>VENDOR_DATA</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>TAL_TYPE=AT86RF212</state>
 					<state>RF4CE_SECURITY</state>
@@ -1494,7 +1488,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
@@ -1535,7 +1528,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212/inc</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -2161,6 +2153,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_process_beacon_frame.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_data_req.c</name>
 							</file>
 							<file>
@@ -2182,6 +2177,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_data_ind.c</name>
 							</file>
 							<file>
@@ -2195,9 +2193,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_dispatcher.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac.c</name>
@@ -2739,6 +2734,9 @@
 			<name>utils</name>
 			<group>
 				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/read.c</name>
+				</file>
 				<group>
 					<name>stdio_usb</name>
 					<file>
@@ -2748,9 +2746,6 @@
 						<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_usb/stdio_usb.h</name>
 					</file>
 				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/read.c</name>
-				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/write.c</name>
 				</file>

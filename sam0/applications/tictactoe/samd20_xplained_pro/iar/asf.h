@@ -81,7 +81,7 @@
 #include <sercom.h>
 #include <sercom_interrupt.h>
 
-// From module: SERCOM SPI - Serial Peripheral Interface (Polled Mode)
+// From module: SERCOM SPI - Serial Peripheral Interface (Polled APIs)
 #include <spi.h>
 
 // From module: SSD1306 OLED controller

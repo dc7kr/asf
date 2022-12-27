@@ -71,7 +71,7 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: RTC - Real Time Counter (Count Mode) Polled Driver
+// From module: RTC - Real Time Counter in Count Mode (Polled APIs)
 #include <rtc_count.h>
 
 // From module: SERCOM
@@ -98,7 +98,7 @@
 // From module: Standard serial I/O (stdio)
 #include <stdio_serial.h>
 
-// From module: TC - Timer Counter
+// From module: TC - Timer Counter (Polled APIs)
 #include <tc.h>
 
 // From module: USART - Serial interface- SAM implementation for devices with only USART

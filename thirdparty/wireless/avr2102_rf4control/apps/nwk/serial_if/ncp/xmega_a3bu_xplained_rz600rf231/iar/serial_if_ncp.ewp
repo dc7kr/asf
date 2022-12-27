@@ -243,6 +243,7 @@
 					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>TAL_TYPE=AT86RF231</state>
+					<state>_DEBUG_=0</state>
 					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
@@ -250,7 +251,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -439,7 +439,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb/class/cdc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards/xmega_a3bu_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb</state>
@@ -610,6 +609,7 @@
 					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>TAL_TYPE=AT86RF231</state>
+					<state>_DEBUG_=0</state>
 					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
@@ -617,7 +617,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -768,7 +767,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb/class/cdc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards/xmega_a3bu_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb</state>
@@ -1366,6 +1364,7 @@
 					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>TAL_TYPE=AT86RF231</state>
+					<state>_DEBUG_=0</state>
 					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
@@ -1373,7 +1372,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -1562,7 +1560,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb/class/cdc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards/xmega_a3bu_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb</state>
@@ -1733,6 +1730,7 @@
 					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>TAL_TYPE=AT86RF231</state>
+					<state>_DEBUG_=0</state>
 					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
@@ -1740,7 +1738,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -1891,7 +1888,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb/class/cdc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/boards/xmega_a3bu_xplained</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb</state>
@@ -2326,6 +2322,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_misc.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac.c</name>

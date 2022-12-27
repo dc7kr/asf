@@ -52,8 +52,8 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: ADC - Analog-to-digital Converter for SAM4N
-#include <adc_sam4n.h>
+// From module: ADC - Analog-to-digital Converter
+#include <adc2.h>
 
 // From module: Common SAM compiler driver
 #include <compiler.h>
@@ -111,6 +111,9 @@
 // From module: RTC - Real Time Clock
 #include <rtc.h>
 
+// From module: SAM4N Xplained Pro LED support enabled
+#include <led.h>
+
 // From module: SAM4N startup code
 #include <exceptions.h>
 
@@ -126,9 +129,6 @@
 
 // From module: SPI - Serial Peripheral Interface
 #include <spi.h>
-
-// From module: SSAM4N Xplained Pro LED support enabled
-#include <led.h>
 
 // From module: SSD1306 OLED controller
 #include <font.h>

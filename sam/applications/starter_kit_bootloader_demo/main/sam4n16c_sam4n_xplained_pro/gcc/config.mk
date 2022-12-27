@@ -70,7 +70,7 @@ CSRCS = \
        sam/applications/starter_kit_bootloader_demo/main/main.c \
        sam/applications/starter_kit_bootloader_demo/main/multi_language_display.c \
        sam/boards/sam4n_xplained_pro/init.c               \
-       sam/drivers/adc/adc_sam4n.c                        \
+       sam/drivers/adc/adc2.c                             \
        sam/drivers/efc/efc.c                              \
        sam/drivers/gpbr/gpbr.c                            \
        sam/drivers/pio/pio.c                              \
@@ -202,3 +202,7 @@ CPPFLAGS = \
 
 # Extra flags to use when linking
 LDFLAGS = \
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 

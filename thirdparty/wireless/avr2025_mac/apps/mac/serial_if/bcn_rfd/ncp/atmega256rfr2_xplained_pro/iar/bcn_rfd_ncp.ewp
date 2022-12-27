@@ -246,9 +246,12 @@
 				<option>
 					<name>CCDefines</name>
 					<state></state>
+					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>TEST_HARNESS</state>
+					<state>STB_ON_SAL</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
 					<state>BOARD=ATMEGA256RFR2_XPLAINED_PRO</state>
 					<state>BEACON_SUPPORT</state>
 					<state>TAL_TYPE=ATMEGARFR2</state>
@@ -415,6 +418,8 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
@@ -582,9 +587,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>TEST_HARNESS</state>
+					<state>STB_ON_SAL</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
 					<state>BOARD=ATMEGA256RFR2_XPLAINED_PRO</state>
 					<state>BEACON_SUPPORT</state>
 					<state>TAL_TYPE=ATMEGARFR2</state>
@@ -713,6 +721,8 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
@@ -1324,9 +1334,12 @@
 				<option>
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
+					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>TEST_HARNESS</state>
+					<state>STB_ON_SAL</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
 					<state>BOARD=ATMEGA256RFR2_XPLAINED_PRO</state>
 					<state>BEACON_SUPPORT</state>
 					<state>TAL_TYPE=ATMEGARFR2</state>
@@ -1493,6 +1506,8 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
@@ -1660,9 +1675,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>TEST_HARNESS</state>
+					<state>STB_ON_SAL</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
 					<state>BOARD=ATMEGA256RFR2_XPLAINED_PRO</state>
 					<state>BEACON_SUPPORT</state>
 					<state>TAL_TYPE=ATMEGARFR2</state>
@@ -1791,6 +1809,8 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
@@ -2235,6 +2255,9 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_associate.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_scan.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_pib.c</name>
 							</file>
 							<file>
@@ -2250,19 +2273,19 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_poll.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_scan.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_sync.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_rx_enable.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_dispatcher.c</name>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_gts.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_callback_wrapper.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_dispatcher.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_ind.c</name>
@@ -2304,10 +2327,13 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_security.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_internal.h</name>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_api.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_api.h</name>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_internal.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_data_structures.h</name>
@@ -2320,9 +2346,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_msg_const.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac.h</name>
 							</file>
 						</group>
 					</group>
@@ -2375,6 +2398,9 @@
 									<name>$PROJ_DIR$/../../../../../../../source/tal/atmegarfr2/inc/tal_pib.h</name>
 								</file>
 								<file>
+									<name>$PROJ_DIR$/../../../../../../../source/tal/atmegarfr2/inc/tal_internal.h</name>
+								</file>
+								<file>
 									<name>$PROJ_DIR$/../../../../../../../source/tal/atmegarfr2/inc/atmega256rfr2.h</name>
 								</file>
 								<file>
@@ -2393,9 +2419,6 @@
 									<name>$PROJ_DIR$/../../../../../../../source/tal/atmegarfr2/inc/tal_slotted_csma.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../../source/tal/atmegarfr2/inc/tal_internal.h</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../../../../../../source/tal/atmegarfr2/inc/tal_irq_handler.h</name>
 								</file>
 							</group>
@@ -2409,13 +2432,13 @@
 								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_generic.h</name>
+								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_helper.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_timer_config.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_helper.h</name>
+								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_generic.h</name>
 							</file>
 						</group>
 					</group>
@@ -2450,6 +2473,60 @@
 									<name>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc/bmm.h</name>
 								</file>
 							</group>
+						</group>
+					</group>
+					<group>
+						<name>sal</name>
+						<group>
+							<name>atmegarf_sal</name>
+							<group>
+								<name>src</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../source/sal/atmegarf_sal/src/sal.c</name>
+								</file>
+							</group>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal_generic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal_types.h</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>stb</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb_help.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb_armcrypto.c</name>
+							</file>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb_generic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb_internal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb_armcrypto.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb.h</name>
+							</file>
 						</group>
 					</group>
 				</group>
@@ -2493,10 +2570,13 @@
 											<name>$PROJ_DIR$/../conf_sio2host.h</name>
 										</file>
 										<file>
-											<name>$PROJ_DIR$/../conf_hw_timer.h</name>
+											<name>$PROJ_DIR$/../conf_clock.h</name>
 										</file>
 										<file>
 											<name>$PROJ_DIR$/../conf_board.h</name>
+										</file>
+										<file>
+											<name>$PROJ_DIR$/../conf_hw_timer.h</name>
 										</file>
 										<group>
 											<name>iar</name>
@@ -2506,9 +2586,6 @@
 										</group>
 										<file>
 											<name>$PROJ_DIR$/../conf_usart_serial.h</name>
-										</file>
-										<file>
-											<name>$PROJ_DIR$/../conf_clock.h</name>
 										</file>
 									</group>
 									<file>

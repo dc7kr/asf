@@ -186,14 +186,14 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>RF4CE_PLATFORM</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
+					<state>_DEBUG_=0</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>UDD_ENABLE</state>
 					<state>TAL_TYPE=AT86RF212</state>
 					<state>STB_ON_SAL</state>
@@ -371,7 +371,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb/class/cdc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
@@ -500,14 +499,14 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>RF4CE_PLATFORM</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
+					<state>_DEBUG_=0</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>UDD_ENABLE</state>
 					<state>TAL_TYPE=AT86RF212</state>
 					<state>STB_ON_SAL</state>
@@ -552,7 +551,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb/class/cdc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
@@ -1157,14 +1155,14 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>RF4CE_PLATFORM</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
+					<state>_DEBUG_=0</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>UDD_ENABLE</state>
 					<state>TAL_TYPE=AT86RF212</state>
 					<state>STB_ON_SAL</state>
@@ -1342,7 +1340,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb/class/cdc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
@@ -1471,14 +1468,14 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>RF4CE_PLATFORM</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
+					<state>_DEBUG_=0</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>UDD_ENABLE</state>
 					<state>TAL_TYPE=AT86RF212</state>
 					<state>STB_ON_SAL</state>
@@ -1523,7 +1520,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb/class/cdc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
@@ -2131,13 +2127,13 @@
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf212/src/tal_slotted_csma.c</name>
 								</file>
 								<file>
+									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf212/src/tal_pwr_mgmt.c</name>
+								</file>
+								<file>
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf212/src/tal_rx.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf212/src/tal_ed.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf212/src/tal_pwr_mgmt.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf212/src/tal_rx_enable.c</name>
@@ -2228,7 +2224,7 @@
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_data_req.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_pib.c</name>
@@ -2241,6 +2237,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_data_extract_mhr.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_rx_enable.c</name>
@@ -2640,6 +2639,15 @@
 		<group>
 			<name>drivers</name>
 			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/gpio/gpio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/gpio/gpio.h</name>
+				</file>
+			</group>
+			<group>
 				<name>pm</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/pm/power_clocks_lib.c</name>
@@ -2667,15 +2675,6 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/spi/spi.h</name>
-				</file>
-			</group>
-			<group>
-				<name>gpio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/gpio/gpio.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../avr32/drivers/gpio/gpio.h</name>
 				</file>
 			</group>
 			<group>

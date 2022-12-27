@@ -184,7 +184,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -528,7 +527,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -1232,7 +1230,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -1576,7 +1573,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -2180,7 +2176,7 @@
 									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal_rx_enable.c</name>
+									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal_pwr_mgmt.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal_rx.c</name>
@@ -2195,7 +2191,7 @@
 									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal_init.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal_pwr_mgmt.c</name>
+									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal_rx_enable.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal_irq_handler.c</name>
@@ -2280,13 +2276,7 @@
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_process_beacon_frame.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_mcps_data.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_security.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_dispatcher.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_scan.c</name>
@@ -2296,6 +2286,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_data_req.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_data_extract_mhr.c</name>
@@ -2320,6 +2313,12 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_dispatcher.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_mcps_data.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_beacon.c</name>
@@ -2713,15 +2712,6 @@
 		<group>
 			<name>utils</name>
 			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt/interrupt_sam_nvic.h</name>
-				</file>
-			</group>
-			<group>
 				<name>stdio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/write.c</name>
@@ -2735,6 +2725,15 @@
 						<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_serial/stdio_serial.h</name>
 					</file>
 				</group>
+			</group>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt/interrupt_sam_nvic.h</name>
+				</file>
 			</group>
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../../common/utils/parts.h</name>
@@ -3172,21 +3171,21 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>tc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc.h</name>
-				</file>
-			</group>
-			<group>
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/usart/usart.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/usart/usart.h</name>
+				</file>
+			</group>
+			<group>
+				<name>tc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc.h</name>
 				</file>
 			</group>
 			<group>

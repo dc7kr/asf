@@ -247,8 +247,10 @@
 					<name>CCDefines</name>
 					<state></state>
 					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>BOARD=ATMEGA256RFR2_XPLAINED_PRO</state>
 					<state>SIO_HUB</state>
 					<state>TAL_TYPE=ATMEGARFR2</state>
@@ -407,15 +409,18 @@
 				<option>
 					<name>newCCIncludePaths</name>
 					<state></state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../source/resources/queue/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
@@ -427,8 +432,8 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/mega</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/megarf_usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
@@ -581,8 +586,10 @@
 				<option>
 					<name>ADefines</name>
 					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>BOARD=ATMEGA256RFR2_XPLAINED_PRO</state>
 					<state>SIO_HUB</state>
 					<state>TAL_TYPE=ATMEGARFR2</state>
@@ -703,15 +710,18 @@
 				<option>
 					<name>ANewIncludes</name>
 					<state>###Uninitialized###</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../source/resources/queue/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
@@ -723,8 +733,8 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/mega</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/megarf_usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
@@ -1321,8 +1331,10 @@
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
 					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>BOARD=ATMEGA256RFR2_XPLAINED_PRO</state>
 					<state>SIO_HUB</state>
 					<state>TAL_TYPE=ATMEGARFR2</state>
@@ -1481,15 +1493,18 @@
 				<option>
 					<name>newCCIncludePaths</name>
 					<state></state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../source/resources/queue/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
@@ -1501,8 +1516,8 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/mega</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/megarf_usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
@@ -1655,8 +1670,10 @@
 				<option>
 					<name>ADefines</name>
 					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>BOARD=ATMEGA256RFR2_XPLAINED_PRO</state>
 					<state>SIO_HUB</state>
 					<state>TAL_TYPE=ATMEGARFR2</state>
@@ -1777,15 +1794,18 @@
 				<option>
 					<name>ANewIncludes</name>
 					<state>###Uninitialized###</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../source/resources/queue/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
@@ -1797,8 +1817,8 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/mega</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/megarf_usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
-					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
@@ -2218,6 +2238,9 @@
 						<group>
 							<name>src</name>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_pib.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_beacon.c</name>
 							</file>
 							<file>
@@ -2227,7 +2250,13 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_associate.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_pib.c</name>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_scan.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_poll.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_process_tal_tx_frame_status.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_orphan.c</name>
@@ -2239,13 +2268,10 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_start.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_poll.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_scan.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_sync.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_gts.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_rx_enable.c</name>
@@ -2272,9 +2298,6 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_req.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_process_tal_tx_frame_status.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_tx_coord_realignment_command.c</name>
 							</file>
 							<file>
@@ -2293,16 +2316,16 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_config.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_security.h</name>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_msg_type_data_ind.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_internal.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_data_structures.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_msg_type_data_ind.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_msg_types.h</name>
@@ -2314,7 +2337,7 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_api.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac.h</name>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_security.h</name>
 							</file>
 						</group>
 					</group>
@@ -2340,9 +2363,6 @@
 									<name>$PROJ_DIR$/../../../../../../../source/tal/atmegarfr2/src/tal_init.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../../source/tal/atmegarfr2/src/tal_tx.c</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../../../../../../source/tal/atmegarfr2/src/tal_rx_enable.c</name>
 								</file>
 								<file>
@@ -2359,6 +2379,9 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../source/tal/atmegarfr2/src/tal_irq_handler.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../source/tal/atmegarfr2/src/tal_tx.c</name>
 								</file>
 							</group>
 							<group>
@@ -2401,13 +2424,13 @@
 								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_generic.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_timer_config.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_helper.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_generic.h</name>
 							</file>
 						</group>
 					</group>
@@ -2444,6 +2467,60 @@
 							</group>
 						</group>
 					</group>
+					<group>
+						<name>stb</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb_help.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb_armcrypto.c</name>
+							</file>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb_internal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb_generic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb_armcrypto.h</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>sal</name>
+						<group>
+							<name>atmegarf_sal</name>
+							<group>
+								<name>src</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../source/sal/atmegarf_sal/src/sal.c</name>
+								</file>
+							</group>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal_generic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal_types.h</name>
+							</file>
+						</group>
+					</group>
 				</group>
 				<group>
 					<name>apps</name>
@@ -2456,15 +2533,18 @@
 								<file>
 									<name>$PROJ_DIR$/../../../main.c</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../app_security.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../beacon_app.h</name>
+								</file>
 								<group>
 									<name>ncp</name>
 									<group>
 										<name>atmega256rfr2_xplained_pro</name>
 										<file>
 											<name>$PROJ_DIR$/../conf_sio2host.h</name>
-										</file>
-										<file>
-											<name>$PROJ_DIR$/../conf_clock.h</name>
 										</file>
 										<file>
 											<name>$PROJ_DIR$/../conf_board.h</name>
@@ -2480,6 +2560,9 @@
 										</group>
 										<file>
 											<name>$PROJ_DIR$/../conf_usart_serial.h</name>
+										</file>
+										<file>
+											<name>$PROJ_DIR$/../conf_clock.h</name>
 										</file>
 									</group>
 									<file>
@@ -2623,15 +2706,15 @@
 					</file>
 				</group>
 			</group>
-			<file>
-				<name>$PROJ_DIR$/../../../../../../../../../../common/utils/interrupt.h</name>
-			</file>
 			<group>
 				<name>interrupt</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/interrupt/interrupt_avr8.h</name>
 				</file>
 			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../../common/utils/interrupt.h</name>
+			</file>
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../../../../common/utils/parts.h</name>
 			</file>

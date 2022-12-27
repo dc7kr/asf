@@ -247,7 +247,6 @@
 					<name>CCDefines</name>
 					<state></state>
 					<state>STB_ON_SAL</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>PBP_ORG</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
 					<state>VENDOR_DATA</state>
@@ -255,7 +254,7 @@
 					<state>ENABLE_STACK_NVM</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>RF4CE_SECURITY</state>
 					<state>BOARD=ATMEGA256RFR2_XPLAINED_PRO</state>
@@ -446,7 +445,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
@@ -603,7 +601,6 @@
 				<option>
 					<name>ADefines</name>
 					<state>STB_ON_SAL</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>PBP_ORG</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
 					<state>VENDOR_DATA</state>
@@ -611,7 +608,7 @@
 					<state>ENABLE_STACK_NVM</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>RF4CE_SECURITY</state>
 					<state>BOARD=ATMEGA256RFR2_XPLAINED_PRO</state>
@@ -764,7 +761,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
@@ -1366,7 +1362,6 @@
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
 					<state>STB_ON_SAL</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>PBP_ORG</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
 					<state>VENDOR_DATA</state>
@@ -1374,7 +1369,7 @@
 					<state>ENABLE_STACK_NVM</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>RF4CE_SECURITY</state>
 					<state>BOARD=ATMEGA256RFR2_XPLAINED_PRO</state>
@@ -1565,7 +1560,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
@@ -1722,7 +1716,6 @@
 				<option>
 					<name>ADefines</name>
 					<state>STB_ON_SAL</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>PBP_ORG</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
 					<state>VENDOR_DATA</state>
@@ -1730,7 +1723,7 @@
 					<state>ENABLE_STACK_NVM</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>RF4CE_SECURITY</state>
 					<state>BOARD=ATMEGA256RFR2_XPLAINED_PRO</state>
@@ -1883,7 +1876,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../mega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
@@ -2377,6 +2369,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_data_ind.c</name>
 							</file>
 							<file>
@@ -2392,10 +2387,10 @@
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_dispatcher.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac.c</name>
 							</file>
 						</group>
 						<group>

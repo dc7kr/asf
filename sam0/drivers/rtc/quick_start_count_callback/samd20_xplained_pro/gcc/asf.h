@@ -68,7 +68,7 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: RTC - Real Time Counter (Count Mode) Interrupt Driver
+// From module: RTC - Real Time Counter in Count Mode (Callback APIs)
 #include <rtc_count.h>
 #include <rtc_count_interrupt.h>
 

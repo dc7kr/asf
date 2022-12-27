@@ -183,7 +183,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -527,7 +526,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -1231,7 +1229,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -1575,7 +1572,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -2290,6 +2286,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_data_req.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_misc.c</name>

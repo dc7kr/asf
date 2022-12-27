@@ -68,6 +68,7 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_data_req.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_disassociate.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_dispatcher.c \
+       thirdparty/wireless/avr2025_mac/source/mac/src/mac_gts.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_mcps_data.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_misc.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_orphan.c \
@@ -146,7 +147,6 @@ INC_PATH = \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf231/inc \
        thirdparty/wireless/avr2025_mac/source/tal/inc     \
        thirdparty/wireless/avr2102_rf4control/addons/serial_interface \
-       thirdparty/wireless/avr2102_rf4control/apps/zrc/serial_if \
        thirdparty/wireless/avr2102_rf4control/apps/zrc/serial_if/ctr/ncp \
        thirdparty/wireless/avr2102_rf4control/apps/zrc/serial_if/ctr/ncp/xmega_a3bu_xplained_rz600rf231 \
        thirdparty/wireless/avr2102_rf4control/include     \
@@ -214,7 +214,6 @@ CPPFLAGS = \
        -D DISABLE_TSTAMP_IRQ=1                            \
        -D ENABLE_STACK_NVM                                \
        -D ENABLE_TRX_SRAM                                 \
-       -D EXTERN_EEPROM_AVAILABLE=0                       \
        -D HIGHEST_STACK_LAYER=RF4CE                       \
        -D IOPORT_XMEGA_COMPAT                             \
        -D MAC_USER_BUILD_CONFIG                           \
@@ -237,3 +236,7 @@ CPPFLAGS = \
 # Extra flags to use when linking
 LDFLAGS =  \
        -Wl,--section-start=.BOOT=0x40000                 
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 

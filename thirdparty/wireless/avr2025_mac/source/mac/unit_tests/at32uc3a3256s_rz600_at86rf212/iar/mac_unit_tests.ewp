@@ -187,16 +187,18 @@
 				<option>
 					<name>CCDefines</name>
 					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>UDD_ENABLE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>TAL_TYPE=AT86RF212</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>PAL_USE_SPI_TRX=1</state>
+					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>BEACON_SUPPORT</state>
 					<state>BOARD=RZ600</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
-					<state>TAL_TYPE=AT86RF212</state>
+					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -343,6 +345,8 @@
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../stb/inc</state>
+					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../pal/common_hw_timer/uc3</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
@@ -483,16 +487,18 @@
 				<option>
 					<name>ADefines</name>
 					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>UDD_ENABLE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>TAL_TYPE=AT86RF212</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>PAL_USE_SPI_TRX=1</state>
+					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>BEACON_SUPPORT</state>
 					<state>BOARD=RZ600</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
-					<state>TAL_TYPE=AT86RF212</state>
+					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
 				<option>
 					<name>AIncludePaths</name>
@@ -506,6 +512,8 @@
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../stb/inc</state>
+					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../pal/common_hw_timer/uc3</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
@@ -1122,16 +1130,18 @@
 				<option>
 					<name>CCDefines</name>
 					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>UDD_ENABLE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>TAL_TYPE=AT86RF212</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>PAL_USE_SPI_TRX=1</state>
+					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>BEACON_SUPPORT</state>
 					<state>BOARD=RZ600</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
-					<state>TAL_TYPE=AT86RF212</state>
+					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1278,6 +1288,8 @@
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../stb/inc</state>
+					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../pal/common_hw_timer/uc3</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
@@ -1418,16 +1430,18 @@
 				<option>
 					<name>ADefines</name>
 					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>UDD_ENABLE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>TAL_TYPE=AT86RF212</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>PAL_USE_SPI_TRX=1</state>
+					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>BEACON_SUPPORT</state>
 					<state>BOARD=RZ600</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
-					<state>TAL_TYPE=AT86RF212</state>
+					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
 				<option>
 					<name>AIncludePaths</name>
@@ -1441,6 +1455,8 @@
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../stb/inc</state>
+					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../pal/common_hw_timer/uc3</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
@@ -1955,13 +1971,13 @@
 								<name>$PROJ_DIR$/../../../src/mac_rx_enable.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../src/mac_dispatcher.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../src/mac_pib.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../src/mac_callback_wrapper.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../src/mac_gts.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../src/mac.c</name>
@@ -1977,6 +1993,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../src/mac_start.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../src/mac_dispatcher.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../src/mac_sync.c</name>
@@ -2173,6 +2192,36 @@
 						</group>
 					</group>
 					<group>
+						<name>stb</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../stb/src/stb.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../stb/src/stb_armcrypto.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../stb/src/stb_help.c</name>
+							</file>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../stb/inc/stb_armcrypto.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../stb/inc/stb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../stb/inc/stb_internal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../stb/inc/stb_generic.h</name>
+							</file>
+						</group>
+					</group>
+					<group>
 						<name>resources</name>
 						<group>
 							<name>buffer</name>
@@ -2203,6 +2252,30 @@
 									<name>$PROJ_DIR$/../../../../resources/queue/inc/qmm.h</name>
 								</file>
 							</group>
+						</group>
+					</group>
+					<group>
+						<name>sal</name>
+						<group>
+							<name>at86rf2xx</name>
+							<group>
+								<name>src</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../sal/at86rf2xx/src/sal.c</name>
+								</file>
+							</group>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../sal/inc/sal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../sal/inc/sal_generic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../sal/inc/sal_types.h</name>
+							</file>
 						</group>
 					</group>
 				</group>
@@ -2240,10 +2313,10 @@
 					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm/pm_conf_clocks.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm/power_clocks_lib.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm/pm.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm/pm.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm/power_clocks_lib.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm/pm.h</name>
@@ -2277,21 +2350,21 @@
 				</file>
 			</group>
 			<group>
-				<name>flashc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/flashc/flashc.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/flashc/flashc.h</name>
-				</file>
-			</group>
-			<group>
 				<name>tc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/tc/tc.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/tc/tc.h</name>
+				</file>
+			</group>
+			<group>
+				<name>flashc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/flashc/flashc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/flashc/flashc.h</name>
 				</file>
 			</group>
 			<group>

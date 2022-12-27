@@ -168,4 +168,9 @@ CPPFLAGS = \
 # Extra flags to use when linking
 LDFLAGS = \
                                                           \
+       -Wl,--defsym,STACK_SIZE=0x2000                     \
        -Wl,--defsym,__stack_size__=0x2000
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 

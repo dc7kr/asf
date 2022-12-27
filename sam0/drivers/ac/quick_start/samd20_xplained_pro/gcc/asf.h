@@ -52,7 +52,7 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: AC - Analog Comparator
+// From module: AC - Analog Comparator (Polled APIs)
 #include <ac.h>
 
 // From module: Common SAM D20 compiler driver

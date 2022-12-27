@@ -169,6 +169,7 @@
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
 					<state>BEACON_SUPPORT</state>
 					<state>SIO_HUB</state>
 					<state>__SAM4LC4C__</state>
@@ -306,7 +307,7 @@
 					<state>$PROJ_DIR$/../../../../../../../addons/api_parser/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
@@ -330,6 +331,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4l_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/bpm</state>
+					<state>$PROJ_DIR$/../../../../../../../source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -483,6 +485,7 @@
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
 					<state>BEACON_SUPPORT</state>
 					<state>SIO_HUB</state>
 					<state>__SAM4LC4C__</state>
@@ -587,7 +590,7 @@
 					<state>$PROJ_DIR$/../../../../../../../addons/api_parser/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
@@ -611,6 +614,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4l_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/bpm</state>
+					<state>$PROJ_DIR$/../../../../../../../source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1157,6 +1161,7 @@
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
 					<state>BEACON_SUPPORT</state>
 					<state>SIO_HUB</state>
 					<state>__SAM4LC4C__</state>
@@ -1294,7 +1299,7 @@
 					<state>$PROJ_DIR$/../../../../../../../addons/api_parser/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
@@ -1318,6 +1323,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4l_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/bpm</state>
+					<state>$PROJ_DIR$/../../../../../../../source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1471,6 +1477,7 @@
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
 					<state>BEACON_SUPPORT</state>
 					<state>SIO_HUB</state>
 					<state>__SAM4LC4C__</state>
@@ -1575,7 +1582,7 @@
 					<state>$PROJ_DIR$/../../../../../../../addons/api_parser/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
@@ -1599,6 +1606,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards/sam4l_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/bpm</state>
+					<state>$PROJ_DIR$/../../../../../../../source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -2074,6 +2082,9 @@
 								<file>
 									<name>$PROJ_DIR$/../../../main.c</name>
 								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../app_security.c</name>
+								</file>
 								<group>
 									<name>host</name>
 									<group>
@@ -2110,6 +2121,9 @@
 										<name>$PROJ_DIR$/../../conf_common_sw_timer.h</name>
 									</file>
 								</group>
+								<file>
+									<name>$PROJ_DIR$/../../../beacon_app.h</name>
+								</file>
 							</group>
 						</group>
 					</group>
@@ -2319,10 +2333,10 @@
 								</file>
 							</group>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates/exceptions.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates/system_sam4l.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates/system_sam4l.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates/exceptions.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates/system_sam4l.h</name>
@@ -2496,6 +2510,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_bscif.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_gpio.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_usbc.h</name>
 							</file>
 							<file>
@@ -2572,9 +2589,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_acifc.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_gpio.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_chipid.h</name>

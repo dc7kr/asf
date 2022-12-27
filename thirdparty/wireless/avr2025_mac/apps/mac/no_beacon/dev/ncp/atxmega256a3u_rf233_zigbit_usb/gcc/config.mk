@@ -59,6 +59,7 @@ CSRCS = \
        common/utils/stdio/stdio_usb/stdio_usb.c           \
        common/utils/stdio/write.c                         \
        thirdparty/wireless/addons/sio2host/usb/sio2host.c \
+       thirdparty/wireless/avr2025_mac/apps/mac/no_beacon/dev/app_security.c \
        thirdparty/wireless/avr2025_mac/apps/mac/no_beacon/dev/main.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_api.c \
@@ -70,6 +71,7 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_data_req.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_disassociate.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_dispatcher.c \
+       thirdparty/wireless/avr2025_mac/source/mac/src/mac_gts.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_mcps_data.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_misc.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_orphan.c \
@@ -89,6 +91,10 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/pal/pal_ext_trx.c \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/src/bmm.c \
        thirdparty/wireless/avr2025_mac/source/resources/queue/src/qmm.c \
+       thirdparty/wireless/avr2025_mac/source/sal/atxmega_sal/src/sal.c \
+       thirdparty/wireless/avr2025_mac/source/stb/src/stb.c \
+       thirdparty/wireless/avr2025_mac/source/stb/src/stb_armcrypto.c \
+       thirdparty/wireless/avr2025_mac/source/stb/src/stb_help.c \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf233/src/tal.c \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf233/src/tal_ed.c \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf233/src/tal_init.c \
@@ -128,6 +134,7 @@ INC_PATH = \
        common/utils                                       \
        common/utils/stdio/stdio_usb                       \
        thirdparty/wireless/addons/sio2host/usb            \
+       thirdparty/wireless/avr2025_mac/apps/mac/no_beacon/dev \
        thirdparty/wireless/avr2025_mac/apps/mac/no_beacon/dev/ncp \
        thirdparty/wireless/avr2025_mac/apps/mac/no_beacon/dev/ncp/atxmega256a3u_rf233_zigbit_usb \
        thirdparty/wireless/avr2025_mac/include            \
@@ -138,6 +145,8 @@ INC_PATH = \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/inc \
        thirdparty/wireless/avr2025_mac/source/resources/queue/inc \
+       thirdparty/wireless/avr2025_mac/source/sal/inc     \
+       thirdparty/wireless/avr2025_mac/source/stb/inc     \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf233/inc \
        thirdparty/wireless/avr2025_mac/source/tal/inc     \
        xmega/boards                                       \
@@ -203,9 +212,15 @@ CPPFLAGS = \
        -D HIGHEST_STACK_LAYER=MAC                         \
        -D IOPORT_XMEGA_COMPAT                             \
        -D PAL_USE_SPI_TRX=1                               \
+       -D SAL_TYPE=ATXMEGA_SAL                            \
        -D SIO_HUB                                         \
+       -D STB_ON_SAL                                      \
        -D TAL_TYPE=AT86RF233
 
 # Extra flags to use when linking
 LDFLAGS =  \
        -Wl,--section-start=.BOOT=0x40000                 
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 

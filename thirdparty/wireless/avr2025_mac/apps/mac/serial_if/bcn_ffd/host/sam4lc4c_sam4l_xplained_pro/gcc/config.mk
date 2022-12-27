@@ -175,6 +175,7 @@ CPPFLAGS = \
        -D BOARD=SAM4L_XPLAINED_PRO                        \
        -D ENABLE_TSTAMP                                   \
        -D FFD                                             \
+       -D GTS_SUPPORT                                     \
        -D HIGHEST_STACK_LAYER=MAC                         \
        -D TEST_HARNESS                                    \
        -D __SAM4LC4C__                                    \
@@ -183,3 +184,7 @@ CPPFLAGS = \
 
 # Extra flags to use when linking
 LDFLAGS = \
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 

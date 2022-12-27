@@ -52,7 +52,7 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: ADC - Analog-to-Digital Converter (Callback Mode)
+// From module: ADC - Analog-to-Digital Converter (Callback APIs)
 #include <adc.h>
 #include <adc_callback.h>
 
@@ -78,7 +78,7 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: RTC - Real Time Counter (Count Mode) Polled Driver
+// From module: RTC - Real Time Counter in Count Mode (Polled APIs)
 #include <rtc_count.h>
 
 // From module: SYSTEM - Clock Management

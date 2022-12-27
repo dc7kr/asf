@@ -2418,10 +2418,10 @@
 							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n2b.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n4a.h</name>
+							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n0c.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n0c.h</name>
+							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n4a.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n4c.h</name>

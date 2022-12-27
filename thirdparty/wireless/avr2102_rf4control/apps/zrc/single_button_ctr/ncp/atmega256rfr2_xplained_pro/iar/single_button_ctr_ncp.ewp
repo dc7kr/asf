@@ -261,7 +261,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>ZRC_PROFILE</state>
 					<state>TAL_TYPE=ATMEGARFR2</state>
@@ -620,7 +619,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>ZRC_PROFILE</state>
 					<state>TAL_TYPE=ATMEGARFR2</state>
@@ -1386,7 +1384,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>ZRC_PROFILE</state>
 					<state>TAL_TYPE=ATMEGARFR2</state>
@@ -1745,7 +1742,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>ZRC_PROFILE</state>
 					<state>TAL_TYPE=ATMEGARFR2</state>
@@ -2484,9 +2480,6 @@
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/atmegarfr2/src/tal_pib.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/atmegarfr2/src/tal_tx.c</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/atmegarfr2/src/tal_ed.c</name>
 								</file>
 								<file>
@@ -2494,6 +2487,9 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/atmegarfr2/src/tal_slotted_csma.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/atmegarfr2/src/tal_tx.c</name>
 								</file>
 							</group>
 							<group>
@@ -2560,16 +2556,13 @@
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_security.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_beacon.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_data_req.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_pib.c</name>
@@ -2578,7 +2571,13 @@
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_misc.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_process_tal_tx_frame_status.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_rx_enable.c</name>
@@ -2635,10 +2634,10 @@
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_msg_const.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_msg_type_data_ind.h</name>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_internal.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_internal.h</name>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_msg_type_data_ind.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_security.h</name>

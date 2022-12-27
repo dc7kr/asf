@@ -186,7 +186,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>__SAM4LC4C__</state>
@@ -533,7 +532,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>__SAM4LC4C__</state>
@@ -1240,7 +1238,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>__SAM4LC4C__</state>
@@ -1587,7 +1584,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>__SAM4LC4C__</state>
@@ -2397,19 +2393,22 @@
 						<group>
 							<name>src</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_security.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_data_req.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_pib.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_misc.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_process_beacon_frame.c</name>

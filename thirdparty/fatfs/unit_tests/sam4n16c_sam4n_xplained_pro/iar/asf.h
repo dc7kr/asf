@@ -87,6 +87,9 @@
 // From module: RTC - Real Time Clock
 #include <rtc.h>
 
+// From module: SAM4N Xplained Pro LED support enabled
+#include <led.h>
+
 // From module: SAM4N startup code
 #include <exceptions.h>
 
@@ -96,9 +99,6 @@
 
 // From module: SPI - Serial Peripheral Interface
 #include <spi.h>
-
-// From module: SSAM4N Xplained Pro LED support enabled
-#include <led.h>
 
 // From module: Standard serial I/O (stdio) - SAM implementation
 #include <stdio_serial.h>

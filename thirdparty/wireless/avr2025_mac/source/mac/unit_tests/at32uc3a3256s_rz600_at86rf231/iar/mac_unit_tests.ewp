@@ -188,11 +188,13 @@
 					<name>CCDefines</name>
 					<state>FFD</state>
 					<state>TAL_TYPE=AT86RF231</state>
+					<state>STB_ON_SAL</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>UDD_ENABLE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>BEACON_SUPPORT</state>
 					<state>BOARD=RZ600</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
@@ -342,8 +344,10 @@
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../stb/inc</state>
+					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../pal/common_hw_timer/uc3</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
@@ -358,7 +362,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../tal/inc</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../pal</state>
 					<state>$PROJ_DIR$/../../../../pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/delay</state>
@@ -484,11 +488,13 @@
 					<name>ADefines</name>
 					<state>FFD</state>
 					<state>TAL_TYPE=AT86RF231</state>
+					<state>STB_ON_SAL</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>UDD_ENABLE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>BEACON_SUPPORT</state>
 					<state>BOARD=RZ600</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
@@ -505,8 +511,10 @@
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../stb/inc</state>
+					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../pal/common_hw_timer/uc3</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
@@ -521,7 +529,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../tal/inc</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../pal</state>
 					<state>$PROJ_DIR$/../../../../pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/delay</state>
@@ -1123,11 +1131,13 @@
 					<name>CCDefines</name>
 					<state>FFD</state>
 					<state>TAL_TYPE=AT86RF231</state>
+					<state>STB_ON_SAL</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>UDD_ENABLE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>BEACON_SUPPORT</state>
 					<state>BOARD=RZ600</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
@@ -1277,8 +1287,10 @@
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../stb/inc</state>
+					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../pal/common_hw_timer/uc3</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
@@ -1293,7 +1305,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../tal/inc</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../pal</state>
 					<state>$PROJ_DIR$/../../../../pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/delay</state>
@@ -1419,11 +1431,13 @@
 					<name>ADefines</name>
 					<state>FFD</state>
 					<state>TAL_TYPE=AT86RF231</state>
+					<state>STB_ON_SAL</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>UDD_ENABLE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>BEACON_SUPPORT</state>
 					<state>BOARD=RZ600</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
@@ -1440,8 +1454,10 @@
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../resources/queue/inc</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../include</state>
+					<state>$PROJ_DIR$/../../../../stb/inc</state>
+					<state>$PROJ_DIR$/../../../../sal/inc</state>
 					<state>$PROJ_DIR$/../../../../pal/common_hw_timer/uc3</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb</state>
@@ -1456,7 +1472,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../../tal/inc</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../pal</state>
 					<state>$PROJ_DIR$/../../../../pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/delay</state>
@@ -1964,6 +1980,9 @@
 								<name>$PROJ_DIR$/../../../src/mac_callback_wrapper.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../src/mac_gts.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../src/mac.c</name>
 							</file>
 							<file>
@@ -2095,13 +2114,13 @@
 									<name>$PROJ_DIR$/../../../../tal/at86rf231/src/tal_tx.c</name>
 								</file>
 								<file>
+									<name>$PROJ_DIR$/../../../../tal/at86rf231/src/tal_pib.c</name>
+								</file>
+								<file>
 									<name>$PROJ_DIR$/../../../../tal/at86rf231/src/tal_rx_enable.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../tal/at86rf231/src/tal.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../tal/at86rf231/src/tal_pib.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../tal/at86rf231/src/tal_slotted_csma.c</name>
@@ -2173,6 +2192,36 @@
 						</group>
 					</group>
 					<group>
+						<name>stb</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../stb/src/stb.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../stb/src/stb_armcrypto.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../stb/src/stb_help.c</name>
+							</file>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../stb/inc/stb_armcrypto.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../stb/inc/stb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../stb/inc/stb_internal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../stb/inc/stb_generic.h</name>
+							</file>
+						</group>
+					</group>
+					<group>
 						<name>resources</name>
 						<group>
 							<name>buffer</name>
@@ -2203,6 +2252,30 @@
 									<name>$PROJ_DIR$/../../../../resources/queue/inc/qmm.h</name>
 								</file>
 							</group>
+						</group>
+					</group>
+					<group>
+						<name>sal</name>
+						<group>
+							<name>at86rf2xx</name>
+							<group>
+								<name>src</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../sal/at86rf2xx/src/sal.c</name>
+								</file>
+							</group>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../sal/inc/sal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../sal/inc/sal_generic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../sal/inc/sal_types.h</name>
+							</file>
 						</group>
 					</group>
 				</group>
@@ -2240,10 +2313,10 @@
 					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm/pm_conf_clocks.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm/pm.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm/power_clocks_lib.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm/power_clocks_lib.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm/pm.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../avr32/drivers/pm/pm.h</name>
@@ -2377,69 +2450,9 @@
 	<group>
 		<name>common</name>
 		<group>
-			<name>utils</name>
-			<group>
-				<name>unit_test</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/unit_test/suite.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/unit_test/suite.h</name>
-				</file>
-			</group>
-			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/write.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/read.c</name>
-				</file>
-				<group>
-					<name>stdio_usb</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb/stdio_usb.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb/stdio_usb.h</name>
-					</file>
-				</group>
-			</group>
-			<file>
-				<name>$PROJ_DIR$/../../../../../../../../common/utils/parts.h</name>
-			</file>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt/interrupt_avr32.h</name>
-				</file>
-			</group>
-			<file>
-				<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt.h</name>
-			</file>
-		</group>
-		<group>
 			<name>services</name>
 			<group>
 				<name>usb</name>
-				<group>
-					<name>udc</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common/services/usb/udc/udc.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common/services/usb/udc/udc.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common/services/usb/udc/udi.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common/services/usb/udc/udc_desc.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common/services/usb/udc/udd.h</name>
-					</file>
-				</group>
 				<group>
 					<name>class</name>
 					<group>
@@ -2463,6 +2476,24 @@
 							<name>$PROJ_DIR$/../../../../../../../../common/services/usb/class/cdc/usb_protocol_cdc.h</name>
 						</file>
 					</group>
+				</group>
+				<group>
+					<name>udc</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/usb/udc/udc.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/usb/udc/udc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/usb/udc/udi.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/usb/udc/udc_desc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/services/usb/udc/udd.h</name>
+					</file>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../common/services/usb/usb_atmel.h</name>
@@ -2552,6 +2583,48 @@
 					<name>$PROJ_DIR$/../../../../../../../../common/services/delay/delay.h</name>
 				</file>
 			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>unit_test</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/unit_test/suite.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/unit_test/suite.h</name>
+				</file>
+			</group>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/write.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/read.c</name>
+				</file>
+				<group>
+					<name>stdio_usb</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb/stdio_usb.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_usb/stdio_usb.h</name>
+					</file>
+				</group>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../common/utils/parts.h</name>
+			</file>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt/interrupt_avr32.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../common/utils/interrupt.h</name>
+			</file>
 		</group>
 		<group>
 			<name>boards</name>

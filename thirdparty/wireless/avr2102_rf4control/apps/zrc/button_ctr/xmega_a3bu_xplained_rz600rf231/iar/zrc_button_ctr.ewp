@@ -236,7 +236,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state></state>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>NLDE_HANDLE</state>
 					<state>SAL_TYPE=ATXMEGA_SAL</state>
@@ -246,7 +246,7 @@
 					<state>ENABLE_TFA</state>
 					<state>TFA_BAT_MON</state>
 					<state>VENDOR_DATA</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>RSSI_TO_LQI_MAPPING</state>
@@ -255,7 +255,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
@@ -607,7 +606,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>NLDE_HANDLE</state>
 					<state>SAL_TYPE=ATXMEGA_SAL</state>
@@ -617,7 +616,7 @@
 					<state>ENABLE_TFA</state>
 					<state>TFA_BAT_MON</state>
 					<state>VENDOR_DATA</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>RSSI_TO_LQI_MAPPING</state>
@@ -626,7 +625,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
@@ -1367,7 +1365,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>NLDE_HANDLE</state>
 					<state>SAL_TYPE=ATXMEGA_SAL</state>
@@ -1377,7 +1375,7 @@
 					<state>ENABLE_TFA</state>
 					<state>TFA_BAT_MON</state>
 					<state>VENDOR_DATA</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>RSSI_TO_LQI_MAPPING</state>
@@ -1386,7 +1384,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
@@ -1738,7 +1735,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ENABLE_STACK_NVM</state>
+					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>NLDE_HANDLE</state>
 					<state>SAL_TYPE=ATXMEGA_SAL</state>
@@ -1748,7 +1745,7 @@
 					<state>ENABLE_TFA</state>
 					<state>TFA_BAT_MON</state>
 					<state>VENDOR_DATA</state>
-					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>RSSI_TO_LQI_MAPPING</state>
@@ -1757,7 +1754,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>BOARD=XMEGA_A3BU_XPLAINED</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
@@ -2464,10 +2460,13 @@
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_data_req.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_data_extract_mhr.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_dispatcher.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_data_extract_mhr.c</name>
+								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_process_tal_tx_frame_status.c</name>

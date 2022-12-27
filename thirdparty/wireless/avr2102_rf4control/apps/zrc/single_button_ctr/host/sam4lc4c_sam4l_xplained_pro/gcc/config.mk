@@ -175,7 +175,6 @@ CPPFLAGS = \
        -D ENABLE_PWR_SAVE_MODE                            \
        -D ENABLE_STACK_NVM                                \
        -D ENABLE_TRX_SRAM                                 \
-       -D EXTERN_EEPROM_AVAILABLE=0                       \
        -D HIGHEST_STACK_LAYER=RF4CE                       \
        -D MAC_USER_BUILD_CONFIG                           \
        -D NLDE_HANDLE                                     \
@@ -198,3 +197,7 @@ CPPFLAGS = \
 
 # Extra flags to use when linking
 LDFLAGS = \
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 

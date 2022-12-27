@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../../../../pm/power_clocks_lib.c ../../cycle_counter_example.c ../../../../../usart/usart.c ../../../../../scif/scif_uc3l.c ../../../../../intc/intc.c ../../../../../flashcdw/flashcdw.c ../../../../../../boards/uc3l_ek/led.c ../../../../../gpio/gpio.c ../../../../../pm/pm_uc3l.c ../../../../../../utils/debug/print_funcs.c  ../../../../../../utils/preprocessor/stringz.h ../../../../../scif/scif_uc3l.h ../../../../../../../common/utils/parts.h ../../../../../pm/power_clocks_lib.h ../../../../../../utils/header_files/uc3l3_l4_defines_fix.h ../../../../../../boards/uc3l_ek/uc3l_ek.h ../../../../../../utils/preprocessor/preprocessor.h ../../../../../pm/sleep.h ../../../../../../../common/utils/interrupt.h ../../../../../../boards/uc3l_ek/led.h ../../../cycle_counter.h ../../../../../usart/usart.h ../../../../../gpio/gpio.h ../../../../../../utils/status_codes.h ../../../../../intc/intc.h ../../../../../../utils/preprocessor/mrepeat.h ../../../../../pm/pm_uc3l.h ../../../../../../utils/preprocessor/tpaste.h ../../../../../../../common/utils/interrupt/interrupt_avr32.h ../../../../../../utils/compiler.h ../../../../../../../common/boards/board.h ../../../../../../utils/debug/print_funcs.h ../../../../../../utils/startup/trampoline_uc3.h ../../../../../../utils/header_files/uc3d_defines_fix.h ../../../../../flashcdw/flashcdw.h
+INPUT                  =  ../../../../../../../common/services/clock/uc3l/dfll.c ../../../../../../../common/services/clock/uc3l/sysclk.c ../../../../../usart/usart.c ../../../../../../../common/services/clock/uc3l/osc.c ../../../../../flashcdw/flashcdw.c ../../../../../../boards/uc3l_ek/led.c ../../../../../gpio/gpio.c ../../cycle_counter_example.c ../../../../../../utils/debug/print_funcs.c  ../../../../../../utils/preprocessor/stringz.h ../../../../../../../common/boards/board.h ../../../../../flashcdw/flashcdw.h ../../../../../../../common/utils/parts.h ../../../../../../utils/header_files/uc3l3_l4_defines_fix.h ../../../../../../boards/uc3l_ek/uc3l_ek.h ../../../../../../utils/preprocessor/preprocessor.h ../../../../../../../common/utils/interrupt.h ../../../../../../boards/uc3l_ek/led.h ../../../../../../../common/services/clock/osc.h ../../../../../usart/usart.h ../../../../../../../common/services/clock/uc3l/dfll.h ../../../../../gpio/gpio.h ../../../../../../utils/status_codes.h ../conf_board.h ../../../../../../../common/services/clock/uc3l/osc.h ../../../../../../../common/services/clock/dfll.h ../../../../../../utils/preprocessor/mrepeat.h ../../../../../../../common/services/clock/sysclk.h ../../../../../../../common/services/clock/uc3l/sysclk.h ../../../../../../utils/preprocessor/tpaste.h ../../../../../../../common/utils/interrupt/interrupt_avr32.h ../../../cycle_counter.h ../../../../../../utils/compiler.h ../../../../../../../common/services/clock/genclk.h ../../../../../../../common/services/clock/uc3l/genclk.h ../../../../../../utils/debug/print_funcs.h ../../../../../../utils/startup/trampoline_uc3.h ../../../../../../utils/header_files/uc3d_defines_fix.h ../conf_clock.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -1062,6 +1062,17 @@ FORMULA_FONTSIZE       = 10
 
 FORMULA_TRANSPARENT    = YES
 
+# Enable the USE_MATHJAX option to render LaTeX formulas using MathJax (see
+# http://www.mathjax.org) which uses client side Javascript for the rendering
+# instead of using prerendered bitmaps. Use this if you do not have LaTeX
+# installed or if you want to formulas look prettier in the HTML output. When
+# enabled you may also need to install MathJax separately and configure the path
+# to it using the MATHJAX_RELPATH option.
+# The default value is: NO.
+# This tag requires that the tag GENERATE_HTML is set to YES.
+
+USE_MATHJAX            = NO
+
 # When the SEARCHENGINE tag is enabled doxygen will generate a search box
 # for the HTML output. The underlying search engine uses javascript
 # and DHTML and should work on any modern browser. Note that when using
@@ -1352,7 +1363,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../gpio ../../../../../scif ../../../../../../utils/debug ../../../../../../boards/uc3l_ek ../../../../../../../common/boards ../../../../../usart ../../../../../../boards ../../../../../../utils ../../.. ../../../../../../../common/utils ../../../../../../utils/preprocessor ../../../../../intc ../../../../../pm ../../../../../flashcdw
+INCLUDE_PATH           =  ../../../../../../utils/preprocessor ../../../../../../../common/services/clock ../../../../../../utils/debug ../../../../../../boards/uc3l_ek ../../../../../../../common/boards ../../../../../../boards ../../../../../usart .. ../../../../../../utils ../../.. ../../../../../gpio ../../../../../flashcdw ../../../../../../../common/utils
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

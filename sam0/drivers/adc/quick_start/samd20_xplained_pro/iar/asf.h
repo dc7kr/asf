@@ -52,7 +52,7 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: ADC - Analog-to-Digital Converter (Polled Mode)
+// From module: ADC - Analog-to-Digital Converter (Polled APIs)
 #include <adc.h>
 
 // From module: Common SAM D20 compiler driver

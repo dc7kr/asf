@@ -72,15 +72,15 @@
 // From module: Part identification macros
 #include <parts.h>
 
+// From module: SAM4N Xplained Pro LED support enabled
+#include <led.h>
+
 // From module: SAM4N startup code
 #include <exceptions.h>
 
 // From module: SPI - SAM implementation
 #include <usart_spi.h>
 #include <usart_spi.h>
-
-// From module: SSAM4N Xplained Pro LED support enabled
-#include <led.h>
 
 // From module: System Clock Control - SAM4N implementation
 #include <sysclk.h>

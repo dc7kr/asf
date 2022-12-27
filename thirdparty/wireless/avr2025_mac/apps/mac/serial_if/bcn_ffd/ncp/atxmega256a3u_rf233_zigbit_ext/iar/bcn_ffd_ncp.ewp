@@ -238,13 +238,16 @@
 					<state></state>
 					<state>FFD</state>
 					<state>TEST_HARNESS</state>
+					<state>STB_ON_SAL</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>BOARD=XMEGA_RF233_ZIGBIT</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
+					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>BEACON_SUPPORT</state>
-					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -414,6 +417,8 @@
 					<state>$PROJ_DIR$/../../../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
@@ -421,13 +426,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/xmega_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/nvm</state>
-					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/at86rf233/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_if/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
@@ -587,13 +592,16 @@
 					<name>ADefines</name>
 					<state>FFD</state>
 					<state>TEST_HARNESS</state>
+					<state>STB_ON_SAL</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>BOARD=XMEGA_RF233_ZIGBIT</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
+					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>BEACON_SUPPORT</state>
-					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -725,6 +733,8 @@
 					<state>$PROJ_DIR$/../../../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
@@ -732,13 +742,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/xmega_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/nvm</state>
-					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/at86rf233/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_if/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
@@ -1325,13 +1335,16 @@
 					<state>NDEBUG</state>
 					<state>FFD</state>
 					<state>TEST_HARNESS</state>
+					<state>STB_ON_SAL</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>BOARD=XMEGA_RF233_ZIGBIT</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
+					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>BEACON_SUPPORT</state>
-					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1501,6 +1514,8 @@
 					<state>$PROJ_DIR$/../../../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
@@ -1508,13 +1523,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/xmega_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/nvm</state>
-					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/at86rf233/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_if/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
@@ -1674,13 +1689,16 @@
 					<name>ADefines</name>
 					<state>FFD</state>
 					<state>TEST_HARNESS</state>
+					<state>STB_ON_SAL</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>BOARD=XMEGA_RF233_ZIGBIT</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>GTS_SUPPORT</state>
+					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>BEACON_SUPPORT</state>
-					<state>CONFIG_NVM_IGNORE_XMEGA_A3_D3_REVB_ERRATA</state>
+					<state>SAL_TYPE=ATXMEGA_SAL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1812,6 +1830,8 @@
 					<state>$PROJ_DIR$/../../../../../../../source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../source/stb/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../source/sal/inc</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
@@ -1819,13 +1839,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/xmega_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/nvm</state>
-					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/at86rf233/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_if/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../source/tal/inc</state>
@@ -2274,6 +2294,9 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_sync.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_gts.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_misc.c</name>
 							</file>
 							<file>
@@ -2310,9 +2333,6 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_config.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_msg_const.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_internal.h</name>
 							</file>
 							<file>
@@ -2323,6 +2343,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_msg_types.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_msg_const.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/inc/mac_security.h</name>
@@ -2412,13 +2435,13 @@
 						<group>
 							<name>inc</name>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_helper.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_timer_config.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/tal/inc/tal_types.h</name>
@@ -2459,6 +2482,60 @@
 									<name>$PROJ_DIR$/../../../../../../../source/resources/buffer/inc/bmm.h</name>
 								</file>
 							</group>
+						</group>
+					</group>
+					<group>
+						<name>sal</name>
+						<group>
+							<name>atxmega_sal</name>
+							<group>
+								<name>src</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../source/sal/atxmega_sal/src/sal.c</name>
+								</file>
+							</group>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal_generic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal_types.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal.h</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>stb</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb_help.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/src/stb_armcrypto.c</name>
+							</file>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb_armcrypto.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb_internal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb_generic.h</name>
+							</file>
 						</group>
 					</group>
 				</group>

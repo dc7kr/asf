@@ -830,7 +830,7 @@
 			<archiveVersion>2</archiveVersion>
 			<data>
 				<version>0</version>
-				<wantNonLocal></wantNonLocal>
+				<wantNonLocal>1</wantNonLocal>
 				<debug></debug>
 				<option>
 					<name>CatchSTATERR</name>
@@ -1803,7 +1803,7 @@
 			<archiveVersion>2</archiveVersion>
 			<data>
 				<version>0</version>
-				<wantNonLocal></wantNonLocal>
+				<wantNonLocal>1</wantNonLocal>
 				<debug></debug>
 				<option>
 					<name>CatchSTATERR</name>

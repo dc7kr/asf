@@ -204,7 +204,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -379,7 +378,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212/inc</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -522,7 +520,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -564,7 +561,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212/inc</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -1183,7 +1179,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -1358,7 +1353,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212/inc</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -1501,7 +1495,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -1543,7 +1536,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212/inc</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -2169,6 +2161,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_process_beacon_frame.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_data_req.c</name>
 							</file>
 							<file>
@@ -2190,6 +2185,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_data_ind.c</name>
 							</file>
 							<file>
@@ -2203,9 +2201,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_dispatcher.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac.c</name>
@@ -2747,6 +2742,9 @@
 			<name>utils</name>
 			<group>
 				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/read.c</name>
+				</file>
 				<group>
 					<name>stdio_usb</name>
 					<file>
@@ -2756,9 +2754,6 @@
 						<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_usb/stdio_usb.h</name>
 					</file>
 				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/read.c</name>
-				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/write.c</name>
 				</file>

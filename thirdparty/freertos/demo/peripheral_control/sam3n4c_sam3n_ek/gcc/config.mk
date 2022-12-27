@@ -85,7 +85,7 @@ CSRCS = \
        thirdparty/freertos/demo/peripheral_control/run-time-stats-utils.c \
        thirdparty/freertos/freertos-7.3.0/source/FreeRTOS_CLI.c \
        thirdparty/freertos/freertos-7.3.0/source/list.c   \
-       thirdparty/freertos/freertos-7.3.0/source/portable/gcc/arm_cm3/port.c \
+       thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam/port.c \
        thirdparty/freertos/freertos-7.3.0/source/portable/memmang/heap_4.c \
        thirdparty/freertos/freertos-7.3.0/source/queue.c  \
        thirdparty/freertos/freertos-7.3.0/source/tasks.c  \
@@ -127,7 +127,7 @@ INC_PATH = \
        thirdparty/freertos/demo/peripheral_control/demo-tasks \
        thirdparty/freertos/demo/peripheral_control/sam3n4c_sam3n_ek \
        thirdparty/freertos/freertos-7.3.0/source/include  \
-       thirdparty/freertos/freertos-7.3.0/source/portable/gcc/arm_cm3 \
+       thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam \
        thirdparty/freertos/demo/peripheral_control/sam3n4c_sam3n_ek/gcc
 
 # Additional search paths for libraries.
@@ -185,3 +185,7 @@ CPPFLAGS = \
 
 # Extra flags to use when linking
 LDFLAGS = \
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 

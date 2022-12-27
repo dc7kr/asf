@@ -236,7 +236,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state></state>
-					<state>ZRC_CMD_DISCOVERY</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>BOARD=XMEGA_RF212B_ZIGBIT</state>
 					<state>NLDE_HANDLE</state>
@@ -245,7 +245,7 @@
 					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>RF4CE_TARGET</state>
 					<state>VENDOR_DATA</state>
-					<state>ENABLE_STACK_NVM</state>
+					<state>ZRC_CMD_DISCOVERY</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>TAL_TYPE=AT86RF212B</state>
@@ -254,7 +254,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -421,7 +420,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb/class/cdc/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/spi/xmega_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_interface</state>
@@ -448,7 +446,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards/xmega_rf212b_zigbit</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
@@ -607,7 +605,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ZRC_CMD_DISCOVERY</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>BOARD=XMEGA_RF212B_ZIGBIT</state>
 					<state>NLDE_HANDLE</state>
@@ -616,7 +614,7 @@
 					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>RF4CE_TARGET</state>
 					<state>VENDOR_DATA</state>
-					<state>ENABLE_STACK_NVM</state>
+					<state>ZRC_CMD_DISCOVERY</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>TAL_TYPE=AT86RF212B</state>
@@ -625,7 +623,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -754,7 +751,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb/class/cdc/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/spi/xmega_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_interface</state>
@@ -781,7 +777,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards/xmega_rf212b_zigbit</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
@@ -1367,7 +1363,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
-					<state>ZRC_CMD_DISCOVERY</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>BOARD=XMEGA_RF212B_ZIGBIT</state>
 					<state>NLDE_HANDLE</state>
@@ -1376,7 +1372,7 @@
 					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>RF4CE_TARGET</state>
 					<state>VENDOR_DATA</state>
-					<state>ENABLE_STACK_NVM</state>
+					<state>ZRC_CMD_DISCOVERY</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>TAL_TYPE=AT86RF212B</state>
@@ -1385,7 +1381,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -1552,7 +1547,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb/class/cdc/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/spi/xmega_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_interface</state>
@@ -1579,7 +1573,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards/xmega_rf212b_zigbit</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
@@ -1738,7 +1732,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ZRC_CMD_DISCOVERY</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
 					<state>BOARD=XMEGA_RF212B_ZIGBIT</state>
 					<state>NLDE_HANDLE</state>
@@ -1747,7 +1741,7 @@
 					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>RF4CE_TARGET</state>
 					<state>VENDOR_DATA</state>
-					<state>ENABLE_STACK_NVM</state>
+					<state>ZRC_CMD_DISCOVERY</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>RF4CE_SECURITY</state>
 					<state>TAL_TYPE=AT86RF212B</state>
@@ -1756,7 +1750,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -1885,7 +1878,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb/class/cdc/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/inc</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/spi/xmega_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_interface</state>
@@ -1912,7 +1904,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards/xmega_rf212b_zigbit</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
@@ -2476,6 +2468,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_security.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_data_req.c</name>
 							</file>
 							<file>
@@ -2485,19 +2480,19 @@
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_pib.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_mcps_data.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_orphan.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_tx_coord_realignment_command.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_mcps_data.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_beacon.c</name>
@@ -2925,12 +2920,24 @@
 			</group>
 		</group>
 		<group>
+			<name>drivers</name>
+			<group>
+				<name>nvm</name>
+				<group>
+					<name>xmega</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../common/drivers/nvm/xmega/xmega_nvm.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../common/drivers/nvm/common_nvm.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
 			<name>utils</name>
 			<group>
 				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/write.c</name>
-				</file>
 				<group>
 					<name>stdio_usb</name>
 					<file>
@@ -2943,6 +2950,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/read.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/write.c</name>
+				</file>
 			</group>
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../../../../common/utils/parts.h</name>
@@ -2954,21 +2964,6 @@
 				<name>interrupt</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/interrupt/interrupt_avr8.h</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>drivers</name>
-			<group>
-				<name>nvm</name>
-				<group>
-					<name>xmega</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../common/drivers/nvm/xmega/xmega_nvm.c</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../common/drivers/nvm/common_nvm.h</name>
 				</file>
 			</group>
 		</group>

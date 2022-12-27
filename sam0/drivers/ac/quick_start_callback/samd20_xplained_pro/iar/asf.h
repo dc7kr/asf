@@ -52,7 +52,7 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: AC - Analog Comparator
+// From module: AC - Analog Comparator (Callback APIs)
 #include <ac.h>
 #include <ac_callback.h>
 

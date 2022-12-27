@@ -82,6 +82,7 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_data_req.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_disassociate.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_dispatcher.c \
+       thirdparty/wireless/avr2025_mac/source/mac/src/mac_gts.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_mcps_data.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_misc.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_orphan.c \
@@ -165,7 +166,6 @@ INC_PATH = \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf212b/inc \
        thirdparty/wireless/avr2025_mac/source/tal/inc     \
        thirdparty/wireless/avr2102_rf4control/addons/serial_interface \
-       thirdparty/wireless/avr2102_rf4control/apps/zrc/serial_if \
        thirdparty/wireless/avr2102_rf4control/apps/zrc/serial_if/tgt/ncp \
        thirdparty/wireless/avr2102_rf4control/apps/zrc/serial_if/tgt/ncp/sam4lc4c_rf212b_zigbit_ext \
        thirdparty/wireless/avr2102_rf4control/include     \
@@ -229,7 +229,6 @@ CPPFLAGS = \
        -D DISABLE_TSTAMP_IRQ=1                            \
        -D ENABLE_STACK_NVM                                \
        -D ENABLE_TRX_SRAM                                 \
-       -D EXTERN_EEPROM_AVAILABLE=0                       \
        -D HIGHEST_STACK_LAYER=RF4CE                       \
        -D MAC_USER_BUILD_CONFIG                           \
        -D NLDE_HANDLE                                     \
@@ -254,3 +253,7 @@ CPPFLAGS = \
 
 # Extra flags to use when linking
 LDFLAGS = \
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 

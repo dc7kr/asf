@@ -2399,21 +2399,21 @@
 				</file>
 			</group>
 			<group>
-				<name>adc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../drivers/adc/adc_sam4n.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../drivers/adc/adc_sam4n.h</name>
-				</file>
-			</group>
-			<group>
 				<name>rstc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../drivers/rstc/rstc.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../drivers/rstc/rstc.h</name>
+				</file>
+			</group>
+			<group>
+				<name>adc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/adc/adc2.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../drivers/adc/adc2.h</name>
 				</file>
 			</group>
 			<group>

@@ -75,6 +75,7 @@ CSRCS = \
        thirdparty/wireless/addons/sio2ncp/uart/sio2ncp.c  \
        thirdparty/wireless/avr2025_mac/addons/api_parser/src/api_decoder.c \
        thirdparty/wireless/avr2025_mac/addons/api_parser/src/api_encoder.c \
+       thirdparty/wireless/avr2025_mac/apps/mac/beacon/dev/app_security.c \
        thirdparty/wireless/avr2025_mac/apps/mac/beacon/dev/main.c \
        thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/sam/hw_timer.c \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c
@@ -109,6 +110,7 @@ INC_PATH = \
        thirdparty/wireless/addons/sio2host/uart           \
        thirdparty/wireless/addons/sio2ncp/uart            \
        thirdparty/wireless/avr2025_mac/addons/api_parser/inc \
+       thirdparty/wireless/avr2025_mac/apps/mac/beacon/dev \
        thirdparty/wireless/avr2025_mac/apps/mac/beacon/dev/host \
        thirdparty/wireless/avr2025_mac/apps/mac/beacon/dev/host/sam4lc4c_sam4l_xplained_pro \
        thirdparty/wireless/avr2025_mac/include            \
@@ -171,6 +173,7 @@ CPPFLAGS = \
        -D BEACON_SUPPORT                                  \
        -D BOARD=SAM4L_XPLAINED_PRO                        \
        -D ENABLE_TSTAMP                                   \
+       -D GTS_SUPPORT                                     \
        -D HIGHEST_STACK_LAYER=MAC                         \
        -D SIO_HUB                                         \
        -D __SAM4LC4C__                                    \
@@ -179,3 +182,7 @@ CPPFLAGS = \
 
 # Extra flags to use when linking
 LDFLAGS = \
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 

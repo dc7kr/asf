@@ -246,13 +246,13 @@
 				<option>
 					<name>CCDefines</name>
 					<state></state>
-					<state>ENABLE_STACK_NVM</state>
-					<state>RF4CE_CALLBACK_PARAM</state>
-					<state>HIGHEST_STACK_LAYER=RF4CE</state>
 					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>RF4CE_CALLBACK_PARAM</state>
+					<state>_DEBUG_=0</state>
+					<state>HIGHEST_STACK_LAYER=RF4CE</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>STB_ON_SAL</state>
 					<state>RF4CE_SECURITY</state>
@@ -435,7 +435,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../lib/nwk/config</state>
-					<state>$PROJ_DIR$/../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/atmegarfr2/inc</state>
@@ -443,7 +442,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../mega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/mega/drivers/tc</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial/megarf_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/inc</state>
@@ -600,13 +599,13 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ENABLE_STACK_NVM</state>
-					<state>RF4CE_CALLBACK_PARAM</state>
-					<state>HIGHEST_STACK_LAYER=RF4CE</state>
 					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>RF4CE_CALLBACK_PARAM</state>
+					<state>_DEBUG_=0</state>
+					<state>HIGHEST_STACK_LAYER=RF4CE</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>STB_ON_SAL</state>
 					<state>RF4CE_SECURITY</state>
@@ -751,7 +750,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../lib/nwk/config</state>
-					<state>$PROJ_DIR$/../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/atmegarfr2/inc</state>
@@ -759,7 +757,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../mega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/mega/drivers/tc</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial/megarf_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/inc</state>
@@ -1361,13 +1359,13 @@
 				<option>
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
-					<state>ENABLE_STACK_NVM</state>
-					<state>RF4CE_CALLBACK_PARAM</state>
-					<state>HIGHEST_STACK_LAYER=RF4CE</state>
 					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>RF4CE_CALLBACK_PARAM</state>
+					<state>_DEBUG_=0</state>
+					<state>HIGHEST_STACK_LAYER=RF4CE</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>STB_ON_SAL</state>
 					<state>RF4CE_SECURITY</state>
@@ -1550,7 +1548,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../lib/nwk/config</state>
-					<state>$PROJ_DIR$/../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/atmegarfr2/inc</state>
@@ -1558,7 +1555,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../mega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/mega/drivers/tc</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial/megarf_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/inc</state>
@@ -1715,13 +1712,13 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ENABLE_STACK_NVM</state>
-					<state>RF4CE_CALLBACK_PARAM</state>
-					<state>HIGHEST_STACK_LAYER=RF4CE</state>
 					<state>MAC_USER_BUILD_CONFIG</state>
+					<state>RF4CE_CALLBACK_PARAM</state>
+					<state>_DEBUG_=0</state>
+					<state>HIGHEST_STACK_LAYER=RF4CE</state>
+					<state>ENABLE_STACK_NVM</state>
 					<state>ENABLE_TRX_SRAM</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>SAL_TYPE=ATMEGARF_SAL</state>
 					<state>STB_ON_SAL</state>
 					<state>RF4CE_SECURITY</state>
@@ -1866,7 +1863,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../lib/nwk/config</state>
-					<state>$PROJ_DIR$/../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/atmegarfr2/inc</state>
@@ -1874,7 +1870,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../mega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/mega/drivers/tc</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../mega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial/megarf_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/inc</state>
@@ -2467,9 +2463,6 @@
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/atmegarfr2/src/tal_pib.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/atmegarfr2/src/tal_tx.c</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/atmegarfr2/src/tal_ed.c</name>
 								</file>
 								<file>
@@ -2477,6 +2470,9 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/atmegarfr2/src/tal_slotted_csma.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/atmegarfr2/src/tal_tx.c</name>
 								</file>
 							</group>
 							<group>
@@ -2543,16 +2539,13 @@
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_security.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_beacon.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_data_req.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_pib.c</name>
@@ -2561,7 +2554,13 @@
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_misc.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_process_tal_tx_frame_status.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_rx_enable.c</name>
@@ -2582,7 +2581,7 @@
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_scan.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_associate.c</name>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_tx_coord_realignment_command.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac.c</name>
@@ -2597,7 +2596,7 @@
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_start.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_tx_coord_realignment_command.c</name>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_associate.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_sync.c</name>

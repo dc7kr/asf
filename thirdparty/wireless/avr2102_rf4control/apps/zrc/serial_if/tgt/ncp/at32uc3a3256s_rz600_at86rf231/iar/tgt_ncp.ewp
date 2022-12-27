@@ -204,7 +204,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -353,7 +352,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/spi/uc3_spi</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf231/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
@@ -378,7 +377,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -389,7 +387,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf231/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -522,7 +520,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -538,7 +535,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/spi/uc3_spi</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf231/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
@@ -563,7 +560,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -574,7 +570,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf231/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1183,7 +1179,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -1332,7 +1327,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/spi/uc3_spi</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf231/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
@@ -1357,7 +1352,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -1368,7 +1362,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf231/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1501,7 +1495,6 @@
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -1517,7 +1510,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/pm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/spi/uc3_spi</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_sw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf231/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/usbb</state>
 					<state>$PROJ_DIR$/../../../../../../../include</state>
@@ -1542,7 +1535,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
-					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
@@ -1553,7 +1545,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../avr32/utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf231/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_sw_timer</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -2190,6 +2182,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_data_ind.c</name>
 							</file>
 							<file>
@@ -2258,6 +2253,9 @@
 									<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf231/src/tal_pib.c</name>
 								</file>
 								<file>
+									<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf231/src/tal_pwr_mgmt.c</name>
+								</file>
+								<file>
 									<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf231/src/tal_rx.c</name>
 								</file>
 								<file>
@@ -2265,9 +2263,6 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf231/src/tal.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf231/src/tal_pwr_mgmt.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf231/src/tal_init.c</name>
@@ -2747,6 +2742,12 @@
 			<name>utils</name>
 			<group>
 				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/read.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/write.c</name>
+				</file>
 				<group>
 					<name>stdio_usb</name>
 					<file>
@@ -2756,12 +2757,6 @@
 						<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_usb/stdio_usb.h</name>
 					</file>
 				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/read.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/write.c</name>
-				</file>
 			</group>
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../../../../common/utils/parts.h</name>

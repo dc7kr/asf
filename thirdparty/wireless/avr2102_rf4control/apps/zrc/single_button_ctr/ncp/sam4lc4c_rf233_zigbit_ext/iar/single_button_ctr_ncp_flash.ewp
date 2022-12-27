@@ -185,7 +185,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>__SAM4LC4C__</state>
@@ -532,7 +531,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>__SAM4LC4C__</state>
@@ -1239,7 +1237,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>__SAM4LC4C__</state>
@@ -1586,7 +1583,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>__SAM4LC4C__</state>
@@ -2300,106 +2296,13 @@
 						</file>
 					</group>
 					<group>
-						<name>mac</name>
+						<name>tal</name>
 						<group>
 							<name>src</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_security.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_data_req.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_pib.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_tx_coord_realignment_command.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_misc.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_process_beacon_frame.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_process_tal_tx_frame_status.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_rx_enable.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_mcps_data.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_data_extract_mhr.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_data_ind.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_scan.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_dispatcher.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_orphan.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_start.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_associate.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_sync.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_beacon.c</name>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/src/tal_helper.c</name>
 							</file>
 						</group>
-						<group>
-							<name>inc</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_config.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_msg_const.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_api.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_msg_types.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_msg_type_data_ind.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_internal.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_data_structures.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_security.h</name>
-							</file>
-						</group>
-					</group>
-					<group>
-						<name>tal</name>
 						<group>
 							<name>at86rf233</name>
 							<group>
@@ -2447,6 +2350,9 @@
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/inc/tal_tx.h</name>
 								</file>
 								<file>
+									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/inc/tal_constants.h</name>
+								</file>
+								<file>
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/inc/tal_rx.h</name>
 								</file>
 								<file>
@@ -2461,16 +2367,7 @@
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/inc/tal_pib.h</name>
 								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/inc/tal_constants.h</name>
-								</file>
 							</group>
-						</group>
-						<group>
-							<name>src</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/src/tal_helper.c</name>
-							</file>
 						</group>
 						<group>
 							<name>inc</name>
@@ -2492,14 +2389,116 @@
 						</group>
 					</group>
 					<group>
+						<name>mac</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_security.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_beacon.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_data_req.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_pib.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_tx_coord_realignment_command.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_misc.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_process_beacon_frame.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_process_tal_tx_frame_status.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_rx_enable.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_mcps_data.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_data_extract_mhr.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_data_ind.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_scan.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_dispatcher.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_orphan.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_start.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_associate.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/src/mac_sync.c</name>
+							</file>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_config.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_msg_const.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_api.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_msg_types.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_msg_type_data_ind.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_internal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_data_structures.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc/mac_security.h</name>
+							</file>
+						</group>
+					</group>
+					<group>
 						<name>stb</name>
 						<group>
 							<name>src</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/stb/src/stb_help.c</name>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/stb/src/stb.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/stb/src/stb.c</name>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/stb/src/stb_help.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/stb/src/stb_armcrypto.c</name>
@@ -2535,13 +2534,13 @@
 						<group>
 							<name>inc</name>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/sal/inc/sal.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/sal/inc/sal_types.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/sal/inc/sal_generic.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/sal/inc/sal.h</name>
 							</file>
 						</group>
 					</group>
@@ -2689,24 +2688,12 @@
 				</file>
 			</group>
 			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../common/services/serial/usart_serial.c</name>
-				</file>
-				<group>
-					<name>sam_uart</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../common/services/serial/sam_uart/uart_serial.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../common/services/serial/serial.h</name>
-				</file>
-			</group>
-			<group>
 				<name>clock</name>
 				<group>
 					<name>sam4l</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../common/services/clock/sam4l/dfll.c</name>
+					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../common/services/clock/sam4l/pll.c</name>
 					</file>
@@ -2715,9 +2702,6 @@
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../common/services/clock/sam4l/sysclk.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../common/services/clock/sam4l/dfll.c</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../common/services/clock/sam4l/sysclk.h</name>
@@ -2749,6 +2733,21 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../common/services/clock/dfll.h</name>
+				</file>
+			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
+				<group>
+					<name>sam_uart</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../common/services/serial/sam_uart/uart_serial.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../common/services/serial/serial.h</name>
 				</file>
 			</group>
 			<group>

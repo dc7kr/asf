@@ -171,6 +171,7 @@
 					<state>NLDE_HANDLE</state>
 					<state>__SAM4LC4C__</state>
 					<state>ZRC_CMD_DISCOVERY</state>
+					<state>_DEBUG_=0</state>
 					<state>VENDOR_DATA</state>
 					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>ENABLE_TRX_SRAM</state>
@@ -181,7 +182,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -327,17 +327,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../addons/api_parser</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/sio2ncp/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
+					<state>$PROJ_DIR$/../../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/delay</state>
@@ -504,6 +503,7 @@
 					<state>NLDE_HANDLE</state>
 					<state>__SAM4LC4C__</state>
 					<state>ZRC_CMD_DISCOVERY</state>
+					<state>_DEBUG_=0</state>
 					<state>VENDOR_DATA</state>
 					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>ENABLE_TRX_SRAM</state>
@@ -514,7 +514,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -627,17 +626,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../addons/api_parser</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/sio2ncp/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
+					<state>$PROJ_DIR$/../../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/delay</state>
@@ -1197,6 +1195,7 @@
 					<state>NLDE_HANDLE</state>
 					<state>__SAM4LC4C__</state>
 					<state>ZRC_CMD_DISCOVERY</state>
+					<state>_DEBUG_=0</state>
 					<state>VENDOR_DATA</state>
 					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>ENABLE_TRX_SRAM</state>
@@ -1207,7 +1206,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -1353,17 +1351,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../addons/api_parser</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/sio2ncp/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
+					<state>$PROJ_DIR$/../../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/delay</state>
@@ -1530,6 +1527,7 @@
 					<state>NLDE_HANDLE</state>
 					<state>__SAM4LC4C__</state>
 					<state>ZRC_CMD_DISCOVERY</state>
+					<state>_DEBUG_=0</state>
 					<state>VENDOR_DATA</state>
 					<state>MAC_USER_BUILD_CONFIG</state>
 					<state>ENABLE_TRX_SRAM</state>
@@ -1540,7 +1538,6 @@
 					<state>STB_ON_SAL</state>
 					<state>PBP_ORG</state>
 					<state>REDUCED_PARAM_CHECK</state>
-					<state>EXTERN_EEPROM_AVAILABLE=0</state>
 					<state>ZRC_PROFILE</state>
 					<state>CHANNEL_AGILITY</state>
 					<state>PRIVATE_NIB</state>
@@ -1653,17 +1650,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../../../addons/sio2host/uart</state>
+					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../addons/api_parser</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/sio2ncp/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
+					<state>$PROJ_DIR$/../../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/delay</state>

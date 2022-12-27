@@ -86,6 +86,7 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_data_req.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_disassociate.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_dispatcher.c \
+       thirdparty/wireless/avr2025_mac/source/mac/src/mac_gts.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_mcps_data.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_misc.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_orphan.c \
@@ -105,6 +106,10 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/pal/pal_ext_trx.c \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/src/bmm.c \
        thirdparty/wireless/avr2025_mac/source/resources/queue/src/qmm.c \
+       thirdparty/wireless/avr2025_mac/source/sal/at86rf2xx/src/sal.c \
+       thirdparty/wireless/avr2025_mac/source/stb/src/stb.c \
+       thirdparty/wireless/avr2025_mac/source/stb/src/stb_armcrypto.c \
+       thirdparty/wireless/avr2025_mac/source/stb/src/stb_help.c \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf212b/src/tal.c \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf212b/src/tal_ed.c \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf212b/src/tal_init.c \
@@ -160,6 +165,8 @@ INC_PATH = \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/inc \
        thirdparty/wireless/avr2025_mac/source/resources/queue/inc \
+       thirdparty/wireless/avr2025_mac/source/sal/inc     \
+       thirdparty/wireless/avr2025_mac/source/stb/inc     \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf212b/inc \
        thirdparty/wireless/avr2025_mac/source/tal/inc \
        thirdparty/wireless/avr2025_mac/apps/mac/serial_if/bcn_rfd/ncp/sam4lc4c_rf212b_zigbit_ext/gcc
@@ -218,8 +225,11 @@ CPPFLAGS = \
        -D BOARD=SAM4L_XPLAINED_PRO                        \
        -D DISABLE_TSTAMP_IRQ=1                            \
        -D ENABLE_TSTAMP                                   \
+       -D GTS_SUPPORT                                     \
        -D HIGHEST_STACK_LAYER=MAC                         \
        -D PAL_USE_SPI_TRX=1                               \
+       -D SAL_TYPE=AT86RF2xx                              \
+       -D STB_ON_SAL                                      \
        -D TAL_TYPE=AT86RF212B                             \
        -D TEST_HARNESS                                    \
        -D __SAM4LC4C__                                    \
@@ -228,3 +238,7 @@ CPPFLAGS = \
 
 # Extra flags to use when linking
 LDFLAGS = \
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 

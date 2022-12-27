@@ -75,6 +75,7 @@ CSRCS = \
        thirdparty/wireless/addons/sio2ncp/uart/sio2ncp.c  \
        thirdparty/wireless/avr2025_mac/addons/api_parser/src/api_decoder.c \
        thirdparty/wireless/avr2025_mac/addons/api_parser/src/api_encoder.c \
+       thirdparty/wireless/avr2025_mac/apps/mac/no_beacon/coord/app_security.c \
        thirdparty/wireless/avr2025_mac/apps/mac/no_beacon/coord/main.c \
        thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/sam/hw_timer.c \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c
@@ -109,6 +110,7 @@ INC_PATH = \
        thirdparty/wireless/addons/sio2host/uart           \
        thirdparty/wireless/addons/sio2ncp/uart            \
        thirdparty/wireless/avr2025_mac/addons/api_parser/inc \
+       thirdparty/wireless/avr2025_mac/apps/mac/no_beacon/coord \
        thirdparty/wireless/avr2025_mac/apps/mac/no_beacon/coord/host \
        thirdparty/wireless/avr2025_mac/apps/mac/no_beacon/coord/host/sam4lc4c_sam4l_xplained_pro \
        thirdparty/wireless/avr2025_mac/include            \
@@ -179,3 +181,7 @@ CPPFLAGS = \
 
 # Extra flags to use when linking
 LDFLAGS = \
+
+# Pre- and post-build commands
+PREBUILD_CMD = 
+POSTBUILD_CMD = 
