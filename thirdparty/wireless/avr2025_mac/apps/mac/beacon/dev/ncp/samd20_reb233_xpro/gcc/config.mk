@@ -64,8 +64,8 @@ CSRCS = \
        sam0/drivers/sercom/sercom_interrupt.c             \
        sam0/drivers/sercom/spi/spi.c                      \
        sam0/drivers/sercom/usart/usart.c                  \
-       sam0/drivers/system/clock/clock.c                  \
-       sam0/drivers/system/clock/gclk.c                   \
+       sam0/drivers/system/clock/clock_samd20/clock.c     \
+       sam0/drivers/system/clock/clock_samd20/gclk.c      \
        sam0/drivers/system/interrupt/system_interrupt.c   \
        sam0/drivers/system/pinmux/pinmux.c                \
        sam0/drivers/system/system.c                       \
@@ -103,7 +103,6 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_start.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_sync.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_tx_coord_realignment_command.c \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/sam0/hw_timer.c \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c \
        thirdparty/wireless/avr2025_mac/source/pal/pal.c   \
        thirdparty/wireless/avr2025_mac/source/pal/pal_ext_trx.c \
@@ -123,7 +122,9 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf233/src/tal_rx_enable.c \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf233/src/tal_slotted_csma.c \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf233/src/tal_tx.c \
-       thirdparty/wireless/avr2025_mac/source/tal/src/tal_helper.c
+       thirdparty/wireless/avr2025_mac/source/tal/src/tal_helper.c \
+       thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.c \
+       thirdparty/wireless/services/trx_access/trx_access.c
 
 # List of assembler source files.
 ASSRCS = 
@@ -145,7 +146,9 @@ INC_PATH = \
        sam0/drivers/sercom/usart                          \
        sam0/drivers/system                                \
        sam0/drivers/system/clock                          \
+       sam0/drivers/system/clock/clock_samd20             \
        sam0/drivers/system/interrupt                      \
+       sam0/drivers/system/interrupt/system_interrupt_samd20 \
        sam0/drivers/system/pinmux                         \
        sam0/drivers/tc                                    \
        sam0/utils                                         \
@@ -166,21 +169,22 @@ INC_PATH = \
        thirdparty/wireless/avr2025_mac/include            \
        thirdparty/wireless/avr2025_mac/source/mac/inc     \
        thirdparty/wireless/avr2025_mac/source/pal         \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/sam0 \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/inc \
        thirdparty/wireless/avr2025_mac/source/resources/queue/inc \
        thirdparty/wireless/avr2025_mac/source/sal/inc     \
        thirdparty/wireless/avr2025_mac/source/stb/inc     \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf233/inc \
-       thirdparty/wireless/avr2025_mac/source/tal/inc \
+       thirdparty/wireless/avr2025_mac/source/tal/inc     \
+       thirdparty/wireless/services/common_hw_timer       \
+       thirdparty/wireless/services/common_hw_timer/sam0  \
+       thirdparty/wireless/services/trx_access \
        thirdparty/wireless/avr2025_mac/apps/mac/beacon/dev/ncp/samd20_reb233_xpro/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
        thirdparty/CMSIS/Lib/GCC                           \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/sam0/lib
+       thirdparty/wireless/services/common_hw_timer/sam0/lib
 
 # List of libraries to use during linking.
 LIBS =  \

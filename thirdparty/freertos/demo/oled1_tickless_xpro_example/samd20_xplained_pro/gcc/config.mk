@@ -68,8 +68,8 @@ CSRCS = \
        sam0/drivers/sercom/spi/spi_interrupt.c            \
        sam0/drivers/sercom/usart/usart.c                  \
        sam0/drivers/sercom/usart/usart_interrupt.c        \
-       sam0/drivers/system/clock/clock.c                  \
-       sam0/drivers/system/clock/gclk.c                   \
+       sam0/drivers/system/clock/clock_samd20/clock.c     \
+       sam0/drivers/system/clock/clock_samd20/gclk.c      \
        sam0/drivers/system/interrupt/system_interrupt.c   \
        sam0/drivers/system/pinmux/pinmux.c                \
        sam0/drivers/system/system.c                       \
@@ -108,7 +108,9 @@ INC_PATH = \
        sam0/drivers/sercom/usart                          \
        sam0/drivers/system                                \
        sam0/drivers/system/clock                          \
+       sam0/drivers/system/clock/clock_samd20             \
        sam0/drivers/system/interrupt                      \
+       sam0/drivers/system/interrupt/system_interrupt_samd20 \
        sam0/drivers/system/pinmux                         \
        sam0/drivers/tc                                    \
        sam0/utils                                         \
@@ -180,6 +182,7 @@ CPPFLAGS = \
        -D SPI_CALLBACK_MODE=true                          \
        -D TC_ASYNC=true                                   \
        -D USART_CALLBACK_MODE=true                        \
+       -D __FREERTOS__                                    \
        -D __SAMD20J18__
 
 # Extra flags to use when linking

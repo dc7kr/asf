@@ -55,13 +55,13 @@ CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam0/boards/samd20_xplained_pro/board_init.c       \
        sam0/drivers/port/port.c                           \
-       sam0/drivers/sercom/i2c/i2c_slave.c                \
-       sam0/drivers/sercom/i2c/i2c_slave_interrupt.c      \
+       sam0/drivers/sercom/i2c/i2c_samd20/i2c_slave.c     \
+       sam0/drivers/sercom/i2c/i2c_samd20/i2c_slave_interrupt.c \
        sam0/drivers/sercom/i2c/quick_start_slave_callback/qs_i2c_slave_callback.c \
        sam0/drivers/sercom/sercom.c                       \
        sam0/drivers/sercom/sercom_interrupt.c             \
-       sam0/drivers/system/clock/clock.c                  \
-       sam0/drivers/system/clock/gclk.c                   \
+       sam0/drivers/system/clock/clock_samd20/clock.c     \
+       sam0/drivers/system/clock/clock_samd20/gclk.c      \
        sam0/drivers/system/interrupt/system_interrupt.c   \
        sam0/drivers/system/pinmux/pinmux.c                \
        sam0/drivers/system/system.c                       \
@@ -81,11 +81,14 @@ INC_PATH = \
        sam0/drivers/port                                  \
        sam0/drivers/sercom                                \
        sam0/drivers/sercom/i2c                            \
+       sam0/drivers/sercom/i2c/i2c_samd20                 \
        sam0/drivers/sercom/i2c/quick_start_slave_callback \
        sam0/drivers/sercom/i2c/quick_start_slave_callback/samd20_xplained_pro \
        sam0/drivers/system                                \
        sam0/drivers/system/clock                          \
+       sam0/drivers/system/clock/clock_samd20             \
        sam0/drivers/system/interrupt                      \
+       sam0/drivers/system/interrupt/system_interrupt_samd20 \
        sam0/drivers/system/pinmux                         \
        sam0/utils                                         \
        sam0/utils/cmsis/samd20/include                    \

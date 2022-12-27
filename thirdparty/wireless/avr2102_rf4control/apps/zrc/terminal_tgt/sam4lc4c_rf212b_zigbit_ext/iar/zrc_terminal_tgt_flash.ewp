@@ -329,6 +329,7 @@
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include</state>
+					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal</state>
@@ -337,14 +338,15 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/wdt</state>
-					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../lib/zrc/tgt/config</state>
+					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/inc</state>
 					<state>$PROJ_DIR$/../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/inc</state>
@@ -352,14 +354,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/tc</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw</state>
-					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam4l_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/bpm</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -639,6 +640,7 @@
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include</state>
+					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal</state>
@@ -647,14 +649,15 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/wdt</state>
-					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../lib/zrc/tgt/config</state>
+					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/inc</state>
 					<state>$PROJ_DIR$/../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/inc</state>
@@ -662,14 +665,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/tc</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw</state>
-					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam4l_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/bpm</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -854,7 +856,6 @@
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
-					<state></state>
 				</option>
 				<option>
 					<name>IlinkLowLevelInterfaceSlave</name>
@@ -1375,6 +1376,7 @@
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include</state>
+					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal</state>
@@ -1383,14 +1385,15 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/wdt</state>
-					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../lib/zrc/tgt/config</state>
+					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/inc</state>
 					<state>$PROJ_DIR$/../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/inc</state>
@@ -1398,14 +1401,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/tc</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw</state>
-					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam4l_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/bpm</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1685,6 +1687,7 @@
 					<state>$PROJ_DIR$/../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include</state>
+					<state>$PROJ_DIR$/../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal</state>
@@ -1693,14 +1696,15 @@
 					<state>$PROJ_DIR$/../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/resources/buffer/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/wdt</state>
-					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../lib/zrc/tgt/config</state>
+					<state>$PROJ_DIR$/../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/inc</state>
 					<state>$PROJ_DIR$/../../../../../../addons/sio2host/uart</state>
 					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/inc</state>
@@ -1708,14 +1712,13 @@
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/tc</state>
-					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw</state>
-					<state>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/boards/sam4l_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/bpm</state>
-					<state>$PROJ_DIR$/../../../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/usart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1896,11 +1899,10 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
-					<state></state>
 				</option>
 				<option>
 					<name>IlinkLowLevelInterfaceSlave</name>
@@ -2097,75 +2099,174 @@
 		<group>
 			<name>wireless</name>
 			<group>
+				<name>avr2102_rf4control</name>
+				<group>
+					<name>lib</name>
+					<group>
+						<name>zrc</name>
+						<group>
+							<name>tgt</name>
+							<group>
+								<name>atsam4lc4c</name>
+								<group>
+									<name>iar</name>
+									<file>
+										<name>$PROJ_DIR$/../../../../../lib/zrc/tgt/atsam4lc4c/iar/librf4ce-zrc-target.a</name>
+									</file>
+								</group>
+							</group>
+							<group>
+								<name>config</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../lib/zrc/tgt/config/node_config.h</name>
+								</file>
+							</group>
+						</group>
+					</group>
+				</group>
+				<group>
+					<name>apps</name>
+					<group>
+						<name>zrc</name>
+						<group>
+							<name>terminal_tgt</name>
+							<file>
+								<name>$PROJ_DIR$/../../vendor_data.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../main.c</name>
+							</file>
+							<group>
+								<name>sam4lc4c_rf212b_zigbit_ext</name>
+								<file>
+									<name>$PROJ_DIR$/../conf_sio2host.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_uart_serial.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_clock.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_board.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_spi_master.h</name>
+								</file>
+								<group>
+									<name>iar</name>
+									<file>
+										<name>$PROJ_DIR$/asf.h</name>
+									</file>
+								</group>
+								<file>
+									<name>$PROJ_DIR$/../conf_nvm.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../conf_hw_timer.h</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../app_config.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../conf_common_sw_timer.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../conf_trx_access.h</name>
+							</file>
+						</group>
+					</group>
+				</group>
+				<group>
+					<name>include</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/pb_pairing.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/rf4ce.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/nwk_msg_code.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/zid_adaptor.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/gdp_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/mac_user_build_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/zid_build_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/nwk_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/vendor_data.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/nwk_msg_types.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/zid.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/zrc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/gdp.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/zid_device.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/nwk_internal.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../include/nwk_build_config.h</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>services</name>
+				<group>
+					<name>common_hw_timer</name>
+					<group>
+						<name>sam</name>
+						<group>
+							<name>lib</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../services/common_hw_timer/sam/lib/sam4l_lib_hw_timer.a</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../services/common_hw_timer/sam/hw_timer.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../services/common_hw_timer/sam/hw_timer.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../services/common_hw_timer/common_hw_timer.h</name>
+					</file>
+				</group>
+				<group>
+					<name>trx_access</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../services/trx_access/trx_access.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../services/trx_access/trx_access.h</name>
+					</file>
+				</group>
+			</group>
+			<group>
 				<name>avr2025_mac</name>
 				<group>
 					<name>source</name>
-					<group>
-						<name>pal</name>
-						<group>
-							<name>common_hw_timer</name>
-							<group>
-								<name>sam</name>
-								<group>
-									<name>lib</name>
-									<file>
-										<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_hw_timer/sam/lib/sam4l_lib_hw_timer.a</name>
-									</file>
-								</group>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_hw_timer/sam/hw_timer.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_hw_timer/sam/hw_timer.h</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_hw_timer/common_hw_timer.h</name>
-							</file>
-						</group>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/pal_ext_trx.c</name>
-						</file>
-						<group>
-							<name>common_sw_timer</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_sw_timer/common_sw_timer.h</name>
-							</file>
-						</group>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/pal.c</name>
-						</file>
-						<group>
-							<name>common</name>
-							<group>
-								<name>drivers</name>
-								<group>
-									<name>nvm</name>
-									<group>
-										<name>sam</name>
-										<file>
-											<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common/drivers/nvm/sam/sam_nvm.c</name>
-										</file>
-									</group>
-									<file>
-										<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common/drivers/nvm/common_nvm.h</name>
-									</file>
-								</group>
-							</group>
-						</group>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/pal.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/pal_generic.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/pal_ext_trx.h</name>
-						</file>
-					</group>
 					<group>
 						<name>tal</name>
 						<group>
@@ -2176,7 +2277,7 @@
 									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal_pwr_mgmt.c</name>
+									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal_rx_enable.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal_rx.c</name>
@@ -2191,7 +2292,7 @@
 									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal_init.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal_rx_enable.c</name>
+									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal_pwr_mgmt.c</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/src/tal_irq_handler.c</name>
@@ -2206,19 +2307,19 @@
 							<group>
 								<name>inc</name>
 								<file>
+									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/inc/tal_internal.h</name>
+								</file>
+								<file>
 									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/inc/tal_tx.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/inc/tal_irq_handler.h</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/inc/tal_config.h</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/inc/at86rf212b.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/inc/tal_internal.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/inc/tal_irq_handler.h</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/tal/at86rf212b/inc/tal_rx.h</name>
@@ -2276,6 +2377,9 @@
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_process_beacon_frame.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_mcps_data.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_security.c</name>
 							</file>
 							<file>
@@ -2315,12 +2419,6 @@
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_poll.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_dispatcher.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_mcps_data.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_beacon.c</name>
 							</file>
 							<file>
@@ -2328,6 +2426,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/mac/src/mac_dispatcher.c</name>
 							</file>
 						</group>
 						<group>
@@ -2384,6 +2485,51 @@
 								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/sal/inc/sal_types.h</name>
 							</file>
 						</group>
+					</group>
+					<group>
+						<name>pal</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/pal_ext_trx.c</name>
+						</file>
+						<group>
+							<name>common_sw_timer</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common_sw_timer/common_sw_timer.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/pal.c</name>
+						</file>
+						<group>
+							<name>common</name>
+							<group>
+								<name>drivers</name>
+								<group>
+									<name>nvm</name>
+									<group>
+										<name>sam</name>
+										<file>
+											<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common/drivers/nvm/sam/sam_nvm.c</name>
+										</file>
+									</group>
+									<file>
+										<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/common/drivers/nvm/common_nvm.h</name>
+									</file>
+								</group>
+							</group>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/pal.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/pal_generic.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../avr2025_mac/source/pal/pal_ext_trx.h</name>
+						</file>
 					</group>
 					<group>
 						<name>stb</name>
@@ -2468,117 +2614,6 @@
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../avr2025_mac/include/return_val.h</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>avr2102_rf4control</name>
-				<group>
-					<name>lib</name>
-					<group>
-						<name>zrc</name>
-						<group>
-							<name>tgt</name>
-							<group>
-								<name>atsam4lc4c</name>
-								<group>
-									<name>iar</name>
-									<file>
-										<name>$PROJ_DIR$/../../../../../lib/zrc/tgt/atsam4lc4c/iar/librf4ce-zrc-target.a</name>
-									</file>
-								</group>
-							</group>
-							<group>
-								<name>config</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../lib/zrc/tgt/config/node_config.h</name>
-								</file>
-							</group>
-						</group>
-					</group>
-				</group>
-				<group>
-					<name>apps</name>
-					<group>
-						<name>zrc</name>
-						<group>
-							<name>terminal_tgt</name>
-							<file>
-								<name>$PROJ_DIR$/../../vendor_data.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../main.c</name>
-							</file>
-							<group>
-								<name>sam4lc4c_rf212b_zigbit_ext</name>
-								<file>
-									<name>$PROJ_DIR$/../conf_sio2host.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../conf_uart_serial.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../conf_clock.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../conf_board.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../conf_spi_master.h</name>
-								</file>
-								<group>
-									<name>iar</name>
-									<file>
-										<name>$PROJ_DIR$/asf.h</name>
-									</file>
-								</group>
-								<file>
-									<name>$PROJ_DIR$/../conf_nvm.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../conf_hw_timer.h</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../app_config.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../conf_pal.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../conf_common_sw_timer.h</name>
-							</file>
-						</group>
-					</group>
-				</group>
-				<group>
-					<name>include</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../include/pb_pairing.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../include/rf4ce.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../include/nwk_msg_code.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../include/mac_user_build_config.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../include/nwk_config.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../include/vendor_data.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../include/nwk_msg_types.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../include/zrc.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../include/nwk_build_config.h</name>
 					</file>
 				</group>
 			</group>
@@ -2798,10 +2833,13 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_freqm.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_usart3.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_eic.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_picouart.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_pm.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_usart2.h</name>
@@ -2817,6 +2855,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_aesa.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_usart1.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_catb.h</name>
@@ -2841,9 +2882,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_crccu.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_usart3.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_bscif.h</name>
@@ -2882,9 +2920,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_abdacb.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_usart1.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_hcache.h</name>
 							</file>
 							<file>
@@ -2906,7 +2941,7 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_pdca.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_pm.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_picouart.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_hmatrix.h</name>
@@ -2927,9 +2962,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc2b.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls4a.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc8a.h</name>
 							</file>
 							<file>
@@ -2942,6 +2974,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc4a.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls2a.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4lc4c.h</name>
 							</file>
 							<file>
@@ -2952,6 +2987,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls8c.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls4a.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls2c.h</name>
@@ -2970,9 +3008,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls2b.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/pio/pio_sam4ls2a.h</name>
 							</file>
 						</group>
 						<group>
@@ -3011,9 +3046,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_twis.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_spi.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_twim.h</name>
 							</file>
 							<file>
@@ -3027,6 +3059,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_bscif.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_bpm.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_eic.h</name>
@@ -3059,7 +3094,7 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_scif.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_bpm.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_spi.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_dacc.h</name>
@@ -3171,15 +3206,6 @@
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>usart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/usart/usart.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/usart/usart.h</name>
-				</file>
-			</group>
-			<group>
 				<name>tc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc.c</name>
@@ -3204,6 +3230,15 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/flashcalw/flashcalw.h</name>
+				</file>
+			</group>
+			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/usart/usart.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/usart/usart.h</name>
 				</file>
 			</group>
 			<group>

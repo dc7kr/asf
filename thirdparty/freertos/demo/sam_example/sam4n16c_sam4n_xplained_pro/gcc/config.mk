@@ -154,6 +154,7 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM4=true                               \
        -D BOARD=SAM4N_XPLAINED_PRO                        \
+       -D __FREERTOS__                                    \
        -D __SAM4N16C__                                    \
        -D printf=iprintf                                  \
        -D scanf=iscanf

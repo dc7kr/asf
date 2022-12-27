@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../bma020.c ../../bmp.c ../../bma220.c ../../bma150.c ../../bma180.c ../../bma250.c ../../bma222.c ../../bma_axis.inc.c  ../../bma220.h ../../bmp.h ../../bma020.h ../../bma_axis.inc.h ../../bma222.h ../../bma180.h ../../bma150.h ../../bma250.h doxygen_module_mainpage.h
+INPUT                  = doxygen_module_mainpage.h ../../bma020.c ../../bma150.c ../../bma180.c ../../bma220.c ../../bma222.c ../../bma250.c ../../bma_axis.inc.c ../../bmp.c ../../bma020.h ../../bma150.h ../../bma180.h ../../bma220.h ../../bma222.h ../../bma250.h ../../bma_axis.inc.h ../../bmp.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is

@@ -85,7 +85,6 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/range_measure.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/user_interface.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/wait_for_event.c \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/sam/hw_timer.c \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c \
        thirdparty/wireless/avr2025_mac/source/pal/pal.c   \
        thirdparty/wireless/avr2025_mac/source/pal/pal_ext_trx.c \
@@ -102,7 +101,9 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf233/src/tal_slotted_csma.c \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf233/src/tal_tx.c \
        thirdparty/wireless/avr2025_mac/source/tal/src/tal_helper.c \
-       thirdparty/wireless/avr2025_mac/source/tfa/at86rf233/src/tfa.c
+       thirdparty/wireless/avr2025_mac/source/tfa/at86rf233/src/tfa.c \
+       thirdparty/wireless/services/common_hw_timer/sam/hw_timer.c \
+       thirdparty/wireless/services/trx_access/trx_access.c
 
 # List of assembler source files.
 ASSRCS = 
@@ -141,20 +142,21 @@ INC_PATH = \
        thirdparty/wireless/avr2025_mac/include            \
        thirdparty/wireless/avr2025_mac/source/mac/inc     \
        thirdparty/wireless/avr2025_mac/source/pal         \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/sam \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/inc \
        thirdparty/wireless/avr2025_mac/source/resources/queue/inc \
        thirdparty/wireless/avr2025_mac/source/tal/at86rf233/inc \
        thirdparty/wireless/avr2025_mac/source/tal/inc     \
-       thirdparty/wireless/avr2025_mac/source/tfa/inc \
+       thirdparty/wireless/avr2025_mac/source/tfa/inc     \
+       thirdparty/wireless/services/common_hw_timer       \
+       thirdparty/wireless/services/common_hw_timer/sam   \
+       thirdparty/wireless/services/trx_access \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/sam4lc4c_rf233_zigbit_ext/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
        thirdparty/CMSIS/Lib/GCC                           \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/sam/lib
+       thirdparty/wireless/services/common_hw_timer/sam/lib
 
 # List of libraries to use during linking.
 LIBS =  \

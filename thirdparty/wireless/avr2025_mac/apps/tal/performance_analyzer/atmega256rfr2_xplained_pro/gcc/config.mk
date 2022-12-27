@@ -66,9 +66,7 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/range_measure.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/user_interface.c \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/src/wait_for_event.c \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/mega/hw_timer.c \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c \
-       thirdparty/wireless/avr2025_mac/source/pal/mega/drivers/tc/tc_megarf.c \
        thirdparty/wireless/avr2025_mac/source/pal/pal.c   \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/src/bmm.c \
        thirdparty/wireless/avr2025_mac/source/resources/queue/src/qmm.c \
@@ -83,7 +81,9 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/tal/atmegarfr2/src/tal_slotted_csma.c \
        thirdparty/wireless/avr2025_mac/source/tal/atmegarfr2/src/tal_tx.c \
        thirdparty/wireless/avr2025_mac/source/tal/src/tal_helper.c \
-       thirdparty/wireless/avr2025_mac/source/tfa/atmegarfr2/src/tfa.c
+       thirdparty/wireless/avr2025_mac/source/tfa/atmegarfr2/src/tfa.c \
+       thirdparty/wireless/services/common_hw_timer/mega/hw_timer.c \
+       thirdparty/wireless/services/mega/drivers/tc/tc_megarf.c
 
 # Assembler source files located from the top-level source directory
 ASSRCS = 
@@ -112,20 +112,20 @@ INC_PATH = \
        thirdparty/wireless/avr2025_mac/include            \
        thirdparty/wireless/avr2025_mac/source/mac/inc     \
        thirdparty/wireless/avr2025_mac/source/pal         \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/mega \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer \
-       thirdparty/wireless/avr2025_mac/source/pal/mega/drivers/tc \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/inc \
        thirdparty/wireless/avr2025_mac/source/resources/queue/inc \
        thirdparty/wireless/avr2025_mac/source/tal/atmegarfr2/inc \
        thirdparty/wireless/avr2025_mac/source/tal/inc     \
-       thirdparty/wireless/avr2025_mac/source/tfa/inc \
+       thirdparty/wireless/avr2025_mac/source/tfa/inc     \
+       thirdparty/wireless/services/common_hw_timer       \
+       thirdparty/wireless/services/common_hw_timer/mega  \
+       thirdparty/wireless/services/mega/drivers/tc \
        thirdparty/wireless/avr2025_mac/apps/tal/performance_analyzer/atmega256rfr2_xplained_pro/gcc
 
 # Library paths from the top-level source directory
 LIB_PATH =  \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/mega/lib
+       thirdparty/wireless/services/common_hw_timer/mega/lib
 
 # Libraries to link with the project
 LIBS =  \

@@ -172,6 +172,7 @@ CPPFLAGS = \
        -D FREERTOS_USED                                   \
        -D UDD_ENABLE                                      \
        -D VIRTUAL_MEMORY_ENABLE                           \
+       -D __FREERTOS__                                    \
        -D __SAM4S16C__                                    \
        -D printf=iprintf                                  \
        -D scanf=iscanf

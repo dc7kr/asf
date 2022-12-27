@@ -166,6 +166,7 @@
 					<state>FREERTOS_USED</state>
 					<state>__SAM4E16E__</state>
 					<state>TFTP_USED=1</state>
+					<state>__FREERTOS__</state>
 					<state>BOARD=SAM4E_EK</state>
 					<state>ARM_MATH_CM4=true</state>
 				</option>
@@ -482,6 +483,7 @@
 					<state>FREERTOS_USED</state>
 					<state>__SAM4E16E__</state>
 					<state>TFTP_USED=1</state>
+					<state>__FREERTOS__</state>
 					<state>BOARD=SAM4E_EK</state>
 					<state>ARM_MATH_CM4=true</state>
 				</option>
@@ -1124,6 +1126,7 @@
 					<state>FREERTOS_USED</state>
 					<state>__SAM4E16E__</state>
 					<state>TFTP_USED=1</state>
+					<state>__FREERTOS__</state>
 					<state>BOARD=SAM4E_EK</state>
 					<state>ARM_MATH_CM4=true</state>
 				</option>
@@ -1440,6 +1443,7 @@
 					<state>FREERTOS_USED</state>
 					<state>__SAM4E16E__</state>
 					<state>TFTP_USED=1</state>
+					<state>__FREERTOS__</state>
 					<state>BOARD=SAM4E_EK</state>
 					<state>ARM_MATH_CM4=true</state>
 				</option>

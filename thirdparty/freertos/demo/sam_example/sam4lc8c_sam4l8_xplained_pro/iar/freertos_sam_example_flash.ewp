@@ -167,6 +167,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM4LC8C__</state>
+					<state>__FREERTOS__</state>
 					<state>BOARD=SAM4L8_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM4=true</state>
 				</option>
@@ -469,6 +470,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM4LC8C__</state>
+					<state>__FREERTOS__</state>
 					<state>BOARD=SAM4L8_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM4=true</state>
 				</option>
@@ -1131,6 +1133,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM4LC8C__</state>
+					<state>__FREERTOS__</state>
 					<state>BOARD=SAM4L8_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM4=true</state>
 				</option>
@@ -1433,6 +1436,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM4LC8C__</state>
+					<state>__FREERTOS__</state>
 					<state>BOARD=SAM4L8_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM4=true</state>
 				</option>
@@ -1732,7 +1736,7 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>

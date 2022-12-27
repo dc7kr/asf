@@ -162,6 +162,7 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>__FREERTOS__</state>
 					<state>BOARD=SAM4S_EK2</state>
 					<state>ARM_MATH_CM4=true</state>
 					<state>__SAM4SD32C__</state>
@@ -465,6 +466,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>__FREERTOS__</state>
 					<state>BOARD=SAM4S_EK2</state>
 					<state>ARM_MATH_CM4=true</state>
 					<state>__SAM4SD32C__</state>
@@ -1094,6 +1096,7 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>__FREERTOS__</state>
 					<state>BOARD=SAM4S_EK2</state>
 					<state>ARM_MATH_CM4=true</state>
 					<state>__SAM4SD32C__</state>
@@ -1397,6 +1400,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>__FREERTOS__</state>
 					<state>BOARD=SAM4S_EK2</state>
 					<state>ARM_MATH_CM4=true</state>
 					<state>__SAM4SD32C__</state>

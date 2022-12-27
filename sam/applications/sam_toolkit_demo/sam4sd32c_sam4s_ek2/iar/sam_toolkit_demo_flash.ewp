@@ -162,27 +162,28 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM4=true</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_QM=0</state>
-					<state>_SNS1_SNSK1_SAME_PORT_</state>
-					<state>BOARD=SAM4S_EK2</state>
-					<state>SNSK1=C</state>
-					<state>SNSK2=A</state>
-					<state>_SNS2_SNSK2_SAME_PORT_</state>
-					<state>ACCESS_USB_ENABLED</state>
-					<state>UDD_ENABLE</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_QTB=0</state>
-					<state>SNS1=C</state>
-					<state>QT_DELAY_CYCLES=5</state>
-					<state>CONF_GFX_ILI9325_FTM280C34D=1</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_AT=0</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_QTA=0</state>
-					<state>_QTOUCH_</state>
-					<state>__SAM4SD32C__</state>
+					<state>__FREERTOS__</state>
 					<state>QT_NUM_CHANNELS=32</state>
 					<state>SNS2=A</state>
-					<state>_DEBUG_INTERFACE_</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_AT=0</state>
+					<state>SNSK1=C</state>
+					<state>SNSK2=A</state>
+					<state>SNS1=C</state>
+					<state>QT_DELAY_CYCLES=5</state>
 					<state>QTOUCH_SLIDER_REVERSED</state>
+					<state>ARM_MATH_CM4=true</state>
+					<state>__SAM4SD32C__</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_QM=0</state>
+					<state>_SNS2_SNSK2_SAME_PORT_</state>
+					<state>ACCESS_USB_ENABLED</state>
+					<state>_SNS1_SNSK1_SAME_PORT_</state>
+					<state>UDD_ENABLE</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_QTB=0</state>
+					<state>CONF_GFX_ILI9325_FTM280C34D=1</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_QTA=0</state>
+					<state>_QTOUCH_</state>
+					<state>_DEBUG_INTERFACE_</state>
+					<state>BOARD=SAM4S_EK2</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -519,27 +520,28 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM4=true</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_QM=0</state>
-					<state>_SNS1_SNSK1_SAME_PORT_</state>
-					<state>BOARD=SAM4S_EK2</state>
-					<state>SNSK1=C</state>
-					<state>SNSK2=A</state>
-					<state>_SNS2_SNSK2_SAME_PORT_</state>
-					<state>ACCESS_USB_ENABLED</state>
-					<state>UDD_ENABLE</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_QTB=0</state>
-					<state>SNS1=C</state>
-					<state>QT_DELAY_CYCLES=5</state>
-					<state>CONF_GFX_ILI9325_FTM280C34D=1</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_AT=0</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_QTA=0</state>
-					<state>_QTOUCH_</state>
-					<state>__SAM4SD32C__</state>
+					<state>__FREERTOS__</state>
 					<state>QT_NUM_CHANNELS=32</state>
 					<state>SNS2=A</state>
-					<state>_DEBUG_INTERFACE_</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_AT=0</state>
+					<state>SNSK1=C</state>
+					<state>SNSK2=A</state>
+					<state>SNS1=C</state>
+					<state>QT_DELAY_CYCLES=5</state>
 					<state>QTOUCH_SLIDER_REVERSED</state>
+					<state>ARM_MATH_CM4=true</state>
+					<state>__SAM4SD32C__</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_QM=0</state>
+					<state>_SNS2_SNSK2_SAME_PORT_</state>
+					<state>ACCESS_USB_ENABLED</state>
+					<state>_SNS1_SNSK1_SAME_PORT_</state>
+					<state>UDD_ENABLE</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_QTB=0</state>
+					<state>CONF_GFX_ILI9325_FTM280C34D=1</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_QTA=0</state>
+					<state>_QTOUCH_</state>
+					<state>_DEBUG_INTERFACE_</state>
+					<state>BOARD=SAM4S_EK2</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1202,27 +1204,28 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM4=true</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_QM=0</state>
-					<state>_SNS1_SNSK1_SAME_PORT_</state>
-					<state>BOARD=SAM4S_EK2</state>
-					<state>SNSK1=C</state>
-					<state>SNSK2=A</state>
-					<state>_SNS2_SNSK2_SAME_PORT_</state>
-					<state>ACCESS_USB_ENABLED</state>
-					<state>UDD_ENABLE</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_QTB=0</state>
-					<state>SNS1=C</state>
-					<state>QT_DELAY_CYCLES=5</state>
-					<state>CONF_GFX_ILI9325_FTM280C34D=1</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_AT=0</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_QTA=0</state>
-					<state>_QTOUCH_</state>
-					<state>__SAM4SD32C__</state>
+					<state>__FREERTOS__</state>
 					<state>QT_NUM_CHANNELS=32</state>
 					<state>SNS2=A</state>
-					<state>_DEBUG_INTERFACE_</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_AT=0</state>
+					<state>SNSK1=C</state>
+					<state>SNSK2=A</state>
+					<state>SNS1=C</state>
+					<state>QT_DELAY_CYCLES=5</state>
 					<state>QTOUCH_SLIDER_REVERSED</state>
+					<state>ARM_MATH_CM4=true</state>
+					<state>__SAM4SD32C__</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_QM=0</state>
+					<state>_SNS2_SNSK2_SAME_PORT_</state>
+					<state>ACCESS_USB_ENABLED</state>
+					<state>_SNS1_SNSK1_SAME_PORT_</state>
+					<state>UDD_ENABLE</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_QTB=0</state>
+					<state>CONF_GFX_ILI9325_FTM280C34D=1</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_QTA=0</state>
+					<state>_QTOUCH_</state>
+					<state>_DEBUG_INTERFACE_</state>
+					<state>BOARD=SAM4S_EK2</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1559,27 +1562,28 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM4=true</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_QM=0</state>
-					<state>_SNS1_SNSK1_SAME_PORT_</state>
-					<state>BOARD=SAM4S_EK2</state>
-					<state>SNSK1=C</state>
-					<state>SNSK2=A</state>
-					<state>_SNS2_SNSK2_SAME_PORT_</state>
-					<state>ACCESS_USB_ENABLED</state>
-					<state>UDD_ENABLE</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_QTB=0</state>
-					<state>SNS1=C</state>
-					<state>QT_DELAY_CYCLES=5</state>
-					<state>CONF_GFX_ILI9325_FTM280C34D=1</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_AT=0</state>
-					<state>DEF_TOUCH_QDEBUG_ENABLE_QTA=0</state>
-					<state>_QTOUCH_</state>
-					<state>__SAM4SD32C__</state>
+					<state>__FREERTOS__</state>
 					<state>QT_NUM_CHANNELS=32</state>
 					<state>SNS2=A</state>
-					<state>_DEBUG_INTERFACE_</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_AT=0</state>
+					<state>SNSK1=C</state>
+					<state>SNSK2=A</state>
+					<state>SNS1=C</state>
+					<state>QT_DELAY_CYCLES=5</state>
 					<state>QTOUCH_SLIDER_REVERSED</state>
+					<state>ARM_MATH_CM4=true</state>
+					<state>__SAM4SD32C__</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_QM=0</state>
+					<state>_SNS2_SNSK2_SAME_PORT_</state>
+					<state>ACCESS_USB_ENABLED</state>
+					<state>_SNS1_SNSK1_SAME_PORT_</state>
+					<state>UDD_ENABLE</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_QTB=0</state>
+					<state>CONF_GFX_ILI9325_FTM280C34D=1</state>
+					<state>DEF_TOUCH_QDEBUG_ENABLE_QTA=0</state>
+					<state>_QTOUCH_</state>
+					<state>_DEBUG_INTERFACE_</state>
+					<state>BOARD=SAM4S_EK2</state>
 				</option>
 				<option>
 					<name>AList</name>

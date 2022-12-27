@@ -192,6 +192,7 @@ CPPFLAGS = \
        -D FREERTOS_USED                                   \
        -D SD_MMC_ENABLE                                   \
        -D UDD_ENABLE                                      \
+       -D __FREERTOS__                                    \
        -D __SAM4SD32C__                                   \
        -D printf=iprintf                                  \
        -D scanf=iscanf

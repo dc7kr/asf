@@ -163,11 +163,12 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM4S16C__</state>
-					<state>FREERTOS_USED</state>
+					<state>UDD_ENABLE</state>
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
-					<state>UDD_ENABLE</state>
+					<state>FREERTOS_USED</state>
 					<state>BOARD=SAM4S_EK</state>
+					<state>__FREERTOS__</state>
 					<state>ARM_MATH_CM4=true</state>
 				</option>
 				<option>
@@ -481,11 +482,12 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM4S16C__</state>
-					<state>FREERTOS_USED</state>
+					<state>UDD_ENABLE</state>
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
-					<state>UDD_ENABLE</state>
+					<state>FREERTOS_USED</state>
 					<state>BOARD=SAM4S_EK</state>
+					<state>__FREERTOS__</state>
 					<state>ARM_MATH_CM4=true</state>
 				</option>
 				<option>
@@ -1125,11 +1127,12 @@
 				<option>
 					<name>CCDefines</name>
 					<state>__SAM4S16C__</state>
-					<state>FREERTOS_USED</state>
+					<state>UDD_ENABLE</state>
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
-					<state>UDD_ENABLE</state>
+					<state>FREERTOS_USED</state>
 					<state>BOARD=SAM4S_EK</state>
+					<state>__FREERTOS__</state>
 					<state>ARM_MATH_CM4=true</state>
 				</option>
 				<option>
@@ -1443,11 +1446,12 @@
 				<option>
 					<name>ADefines</name>
 					<state>__SAM4S16C__</state>
-					<state>FREERTOS_USED</state>
+					<state>UDD_ENABLE</state>
 					<state>ACCESS_USB_ENABLED</state>
 					<state>SD_MMC_ENABLE</state>
-					<state>UDD_ENABLE</state>
+					<state>FREERTOS_USED</state>
 					<state>BOARD=SAM4S_EK</state>
+					<state>__FREERTOS__</state>
 					<state>ARM_MATH_CM4=true</state>
 				</option>
 				<option>

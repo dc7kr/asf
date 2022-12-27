@@ -82,7 +82,6 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_start.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_sync.c \
        thirdparty/wireless/avr2025_mac/source/mac/src/mac_tx_coord_realignment_command.c \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/xmega/hw_timer.c \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c \
        thirdparty/wireless/avr2025_mac/source/pal/pal.c   \
        thirdparty/wireless/avr2025_mac/source/pal/pal_ext_trx.c \
@@ -105,6 +104,8 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/source/tal/src/tal_helper.c \
        thirdparty/wireless/avr2102_rf4control/addons/serial_interface/serial_interface.c \
        thirdparty/wireless/avr2102_rf4control/apps/zrc/serial_if/main.c \
+       thirdparty/wireless/services/common_hw_timer/xmega/hw_timer.c \
+       thirdparty/wireless/services/trx_access/trx_access.c \
        xmega/boards/xmega_a3bu_xplained/init.c            \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/spi/spi.c                            \
@@ -137,8 +138,6 @@ INC_PATH = \
        thirdparty/wireless/avr2025_mac/include            \
        thirdparty/wireless/avr2025_mac/source/mac/inc     \
        thirdparty/wireless/avr2025_mac/source/pal         \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/xmega \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer \
        thirdparty/wireless/avr2025_mac/source/resources/buffer/inc \
        thirdparty/wireless/avr2025_mac/source/resources/queue/inc \
@@ -151,6 +150,9 @@ INC_PATH = \
        thirdparty/wireless/avr2102_rf4control/apps/zrc/serial_if/ctr/ncp/xmega_a3bu_xplained_rz600rf212 \
        thirdparty/wireless/avr2102_rf4control/include     \
        thirdparty/wireless/avr2102_rf4control/lib/zrc/ctr/config \
+       thirdparty/wireless/services/common_hw_timer       \
+       thirdparty/wireless/services/common_hw_timer/xmega \
+       thirdparty/wireless/services/trx_access            \
        xmega/boards                                       \
        xmega/boards/xmega_a3bu_xplained                   \
        xmega/drivers/cpu                                  \
@@ -166,13 +168,13 @@ INC_PATH = \
 
 # Library paths from the top-level source directory
 LIB_PATH =  \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/xmega/lib \
-       thirdparty/wireless/avr2102_rf4control/lib/zrc/ctr/atxmega256a3bu/gcc
+       thirdparty/wireless/avr2102_rf4control/lib/zrc/ctr/atxmega256a3bu/gcc \
+       thirdparty/wireless/services/common_hw_timer/xmega/lib
 
 # Libraries to link with the project
 LIBS =  \
-       xmegaa3_hw_timer_lib                               \
-       rf4ce-zrc-controller                              
+       rf4ce-zrc-controller                               \
+       xmegaa3_hw_timer_lib                              
 
 # Additional options for debugging. By default the common Makefile.in will
 # add -gdwarf-2.

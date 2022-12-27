@@ -91,7 +91,7 @@
 // From module: SSD1306 OLED controller
 #include <ssd1306.h>
 
-// From module: SYSTEM - Clock Management
+// From module: SYSTEM - Clock Management for SAMD20
 #include <clock.h>
 #include <gclk.h>
 

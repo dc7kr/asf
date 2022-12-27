@@ -181,7 +181,8 @@ CPPFLAGS = \
        -D FREERTOS_USED                                   \
        -D SD_MMC_ENABLE                                   \
        -D UDD_ENABLE                                      \
-       -D VIRTUAL_MEMORY_ENABLE
+       -D VIRTUAL_MEMORY_ENABLE                           \
+       -D __FREERTOS__
 
 # Extra flags to use when linking
 LDFLAGS = \

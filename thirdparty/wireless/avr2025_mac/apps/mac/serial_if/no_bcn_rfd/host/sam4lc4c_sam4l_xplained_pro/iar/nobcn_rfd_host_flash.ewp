@@ -311,16 +311,17 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2ncp/uart</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_if/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/tc</state>
@@ -331,7 +332,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/bpm</state>
 					<state>$PROJ_DIR$/../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -593,16 +593,17 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2ncp/uart</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_if/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/tc</state>
@@ -613,7 +614,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/bpm</state>
 					<state>$PROJ_DIR$/../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -798,7 +798,6 @@
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
-					<state></state>
 				</option>
 				<option>
 					<name>IlinkLowLevelInterfaceSlave</name>
@@ -1301,16 +1300,17 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2ncp/uart</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_if/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/tc</state>
@@ -1321,7 +1321,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/bpm</state>
 					<state>$PROJ_DIR$/../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1583,16 +1582,17 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils/cmsis/sam4l/source/templates</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2ncp/uart</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../../../../addons/serial_if/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/tc</state>
@@ -1603,7 +1603,6 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../sam/drivers/bpm</state>
 					<state>$PROJ_DIR$/../../../..</state>
-					<state>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1784,11 +1783,10 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
-					<state></state>
 				</option>
 				<option>
 					<name>IlinkLowLevelInterfaceSlave</name>
@@ -1985,32 +1983,74 @@
 		<group>
 			<name>wireless</name>
 			<group>
+				<name>services</name>
+				<group>
+					<name>common_hw_timer</name>
+					<group>
+						<name>sam</name>
+						<group>
+							<name>lib</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/sam/lib/sam4l_lib_hw_timer.a</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/sam/hw_timer.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/sam/hw_timer.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/common_hw_timer.h</name>
+					</file>
+				</group>
+			</group>
+			<group>
 				<name>avr2025_mac</name>
+				<group>
+					<name>addons</name>
+					<group>
+						<name>serial_if</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../addons/serial_if/src/serial_interface.c</name>
+							</file>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../addons/serial_if/inc/private_const.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../addons/serial_if/inc/serial_interface.h</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>api_parser</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../addons/api_parser/src/api_decoder.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../addons/api_parser/src/api_encoder.c</name>
+							</file>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../addons/api_parser/inc/api_parser.h</name>
+							</file>
+						</group>
+					</group>
+				</group>
 				<group>
 					<name>source</name>
 					<group>
 						<name>pal</name>
-						<group>
-							<name>common_hw_timer</name>
-							<group>
-								<name>sam</name>
-								<group>
-									<name>lib</name>
-									<file>
-										<name>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/sam/lib/sam4l_lib_hw_timer.a</name>
-									</file>
-								</group>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/sam/hw_timer.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/sam/hw_timer.h</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/pal/common_hw_timer/common_hw_timer.h</name>
-							</file>
-						</group>
 						<group>
 							<name>common_sw_timer</name>
 							<file>
@@ -2098,45 +2138,6 @@
 					</group>
 				</group>
 				<group>
-					<name>addons</name>
-					<group>
-						<name>serial_if</name>
-						<group>
-							<name>src</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../addons/serial_if/src/serial_interface.c</name>
-							</file>
-						</group>
-						<group>
-							<name>inc</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../addons/serial_if/inc/private_const.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../addons/serial_if/inc/serial_interface.h</name>
-							</file>
-						</group>
-					</group>
-					<group>
-						<name>api_parser</name>
-						<group>
-							<name>src</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../addons/api_parser/src/api_decoder.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../addons/api_parser/src/api_encoder.c</name>
-							</file>
-						</group>
-						<group>
-							<name>inc</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../addons/api_parser/inc/api_parser.h</name>
-							</file>
-						</group>
-					</group>
-				</group>
-				<group>
 					<name>include</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/avr2025_mac.h</name>
@@ -2203,10 +2204,10 @@
 			<group>
 				<name>stdio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/write.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/read.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/read.c</name>
+					<name>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/write.c</name>
 				</file>
 				<group>
 					<name>stdio_serial</name>
@@ -2273,21 +2274,6 @@
 				</file>
 			</group>
 			<group>
-				<name>delay</name>
-				<group>
-					<name>sam</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../common/services/delay/sam/cycle_counter.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../common/services/delay/sam/cycle_counter.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../common/services/delay/delay.h</name>
-				</file>
-			</group>
-			<group>
 				<name>serial</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../common/services/serial/usart_serial.c</name>
@@ -2301,6 +2287,21 @@
 						<name>$PROJ_DIR$/../../../../../../../../../../common/services/serial/sam_uart/uart_serial.h</name>
 					</file>
 				</group>
+			</group>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../common/services/delay/sam/cycle_counter.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../common/services/delay/sam/cycle_counter.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../common/services/delay/delay.h</name>
+				</file>
 			</group>
 			<group>
 				<name>ioport</name>

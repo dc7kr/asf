@@ -287,6 +287,7 @@ CPPFLAGS = \
        -D _QTOUCH_                                        \
        -D _SNS1_SNSK1_SAME_PORT_                          \
        -D _SNS2_SNSK2_SAME_PORT_                          \
+       -D __FREERTOS__                                    \
        -D __SAM4S16C__                                    \
        -D printf=iprintf                                  \
        -D scanf=iscanf

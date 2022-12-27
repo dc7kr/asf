@@ -415,7 +415,6 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../lib/zrc/ctr/config</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/pmic</state>
@@ -429,10 +428,12 @@
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212b/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/sal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/xmega_usart</state>
@@ -444,12 +445,12 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards/xmega_rf212b_zigbit</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/boards</state>
@@ -742,7 +743,6 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../lib/zrc/ctr/config</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/pmic</state>
@@ -756,10 +756,12 @@
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212b/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/sal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/xmega_usart</state>
@@ -771,12 +773,12 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards/xmega_rf212b_zigbit</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/boards</state>
@@ -1534,7 +1536,6 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../lib/zrc/ctr/config</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/pmic</state>
@@ -1548,10 +1549,12 @@
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212b/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/sal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/xmega_usart</state>
@@ -1563,12 +1566,12 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards/xmega_rf212b_zigbit</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/boards</state>
@@ -1861,7 +1864,6 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../lib/zrc/ctr/config</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/drivers/pmic</state>
@@ -1875,10 +1877,12 @@
 					<state>$PROJ_DIR$/../../../../../../../include</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/resources/queue/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212b/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/trx_access</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/sal/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/serial/xmega_usart</state>
@@ -1890,12 +1894,12 @@
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/resources/buffer/inc</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../xmega/boards/xmega_rf212b_zigbit</state>
 					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../addons/sio2host/uart</state>
-					<state>$PROJ_DIR$/../../../../../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/xmega</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../../../common/boards</state>
@@ -2243,6 +2247,39 @@
 		<group>
 			<name>wireless</name>
 			<group>
+				<name>services</name>
+				<group>
+					<name>common_hw_timer</name>
+					<group>
+						<name>xmega</name>
+						<group>
+							<name>lib</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/xmega/lib/xmegaa3_lib_hw_timer.r90</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/xmega/hw_timer.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/xmega/hw_timer.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../services/common_hw_timer/common_hw_timer.h</name>
+					</file>
+				</group>
+				<group>
+					<name>trx_access</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../services/trx_access/trx_access.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../services/trx_access/trx_access.h</name>
+					</file>
+				</group>
+			</group>
+			<group>
 				<name>avr2102_rf4control</name>
 				<group>
 					<name>lib</name>
@@ -2296,6 +2333,9 @@
 									<group>
 										<name>atxmega256a3u_rf212b_zigbit_ext</name>
 										<file>
+											<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
+										</file>
+										<file>
 											<name>$PROJ_DIR$/../conf_sio2host.h</name>
 										</file>
 										<file>
@@ -2314,9 +2354,6 @@
 											<name>$PROJ_DIR$/../conf_spi_master.h</name>
 										</file>
 										<file>
-											<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
-										</file>
-										<file>
 											<name>$PROJ_DIR$/../conf_usart_serial.h</name>
 										</file>
 										<file>
@@ -2330,10 +2367,10 @@
 										<name>$PROJ_DIR$/../../app_config.h</name>
 									</file>
 									<file>
-										<name>$PROJ_DIR$/../../conf_pal.h</name>
+										<name>$PROJ_DIR$/../../conf_common_sw_timer.h</name>
 									</file>
 									<file>
-										<name>$PROJ_DIR$/../../conf_common_sw_timer.h</name>
+										<name>$PROJ_DIR$/../../conf_trx_access.h</name>
 									</file>
 								</group>
 							</group>
@@ -2342,6 +2379,9 @@
 				</group>
 				<group>
 					<name>include</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/zid.h</name>
+					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/zrc.h</name>
 					</file>
@@ -2355,16 +2395,34 @@
 						<name>$PROJ_DIR$/../../../../../../../include/nwk_msg_code.h</name>
 					</file>
 					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/gdp_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/zid_device.h</name>
+					</file>
+					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/nwk_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/gdp.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/nwk_build_config.h</name>
 					</file>
 					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/zid_build_config.h</name>
+					</file>
+					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/vendor_data.h</name>
 					</file>
 					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/nwk_internal.h</name>
+					</file>
+					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/nwk_msg_types.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/zid_adaptor.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/mac_user_build_config.h</name>
@@ -2375,54 +2433,6 @@
 				<name>avr2025_mac</name>
 				<group>
 					<name>source</name>
-					<group>
-						<name>pal</name>
-						<group>
-							<name>common_hw_timer</name>
-							<group>
-								<name>xmega</name>
-								<group>
-									<name>lib</name>
-									<file>
-										<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer/xmega/lib/xmegaa3_lib_hw_timer.r90</name>
-									</file>
-								</group>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer/xmega/hw_timer.c</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer/xmega/hw_timer.h</name>
-								</file>
-							</group>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_hw_timer/common_hw_timer.h</name>
-							</file>
-						</group>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/pal.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/pal_ext_trx.c</name>
-						</file>
-						<group>
-							<name>common_sw_timer</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_sw_timer/common_sw_timer.h</name>
-							</file>
-						</group>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/pal_generic.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/pal.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/pal_ext_trx.h</name>
-						</file>
-					</group>
 					<group>
 						<name>mac</name>
 						<group>
@@ -2437,6 +2447,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_dispatcher.c</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_associate.c</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_sync.c</name>
 							</file>
 							<file>
@@ -2446,16 +2459,10 @@
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_beacon.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_associate.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_process_beacon_frame.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_data_ind.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_security.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_disassociate.c</name>
@@ -2483,6 +2490,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_gts.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_security.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/mac/src/mac_rx_enable.c</name>
@@ -2550,34 +2560,31 @@
 						</group>
 					</group>
 					<group>
-						<name>stb</name>
+						<name>pal</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/pal.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/pal_ext_trx.c</name>
+						</file>
 						<group>
-							<name>src</name>
+							<name>common_sw_timer</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/src/stb_help.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/src/stb_armcrypto.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/src/stb.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/common_sw_timer/common_sw_timer.h</name>
 							</file>
 						</group>
-						<group>
-							<name>inc</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/inc/stb_generic.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/inc/stb.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/inc/stb_armcrypto.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/inc/stb_internal.h</name>
-							</file>
-						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/pal_generic.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/pal.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/pal/pal_ext_trx.h</name>
+						</file>
 					</group>
 					<group>
 						<name>tal</name>
@@ -2625,6 +2632,9 @@
 									<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212b/inc/at86rf212b.h</name>
 								</file>
 								<file>
+									<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212b/inc/tal_rx.h</name>
+								</file>
+								<file>
 									<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212b/inc/tal_pib.h</name>
 								</file>
 								<file>
@@ -2635,9 +2645,6 @@
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212b/inc/tal_internal.h</name>
-								</file>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212b/inc/tal_rx.h</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/at86rf212b/inc/tal_slotted_csma.h</name>
@@ -2669,6 +2676,36 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/tal/inc/tal.h</name>
+							</file>
+						</group>
+					</group>
+					<group>
+						<name>stb</name>
+						<group>
+							<name>src</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/src/stb_armcrypto.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/src/stb_help.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/src/stb.c</name>
+							</file>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/inc/stb_generic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/inc/stb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/inc/stb_armcrypto.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../avr2025_mac/source/stb/inc/stb_internal.h</name>
 							</file>
 						</group>
 					</group>

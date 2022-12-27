@@ -169,7 +169,8 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D BOARD=EVK1104                                   \
-       -D FREERTOS_USED
+       -D FREERTOS_USED                                   \
+       -D __FREERTOS__
 
 # Extra flags to use when linking
 LDFLAGS = \

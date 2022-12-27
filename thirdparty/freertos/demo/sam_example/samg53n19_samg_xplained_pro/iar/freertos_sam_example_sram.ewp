@@ -162,6 +162,7 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>__FREERTOS__</state>
 					<state>__SAMG53N19__</state>
 					<state>BOARD=SAMG53_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM4=true</state>
@@ -464,6 +465,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>__FREERTOS__</state>
 					<state>__SAMG53N19__</state>
 					<state>BOARD=SAMG53_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM4=true</state>
@@ -1092,6 +1094,7 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>__FREERTOS__</state>
 					<state>__SAMG53N19__</state>
 					<state>BOARD=SAMG53_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM4=true</state>
@@ -1394,6 +1397,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>__FREERTOS__</state>
 					<state>__SAMG53N19__</state>
 					<state>BOARD=SAMG53_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM4=true</state>

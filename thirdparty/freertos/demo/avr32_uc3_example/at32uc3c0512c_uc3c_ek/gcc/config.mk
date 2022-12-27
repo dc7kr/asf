@@ -163,7 +163,8 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=UC3C_EK
+       -D BOARD=UC3C_EK                                   \
+       -D __FREERTOS__
 
 # Extra flags to use when linking
 LDFLAGS = \

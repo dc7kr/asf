@@ -284,7 +284,8 @@ CPPFLAGS = \
        -D SD_MMC_SPI_ENABLE                               \
        -D SMTP_USED=0                                     \
        -D TFTP_USED=0                                     \
-       -D USB_ENABLE=1
+       -D USB_ENABLE=1                                    \
+       -D __FREERTOS__
 
 # Extra flags to use when linking
 LDFLAGS = \

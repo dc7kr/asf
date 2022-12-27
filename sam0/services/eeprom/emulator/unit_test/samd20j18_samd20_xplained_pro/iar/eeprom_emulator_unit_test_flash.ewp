@@ -300,9 +300,9 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/system/clock/clock_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/port</state>
-					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../boards/samd20_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/source</state>
@@ -312,18 +312,20 @@
 					<state>$PROJ_DIR$/../../../../../../drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/sercom/usart</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/system/interrupt/system_interrupt_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/component</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/pio</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/instance</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -575,9 +577,9 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/system/clock/clock_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/port</state>
-					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../boards/samd20_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/source</state>
@@ -587,18 +589,20 @@
 					<state>$PROJ_DIR$/../../../../../../drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/sercom/usart</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/system/interrupt/system_interrupt_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/component</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/pio</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/instance</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -780,11 +784,10 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
-					<state></state>
 				</option>
 				<option>
 					<name>IlinkLowLevelInterfaceSlave</name>
@@ -1276,9 +1279,9 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/system/clock/clock_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/port</state>
-					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../boards/samd20_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/source</state>
@@ -1288,18 +1291,20 @@
 					<state>$PROJ_DIR$/../../../../../../drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/sercom/usart</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/system/interrupt/system_interrupt_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/component</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/pio</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/instance</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1551,9 +1556,9 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/system/clock/clock_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/port</state>
-					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../boards/samd20_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/source</state>
@@ -1563,18 +1568,20 @@
 					<state>$PROJ_DIR$/../../../../../../drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/sercom/usart</state>
-					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../../drivers/system/interrupt/system_interrupt_samd20</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/component</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/pio</state>
-					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/instance</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../drivers/system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1756,11 +1763,10 @@
 				</option>
 				<option>
 					<name>IlinkUseExtraOptions</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>IlinkExtraOptions</name>
-					<state></state>
 				</option>
 				<option>
 					<name>IlinkLowLevelInterfaceSlave</name>
@@ -2221,9 +2227,6 @@
 							<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/samd20g16.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/samd20e1f.h</name>
-						</file>
-						<file>
 							<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd20/include/samd20j14.h</name>
 						</file>
 						<file>
@@ -2241,10 +2244,13 @@
 					<name>$PROJ_DIR$/../../../../../../utils/preprocessor/stringz.h</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../utils/preprocessor/preprocessor.h</name>
+					<name>$PROJ_DIR$/../../../../../../utils/preprocessor/mrecursion.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../utils/preprocessor/preprocessor.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../utils/preprocessor/mrepeat.h</name>
@@ -2329,6 +2335,12 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../drivers/sercom/usart/usart_interrupt.h</name>
 					</file>
+					<group>
+						<name>quick_start_dma</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../drivers/sercom/usart/quick_start_dma/qs_usart_dma_use.h</name>
+						</file>
+					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../drivers/sercom/usart/usart.h</name>
 					</file>
@@ -2366,6 +2378,12 @@
 						<name>$PROJ_DIR$/../../../../../../drivers/system/interrupt/system_interrupt.h</name>
 					</file>
 					<group>
+						<name>system_interrupt_samd20</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../drivers/system/interrupt/system_interrupt_samd20/system_interrupt_features.h</name>
+						</file>
+					</group>
+					<group>
 						<name>quick_start</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../drivers/system/interrupt/quick_start/qs_system_interrupt.h</name>
@@ -2374,17 +2392,20 @@
 				</group>
 				<group>
 					<name>clock</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../drivers/system/clock/clock.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../drivers/system/clock/gclk.c</name>
-					</file>
+					<group>
+						<name>clock_samd20</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../drivers/system/clock/clock_samd20/clock.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../drivers/system/clock/clock_samd20/gclk.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../drivers/system/clock/clock_samd20/clock_config_check.h</name>
+						</file>
+					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../drivers/system/clock/gclk.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../drivers/system/clock/clock_config_check.h</name>
 					</file>
 					<group>
 						<name>quick_start_clock</name>

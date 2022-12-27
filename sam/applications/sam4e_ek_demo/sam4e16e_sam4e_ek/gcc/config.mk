@@ -254,6 +254,7 @@ CPPFLAGS = \
        -D FREERTOS_USED                                   \
        -D HTTP_USED=1                                     \
        -D TFTP_USED=1                                     \
+       -D __FREERTOS__                                    \
        -D __SAM4E16E__                                    \
        -D printf=iprintf                                  \
        -D scanf=iscanf

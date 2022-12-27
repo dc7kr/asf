@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../sfh7770.c ../../sfh5712.c  ../../sfh5712.h ../../sfh7770.h doxygen_module_mainpage.h
+INPUT                  = doxygen_module_mainpage.h ../../sfh5712.c ../../sfh7770.c ../../sfh5712.h ../../sfh7770.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is

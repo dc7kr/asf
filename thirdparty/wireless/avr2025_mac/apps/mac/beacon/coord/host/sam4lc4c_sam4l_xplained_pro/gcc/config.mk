@@ -77,8 +77,8 @@ CSRCS = \
        thirdparty/wireless/avr2025_mac/addons/api_parser/src/api_encoder.c \
        thirdparty/wireless/avr2025_mac/apps/mac/beacon/coord/app_security.c \
        thirdparty/wireless/avr2025_mac/apps/mac/beacon/coord/main.c \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/sam/hw_timer.c \
-       thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c
+       thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer/common_sw_timer.c \
+       thirdparty/wireless/services/common_hw_timer/sam/hw_timer.c
 
 # List of assembler source files.
 ASSRCS = 
@@ -115,15 +115,15 @@ INC_PATH = \
        thirdparty/wireless/avr2025_mac/apps/mac/beacon/coord/host/sam4lc4c_sam4l_xplained_pro \
        thirdparty/wireless/avr2025_mac/include            \
        thirdparty/wireless/avr2025_mac/source/mac/inc     \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/sam \
        thirdparty/wireless/avr2025_mac/source/pal/common_sw_timer \
+       thirdparty/wireless/services/common_hw_timer       \
+       thirdparty/wireless/services/common_hw_timer/sam \
        thirdparty/wireless/avr2025_mac/apps/mac/beacon/coord/host/sam4lc4c_sam4l_xplained_pro/gcc
 
 # Additional search paths for libraries.
 LIB_PATH =  \
        thirdparty/CMSIS/Lib/GCC                           \
-       thirdparty/wireless/avr2025_mac/source/pal/common_hw_timer/sam/lib
+       thirdparty/wireless/services/common_hw_timer/sam/lib
 
 # List of libraries to use during linking.
 LIBS =  \

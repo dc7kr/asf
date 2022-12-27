@@ -190,7 +190,8 @@ CPPFLAGS = \
        -D AT45DBX_ENABLE                                  \
        -D BOARD=EVK1100                                   \
        -D FREERTOS_USED                                   \
-       -D SD_MMC_SPI_ENABLE
+       -D SD_MMC_SPI_ENABLE                               \
+       -D __FREERTOS__
 
 # Extra flags to use when linking
 LDFLAGS = \

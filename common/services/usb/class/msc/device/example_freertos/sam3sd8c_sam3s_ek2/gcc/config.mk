@@ -181,6 +181,7 @@ CPPFLAGS = \
        -D SD_MMC_ENABLE                                   \
        -D UDD_ENABLE                                      \
        -D VIRTUAL_MEMORY_ENABLE                           \
+       -D __FREERTOS__                                    \
        -D __SAM3SD8C__                                    \
        -D printf=iprintf                                  \
        -D scanf=iscanf

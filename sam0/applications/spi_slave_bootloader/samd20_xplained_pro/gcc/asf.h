@@ -78,7 +78,7 @@
 // From module: SERCOM SPI - Serial Peripheral Interface (Polled APIs)
 #include <spi.h>
 
-// From module: SYSTEM - Clock Management
+// From module: SYSTEM - Clock Management for SAMD20
 #include <clock.h>
 #include <gclk.h>
 

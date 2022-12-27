@@ -82,7 +82,7 @@
 #include <usart.h>
 #include <usart_interrupt.h>
 
-// From module: SYSTEM - Clock Management
+// From module: SYSTEM - Clock Management for SAMD20
 #include <clock.h>
 #include <gclk.h>
 

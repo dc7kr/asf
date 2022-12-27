@@ -162,6 +162,7 @@
 				<debug>1</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>__FREERTOS__</state>
 					<state>ARM_MATH_CM4=true</state>
 					<state>__SAM4N16C__</state>
 					<state>BOARD=SAM4N_XPLAINED_PRO</state>
@@ -463,6 +464,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>__FREERTOS__</state>
 					<state>ARM_MATH_CM4=true</state>
 					<state>__SAM4N16C__</state>
 					<state>BOARD=SAM4N_XPLAINED_PRO</state>
@@ -1090,6 +1092,7 @@
 				<debug>0</debug>
 				<option>
 					<name>CCDefines</name>
+					<state>__FREERTOS__</state>
 					<state>ARM_MATH_CM4=true</state>
 					<state>__SAM4N16C__</state>
 					<state>BOARD=SAM4N_XPLAINED_PRO</state>
@@ -1391,6 +1394,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>__FREERTOS__</state>
 					<state>ARM_MATH_CM4=true</state>
 					<state>__SAM4N16C__</state>
 					<state>BOARD=SAM4N_XPLAINED_PRO</state>

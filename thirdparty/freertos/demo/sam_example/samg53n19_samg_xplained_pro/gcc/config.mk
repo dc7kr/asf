@@ -159,6 +159,7 @@ CFLAGS =  \
 CPPFLAGS = \
        -D ARM_MATH_CM4=true                               \
        -D BOARD=SAMG53_XPLAINED_PRO                       \
+       -D __FREERTOS__                                    \
        -D __SAMG53N19__                                   \
        -D printf=iprintf                                  \
        -D scanf=iscanf
