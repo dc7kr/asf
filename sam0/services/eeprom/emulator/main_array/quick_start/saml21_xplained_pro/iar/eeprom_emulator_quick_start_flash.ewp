@@ -298,6 +298,7 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/power</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/interrupt/system_interrupt_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/preprocessor</state>
@@ -320,6 +321,7 @@
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/cmsis/saml21/source</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod/bod_sam_l</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -569,6 +571,7 @@
 				<option>
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/power</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/interrupt/system_interrupt_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/preprocessor</state>
@@ -591,6 +594,7 @@
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/cmsis/saml21/source</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod/bod_sam_l</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1265,6 +1269,7 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/power</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/interrupt/system_interrupt_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/preprocessor</state>
@@ -1287,6 +1292,7 @@
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/cmsis/saml21/source</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod/bod_sam_l</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1536,6 +1542,7 @@
 				<option>
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/power</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/interrupt/system_interrupt_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/preprocessor</state>
@@ -1558,6 +1565,7 @@
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/cmsis/saml21/source</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod/bod_sam_l</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1938,6 +1946,21 @@
 		<name>sam0</name>
 		<group>
 			<name>drivers</name>
+			<group>
+				<name>bod</name>
+				<group>
+					<name>bod_sam_l</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../drivers/bod/bod_sam_l/bod.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../drivers/bod/bod_sam_l/bod_feature.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../drivers/bod/bod.h</name>
+				</file>
+			</group>
 			<group>
 				<name>system</name>
 				<group>

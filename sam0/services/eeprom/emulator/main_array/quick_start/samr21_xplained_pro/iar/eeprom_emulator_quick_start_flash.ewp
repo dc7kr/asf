@@ -301,6 +301,7 @@
 					<state>$PROJ_DIR$/../../../../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/interrupt/system_interrupt_samr21</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod/bod_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/cmsis/samr21/source</state>
 					<state>$PROJ_DIR$/../../../../../../../utils</state>
@@ -311,6 +312,7 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/power/power_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/reset/reset_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../../../boards/samr21_xplained_pro</state>
@@ -572,6 +574,7 @@
 					<state>$PROJ_DIR$/../../../../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/interrupt/system_interrupt_samr21</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod/bod_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/cmsis/samr21/source</state>
 					<state>$PROJ_DIR$/../../../../../../../utils</state>
@@ -582,6 +585,7 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/power/power_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/reset/reset_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../../../boards/samr21_xplained_pro</state>
@@ -1268,6 +1272,7 @@
 					<state>$PROJ_DIR$/../../../../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/interrupt/system_interrupt_samr21</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod/bod_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/cmsis/samr21/source</state>
 					<state>$PROJ_DIR$/../../../../../../../utils</state>
@@ -1278,6 +1283,7 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/power/power_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/reset/reset_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../../../boards/samr21_xplained_pro</state>
@@ -1539,6 +1545,7 @@
 					<state>$PROJ_DIR$/../../../../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/interrupt/system_interrupt_samr21</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod/bod_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../utils/cmsis/samr21/source</state>
 					<state>$PROJ_DIR$/../../../../../../../utils</state>
@@ -1549,6 +1556,7 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../../../../drivers/bod</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/power/power_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../../../drivers/system/reset/reset_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../../../boards/samr21_xplained_pro</state>
@@ -1975,10 +1983,10 @@
 					<group>
 						<name>clock_samd21_r21</name>
 						<file>
-							<name>$PROJ_DIR$/../../../../../../../drivers/system/clock/clock_samd21_r21/clock.c</name>
+							<name>$PROJ_DIR$/../../../../../../../drivers/system/clock/clock_samd21_r21/gclk.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../../../drivers/system/clock/clock_samd21_r21/gclk.c</name>
+							<name>$PROJ_DIR$/../../../../../../../drivers/system/clock/clock_samd21_r21/clock.c</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../drivers/system/clock/clock_samd21_r21/clock_feature.h</name>
@@ -2017,6 +2025,21 @@
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../drivers/system/system.h</name>
+				</file>
+			</group>
+			<group>
+				<name>bod</name>
+				<group>
+					<name>bod_sam_d_r</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../drivers/bod/bod_sam_d_r/bod.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../drivers/bod/bod_sam_d_r/bod_feature.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../drivers/bod/bod.h</name>
 				</file>
 			</group>
 			<group>
@@ -2358,15 +2381,15 @@
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../utils/compiler.h</name>
 			</file>
-			<file>
-				<name>$PROJ_DIR$/../../../../../../../utils/status_codes.h</name>
-			</file>
 			<group>
 				<name>header_files</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../utils/header_files/io.h</name>
 				</file>
 			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../utils/status_codes.h</name>
+			</file>
 		</group>
 	</group>
 	<group>

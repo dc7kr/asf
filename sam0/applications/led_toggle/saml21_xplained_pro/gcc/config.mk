@@ -55,8 +55,6 @@ CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam0/applications/led_toggle/led_toggle.c          \
        sam0/boards/saml21_xplained_pro/board_init.c       \
-       sam0/drivers/extint/extint_callback.c              \
-       sam0/drivers/extint/extint_sam_l/extint.c          \
        sam0/drivers/port/port.c                           \
        sam0/drivers/system/clock/clock_saml21/clock.c     \
        sam0/drivers/system/clock/clock_saml21/gclk.c      \
@@ -78,8 +76,6 @@ INC_PATH = \
        sam0/applications/led_toggle/saml21_xplained_pro   \
        sam0/boards                                        \
        sam0/boards/saml21_xplained_pro                    \
-       sam0/drivers/extint                                \
-       sam0/drivers/extint/extint_sam_l                   \
        sam0/drivers/port                                  \
        sam0/drivers/system                                \
        sam0/drivers/system/clock                          \
@@ -148,7 +144,6 @@ CFLAGS =
 CPPFLAGS = \
        -D ARM_MATH_CM0=true                               \
        -D BOARD=SAML21_XPLAINED_PRO                       \
-       -D EXTINT_CALLBACK_MODE=true                       \
        -D __SAML21J18A__
 
 # Extra flags to use when linking

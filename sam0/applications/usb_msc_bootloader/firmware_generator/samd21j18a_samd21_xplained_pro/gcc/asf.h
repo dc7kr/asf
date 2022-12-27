@@ -82,9 +82,6 @@
 // From module: Memory Control Access Interface
 #include <ctrl_access.h>
 
-// From module: NVM - Non-Volatile Memory
-#include <nvm.h>
-
 // From module: PORT - GPIO Pin Control
 #include <port.h>
 
@@ -141,7 +138,7 @@
 #include <usb.h>
 
 // From module: USB Host MSC (Single Class support)
-#include <uhi_msc.h>
+#include <uhi_msc_mem.h>
 
 // From module: USB Host stack core
 #include <uhc.h>

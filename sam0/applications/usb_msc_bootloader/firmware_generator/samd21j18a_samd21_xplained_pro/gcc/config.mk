@@ -64,7 +64,6 @@ CSRCS = \
        sam0/drivers/dma/dma.c                             \
        sam0/drivers/extint/extint_callback.c              \
        sam0/drivers/extint/extint_sam_d_r/extint.c        \
-       sam0/drivers/nvm/nvm.c                             \
        sam0/drivers/port/port.c                           \
        sam0/drivers/rtc/rtc_sam_d_r/rtc_calendar.c        \
        sam0/drivers/sercom/sercom.c                       \
@@ -112,7 +111,6 @@ INC_PATH = \
        sam0/drivers/dma                                   \
        sam0/drivers/extint                                \
        sam0/drivers/extint/extint_sam_d_r                 \
-       sam0/drivers/nvm                                   \
        sam0/drivers/port                                  \
        sam0/drivers/rtc                                   \
        sam0/drivers/rtc/rtc_sam_d_r                       \

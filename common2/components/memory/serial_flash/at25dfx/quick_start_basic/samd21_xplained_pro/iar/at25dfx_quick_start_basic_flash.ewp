@@ -1975,6 +1975,12 @@
 							<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi/quick_start_slave_callback/qs_spi_slave_callback.h</name>
 						</file>
 					</group>
+					<group>
+						<name>quick_start_master_callback</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi/quick_start_master_callback/qs_spi_master_callback.h</name>
+						</file>
+					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi/spi_interrupt.h</name>
 					</file>
@@ -1982,12 +1988,6 @@
 						<name>quick_start_dma</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi/quick_start_dma/qs_spi_dma_use.h</name>
-						</file>
-					</group>
-					<group>
-						<name>quick_start_master_callback</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/spi/quick_start_master_callback/qs_spi_master_callback.h</name>
 						</file>
 					</group>
 					<group>
@@ -2134,6 +2134,84 @@
 					<group>
 						<name>include</name>
 						<group>
+							<name>pio</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j16b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21g18au.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j15a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e16b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21g15a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21g17au.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e18a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21g17a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j15b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j16a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j18a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21g16a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21g16b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j17a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21g18a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e16bu.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e15a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e16l.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e15bu.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21g15b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e15l.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e17a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e15b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e16a.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e16l.h</name>
+						</file>
+						<group>
 							<name>component</name>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/component/ac.h</name>
@@ -2161,6 +2239,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/component/pac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/component/tcc_lighting.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/component/gclk.h</name>
@@ -2203,45 +2284,6 @@
 							</file>
 						</group>
 						<group>
-							<name>pio</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j15a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21g15a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e18a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21g17a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j16a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j18a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21g16a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j17a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21g18a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e15a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e17a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e16a.h</name>
-							</file>
-						</group>
-						<group>
 							<name>instance</name>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/tcc1.h</name>
@@ -2268,9 +2310,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/sercom0.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/nvmctrl.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/rtc.h</name>
 							</file>
 							<file>
@@ -2295,10 +2334,10 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/sercom5.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/dsu.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/wdt.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/wdt.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/dsu.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/mtb.h</name>
@@ -2317,6 +2356,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/port.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/ac1.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/sysctrl.h</name>
@@ -2348,9 +2390,15 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/sercom1.h</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/nvmctrl.h</name>
+							</file>
 						</group>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21j15a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e16bu.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g16a.h</name>
@@ -2359,13 +2407,22 @@
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21j17a.h</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g16b.h</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21j16a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21j16b.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e17a.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g15a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g17au.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e18a.h</name>
@@ -2377,16 +2434,37 @@
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g17a.h</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e16b.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e15bu.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g15b.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21j15b.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e15b.h</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g18a.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e16a.h</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g18au.h</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e15a.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21j18a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e15l.h</name>
 						</file>
 					</group>
 				</group>
@@ -2395,18 +2473,12 @@
 				<name>$PROJ_DIR$/../../../../../../../../sam0/utils/compiler.h</name>
 			</file>
 			<group>
-				<name>header_files</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam0/utils/header_files/io.h</name>
-				</file>
-			</group>
-			<group>
 				<name>preprocessor</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam0/utils/preprocessor/preprocessor.h</name>
+					<name>$PROJ_DIR$/../../../../../../../../sam0/utils/preprocessor/tpaste.h</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam0/utils/preprocessor/tpaste.h</name>
+					<name>$PROJ_DIR$/../../../../../../../../sam0/utils/preprocessor/preprocessor.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam0/utils/preprocessor/stringz.h</name>
@@ -2416,6 +2488,12 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam0/utils/preprocessor/mrecursion.h</name>
+				</file>
+			</group>
+			<group>
+				<name>header_files</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam0/utils/header_files/io.h</name>
 				</file>
 			</group>
 			<file>
