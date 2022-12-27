@@ -52,68 +52,64 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: Compiler abstraction layer and code utilities
+// From module: Common SAM0 compiler driver
 #include <compiler.h>
 #include <status_codes.h>
 
-// From module: EIC - External Interrupt Controller
-#include <eic.h>
+// From module: Delay routines
+#include <delay.h>
 
-// From module: FAT file system
-#include <fat.h>
-#include <file.h>
-#include <fs_com.h>
-#include <navigation.h>
-
-// From module: FLASHC - Flash Controller
-#include <flashc.h>
-
-// From module: GPIO - General-Purpose Input/Output
-#include <gpio.h>
+// From module: EXTINT - External Interrupt (Callback APIs)
+#include <extint.h>
+#include <extint_callback.h>
 
 // From module: Generic board support
 #include <board.h>
 
-// From module: Interrupt management - UC3 implementation
+// From module: Interrupt management - SAM implementation
 #include <interrupt.h>
 
-// From module: Memory Control Access Interface
-#include <ctrl_access.h>
-
-// From module: PM Power Manager - UC3 C0/C1/C2 implementation
-#include <power_clocks_lib.h>
-#include <sleep.h>
+// From module: PORT - GPIO Pin Control
+#include <port.h>
 
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: SCIF System Control Interface - UC3C implementation
-#include <scif_uc3c.h>
+// From module: SERCOM Callback API
+#include <sercom.h>
+#include <sercom_interrupt.h>
 
-// From module: Sleep manager - UC3 implementation
-#include <sleepmgr.h>
-#include <uc3/sleepmgr.h>
+// From module: SERCOM USART - Serial Communications (Callback APIs)
+#include <usart.h>
+#include <usart_interrupt.h>
 
-// From module: System Clock Control - UC3 C implementation
-#include <sysclk.h>
+// From module: SYSTEM - Clock Management for SAMD10
+#include <clock.h>
+#include <gclk.h>
 
-// From module: UC3C-EK
-#include <led.h>
+// From module: SYSTEM - Core System Driver
+#include <system.h>
 
-// From module: USB HID Device protocol
-#include <usb_protocol_hid.h>
+// From module: SYSTEM - I/O Pin Multiplexer
+#include <pinmux.h>
 
-// From module: USB Host HID Mouse (Multiple classes support)
-#include <uhi_hid_mouse.h>
+// From module: SYSTEM - Interrupt Driver
+#include <system_interrupt.h>
 
-// From module: USB Host MSC (Multiple classes support)
-#include <uhi_msc_mem.h>
+// From module: SYSTEM - Power Management for SAM D20/D21/R21/D10/D11/DA0/DA1
+#include <power.h>
 
-// From module: USB Host stack core
-#include <uhc.h>
-#include <uhd.h>
+// From module: SYSTEM - Reset Management for SAM D20/D21/R21/D10/D11/DA0/DA1
+#include <reset.h>
 
-// From module: USB MSC Protocol
-#include <usb_protocol_msc.h>
+// From module: Standard serial I/O (stdio)
+#include <stdio_serial.h>
+
+// From module: TC - Timer Counter (Callback APIs)
+#include <tc.h>
+#include <tc_interrupt.h>
+
+// From module: USART - Serial interface- SAM implementation for devices with only USART
+#include <serial.h>
 
 #endif // ASF_H
