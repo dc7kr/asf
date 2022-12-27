@@ -86,7 +86,7 @@
 // From module: Generic board support
 #include <board.h>
 
-// From module: Interrupt management - SAM3 implementation
+// From module: Interrupt management - SAM implementation
 #include <interrupt.h>
 
 // From module: PDC - Peripheral DMA Controller Example

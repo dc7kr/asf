@@ -65,7 +65,7 @@
 // From module: Generic components of unit test framework
 #include <unit_test/suite.h>
 
-// From module: Interrupt management - SAM3 implementation
+// From module: Interrupt management - SAM implementation
 #include <interrupt.h>
 
 // From module: Memory Control Access Interface

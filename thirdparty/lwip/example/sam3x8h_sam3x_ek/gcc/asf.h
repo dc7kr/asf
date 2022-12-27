@@ -78,7 +78,7 @@
 #include <lwip/ip_addr.h>
 #include <lwip/ip_frag.h>
 
-// From module: Interrupt management - SAM3 implementation
+// From module: Interrupt management - SAM implementation
 #include <interrupt.h>
 
 // From module: PIO - Parallel Input/Output Controller
