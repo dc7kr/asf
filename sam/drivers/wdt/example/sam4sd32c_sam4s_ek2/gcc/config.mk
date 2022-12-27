@@ -67,7 +67,6 @@ CSRCS = \
        sam/drivers/usart/usart.c                          \
        sam/drivers/wdt/example/wdt_example.c              \
        sam/drivers/wdt/wdt.c                              \
-       sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
        sam/utils/syscalls/gcc/syscalls.c

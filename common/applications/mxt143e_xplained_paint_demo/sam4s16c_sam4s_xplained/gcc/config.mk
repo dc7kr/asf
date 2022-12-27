@@ -72,7 +72,6 @@ CSRCS = \
        sam/drivers/pmc/sleep.c                            \
        sam/drivers/spi/spi.c                              \
        sam/drivers/twi/twi.c                              \
-       sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
        sam/utils/syscalls/gcc/syscalls.c

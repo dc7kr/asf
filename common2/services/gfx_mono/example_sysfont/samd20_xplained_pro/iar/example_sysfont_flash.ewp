@@ -2429,9 +2429,6 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20j17.h</name>
 							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20e18.h</name>
-							</file>
 						</group>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/samd20g17.h</name>
@@ -2453,9 +2450,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/samd20e14.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/samd20e18.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/samd20e17.h</name>

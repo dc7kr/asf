@@ -67,7 +67,6 @@ CSRCS = \
        sam/drivers/usart/usart.c                          \
        sam/drivers/usart/usart_iso7816_example/usart_iso7816_example.c \
        sam/services/smart_card/iso7816.c                  \
-       sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
        sam/utils/syscalls/gcc/syscalls.c

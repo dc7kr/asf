@@ -64,7 +64,7 @@ CSRCS = \
        common/utils/stdio/write.c                         \
        sam/boards/sam4l_ek/board_monitor.c                \
        sam/boards/sam4l_ek/init.c                         \
-       sam/components/display/c42364a/c42364a.c           \
+       sam/components/display/c42364a/c42364a_lcdca.c     \
        sam/components/display/c42364a/example/c42364a_example.c \
        sam/drivers/bpm/bpm.c                              \
        sam/drivers/flashcalw/flashcalw.c                  \

@@ -2283,10 +2283,16 @@
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/component/component_matrix.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/component/component_pio.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/component/component_efc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/component/component_dacc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/component/component_rtc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/component/component_pwm.h</name>
@@ -2304,9 +2310,6 @@
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/component/component_rtt.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/component/component_pio.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/component/component_supc.h</name>
 							</file>
 							<file>
@@ -2314,9 +2317,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/component/component_tc.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/component/component_rtc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/component/component_chipid.h</name>
@@ -2337,13 +2337,25 @@
 						<file>
 							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n4b.h</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n1c.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n2a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n2b.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n4a.h</name>
+						</file>
 						<group>
 							<name>pio</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/pio/pio_sam3n4b.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/pio/pio_sam3n2a.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/pio/pio_sam3n2a.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/pio/pio_sam3n4b.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/pio/pio_sam3n2b.h</name>
@@ -2367,18 +2379,6 @@
 								<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/pio/pio_sam3n4a.h</name>
 							</file>
 						</group>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n1c.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n2a.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n2b.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n4a.h</name>
-						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3n/include/sam3n4c.h</name>
 						</file>
@@ -2548,9 +2548,6 @@
 							<name>$PROJ_DIR$/../../../../freertos-7.3.0/source/include/FreeRTOS_CLI.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../freertos-7.3.0/source/include/semphr.h</name>
-						</file>
-						<file>
 							<name>$PROJ_DIR$/../../../../freertos-7.3.0/source/include/task.h</name>
 						</file>
 						<file>
@@ -2567,6 +2564,9 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../freertos-7.3.0/source/include/projdefs.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../freertos-7.3.0/source/include/semphr.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../freertos-7.3.0/source/include/croutine.h</name>

@@ -68,7 +68,7 @@ CSRCS = \
        sam/applications/sam4l_qtouch_demo/ui.c            \
        sam/boards/sam4l_ek/board_monitor.c                \
        sam/boards/sam4l_ek/init.c                         \
-       sam/components/display/c42364a/c42364a.c           \
+       sam/components/display/c42364a/c42364a_lcdca.c     \
        sam/drivers/ast/ast.c                              \
        sam/drivers/bpm/bpm.c                              \
        sam/drivers/eic/eic.c                              \

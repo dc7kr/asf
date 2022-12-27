@@ -74,7 +74,6 @@ CSRCS = \
        sam/services/resistive_touch/example/ads7843_example.c \
        sam/services/resistive_touch/example/rtouch_calibrate.c \
        sam/services/resistive_touch/rtouch.c              \
-       sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
        sam/utils/syscalls/gcc/syscalls.c

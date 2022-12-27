@@ -2135,15 +2135,15 @@
 			</group>
 			<group>
 				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gpio/gpio.h</name>
+				</file>
 				<group>
 					<name>sam_gpio</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/services/gpio/sam_gpio/sam_gpio.h</name>
 					</file>
 				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common/services/gpio/gpio.h</name>
-				</file>
 			</group>
 		</group>
 		<group>

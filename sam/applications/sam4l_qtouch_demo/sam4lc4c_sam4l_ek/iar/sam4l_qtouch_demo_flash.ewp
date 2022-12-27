@@ -2041,13 +2041,13 @@
 						<name>$PROJ_DIR$/../../../../../common/services/clock/sam4l/pll.h</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../common/services/clock/sam4l/osc.h</name>
-					</file>
-					<file>
 						<name>$PROJ_DIR$/../../../../../common/services/clock/sam4l/dfll.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../common/services/clock/sam4l/sysclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common/services/clock/sam4l/osc.h</name>
 					</file>
 				</group>
 				<file>
@@ -2638,21 +2638,6 @@
 			</group>
 		</group>
 		<group>
-			<name>components</name>
-			<group>
-				<name>display</name>
-				<group>
-					<name>c42364a</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../components/display/c42364a/c42364a.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../components/display/c42364a/c42364a.h</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
 			<name>boards</name>
 			<group>
 				<name>sam4l_ek</name>
@@ -2716,13 +2701,13 @@
 						</file>
 					</group>
 					<file>
+						<name>$PROJ_DIR$/../conf_c42364a_lcdca.h</name>
+					</file>
+					<file>
 						<name>$PROJ_DIR$/../conf_lcdca.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../conf_c42364a.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../conf_clock.h</name>
@@ -2737,6 +2722,24 @@
 				<file>
 					<name>$PROJ_DIR$/../../event.h</name>
 				</file>
+			</group>
+		</group>
+		<group>
+			<name>components</name>
+			<group>
+				<name>display</name>
+				<group>
+					<name>c42364a</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../components/display/c42364a/c42364a_lcdca.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../components/display/c42364a/c42364a.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../components/display/c42364a/c42364a_segmap.h</name>
+					</file>
+				</group>
 			</group>
 		</group>
 	</group>

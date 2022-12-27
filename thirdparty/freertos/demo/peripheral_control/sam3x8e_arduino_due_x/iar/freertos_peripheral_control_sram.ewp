@@ -300,7 +300,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/twi</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
@@ -314,7 +314,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../demo-tasks</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../freertos-7.3.0/source/portable/iar/arm_cm3</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/uart</state>
@@ -582,7 +582,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/twi</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
@@ -596,7 +596,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../demo-tasks</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../freertos-7.3.0/source/portable/iar/arm_cm3</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/uart</state>
@@ -1256,7 +1256,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/twi</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
@@ -1270,7 +1270,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../demo-tasks</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../freertos-7.3.0/source/portable/iar/arm_cm3</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/uart</state>
@@ -1538,7 +1538,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/twi</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../sam/utils/cmsis/sam3x/include</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
@@ -1552,7 +1552,7 @@
 					<state>$PROJ_DIR$/../../../../../../common/services/sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/usb</state>
 					<state>$PROJ_DIR$/../../demo-tasks</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/twi</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../freertos-7.3.0/source/portable/iar/arm_cm3</state>
 					<state>$PROJ_DIR$/../../../../../../sam/drivers/uart</state>

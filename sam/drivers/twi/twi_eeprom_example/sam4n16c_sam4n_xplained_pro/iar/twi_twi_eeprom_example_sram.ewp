@@ -307,11 +307,9 @@
 					<state>$PROJ_DIR$/../../../../../boards/sam4n_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
@@ -575,11 +573,9 @@
 					<state>$PROJ_DIR$/../../../../../boards/sam4n_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1235,11 +1231,9 @@
 					<state>$PROJ_DIR$/../../../../../boards/sam4n_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1503,11 +1497,9 @@
 					<state>$PROJ_DIR$/../../../../../boards/sam4n_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1942,18 +1934,6 @@
 				</file>
 			</group>
 			<group>
-				<name>gpio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/services/gpio/gpio.h</name>
-				</file>
-				<group>
-					<name>sam_gpio</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/gpio/sam_gpio/sam_gpio.h</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>ioport</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../common/services/ioport/ioport.h</name>
@@ -2017,21 +1997,6 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../uart/uart.h</name>
-				</file>
-			</group>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio_handler.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio.h</name>
 				</file>
 			</group>
 			<group>
@@ -2202,9 +2167,6 @@
 						<group>
 							<name>component</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam4n/include/component/component_dacc.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam4n/include/component/component_rtt.h</name>
 							</file>
 							<file>
@@ -2242,6 +2204,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam4n/include/component/component_pwm.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam4n/include/component/component_dacc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam4n/include/component/component_pmc.h</name>

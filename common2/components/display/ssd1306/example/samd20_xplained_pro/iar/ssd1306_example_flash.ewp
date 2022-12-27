@@ -2225,9 +2225,6 @@
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_tc1.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_tc0.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_wdt.h</name>
 							</file>
 							<file>
@@ -2253,6 +2250,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_evsys.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_tc0.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/instance_tc6.h</name>
@@ -2301,9 +2301,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20g18.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20e18.h</name>
 							</file>
 						</group>
 						<file>
@@ -2386,9 +2383,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/samd20j14.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/samd20e18.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/samd20j16.h</name>

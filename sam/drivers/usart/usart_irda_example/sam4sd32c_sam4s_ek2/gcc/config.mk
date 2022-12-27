@@ -67,7 +67,6 @@ CSRCS = \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
        sam/drivers/usart/usart_irda_example/usart_irda_example.c \
-       sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
        sam/utils/syscalls/gcc/syscalls.c

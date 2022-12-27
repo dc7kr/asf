@@ -130,7 +130,6 @@ CSRCS = \
        sam/drivers/wdt/wdt.c                              \
        sam/services/flash_efc/flash_efc.c                 \
        sam/services/resistive_touch/rtouch.c              \
-       sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
        sam/utils/syscalls/gcc/syscalls.c                  \
