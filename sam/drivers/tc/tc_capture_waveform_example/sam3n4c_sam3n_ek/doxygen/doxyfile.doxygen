@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../utils/header_files ../../../../uart ../../../../../utils ../../../../../utils/cmsis/sam3n/source/templates ../../.. ../../../../usart ../../../../../../common/utils/stdio/stdio_serial ../../../../../../common/boards ../../../../../utils/preprocessor ../../../../pmc ../../../../../../common/services/clock ../../../../../utils/cmsis/sam3n/include ../../../../pio ../../../../../boards ../.. ../../../../../../common/utils ../../../../../boards/sam3n_ek .. ../../../../../../common/services/gpio ../../../../../../common/services/serial ../../../../../../common/services/serial/sam_uart
+INCLUDE_PATH           =  ../../../../../../common/utils/stdio/stdio_serial ../../../../uart ../../../../../boards ../../../../../utils ../../../../../utils/cmsis/sam3n/source/templates ../../.. ../../../../usart ../../../../../utils/header_files ../../../../../../common/boards ../../../../../utils/preprocessor ../../../../../../common/services/clock ../../../../../utils/cmsis/sam3n/include ../../../../pmc ../../../../pio ../.. ../../../../../../common/utils ../../../../../boards/sam3n_ek .. ../../../../../../common/services/gpio ../../../../../../common/services/serial ../../../../../../common/services/serial/sam_uart
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

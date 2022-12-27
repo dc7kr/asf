@@ -44,7 +44,13 @@
 #ifndef CONF_BOARD_H_INCLUDED
 #define CONF_BOARD_H_INCLUDED
 
-// USB pins are used
+/* Nand flash is used */
+#define CONF_BOARD_NAND
+
+// Enable SD MMC interface pins through HSMCI
+#define CONF_BOARD_SD_MMC_HSMCI
+
+/* USB pins are used */
 #define CONF_BOARD_USB_PORT
 
 #endif /* CONF_BOARD_H_INCLUDED */

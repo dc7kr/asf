@@ -56,9 +56,6 @@
 #include <ccp.h>
 #include <xmega_reset_cause.h>
 
-// From module: Common test functions for EBI driver
-#include <common_tests.h>
-
 // From module: EBI - External Bus Interface
 #include <ebi.h>
 #include <ebi_port.h>
@@ -100,7 +97,7 @@
 // From module: Standard serial I/O (stdio) - XMEGA implementation
 #include <stdio_serial.h>
 
-// From module: System Clock Control - XMEGA A1/A3/A3B/A4/D implementation
+// From module: System Clock Control - XMEGA A1/A3/A3B/A4/D/E implementation
 #include <sysclk.h>
 
 // From module: USART - Serial interface - XMEGA implementation
@@ -108,6 +105,9 @@
 
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter
 #include <usart.h>
+
+// From module: Unit Tests for the XMEGA EBI Driver
+#include <common_tests.h>
 
 // From module: XMEGA compiler driver
 #include <compiler.h>

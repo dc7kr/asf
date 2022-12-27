@@ -52,8 +52,11 @@ TARGET_SRAM = device_unit_tests_sram.elf
 
 # List of C source files.
 CSRCS = \
+       common/components/memory/sd_mmc/sd_mmc.c           \
+       common/components/memory/sd_mmc/sd_mmc_mem.c       \
        common/components/memory/virtual_mem/virtual_mem.c \
        common/services/clock/sam3s/sysclk.c               \
+       common/services/delay/sam/cycle_counter.c          \
        common/services/serial/usart_serial.c              \
        common/services/sleepmgr/sam/sleepmgr.c            \
        common/services/storage/ctrl_access/ctrl_access.c  \
@@ -68,6 +71,8 @@ CSRCS = \
        common/utils/unit_test/suite.c                     \
        sam/boards/sam3s_ek2/init.c                        \
        sam/boards/sam3s_ek2/led.c                         \
+       sam/drivers/hsmci/hsmci.c                          \
+       sam/drivers/pdc/pdc.c                              \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
@@ -85,9 +90,12 @@ ASSRCS =
 # List of include paths.
 INC_PATH = \
        common/boards                                      \
+       common/components/memory/sd_mmc                    \
        common/components/memory/virtual_mem               \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
        common/services/sleepmgr                           \
@@ -102,6 +110,8 @@ INC_PATH = \
        common/utils/stdio/stdio_serial                    \
        sam/boards                                         \
        sam/boards/sam3s_ek2                               \
+       sam/drivers/hsmci                                  \
+       sam/drivers/pdc                                    \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/uart                                   \
@@ -161,6 +171,7 @@ CFLAGS =
 CPPFLAGS = \
        -D ACCESS_USB_ENABLED                              \
        -D BOARD=SAM3S_EK2                                 \
+       -D SD_MMC_ENABLE                                   \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D UDD_ENABLE                                      \
        -D VIRTUAL_MEMORY_ENABLE                           \

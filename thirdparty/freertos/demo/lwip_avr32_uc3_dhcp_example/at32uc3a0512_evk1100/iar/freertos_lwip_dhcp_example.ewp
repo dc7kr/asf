@@ -342,19 +342,19 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/evk1100</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-port-1.4.0/at32uc3/include</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../source/include</state>
 					<state>$PROJ_DIR$/../../../common/include</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pwm</state>
 					<state>$PROJ_DIR$/../../display</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4</state>
-					<state>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network/basicweb</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network</state>
@@ -498,19 +498,19 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/evk1100</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-port-1.4.0/at32uc3/include</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../source/include</state>
 					<state>$PROJ_DIR$/../../../common/include</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pwm</state>
 					<state>$PROJ_DIR$/../../display</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4</state>
-					<state>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network/basicweb</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network</state>
@@ -1263,19 +1263,19 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/evk1100</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-port-1.4.0/at32uc3/include</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../source/include</state>
 					<state>$PROJ_DIR$/../../../common/include</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pwm</state>
 					<state>$PROJ_DIR$/../../display</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4</state>
-					<state>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network/basicweb</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network</state>
@@ -1419,19 +1419,19 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/evk1100</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-port-1.4.0/at32uc3/include</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../source/include</state>
 					<state>$PROJ_DIR$/../../../common/include</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pwm</state>
 					<state>$PROJ_DIR$/../../display</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/lwip</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/include/ipv4</state>
-					<state>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network/basicweb</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../lwip_avr32_uc3_example/network</state>
@@ -1886,25 +1886,22 @@
 							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/tcp_in.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/lwip_timers_140.c</name>
+							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/tcp_out.c</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/def.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/stats.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/lwip_timers_140.c</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/sys.c</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/mem.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/tcp_out.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/memp.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/stats.c</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/dns.c</name>
@@ -1925,6 +1922,9 @@
 							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/udp.c</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/memp.c</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/core/netif.c</name>
 						</file>
 					</group>
@@ -1943,6 +1943,9 @@
 							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/api/netbuf.c</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/api/netdb.c</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/api/sockets.c</name>
 						</file>
 						<file>
@@ -1956,9 +1959,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/api/netifapi.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../lwip/lwip-1.4.0/src/api/netdb.c</name>
 						</file>
 					</group>
 				</group>
@@ -1981,51 +1981,6 @@
 		</group>
 		<group>
 			<name>freertos</name>
-			<group>
-				<name>source</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../source/timers.c</name>
-				</file>
-				<group>
-					<name>portable</name>
-					<group>
-						<name>memmang</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../source/portable/memmang/heap_3.c</name>
-						</file>
-					</group>
-					<group>
-						<name>iar</name>
-						<group>
-							<name>avr32_uc3</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3/write.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3/port.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3/read.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3/exception.s82</name>
-							</file>
-						</group>
-					</group>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../source/tasks.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../source/croutine.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../source/list.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../source/queue.c</name>
-				</file>
-			</group>
 			<group>
 				<name>demo</name>
 				<group>
@@ -2086,6 +2041,54 @@
 					</group>
 					<file>
 						<name>$PROJ_DIR$/../../main.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>freertos-7.0.0</name>
+				<group>
+					<name>source</name>
+					<group>
+						<name>portable</name>
+						<group>
+							<name>iar</name>
+							<group>
+								<name>avr32_uc3</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3/read.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3/port.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3/write.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3/exception.s82</name>
+								</file>
+							</group>
+						</group>
+						<group>
+							<name>memmang</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/memmang/heap_3.c</name>
+							</file>
+						</group>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/timers.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/queue.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/list.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/croutine.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/tasks.c</name>
 					</file>
 				</group>
 			</group>

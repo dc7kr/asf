@@ -63,6 +63,7 @@ CSRCS = \
        avr32/drivers/flashcdw/flashcdw.c                  \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \
+       avr32/drivers/pdca/pdca.c                          \
        avr32/drivers/spi/spi.c                            \
        common/components/display/ili9341/ili9341.c        \
        common/services/clock/uc3l/dfll.c                  \
@@ -89,6 +90,7 @@ INC_PATH = \
        avr32/drivers/flashcdw                             \
        avr32/drivers/gpio                                 \
        avr32/drivers/intc                                 \
+       avr32/drivers/pdca                                 \
        avr32/drivers/spi                                  \
        avr32/utils                                        \
        avr32/utils/preprocessor                           \

@@ -63,7 +63,7 @@
 #include <emac.h>
 
 // From module: Ethernet Physical Transceiver (DM9161A)
-#include <dm9161a.h>
+#include <ethernet_phy.h>
 
 // From module: Flash - SAM Flash Service API
 #include <flash_efc.h>

@@ -49,7 +49,7 @@ TARGET = mega_clock_example.elf
 # C source files located from the top-level source directory
 CSRCS = \
        mega/applications/mega_clock_example/mega_clock_example.c \
-       mega/boards/stk600/init.c
+       mega/boards/stk600/rcx_x/init.c
 
 # Assembler source files located from the top-level source directory
 ASSRCS = 

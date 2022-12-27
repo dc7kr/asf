@@ -396,14 +396,15 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../pmic</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../sleep</state>
-					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gfx_mono</state>
 					<state>$PROJ_DIR$/../../../../../boards/xmega_a3bu_xplained</state>
@@ -682,14 +683,15 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../pmic</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../sleep</state>
-					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gfx_mono</state>
 					<state>$PROJ_DIR$/../../../../../boards/xmega_a3bu_xplained</state>
@@ -1433,14 +1435,15 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../pmic</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../sleep</state>
-					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gfx_mono</state>
 					<state>$PROJ_DIR$/../../../../../boards/xmega_a3bu_xplained</state>
@@ -1719,14 +1722,15 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../pmic</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../sleep</state>
-					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/spi</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gfx_mono</state>
 					<state>$PROJ_DIR$/../../../../../boards/xmega_a3bu_xplained</state>

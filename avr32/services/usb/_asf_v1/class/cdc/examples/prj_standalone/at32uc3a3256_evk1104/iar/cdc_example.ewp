@@ -1793,21 +1793,6 @@
 	<group>
 		<name>avr32</name>
 		<group>
-			<name>utils</name>
-			<group>
-				<name>debug</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../utils/debug/print_funcs.c</name>
-				</file>
-			</group>
-			<group>
-				<name>startup</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../utils/startup/trampoline_uc3.s82</name>
-				</file>
-			</group>
-		</group>
-		<group>
 			<name>services</name>
 			<group>
 				<name>usb</name>
@@ -1847,6 +1832,21 @@
 						</group>
 					</group>
 				</group>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>debug</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/debug/print_funcs.c</name>
+				</file>
+			</group>
+			<group>
+				<name>startup</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/startup/trampoline_uc3.s82</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1939,19 +1939,22 @@
 		<group>
 			<name>freertos</name>
 			<group>
-				<name>source</name>
+				<name>freertos-7.0.0</name>
 				<group>
-					<name>portable</name>
+					<name>source</name>
 					<group>
-						<name>iar</name>
+						<name>portable</name>
 						<group>
-							<name>avr32_uc3</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3/read.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3/write.c</name>
-							</file>
+							<name>iar</name>
+							<group>
+								<name>avr32_uc3</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3/read.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3/write.c</name>
+								</file>
+							</group>
 						</group>
 					</group>
 				</group>

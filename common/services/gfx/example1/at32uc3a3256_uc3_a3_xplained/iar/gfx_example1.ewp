@@ -337,6 +337,7 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
@@ -473,6 +474,7 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
@@ -1218,6 +1220,7 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
@@ -1354,6 +1357,7 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
@@ -1773,6 +1777,12 @@
 				</file>
 			</group>
 			<group>
+				<name>pdca</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/pdca/pdca.c</name>
+				</file>
+			</group>
+			<group>
 				<name>spi</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/spi/spi.c</name>
@@ -1833,20 +1843,20 @@
 				</file>
 			</group>
 			<group>
-				<name>clock</name>
-				<group>
-					<name>uc3a3_a4</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../clock/uc3a3_a4/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>spi</name>
 				<group>
 					<name>uc3_spi</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../spi/uc3_spi/spi_master.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>uc3a3_a4</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../clock/uc3a3_a4/sysclk.c</name>
 					</file>
 				</group>
 			</group>

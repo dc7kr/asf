@@ -60,7 +60,7 @@
 #include <emac.h>
 
 // From module: Ethernet Physical Transceiver (DM9161A)
-#include <dm9161a.h>
+#include <ethernet_phy.h>
 
 // From module: FreeRTOS mini Real-Time Kernel
 #include <FreeRTOS.h>

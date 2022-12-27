@@ -1861,46 +1861,19 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>common</name>
+		<name>sam</name>
 		<group>
-			<name>utils</name>
+			<name>components</name>
 			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
-				</file>
-			</group>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>services</name>
-			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
-				</file>
-			</group>
-			<group>
-				<name>clock</name>
+				<name>ethernet_phy</name>
 				<group>
-					<name>sam3x</name>
+					<name>dm9161a</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam3x/sysclk.c</name>
+						<name>$PROJ_DIR$/../../../../../components/ethernet_phy/dm9161a/ethernet_phy.c</name>
 					</file>
 				</group>
 			</group>
 		</group>
-	</group>
-	<group>
-		<name>sam</name>
 		<group>
 			<name>utils</name>
 			<group>
@@ -1926,6 +1899,18 @@
 						</group>
 					</group>
 				</group>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>sam3x_ek</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/sam3x_ek/init.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/sam3x_ek/led.c</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -1976,26 +1961,41 @@
 				</file>
 			</group>
 		</group>
+	</group>
+	<group>
+		<name>common</name>
 		<group>
-			<name>boards</name>
+			<name>utils</name>
 			<group>
-				<name>sam3x_ek</name>
+				<name>stdio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../boards/sam3x_ek/led.c</name>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../boards/sam3x_ek/init.c</name>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
+				</file>
+			</group>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
 				</file>
 			</group>
 		</group>
 		<group>
-			<name>components</name>
+			<name>services</name>
 			<group>
-				<name>ethernet_phy</name>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
+			</group>
+			<group>
+				<name>clock</name>
 				<group>
-					<name>dm9161a</name>
+					<name>sam3x</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../components/ethernet_phy/dm9161a/dm9161a.c</name>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam3x/sysclk.c</name>
 					</file>
 				</group>
 			</group>

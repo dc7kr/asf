@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../../../../boards/stk600/init.c ../../tc_timeout_example1.c ../../../tc_timeout.c  ../../../../../utils/compiler.h ../conf_tc_timeout.h ../../../../../utils/status_codes.h ../conf_board.h ../../../../../../common/boards/board.h ../../../../../../common/utils/interrupt/interrupt_avr8.h ../../../../../../common/utils/parts.h ../../../tc_timeout.h ../../../../../../common/utils/interrupt.h
+INPUT                  =  ../../../../../boards/stk600/rcx_x/init.c ../../tc_timeout_example1.c ../../../tc_timeout.c  ../../../../../../common/boards/board.h ../../../../../utils/assembler.h ../conf_tc_timeout.h ../../../../../utils/status_codes.h ../conf_board.h ../../../../../utils/compiler.h ../../../../../../common/utils/interrupt/interrupt_avr8.h ../../../../../../common/utils/parts.h ../../../tc_timeout.h ../../../../../../common/utils/interrupt.h ../../../../../utils/progmem.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is

@@ -3,7 +3,7 @@
  *
  * \brief Common User Interface for USB host MSC application
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -70,9 +70,10 @@ void ui_usb_vbus_error(void);
 
 /*! \brief Notify that a USB device has been connected or disconnected.
  *
- * \param b_present true, if a device has been connected
+ * \param dev         Pointer on USB device information
+ * \param b_present   true, if the device has been connected
  */
-void ui_usb_connection_event(bool b_present);
+void ui_usb_connection_event(uhc_device_t *dev, bool b_present);
 
 //! \brief Notify that a USB device or the host has wake up the USB line.
 void ui_usb_wakeup_event(void);
@@ -85,7 +86,7 @@ void ui_test_flag_reset(void);
 
 /*! \brief Displays the result of the test
  *
- * \param b_success   true, if the test is successful
+ * \param b_success   true, if the test is successfull
  */
 void ui_test_finish(bool b_success);
 

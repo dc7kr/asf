@@ -60,7 +60,7 @@
 #include <emac.h>
 
 // From module: Ethernet Physical Transceiver (DM9161A)
-#include <dm9161a.h>
+#include <ethernet_phy.h>
 
 // From module: GPIO - General purpose Input/Output
 #include <gpio.h>

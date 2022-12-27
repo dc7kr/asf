@@ -63,10 +63,9 @@ CSRCS = \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
-       sam/drivers/tc/tc.c                                \
        sam/drivers/uart/uart.c                            \
        sam/drivers/usart/usart.c                          \
-       sam/drivers/usart/usart_rs485_example/usart_rs485_example.c \
+       sam/drivers/usart/usart_rs485_example/usart_rs485_example_pdc.c \
        sam/utils/cmsis/sam4s/source/templates/exceptions.c \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
@@ -89,7 +88,6 @@ INC_PATH = \
        sam/drivers/pdc                                    \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
-       sam/drivers/tc                                     \
        sam/drivers/uart                                   \
        sam/drivers/usart                                  \
        sam/drivers/usart/usart_rs485_example              \

@@ -59,6 +59,9 @@
 #include <ccp.h>
 #include <xmega_reset_cause.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: GFX Monochrome - Monochrome Graphic Library
 #include <gfx_mono.h>
 
@@ -90,7 +93,7 @@
 #include <usart_spi.h>
 #include <xmega_usart_spi/usart_spi.h>
 
-// From module: ST7565R LCD Controller - XMEGA implementation
+// From module: ST7565R LCD controller
 #include <st7565r.h>
 
 // From module: Sleep Controller driver
@@ -100,7 +103,7 @@
 #include <sleepmgr.h>
 #include <xmega/sleepmgr.h>
 
-// From module: System Clock Control - XMEGA A1U/A3U/A3BU/A4U implementation
+// From module: System Clock Control - XMEGA A1U/A3U/A3BU/A4U/B/C implementation
 #include <sysclk.h>
 
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter

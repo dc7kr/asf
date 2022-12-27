@@ -354,6 +354,7 @@
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
 					<state>$PROJ_DIR$/.</state>
@@ -504,6 +505,7 @@
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1263,6 +1265,7 @@
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1413,6 +1416,7 @@
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../services/usb/class/hid</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1964,6 +1968,12 @@
 				<name>twim</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../avr32/drivers/twim/twim.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pdca</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../avr32/drivers/pdca/pdca.c</name>
 				</file>
 			</group>
 			<group>

@@ -75,6 +75,7 @@ INC_PATH = \
        common/boards                                      \
        common/components/display/st7565r                  \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/gfx_mono                           \
        common/services/gpio                               \
        common/services/ioport                             \

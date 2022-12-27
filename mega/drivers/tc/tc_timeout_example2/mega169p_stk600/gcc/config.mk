@@ -48,7 +48,7 @@ TARGET = tc_timeout_example2.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
-       mega/boards/stk600/init.c                          \
+       mega/boards/stk600/rcx_x/init.c                    \
        mega/drivers/tc/tc_timeout.c                       \
        mega/drivers/tc/tc_timeout_example2/tc_timeout_example2.c
 

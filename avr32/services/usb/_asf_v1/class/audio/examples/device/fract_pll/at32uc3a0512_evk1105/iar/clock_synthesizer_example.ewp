@@ -2116,19 +2116,22 @@
 		<group>
 			<name>freertos</name>
 			<group>
-				<name>source</name>
+				<name>freertos-7.0.0</name>
 				<group>
-					<name>portable</name>
+					<name>source</name>
 					<group>
-						<name>iar</name>
+						<name>portable</name>
 						<group>
-							<name>avr32_uc3</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3/read.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3/write.c</name>
-							</file>
+							<name>iar</name>
+							<group>
+								<name>avr32_uc3</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3/read.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3/write.c</name>
+								</file>
+							</group>
 						</group>
 					</group>
 				</group>

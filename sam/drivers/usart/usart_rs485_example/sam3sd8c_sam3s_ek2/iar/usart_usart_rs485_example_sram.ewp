@@ -292,28 +292,27 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
-					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../pdc</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../tc</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/include</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../pdc</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -560,28 +559,27 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
-					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../pdc</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../tc</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/include</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../pdc</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1220,28 +1218,27 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
-					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../pdc</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../tc</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/include</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../pdc</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1488,28 +1485,27 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
-					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
-					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
-					<state>$PROJ_DIR$/../../../../pdc</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/source/templates</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
-					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../tc</state>
+					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
+					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
+					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3s8/include</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../pdc</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek2</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1912,36 +1908,30 @@
 				</file>
 			</group>
 			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
+				</file>
+			</group>
+			<group>
 				<name>usart</name>
-				<group>
-					<name>usart_rs485_example</name>
-					<file>
-						<name>$PROJ_DIR$/../../usart_rs485_example.c</name>
-					</file>
-				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../usart.c</name>
 				</file>
+				<group>
+					<name>usart_rs485_example</name>
+					<file>
+						<name>$PROJ_DIR$/../../usart_rs485_example_pdc.c</name>
+					</file>
+				</group>
 			</group>
 			<group>
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
-				</file>
-			</group>
-			<group>
-				<name>tc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../tc/tc.c</name>
 				</file>
 			</group>
 		</group>
@@ -1977,10 +1967,10 @@
 			<group>
 				<name>sam3s_ek2</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../boards/sam3s_ek2/led.c</name>
+					<name>$PROJ_DIR$/../../../../../boards/sam3s_ek2/init.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../boards/sam3s_ek2/init.c</name>
+					<name>$PROJ_DIR$/../../../../../boards/sam3s_ek2/led.c</name>
 				</file>
 			</group>
 		</group>

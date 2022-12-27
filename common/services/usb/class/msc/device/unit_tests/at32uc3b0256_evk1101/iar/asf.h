@@ -52,9 +52,15 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
+// From module: CPU Cycle Counter
+#include <cycle_counter.h>
+
 // From module: Compiler abstraction layer and code utilities
 #include <compiler.h>
 #include <status_codes.h>
+
+// From module: Delay routines
+#include <delay.h>
 
 // From module: EVK1101
 #include <led.h>
@@ -71,6 +77,9 @@
 // From module: Generic components of unit test framework
 #include <unit_test/suite.h>
 
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
+
 // From module: Interrupt management - UC3 implementation
 #include <interrupt.h>
 
@@ -84,9 +93,11 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: SD/MMC card access using SPI
-#include <sd_mmc_spi.h>
-#include <sd_mmc_spi_mem.h>
+// From module: SD/MMC stack + Memory Control Access (aka ctrl_access, required for file system or USB)
+#include <sd_mmc_mem.h>
+
+// From module: SD/MMC stack on SPI interface
+#include <sd_mmc.h>
 
 // From module: SPI - Serial Peripheral Interface
 #include <spi.h>

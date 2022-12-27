@@ -292,22 +292,22 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/include</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../boards/arduino_due_x</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
@@ -559,22 +559,22 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/include</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../boards/arduino_due_x</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
@@ -1218,22 +1218,22 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/include</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../boards/arduino_due_x</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
@@ -1485,22 +1485,22 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../usart</state>
-					<state>$PROJ_DIR$/../../../../../../common/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
-					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/include</state>
-					<state>$PROJ_DIR$/../../../../pio</state>
+					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../boards/arduino_due_x</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../pio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/serial</state>
@@ -1910,10 +1910,10 @@
 								</file>
 							</group>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/source/templates/exceptions.c</name>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3x/source/templates/exceptions.c</name>
 							</file>
 						</group>
 					</group>
@@ -1921,16 +1921,19 @@
 			</group>
 		</group>
 		<group>
-			<name>boards</name>
+			<name>drivers</name>
 			<group>
-				<name>arduino_due_x</name>
+				<name>tc</name>
+				<group>
+					<name>tc_capture_waveform_example</name>
+					<file>
+						<name>$PROJ_DIR$/../../tc_capture_waveform_example.c</name>
+					</file>
+				</group>
 				<file>
-					<name>$PROJ_DIR$/../../../../../boards/arduino_due_x/init.c</name>
+					<name>$PROJ_DIR$/../../../tc.c</name>
 				</file>
 			</group>
-		</group>
-		<group>
-			<name>drivers</name>
 			<group>
 				<name>uart</name>
 				<file>
@@ -1958,16 +1961,13 @@
 					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
 				</file>
 			</group>
+		</group>
+		<group>
+			<name>boards</name>
 			<group>
-				<name>tc</name>
-				<group>
-					<name>tc_capture_waveform_example</name>
-					<file>
-						<name>$PROJ_DIR$/../../tc_capture_waveform_example.c</name>
-					</file>
-				</group>
+				<name>arduino_due_x</name>
 				<file>
-					<name>$PROJ_DIR$/../../../tc.c</name>
+					<name>$PROJ_DIR$/../../../../../boards/arduino_due_x/init.c</name>
 				</file>
 			</group>
 		</group>

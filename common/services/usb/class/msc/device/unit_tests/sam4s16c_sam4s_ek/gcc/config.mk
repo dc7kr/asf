@@ -56,6 +56,8 @@ CSRCS = \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_model.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_raw_smc.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_spare_scheme.c \
+       common/components/memory/sd_mmc/sd_mmc.c           \
+       common/components/memory/sd_mmc/sd_mmc_mem.c       \
        common/services/clock/sam4s/sysclk.c               \
        common/services/delay/sam/cycle_counter.c          \
        common/services/serial/usart_serial.c              \
@@ -74,7 +76,9 @@ CSRCS = \
        sam/boards/sam4s_ek/init.c                         \
        sam/boards/sam4s_ek/led.c                          \
        sam/drivers/ebi/smc/smc.c                          \
+       sam/drivers/hsmci/hsmci.c                          \
        sam/drivers/matrix/matrix.c                        \
+       sam/drivers/pdc/pdc.c                              \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
@@ -94,9 +98,11 @@ INC_PATH = \
        common/boards                                      \
        common/components/memory/nand_flash/nand_flash_ebi \
        common/components/memory/nand_flash/nand_flash_ebi/ftl_lib \
+       common/components/memory/sd_mmc                    \
        common/services/clock                              \
        common/services/delay                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
        common/services/sleepmgr                           \
@@ -113,7 +119,9 @@ INC_PATH = \
        sam/boards                                         \
        sam/boards/sam4s_ek                                \
        sam/drivers/ebi/smc                                \
+       sam/drivers/hsmci                                  \
        sam/drivers/matrix                                 \
+       sam/drivers/pdc                                    \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/uart                                   \
@@ -179,6 +187,7 @@ CPPFLAGS = \
        -D ACCESS_USB_ENABLED                              \
        -D ARM_MATH_CM4=true                               \
        -D BOARD=SAM4S_EK                                  \
+       -D SD_MMC_ENABLE                                   \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D UDD_ENABLE                                      \
        -D _ASSERT_ENABLE_                                 \

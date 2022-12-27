@@ -1992,9 +1992,12 @@
 			<name>boards</name>
 			<group>
 				<name>stk600</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../boards/stk600/init.c</name>
-				</file>
+				<group>
+					<name>rcx_x</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../boards/stk600/rcx_x/init.c</name>
+					</file>
+				</group>
 			</group>
 		</group>
 		<group>

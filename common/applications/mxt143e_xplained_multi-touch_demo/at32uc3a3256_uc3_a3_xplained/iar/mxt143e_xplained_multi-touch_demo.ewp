@@ -325,7 +325,7 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../services/spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../services/gfx</state>
@@ -345,6 +345,7 @@
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -465,7 +466,7 @@
 				<option>
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../services/spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../services/gfx</state>
@@ -485,6 +486,7 @@
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1214,7 +1216,7 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../services/spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../services/gfx</state>
@@ -1234,6 +1236,7 @@
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1354,7 +1357,7 @@
 				<option>
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../services/spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../services/gfx</state>
@@ -1374,6 +1377,7 @@
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../services/spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1850,19 +1854,13 @@
 	<group>
 		<name>avr32</name>
 		<group>
-			<name>boards</name>
+			<name>drivers</name>
 			<group>
-				<name>uc3_a3_xplained</name>
+				<name>pdca</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../avr32/boards/uc3_a3_xplained/led.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../avr32/boards/uc3_a3_xplained/init.c</name>
+					<name>$PROJ_DIR$/../../../../../avr32/drivers/pdca/pdca.c</name>
 				</file>
 			</group>
-		</group>
-		<group>
-			<name>drivers</name>
 			<group>
 				<name>twim</name>
 				<file>
@@ -1885,6 +1883,18 @@
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../avr32/drivers/flashc/flashc.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>uc3_a3_xplained</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/boards/uc3_a3_xplained/led.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/boards/uc3_a3_xplained/init.c</name>
 				</file>
 			</group>
 		</group>

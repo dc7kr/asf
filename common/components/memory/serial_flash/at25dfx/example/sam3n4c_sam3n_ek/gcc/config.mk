@@ -64,7 +64,6 @@ CSRCS = \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
        sam/drivers/spi/spi.c                              \
-       sam/drivers/uart/uart.c                            \
        sam/utils/cmsis/sam3n/source/templates/exceptions.c \
        sam/utils/cmsis/sam3n/source/templates/gcc/startup_sam3n.c \
        sam/utils/cmsis/sam3n/source/templates/system_sam3n.c \
@@ -89,7 +88,6 @@ INC_PATH = \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/spi                                    \
-       sam/drivers/uart                                   \
        sam/utils                                          \
        sam/utils/cmsis/sam3n/include                      \
        sam/utils/cmsis/sam3n/source/templates             \

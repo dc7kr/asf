@@ -1906,21 +1906,21 @@
 				</file>
 			</group>
 			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../uart/uart.c</name>
-				</file>
-			</group>
-			<group>
 				<name>usart</name>
 				<group>
 					<name>usart_serial_example</name>
 					<file>
-						<name>$PROJ_DIR$/../../usart_serial_example.c</name>
+						<name>$PROJ_DIR$/../../usart_serial_example_pdc.c</name>
 					</file>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../usart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../uart/uart.c</name>
 				</file>
 			</group>
 			<group>
@@ -1930,18 +1930,18 @@
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
 				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
+				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
 				</file>
+			</group>
+			<group>
+				<name>pmc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
+					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
 				</file>
 			</group>
 		</group>
@@ -1971,10 +1971,10 @@
 			<group>
 				<name>stdio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
 				</file>
 			</group>
 			<group>

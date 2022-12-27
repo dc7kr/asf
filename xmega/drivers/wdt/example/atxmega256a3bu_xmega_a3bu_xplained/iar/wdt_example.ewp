@@ -395,6 +395,7 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../cpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
@@ -673,6 +674,7 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../cpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
@@ -1416,6 +1418,7 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../cpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
@@ -1694,6 +1697,7 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>$PROJ_DIR$/../../../../../../common/services/delay</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
 					<state>$PROJ_DIR$/../../../../cpu</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>

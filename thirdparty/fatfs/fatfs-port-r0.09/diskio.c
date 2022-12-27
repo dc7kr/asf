@@ -56,9 +56,18 @@ extern "C" {
 #include <stdio.h>
 #include <assert.h>
 
-#if SAM
+#if (SAM3 || SAM4S)
 # include <rtc.h>
 #endif
+
+/**
+ * \defgroup thirdparty_fatfs_port_group Port of low level driver for FatFS
+ *
+ * Low level driver for FatFS. The driver is based on the ctrl access module
+ * of the specific MCU device.
+ *
+ * @{
+ */
 
 /** Default sector size */
 #define SECTOR_SIZE_DEFAULT 512
@@ -75,26 +84,48 @@ extern "C" {
  *
  * \param drv Physical drive number (0..).
  *
- * \return RES_OK if a disk is found, otherwise RES_ERROR.
+ * \return 0 or disk status in combination of DSTATUS bits
+ *         (STA_NOINIT, STA_PROTECT).
  */
 DSTATUS disk_initialize(BYTE drv)
 {
-#if SAM
+	int i;
+	Ctrl_status mem_status;
+
+#if (SAM3 || SAM4S)
 	/* Default RTC configuration, 24-hour mode */
 	rtc_set_hour_mode(RTC, 0);
 #endif
 
+#if LUN_USB
+	/* USB disk with multiple LUNs */
+	if (drv > LUN_ID_USB + Lun_usb_get_lun()) {
+		return STA_NOINIT;
+	}
+#else
 	if (drv > MAX_LUN) {
 		/* At least one of the LUN should be defined */
 		return STA_NOINIT;
 	}
-
-	/* The memory should already be initialized */
-	if (mem_test_unit_ready(drv) == CTRL_GOOD) {
-		return RES_OK;
-	} else {
+#endif
+	/* Check LUN ready (USB disk report CTRL_BUSY then CTRL_GOOD) */
+	for (i = 0; i < 2; i ++) {
+		mem_status = mem_test_unit_ready(drv);
+		if (CTRL_BUSY != mem_status) {
+			break;
+		}
+	}
+	if (mem_status != CTRL_GOOD) {
 		return STA_NOINIT;
 	}
+
+	/* Check Write Protection Status */
+	if (mem_wr_protect(drv)) {
+		return STA_PROTECT;
+	}
+
+	/* The memory should already be initialized */
+	return 0;
 }
 
 /**
@@ -102,14 +133,18 @@ DSTATUS disk_initialize(BYTE drv)
  *
  * \param drv Physical drive number (0..).
  *
- * \return RES_OK if the disk is ready, otherwise RES_ERROR.
+ * \return 0 or disk status in combination of DSTATUS bits
+ *         (STA_NOINIT, STA_NODISK, STA_PROTECT).
  */
 DSTATUS disk_status(BYTE drv)
 {
-	if (mem_test_unit_ready(drv) == CTRL_GOOD) {
-		return RES_OK;
-	} else {
-		return STA_NODISK;
+	switch (mem_test_unit_ready(drv)) {
+	case CTRL_GOOD:
+		return 0;
+	case CTRL_NO_PRESENT:
+		return STA_NOINIT | STA_NODISK;
+	default:
+		return STA_NOINIT;
 	}
 }
 
@@ -298,6 +333,8 @@ DRESULT disk_ioctl(BYTE drv, BYTE ctrl, void *buff)
 
 	return res;
 }
+
+//@}
 
 /// @cond 0
 /**INDENT-OFF**/

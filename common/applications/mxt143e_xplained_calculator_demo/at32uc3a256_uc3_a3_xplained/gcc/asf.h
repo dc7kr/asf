@@ -93,6 +93,9 @@
 // From module: MEMBAG Memory Bag Allocator
 #include <membag.h>
 
+// From module: PDCA - Peripheral DMA Controller
+#include <pdca.h>
+
 // From module: Part identification macros
 #include <parts.h>
 

@@ -68,6 +68,7 @@ INC_PATH = \
        common/components/display/st7565r                  \
        common/components/display/st7565r/example/atxmega256a3bu_xmega_a3bu_xplained \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/gpio                               \
        common/services/ioport                             \
        common/services/spi                                \

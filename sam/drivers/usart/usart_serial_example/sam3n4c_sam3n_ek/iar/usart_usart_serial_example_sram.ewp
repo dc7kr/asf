@@ -1857,46 +1857,55 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>common</name>
+		<name>sam</name>
 		<group>
-			<name>utils</name>
+			<name>drivers</name>
 			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
-				</file>
-			</group>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>services</name>
-			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
-				</file>
-			</group>
-			<group>
-				<name>clock</name>
+				<name>usart</name>
 				<group>
-					<name>sam3n</name>
+					<name>usart_serial_example</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam3n/sysclk.c</name>
+						<name>$PROJ_DIR$/../../usart_serial_example_pdc.c</name>
 					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../usart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pdc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pdc/pdc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../uart/uart.c</name>
+				</file>
+			</group>
+			<group>
+				<name>tc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../tc/tc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
+				</file>
 			</group>
 		</group>
-	</group>
-	<group>
-		<name>sam</name>
 		<group>
 			<name>utils</name>
 			<group>
@@ -1936,52 +1945,43 @@
 				</file>
 			</group>
 		</group>
+	</group>
+	<group>
+		<name>common</name>
 		<group>
-			<name>drivers</name>
+			<name>utils</name>
 			<group>
-				<name>pdc</name>
+				<name>stdio</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../pdc/pdc.c</name>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/write.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/stdio/read.c</name>
 				</file>
 			</group>
 			<group>
-				<name>usart</name>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>services</name>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
+			</group>
+			<group>
+				<name>clock</name>
 				<group>
-					<name>usart_serial_example</name>
+					<name>sam3n</name>
 					<file>
-						<name>$PROJ_DIR$/../../usart_serial_example.c</name>
+						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam3n/sysclk.c</name>
 					</file>
 				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../usart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../uart/uart.c</name>
-				</file>
-			</group>
-			<group>
-				<name>tc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../tc/tc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
-				</file>
 			</group>
 		</group>
 	</group>

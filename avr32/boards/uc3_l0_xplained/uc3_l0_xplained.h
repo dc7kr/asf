@@ -86,11 +86,11 @@ extern "C" {
 //!< Osc32 frequency (Hz.) and startup time (RCOsc periods).
 
 #define FOSC32                  (32768)
-#define OSC32_STARTUP           (AVR32_SCIF_OSCCTRL32_STARTUP_8192_RCOSC)
+#define OSC32_STARTUP           (AVR32_SCIF_OSCCTRL32_STARTUP_131072_RCOSC)
 
 #define BOARD_OSC32_IS_XTAL     true
 #define BOARD_OSC32_HZ          FOSC32
-#define BOARD_OSC32_STARTUP_US  (71000)
+#define BOARD_OSC32_STARTUP_US  (920000)
 #define BOARD_OSC32_PINSEL      (0)
 
 
@@ -220,6 +220,7 @@ extern "C" {
 /** \name MXT143E Xplained top module
  * @{
  */
+#define MXT143E_XPLAINED_PDCA_PID      AVR32_PDCA_PID_SPI0_TX
 #define MXT143E_XPLAINED_SPI           &AVR32_SPI
 #define MXT143E_XPLAINED_TWI           &AVR32_TWIM0
 #define MXT143E_XPLAINED_CS            (AVR32_PIN_PA08)

@@ -51,7 +51,7 @@ CSRCS = \
        common/services/clock/xmega/sysclk.c               \
        common/services/sleepmgr/xmega/sleepmgr.c          \
        thirdparty/qtouch/generic/avr8/qtouch/examples/example_qt_qt600/BitBangSPI_Master.c \
-       thirdparty/qtouch/generic/avr8/qtouch/examples/example_qt_qt600/main_xm128a1.c \
+       thirdparty/qtouch/generic/avr8/qtouch/examples/example_qt_qt600/atxmega128a1_qt600/main_xm128a1.c \
        thirdparty/qtouch/qdebug/QDebug.c                  \
        thirdparty/qtouch/qdebug/QDebugTransport.c         \
        thirdparty/qtouch/qdebug/eeprom_access.c           \

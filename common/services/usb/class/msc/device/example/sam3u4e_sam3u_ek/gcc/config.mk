@@ -52,10 +52,18 @@ TARGET_SRAM = device_example_sram.elf
 
 # List of C source files.
 CSRCS = \
+       common/components/memory/nand_flash/nand_flash_ebi/nand_flash_ecc_sw.c \
+       common/components/memory/nand_flash/nand_flash_ebi/nand_flash_model.c \
+       common/components/memory/nand_flash/nand_flash_ebi/nand_flash_raw_nfc.c \
+       common/components/memory/nand_flash/nand_flash_ebi/nand_flash_spare_scheme.c \
+       common/components/memory/sd_mmc/sd_mmc.c           \
+       common/components/memory/sd_mmc/sd_mmc_mem.c       \
        common/components/memory/virtual_mem/virtual_mem.c \
        common/services/clock/sam3u/sysclk.c               \
+       common/services/delay/sam/cycle_counter.c          \
        common/services/sleepmgr/sam/sleepmgr.c            \
        common/services/storage/ctrl_access/ctrl_access.c  \
+       common/services/storage/ecc_hamming/ecc-sw.c       \
        common/services/usb/class/msc/device/example/main.c \
        common/services/usb/class/msc/device/example/memories_initialization_sam.c \
        common/services/usb/class/msc/device/example/sam3u4e_sam3u_ek/ui.c \
@@ -65,7 +73,9 @@ CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3u_ek/init.c                         \
        sam/boards/sam3u_ek/led.c                          \
+       sam/drivers/dmac/dmac.c                            \
        sam/drivers/ebi/smc/smc.c                          \
+       sam/drivers/hsmci/hsmci.c                          \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
@@ -81,11 +91,17 @@ ASSRCS =
 # List of include paths.
 INC_PATH = \
        common/boards                                      \
+       common/components/memory/nand_flash/nand_flash_ebi \
+       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib \
+       common/components/memory/sd_mmc                    \
        common/components/memory/virtual_mem               \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/sleepmgr                           \
        common/services/storage/ctrl_access                \
+       common/services/storage/ecc_hamming                \
        common/services/usb                                \
        common/services/usb/class/msc                      \
        common/services/usb/class/msc/device               \
@@ -95,7 +111,9 @@ INC_PATH = \
        common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3u_ek                                \
+       sam/drivers/dmac                                   \
        sam/drivers/ebi/smc                                \
+       sam/drivers/hsmci                                  \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/udphs                                  \
@@ -108,10 +126,12 @@ INC_PATH = \
        ./common/services/usb/class/msc/device/example/sam3u4e_sam3u_ek/gcc
 
 # Additional search paths for libraries.
-LIB_PATH = 
+LIB_PATH =  \
+       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/gcc
 
 # List of libraries to use during linking.
-LIBS = 
+LIBS =  \
+       _nand_flash_cortexm3_3u                           
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3u/sam3u4/gcc/flash.ld
@@ -122,7 +142,7 @@ DEBUG_SCRIPT_FLASH = sam/boards/sam3u_ek/debug_scripts/gcc/sam3u_ek_flash.gdb
 DEBUG_SCRIPT_SRAM  = sam/boards/sam3u_ek/debug_scripts/gcc/sam3u_ek_sram.gdb
 
 # Project type parameter: all, sram or flash
-PROJECT_TYPE        = all
+PROJECT_TYPE        = flash
 
 # Additional options for debugging. By default the common Makefile.in will
 # add -g3.
@@ -153,6 +173,7 @@ CFLAGS =
 CPPFLAGS = \
        -D ACCESS_USB_ENABLED                              \
        -D BOARD=SAM3U_EK                                  \
+       -D SD_MMC_ENABLE                                   \
        -D UDD_ENABLE                                      \
        -D VIRTUAL_MEMORY_ENABLE                           \
        -D __SAM3U4E__

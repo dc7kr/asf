@@ -59,6 +59,9 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: EVK1104
 #include <led.h>
 
@@ -71,12 +74,14 @@
 // From module: Generic board support
 #include <board.h>
 
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
+
 // From module: Interrupt management - UC3 implementation
 #include <interrupt.h>
 
 // From module: MCI - MultiMedia Card Interface
 #include <mci.h>
-#include <sd_mmc_cmd.h>
 
 // From module: Memory Control Access Interface
 #include <ctrl_access.h>
@@ -88,9 +93,11 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: SD/MMC card access using MCI
-#include <sd_mmc_mci.h>
-#include <sd_mmc_mci_mem.h>
+// From module: SD/MMC stack + Memory Control Access (aka ctrl_access, required for file system or USB)
+#include <sd_mmc_mem.h>
+
+// From module: SD/MMC stack on Multimedia Card interface
+#include <sd_mmc.h>
 
 // From module: SPI - Serial Peripheral Interface
 #include <spi.h>

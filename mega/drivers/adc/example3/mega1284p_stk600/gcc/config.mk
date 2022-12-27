@@ -48,7 +48,7 @@ TARGET = adc_example3.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
-       mega/boards/stk600/init.c                          \
+       mega/boards/stk600/rcx_x/init.c                    \
        mega/drivers/adc/example3/adc_example3.c
 
 # Assembler source files located from the top-level source directory

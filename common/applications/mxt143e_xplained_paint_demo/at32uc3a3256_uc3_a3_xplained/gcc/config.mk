@@ -63,6 +63,7 @@ CSRCS = \
        avr32/drivers/flashc/flashc.c                      \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \
+       avr32/drivers/pdca/pdca.c                          \
        avr32/drivers/spi/spi.c                            \
        avr32/drivers/twim/twim.c                          \
        common/applications/mxt143e_xplained_paint_demo/paint_demo.c \
@@ -89,6 +90,7 @@ INC_PATH = \
        avr32/drivers/flashc                               \
        avr32/drivers/gpio                                 \
        avr32/drivers/intc                                 \
+       avr32/drivers/pdca                                 \
        avr32/drivers/spi                                  \
        avr32/drivers/twim                                 \
        avr32/utils                                        \

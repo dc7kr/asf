@@ -79,20 +79,20 @@ CSRCS = \
        avr32/drivers/usbb/_asf_v1/examples/host_template_task.c \
        avr32/drivers/usbb/_asf_v1/usb_drv.c               \
        avr32/utils/debug/print_funcs.c                    \
-       thirdparty/freertos/source/croutine.c              \
-       thirdparty/freertos/source/list.c                  \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3/port.c \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3/read.c \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3/write.c \
-       thirdparty/freertos/source/portable/memmang/heap_3.c \
-       thirdparty/freertos/source/queue.c                 \
-       thirdparty/freertos/source/tasks.c                 \
-       thirdparty/freertos/source/timers.c
+       thirdparty/freertos/freertos-7.0.0/source/croutine.c \
+       thirdparty/freertos/freertos-7.0.0/source/list.c   \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3/port.c \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3/read.c \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3/write.c \
+       thirdparty/freertos/freertos-7.0.0/source/portable/memmang/heap_3.c \
+       thirdparty/freertos/freertos-7.0.0/source/queue.c  \
+       thirdparty/freertos/freertos-7.0.0/source/tasks.c  \
+       thirdparty/freertos/freertos-7.0.0/source/timers.c
 
 # List of assembler source files.
 ASSRCS = \
        avr32/utils/startup/trampoline_uc3.S               \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3/exception.S
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3/exception.S
 
 # List of include paths.
 INC_PATH = \
@@ -119,8 +119,8 @@ INC_PATH = \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/utils                                       \
-       thirdparty/freertos/source/include                 \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3 \
+       thirdparty/freertos/freertos-7.0.0/source/include  \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3 \
        ./avr32/drivers/usbb/_asf_v1/examples/enum_example_freertos/at32uc3a3256_evk1104/gcc
 
 # Additional search paths for libraries.

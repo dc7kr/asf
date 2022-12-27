@@ -130,4 +130,5 @@ CPPFLAGS = \
        -D IOPORT_XMEGA_COMPAT
 
 # Extra flags to use when linking
-LDFLAGS = 
+LDFLAGS =  \
+       -Wl,--section-start=.BOOT=0x20000                 

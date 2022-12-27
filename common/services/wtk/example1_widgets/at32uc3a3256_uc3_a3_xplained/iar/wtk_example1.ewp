@@ -326,7 +326,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
 					<state>$PROJ_DIR$/../../../../twi</state>
@@ -347,6 +347,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -468,7 +469,7 @@
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
 					<state>$PROJ_DIR$/../../../../twi</state>
@@ -489,6 +490,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1219,7 +1221,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
 					<state>$PROJ_DIR$/../../../../twi</state>
@@ -1240,6 +1242,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1361,7 +1364,7 @@
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards</state>
-					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/twim</state>
 					<state>$PROJ_DIR$/../../../../gfx</state>
 					<state>$PROJ_DIR$/../../../../twi</state>
@@ -1382,6 +1385,7 @@
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/flashc</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1923,6 +1927,12 @@
 				<name>flashc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/flashc/flashc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pdca</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/pdca/pdca.c</name>
 				</file>
 			</group>
 			<group>

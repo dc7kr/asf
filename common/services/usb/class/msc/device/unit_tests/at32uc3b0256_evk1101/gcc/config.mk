@@ -60,8 +60,6 @@ TARGET = device_unit_tests.elf
 CSRCS = \
        avr32/boards/evk1101/init.c                        \
        avr32/boards/evk1101/led.c                         \
-       avr32/components/memory/sd_mmc/sd_mmc_spi/sd_mmc_spi.c \
-       avr32/components/memory/sd_mmc/sd_mmc_spi/sd_mmc_spi_mem.c \
        avr32/drivers/flashc/flashc.c                      \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \
@@ -73,6 +71,9 @@ CSRCS = \
        avr32/drivers/usbb/usbb_device.c                   \
        common/components/memory/data_flash/at45dbx/at45dbx.c \
        common/components/memory/data_flash/at45dbx/at45dbx_mem.c \
+       common/components/memory/sd_mmc/sd_mmc.c           \
+       common/components/memory/sd_mmc/sd_mmc_mem.c       \
+       common/components/memory/sd_mmc/sd_mmc_spi.c       \
        common/components/memory/virtual_mem/virtual_mem.c \
        common/services/clock/uc3b0_b1/sysclk.c            \
        common/services/serial/usart_serial.c              \
@@ -98,7 +99,7 @@ ASSRCS = \
 INC_PATH = \
        avr32/boards                                       \
        avr32/boards/evk1101                               \
-       avr32/components/memory/sd_mmc/sd_mmc_spi          \
+       avr32/drivers/cpu/cycle_counter                    \
        avr32/drivers/flashc                               \
        avr32/drivers/gpio                                 \
        avr32/drivers/intc                                 \
@@ -110,8 +111,11 @@ INC_PATH = \
        avr32/utils/preprocessor                           \
        common/boards                                      \
        common/components/memory/data_flash/at45dbx        \
+       common/components/memory/sd_mmc                    \
        common/components/memory/virtual_mem               \
        common/services/clock                              \
+       common/services/delay                              \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/uc3_usart                   \
        common/services/sleepmgr                           \
@@ -167,7 +171,7 @@ CPPFLAGS = \
        -D ACCESS_USB_ENABLED                              \
        -D AT45DBX_ENABLE                                  \
        -D BOARD=EVK1101                                   \
-       -D SD_MMC_SPI_ENABLE                               \
+       -D SD_MMC_ENABLE                                   \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D UDD_ENABLE                                      \
        -D VIRTUAL_MEMORY_ENABLE                           \

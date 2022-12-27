@@ -71,6 +71,12 @@
 // From module: Generic components of unit test framework
 #include <unit_test/suite.h>
 
+// From module: High Speed Multimedia Card Interface
+#include <hsmci.h>
+
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
+
 // From module: Interrupt management - SAM3 implementation
 #include <interrupt.h>
 
@@ -102,6 +108,12 @@
 
 // From module: SAM3X startup code
 #include <exceptions.h>
+
+// From module: SD/MMC stack + Memory Control Access (aka ctrl_access, required for file system or USB)
+#include <sd_mmc_mem.h>
+
+// From module: SD/MMC stack on Multimedia Card interface
+#include <sd_mmc.h>
 
 // From module: SMC - Static Memory Controller
 #include <smc.h>

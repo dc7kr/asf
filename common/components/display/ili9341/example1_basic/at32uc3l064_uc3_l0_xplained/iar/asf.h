@@ -80,6 +80,9 @@
 // From module: LCD - ILI9341 Display Controller
 #include <ili9341.h>
 
+// From module: PDCA - Peripheral DMA Controller
+#include <pdca.h>
+
 // From module: Part identification macros
 #include <parts.h>
 

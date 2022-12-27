@@ -84,10 +84,10 @@
 #include <sleepmgr.h>
 #include <xmega/sleepmgr.h>
 
-// From module: System Clock Control - XMEGA A1/A3/A3B/A4/D implementation
+// From module: System Clock Control - XMEGA A1/A3/A3B/A4/D/E implementation
 #include <sysclk.h>
 
-// From module: Timeout service XMEGA
+// From module: Timeout Service XMEGA
 #include <timeout.h>
 
 // From module: XMEGA compiler driver

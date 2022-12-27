@@ -70,6 +70,7 @@ INC_PATH = \
        common/boards                                      \
        common/components/display/st7565r                  \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/gfx_mono                           \
        common/services/gfx_mono/example1/atxmega256a3bu_xmega_a3bu_xplained \
        common/services/gpio                               \

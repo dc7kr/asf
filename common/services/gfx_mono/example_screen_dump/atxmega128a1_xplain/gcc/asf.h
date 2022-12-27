@@ -56,6 +56,9 @@
 #include <ccp.h>
 #include <xmega_reset_cause.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: GFX Monochrome - Monochrome Graphic Library
 #include <gfx_mono.h>
 
@@ -81,10 +84,10 @@
 #include <usart_spi.h>
 #include <xmega_usart_spi/usart_spi.h>
 
-// From module: ST7565R LCD Controller - XMEGA implementation
+// From module: ST7565R LCD controller
 #include <st7565r.h>
 
-// From module: System Clock Control - XMEGA A1/A3/A3B/A4/D implementation
+// From module: System Clock Control - XMEGA A1/A3/A3B/A4/D/E implementation
 #include <sysclk.h>
 
 // From module: USART - Serial interface - XMEGA implementation

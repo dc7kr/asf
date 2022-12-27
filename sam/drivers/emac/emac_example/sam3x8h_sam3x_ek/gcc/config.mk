@@ -59,7 +59,7 @@ CSRCS = \
        common/utils/stdio/write.c                         \
        sam/boards/sam3x_ek/init.c                         \
        sam/boards/sam3x_ek/led.c                          \
-       sam/components/ethernet_phy/dm9161a/dm9161a.c      \
+       sam/components/ethernet_phy/dm9161a/ethernet_phy.c \
        sam/drivers/emac/emac.c                            \
        sam/drivers/emac/emac_example/emac_example.c       \
        sam/drivers/pio/pio.c                              \

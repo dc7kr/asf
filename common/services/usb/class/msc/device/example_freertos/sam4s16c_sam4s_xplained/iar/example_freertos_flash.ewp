@@ -306,7 +306,7 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
@@ -314,9 +314,9 @@
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
@@ -583,7 +583,7 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
@@ -591,9 +591,9 @@
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
@@ -1252,7 +1252,7 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
@@ -1260,9 +1260,9 @@
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
@@ -1529,7 +1529,7 @@
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
@@ -1537,9 +1537,9 @@
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/source/templates</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
@@ -2007,10 +2007,10 @@
 								</file>
 							</group>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/source/templates/system_sam4s.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/source/templates/exceptions.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/source/templates/exceptions.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4s/source/templates/system_sam4s.c</name>
 							</file>
 						</group>
 					</group>
@@ -2038,15 +2038,15 @@
 				</group>
 			</group>
 			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
 				<name>udp</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/udp/udp_device.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/pmc/pmc.c</name>
 				</file>
 			</group>
 		</group>
@@ -2068,43 +2068,46 @@
 		<group>
 			<name>freertos</name>
 			<group>
-				<name>source</name>
+				<name>freertos-7.0.0</name>
 				<group>
-					<name>portable</name>
+					<name>source</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/queue.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/list.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/tasks.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/croutine.c</name>
+					</file>
 					<group>
-						<name>iar</name>
+						<name>portable</name>
 						<group>
-							<name>sam</name>
+							<name>memmang</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/portable/iar/sam/port.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/portable/iar/sam/portasm.s</name>
+								<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/memmang/heap_3.c</name>
 							</file>
 						</group>
+						<group>
+							<name>iar</name>
+							<group>
+								<name>sam</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/sam/port.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/sam/portasm.s</name>
+								</file>
+							</group>
+						</group>
 					</group>
-					<group>
-						<name>memmang</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/portable/memmang/heap_3.c</name>
-						</file>
-					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/timers.c</name>
+					</file>
 				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/queue.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/list.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/timers.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/croutine.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/tasks.c</name>
-				</file>
 			</group>
 		</group>
 	</group>

@@ -292,7 +292,6 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3n/source/templates</state>
@@ -558,7 +557,6 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3n/source/templates</state>
@@ -1216,7 +1214,6 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3n/source/templates</state>
@@ -1482,7 +1479,6 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../../../../../sam/drivers/uart</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3n/source/templates</state>
@@ -1880,12 +1876,6 @@
 				</file>
 			</group>
 			<group>
-				<name>uart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/uart/uart.c</name>
-				</file>
-			</group>
-			<group>
 				<name>spi</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/spi/spi.c</name>
@@ -1932,27 +1922,6 @@
 			</group>
 		</group>
 		<group>
-			<name>services</name>
-			<group>
-				<name>spi</name>
-				<group>
-					<name>sam_spi</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../services/spi/sam_spi/spi_master.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>clock</name>
-				<group>
-					<name>sam3n</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../services/clock/sam3n/sysclk.c</name>
-					</file>
-				</group>
-			</group>
-		</group>
-		<group>
 			<name>components</name>
 			<group>
 				<name>memory</name>
@@ -1973,6 +1942,27 @@
 							<name>$PROJ_DIR$/../../../at25dfx.c</name>
 						</file>
 					</group>
+				</group>
+			</group>
+		</group>
+		<group>
+			<name>services</name>
+			<group>
+				<name>clock</name>
+				<group>
+					<name>sam3n</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../services/clock/sam3n/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>spi</name>
+				<group>
+					<name>sam_spi</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../services/spi/sam_spi/spi_master.c</name>
+					</file>
 				</group>
 			</group>
 		</group>

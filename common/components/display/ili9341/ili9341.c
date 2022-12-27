@@ -48,36 +48,18 @@
 #include <delay.h>
 
 #if (SAM3S || SAM3N || SAM4S)
-# include <pdc.h>
+#  include <pdc.h>
+#elif UC3
+#  include <pdca.h>
 #endif
 
-/**
- * \internal
- * \brief Helper function to wait for the last send operation to complete
- */
-__always_inline static void ili9341_wait_for_send_done(void)
-{
-#if defined(CONF_ILI9341_USART_SPI)
-	/* Wait for TX to complete */
-	while (!usart_tx_is_complete(CONF_ILI9341_USART_SPI)) {
-		/* Do nothing */
-	}
-	/* Clear the TX complete flag */
-	usart_clear_tx_complete(CONF_ILI9341_USART_SPI);
-#elif defined(CONF_ILI9341_SPI)
-#  if XMEGA
-	/* Wait for TX to complete */
-	while (!spi_is_tx_ok(CONF_ILI9341_SPI)) {
-		/* Do nothing */
-	}
-#  else
-	/* Wait for TX to complete */
-	while (!spi_is_tx_empty(CONF_ILI9341_SPI)) {
-		/* Do nothing */
-	}
-#  endif
+#if (SAM3S || SAM3N || SAM4S) && defined(CONF_ILI9341_SPI)
+#  define ILI9341_DMA_ENABLED
+#  define ILI9341_DMA_CHUNK_SIZE   16
+#elif UC3 && defined(CONF_ILI9341_PDCA_CHANNEL)
+#  define ILI9341_DMA_ENABLED
+#  define ILI9341_DMA_CHUNK_SIZE   16
 #endif
-}
 
 /**
  * \internal
@@ -117,6 +99,31 @@ __always_inline static void ili9341_select_data_mode(void)
 
 /**
  * \internal
+ * \brief Helper function to wait for the last send operation to complete
+ */
+__always_inline static void ili9341_wait_for_send_done(void)
+{
+#if defined(CONF_ILI9341_USART_SPI)
+#  if XMEGA
+	while (!usart_tx_is_complete(CONF_ILI9341_USART_SPI)) {
+		/* Do nothing */
+	}
+#  else
+	/* Wait for TX to complete */
+	while (!usart_spi_is_tx_empty(CONF_ILI9341_USART_SPI)) {
+		/* Do nothing */
+	}
+#  endif
+#elif defined(CONF_ILI9341_SPI)
+	/* Wait for TX to complete */
+	while (!spi_is_tx_empty(CONF_ILI9341_SPI)) {
+		/* Do nothing */
+	}
+#endif
+}
+
+/**
+ * \internal
  * \brief Helper function to send a byte over an arbitrary interface
  *
  * This function is used to hide what interface is used by the component
@@ -129,25 +136,16 @@ __always_inline static void ili9341_send_byte(uint8_t data)
 {
 #if defined(CONF_ILI9341_USART_SPI)
 #  if XMEGA
-	irqflags_t flags;
-
-	/* Wait for data register to be empty if send is in progress */
 	while (!usart_data_register_is_empty(CONF_ILI9341_USART_SPI)) {
 		/* Do nothing */
 	}
 
-	/* Disable interrupts to avoid too much time between sending new byte
-	 * and clearing TX complete flag.
-	 */
-	flags = cpu_irq_save();
-	usart_spi_write_single(CONF_ILI9341_USART_SPI, data);
-	/* Clear the TX complete flag */
+	irqflags_t flags = cpu_irq_save();
 	usart_clear_tx_complete(CONF_ILI9341_USART_SPI);
+	usart_put(CONF_ILI9341_USART_SPI, data);
 	cpu_irq_restore(flags);
 #  else
-	/* This function could also be used for XMEGA but results in a very slow
-	 * framerate, hence a workaround has been implemented for the XMEGA */
-	usart_spi_write_packet(CONF_ILI9341_USART_SPI, &data, 1);
+	usart_spi_write_single(CONF_ILI9341_USART_SPI, data);
 #  endif
 #elif defined(CONF_ILI9341_SPI)
 	/* Wait for any previously running send data */
@@ -170,25 +168,22 @@ __always_inline static void ili9341_send_byte(uint8_t data)
 __always_inline static uint8_t ili9341_read_byte(void)
 {
 	uint8_t data;
+
 #if defined(CONF_ILI9341_USART_SPI)
 #  if XMEGA
 	/* Workaround for clearing the RXCIF for XMEGA */
 	usart_rx_enable(CONF_ILI9341_USART_SPI);
 
-	usart_spi_write_single(CONF_ILI9341_USART_SPI, 0xFF);
-
-	/* Wait for RX to complete */
+	usart_put(CONF_ILI9341_USART_SPI, 0xFF);
 	while (!usart_rx_is_complete(CONF_ILI9341_USART_SPI)) {
 		/* Do nothing */
 	}
-	usart_spi_read_single(CONF_ILI9341_USART_SPI, &data);
+	data = usart_get(CONF_ILI9341_USART_SPI);
 
 	/* Workaround for clearing the RXCIF for XMEGA */
 	usart_rx_disable(CONF_ILI9341_USART_SPI);
 #  else
-	/* This function could also be used for XMEGA but results in a very slow
-	 * framerate, hence a workaround has been implemented for the XMEGA */
-	usart_spi_read_packet(CONF_ILI9341_USART_SPI, &data, 1);
+	usart_spi_read_single(CONF_ILI9341_USART_SPI, &data);
 #  endif
 #elif defined(CONF_ILI9341_SPI)
 	spi_write_single(CONF_ILI9341_SPI, 0xFF);
@@ -202,6 +197,7 @@ __always_inline static uint8_t ili9341_read_byte(void)
 
 	spi_read_single(CONF_ILI9341_SPI, &data);
 #endif
+
 	return data;
 }
 
@@ -236,7 +232,7 @@ static ili9341_coord_t limit_end_x, limit_end_y;
  *
  * \param send_end_limits  True to also send the lower-right drawing limits
  */
-static inline void ili9341_send_draw_limits(const bool send_end_limits)
+static void ili9341_send_draw_limits(const bool send_end_limits)
 {
 	ili9341_send_command(ILI9341_CMD_COLUMN_ADDRESS_SET);
 	ili9341_send_byte(limit_start_x >> 8);
@@ -388,14 +384,6 @@ void ili9341_write_gram(ili9341_color_t color)
  */
 void ili9341_copy_pixels_to_screen(const ili9341_color_t *pixels, uint32_t count)
 {
-#if (SAM3S || SAM3N || SAM4S) && defined(CONF_ILI9341_SPI)
-	Pdc *SPI_DMA = spi_get_pdc_base(CONF_ILI9341_SPI);
-	pdc_packet_t spi_pdc_data;
-
-	ili9341_color_t chunk_buf[16];
-	uint32_t chunk_len;
-#endif
-
 	const ili9341_color_t *pixel = pixels;
 
 	/* Sanity check to make sure that the pixel count is not zero */
@@ -403,30 +391,57 @@ void ili9341_copy_pixels_to_screen(const ili9341_color_t *pixels, uint32_t count
 
 	ili9341_send_command(ILI9341_CMD_MEMORY_WRITE);
 
-#if (SAM3S || SAM3N || SAM4S) && defined(CONF_ILI9341_SPI)
-	/* Use peripheral DMA on SAM devices to increase throughput vs. polling */
+#if defined(ILI9341_DMA_ENABLED)
+	ili9341_color_t chunk_buf[ILI9341_DMA_CHUNK_SIZE];
+	uint32_t chunk_len;
+
+#  if SAM
+	Pdc *SPI_DMA = spi_get_pdc_base(CONF_ILI9341_SPI);
+	pdc_packet_t spi_pdc_data;
+
 	pdc_enable_transfer(SPI_DMA, PERIPH_PTCR_TXTEN);
 	spi_pdc_data.ul_addr = (uint32_t)chunk_buf;
+#  elif UC3
+	pdca_set_transfer_size(CONF_ILI9341_PDCA_CHANNEL,
+			PDCA_TRANSFER_SIZE_BYTE);
+	pdca_set_peripheral_select(CONF_ILI9341_PDCA_CHANNEL,
+			CONF_ILI9341_PDCA_PID);
+#  endif
 
 	while (count)
 	{
 		/* We need to copy out the data to send in chunks into RAM, as the PDC
 		 * does not allow FLASH->Peripheral transfers */
-		chunk_len = min(16, count);
+		chunk_len = min(ILI9341_DMA_CHUNK_SIZE, count);
 
 		/* Wait for pending transfer to complete */
 		ili9341_wait_for_send_done();
 
 		for (uint32_t i = 0; i < chunk_len; i++) {
-			chunk_buf[i] = pixel[i];
+			chunk_buf[i] = le16_to_cpu(pixel[i]);
 		}
 
+#  if SAM
 		spi_pdc_data.ul_size = (uint32_t)sizeof(ili9341_color_t) * chunk_len;
 		pdc_tx_init(SPI_DMA, NULL, &spi_pdc_data);
+#  elif UC3
+		pdca_reload_channel(CONF_ILI9341_PDCA_CHANNEL, chunk_buf,
+				(uint32_t)sizeof(ili9341_color_t) * chunk_len);
+		pdca_enable(CONF_ILI9341_PDCA_CHANNEL);
+#  endif
 
 		pixel += chunk_len;
 		count -= chunk_len;
 	}
+
+	ili9341_wait_for_send_done();
+	ili9341_deselect_chip();
+
+#  if SAM
+	pdc_disable_transfer(SPI_DMA, PERIPH_PTCR_TXTEN);
+#  elif UC3
+	pdca_disable(CONF_ILI9341_PDCA_CHANNEL);
+#  endif
 #else
 	while (count--) {
 		ili9341_send_byte(*pixel);
@@ -434,10 +449,10 @@ void ili9341_copy_pixels_to_screen(const ili9341_color_t *pixels, uint32_t count
 
 		pixel++;
 	}
-#endif
 
 	ili9341_wait_for_send_done();
 	ili9341_deselect_chip();
+#endif
 }
 
 #if XMEGA
@@ -499,47 +514,67 @@ void ili9341_copy_progmem_pixels_to_screen(
  */
 void ili9341_duplicate_pixel(const ili9341_color_t color, uint32_t count)
 {
-#if (SAM3S || SAM3N || SAM4S) && defined(CONF_ILI9341_SPI)
-	Pdc *SPI_DMA = spi_get_pdc_base(CONF_ILI9341_SPI);
-	pdc_packet_t spi_pdc_data;
-
-	ili9341_color_t chunk_buf[16];
-	uint32_t chunk_len;
-#endif
-
 	/* Sanity check to make sure that the pixel count is not zero */
 	Assert(count > 0);
 
 	ili9341_send_command(ILI9341_CMD_MEMORY_WRITE);
 
-#if (SAM3S || SAM3N || SAM4S) && defined(CONF_ILI9341_SPI)
+#if defined(ILI9341_DMA_ENABLED)
+	ili9341_color_t chunk_buf[ILI9341_DMA_CHUNK_SIZE];
+	uint32_t chunk_len;
+
+#  if SAM
+	Pdc *SPI_DMA = spi_get_pdc_base(CONF_ILI9341_SPI);
+	pdc_packet_t spi_pdc_data;
+
 	pdc_enable_transfer(SPI_DMA, PERIPH_PTCR_TXTEN);
 	spi_pdc_data.ul_addr = (uint32_t)chunk_buf;
+#  elif UC3
+	pdca_set_transfer_size(CONF_ILI9341_PDCA_CHANNEL,
+			PDCA_TRANSFER_SIZE_BYTE);
+	pdca_set_peripheral_select(CONF_ILI9341_PDCA_CHANNEL,
+			CONF_ILI9341_PDCA_PID);
+#  endif
 
-	for (uint32_t i = 0; i < 16; i++) {
-		chunk_buf[i] = color;
+	for (uint32_t i = 0; i < ILI9341_DMA_CHUNK_SIZE; i++) {
+		chunk_buf[i] = le16_to_cpu(color);
 	}
 
 	while (count)
 	{
-		chunk_len = min(16, count);
+		chunk_len = min(ILI9341_DMA_CHUNK_SIZE, count);
 
 		ili9341_wait_for_send_done();
 
+#  if SAM
 		spi_pdc_data.ul_size = (uint32_t)sizeof(ili9341_color_t) * chunk_len;
 		pdc_tx_init(SPI_DMA, NULL, &spi_pdc_data);
+#  elif UC3
+		pdca_reload_channel(CONF_ILI9341_PDCA_CHANNEL, chunk_buf,
+				(uint32_t)sizeof(ili9341_color_t) * chunk_len);
+		pdca_enable(CONF_ILI9341_PDCA_CHANNEL);
+#  endif
 
 		count -= chunk_len;
 	}
+
+	ili9341_wait_for_send_done();
+	ili9341_deselect_chip();
+
+#  if SAM
+	pdc_disable_transfer(SPI_DMA, PERIPH_PTCR_TXTEN);
+#  elif UC3
+	pdca_disable(CONF_ILI9341_PDCA_CHANNEL);
+#  endif
 #else
 	while (count--) {
 		ili9341_send_byte(color);
 		ili9341_send_byte(color >> 8);
 	}
-#endif
 
 	ili9341_wait_for_send_done();
 	ili9341_deselect_chip();
+#endif
 }
 
 /**
@@ -593,34 +628,41 @@ void ili9341_copy_pixels_from_screen(ili9341_color_t *pixels, uint32_t count)
  */
 static void ili9341_interface_init(void)
 {
-#if defined(CONF_ILI9341_USART_SPI) | defined(CONF_ILI9341_SPI)
+#if defined(CONF_ILI9341_USART_SPI) || defined(CONF_ILI9341_SPI)
 	spi_flags_t spi_flags = SPI_MODE_0;
 	board_spi_select_id_t spi_select_id = 0;
 #else
 	#error Interface for ILI9341 has not been selected or interface not\
 	supported, please configure component driver using the conf_ili9341.h\
-        file!
+	file!
 #endif
 
 #if defined(CONF_ILI9341_USART_SPI)
 	struct usart_spi_device device = {
 		.id = 0,
 	};
+
 	usart_spi_init(CONF_ILI9341_USART_SPI);
 	usart_spi_setup_device(CONF_ILI9341_USART_SPI, &device, spi_flags,
 			CONF_ILI9341_CLOCK_SPEED, spi_select_id);
+
 #elif defined(CONF_ILI9341_SPI)
 	struct spi_device device = {
 		.id = 0,
 	};
+
 	spi_master_init(CONF_ILI9341_SPI);
 	spi_master_setup_device(CONF_ILI9341_SPI, &device, spi_flags,
 			CONF_ILI9341_CLOCK_SPEED, spi_select_id);
 	spi_enable(CONF_ILI9341_SPI);
 
-#if UC3
+#  if UC3
 	spi_set_chipselect(CONF_ILI9341_SPI, ~(1 << 0));
-#endif
+
+#    if defined(ILI9341_DMA_ENABLED)
+	sysclk_enable_peripheral_clock(&AVR32_PDCA);
+#    endif
+#  endif
 
 	/* Send one dummy byte for the spi_is_tx_ok() to work as expected */
 	spi_write_single(CONF_ILI9341_SPI, 0);

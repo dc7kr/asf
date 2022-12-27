@@ -110,9 +110,10 @@
  * \note The functions prototypes can be found in the device exception header
  *       files (exceptions.h).
  */
-#  define irq_register_handler(...)                    \
-	do {                                           \
-	} while(0)
+#  define irq_register_handler(int_num, int_prio)                      \
+	NVIC_ClearPendingIRQ(    (IRQn_Type)int_num);                      \
+	NVIC_SetPriority(    (IRQn_Type)int_num, int_prio);                \
+	NVIC_EnableIRQ(      (IRQn_Type)int_num);                          \
 
 //@}
 
@@ -130,7 +131,7 @@
 	} while (0)
 
 typedef uint32_t irqflags_t;
-extern bool g_interrupt_enabled;
+extern volatile bool g_interrupt_enabled;
 
 static inline irqflags_t cpu_irq_save(void)
 {

@@ -124,7 +124,7 @@
 // From module: WM8731 Audio Codec
 #include <wm8731.h>
 
-// From module: WM8731 example
+// From module: WM8731 Audio Codec Example
 #include <xmodem.h>
 
 // From module: pio_handler support enabled

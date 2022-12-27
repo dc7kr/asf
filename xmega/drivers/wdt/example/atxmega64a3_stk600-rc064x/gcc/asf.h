@@ -56,6 +56,9 @@
 #include <ccp.h>
 #include <xmega_reset_cause.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: GPIO - General purpose Input/Output
 #include <gpio.h>
 
@@ -74,7 +77,7 @@
 // From module: STK600-RC064X LED support enabled
 #include <led.h>
 
-// From module: System Clock Control - XMEGA A1/A3/A3B/A4/D implementation
+// From module: System Clock Control - XMEGA A1/A3/A3B/A4/D/E implementation
 #include <sysclk.h>
 
 // From module: WDT - Watchdog Timer

@@ -52,7 +52,7 @@
  */
 
 //! Array of UHI APIs Define the list of UHI supported by USB host.
-#define USB_HOST_UHI        // UHI_MSC, UHI_HID_MOUSE, UHI_CDC
+#define USB_HOST_UHI        // UHI_MSC, UHI_HID_MOUSE, UHI_CDC, UHI_VENDOR
 
 //! Maximum current allowed on Vbus (mA)
 #define USB_HOST_POWER_MAX  500
@@ -136,7 +136,13 @@
 #define UHI_CDC_CHANGE(dev,b_plug)
 #define UHI_CDC_RX_NOTIFY()
 //@}
-
+/**
+ * Configuration of Vendor interface
+ * @{
+ */
+#define UHI_VENDOR_CHANGE(dev, b_plug)
+#define UHI_VENDOR_VID_PID_LIST {USB_VID_ATMEL, USB_PID_ATMEL_ASF_VENDOR_CLASS}
+//@}
 //@}
 
 

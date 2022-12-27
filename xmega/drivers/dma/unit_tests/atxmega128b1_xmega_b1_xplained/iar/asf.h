@@ -96,7 +96,7 @@
 // From module: Standard serial I/O (stdio) - XMEGA implementation
 #include <stdio_serial.h>
 
-// From module: System Clock Control - XMEGA A1U/A3U/A3BU/A4U implementation
+// From module: System Clock Control - XMEGA A1U/A3U/A3BU/A4U/B/C implementation
 #include <sysclk.h>
 
 // From module: TC - Timer Counter

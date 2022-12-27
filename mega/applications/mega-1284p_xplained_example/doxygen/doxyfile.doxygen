@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../init.c ../mega_1284p_xplained_example.c ../usart.c ../../../boards/mega_1284p_xplained/init.c  ../conf_board.h ../../../utils/compiler.h ../../../../common/utils/parts.h ../../../utils/status_codes.h ../../../../common/boards/board.h ../../../../common/utils/interrupt/interrupt_avr8.h ../../../../common/utils/interrupt.h ../touch_api.h ../init.h ../touch_qt_config.h ../usart.h ../avr_compiler.h ../mega_1284p_xplained_example.h
+INPUT                  =  ../init.c ../mega_1284p_xplained_example.c ../usart.c ../../../boards/mega_1284p_xplained/init.c  ../conf_board.h ../../../utils/assembler.h ../../../../common/utils/parts.h ../../../utils/status_codes.h ../../../../common/boards/board.h ../../../utils/compiler.h ../../../../common/utils/interrupt/interrupt_avr8.h ../../../../common/utils/interrupt.h ../../../utils/progmem.h ../touch_api.h ../init.h ../touch_qt_config.h ../usart.h ../avr_compiler.h ../mega_1284p_xplained_example.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is

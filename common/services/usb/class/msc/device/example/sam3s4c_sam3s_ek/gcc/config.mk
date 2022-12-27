@@ -52,10 +52,17 @@ TARGET_SRAM = device_example_sram.elf
 
 # List of C source files.
 CSRCS = \
-       common/components/memory/virtual_mem/virtual_mem.c \
+       common/components/memory/nand_flash/nand_flash_ebi/nand_flash_ecc_sw.c \
+       common/components/memory/nand_flash/nand_flash_ebi/nand_flash_model.c \
+       common/components/memory/nand_flash/nand_flash_ebi/nand_flash_raw_smc.c \
+       common/components/memory/nand_flash/nand_flash_ebi/nand_flash_spare_scheme.c \
+       common/components/memory/sd_mmc/sd_mmc.c           \
+       common/components/memory/sd_mmc/sd_mmc_mem.c       \
        common/services/clock/sam3s/sysclk.c               \
+       common/services/delay/sam/cycle_counter.c          \
        common/services/sleepmgr/sam/sleepmgr.c            \
        common/services/storage/ctrl_access/ctrl_access.c  \
+       common/services/storage/ecc_hamming/ecc-sw.c       \
        common/services/usb/class/msc/device/example/main.c \
        common/services/usb/class/msc/device/example/memories_initialization_sam.c \
        common/services/usb/class/msc/device/example/sam3s4c_sam3s_ek/ui.c \
@@ -65,6 +72,10 @@ CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3s_ek/init.c                         \
        sam/boards/sam3s_ek/led.c                          \
+       sam/drivers/ebi/smc/smc.c                          \
+       sam/drivers/hsmci/hsmci.c                          \
+       sam/drivers/matrix/matrix.c                        \
+       sam/drivers/pdc/pdc.c                              \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
@@ -80,11 +91,16 @@ ASSRCS =
 # List of include paths.
 INC_PATH = \
        common/boards                                      \
-       common/components/memory/virtual_mem               \
+       common/components/memory/nand_flash/nand_flash_ebi \
+       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib \
+       common/components/memory/sd_mmc                    \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/sleepmgr                           \
        common/services/storage/ctrl_access                \
+       common/services/storage/ecc_hamming                \
        common/services/usb                                \
        common/services/usb/class/msc                      \
        common/services/usb/class/msc/device               \
@@ -94,6 +110,10 @@ INC_PATH = \
        common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3s_ek                                \
+       sam/drivers/ebi/smc                                \
+       sam/drivers/hsmci                                  \
+       sam/drivers/matrix                                 \
+       sam/drivers/pdc                                    \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/udp                                    \
@@ -106,10 +126,12 @@ INC_PATH = \
        ./common/services/usb/class/msc/device/example/sam3s4c_sam3s_ek/gcc
 
 # Additional search paths for libraries.
-LIB_PATH = 
+LIB_PATH =  \
+       common/components/memory/nand_flash/nand_flash_ebi/ftl_lib/gcc
 
 # List of libraries to use during linking.
-LIBS = 
+LIBS =  \
+       _nand_flash_cortexm3                              
 
 # Path relative to top level directory pointing to a linker script.
 LINKER_SCRIPT_FLASH = sam/utils/linker_scripts/sam3s/sam3s4/gcc/flash.ld
@@ -151,8 +173,8 @@ CFLAGS =
 CPPFLAGS = \
        -D ACCESS_USB_ENABLED                              \
        -D BOARD=SAM3S_EK                                  \
+       -D SD_MMC_ENABLE                                   \
        -D UDD_ENABLE                                      \
-       -D VIRTUAL_MEMORY_ENABLE                           \
        -D __SAM3S4C__
 
 # Extra flags to use when linking

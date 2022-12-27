@@ -90,6 +90,9 @@
 // From module: SCIF System Control Interface - UC3L implementation
 #include <scif_uc3l.h>
 
+// From module: STK600-RCUC3L3
+#include <led.h>
+
 // From module: System Clock Control - UC3 L0 with PLL implementation
 #include <sysclk.h>
 

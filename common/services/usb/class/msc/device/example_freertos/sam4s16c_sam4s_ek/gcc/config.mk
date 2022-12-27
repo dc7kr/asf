@@ -56,6 +56,8 @@ CSRCS = \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_model.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_raw_smc.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_spare_scheme.c \
+       common/components/memory/sd_mmc/sd_mmc.c           \
+       common/components/memory/sd_mmc/sd_mmc_mem.c       \
        common/services/clock/sam4s/sysclk.c               \
        common/services/delay/sam/cycle_counter.c          \
        common/services/sleepmgr/sam/sleepmgr.c            \
@@ -72,7 +74,9 @@ CSRCS = \
        sam/boards/sam4s_ek/init.c                         \
        sam/boards/sam4s_ek/led.c                          \
        sam/drivers/ebi/smc/smc.c                          \
+       sam/drivers/hsmci/hsmci.c                          \
        sam/drivers/matrix/matrix.c                        \
+       sam/drivers/pdc/pdc.c                              \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
@@ -81,13 +85,13 @@ CSRCS = \
        sam/utils/cmsis/sam4s/source/templates/gcc/startup_sam4s.c \
        sam/utils/cmsis/sam4s/source/templates/system_sam4s.c \
        sam/utils/syscalls/gcc/syscalls.c                  \
-       thirdparty/freertos/source/croutine.c              \
-       thirdparty/freertos/source/list.c                  \
-       thirdparty/freertos/source/portable/gcc/sam/port.c \
-       thirdparty/freertos/source/portable/memmang/heap_3.c \
-       thirdparty/freertos/source/queue.c                 \
-       thirdparty/freertos/source/tasks.c                 \
-       thirdparty/freertos/source/timers.c
+       thirdparty/freertos/freertos-7.0.0/source/croutine.c \
+       thirdparty/freertos/freertos-7.0.0/source/list.c   \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/sam/port.c \
+       thirdparty/freertos/freertos-7.0.0/source/portable/memmang/heap_3.c \
+       thirdparty/freertos/freertos-7.0.0/source/queue.c  \
+       thirdparty/freertos/freertos-7.0.0/source/tasks.c  \
+       thirdparty/freertos/freertos-7.0.0/source/timers.c
 
 # List of assembler source files.
 ASSRCS = 
@@ -97,9 +101,11 @@ INC_PATH = \
        common/boards                                      \
        common/components/memory/nand_flash/nand_flash_ebi \
        common/components/memory/nand_flash/nand_flash_ebi/ftl_lib \
+       common/components/memory/sd_mmc                    \
        common/services/clock                              \
        common/services/delay                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/sleepmgr                           \
        common/services/storage/ctrl_access                \
        common/services/storage/ecc_hamming                \
@@ -113,7 +119,9 @@ INC_PATH = \
        sam/boards                                         \
        sam/boards/sam4s_ek                                \
        sam/drivers/ebi/smc                                \
+       sam/drivers/hsmci                                  \
        sam/drivers/matrix                                 \
+       sam/drivers/pdc                                    \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/udp                                    \
@@ -124,8 +132,8 @@ INC_PATH = \
        sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
        thirdparty/CMSIS/Lib/GCC                           \
-       thirdparty/freertos/source/include                 \
-       thirdparty/freertos/source/portable/gcc/sam \
+       thirdparty/freertos/freertos-7.0.0/source/include  \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/sam \
        ./common/services/usb/class/msc/device/example_freertos/sam4s16c_sam4s_ek/gcc
 
 # Additional search paths for libraries.
@@ -180,6 +188,7 @@ CPPFLAGS = \
        -D ARM_MATH_CM4=true                               \
        -D BOARD=SAM4S_EK                                  \
        -D FREERTOS_USED                                   \
+       -D SD_MMC_ENABLE                                   \
        -D UDD_ENABLE                                      \
        -D __SAM4S16C__
 

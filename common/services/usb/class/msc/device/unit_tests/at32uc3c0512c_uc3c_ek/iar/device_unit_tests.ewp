@@ -189,10 +189,10 @@
 					<state>BOARD=UC3C_EK</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>ACCESS_USB_ENABLED</state>
+					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
-					<state>SD_MMC_SPI_ENABLE</state>
 					<state>AT45DBX_ENABLE</state>
 				</option>
 				<option>
@@ -330,8 +330,8 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/scif</state>
-					<state>$PROJ_DIR$/../../../../../../../../../avr32/components/memory/sd_mmc/sd_mmc_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/data_flash/at45dbx</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../spi/uc3_spi</state>
@@ -349,13 +349,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/boards/uc3c_ek</state>
 					<state>$PROJ_DIR$/../../../../../../../serial/uc3_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/flashc</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/..</state>
@@ -476,16 +479,16 @@
 					<state>BOARD=UC3C_EK</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>ACCESS_USB_ENABLED</state>
+					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
-					<state>SD_MMC_SPI_ENABLE</state>
 					<state>AT45DBX_ENABLE</state>
 				</option>
 				<option>
 					<name>AIncludePaths</name>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/scif</state>
-					<state>$PROJ_DIR$/../../../../../../../../../avr32/components/memory/sd_mmc/sd_mmc_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/data_flash/at45dbx</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../spi/uc3_spi</state>
@@ -503,13 +506,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/boards/uc3c_ek</state>
 					<state>$PROJ_DIR$/../../../../../../../serial/uc3_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/flashc</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/..</state>
@@ -1106,10 +1112,10 @@
 					<state>BOARD=UC3C_EK</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>ACCESS_USB_ENABLED</state>
+					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
-					<state>SD_MMC_SPI_ENABLE</state>
 					<state>AT45DBX_ENABLE</state>
 				</option>
 				<option>
@@ -1247,8 +1253,8 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/scif</state>
-					<state>$PROJ_DIR$/../../../../../../../../../avr32/components/memory/sd_mmc/sd_mmc_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/data_flash/at45dbx</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../spi/uc3_spi</state>
@@ -1266,13 +1272,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/boards/uc3c_ek</state>
 					<state>$PROJ_DIR$/../../../../../../../serial/uc3_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/flashc</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/..</state>
@@ -1393,16 +1402,16 @@
 					<state>BOARD=UC3C_EK</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>ACCESS_USB_ENABLED</state>
+					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
-					<state>SD_MMC_SPI_ENABLE</state>
 					<state>AT45DBX_ENABLE</state>
 				</option>
 				<option>
 					<name>AIncludePaths</name>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/scif</state>
-					<state>$PROJ_DIR$/../../../../../../../../../avr32/components/memory/sd_mmc/sd_mmc_spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../components/memory/data_flash/at45dbx</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../../spi/uc3_spi</state>
@@ -1420,13 +1429,16 @@
 					<state>$PROJ_DIR$/../../../../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/boards/uc3c_ek</state>
 					<state>$PROJ_DIR$/../../../../../../../serial/uc3_usart</state>
 					<state>$PROJ_DIR$/../../../../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/drivers/flashc</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/..</state>
@@ -1955,6 +1967,18 @@
 					</group>
 				</group>
 				<group>
+					<name>sd_mmc</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc/sd_mmc_spi.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc/sd_mmc_mem.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc/sd_mmc.c</name>
+					</file>
+				</group>
+				<group>
 					<name>virtual_mem</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../components/memory/virtual_mem/virtual_mem.c</name>
@@ -1965,24 +1989,6 @@
 	</group>
 	<group>
 		<name>avr32</name>
-		<group>
-			<name>components</name>
-			<group>
-				<name>memory</name>
-				<group>
-					<name>sd_mmc</name>
-					<group>
-						<name>sd_mmc_spi</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../avr32/components/memory/sd_mmc/sd_mmc_spi/sd_mmc_spi_mem.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../avr32/components/memory/sd_mmc/sd_mmc_spi/sd_mmc_spi.c</name>
-						</file>
-					</group>
-				</group>
-			</group>
-		</group>
 		<group>
 			<name>boards</name>
 			<group>

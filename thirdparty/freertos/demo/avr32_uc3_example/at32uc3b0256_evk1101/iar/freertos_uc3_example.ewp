@@ -324,10 +324,8 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../source/include</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../common/include</state>
-					<state>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/evk1101</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
@@ -336,10 +334,12 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pm</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/intc</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pm</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -458,10 +458,8 @@
 				<option>
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../source/include</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../common/include</state>
-					<state>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/evk1101</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
@@ -470,10 +468,12 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pm</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/intc</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pm</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1201,10 +1201,8 @@
 				<option>
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../source/include</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../common/include</state>
-					<state>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/evk1101</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
@@ -1213,10 +1211,12 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pm</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/intc</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pm</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1335,10 +1335,8 @@
 				<option>
 					<name>AIncludePaths</name>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../source/include</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../common/include</state>
-					<state>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/tc</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/evk1101</state>
 					<state>$PROJ_DIR$/../../../../../../common/boards</state>
@@ -1347,10 +1345,12 @@
 					<state>$PROJ_DIR$/../../../../../../avr32/boards</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pm</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/intc</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pm</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3</state>
+					<state>$PROJ_DIR$/../../../../freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1759,51 +1759,6 @@
 		<group>
 			<name>freertos</name>
 			<group>
-				<name>source</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../source/timers.c</name>
-				</file>
-				<group>
-					<name>portable</name>
-					<group>
-						<name>memmang</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../source/portable/memmang/heap_3.c</name>
-						</file>
-					</group>
-					<group>
-						<name>iar</name>
-						<group>
-							<name>avr32_uc3</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3/write.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3/port.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3/read.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../source/portable/iar/avr32_uc3/exception.s82</name>
-							</file>
-						</group>
-					</group>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../source/tasks.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../source/croutine.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../source/list.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../source/queue.c</name>
-				</file>
-			</group>
-			<group>
 				<name>demo</name>
 				<group>
 					<name>common</name>
@@ -1834,16 +1789,13 @@
 							<name>$PROJ_DIR$/../../../common/minimal/flop.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../common/minimal/AltBlckQ.c</name>
-						</file>
-						<file>
 							<name>$PROJ_DIR$/../../../common/minimal/recmutex.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../common/minimal/crhook.c</name>
+							<name>$PROJ_DIR$/../../../common/minimal/integer.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../common/minimal/GenQTest.c</name>
+							<name>$PROJ_DIR$/../../../common/minimal/crhook.c</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../common/minimal/semtest.c</name>
@@ -1852,10 +1804,13 @@
 							<name>$PROJ_DIR$/../../../common/minimal/crflash.c</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../common/minimal/AltBlckQ.c</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../common/minimal/death.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../common/minimal/integer.c</name>
+							<name>$PROJ_DIR$/../../../common/minimal/GenQTest.c</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../common/minimal/AltPollQ.c</name>
@@ -1890,19 +1845,58 @@
 					</file>
 				</group>
 			</group>
+			<group>
+				<name>freertos-7.0.0</name>
+				<group>
+					<name>source</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/timers.c</name>
+					</file>
+					<group>
+						<name>portable</name>
+						<group>
+							<name>iar</name>
+							<group>
+								<name>avr32_uc3</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3/port.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3/read.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3/write.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/iar/avr32_uc3/exception.s82</name>
+								</file>
+							</group>
+						</group>
+						<group>
+							<name>memmang</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/portable/memmang/heap_3.c</name>
+							</file>
+						</group>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/queue.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/list.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/croutine.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../freertos-7.0.0/source/tasks.c</name>
+					</file>
+				</group>
+			</group>
 		</group>
 	</group>
 	<group>
 		<name>avr32</name>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>evk1101</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1101/led.c</name>
-				</file>
-			</group>
-		</group>
 		<group>
 			<name>drivers</name>
 			<group>
@@ -1945,6 +1939,15 @@
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/usart/usart.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>evk1101</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/boards/evk1101/led.c</name>
 				</file>
 			</group>
 		</group>

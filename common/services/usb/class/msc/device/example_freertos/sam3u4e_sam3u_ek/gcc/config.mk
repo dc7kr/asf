@@ -52,8 +52,11 @@ TARGET_SRAM = example_freertos_sram.elf
 
 # List of C source files.
 CSRCS = \
+       common/components/memory/sd_mmc/sd_mmc.c           \
+       common/components/memory/sd_mmc/sd_mmc_mem.c       \
        common/components/memory/virtual_mem/virtual_mem.c \
        common/services/clock/sam3u/sysclk.c               \
+       common/services/delay/sam/cycle_counter.c          \
        common/services/sleepmgr/sam/sleepmgr.c            \
        common/services/storage/ctrl_access/ctrl_access.c  \
        common/services/usb/class/msc/device/example_freertos/exceptions_sam.c \
@@ -66,7 +69,9 @@ CSRCS = \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        sam/boards/sam3u_ek/init.c                         \
        sam/boards/sam3u_ek/led.c                          \
+       sam/drivers/dmac/dmac.c                            \
        sam/drivers/ebi/smc/smc.c                          \
+       sam/drivers/hsmci/hsmci.c                          \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
@@ -75,13 +80,13 @@ CSRCS = \
        sam/utils/cmsis/sam3u/source/templates/gcc/startup_sam3u.c \
        sam/utils/cmsis/sam3u/source/templates/system_sam3u.c \
        sam/utils/syscalls/gcc/syscalls.c                  \
-       thirdparty/freertos/source/croutine.c              \
-       thirdparty/freertos/source/list.c                  \
-       thirdparty/freertos/source/portable/gcc/sam/port.c \
-       thirdparty/freertos/source/portable/memmang/heap_3.c \
-       thirdparty/freertos/source/queue.c                 \
-       thirdparty/freertos/source/tasks.c                 \
-       thirdparty/freertos/source/timers.c
+       thirdparty/freertos/freertos-7.0.0/source/croutine.c \
+       thirdparty/freertos/freertos-7.0.0/source/list.c   \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/sam/port.c \
+       thirdparty/freertos/freertos-7.0.0/source/portable/memmang/heap_3.c \
+       thirdparty/freertos/freertos-7.0.0/source/queue.c  \
+       thirdparty/freertos/freertos-7.0.0/source/tasks.c  \
+       thirdparty/freertos/freertos-7.0.0/source/timers.c
 
 # List of assembler source files.
 ASSRCS = 
@@ -89,9 +94,12 @@ ASSRCS =
 # List of include paths.
 INC_PATH = \
        common/boards                                      \
+       common/components/memory/sd_mmc                    \
        common/components/memory/virtual_mem               \
        common/services/clock                              \
+       common/services/delay                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/sleepmgr                           \
        common/services/storage/ctrl_access                \
        common/services/usb                                \
@@ -103,7 +111,9 @@ INC_PATH = \
        common/utils                                       \
        sam/boards                                         \
        sam/boards/sam3u_ek                                \
+       sam/drivers/dmac                                   \
        sam/drivers/ebi/smc                                \
+       sam/drivers/hsmci                                  \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/udphs                                  \
@@ -113,8 +123,8 @@ INC_PATH = \
        sam/utils/header_files                             \
        sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
-       thirdparty/freertos/source/include                 \
-       thirdparty/freertos/source/portable/gcc/sam \
+       thirdparty/freertos/freertos-7.0.0/source/include  \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/sam \
        ./common/services/usb/class/msc/device/example_freertos/sam3u4e_sam3u_ek/gcc
 
 # Additional search paths for libraries.
@@ -164,6 +174,7 @@ CPPFLAGS = \
        -D ACCESS_USB_ENABLED                              \
        -D BOARD=SAM3U_EK                                  \
        -D FREERTOS_USED                                   \
+       -D SD_MMC_ENABLE                                   \
        -D UDD_ENABLE                                      \
        -D VIRTUAL_MEMORY_ENABLE                           \
        -D __SAM3U4E__

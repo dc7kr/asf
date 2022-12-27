@@ -81,7 +81,7 @@ CSRCS = \
        avr32/drivers/flashc/flashc.c                      \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \
-       avr32/drivers/mci/mci.c                            \
+       avr32/drivers/mci/_asf_v1/mci.c                    \
        avr32/drivers/pdca/pdca.c                          \
        avr32/drivers/pm/pm.c                              \
        avr32/drivers/pm/pm_conf_clocks.c                  \
@@ -147,7 +147,7 @@ INC_PATH = \
        avr32/drivers/flashc                               \
        avr32/drivers/gpio                                 \
        avr32/drivers/intc                                 \
-       avr32/drivers/mci                                  \
+       avr32/drivers/mci/_asf_v1                          \
        avr32/drivers/pdca                                 \
        avr32/drivers/pm                                   \
        avr32/drivers/rtc                                  \

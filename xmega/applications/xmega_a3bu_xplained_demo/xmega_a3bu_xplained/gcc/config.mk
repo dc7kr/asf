@@ -80,6 +80,7 @@ CSRCS = \
        xmega/drivers/adc/xmega_aau/adc_aau.c              \
        xmega/drivers/nvm/nvm.c                            \
        xmega/drivers/rtc32/rtc32.c                        \
+       xmega/drivers/tc/tc.c                              \
        xmega/drivers/usart/usart.c                        \
        xmega/drivers/usb/usb_device.c
 
@@ -117,6 +118,7 @@ INC_PATH = \
        xmega/drivers/pmic                                 \
        xmega/drivers/rtc32                                \
        xmega/drivers/sleep                                \
+       xmega/drivers/tc                                   \
        xmega/drivers/usart                                \
        xmega/drivers/usb                                  \
        xmega/utils                                        \

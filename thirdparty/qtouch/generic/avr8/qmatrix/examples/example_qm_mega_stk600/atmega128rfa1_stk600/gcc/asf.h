@@ -59,17 +59,23 @@
 #include <qm_asm_avr.h>
 #include <touch_api.h>
 
+// From module: GPIO - General purpose Input/Output
+#include <gpio.h>
+
 // From module: Generic board support
 #include <board.h>
 
-// From module: Interrupt management - megaAVR implementation
-#include <interrupt.h>
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
 
-// From module: MEGA compiler driver
-#include <compiler.h>
-#include <status_codes.h>
+// From module: Interrupt management - megaAVR and tinyAVR implementation
+#include <interrupt.h>
 
 // From module: Part identification macros
 #include <parts.h>
+
+// From module: megaAVR and tinyAVR compiler driver
+#include <compiler.h>
+#include <status_codes.h>
 
 #endif // ASF_H

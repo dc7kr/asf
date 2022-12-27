@@ -344,6 +344,7 @@
 					<state>$PROJ_DIR$/../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/.</state>
@@ -484,6 +485,7 @@
 					<state>$PROJ_DIR$/../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1233,6 +1235,7 @@
 					<state>$PROJ_DIR$/../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1373,6 +1376,7 @@
 					<state>$PROJ_DIR$/../../../../services/spi</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../services/ioport</state>
+					<state>$PROJ_DIR$/../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1798,15 +1802,6 @@
 				</file>
 			</group>
 			<group>
-				<name>spi</name>
-				<group>
-					<name>uc3_spi</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../services/spi/uc3_spi/spi_master.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>clock</name>
 				<group>
 					<name>uc3l</name>
@@ -1818,6 +1813,15 @@
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../services/clock/uc3l/sysclk.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>spi</name>
+				<group>
+					<name>uc3_spi</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../services/spi/uc3_spi/spi_master.c</name>
 					</file>
 				</group>
 			</group>
@@ -1857,6 +1861,12 @@
 		<name>avr32</name>
 		<group>
 			<name>drivers</name>
+			<group>
+				<name>pdca</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../avr32/drivers/pdca/pdca.c</name>
+				</file>
+			</group>
 			<group>
 				<name>twim</name>
 				<file>

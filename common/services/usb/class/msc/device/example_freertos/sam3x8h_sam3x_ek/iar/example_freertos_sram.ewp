@@ -164,6 +164,7 @@
 					<name>CCDefines</name>
 					<state>FREERTOS_USED</state>
 					<state>ACCESS_USB_ENABLED</state>
+					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>__SAM3X8H__</state>
@@ -296,6 +297,7 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
@@ -307,19 +309,23 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/dmac</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/hsmci</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -472,6 +478,7 @@
 					<name>ADefines</name>
 					<state>FREERTOS_USED</state>
 					<state>ACCESS_USB_ENABLED</state>
+					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>__SAM3X8H__</state>
@@ -571,6 +578,7 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
@@ -582,19 +590,23 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/dmac</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/hsmci</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1106,6 +1118,7 @@
 					<name>CCDefines</name>
 					<state>FREERTOS_USED</state>
 					<state>ACCESS_USB_ENABLED</state>
+					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>__SAM3X8H__</state>
@@ -1238,6 +1251,7 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
@@ -1249,19 +1263,23 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/dmac</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/hsmci</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1414,6 +1432,7 @@
 					<name>ADefines</name>
 					<state>FREERTOS_USED</state>
 					<state>ACCESS_USB_ENABLED</state>
+					<state>SD_MMC_ENABLE</state>
 					<state>UDD_ENABLE</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 					<state>__SAM3X8H__</state>
@@ -1513,6 +1532,7 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
+					<state>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/preprocessor</state>
@@ -1524,19 +1544,23 @@
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/include</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
 					<state>$PROJ_DIR$/../../../../../../../../utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/dmac</state>
 					<state>$PROJ_DIR$/../../../../../../udc</state>
 					<state>$PROJ_DIR$/../../../../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/pio</state>
-					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/portable/iar/sam</state>
 					<state>$PROJ_DIR$/../../../../../../../gpio</state>
+					<state>$PROJ_DIR$/../../../../../../../delay</state>
+					<state>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/hsmci</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1910,6 +1934,18 @@
 				</file>
 			</group>
 			<group>
+				<name>hsmci</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/hsmci/hsmci.c</name>
+				</file>
+			</group>
+			<group>
+				<name>dmac</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/dmac/dmac.c</name>
+				</file>
+			</group>
+			<group>
 				<name>uotghs</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/uotghs/uotghs_device.c</name>
@@ -1939,10 +1975,10 @@
 								</file>
 							</group>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/exceptions.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/exceptions.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam3x/source/templates/system_sam3x.c</name>
 							</file>
 						</group>
 					</group>
@@ -2006,6 +2042,15 @@
 				</group>
 			</group>
 			<group>
+				<name>delay</name>
+				<group>
+					<name>sam</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../delay/sam/cycle_counter.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
 				<name>storage</name>
 				<group>
 					<name>ctrl_access</name>
@@ -2025,18 +2070,18 @@
 			</group>
 		</group>
 		<group>
-			<name>utils</name>
-			<group>
-				<name>interrupt</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
 			<name>components</name>
 			<group>
 				<name>memory</name>
+				<group>
+					<name>sd_mmc</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc/sd_mmc_mem.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../components/memory/sd_mmc/sd_mmc.c</name>
+					</file>
+				</group>
 				<group>
 					<name>virtual_mem</name>
 					<file>
@@ -2045,49 +2090,61 @@
 				</group>
 			</group>
 		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+			</group>
+		</group>
 	</group>
 	<group>
 		<name>thirdparty</name>
 		<group>
 			<name>freertos</name>
 			<group>
-				<name>source</name>
+				<name>freertos-7.0.0</name>
 				<group>
-					<name>portable</name>
+					<name>source</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/croutine.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/queue.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/tasks.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/list.c</name>
+					</file>
 					<group>
-						<name>iar</name>
+						<name>portable</name>
 						<group>
-							<name>sam</name>
+							<name>memmang</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/portable/iar/sam/port.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/portable/iar/sam/portasm.s</name>
+								<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/memmang/heap_3.c</name>
 							</file>
 						</group>
+						<group>
+							<name>iar</name>
+							<group>
+								<name>sam</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/sam/port.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/sam/portasm.s</name>
+								</file>
+							</group>
+						</group>
 					</group>
-					<group>
-						<name>memmang</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/portable/memmang/heap_3.c</name>
-						</file>
-					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/timers.c</name>
+					</file>
 				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/queue.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/list.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/timers.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/croutine.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../thirdparty/freertos/source/tasks.c</name>
-				</file>
 			</group>
 		</group>
 	</group>

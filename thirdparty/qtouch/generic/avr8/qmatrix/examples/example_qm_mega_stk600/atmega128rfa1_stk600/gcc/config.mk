@@ -48,7 +48,7 @@ TARGET = examples_example_qm_mega_stk600.elf
 
 # C source files located from the top-level source directory
 CSRCS = \
-       mega/boards/stk600/init.c                          \
+       mega/boards/stk600/rc128x_rfx/init.c               \
        thirdparty/qtouch/generic/avr8/qmatrix/examples/example_qm_mega_stk600/BitBangSPI_Master.c \
        thirdparty/qtouch/generic/avr8/qmatrix/examples/example_qm_mega_stk600/atmega128rfa1_stk600/main_m128rfa1.c \
        thirdparty/qtouch/qdebug/QDebug.c                  \
@@ -62,7 +62,11 @@ ASSRCS = \
 # Include path located from the top-level source directory
 INC_PATH = \
        common/boards                                      \
+       common/services/gpio                               \
+       common/services/ioport                             \
        common/utils                                       \
+       mega/boards/stk600                                 \
+       mega/boards/stk600/rc128x_rfx                      \
        mega/utils                                         \
        thirdparty/qtouch/generic/avr8                     \
        thirdparty/qtouch/generic/avr8/qmatrix/common      \
@@ -115,7 +119,7 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D BOARD=STK600_MEGA
+       -D BOARD=STK600_MEGA_RF
 
 # Extra flags to use when linking
 LDFLAGS = 

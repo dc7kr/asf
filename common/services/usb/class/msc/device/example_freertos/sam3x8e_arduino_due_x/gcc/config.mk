@@ -74,13 +74,13 @@ CSRCS = \
        sam/utils/cmsis/sam3x/source/templates/gcc/startup_sam3x.c \
        sam/utils/cmsis/sam3x/source/templates/system_sam3x.c \
        sam/utils/syscalls/gcc/syscalls.c                  \
-       thirdparty/freertos/source/croutine.c              \
-       thirdparty/freertos/source/list.c                  \
-       thirdparty/freertos/source/portable/gcc/sam/port.c \
-       thirdparty/freertos/source/portable/memmang/heap_3.c \
-       thirdparty/freertos/source/queue.c                 \
-       thirdparty/freertos/source/tasks.c                 \
-       thirdparty/freertos/source/timers.c
+       thirdparty/freertos/freertos-7.0.0/source/croutine.c \
+       thirdparty/freertos/freertos-7.0.0/source/list.c   \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/sam/port.c \
+       thirdparty/freertos/freertos-7.0.0/source/portable/memmang/heap_3.c \
+       thirdparty/freertos/freertos-7.0.0/source/queue.c  \
+       thirdparty/freertos/freertos-7.0.0/source/tasks.c  \
+       thirdparty/freertos/freertos-7.0.0/source/timers.c
 
 # List of assembler source files.
 ASSRCS = 
@@ -111,8 +111,8 @@ INC_PATH = \
        sam/utils/header_files                             \
        sam/utils/preprocessor                             \
        thirdparty/CMSIS/Include                           \
-       thirdparty/freertos/source/include                 \
-       thirdparty/freertos/source/portable/gcc/sam \
+       thirdparty/freertos/freertos-7.0.0/source/include  \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/sam \
        ./common/services/usb/class/msc/device/example_freertos/sam3x8e_arduino_due_x/gcc
 
 # Additional search paths for libraries.

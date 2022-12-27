@@ -238,8 +238,8 @@
 					<state></state>
 					<state>BOARD=STK600_RC100X</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>AT45DBX_ENABLE</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
+					<state>AT45DBX_ENABLE</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -567,8 +567,8 @@
 					<name>ADefines</name>
 					<state>BOARD=STK600_RC100X</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>AT45DBX_ENABLE</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
+					<state>AT45DBX_ENABLE</state>
 				</option>
 				<option>
 					<name>MacroChars</name>
@@ -1285,8 +1285,8 @@
 					<state>NDEBUG</state>
 					<state>BOARD=STK600_RC100X</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>AT45DBX_ENABLE</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
+					<state>AT45DBX_ENABLE</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1614,8 +1614,8 @@
 					<name>ADefines</name>
 					<state>BOARD=STK600_RC100X</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>AT45DBX_ENABLE</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
+					<state>AT45DBX_ENABLE</state>
 				</option>
 				<option>
 					<name>MacroChars</name>

@@ -117,7 +117,7 @@
 // From module: Interrupt management - UC3 implementation
 #include <interrupt.h>
 
-// From module: MCI - MultiMedia Card Interface
+// From module: MCI - MultiMedia Card Interface - Deprecated
 #include <mci.h>
 #include <sd_mmc_cmd.h>
 

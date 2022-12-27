@@ -1937,15 +1937,6 @@
 				</file>
 			</group>
 			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
-				</file>
-			</group>
-			<group>
 				<name>dacc</name>
 				<group>
 					<name>sinewave_example</name>
@@ -1955,6 +1946,15 @@
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../dacc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
 				</file>
 			</group>
 			<group>

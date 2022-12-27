@@ -65,6 +65,12 @@
 // From module: Generic board support
 #include <board.h>
 
+// From module: High Speed Multimedia Card Interface
+#include <hsmci.h>
+
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
+
 // From module: Interrupt management - SAM3 implementation
 #include <interrupt.h>
 
@@ -84,6 +90,9 @@
 #include <nand_flash_spare_scheme.h>
 #include <nand_flash_translation.h>
 
+// From module: PDC - Peripheral DMA Controller Example
+#include <pdc.h>
+
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
 
@@ -99,6 +108,12 @@
 
 // From module: SAM4S startup code
 #include <exceptions.h>
+
+// From module: SD/MMC stack + Memory Control Access (aka ctrl_access, required for file system or USB)
+#include <sd_mmc_mem.h>
+
+// From module: SD/MMC stack on Multimedia Card interface
+#include <sd_mmc.h>
 
 // From module: SMC - Static Memory Controller
 #include <smc.h>

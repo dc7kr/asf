@@ -56,6 +56,9 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: GPIO - General purpose Input/Output
 #include <gpio.h>
 
@@ -65,11 +68,20 @@
 // From module: Generic components of unit test framework
 #include <unit_test/suite.h>
 
+// From module: High Speed Multimedia Card Interface
+#include <hsmci.h>
+
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
+
 // From module: Interrupt management - SAM3 implementation
 #include <interrupt.h>
 
 // From module: Memory Control Access Interface
 #include <ctrl_access.h>
+
+// From module: PDC - Peripheral DMA Controller Example
+#include <pdc.h>
 
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
@@ -86,6 +98,12 @@
 
 // From module: SAM3SD8 startup code
 #include <exceptions.h>
+
+// From module: SD/MMC stack + Memory Control Access (aka ctrl_access, required for file system or USB)
+#include <sd_mmc_mem.h>
+
+// From module: SD/MMC stack on Multimedia Card interface
+#include <sd_mmc.h>
 
 // From module: Sleep manager - SAM implementation
 #include <sam/sleepmgr.h>

@@ -346,6 +346,7 @@
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/.</state>
@@ -488,6 +489,7 @@
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1239,6 +1241,7 @@
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1381,6 +1384,7 @@
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1800,6 +1804,12 @@
 				<name>gpio</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/gpio/gpio.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pdca</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/pdca/pdca.c</name>
 				</file>
 			</group>
 			<group>

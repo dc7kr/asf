@@ -56,17 +56,39 @@
 #include <compiler.h>
 #include <status_codes.h>
 
+// From module: DMAC - DMAC Controller
+#include <dmac.h>
+
+// From module: Delay routines
+#include <delay.h>
+
 // From module: GPIO - General purpose Input/Output
 #include <gpio.h>
 
 // From module: Generic board support
 #include <board.h>
 
+// From module: High Speed Multimedia Card Interface
+#include <hsmci.h>
+
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
+
 // From module: Interrupt management - SAM3 implementation
 #include <interrupt.h>
 
 // From module: Memory Control Access Interface
 #include <ctrl_access.h>
+
+// From module: NAND Flash on EBI
+#include <nand_flash_common.h>
+#include <nand_flash_ecc.h>
+#include <nand_flash_management.h>
+#include <nand_flash_mem.h>
+#include <nand_flash_model.h>
+#include <nand_flash_raw.h>
+#include <nand_flash_spare_scheme.h>
+#include <nand_flash_translation.h>
 
 // From module: PIO - Parallel Input/Output Controller
 #include <pio.h>
@@ -83,6 +105,15 @@
 
 // From module: SAM3X startup code
 #include <exceptions.h>
+
+// From module: SD/MMC stack + Memory Control Access (aka ctrl_access, required for file system or USB)
+#include <sd_mmc_mem.h>
+
+// From module: SD/MMC stack on Multimedia Card interface
+#include <sd_mmc.h>
+
+// From module: SMC - Static Memory Controller
+#include <smc.h>
 
 // From module: Sleep manager - SAM implementation
 #include <sam/sleepmgr.h>

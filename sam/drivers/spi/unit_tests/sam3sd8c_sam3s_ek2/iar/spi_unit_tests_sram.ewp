@@ -1943,18 +1943,18 @@
 				</file>
 			</group>
 			<group>
-				<name>pio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
-				</file>
-			</group>
-			<group>
 				<name>pmc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pio/pio_handler.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pio/pio.c</name>
 				</file>
 			</group>
 			<group>

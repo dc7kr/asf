@@ -64,7 +64,7 @@ CSRCS = \
        avr32/drivers/flashc/flashc.c                      \
        avr32/drivers/gpio/gpio.c                          \
        avr32/drivers/intc/intc.c                          \
-       avr32/drivers/mci/mci.c                            \
+       avr32/drivers/mci/_asf_v1/mci.c                    \
        avr32/drivers/pm/pm.c                              \
        avr32/drivers/pm/pm_conf_clocks.c                  \
        avr32/drivers/pm/power_clocks_lib.c                \
@@ -94,20 +94,20 @@ CSRCS = \
        common/components/memory/data_flash/at45dbx/_asf_v1/at45dbx.c \
        common/components/memory/data_flash/at45dbx/_asf_v1/at45dbx_mem.c \
        common/services/storage/ctrl_access/ctrl_access.c  \
-       thirdparty/freertos/source/croutine.c              \
-       thirdparty/freertos/source/list.c                  \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3/port.c \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3/read.c \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3/write.c \
-       thirdparty/freertos/source/portable/memmang/heap_3.c \
-       thirdparty/freertos/source/queue.c                 \
-       thirdparty/freertos/source/tasks.c                 \
-       thirdparty/freertos/source/timers.c
+       thirdparty/freertos/freertos-7.0.0/source/croutine.c \
+       thirdparty/freertos/freertos-7.0.0/source/list.c   \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3/port.c \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3/read.c \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3/write.c \
+       thirdparty/freertos/freertos-7.0.0/source/portable/memmang/heap_3.c \
+       thirdparty/freertos/freertos-7.0.0/source/queue.c  \
+       thirdparty/freertos/freertos-7.0.0/source/tasks.c  \
+       thirdparty/freertos/freertos-7.0.0/source/timers.c
 
 # List of assembler source files.
 ASSRCS = \
        avr32/utils/startup/trampoline_uc3.S               \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3/exception.S
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3/exception.S
 
 # List of include paths.
 INC_PATH = \
@@ -118,7 +118,7 @@ INC_PATH = \
        avr32/drivers/flashc                               \
        avr32/drivers/gpio                                 \
        avr32/drivers/intc                                 \
-       avr32/drivers/mci                                  \
+       avr32/drivers/mci/_asf_v1                          \
        avr32/drivers/pm                                   \
        avr32/drivers/spi                                  \
        avr32/drivers/tc                                   \
@@ -145,8 +145,8 @@ INC_PATH = \
        common/components/memory/data_flash/at45dbx/_asf_v1 \
        common/services/storage/ctrl_access                \
        common/utils                                       \
-       thirdparty/freertos/source/include                 \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3  \
+       thirdparty/freertos/freertos-7.0.0/source/include  \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3 \
        thirdparty/newlib_addons/libs/include \
        ./avr32/services/usb/_asf_v1/class/mass_storage/examples/prj_freertos/at32uc3a3256_evk1104/gcc
 

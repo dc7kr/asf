@@ -1890,19 +1890,19 @@
 			</group>
 		</group>
 		<group>
-			<name>boards</name>
-			<group>
-				<name>sam3s_ek</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../boards/sam3s_ek/led.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../boards/sam3s_ek/init.c</name>
-				</file>
-			</group>
-		</group>
-		<group>
 			<name>drivers</name>
+			<group>
+				<name>spi</name>
+				<file>
+					<name>$PROJ_DIR$/../../../spi.c</name>
+				</file>
+				<group>
+					<name>unit_tests</name>
+					<file>
+						<name>$PROJ_DIR$/../../unit_tests.c</name>
+					</file>
+				</group>
+			</group>
 			<group>
 				<name>uart</name>
 				<file>
@@ -1910,15 +1910,9 @@
 				</file>
 			</group>
 			<group>
-				<name>spi</name>
-				<group>
-					<name>unit_tests</name>
-					<file>
-						<name>$PROJ_DIR$/../../unit_tests.c</name>
-					</file>
-				</group>
+				<name>pmc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../spi.c</name>
+					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
 				</file>
 			</group>
 			<group>
@@ -1931,15 +1925,21 @@
 				</file>
 			</group>
 			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
-				</file>
-			</group>
-			<group>
 				<name>usart</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../usart/usart.c</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>sam3s_ek</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/sam3s_ek/led.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../boards/sam3s_ek/init.c</name>
 				</file>
 			</group>
 		</group>
@@ -1973,6 +1973,12 @@
 		<group>
 			<name>services</name>
 			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
+			</group>
+			<group>
 				<name>clock</name>
 				<group>
 					<name>sam3s</name>
@@ -1980,12 +1986,6 @@
 						<name>$PROJ_DIR$/../../../../../../common/services/clock/sam3s/sysclk.c</name>
 					</file>
 				</group>
-			</group>
-			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
-				</file>
 			</group>
 		</group>
 	</group>

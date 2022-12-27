@@ -47,8 +47,8 @@ PART = sam3x8h
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = thirdparty_freertos_sam_lwip_dhcp_example_flash.elf
-TARGET_SRAM = thirdparty_freertos_sam_lwip_dhcp_example_sram.elf
+TARGET_FLASH = freertos_sam_lwip_dhcp_example_flash.elf
+TARGET_SRAM = freertos_sam_lwip_dhcp_example_sram.elf
 
 # List of C source files.
 CSRCS = \
@@ -58,7 +58,7 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/sam3x_ek/led.c                          \
-       sam/components/ethernet_phy/dm9161a/dm9161a.c      \
+       sam/components/ethernet_phy/dm9161a/ethernet_phy.c \
        sam/drivers/emac/emac.c                            \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
@@ -77,13 +77,13 @@ CSRCS = \
        thirdparty/freertos/demo/lwip_sam_example/main.c   \
        thirdparty/freertos/demo/lwip_sam_example/network/ethernet.c \
        thirdparty/freertos/demo/lwip_sam_example/partest/ParTest.c \
-       thirdparty/freertos/source/croutine.c              \
-       thirdparty/freertos/source/list.c                  \
-       thirdparty/freertos/source/portable/gcc/sam/port.c \
-       thirdparty/freertos/source/portable/memmang/heap_3.c \
-       thirdparty/freertos/source/queue.c                 \
-       thirdparty/freertos/source/tasks.c                 \
-       thirdparty/freertos/source/timers.c                \
+       thirdparty/freertos/freertos-7.0.0/source/croutine.c \
+       thirdparty/freertos/freertos-7.0.0/source/list.c   \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/sam/port.c \
+       thirdparty/freertos/freertos-7.0.0/source/portable/memmang/heap_3.c \
+       thirdparty/freertos/freertos-7.0.0/source/queue.c  \
+       thirdparty/freertos/freertos-7.0.0/source/tasks.c  \
+       thirdparty/freertos/freertos-7.0.0/source/timers.c \
        thirdparty/lwip/lwip-1.4.0/src/api/api_lib.c       \
        thirdparty/lwip/lwip-1.4.0/src/api/api_msg.c       \
        thirdparty/lwip/lwip-1.4.0/src/api/err.c           \
@@ -154,8 +154,8 @@ INC_PATH = \
        thirdparty/freertos/demo/lwip_sam_example          \
        thirdparty/freertos/demo/lwip_sam_example/network  \
        thirdparty/freertos/demo/lwip_sam_example/sam3x8h_sam3x_ek \
-       thirdparty/freertos/source/include                 \
-       thirdparty/freertos/source/portable/gcc/sam        \
+       thirdparty/freertos/freertos-7.0.0/source/include  \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/sam \
        thirdparty/lwip/lwip-1.4.0/src/include             \
        thirdparty/lwip/lwip-1.4.0/src/include/ipv4        \
        thirdparty/lwip/lwip-1.4.0/src/include/lwip        \

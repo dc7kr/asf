@@ -1929,7 +1929,7 @@
 						<group>
 							<name>templates</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3n/source/templates/exceptions.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3n/source/templates/system_sam3n.c</name>
 							</file>
 							<group>
 								<name>iar</name>
@@ -1938,7 +1938,7 @@
 								</file>
 							</group>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3n/source/templates/system_sam3n.c</name>
+								<name>$PROJ_DIR$/../../../../../../../../sam/utils/cmsis/sam3n/source/templates/exceptions.c</name>
 							</file>
 						</group>
 					</group>

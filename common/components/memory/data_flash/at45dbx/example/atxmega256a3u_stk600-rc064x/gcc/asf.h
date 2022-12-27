@@ -84,7 +84,7 @@
 // From module: STK600-RC064X LED support enabled
 #include <led.h>
 
-// From module: System Clock Control - XMEGA A1U/A3U/A3BU/A4U implementation
+// From module: System Clock Control - XMEGA A1U/A3U/A3BU/A4U/B/C implementation
 #include <sysclk.h>
 
 // From module: XMEGA compiler driver

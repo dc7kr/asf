@@ -236,10 +236,10 @@
 				<option>
 					<name>CCDefines</name>
 					<state></state>
-					<state>BOARD=XMEGA_B1_XPLAINED</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>AT45DBX_ENABLE</state>
+					<state>BOARD=XMEGA_B1_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
+					<state>AT45DBX_ENABLE</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -402,7 +402,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
@@ -417,7 +417,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -565,10 +565,10 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>BOARD=XMEGA_B1_XPLAINED</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>AT45DBX_ENABLE</state>
+					<state>BOARD=XMEGA_B1_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
+					<state>AT45DBX_ENABLE</state>
 				</option>
 				<option>
 					<name>MacroChars</name>
@@ -693,7 +693,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
@@ -708,7 +708,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -1283,10 +1283,10 @@
 				<option>
 					<name>CCDefines</name>
 					<state>NDEBUG</state>
-					<state>BOARD=XMEGA_B1_XPLAINED</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>AT45DBX_ENABLE</state>
+					<state>BOARD=XMEGA_B1_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
+					<state>AT45DBX_ENABLE</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1449,7 +1449,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
@@ -1464,7 +1464,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>
@@ -1612,10 +1612,10 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>BOARD=XMEGA_B1_XPLAINED</state>
 					<state>ACCESS_USB_ENABLED</state>
-					<state>AT45DBX_ENABLE</state>
+					<state>BOARD=XMEGA_B1_XPLAINED</state>
 					<state>IOPORT_XMEGA_COMPAT</state>
+					<state>AT45DBX_ENABLE</state>
 				</option>
 				<option>
 					<name>MacroChars</name>
@@ -1740,7 +1740,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/nvm</state>
 					<state>$PROJ_DIR$/../../../../../../../sleepmgr</state>
@@ -1755,7 +1755,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/usb</state>
 					<state>$PROJ_DIR$/../../../../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/sleep</state>
 					<state>$PROJ_DIR$/../../../../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../../../../storage/ctrl_access</state>

@@ -107,6 +107,11 @@ extern "C" {
 #define ARDUINO_DUE_X         43  //!< Arduino Due/X board.
 #define STK600_RCUC3L3        44  //!< ATUCL3 STK600 board
 #define SAM4L_EK              45  //!< SAM4L-EK board.
+#define STK600_MEGA_RF        46  //!< STK600 MEGA RF EVK board.
+#define XMEGA_C3_XPLAINED     47  //!< ATxmega384C3 Xplained board.	
+#define STK600_RC032X         48  //!< STK600 with RC032X routing card board.
+#define SAM4S_EK2             49  //!< SAM4S-EK2 board.
+#define XMEGA_E5_XPLAINED     50  //!< ATxmega32E5 Xplained board.
 #define SIMULATOR_XMEGA_A1    97  //!< Simulator for XMEGA A1 devices
 #define AVR_SIMULATOR_UC3     98  //!< AVR SIMULATOR for AVR UC3 device family.
 #define USER_BOARD            99  //!< User-reserved board (if any).
@@ -151,6 +156,10 @@ extern "C" {
 #  include "xplain/xplain.h"
 #elif BOARD == STK600_MEGA
   /*No header-file to include*/
+#elif BOARD == STK600_MEGA_RF
+#  include "stk600.h"
+#elif BOARD == STK600_RC032X
+#  include "stk600/rc032x/stk600_rc032x.h"
 #elif BOARD == STK600_RC044X
 #  include "stk600/rc044x/stk600_rc044x.h"
 #elif BOARD == STK600_RC064X
@@ -198,6 +207,9 @@ extern "C" {
 #elif BOARD == SAM4S_XPLAINED
 #  include "sam4s_xplained/sam4s_xplained.h"
 #  include "system_sam4s.h"
+#elif BOARD == SAM4S_EK2
+#  include "sam4s_ek2/sam4s_ek2.h"
+#  include "system_sam4s.h"
 #elif BOARD == MEGA_1284P_XPLAINED
   /*No header-file to include*/
 #elif BOARD == ARDUINO_DUE_X
@@ -211,6 +223,8 @@ extern "C" {
 #  include "uc3_l0_qt600/uc3_l0_qt600.h"
 #elif BOARD == XMEGA_A3BU_XPLAINED
 #  include "xmega_a3bu_xplained/xmega_a3bu_xplained.h"
+#elif BOARD == XMEGA_E5_XPLAINED
+#  include "xmega_e5_xplained/xmega_e5_xplained.h"
 #elif BOARD == UC3B_BOARD_CONTROLLER
 #  include "uc3b_board_controller/uc3b_board_controller.h"
 #elif BOARD == RZ600
@@ -223,6 +237,8 @@ extern "C" {
   #include "stk600/rcuc3l3/stk600_rcuc3l3.h"
 #elif BOARD == SIMULATOR_XMEGA_A1
 #  include "simulator/xmega_a1/simulator_xmega_a1.h"
+#elif BOARD == XMEGA_C3_XPLAINED
+#  include "xmega_c3_xplained/xmega_c3_xplained.h"
 #elif BOARD == AVR_SIMULATOR_UC3
 #  include "avr_simulator_uc3/avr_simulator_uc3.h"
 #elif BOARD == USER_BOARD
@@ -231,7 +247,7 @@ extern "C" {
 #elif BOARD == DUMMY_BOARD
 #  include "dummy/dummy_board.h"
 #else
-#  error No known AVR board defined
+#  error No known Atmel board defined
 #endif
 
 #if (defined EXT_BOARD)

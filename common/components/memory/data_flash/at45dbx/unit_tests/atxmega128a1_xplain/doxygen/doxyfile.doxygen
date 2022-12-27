@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  .. ../../../../../../../utils/stdio/stdio_serial ../../../../../../../../xmega/drivers/pmic ../../../../../../../services/spi/xmega_spi ../../../../../../../../xmega/drivers/cpu ../../../../../../../services/spi ../../../../../../../services/serial ../../../../../../../boards ../../../../../../../services/ioport ../../.. ../../../../../../../../xmega/utils ../../../../../../../../xmega/drivers/spi ../../../../../../../services/clock ../../../../../../../../xmega/utils/preprocessor ../../../../../../../../xmega/drivers/usart ../../../../../../../../xmega/boards ../../../../../../../utils ../../../../../../../services/serial/xmega_usart ../../../../../../../services/gpio ../../../../../../../../xmega/boards/xplain
+INCLUDE_PATH           =  .. ../../../../../../../utils/stdio/stdio_serial ../../../../../../../../xmega/drivers/pmic ../../../../../../../services/spi/xmega_spi ../../../../../../../../xmega/drivers/cpu ../../../../../../../services/spi ../../../../../../../services/serial ../../../../../../../boards ../../../../../../../services/serial/xmega_usart ../../.. ../../../../../../../../xmega/utils ../../../../../../../../xmega/drivers/spi ../../../../../../../services/clock ../../../../../../../../xmega/utils/preprocessor ../../../../../../../../xmega/drivers/usart ../../../../../../../../xmega/boards ../../../../../../../utils ../../../../../../../../xmega/boards/xplain ../../../../../../../services/gpio ../../../../../../../services/ioport
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

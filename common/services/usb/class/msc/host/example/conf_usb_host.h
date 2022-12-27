@@ -3,7 +3,7 @@
  *
  * \brief USB host configuration file
  *
- * Copyright (C) 2011 Atmel Corporation. All rights reserved.
+ * Copyright (C) 2011-2012 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -62,6 +62,8 @@
 
 //! Authorize the USB host to run in High Speed
 #if (UC3A3||UC3A4)
+# define USB_HOST_HS_SUPPORT
+#elif (SAM3XA)
 # define USB_HOST_HS_SUPPORT
 #endif
 

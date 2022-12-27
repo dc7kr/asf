@@ -82,15 +82,15 @@ CSRCS = \
        thirdparty/freertos/demo/lwip_avr32_uc3_example/network/basicweb/BasicWEB.c \
        thirdparty/freertos/demo/lwip_avr32_uc3_example/partest/ParTest.c \
        thirdparty/freertos/demo/lwip_avr32_uc3_example/printf-stdarg.c \
-       thirdparty/freertos/source/croutine.c              \
-       thirdparty/freertos/source/list.c                  \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3/port.c \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3/read.c \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3/write.c \
-       thirdparty/freertos/source/portable/memmang/heap_3.c \
-       thirdparty/freertos/source/queue.c                 \
-       thirdparty/freertos/source/tasks.c                 \
-       thirdparty/freertos/source/timers.c                \
+       thirdparty/freertos/freertos-7.0.0/source/croutine.c \
+       thirdparty/freertos/freertos-7.0.0/source/list.c   \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3/port.c \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3/read.c \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3/write.c \
+       thirdparty/freertos/freertos-7.0.0/source/portable/memmang/heap_3.c \
+       thirdparty/freertos/freertos-7.0.0/source/queue.c  \
+       thirdparty/freertos/freertos-7.0.0/source/tasks.c  \
+       thirdparty/freertos/freertos-7.0.0/source/timers.c \
        thirdparty/lwip/lwip-1.4.0/src/api/api_lib.c       \
        thirdparty/lwip/lwip-1.4.0/src/api/api_msg.c       \
        thirdparty/lwip/lwip-1.4.0/src/api/err.c           \
@@ -130,7 +130,7 @@ CSRCS = \
 # List of assembler source files.
 ASSRCS = \
        avr32/utils/startup/trampoline_uc3.S               \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3/exception.S
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3/exception.S
 
 # List of include paths.
 INC_PATH = \
@@ -162,8 +162,8 @@ INC_PATH = \
        thirdparty/freertos/demo/lwip_avr32_uc3_example/network/basicsmtp \
        thirdparty/freertos/demo/lwip_avr32_uc3_example/network/basictftp \
        thirdparty/freertos/demo/lwip_avr32_uc3_example/network/basicweb \
-       thirdparty/freertos/source/include                 \
-       thirdparty/freertos/source/portable/gcc/avr32_uc3  \
+       thirdparty/freertos/freertos-7.0.0/source/include  \
+       thirdparty/freertos/freertos-7.0.0/source/portable/gcc/avr32_uc3 \
        thirdparty/lwip/lwip-1.4.0/src/include             \
        thirdparty/lwip/lwip-1.4.0/src/include/ipv4        \
        thirdparty/lwip/lwip-1.4.0/src/include/lwip        \

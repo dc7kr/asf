@@ -90,7 +90,7 @@
 #include <usart_spi.h>
 #include <xmega_usart_spi/usart_spi.h>
 
-// From module: System Clock Control - XMEGA A1/A3/A3B/A4/D implementation
+// From module: System Clock Control - XMEGA A1/A3/A3B/A4/D/E implementation
 #include <sysclk.h>
 
 // From module: USART - Universal Synchronous/Asynchronous Receiver/Transmitter

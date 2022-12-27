@@ -1352,7 +1352,7 @@ SEARCH_INCLUDES        = YES
 # contain include files that are not input files but should be processed by
 # the preprocessor.
 
-INCLUDE_PATH           =  ../../../../../utils/preprocessor ../../.. ../../../../../../common/services/clock ../../../../cpu ../../../../../../common/boards .. ../../../../../utils ../../../../../boards/xmega_a3bu_xplained ../../../../../../common/services/ioport ../../../../../boards ../../../../nvm ../../../../../../common/utils ../../../../../../common/services/gpio
+INCLUDE_PATH           =  ../../.. ../../../../../../common/services/clock ../../../../../../common/services/gpio ../../../../../../common/boards ../../../../../utils/preprocessor .. ../../../../../boards/xmega_a3bu_xplained ../../../../../../common/services/ioport ../../../../../boards ../../../../nvm ../../../../../../common/utils ../../../../../utils ../../../../cpu
 
 # You can use the INCLUDE_FILE_PATTERNS tag to specify one or more wildcard
 # patterns (like *.h and *.hpp) to filter out the header-files in the

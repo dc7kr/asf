@@ -2144,6 +2144,18 @@
 			</group>
 		</group>
 		<group>
+			<name>components</name>
+			<group>
+				<name>ethernet_phy</name>
+				<group>
+					<name>dm9161a</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../sam/components/ethernet_phy/dm9161a/ethernet_phy.c</name>
+					</file>
+				</group>
+			</group>
+		</group>
+		<group>
 			<name>utils</name>
 			<group>
 				<name>cmsis</name>
@@ -2167,18 +2179,6 @@
 							</group>
 						</group>
 					</group>
-				</group>
-			</group>
-		</group>
-		<group>
-			<name>components</name>
-			<group>
-				<name>ethernet_phy</name>
-				<group>
-					<name>dm9161a</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../sam/components/ethernet_phy/dm9161a/dm9161a.c</name>
-					</file>
 				</group>
 			</group>
 		</group>

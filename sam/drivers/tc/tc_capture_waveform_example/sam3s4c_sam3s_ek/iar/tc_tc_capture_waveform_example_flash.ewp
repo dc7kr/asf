@@ -294,6 +294,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
@@ -304,7 +305,6 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
@@ -561,6 +561,7 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
@@ -571,7 +572,6 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
@@ -1220,6 +1220,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
@@ -1230,7 +1231,6 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>
@@ -1487,6 +1487,7 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../uart</state>
+					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../boards/sam3s_ek</state>
 					<state>$PROJ_DIR$/../../../../../../common/services/clock</state>
@@ -1497,7 +1498,6 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../pmc</state>
 					<state>$PROJ_DIR$/../../../../pio</state>
-					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../common/utils</state>

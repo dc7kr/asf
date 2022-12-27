@@ -56,6 +56,8 @@ CSRCS = \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_model.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_raw_nfc.c \
        common/components/memory/nand_flash/nand_flash_ebi/nand_flash_spare_scheme.c \
+       common/components/memory/sd_mmc/sd_mmc.c           \
+       common/components/memory/sd_mmc/sd_mmc_mem.c       \
        common/services/clock/sam3x/sysclk.c               \
        common/services/delay/sam/cycle_counter.c          \
        common/services/serial/usart_serial.c              \
@@ -75,6 +77,7 @@ CSRCS = \
        sam/boards/sam3x_ek/led.c                          \
        sam/drivers/dmac/dmac.c                            \
        sam/drivers/ebi/smc/smc.c                          \
+       sam/drivers/hsmci/hsmci.c                          \
        sam/drivers/pio/pio.c                              \
        sam/drivers/pio/pio_handler.c                      \
        sam/drivers/pmc/pmc.c                              \
@@ -94,9 +97,11 @@ INC_PATH = \
        common/boards                                      \
        common/components/memory/nand_flash/nand_flash_ebi \
        common/components/memory/nand_flash/nand_flash_ebi/ftl_lib \
+       common/components/memory/sd_mmc                    \
        common/services/clock                              \
        common/services/delay                              \
        common/services/gpio                               \
+       common/services/ioport                             \
        common/services/serial                             \
        common/services/serial/sam_uart                    \
        common/services/sleepmgr                           \
@@ -114,6 +119,7 @@ INC_PATH = \
        sam/boards/sam3x_ek                                \
        sam/drivers/dmac                                   \
        sam/drivers/ebi/smc                                \
+       sam/drivers/hsmci                                  \
        sam/drivers/pio                                    \
        sam/drivers/pmc                                    \
        sam/drivers/uart                                   \
@@ -175,6 +181,7 @@ CFLAGS =
 CPPFLAGS = \
        -D ACCESS_USB_ENABLED                              \
        -D BOARD=SAM3X_EK                                  \
+       -D SD_MMC_ENABLE                                   \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D UDD_ENABLE                                      \
        -D _ASSERT_ENABLE_                                 \

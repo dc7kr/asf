@@ -147,4 +147,5 @@ CPPFLAGS = \
        -D _ASSERT_ENABLE_
 
 # Extra flags to use when linking
-LDFLAGS = 
+LDFLAGS =  \
+       -Wl,--section-start=.BOOT=0x20000                 

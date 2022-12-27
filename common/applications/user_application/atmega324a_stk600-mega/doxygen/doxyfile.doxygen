@@ -582,7 +582,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT                  =  ../../../../../mega/boards/stk600/init.c ../../main.c  ../../../../../mega/utils/compiler.h ../../../../utils/parts.h ../../../../../mega/utils/status_codes.h ../../../../boards/board.h ../../../../utils/interrupt/interrupt_avr8.h ../conf_board.h ../../../../utils/interrupt.h
+INPUT                  =  ../../main.c ../../../../../mega/boards/stk600/rcx_x/init.c  ../../../../../mega/utils/compiler.h ../../../../utils/parts.h ../../../../../mega/utils/status_codes.h ../../../../boards/board.h ../conf_board.h ../../../../utils/interrupt/interrupt_avr8.h ../../../../../mega/utils/assembler.h ../../../../utils/interrupt.h ../../../../../mega/utils/progmem.h
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is

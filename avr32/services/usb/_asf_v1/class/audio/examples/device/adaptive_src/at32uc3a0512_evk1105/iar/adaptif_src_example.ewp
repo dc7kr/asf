@@ -2047,20 +2047,20 @@
 				</file>
 			</group>
 			<group>
-				<name>ebi</name>
-				<group>
-					<name>smc</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../drivers/ebi/smc/smc.c</name>
-					</file>
-				</group>
-			</group>
-			<group>
 				<name>ssc</name>
 				<group>
 					<name>i2s</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../../drivers/ssc/i2s/ssc_i2s.c</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>ebi</name>
+				<group>
+					<name>smc</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../drivers/ebi/smc/smc.c</name>
 					</file>
 				</group>
 			</group>
@@ -2122,19 +2122,22 @@
 		<group>
 			<name>freertos</name>
 			<group>
-				<name>source</name>
+				<name>freertos-7.0.0</name>
 				<group>
-					<name>portable</name>
+					<name>source</name>
 					<group>
-						<name>iar</name>
+						<name>portable</name>
 						<group>
-							<name>avr32_uc3</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3/read.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3/write.c</name>
-							</file>
+							<name>iar</name>
+							<group>
+								<name>avr32_uc3</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3/read.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3/write.c</name>
+								</file>
+							</group>
 						</group>
 					</group>
 				</group>

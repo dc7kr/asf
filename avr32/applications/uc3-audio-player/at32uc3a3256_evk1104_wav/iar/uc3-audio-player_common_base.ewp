@@ -348,6 +348,7 @@
 					<state>$PROJ_DIR$/../../../../services/audio/audio_player</state>
 					<state>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1</state>
 					<state>$PROJ_DIR$/../../../../services/usb/_asf_v1/class/mass_storage/host_mem</state>
+					<state>$PROJ_DIR$/../../../../drivers/mci/_asf_v1</state>
 					<state>$PROJ_DIR$/../../../../services/audio/audio_player/ai_sd_mmc</state>
 					<state>$PROJ_DIR$/../../../../boards/evk1104</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -356,7 +357,6 @@
 					<state>$PROJ_DIR$/../../../../services/audio/audio_player/players/wav</state>
 					<state>$PROJ_DIR$/../../../../drivers/spi</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../drivers/mci</state>
 					<state>$PROJ_DIR$/../../conf</state>
 					<state>$PROJ_DIR$/../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
@@ -521,6 +521,7 @@
 					<state>$PROJ_DIR$/../../../../services/audio/audio_player</state>
 					<state>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1</state>
 					<state>$PROJ_DIR$/../../../../services/usb/_asf_v1/class/mass_storage/host_mem</state>
+					<state>$PROJ_DIR$/../../../../drivers/mci/_asf_v1</state>
 					<state>$PROJ_DIR$/../../../../services/audio/audio_player/ai_sd_mmc</state>
 					<state>$PROJ_DIR$/../../../../boards/evk1104</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -529,7 +530,6 @@
 					<state>$PROJ_DIR$/../../../../services/audio/audio_player/players/wav</state>
 					<state>$PROJ_DIR$/../../../../drivers/spi</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../drivers/mci</state>
 					<state>$PROJ_DIR$/../../conf</state>
 					<state>$PROJ_DIR$/../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
@@ -1303,6 +1303,7 @@
 					<state>$PROJ_DIR$/../../../../services/audio/audio_player</state>
 					<state>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1</state>
 					<state>$PROJ_DIR$/../../../../services/usb/_asf_v1/class/mass_storage/host_mem</state>
+					<state>$PROJ_DIR$/../../../../drivers/mci/_asf_v1</state>
 					<state>$PROJ_DIR$/../../../../services/audio/audio_player/ai_sd_mmc</state>
 					<state>$PROJ_DIR$/../../../../boards/evk1104</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -1311,7 +1312,6 @@
 					<state>$PROJ_DIR$/../../../../services/audio/audio_player/players/wav</state>
 					<state>$PROJ_DIR$/../../../../drivers/spi</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../drivers/mci</state>
 					<state>$PROJ_DIR$/../../conf</state>
 					<state>$PROJ_DIR$/../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
@@ -1476,6 +1476,7 @@
 					<state>$PROJ_DIR$/../../../../services/audio/audio_player</state>
 					<state>$PROJ_DIR$/../../../../drivers/usbb/_asf_v1</state>
 					<state>$PROJ_DIR$/../../../../services/usb/_asf_v1/class/mass_storage/host_mem</state>
+					<state>$PROJ_DIR$/../../../../drivers/mci/_asf_v1</state>
 					<state>$PROJ_DIR$/../../../../services/audio/audio_player/ai_sd_mmc</state>
 					<state>$PROJ_DIR$/../../../../boards/evk1104</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -1484,7 +1485,6 @@
 					<state>$PROJ_DIR$/../../../../services/audio/audio_player/players/wav</state>
 					<state>$PROJ_DIR$/../../../../drivers/spi</state>
 					<state>$PROJ_DIR$/../..</state>
-					<state>$PROJ_DIR$/../../../../drivers/mci</state>
 					<state>$PROJ_DIR$/../../conf</state>
 					<state>$PROJ_DIR$/../../../../drivers/cpu/cycle_counter</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
@@ -2050,6 +2050,12 @@
 				</file>
 			</group>
 			<group>
+				<name>rtc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/rtc/rtc.c</name>
+				</file>
+			</group>
+			<group>
 				<name>pdca</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/pdca/pdca.c</name>
@@ -2098,10 +2104,13 @@
 				</group>
 			</group>
 			<group>
-				<name>rtc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/rtc/rtc.c</name>
-				</file>
+				<name>mci</name>
+				<group>
+					<name>_asf_v1</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/mci/_asf_v1/mci.c</name>
+					</file>
+				</group>
 			</group>
 			<group>
 				<name>twim</name>
@@ -2128,12 +2137,6 @@
 				<name>spi</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/spi/spi.c</name>
-				</file>
-			</group>
-			<group>
-				<name>mci</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/mci/mci.c</name>
 				</file>
 			</group>
 		</group>

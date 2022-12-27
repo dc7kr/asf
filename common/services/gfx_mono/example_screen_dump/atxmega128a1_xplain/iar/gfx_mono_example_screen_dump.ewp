@@ -414,22 +414,23 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/boards/xplain</state>
+					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../serial</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../serial/xmega_usart</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/boards/xplain</state>
+					<state>$PROJ_DIR$/../../../../serial/xmega_usart</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../components/display/st7565r</state>
 					<state>$PROJ_DIR$/.</state>
@@ -674,22 +675,23 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/boards/xplain</state>
+					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../serial</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../serial/xmega_usart</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/boards/xplain</state>
+					<state>$PROJ_DIR$/../../../../serial/xmega_usart</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../components/display/st7565r</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1439,22 +1441,23 @@
 					<name>newCCIncludePaths</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/boards/xplain</state>
+					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../serial</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../serial/xmega_usart</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/boards/xplain</state>
+					<state>$PROJ_DIR$/../../../../serial/xmega_usart</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../components/display/st7565r</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1699,22 +1702,23 @@
 					<name>ANewIncludes</name>
 					<state>$TOOLKIT_DIR$\INC\</state>
 					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/boards/xplain</state>
+					<state>$PROJ_DIR$/../../../../delay</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/pmic</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/cpu</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../serial</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../ioport</state>
+					<state>$PROJ_DIR$/../../../../../../xmega/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/utils</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../serial/xmega_usart</state>
+					<state>$PROJ_DIR$/../../../../ioport</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/drivers/usart</state>
 					<state>$PROJ_DIR$/../../../../../../xmega/boards</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../xmega/boards/xplain</state>
+					<state>$PROJ_DIR$/../../../../serial/xmega_usart</state>
 					<state>$PROJ_DIR$/../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../../../components/display/st7565r</state>
 					<state>$PROJ_DIR$/.</state>

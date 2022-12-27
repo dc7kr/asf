@@ -62,6 +62,9 @@
 // From module: DACIFB - DAC Interface B
 #include <dacifb.h>
 
+// From module: Delay routines
+#include <delay.h>
+
 // From module: FLASHC - Flash Controller
 #include <flashc.h>
 
@@ -92,6 +95,9 @@
 
 // From module: SCIF System Control Interface - UC3C implementation
 #include <scif_uc3c.h>
+
+// From module: System Clock Control - UC3 C implementation
+#include <sysclk.h>
 
 // From module: UC3C-EK
 #include <led.h>

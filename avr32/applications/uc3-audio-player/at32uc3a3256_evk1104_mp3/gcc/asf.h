@@ -120,7 +120,7 @@
 // From module: Libmad MP3 Decoder library
 #include <mad.h>
 
-// From module: MCI - MultiMedia Card Interface
+// From module: MCI - MultiMedia Card Interface - Deprecated
 #include <mci.h>
 #include <sd_mmc_cmd.h>
 

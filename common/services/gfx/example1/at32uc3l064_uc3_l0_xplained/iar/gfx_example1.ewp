@@ -328,6 +328,7 @@
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
@@ -338,9 +339,9 @@
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/flashcdw</state>
-					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
+					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -464,6 +465,7 @@
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
@@ -474,9 +476,9 @@
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/flashcdw</state>
-					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
+					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1209,6 +1211,7 @@
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
@@ -1219,9 +1222,9 @@
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/flashcdw</state>
-					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
+					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1345,6 +1348,7 @@
 					<state>$PROJ_DIR$/../../../../../components/display/ili9341</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../clock</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
 					<state>$PROJ_DIR$/../../../../spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/boards/uc3_l0_xplained</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
@@ -1355,9 +1359,9 @@
 					<state>$PROJ_DIR$/../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/flashcdw</state>
-					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../../../../avr32/drivers/spi</state>
+					<state>$PROJ_DIR$/../../../../../../avr32/drivers/pdca</state>
+					<state>$PROJ_DIR$/../../../../spi/uc3_spi</state>
 					<state>$PROJ_DIR$/../../../../../../avr32/drivers/gpio</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1833,6 +1837,12 @@
 				<name>flashcdw</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../avr32/drivers/flashcdw/flashcdw.c</name>
+				</file>
+			</group>
+			<group>
+				<name>pdca</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../avr32/drivers/pdca/pdca.c</name>
 				</file>
 			</group>
 			<group>

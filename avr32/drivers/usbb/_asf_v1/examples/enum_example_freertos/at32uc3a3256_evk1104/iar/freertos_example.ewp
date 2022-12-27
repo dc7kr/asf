@@ -336,13 +336,13 @@
 					<state>$PROJ_DIR$/../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../enum/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/include</state>
 					<state>$PROJ_DIR$/../../../enum</state>
 					<state>$PROJ_DIR$/../../freertos</state>
 					<state>$PROJ_DIR$/../../../../../../cpu/cycle_counter</state>
+					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../enum</state>
 					<state>$PROJ_DIR$/../../../../enum/host</state>
-					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3</state>
+					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../usart</state>
@@ -479,13 +479,13 @@
 					<state>$PROJ_DIR$/../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../enum/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/include</state>
 					<state>$PROJ_DIR$/../../../enum</state>
 					<state>$PROJ_DIR$/../../freertos</state>
 					<state>$PROJ_DIR$/../../../../../../cpu/cycle_counter</state>
+					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../enum</state>
 					<state>$PROJ_DIR$/../../../../enum/host</state>
-					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3</state>
+					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../usart</state>
@@ -1231,13 +1231,13 @@
 					<state>$PROJ_DIR$/../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../enum/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/include</state>
 					<state>$PROJ_DIR$/../../../enum</state>
 					<state>$PROJ_DIR$/../../freertos</state>
 					<state>$PROJ_DIR$/../../../../../../cpu/cycle_counter</state>
+					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../enum</state>
 					<state>$PROJ_DIR$/../../../../enum/host</state>
-					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3</state>
+					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../usart</state>
@@ -1374,13 +1374,13 @@
 					<state>$PROJ_DIR$/../../../../../../gpio</state>
 					<state>$PROJ_DIR$/../../../enum/device</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/utils</state>
-					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/include</state>
 					<state>$PROJ_DIR$/../../../enum</state>
 					<state>$PROJ_DIR$/../../freertos</state>
 					<state>$PROJ_DIR$/../../../../../../cpu/cycle_counter</state>
+					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3</state>
 					<state>$PROJ_DIR$/../../../../enum</state>
 					<state>$PROJ_DIR$/../../../../enum/host</state>
-					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3</state>
+					<state>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/include</state>
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../../usart</state>
@@ -1801,18 +1801,6 @@
 				</file>
 			</group>
 			<group>
-				<name>pm</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../pm/pm_conf_clocks.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../pm/power_clocks_lib.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../pm/pm.c</name>
-				</file>
-			</group>
-			<group>
 				<name>tc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../tc/tc.c</name>
@@ -1854,9 +1842,6 @@
 					</group>
 					<group>
 						<name>examples</name>
-						<file>
-							<name>$PROJ_DIR$/../../../enum_example.c</name>
-						</file>
 						<group>
 							<name>enum</name>
 							<group>
@@ -1875,11 +1860,26 @@
 						<file>
 							<name>$PROJ_DIR$/../../../host_template_task.c</name>
 						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../enum_example.c</name>
+						</file>
 					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../../usb_drv.c</name>
 					</file>
 				</group>
+			</group>
+			<group>
+				<name>pm</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../pm/pm_conf_clocks.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../pm/power_clocks_lib.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../pm/pm.c</name>
+				</file>
 			</group>
 			<group>
 				<name>flashc</name>
@@ -1924,49 +1924,52 @@
 		<group>
 			<name>freertos</name>
 			<group>
-				<name>source</name>
+				<name>freertos-7.0.0</name>
 				<group>
-					<name>portable</name>
+					<name>source</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/tasks.c</name>
+					</file>
 					<group>
-						<name>iar</name>
+						<name>portable</name>
 						<group>
-							<name>avr32_uc3</name>
+							<name>iar</name>
+							<group>
+								<name>avr32_uc3</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3/read.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3/port.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3/write.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/iar/avr32_uc3/exception.s82</name>
+								</file>
+							</group>
+						</group>
+						<group>
+							<name>memmang</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3/write.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3/read.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3/port.c</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/portable/iar/avr32_uc3/exception.s82</name>
+								<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/portable/memmang/heap_3.c</name>
 							</file>
 						</group>
 					</group>
-					<group>
-						<name>memmang</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/portable/memmang/heap_3.c</name>
-						</file>
-					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/queue.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/timers.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/list.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/freertos-7.0.0/source/croutine.c</name>
+					</file>
 				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/tasks.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/queue.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/croutine.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/timers.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../thirdparty/freertos/source/list.c</name>
-				</file>
 			</group>
 		</group>
 	</group>
