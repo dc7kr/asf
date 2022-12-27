@@ -166,11 +166,11 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>RTC_COUNT_ASYNC=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>SYSTICK_MODE</state>
 					<state>TC_ASYNC=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>_QTOUCH_</state>
 					<state>__SAMD20J18__</state>
@@ -488,11 +488,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>RTC_COUNT_ASYNC=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>SYSTICK_MODE</state>
 					<state>TC_ASYNC=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>_QTOUCH_</state>
 					<state>__SAMD20J18__</state>
@@ -1169,11 +1169,11 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>RTC_COUNT_ASYNC=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>SYSTICK_MODE</state>
 					<state>TC_ASYNC=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>_QTOUCH_</state>
 					<state>__SAMD20J18__</state>
@@ -1491,11 +1491,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>RTC_COUNT_ASYNC=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>SYSTICK_MODE</state>
 					<state>TC_ASYNC=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>_QTOUCH_</state>
 					<state>__SAMD20J18__</state>
@@ -2385,9 +2385,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20e18.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20e1f.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20e16.h</name>
 							</file>
 							<file>
@@ -2424,6 +2421,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/port.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/pac2.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/tc3.h</name>
 							</file>
 							<file>
@@ -2448,7 +2448,7 @@
 								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/pac0.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/pac2.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/tc2.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/sercom1.h</name>
@@ -2464,9 +2464,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/dac.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/tc2.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/sercom5.h</name>

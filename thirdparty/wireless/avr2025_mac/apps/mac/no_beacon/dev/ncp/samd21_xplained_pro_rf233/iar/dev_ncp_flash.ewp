@@ -167,23 +167,23 @@
 				<option>
 					<name>CCDefines</name>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>STB_ON_SAL</state>
 					<state>CUSTOM_DEFAULT_TX_PWR</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>CUSTOM_PWR_TABLE</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>SIO_HUB</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -513,23 +513,23 @@
 				<option>
 					<name>ADefines</name>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>STB_ON_SAL</state>
 					<state>CUSTOM_DEFAULT_TX_PWR</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>CUSTOM_PWR_TABLE</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>SIO_HUB</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -1218,23 +1218,23 @@
 				<option>
 					<name>CCDefines</name>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>STB_ON_SAL</state>
 					<state>CUSTOM_DEFAULT_TX_PWR</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>CUSTOM_PWR_TABLE</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>SIO_HUB</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -1564,23 +1564,23 @@
 				<option>
 					<name>ADefines</name>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>STB_ON_SAL</state>
 					<state>CUSTOM_DEFAULT_TX_PWR</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>CUSTOM_PWR_TABLE</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>SIO_HUB</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -2536,6 +2536,9 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/mac_build_config.h</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/ieee_154g.h</name>
+					</file>
 				</group>
 			</group>
 			<group>
@@ -2757,6 +2760,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/sercom2.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/ac1.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/sercom4.h</name>
 							</file>
 							<file>
@@ -2767,9 +2773,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/pac1.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/ac1.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/tc3.h</name>
@@ -2797,9 +2800,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/pac.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/tcc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/dmac.h</name>
@@ -2838,13 +2838,16 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/nvmctrl.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/pm.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/tcc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/ac.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/evsys.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/pm.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/hmatrixb.h</name>
@@ -2867,6 +2870,9 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g18au.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e15b.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21j15b.h</name>
@@ -2900,9 +2906,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e16b.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e15b.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g17a.h</name>

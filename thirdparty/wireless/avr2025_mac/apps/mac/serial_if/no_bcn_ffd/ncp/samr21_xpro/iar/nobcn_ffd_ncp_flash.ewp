@@ -167,22 +167,22 @@
 				<option>
 					<name>CCDefines</name>
 					<state>FFD</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>TEST_HARNESS</state>
 					<state>ANTENNA_DIVERSITY=1</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>__SAMR21G18A__</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>STB_ON_SAL</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -512,22 +512,22 @@
 				<option>
 					<name>ADefines</name>
 					<state>FFD</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>TEST_HARNESS</state>
 					<state>ANTENNA_DIVERSITY=1</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>__SAMR21G18A__</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>STB_ON_SAL</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1216,22 +1216,22 @@
 				<option>
 					<name>CCDefines</name>
 					<state>FFD</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>TEST_HARNESS</state>
 					<state>ANTENNA_DIVERSITY=1</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>__SAMR21G18A__</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>STB_ON_SAL</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1561,22 +1561,22 @@
 				<option>
 					<name>ADefines</name>
 					<state>FFD</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>TEST_HARNESS</state>
 					<state>ANTENNA_DIVERSITY=1</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>__SAMR21G18A__</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>STB_ON_SAL</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -2544,6 +2544,9 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/mac_build_config.h</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/ieee_154g.h</name>
+					</file>
 				</group>
 			</group>
 			<group>
@@ -2912,9 +2915,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samr21/include/instance/pm.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samr21/include/instance/sercom4.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samr21/include/instance/sbmatrix.h</name>
 							</file>
 							<file>
@@ -2937,6 +2937,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samr21/include/instance/adc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samr21/include/instance/sercom4.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samr21/include/instance/nvmctrl.h</name>
@@ -3051,6 +3054,9 @@
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samr21/include/samr21g18a.h</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samr21/include/samr21g16a.h</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samr21/include/samr21e16a.h</name>
 						</file>
 						<file>
@@ -3058,9 +3064,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samr21/include/samr21e17a.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samr21/include/samr21g16a.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samr21/include/samr21.h</name>

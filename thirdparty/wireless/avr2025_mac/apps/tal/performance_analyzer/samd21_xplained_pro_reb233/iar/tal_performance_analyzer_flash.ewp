@@ -171,15 +171,15 @@
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>ENABLE_TFA</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
 					<state>HIGHEST_STACK_LAYER=TAL</state>
 					<state>HIGH_DATA_RATE_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
-					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>__SAMD21J18A__</state>
@@ -514,15 +514,15 @@
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>ENABLE_TFA</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
 					<state>HIGHEST_STACK_LAYER=TAL</state>
 					<state>HIGH_DATA_RATE_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
-					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>__SAMD21J18A__</state>
@@ -1216,15 +1216,15 @@
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>ENABLE_TFA</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
 					<state>HIGHEST_STACK_LAYER=TAL</state>
 					<state>HIGH_DATA_RATE_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
-					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>__SAMD21J18A__</state>
@@ -1559,15 +1559,15 @@
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>ENABLE_TFA</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
 					<state>HIGHEST_STACK_LAYER=TAL</state>
 					<state>HIGH_DATA_RATE_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
-					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>__SAMD21J18A__</state>
@@ -2444,6 +2444,9 @@
 				<group>
 					<name>include</name>
 					<file>
+						<name>$PROJ_DIR$/../../../../../include/ieee_154g.h</name>
+					</file>
+					<file>
 						<name>$PROJ_DIR$/../../../../../include/avr2025_mac.h</name>
 					</file>
 					<file>
@@ -2742,9 +2745,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21g18au.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j15a.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e16b.h</name>
 							</file>
 							<file>
@@ -2764,6 +2764,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j15b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j15a.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j16a.h</name>

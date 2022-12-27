@@ -166,9 +166,9 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USB_DEVICE_LPM_SUPPORT</state>
 					<state>__SAMD11D14AM__</state>
 					<state>BOARD=SAMD11_XPLAINED_PRO</state>
@@ -481,9 +481,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USB_DEVICE_LPM_SUPPORT</state>
 					<state>__SAMD11D14AM__</state>
 					<state>BOARD=SAMD11_XPLAINED_PRO</state>
@@ -1156,9 +1156,9 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USB_DEVICE_LPM_SUPPORT</state>
 					<state>__SAMD11D14AM__</state>
 					<state>BOARD=SAMD11_XPLAINED_PRO</state>
@@ -1471,9 +1471,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USB_DEVICE_LPM_SUPPORT</state>
 					<state>__SAMD11D14AM__</state>
 					<state>BOARD=SAMD11_XPLAINED_PRO</state>
@@ -2305,6 +2305,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd11/include/instance/ac.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd11/include/instance/sbmatrix.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd11/include/instance/pm.h</name>
 							</file>
 							<file>
@@ -2411,6 +2414,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd11/include/component/evsys.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd11/include/component/hmatrixb.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd11/include/component/dmac.h</name>

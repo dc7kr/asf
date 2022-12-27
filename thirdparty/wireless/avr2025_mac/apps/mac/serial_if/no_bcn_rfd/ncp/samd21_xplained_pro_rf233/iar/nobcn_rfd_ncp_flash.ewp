@@ -167,23 +167,23 @@
 				<option>
 					<name>CCDefines</name>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>CUSTOM_DEFAULT_TX_PWR</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>CUSTOM_PWR_TABLE</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>__SAMD21J18A__</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -514,23 +514,23 @@
 				<option>
 					<name>ADefines</name>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>CUSTOM_DEFAULT_TX_PWR</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>CUSTOM_PWR_TABLE</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>__SAMD21J18A__</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -1220,23 +1220,23 @@
 				<option>
 					<name>CCDefines</name>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>CUSTOM_DEFAULT_TX_PWR</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>CUSTOM_PWR_TABLE</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>__SAMD21J18A__</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -1567,23 +1567,23 @@
 				<option>
 					<name>ADefines</name>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>CUSTOM_DEFAULT_TX_PWR</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>CUSTOM_PWR_TABLE</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>__SAMD21J18A__</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -2551,6 +2551,9 @@
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/mac_build_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/ieee_154g.h</name>
 					</file>
 				</group>
 			</group>

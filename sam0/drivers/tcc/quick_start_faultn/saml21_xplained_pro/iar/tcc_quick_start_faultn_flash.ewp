@@ -166,10 +166,10 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>TCC_ASYNC=true</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAML21J18A__</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>
 				</option>
@@ -476,10 +476,10 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>TCC_ASYNC=true</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAML21J18A__</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>
 				</option>
@@ -1145,10 +1145,10 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>TCC_ASYNC=true</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAML21J18A__</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>
 				</option>
@@ -1455,10 +1455,10 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>TCC_ASYNC=true</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAML21J18A__</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>
 				</option>

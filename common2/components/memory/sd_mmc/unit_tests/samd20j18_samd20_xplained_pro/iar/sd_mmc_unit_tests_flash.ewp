@@ -166,11 +166,11 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>CYCLE_MODE</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAMD20J18__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
@@ -481,11 +481,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>CYCLE_MODE</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAMD20J18__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
@@ -1155,11 +1155,11 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>CYCLE_MODE</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAMD20J18__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
@@ -1470,11 +1470,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>CYCLE_MODE</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAMD20J18__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
@@ -2072,12 +2072,6 @@
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20g18.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20e1f.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20j17.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20j15.h</name>
 							</file>
 							<file>
@@ -2100,6 +2094,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20g18u.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20j17.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20e14.h</name>
@@ -2126,6 +2123,9 @@
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/wdt.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/sercom2.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/sercom1.h</name>
 							</file>
 							<file>
@@ -2139,6 +2139,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/ac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/tc5.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/nvmctrl.h</name>
@@ -2174,13 +2177,7 @@
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/tc0.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/tc5.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/tc2.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/sercom2.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/pm.h</name>

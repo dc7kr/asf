@@ -167,12 +167,12 @@
 				<option>
 					<name>CCDefines</name>
 					<state>ADC_CALLBACK_MODE=true</state>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>RTC_COUNT_ASYNC=false</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -481,12 +481,12 @@
 				<option>
 					<name>ADefines</name>
 					<state>ADC_CALLBACK_MODE=true</state>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>RTC_COUNT_ASYNC=false</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1154,12 +1154,12 @@
 				<option>
 					<name>CCDefines</name>
 					<state>ADC_CALLBACK_MODE=true</state>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>RTC_COUNT_ASYNC=false</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1468,12 +1468,12 @@
 				<option>
 					<name>ADefines</name>
 					<state>ADC_CALLBACK_MODE=true</state>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>RTC_COUNT_ASYNC=false</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 				</option>
 				<option>
 					<name>AList</name>

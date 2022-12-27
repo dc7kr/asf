@@ -166,11 +166,11 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>CYCLE_MODE</state>
 					<state>RTC_CALENDAR_ASYNC=false</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
@@ -486,11 +486,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>CYCLE_MODE</state>
 					<state>RTC_CALENDAR_ASYNC=false</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
@@ -1165,11 +1165,11 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>CYCLE_MODE</state>
 					<state>RTC_CALENDAR_ASYNC=false</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
@@ -1485,11 +1485,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>CYCLE_MODE</state>
 					<state>RTC_CALENDAR_ASYNC=false</state>
 					<state>SD_MMC_ENABLE</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>

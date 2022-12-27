@@ -166,11 +166,11 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>SYSTICK_MODE</state>
-					<state>_ASSERT_ENABLE_</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>WDT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
@@ -480,11 +480,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>SYSTICK_MODE</state>
-					<state>_ASSERT_ENABLE_</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>WDT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
@@ -1153,11 +1153,11 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>SYSTICK_MODE</state>
-					<state>_ASSERT_ENABLE_</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>WDT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
@@ -1467,11 +1467,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>SYSTICK_MODE</state>
-					<state>_ASSERT_ENABLE_</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>WDT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>

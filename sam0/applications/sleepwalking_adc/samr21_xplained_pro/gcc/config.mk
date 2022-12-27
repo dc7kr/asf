@@ -157,7 +157,7 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D ADC_CALLBACK_MODE=true                          \
-       -D ARM_MATH_CM0=true                               \
+       -D ARM_MATH_CM0PLUS=true                           \
        -D BOARD=SAMR21_XPLAINED_PRO                       \
        -D EVENTS_INTERRUPT_HOOKS_MODE=true                \
        -D RTC_COUNT_ASYNC=false                           \

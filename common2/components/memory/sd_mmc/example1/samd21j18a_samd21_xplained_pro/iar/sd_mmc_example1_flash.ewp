@@ -166,9 +166,9 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>CYCLE_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>SPI_CALLBACK_MODE=true</state>
@@ -479,9 +479,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>CYCLE_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>SPI_CALLBACK_MODE=true</state>
@@ -1151,9 +1151,9 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>CYCLE_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>SPI_CALLBACK_MODE=true</state>
@@ -1464,9 +1464,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>CYCLE_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>SPI_CALLBACK_MODE=true</state>

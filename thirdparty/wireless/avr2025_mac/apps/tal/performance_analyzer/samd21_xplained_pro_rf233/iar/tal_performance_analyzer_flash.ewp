@@ -172,11 +172,11 @@
 					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>ENABLE_TFA</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -518,11 +518,11 @@
 					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>ENABLE_TFA</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -1223,11 +1223,11 @@
 					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>ENABLE_TFA</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -1569,11 +1569,11 @@
 					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>ENABLE_TFA</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -2456,6 +2456,9 @@
 				<group>
 					<name>include</name>
 					<file>
+						<name>$PROJ_DIR$/../../../../../include/ieee_154g.h</name>
+					</file>
+					<file>
 						<name>$PROJ_DIR$/../../../../../include/avr2025_mac.h</name>
 					</file>
 					<file>
@@ -2754,9 +2757,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21g18au.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j15a.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21e16b.h</name>
 							</file>
 							<file>
@@ -2776,6 +2776,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j15b.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j15a.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/samd21j16a.h</name>

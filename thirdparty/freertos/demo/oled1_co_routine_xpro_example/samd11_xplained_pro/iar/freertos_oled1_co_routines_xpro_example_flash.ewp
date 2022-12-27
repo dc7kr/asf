@@ -166,10 +166,10 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>GFX_MONO_LCD_HEIGHT=32</state>
-					<state>SYSTICK_MODE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD11D14AM__</state>
 					<state>__FREERTOS__</state>
@@ -483,10 +483,10 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>GFX_MONO_LCD_HEIGHT=32</state>
-					<state>SYSTICK_MODE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD11D14AM__</state>
 					<state>__FREERTOS__</state>
@@ -1161,10 +1161,10 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>GFX_MONO_LCD_HEIGHT=32</state>
-					<state>SYSTICK_MODE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD11D14AM__</state>
 					<state>__FREERTOS__</state>
@@ -1478,10 +1478,10 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>GFX_MONO_LCD_HEIGHT=32</state>
-					<state>SYSTICK_MODE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD11D14AM__</state>
 					<state>__FREERTOS__</state>
@@ -2477,6 +2477,9 @@
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/dmac.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/hmatrixb.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/eic.h</name>
 							</file>
 							<file>
@@ -2577,6 +2580,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/port.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/sbmatrix.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/rtc.h</name>

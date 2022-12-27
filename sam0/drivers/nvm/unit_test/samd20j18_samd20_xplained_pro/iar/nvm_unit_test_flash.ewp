@@ -166,9 +166,9 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD20J18__</state>
@@ -476,9 +476,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD20J18__</state>
@@ -1145,9 +1145,9 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD20J18__</state>
@@ -1455,9 +1455,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD20J18__</state>
@@ -2223,9 +2223,6 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/pio/samd20e16.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/pio/samd20e1f.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/pio/samd20e14.h</name>
 							</file>
 						</group>
@@ -2253,6 +2250,9 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/component/pm.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/component/eic.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/component/pac.h</name>
 							</file>
 							<file>
@@ -2260,9 +2260,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/component/ac.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/component/eic.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/component/tc.h</name>
@@ -2292,6 +2289,9 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/instance/pac1.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/instance/evsys.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/instance/sercom5.h</name>
 							</file>
 							<file>
@@ -2316,9 +2316,6 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/instance/sercom4.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/instance/adc.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/instance/sercom2.h</name>
 							</file>
 							<file>
@@ -2326,6 +2323,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/instance/rtc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/instance/adc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/instance/tc3.h</name>
@@ -2338,9 +2338,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/instance/nvmctrl.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/instance/evsys.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/instance/tc5.h</name>
@@ -2380,9 +2377,6 @@
 							</file>
 						</group>
 						<file>
-							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/samd20g18u.h</name>
-						</file>
-						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/samd20j16.h</name>
 						</file>
 						<file>
@@ -2408,6 +2402,9 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/samd20e16.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/samd20g18u.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd20/include/samd20g15.h</name>

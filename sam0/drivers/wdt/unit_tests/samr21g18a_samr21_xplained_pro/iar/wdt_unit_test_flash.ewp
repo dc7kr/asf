@@ -166,12 +166,12 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>WDT_CALLBACK_MODE=true</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 				</option>
@@ -480,12 +480,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>WDT_CALLBACK_MODE=true</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 				</option>
@@ -1153,12 +1153,12 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>WDT_CALLBACK_MODE=true</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 				</option>
@@ -1467,12 +1467,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>WDT_CALLBACK_MODE=true</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 				</option>

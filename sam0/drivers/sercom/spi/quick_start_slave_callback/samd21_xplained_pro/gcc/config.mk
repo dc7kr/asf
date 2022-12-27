@@ -148,7 +148,7 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D ARM_MATH_CM0=true                               \
+       -D ARM_MATH_CM0PLUS=true                           \
        -D BOARD=SAMD21_XPLAINED_PRO                       \
        -D SPI_CALLBACK_MODE=true                          \
        -D __SAMD21J18A__

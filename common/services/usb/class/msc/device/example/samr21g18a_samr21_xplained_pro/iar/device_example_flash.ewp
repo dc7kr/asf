@@ -166,12 +166,12 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>ACCESS_USB_ENABLED</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UDD_ENABLE</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USB_DEVICE_LPM_SUPPORT</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 				</option>
@@ -485,12 +485,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>ACCESS_USB_ENABLED</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UDD_ENABLE</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USB_DEVICE_LPM_SUPPORT</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 				</option>
@@ -1164,12 +1164,12 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>ACCESS_USB_ENABLED</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UDD_ENABLE</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USB_DEVICE_LPM_SUPPORT</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 				</option>
@@ -1483,12 +1483,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>ACCESS_USB_ENABLED</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UDD_ENABLE</state>
 					<state>__SAMR21G18A__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USB_DEVICE_LPM_SUPPORT</state>
 					<state>VIRTUAL_MEMORY_ENABLE</state>
 				</option>

@@ -167,7 +167,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>ADC_CALLBACK_MODE=false</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>DAC_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
@@ -476,7 +476,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>ADC_CALLBACK_MODE=false</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>DAC_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
@@ -1144,7 +1144,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>ADC_CALLBACK_MODE=false</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>DAC_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
@@ -1453,7 +1453,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>ADC_CALLBACK_MODE=false</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>DAC_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>

@@ -172,10 +172,10 @@
 					<state>BEACON_SUPPORT</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
@@ -521,10 +521,10 @@
 					<state>BEACON_SUPPORT</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
@@ -1229,10 +1229,10 @@
 					<state>BEACON_SUPPORT</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
@@ -1578,10 +1578,10 @@
 					<state>BEACON_SUPPORT</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>STB_ON_SAL</state>
@@ -2563,6 +2563,9 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/mac_build_config.h</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/ieee_154g.h</name>
+					</file>
 				</group>
 			</group>
 			<group>
@@ -2859,6 +2862,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/gclk.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/ac.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/wdt.h</name>
 							</file>
 							<file>
@@ -2866,9 +2872,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/pm.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/ac.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/evsys.h</name>
@@ -3170,15 +3173,15 @@
 						</file>
 					</group>
 					<group>
-						<name>quick_start</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/quick_start/qs_usart_basic_use.h</name>
-						</file>
-					</group>
-					<group>
 						<name>quick_start_callback</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/quick_start_callback/qs_usart_callback.h</name>
+						</file>
+					</group>
+					<group>
+						<name>quick_start</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/quick_start/qs_usart_basic_use.h</name>
 						</file>
 					</group>
 				</group>

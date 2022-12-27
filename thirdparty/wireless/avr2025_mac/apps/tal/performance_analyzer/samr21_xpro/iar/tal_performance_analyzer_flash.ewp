@@ -167,11 +167,11 @@
 				<option>
 					<name>CCDefines</name>
 					<state>FFD</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>ANTENNA_DIVERSITY=1</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>ENABLE_TFA</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
@@ -179,10 +179,10 @@
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>__SAMR21G18A__</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ENABLE_DEEP_SLEEP</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -510,11 +510,11 @@
 				<option>
 					<name>ADefines</name>
 					<state>FFD</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>ANTENNA_DIVERSITY=1</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>ENABLE_TFA</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
@@ -522,10 +522,10 @@
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>__SAMR21G18A__</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ENABLE_DEEP_SLEEP</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1212,11 +1212,11 @@
 				<option>
 					<name>CCDefines</name>
 					<state>FFD</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>ANTENNA_DIVERSITY=1</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>ENABLE_TFA</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
@@ -1224,10 +1224,10 @@
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>__SAMR21G18A__</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ENABLE_DEEP_SLEEP</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1555,11 +1555,11 @@
 				<option>
 					<name>ADefines</name>
 					<state>FFD</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>ANTENNA_DIVERSITY=1</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>ENABLE_TFA</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>TRX_REG_RAW_VALUE</state>
@@ -1567,10 +1567,10 @@
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>__SAMR21G18A__</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ENABLE_DEEP_SLEEP</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -2444,6 +2444,9 @@
 				<group>
 					<name>include</name>
 					<file>
+						<name>$PROJ_DIR$/../../../../../include/ieee_154g.h</name>
+					</file>
+					<file>
 						<name>$PROJ_DIR$/../../../../../include/avr2025_mac.h</name>
 					</file>
 					<file>
@@ -2748,9 +2751,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samr21/include/component/sercom.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samr21/include/component/wdt.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samr21/include/component/evsys.h</name>
 							</file>
 							<file>
@@ -2787,6 +2787,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samr21/include/component/sysctrl.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samr21/include/component/wdt.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samr21/include/component/adc.h</name>
 							</file>
 							<file>
@@ -2809,6 +2812,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samr21/include/instance/pac1.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samr21/include/instance/tcc1.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samr21/include/instance/rtc.h</name>
@@ -2848,9 +2854,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samr21/include/instance/rfctrl.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samr21/include/instance/tcc1.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samr21/include/instance/sercom1.h</name>

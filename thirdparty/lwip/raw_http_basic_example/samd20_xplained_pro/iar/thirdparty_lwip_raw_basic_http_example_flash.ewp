@@ -166,13 +166,13 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>__SAMD20J18__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
+					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 				</option>
 				<option>
@@ -492,13 +492,13 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>__SAMD20J18__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
+					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 				</option>
 				<option>
@@ -1179,13 +1179,13 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>__SAMD20J18__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
+					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 				</option>
 				<option>
@@ -1505,13 +1505,13 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>__SAMD20J18__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
+					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 				</option>
 				<option>
@@ -2616,9 +2616,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../sam0/utils/cmsis/samd20/include/pio/samd20j17.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../sam0/utils/cmsis/samd20/include/pio/samd20e1f.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../sam0/utils/cmsis/samd20/include/pio/samd20e17.h</name>

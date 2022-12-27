@@ -166,7 +166,7 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>__SAMD20J18__</state>
@@ -474,7 +474,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>__SAMD20J18__</state>
@@ -1141,7 +1141,7 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>__SAMD20J18__</state>
@@ -1449,7 +1449,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>__SAMD20J18__</state>
@@ -2206,12 +2206,6 @@
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20g18.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20e1f.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20j17.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20j15.h</name>
 							</file>
 							<file>
@@ -2236,6 +2230,9 @@
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20j14.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20j17.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20e14.h</name>
 							</file>
 							<file>
@@ -2258,6 +2255,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/wdt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/sercom2.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/sercom1.h</name>
@@ -2312,9 +2312,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/tc2.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/sercom2.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../sam0/utils/cmsis/samd20/include/instance/pm.h</name>

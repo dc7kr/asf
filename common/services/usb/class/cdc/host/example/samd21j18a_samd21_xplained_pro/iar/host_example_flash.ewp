@@ -166,10 +166,10 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UHD_ENABLE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>USB_HOST_LPM_SUPPORT</state>
 					<state>__SAMD21J18A__</state>
@@ -484,10 +484,10 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UHD_ENABLE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>USB_HOST_LPM_SUPPORT</state>
 					<state>__SAMD21J18A__</state>
@@ -1162,10 +1162,10 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UHD_ENABLE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>USB_HOST_LPM_SUPPORT</state>
 					<state>__SAMD21J18A__</state>
@@ -1480,10 +1480,10 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UHD_ENABLE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>USB_HOST_LPM_SUPPORT</state>
 					<state>__SAMD21J18A__</state>

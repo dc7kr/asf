@@ -171,18 +171,18 @@
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
-					<state>__SAMD20J18__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>__SAMD20J18__</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -516,18 +516,18 @@
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
-					<state>__SAMD20J18__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>__SAMD20J18__</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1220,18 +1220,18 @@
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
-					<state>__SAMD20J18__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>__SAMD20J18__</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1565,18 +1565,18 @@
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>SYSTICK_MODE</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
-					<state>__SAMD20J18__</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>__SAMD20J18__</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -2536,13 +2536,16 @@
 						<name>$PROJ_DIR$/../../../../../../../include/ieee_const.h</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../include/return_val.h</name>
-					</file>
-					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/tal_build_config.h</name>
 					</file>
 					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/return_val.h</name>
+					</file>
+					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/mac_build_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/ieee_154g.h</name>
 					</file>
 				</group>
 			</group>
@@ -2849,9 +2852,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/pac2.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/tc6.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/dac.h</name>
 							</file>
 							<file>
@@ -2883,6 +2883,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/tc4.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/tc6.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd20/include/instance/tc3.h</name>
@@ -2946,9 +2949,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20g18u.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20e1f.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20j15.h</name>

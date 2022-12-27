@@ -179,7 +179,7 @@ CFLAGS =
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
        -D ACCESS_USB_ENABLED                              \
-       -D ARM_MATH_CM0=true                               \
+       -D ARM_MATH_CM0PLUS=true                           \
        -D BOARD=SAMR21_XPLAINED_PRO                       \
        -D EXTINT_CALLBACK_MODE=true                       \
        -D UDD_ENABLE                                      \

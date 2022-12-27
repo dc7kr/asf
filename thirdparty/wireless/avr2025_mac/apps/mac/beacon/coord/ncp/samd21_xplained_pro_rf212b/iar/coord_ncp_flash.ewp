@@ -170,14 +170,14 @@
 					<state>FFD</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>STB_ON_SAL</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>SYSTICK_MODE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
@@ -516,14 +516,14 @@
 					<state>FFD</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>STB_ON_SAL</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>SYSTICK_MODE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
@@ -1221,14 +1221,14 @@
 					<state>FFD</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>STB_ON_SAL</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>SYSTICK_MODE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
@@ -1567,14 +1567,14 @@
 					<state>FFD</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>STB_ON_SAL</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>SYSTICK_MODE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
@@ -2536,6 +2536,9 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/mac_build_config.h</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/ieee_154g.h</name>
+					</file>
 				</group>
 			</group>
 			<group>
@@ -2760,6 +2763,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/sercom2.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/ac1.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/sercom4.h</name>
 							</file>
 							<file>
@@ -2767,9 +2773,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/pac1.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/ac1.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/tc3.h</name>
@@ -2838,13 +2841,13 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/nvmctrl.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/pm.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/ac.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/evsys.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/pm.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/hmatrixb.h</name>

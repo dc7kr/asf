@@ -166,9 +166,9 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>SYSTICK_MODE</state>
+					<state>GFX_MONO_UG_2832HSWEG04=1</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAML21J18A__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>
@@ -477,9 +477,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>SYSTICK_MODE</state>
+					<state>GFX_MONO_UG_2832HSWEG04=1</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAML21J18A__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>
@@ -1147,9 +1147,9 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>SYSTICK_MODE</state>
+					<state>GFX_MONO_UG_2832HSWEG04=1</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAML21J18A__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>
@@ -1458,9 +1458,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>SYSTICK_MODE</state>
+					<state>GFX_MONO_UG_2832HSWEG04=1</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAML21J18A__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>

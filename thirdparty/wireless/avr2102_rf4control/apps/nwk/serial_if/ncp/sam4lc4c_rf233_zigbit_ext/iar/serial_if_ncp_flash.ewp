@@ -349,7 +349,7 @@
 					<state>$PROJ_DIR$/../../../../../../../services/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../services/common_hw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../lib/nwk/config</state>
@@ -363,6 +363,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/bpm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -662,7 +663,7 @@
 					<state>$PROJ_DIR$/../../../../../../../services/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../services/common_hw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../lib/nwk/config</state>
@@ -676,6 +677,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/bpm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1400,7 +1402,7 @@
 					<state>$PROJ_DIR$/../../../../../../../services/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../services/common_hw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../lib/nwk/config</state>
@@ -1414,6 +1416,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/bpm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1713,7 +1716,7 @@
 					<state>$PROJ_DIR$/../../../../../../../services/common_hw_timer/sam</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../../../../../../common/utils/stdio/stdio_serial</state>
-					<state>$PROJ_DIR$/../../../../../../../services/common_hw_timer</state>
+					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/gpio</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal</state>
 					<state>$PROJ_DIR$/../../../../../../lib/nwk/config</state>
@@ -1727,6 +1730,7 @@
 					<state>$PROJ_DIR$/../../../../../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/bpm</state>
 					<state>$PROJ_DIR$/../../../../../../../../../sam/drivers/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../services/common_hw_timer</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -2432,9 +2436,6 @@
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/src/tal_slotted_csma.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/src/tal_rx_enable.c</name>
-								</file>
-								<file>
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/src/tal_init.c</name>
 								</file>
 								<file>
@@ -2450,6 +2451,9 @@
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/src/tal_ed.c</name>
 								</file>
 								<file>
+									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/src/tal_rx_enable.c</name>
+								</file>
+								<file>
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/src/tal_pib.c</name>
 								</file>
 							</group>
@@ -2459,10 +2463,10 @@
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/inc/tal_slotted_csma.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/inc/tal_tx.h</name>
+									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/inc/tal_irq_handler.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/inc/tal_irq_handler.h</name>
+									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/inc/tal_tx.h</name>
 								</file>
 								<file>
 									<name>$PROJ_DIR$/../../../../../../../avr2025_mac/source/tal/at86rf233/inc/tal_constants.h</name>
@@ -2613,6 +2617,9 @@
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../avr2025_mac/include/stack_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../avr2025_mac/include/ieee_154g.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../avr2025_mac/include/mac_build_config.h</name>
@@ -2827,6 +2834,15 @@
 				</file>
 			</group>
 			<group>
+				<name>gpio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/gpio/gpio.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/gpio/gpio.h</name>
+				</file>
+			</group>
+			<group>
 				<name>wdt</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/wdt/wdt_sam4l.c</name>
@@ -2919,9 +2935,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_gloc.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_pm.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_catb.h</name>
 							</file>
 							<file>
@@ -2964,10 +2977,13 @@
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_hmatrix.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_usart1.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_pm.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_chipid.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_usart1.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/instance/instance_freqm.h</name>
@@ -3021,10 +3037,10 @@
 						<group>
 							<name>component</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_gloc.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_bscif.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_hcache.h</name>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_gloc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_adcife.h</name>
@@ -3072,6 +3088,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_twis.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_hcache.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_twim.h</name>
 							</file>
 							<file>
@@ -3093,22 +3112,19 @@
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_hmatrixb.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_tc.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_ast.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_flashcalw.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_bscif.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_catb.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_pdca.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_tc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_spi.h</name>
@@ -3126,6 +3142,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/component/component_aesa.h</name>
 							</file>
 						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4lc8a.h</name>
+						</file>
 						<group>
 							<name>pio</name>
 							<file>
@@ -3221,9 +3240,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4ls4b.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4lc8a.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../sam/utils/cmsis/sam4l/include/sam4lc8c.h</name>

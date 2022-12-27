@@ -166,9 +166,9 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USB_DEVICE_LPM_SUPPORT</state>
 					<state>__SAML21J18A__</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>
@@ -481,9 +481,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USB_DEVICE_LPM_SUPPORT</state>
 					<state>__SAML21J18A__</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>
@@ -1155,9 +1155,9 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USB_DEVICE_LPM_SUPPORT</state>
 					<state>__SAML21J18A__</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>
@@ -1470,9 +1470,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UDD_ENABLE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USB_DEVICE_LPM_SUPPORT</state>
 					<state>__SAML21J18A__</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>

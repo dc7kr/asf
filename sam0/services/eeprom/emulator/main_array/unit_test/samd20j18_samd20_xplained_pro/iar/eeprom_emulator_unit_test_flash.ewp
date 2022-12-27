@@ -166,9 +166,9 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD20J18__</state>
@@ -477,9 +477,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD20J18__</state>
@@ -1147,9 +1147,9 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD20J18__</state>
@@ -1458,9 +1458,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_ASSERT_ENABLE_</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD20J18__</state>
@@ -2138,9 +2138,6 @@
 							<name>pio</name>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../utils/cmsis/samd20/include/pio/samd20e17.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../utils/cmsis/samd20/include/pio/samd20e1f.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../utils/cmsis/samd20/include/pio/samd20g16.h</name>

@@ -171,9 +171,9 @@
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>FFD</state>
@@ -519,9 +519,9 @@
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>FFD</state>
@@ -1226,9 +1226,9 @@
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>FFD</state>
@@ -1574,9 +1574,9 @@
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>FFD</state>
@@ -2555,6 +2555,9 @@
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/mac_build_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/ieee_154g.h</name>
 					</file>
 				</group>
 			</group>

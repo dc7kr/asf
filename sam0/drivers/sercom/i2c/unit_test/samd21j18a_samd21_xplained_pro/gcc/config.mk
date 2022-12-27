@@ -59,6 +59,8 @@ CSRCS = \
        sam0/drivers/port/port.c                           \
        sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21/i2c_master.c \
        sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21/i2c_master_interrupt.c \
+       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21/i2c_slave.c \
+       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21/i2c_slave_interrupt.c \
        sam0/drivers/sercom/i2c/unit_test/unit_test.c      \
        sam0/drivers/sercom/sercom.c                       \
        sam0/drivers/sercom/sercom_interrupt.c             \
@@ -160,9 +162,10 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D ARM_MATH_CM0=true                               \
+       -D ARM_MATH_CM0PLUS=true                           \
        -D BOARD=SAMD21_XPLAINED_PRO                       \
        -D I2C_MASTER_CALLBACK_MODE=true                   \
+       -D I2C_SLAVE_CALLBACK_MODE=true                    \
        -D SYSTICK_MODE                                    \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D USART_CALLBACK_MODE=true                        \

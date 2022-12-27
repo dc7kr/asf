@@ -169,7 +169,7 @@
 					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD11_XPLAINED_PRO</state>
 					<state>__SAMD11D14AM__</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -473,7 +473,7 @@
 					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD11_XPLAINED_PRO</state>
 					<state>__SAMD11D14AM__</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1136,7 +1136,7 @@
 					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD11_XPLAINED_PRO</state>
 					<state>__SAMD11D14AM__</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1440,7 +1440,7 @@
 					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD11_XPLAINED_PRO</state>
 					<state>__SAMD11D14AM__</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1987,15 +1987,15 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/pinmux/pinmux.c</name>
 					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/pinmux/pinmux.h</name>
-					</file>
 					<group>
 						<name>quick_start</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/pinmux/quick_start/qs_pinmux_basic.h</name>
 						</file>
 					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/pinmux/pinmux.h</name>
+					</file>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/system.h</name>
@@ -2061,46 +2061,22 @@
 						<group>
 							<name>component</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/eic.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/dsu.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/port.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/usb.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/pm.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/ac.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/wdt.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/adc.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/nvmctrl.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/sysctrl.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/tcc.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/pac.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/tc.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/sercom.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/mtb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/nvmctrl.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/dac.h</name>
@@ -2109,58 +2085,67 @@
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/rtc.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/sercom.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/eic.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/gclk.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/dsu.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/usb.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/dmac.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/hmatrixb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/wdt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/tcc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/tc.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/evsys.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/port.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/sysctrl.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/pac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/gclk.h</name>
 							</file>
 						</group>
 						<group>
 							<name>instance</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/pac0.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/evsys.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/eic.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/tcc0.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/gclk.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/mtb.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/pac1.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/dsu.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/sercom2.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/evsys.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/pm.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/nvmctrl.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/dmac.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/wdt.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/pac2.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/port.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/usb.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/tc2.h</name>
@@ -2169,10 +2154,7 @@
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/dac.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/nvmctrl.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/sysctrl.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/sercom2.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/sercom1.h</name>
@@ -2181,72 +2163,96 @@
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/ac.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/gclk.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/sercom0.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/usb.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/pac1.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/pac0.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/tc1.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/sysctrl.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/dsu.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/tcc0.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/adc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/wdt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/pm.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/pac2.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/port.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/sbmatrix.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/rtc.h</name>
 							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/sercom0.h</name>
-							</file>
 						</group>
 						<file>
-							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/samd11c14a.h</name>
+							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/samd11d14am.h</name>
 						</file>
 						<group>
 							<name>pio</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/pio/samd11d14am.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/pio/samd11d14as.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/pio/samd11d14as.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/pio/samd11d14am.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/pio/samd11c14a.h</name>
 							</file>
 						</group>
 						<file>
-							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/samd11d14am.h</name>
+							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/samd11d14as.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/samd11c14a.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/samd11.h</name>
 						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/samd11d14as.h</name>
-						</file>
 					</group>
 				</group>
 			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../sam0/utils/status_codes.h</name>
+			</file>
 			<group>
 				<name>preprocessor</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam0/utils/preprocessor/tpaste.h</name>
-				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam0/utils/preprocessor/stringz.h</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../sam0/utils/preprocessor/mrepeat.h</name>
+					<name>$PROJ_DIR$/../../../../../../sam0/utils/preprocessor/tpaste.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam0/utils/preprocessor/preprocessor.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam0/utils/preprocessor/mrecursion.h</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../../sam0/utils/preprocessor/preprocessor.h</name>
+					<name>$PROJ_DIR$/../../../../../../sam0/utils/preprocessor/mrepeat.h</name>
 				</file>
 			</group>
-			<file>
-				<name>$PROJ_DIR$/../../../../../../sam0/utils/status_codes.h</name>
-			</file>
 			<group>
 				<name>header_files</name>
 				<file>
@@ -2284,9 +2290,6 @@
 					<group>
 						<name>samd11_xplained_pro</name>
 						<file>
-							<name>$PROJ_DIR$/../conf_clocks.h</name>
-						</file>
-						<file>
 							<name>$PROJ_DIR$/../conf_board.h</name>
 						</file>
 						<group>
@@ -2295,6 +2298,9 @@
 								<name>$PROJ_DIR$/asf.h</name>
 							</file>
 						</group>
+						<file>
+							<name>$PROJ_DIR$/../conf_clocks.h</name>
+						</file>
 					</group>
 				</group>
 				<group>

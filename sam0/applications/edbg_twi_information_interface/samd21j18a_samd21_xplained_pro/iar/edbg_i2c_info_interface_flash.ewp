@@ -166,7 +166,7 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>I2C_MASTER_CALLBACK_MODE=false</state>
@@ -476,7 +476,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>I2C_MASTER_CALLBACK_MODE=false</state>
@@ -1145,7 +1145,7 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>I2C_MASTER_CALLBACK_MODE=false</state>
@@ -1455,7 +1455,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>I2C_MASTER_CALLBACK_MODE=false</state>

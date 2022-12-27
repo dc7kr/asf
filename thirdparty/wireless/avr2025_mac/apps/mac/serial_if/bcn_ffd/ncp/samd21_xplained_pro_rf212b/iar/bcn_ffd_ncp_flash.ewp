@@ -171,14 +171,14 @@
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>SYSTICK_MODE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
@@ -518,14 +518,14 @@
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>SYSTICK_MODE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
@@ -1224,14 +1224,14 @@
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>SYSTICK_MODE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
@@ -1571,14 +1571,14 @@
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>SYSTICK_MODE</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
@@ -2555,6 +2555,9 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/mac_build_config.h</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/ieee_154g.h</name>
+					</file>
 				</group>
 			</group>
 			<group>
@@ -2611,6 +2614,9 @@
 					</group>
 					<group>
 						<name>include</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21j18a.h</name>
+						</file>
 						<group>
 							<name>pio</name>
 							<file>
@@ -2698,6 +2704,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/dmac.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/tcc0.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/tcc2.h</name>
 							</file>
 							<file>
@@ -2752,9 +2761,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/pac0.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/tcc0.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/sercom1.h</name>
 							</file>
 							<file>
@@ -2802,12 +2808,6 @@
 						</group>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21j16a.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21j18a.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e18a.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e16l.h</name>
@@ -2906,13 +2906,16 @@
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g16b.h</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g16a.h</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e15a.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e15bu.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g16a.h</name>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e18a.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e16a.h</name>
@@ -3035,15 +3038,15 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux/pinmux.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux/pinmux.h</name>
+					</file>
 					<group>
 						<name>quick_start</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux/quick_start/qs_pinmux_basic.h</name>
 						</file>
 					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux/pinmux.h</name>
-					</file>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/system.c</name>

@@ -171,12 +171,12 @@
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
@@ -515,12 +515,12 @@
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
@@ -1218,12 +1218,12 @@
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
@@ -1562,12 +1562,12 @@
 					<state>TEST_HARNESS</state>
 					<state>STB_ON_SAL</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
@@ -2539,6 +2539,9 @@
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/mac_build_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/ieee_154g.h</name>
 					</file>
 				</group>
 			</group>

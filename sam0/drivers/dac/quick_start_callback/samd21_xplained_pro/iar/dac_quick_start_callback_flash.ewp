@@ -166,11 +166,11 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>RTC_COUNT_ASYNC=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>DAC_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 				</option>
 				<option>
@@ -477,11 +477,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>RTC_COUNT_ASYNC=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>DAC_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 				</option>
 				<option>
@@ -1147,11 +1147,11 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>RTC_COUNT_ASYNC=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>DAC_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 				</option>
 				<option>
@@ -1458,11 +1458,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>RTC_COUNT_ASYNC=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>DAC_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD21J18A__</state>
 				</option>
 				<option>

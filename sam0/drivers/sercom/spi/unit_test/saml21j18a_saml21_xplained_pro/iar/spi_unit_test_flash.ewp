@@ -166,9 +166,9 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>USART_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>__SAML21J18A__</state>
 					<state>SPI_CALLBACK_MODE=true</state>
@@ -477,9 +477,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>USART_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>__SAML21J18A__</state>
 					<state>SPI_CALLBACK_MODE=true</state>
@@ -1147,9 +1147,9 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>USART_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>__SAML21J18A__</state>
 					<state>SPI_CALLBACK_MODE=true</state>
@@ -1458,9 +1458,9 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>USART_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>__SAML21J18A__</state>
 					<state>SPI_CALLBACK_MODE=true</state>

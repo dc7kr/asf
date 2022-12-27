@@ -155,7 +155,7 @@ CFLAGS =
 #   BOARD      Target board in use, see boards/board.h for a list.
 #   EXT_BOARD  Optional extension board in use, see boards/board.h for a list.
 CPPFLAGS = \
-       -D ARM_MATH_CM0=true                               \
+       -D ARM_MATH_CM0PLUS=true                           \
        -D BOARD=SAMD11_XPLAINED_PRO                       \
        -D I2C_SLAVE_CALLBACK_MODE=true                    \
        -D SPI_CALLBACK_MODE=true                          \

@@ -166,10 +166,10 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>SYSTICK_MODE</state>
+					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD11D14AM__</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD11_XPLAINED_PRO</state>
@@ -478,10 +478,10 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>SYSTICK_MODE</state>
+					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD11D14AM__</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD11_XPLAINED_PRO</state>
@@ -1149,10 +1149,10 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>SYSTICK_MODE</state>
+					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD11D14AM__</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD11_XPLAINED_PRO</state>
@@ -1461,10 +1461,10 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>SYSTICK_MODE</state>
+					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAMD11D14AM__</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD11_XPLAINED_PRO</state>
@@ -2042,10 +2042,10 @@
 					<name>$PROJ_DIR$/../../../gfx_mono_generic.h</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../gfx_mono_framebuffer.h</name>
+					<name>$PROJ_DIR$/../../../gfx_mono.h</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../gfx_mono.h</name>
+					<name>$PROJ_DIR$/../../../gfx_mono_framebuffer.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../gfx_mono_ug_2832hsweg04.h</name>
@@ -2108,10 +2108,10 @@
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/mtb.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/nvmctrl.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/dac.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/dac.h</name>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/nvmctrl.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/rtc.h</name>
@@ -2124,6 +2124,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/dmac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/hmatrixb.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/component/eic.h</name>
@@ -2226,6 +2229,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/port.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/sbmatrix.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd11/include/instance/pm.h</name>
@@ -2348,13 +2354,13 @@
 					<name>$PROJ_DIR$/../../../../../../sam0/drivers/sercom/sercom_interrupt.c</name>
 				</file>
 				<file>
+					<name>$PROJ_DIR$/../../../../../../sam0/drivers/sercom/sercom_interrupt.h</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../../../sam0/drivers/sercom/sercom_pinout.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam0/drivers/sercom/sercom.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam0/drivers/sercom/sercom_interrupt.h</name>
 				</file>
 			</group>
 			<group>

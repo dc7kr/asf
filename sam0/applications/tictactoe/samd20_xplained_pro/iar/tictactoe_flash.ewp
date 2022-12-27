@@ -166,10 +166,10 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>SYSTICK_MODE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>__SAMD20J18__</state>
 				</option>
@@ -477,10 +477,10 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>SYSTICK_MODE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>__SAMD20J18__</state>
 				</option>
@@ -1147,10 +1147,10 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>SYSTICK_MODE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>__SAMD20J18__</state>
 				</option>
@@ -1458,10 +1458,10 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>SYSTICK_MODE</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>SYSTICK_MODE</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>__SAMD20J18__</state>
 				</option>
@@ -2159,9 +2159,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samd20/include/pio/samd20g18.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../utils/cmsis/samd20/include/pio/samd20e1f.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samd20/include/pio/samd20e14.h</name>

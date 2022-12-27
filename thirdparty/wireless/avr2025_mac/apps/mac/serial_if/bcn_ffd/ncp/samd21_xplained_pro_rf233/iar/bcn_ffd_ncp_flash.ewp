@@ -172,10 +172,10 @@
 					<state>BEACON_SUPPORT</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>FFD</state>
@@ -522,10 +522,10 @@
 					<state>BEACON_SUPPORT</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>FFD</state>
@@ -1231,10 +1231,10 @@
 					<state>BEACON_SUPPORT</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>FFD</state>
@@ -1581,10 +1581,10 @@
 					<state>BEACON_SUPPORT</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>FFD</state>
@@ -2399,10 +2399,10 @@
 							</file>
 						</group>
 						<file>
-							<name>$PROJ_DIR$/../../../../../../../source/pal/pal_generic.h</name>
+							<name>$PROJ_DIR$/../../../../../../../source/pal/pal.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../../../source/pal/pal.h</name>
+							<name>$PROJ_DIR$/../../../../../../../source/pal/pal_generic.h</name>
 						</file>
 					</group>
 					<group>
@@ -2566,6 +2566,9 @@
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/mac_build_config.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/ieee_154g.h</name>
 					</file>
 				</group>
 			</group>
@@ -2743,6 +2746,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/tc6.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/wdt.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/tc7.h</name>
 							</file>
 							<file>
@@ -2771,9 +2777,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/rtc.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/wdt.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/eic.h</name>

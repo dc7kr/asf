@@ -166,7 +166,7 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>__SAMR21G18A__</state>
@@ -474,7 +474,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>__SAMR21G18A__</state>
@@ -1141,7 +1141,7 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>__SAMR21G18A__</state>
@@ -1449,7 +1449,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>__SAMR21G18A__</state>

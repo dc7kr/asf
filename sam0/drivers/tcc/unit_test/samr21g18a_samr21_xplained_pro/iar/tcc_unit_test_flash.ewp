@@ -166,14 +166,14 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>__SAMR21G18A__</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TCC_ASYNC=true</state>
 				</option>
 				<option>
@@ -483,14 +483,14 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>__SAMR21G18A__</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TCC_ASYNC=true</state>
 				</option>
 				<option>
@@ -1159,14 +1159,14 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>__SAMR21G18A__</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TCC_ASYNC=true</state>
 				</option>
 				<option>
@@ -1476,14 +1476,14 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMR21_XPLAINED_PRO</state>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>__SAMR21G18A__</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TCC_ASYNC=true</state>
 				</option>
 				<option>

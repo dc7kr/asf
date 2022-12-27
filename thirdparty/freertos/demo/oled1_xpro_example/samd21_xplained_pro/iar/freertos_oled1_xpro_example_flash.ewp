@@ -166,11 +166,11 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>SYSTICK_MODE</state>
+					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__FREERTOS__</state>
 					<state>__SAMD21J18A__</state>
@@ -483,11 +483,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>SYSTICK_MODE</state>
+					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__FREERTOS__</state>
 					<state>__SAMD21J18A__</state>
@@ -1159,11 +1159,11 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>SYSTICK_MODE</state>
+					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__FREERTOS__</state>
 					<state>__SAMD21J18A__</state>
@@ -1476,11 +1476,11 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>SYSTICK_MODE</state>
+					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__FREERTOS__</state>
 					<state>__SAMD21J18A__</state>

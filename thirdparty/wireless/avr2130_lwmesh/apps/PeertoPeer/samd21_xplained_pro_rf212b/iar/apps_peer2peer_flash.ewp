@@ -166,12 +166,12 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>PHY_AT86RF212B</state>
 					<state>SYSTICK_MODE</state>
+					<state>PHY_AT86RF212B</state>
+					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
@@ -494,12 +494,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>PHY_AT86RF212B</state>
 					<state>SYSTICK_MODE</state>
+					<state>PHY_AT86RF212B</state>
+					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
@@ -1181,12 +1181,12 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>PHY_AT86RF212B</state>
 					<state>SYSTICK_MODE</state>
+					<state>PHY_AT86RF212B</state>
+					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
@@ -1509,12 +1509,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>PHY_AT86RF212B</state>
 					<state>SYSTICK_MODE</state>
+					<state>PHY_AT86RF212B</state>
+					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>

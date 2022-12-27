@@ -167,7 +167,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAML21J18A__</state>
 					<state>TC_ASYNC=true</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>
@@ -475,7 +475,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAML21J18A__</state>
 					<state>TC_ASYNC=true</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>
@@ -1142,7 +1142,7 @@
 				<option>
 					<name>CCDefines</name>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAML21J18A__</state>
 					<state>TC_ASYNC=true</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>
@@ -1450,7 +1450,7 @@
 				<option>
 					<name>ADefines</name>
 					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
-					<state>ARM_MATH_CM0=true</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>__SAML21J18A__</state>
 					<state>TC_ASYNC=true</state>
 					<state>BOARD=SAML21_XPLAINED_PRO</state>

@@ -172,10 +172,10 @@
 					<state>BEACON_SUPPORT</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>FFD</state>
@@ -521,10 +521,10 @@
 					<state>BEACON_SUPPORT</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>FFD</state>
@@ -1229,10 +1229,10 @@
 					<state>BEACON_SUPPORT</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>FFD</state>
@@ -1578,10 +1578,10 @@
 					<state>BEACON_SUPPORT</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>ARM_MATH_CM0=true</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>GTS_SUPPORT</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 					<state>FFD</state>
@@ -2548,6 +2548,9 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../include/mac_build_config.h</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../include/ieee_154g.h</name>
+					</file>
 				</group>
 			</group>
 			<group>
@@ -2604,6 +2607,9 @@
 					</group>
 					<group>
 						<name>include</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21j18a.h</name>
+						</file>
 						<group>
 							<name>pio</name>
 							<file>
@@ -2694,6 +2700,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/dmac.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/tcc0.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/tcc2.h</name>
 							</file>
 							<file>
@@ -2742,9 +2751,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/pac0.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/tcc0.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/sercom1.h</name>
 							</file>
 							<file>
@@ -2766,6 +2772,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/sercom2.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/ac1.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/sercom4.h</name>
 							</file>
 							<file>
@@ -2776,9 +2785,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/pac1.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/ac1.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/tc3.h</name>
@@ -2795,12 +2801,6 @@
 						</group>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21j16a.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21j18a.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e18a.h</name>
 						</file>
 						<group>
 							<name>component</name>
@@ -2853,13 +2853,13 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/nvmctrl.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/pm.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/ac.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/evsys.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/pm.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/hmatrixb.h</name>
@@ -2906,6 +2906,9 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e15bu.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e18a.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/samd21e16a.h</name>
@@ -3028,15 +3031,15 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux/pinmux.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux/pinmux.h</name>
+					</file>
 					<group>
 						<name>quick_start</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux/quick_start/qs_pinmux_basic.h</name>
 						</file>
 					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux/pinmux.h</name>
-					</file>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/system.c</name>
