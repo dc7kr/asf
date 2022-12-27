@@ -2086,6 +2086,9 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/component/component_dacc.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/component/component_rtc.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/component/component_supc.h</name>
 							</file>
 							<file>
@@ -2130,9 +2133,6 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/component/component_pio.h</name>
 							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/component/component_rtc.h</name>
-							</file>
 						</group>
 						<group>
 							<name>instance</name>
@@ -2155,13 +2155,13 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/instance/instance_tc1.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/instance/instance_pmc.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/instance/instance_pioc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/instance/instance_efc.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/instance/instance_pmc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/instance/instance_matrix.h</name>
@@ -2224,7 +2224,13 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/pio/pio_sam3n1a.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/pio/pio_sam3n00b.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/pio/pio_sam3n2a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/pio/pio_sam3n00a.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/pio/pio_sam3n4c.h</name>
@@ -2233,7 +2239,13 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/pio/pio_sam3n2c.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/pio/pio_sam3n0a.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/pio/pio_sam3n4a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/pio/pio_sam3n0c.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/pio/pio_sam3n1b.h</name>
@@ -2244,7 +2256,13 @@
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/pio/pio_sam3n2b.h</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/pio/pio_sam3n0b.h</name>
+							</file>
 						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/sam3n0b.h</name>
+						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/sam3n4c.h</name>
 						</file>
@@ -2256,6 +2274,12 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/sam3n2c.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/sam3n0a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/sam3n00a.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/sam3n1c.h</name>
@@ -2271,6 +2295,12 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/sam3n.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/sam3n0c.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../utils/cmsis/sam3n/include/sam3n00b.h</name>
 						</file>
 					</group>
 				</group>

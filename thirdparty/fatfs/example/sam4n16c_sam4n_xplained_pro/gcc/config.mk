@@ -166,7 +166,8 @@ CPPFLAGS = \
        -D AT45DBX_ENABLE                                  \
        -D BOARD=SAM4N_XPLAINED_PRO                        \
        -D __SAM4N16C__                                    \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

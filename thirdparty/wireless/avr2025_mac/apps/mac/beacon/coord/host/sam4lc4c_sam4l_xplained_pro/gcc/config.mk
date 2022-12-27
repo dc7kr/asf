@@ -175,7 +175,8 @@ CPPFLAGS = \
        -D HIGHEST_STACK_LAYER=MAC                         \
        -D SIO_HUB                                         \
        -D __SAM4LC4C__                                    \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

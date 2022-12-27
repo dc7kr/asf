@@ -188,7 +188,8 @@ CPPFLAGS = \
        -D AT45DBX_ENABLE                                  \
        -D BOARD=SAM3S_EK2                                 \
        -D __SAM3SD8C__                                    \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

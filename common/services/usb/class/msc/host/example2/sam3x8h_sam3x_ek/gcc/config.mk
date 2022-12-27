@@ -166,7 +166,8 @@ CPPFLAGS = \
        -D BOARD=SAM3X_EK                                  \
        -D UHD_ENABLE                                      \
        -D __SAM3X8H__                                     \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

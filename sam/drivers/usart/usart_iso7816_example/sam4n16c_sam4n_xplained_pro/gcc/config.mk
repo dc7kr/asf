@@ -149,7 +149,8 @@ CPPFLAGS = \
        -D BOARD=SAM4N_XPLAINED_PRO                        \
        -D SMART_CARD_USING_IOPORT                         \
        -D __SAM4N16C__                                    \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

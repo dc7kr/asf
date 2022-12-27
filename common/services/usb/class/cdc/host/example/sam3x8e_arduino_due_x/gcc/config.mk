@@ -158,7 +158,8 @@ CPPFLAGS = \
        -D BOARD=ARDUINO_DUE_X                             \
        -D UHD_ENABLE                                      \
        -D __SAM3X8E__                                     \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

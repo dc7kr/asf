@@ -176,7 +176,8 @@ CPPFLAGS = \
        -D BOARD=SAM4L_EK                                  \
        -D _QTOUCH_                                        \
        -D __SAM4LC4C__                                    \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

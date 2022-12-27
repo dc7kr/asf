@@ -170,7 +170,8 @@ CPPFLAGS = \
        -D UHD_ENABLE                                      \
        -D _ASSERT_ENABLE_                                 \
        -D __SAM4LC4C__                                    \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

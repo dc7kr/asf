@@ -177,7 +177,8 @@ CPPFLAGS = \
        -D CONF_GFX_ILI9341_SDT028ATFT=1                   \
        -D UDD_ENABLE                                      \
        -D __SAM4S16C__                                    \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

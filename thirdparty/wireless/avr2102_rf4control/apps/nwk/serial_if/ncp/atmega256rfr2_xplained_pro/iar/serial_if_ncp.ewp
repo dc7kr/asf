@@ -15,6 +15,7 @@
 				<debug>1</debug>
 				<option>
 					<name>GGEnhancedCore</name>
+					<state>1</state>
 				</option>
 				<option>
 					<name>Variant Memory</name>
@@ -68,7 +69,7 @@
 				</option>
 				<option>
 					<name>SCRStackSize</name>
-					<state>0x100</state>
+					<state>16</state>
 				</option>
 				<option>
 					<name>SCExtRStack</name>
@@ -120,6 +121,7 @@
 				</option>
 				<option>
 					<name>GGEepromUtilSize</name>
+					<!--state>8192</state-->
 				</option>
 				<option>
 					<name>GRuntimeLibSelect</name>
@@ -128,12 +130,19 @@
 				</option>
 				<option>
 					<name>RTDescription</name>
+					<!--state>Use the normal configuration of the C/EC++</state>
+          <state>runtime library. No locale interface,</state>
+          <state>C locale, no file descriptor support,</state>
+          <state>no multibytes in printf and scanf, and</state>
+          <state>no hex floats in strtod.</state-->
 				</option>
 				<option>
 					<name>RTConfigPath</name>
+					<!--state>$TOOLKIT_DIR$\LIB\DLIB\dlAVR-3s-ec_mul-n.h</state-->
 				</option>
 				<option>
 					<name>RTLibraryPath</name>
+					<!--state>$TOOLKIT_DIR$\LIB\DLIB\dlAVR-3s-ec_mul-n.r90</state-->
 				</option>
 				<option>
 					<name>Input variant</name>
@@ -147,11 +156,11 @@
 				<option>
 					<name>Output variant</name>
 					<version>36</version>
-					<state>0</state>
+					<state>6</state>
 				</option>
 				<option>
 					<name>Output description</name>
-					<state>Automatic choice of formatter.</state>
+					<state>No specifier a, A, no specifier n, no float nor long long.</state>
 				</option>
 				<option>
 					<name>GRuntimeLibSelectSlave</name>
@@ -206,6 +215,7 @@
 				</option>
 				<option>
 					<name>GenDeviceSelectMenu</name>
+					<!--state>m2564rfr2	ATmega2564RFR2 (ATmega256RFR2)</state-->
 					<state>m256rfr2	ATmega256RFR2</state>
 				</option>
 			</data>
@@ -408,8 +418,7 @@
 				</option>
 				<option>
 					<name>newCCIncludePaths</name>
-					<state>$TOOLKIT_DIR$\INC\</state>
-					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state></state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_hw_timer/mega</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../mega/utils/preprocessor</state>
@@ -725,8 +734,7 @@
 				</option>
 				<option>
 					<name>ANewIncludes</name>
-					<state>$TOOLKIT_DIR$\INC\</state>
-					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>###Uninitialized###</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_hw_timer/mega</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../mega/utils/preprocessor</state>
@@ -780,7 +788,7 @@
 				</option>
 				<option>
 					<name>AsmOutputFile</name>
-					<state>$FILE_BNAME$.r90</state>
+					<state></state>
 				</option>
 				<option>
 					<name>AStdIncCheck</name>
@@ -813,7 +821,7 @@
 			<name>XLINK</name>
 			<archiveVersion>2</archiveVersion>
 			<data>
-				<version>13</version>
+				<version>14</version>
 				<wantNonLocal>1</wantNonLocal>
 				<debug>1</debug>
 				<option>
@@ -822,7 +830,7 @@
 				</option>
 				<option>
 					<name>OutputFile</name>
-					<state>$FILE_BNAME$.dbg</state>
+					<state>iarew_v621_.dbg</state>
 				</option>
 				<option>
 					<name>OutputFormat</name>
@@ -856,7 +864,7 @@
 				</option>
 				<option>
 					<name>XList</name>
-					<state>1</state>
+					<state>0</state>
 				</option>
 				<option>
 					<name>SegmentMap</name>
@@ -888,10 +896,12 @@
 				</option>
 				<option>
 					<name>XclFile</name>
+					<!--state>$TOOLKIT_DIR$\src\template\lnk0t.xcl</state-->
 					<state>$PROJ_DIR$/../link_iar.xcl</state>
 				</option>
 				<option>
 					<name>XclFileSlave</name>
+					<state></state>
 				</option>
 				<option>
 					<name>DoFill</name>
@@ -971,7 +981,7 @@
 				</option>
 				<option>
 					<name>ModuleSummary</name>
-					<state>1</state>
+					<state>0</state>
 				</option>
 				<option>
 					<name>xcProgramEntryLabel</name>
@@ -1003,7 +1013,7 @@
 				</option>
 				<option>
 					<name>ExtraOutputFile</name>
-					<state>$FILE_BNAME$.hex</state>
+					<state>$PROJ_FNAME$.hex</state>
 				</option>
 				<option>
 					<name>ExtraOutputFormat</name>
@@ -1071,6 +1081,11 @@
 					<name>CrcInitialValue</name>
 					<state>0x00</state>
 				</option>
+				<option>
+					<name>CrcUnitSize</name>
+					<version>0</version>
+					<state>0</state>
+				</option>
 			</data>
 		</settings>
 		<settings>
@@ -1112,9 +1127,10 @@
 			<data>
 				<version>9</version>
 				<wantNonLocal>1</wantNonLocal>
-				<debug>0</debug>
+				<debug>1</debug>
 				<option>
 					<name>GGEnhancedCore</name>
+					<state>1</state>
 				</option>
 				<option>
 					<name>Variant Memory</name>
@@ -1168,7 +1184,7 @@
 				</option>
 				<option>
 					<name>SCRStackSize</name>
-					<state>0x100</state>
+					<state>16</state>
 				</option>
 				<option>
 					<name>SCExtRStack</name>
@@ -1220,6 +1236,7 @@
 				</option>
 				<option>
 					<name>GGEepromUtilSize</name>
+					<!--state>8192</state-->
 				</option>
 				<option>
 					<name>GRuntimeLibSelect</name>
@@ -1228,12 +1245,19 @@
 				</option>
 				<option>
 					<name>RTDescription</name>
+					<!--state>Use the normal configuration of the C/EC++</state>
+          <state>runtime library. No locale interface,</state>
+          <state>C locale, no file descriptor support,</state>
+          <state>no multibytes in printf and scanf, and</state>
+          <state>no hex floats in strtod.</state-->
 				</option>
 				<option>
 					<name>RTConfigPath</name>
+					<!--state>$TOOLKIT_DIR$\LIB\DLIB\dlAVR-3s-ec_mul-n.h</state-->
 				</option>
 				<option>
 					<name>RTLibraryPath</name>
+					<!--state>$TOOLKIT_DIR$\LIB\DLIB\dlAVR-3s-ec_mul-n.r90</state-->
 				</option>
 				<option>
 					<name>Input variant</name>
@@ -1247,11 +1271,11 @@
 				<option>
 					<name>Output variant</name>
 					<version>36</version>
-					<state>0</state>
+					<state>6</state>
 				</option>
 				<option>
 					<name>Output description</name>
-					<state>Automatic choice of formatter.</state>
+					<state>No specifier a, A, no specifier n, no float nor long long.</state>
 				</option>
 				<option>
 					<name>GRuntimeLibSelectSlave</name>
@@ -1306,6 +1330,7 @@
 				</option>
 				<option>
 					<name>GenDeviceSelectMenu</name>
+					<!--state>m2564rfr2  ATmega2564RFR2 (ATmega256RFR2)</state-->
 					<state>m256rfr2	ATmega256RFR2</state>
 				</option>
 			</data>
@@ -1316,7 +1341,7 @@
 			<data>
 				<version>17</version>
 				<wantNonLocal>1</wantNonLocal>
-				<debug>0</debug>
+				<debug>1</debug>
 				<option>
 					<name>CCVariantProcessor</name>
 					<state>0</state>
@@ -1508,8 +1533,7 @@
 				</option>
 				<option>
 					<name>newCCIncludePaths</name>
-					<state>$TOOLKIT_DIR$\INC\</state>
-					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state></state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_hw_timer/mega</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../mega/utils/preprocessor</state>
@@ -1825,8 +1849,7 @@
 				</option>
 				<option>
 					<name>ANewIncludes</name>
-					<state>$TOOLKIT_DIR$\INC\</state>
-					<state>$TOOLKIT_DIR$\INC\DLIB\</state>
+					<state>###Uninitialized###</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/pal/common_hw_timer/mega</state>
 					<state>$PROJ_DIR$/../../../../../../../avr2025_mac/source/mac/inc</state>
 					<state>$PROJ_DIR$/../../../../../../../../../mega/utils/preprocessor</state>
@@ -1913,7 +1936,7 @@
 			<name>XLINK</name>
 			<archiveVersion>2</archiveVersion>
 			<data>
-				<version>13</version>
+				<version>14</version>
 				<wantNonLocal>1</wantNonLocal>
 				<debug>0</debug>
 				<option>
@@ -1922,7 +1945,7 @@
 				</option>
 				<option>
 					<name>OutputFile</name>
-					<state></state>
+					<state>iarew_v621_.dbg</state>
 				</option>
 				<option>
 					<name>OutputFormat</name>
@@ -1936,7 +1959,7 @@
 				</option>
 				<option>
 					<name>SecondaryOutputFile</name>
-					<state></state>
+					<state>(None for the selected format)</state>
 				</option>
 				<option>
 					<name>XDefines</name>
@@ -1956,7 +1979,7 @@
 				</option>
 				<option>
 					<name>XList</name>
-					<state>1</state>
+					<state>0</state>
 				</option>
 				<option>
 					<name>SegmentMap</name>
@@ -1988,10 +2011,12 @@
 				</option>
 				<option>
 					<name>XclFile</name>
+					<!--state>$TOOLKIT_DIR$\src\template\lnk0t.xcl</state-->
 					<state>$PROJ_DIR$/../link_iar.xcl</state>
 				</option>
 				<option>
 					<name>XclFileSlave</name>
+					<state></state>
 				</option>
 				<option>
 					<name>DoFill</name>
@@ -2071,7 +2096,7 @@
 				</option>
 				<option>
 					<name>ModuleSummary</name>
-					<state>1</state>
+					<state>0</state>
 				</option>
 				<option>
 					<name>xcProgramEntryLabel</name>
@@ -2095,20 +2120,20 @@
 				</option>
 				<option>
 					<name>GenerateExtraOutput</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>XExtraOutOverride</name>
-					<state>0</state>
+					<state>1</state>
 				</option>
 				<option>
 					<name>ExtraOutputFile</name>
-					<state></state>
+					<state>$PROJ_FNAME$.hex</state>
 				</option>
 				<option>
 					<name>ExtraOutputFormat</name>
 					<version>11</version>
-					<state>25</state>
+					<state>23</state>
 				</option>
 				<option>
 					<name>ExtraFormatVariant</name>
@@ -2170,6 +2195,11 @@
 				<option>
 					<name>CrcInitialValue</name>
 					<state>0x00</state>
+				</option>
+				<option>
+					<name>CrcUnitSize</name>
+					<version>0</version>
+					<state>0</state>
 				</option>
 			</data>
 		</settings>

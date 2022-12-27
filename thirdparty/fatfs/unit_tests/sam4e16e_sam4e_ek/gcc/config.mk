@@ -164,12 +164,12 @@ ARFLAGS =
 # Extra flags to use when assembling.
 ASFLAGS =  \
        -mfloat-abi=softfp                                 \
-       -mfpu=vfpv4                                       
+       -mfpu=fpv4-sp-d16                                 
 
 # Extra flags to use when compiling.
 CFLAGS =  \
        -mfloat-abi=softfp                                 \
-       -mfpu=vfpv4                                       
+       -mfpu=fpv4-sp-d16                                 
 
 # Extra flags to use when preprocessing.
 #
@@ -186,7 +186,8 @@ CPPFLAGS = \
        -D TEST_SUITE_DEFINE_ASSERT_MACRO                  \
        -D _ASSERT_ENABLE_                                 \
        -D __SAM4E16E__                                    \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

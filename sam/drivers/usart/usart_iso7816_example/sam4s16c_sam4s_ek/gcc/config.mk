@@ -153,7 +153,8 @@ CPPFLAGS = \
        -D BOARD=SAM4S_EK                                  \
        -D SMART_CARD_USING_GPIO                           \
        -D __SAM4S16C__                                    \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

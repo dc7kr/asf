@@ -174,7 +174,8 @@ CPPFLAGS = \
        -D BOARD=SAM4L8_XPLAINED_PRO                       \
        -D SD_MMC_ENABLE                                   \
        -D __SAM4LC8C__                                    \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

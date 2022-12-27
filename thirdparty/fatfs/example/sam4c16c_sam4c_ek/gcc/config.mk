@@ -159,7 +159,8 @@ CPPFLAGS = \
        -D BOARD=SAM4C_EK                                  \
        -D VIRTUAL_MEMORY_ENABLE                           \
        -D __SAM4C16C_0__                                  \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

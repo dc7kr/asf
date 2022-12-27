@@ -221,7 +221,8 @@ CPPFLAGS = \
        -D SIO_HUB                                         \
        -D TAL_TYPE=AT86RF233                              \
        -D __SAM4LC4C__                                    \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

@@ -193,12 +193,12 @@ ARFLAGS =
 # Extra flags to use when assembling.
 ASFLAGS =  \
        -mfloat-abi=softfp                                 \
-       -mfpu=vfpv4                                       
+       -mfpu=fpv4-sp-d16                                 
 
 # Extra flags to use when compiling.
 CFLAGS =  \
        -mfloat-abi=softfp                                 \
-       -mfpu=vfpv4                                       
+       -mfpu=fpv4-sp-d16                                 
 
 # Extra flags to use when preprocessing.
 #
@@ -216,7 +216,8 @@ CPPFLAGS = \
        -D HTTP_USED=1                                     \
        -D TFTP_USED=1                                     \
        -D __SAM4E16E__                                    \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

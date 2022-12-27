@@ -155,7 +155,8 @@ CPPFLAGS = \
        -D BOARD=SAM4S_EK2                                 \
        -D UDD_ENABLE                                      \
        -D __SAM4SD32C__                                   \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

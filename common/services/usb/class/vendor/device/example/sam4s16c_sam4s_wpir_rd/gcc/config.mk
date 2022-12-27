@@ -152,7 +152,8 @@ CPPFLAGS = \
        -D BOARD=SAM4S_WPIR_RD                             \
        -D UDD_ENABLE                                      \
        -D __SAM4S16C__                                    \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \

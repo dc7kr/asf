@@ -184,7 +184,8 @@ CPPFLAGS = \
        -D BOARD=SAM3U_EK                                  \
        -D UDD_ENABLE                                      \
        -D __SAM3U4E__                                     \
-       -D printf=iprintf
+       -D printf=iprintf                                  \
+       -D scanf=iscanf
 
 # Extra flags to use when linking
 LDFLAGS = \
