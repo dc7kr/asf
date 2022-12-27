@@ -168,6 +168,7 @@
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>WDT_CALLBACK_MODE=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
@@ -480,6 +481,7 @@
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>WDT_CALLBACK_MODE=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
@@ -1151,6 +1153,7 @@
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>WDT_CALLBACK_MODE=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
@@ -1463,6 +1466,7 @@
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>WDT_CALLBACK_MODE=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
@@ -2345,32 +2349,14 @@
 			<group>
 				<name>system</name>
 				<group>
-					<name>pinmux</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../system/pinmux/pinmux.c</name>
-					</file>
-					<group>
-						<name>quick_start</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../system/pinmux/quick_start/qs_pinmux_basic.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../system/pinmux/pinmux.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../system/system.c</name>
-				</file>
-				<group>
 					<name>clock</name>
 					<group>
 						<name>clock_samd20</name>
 						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd20/gclk.c</name>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd20/clock.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd20/clock.c</name>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd20/gclk.c</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../system/clock/clock_samd20/clock_config_check.h</name>
@@ -2395,6 +2381,24 @@
 						</file>
 					</group>
 				</group>
+				<group>
+					<name>pinmux</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../system/pinmux/pinmux.c</name>
+					</file>
+					<group>
+						<name>quick_start</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../system/pinmux/quick_start/qs_pinmux_basic.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../system/pinmux/pinmux.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../system/system.c</name>
+				</file>
 				<group>
 					<name>interrupt</name>
 					<file>
@@ -2425,13 +2429,16 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../sercom/sercom_interrupt.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../sercom/sercom.c</name>
+				</file>
 				<group>
 					<name>usart</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../sercom/usart/usart_interrupt.c</name>
+						<name>$PROJ_DIR$/../../../../sercom/usart/usart.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../sercom/usart/usart.c</name>
+						<name>$PROJ_DIR$/../../../../sercom/usart/usart_interrupt.c</name>
 					</file>
 					<group>
 						<name>quick_start_dma</name>
@@ -2459,9 +2466,6 @@
 					</group>
 				</group>
 				<file>
-					<name>$PROJ_DIR$/../../../../sercom/sercom.c</name>
-				</file>
-				<file>
 					<name>$PROJ_DIR$/../../../../sercom/sercom_pinout.h</name>
 				</file>
 				<file>
@@ -2485,27 +2489,6 @@
 						<name>$PROJ_DIR$/../../../../port/quick_start/qs_port_basic.h</name>
 					</file>
 				</group>
-			</group>
-		</group>
-	</group>
-	<group>
-		<name>common2</name>
-		<group>
-			<name>services</name>
-			<group>
-				<name>delay</name>
-				<group>
-					<name>sam0</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../common2/services/delay/sam0/cycle_counter.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../common2/services/delay/sam0/cycle_counter.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common2/services/delay/delay.h</name>
-				</file>
 			</group>
 		</group>
 	</group>
@@ -2558,6 +2541,27 @@
 			<file>
 				<name>$PROJ_DIR$/../../../../../../common/boards/board.h</name>
 			</file>
+		</group>
+	</group>
+	<group>
+		<name>common2</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>sam0</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common2/services/delay/sam0/systick_counter.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common2/services/delay/sam0/systick_counter.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common2/services/delay/delay.h</name>
+				</file>
+			</group>
 		</group>
 	</group>
 </project>

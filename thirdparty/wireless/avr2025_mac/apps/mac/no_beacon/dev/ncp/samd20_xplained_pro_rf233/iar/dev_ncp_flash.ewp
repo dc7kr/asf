@@ -175,12 +175,13 @@
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
-					<state>SAL_TYPE=AT86RF2xx</state>
+					<state>SYSTICK_MODE</state>
 					<state>CUSTOM_PWR_TABLE</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>SIO_HUB</state>
@@ -517,12 +518,13 @@
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
-					<state>SAL_TYPE=AT86RF2xx</state>
+					<state>SYSTICK_MODE</state>
 					<state>CUSTOM_PWR_TABLE</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>SIO_HUB</state>
@@ -1218,12 +1220,13 @@
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
-					<state>SAL_TYPE=AT86RF2xx</state>
+					<state>SYSTICK_MODE</state>
 					<state>CUSTOM_PWR_TABLE</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>SIO_HUB</state>
@@ -1560,12 +1563,13 @@
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
-					<state>SAL_TYPE=AT86RF2xx</state>
+					<state>SYSTICK_MODE</state>
 					<state>CUSTOM_PWR_TABLE</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>SIO_HUB</state>
@@ -2141,9 +2145,6 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_associate.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_req.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_extract_mhr.c</name>
 							</file>
 							<file>
@@ -2193,6 +2194,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_api.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_req.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_process_tal_tx_frame_status.c</name>
@@ -2792,6 +2796,12 @@
 					</file>
 				</group>
 				<group>
+					<name>quick_start_timer</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/tc/quick_start_timer/qs_tc_timer.h</name>
+					</file>
+				</group>
+				<group>
 					<name>quick_start_callback</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/tc/quick_start_callback/qs_tc_callback.h</name>
@@ -3142,10 +3152,10 @@
 				<group>
 					<name>sam0</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/cycle_counter.c</name>
+						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/systick_counter.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/cycle_counter.h</name>
+						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/systick_counter.h</name>
 					</file>
 				</group>
 				<file>

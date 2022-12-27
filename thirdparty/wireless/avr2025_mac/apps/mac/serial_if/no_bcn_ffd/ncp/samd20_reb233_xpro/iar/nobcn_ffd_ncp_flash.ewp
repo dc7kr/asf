@@ -180,6 +180,7 @@
 					<state>ENABLE_TSTAMP</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
@@ -521,6 +522,7 @@
 					<state>ENABLE_TSTAMP</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
@@ -1221,6 +1223,7 @@
 					<state>ENABLE_TSTAMP</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
@@ -1562,6 +1565,7 @@
 					<state>ENABLE_TSTAMP</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
@@ -2358,6 +2362,30 @@
 						</group>
 					</group>
 					<group>
+						<name>sal</name>
+						<group>
+							<name>at86rf2xx</name>
+							<group>
+								<name>src</name>
+								<file>
+									<name>$PROJ_DIR$/../../../../../../../source/sal/at86rf2xx/src/sal.c</name>
+								</file>
+							</group>
+						</group>
+						<group>
+							<name>inc</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal_generic.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal_types.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal.h</name>
+							</file>
+						</group>
+					</group>
+					<group>
 						<name>stb</name>
 						<group>
 							<name>src</name>
@@ -2384,30 +2412,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/stb/inc/stb_generic.h</name>
-							</file>
-						</group>
-					</group>
-					<group>
-						<name>sal</name>
-						<group>
-							<name>at86rf2xx</name>
-							<group>
-								<name>src</name>
-								<file>
-									<name>$PROJ_DIR$/../../../../../../../source/sal/at86rf2xx/src/sal.c</name>
-								</file>
-							</group>
-						</group>
-						<group>
-							<name>inc</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal_generic.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal_types.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/sal/inc/sal.h</name>
 							</file>
 						</group>
 					</group>
@@ -2799,6 +2803,12 @@
 						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/tc/quick_start/qs_tc_basic.h</name>
 					</file>
 				</group>
+				<group>
+					<name>quick_start_timer</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/tc/quick_start_timer/qs_tc_timer.h</name>
+					</file>
+				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/tc/tc.h</name>
 				</file>
@@ -3150,10 +3160,10 @@
 				<group>
 					<name>sam0</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/cycle_counter.c</name>
+						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/systick_counter.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/cycle_counter.h</name>
+						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/systick_counter.h</name>
 					</file>
 				</group>
 				<file>

@@ -168,9 +168,10 @@
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD20J18__</state>
@@ -481,9 +482,10 @@
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD20J18__</state>
@@ -1153,9 +1155,10 @@
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD20J18__</state>
@@ -1466,9 +1469,10 @@
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD20J18__</state>
@@ -2058,7 +2062,22 @@
 					<name>$PROJ_DIR$/../../../../events/events.c</name>
 				</file>
 				<file>
+					<name>$PROJ_DIR$/../../../../events/events_hooks.c</name>
+				</file>
+				<group>
+					<name>quick_start_interrupt_hook</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../events/quick_start_interrupt_hook/qs_events_interrupt_hook.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../events/events_hooks.h</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../events/events.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../events/events_common.h</name>
 				</file>
 				<group>
 					<name>quick_start</name>
@@ -2139,6 +2158,12 @@
 					<name>quick_start_callback</name>
 					<file>
 						<name>$PROJ_DIR$/../../../quick_start_callback/qs_tc_callback.h</name>
+					</file>
+				</group>
+				<group>
+					<name>quick_start_timer</name>
+					<file>
+						<name>$PROJ_DIR$/../../../quick_start_timer/qs_tc_timer.h</name>
 					</file>
 				</group>
 				<file>

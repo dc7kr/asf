@@ -179,6 +179,7 @@
 					<state>ENABLE_TSTAMP</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>USART_CALLBACK_MODE=false</state>
@@ -521,6 +522,7 @@
 					<state>ENABLE_TSTAMP</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>USART_CALLBACK_MODE=false</state>
@@ -1222,6 +1224,7 @@
 					<state>ENABLE_TSTAMP</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>USART_CALLBACK_MODE=false</state>
@@ -1564,6 +1567,7 @@
 					<state>ENABLE_TSTAMP</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>USART_CALLBACK_MODE=false</state>
@@ -2141,9 +2145,6 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_associate.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_req.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_extract_mhr.c</name>
 							</file>
 							<file>
@@ -2193,6 +2194,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_api.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_req.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_process_tal_tx_frame_status.c</name>
@@ -2818,6 +2822,12 @@
 						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/tc/quick_start/qs_tc_basic.h</name>
 					</file>
 				</group>
+				<group>
+					<name>quick_start_timer</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/tc/quick_start_timer/qs_tc_timer.h</name>
+					</file>
+				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/tc/tc.h</name>
 				</file>
@@ -3169,10 +3179,10 @@
 				<group>
 					<name>sam0</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/cycle_counter.c</name>
+						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/systick_counter.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/cycle_counter.h</name>
+						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/systick_counter.h</name>
 					</file>
 				</group>
 				<file>

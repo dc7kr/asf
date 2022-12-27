@@ -168,9 +168,10 @@
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
@@ -481,9 +482,10 @@
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
@@ -1153,9 +1155,10 @@
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
@@ -1466,9 +1469,10 @@
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
@@ -2057,10 +2061,25 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../events/events.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../events/events_hooks.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../events/events_common.h</name>
+				</file>
 				<group>
 					<name>quick_start</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../events/quick_start/qs_events_basic.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../events/events_hooks.h</name>
+				</file>
+				<group>
+					<name>quick_start_interrupt_hook</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../events/quick_start_interrupt_hook/qs_events_interrupt_hook.h</name>
 					</file>
 				</group>
 				<file>
@@ -2139,6 +2158,12 @@
 					<name>quick_start_callback</name>
 					<file>
 						<name>$PROJ_DIR$/../../../quick_start_callback/qs_tc_callback.h</name>
+					</file>
+				</group>
+				<group>
+					<name>quick_start_timer</name>
+					<file>
+						<name>$PROJ_DIR$/../../../quick_start_timer/qs_tc_timer.h</name>
 					</file>
 				</group>
 				<file>
@@ -2445,6 +2470,9 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21g17a.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21e18a.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21j16a.h</name>
 							</file>
 							<file>
@@ -2470,6 +2498,9 @@
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21e16a.h</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21.h</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21g16a.h</name>
 						</file>
 						<file>
@@ -2486,9 +2517,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21j16a.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21j17a.h</name>

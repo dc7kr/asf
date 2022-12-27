@@ -169,19 +169,20 @@
 					<state>ANTENNA_DIVERSITY=0</state>
 					<state>FFD</state>
 					<state>STB_ON_SAL</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM0=true</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>TAL_TYPE=AT86RF233</state>
+					<state>USART_CALLBACK_MODE=false</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>USART_CALLBACK_MODE=false</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>SIO_HUB</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -510,19 +511,20 @@
 					<state>ANTENNA_DIVERSITY=0</state>
 					<state>FFD</state>
 					<state>STB_ON_SAL</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM0=true</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>TAL_TYPE=AT86RF233</state>
+					<state>USART_CALLBACK_MODE=false</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>USART_CALLBACK_MODE=false</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>SIO_HUB</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -1210,19 +1212,20 @@
 					<state>ANTENNA_DIVERSITY=0</state>
 					<state>FFD</state>
 					<state>STB_ON_SAL</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM0=true</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>TAL_TYPE=AT86RF233</state>
+					<state>USART_CALLBACK_MODE=false</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>USART_CALLBACK_MODE=false</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>SIO_HUB</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -1551,19 +1554,20 @@
 					<state>ANTENNA_DIVERSITY=0</state>
 					<state>FFD</state>
 					<state>STB_ON_SAL</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM0=true</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
-					<state>TAL_TYPE=AT86RF233</state>
+					<state>USART_CALLBACK_MODE=false</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>USART_CALLBACK_MODE=false</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>SIO_HUB</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -2140,9 +2144,6 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_associate.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_req.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_extract_mhr.c</name>
 							</file>
 							<file>
@@ -2186,6 +2187,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_security.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_req.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_process_tal_tx_frame_status.c</name>
@@ -2615,72 +2619,6 @@
 				</group>
 			</group>
 			<group>
-				<name>sercom</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom.c</name>
-				</file>
-				<group>
-					<name>spi</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/spi/spi.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/spi/spi.h</name>
-					</file>
-					<group>
-						<name>quick_start_dma</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/spi/quick_start_dma/qs_spi_dma_use.h</name>
-						</file>
-					</group>
-					<group>
-						<name>quick_start_master</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/spi/quick_start_master/qs_spi_master_basic.h</name>
-						</file>
-					</group>
-					<group>
-						<name>quick_start_slave</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/spi/quick_start_slave/qs_spi_slave_basic.h</name>
-						</file>
-					</group>
-				</group>
-				<group>
-					<name>usart</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/usart.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/usart.h</name>
-					</file>
-					<group>
-						<name>quick_start_dma</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/quick_start_dma/qs_usart_dma_use.h</name>
-						</file>
-					</group>
-					<group>
-						<name>quick_start</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/quick_start/qs_usart_basic_use.h</name>
-						</file>
-					</group>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom_interrupt.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom_pinout.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom_interrupt.h</name>
-				</file>
-			</group>
-			<group>
 				<name>system</name>
 				<group>
 					<name>clock</name>
@@ -2774,6 +2712,72 @@
 				</file>
 			</group>
 			<group>
+				<name>sercom</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom.c</name>
+				</file>
+				<group>
+					<name>spi</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/spi/spi.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/spi/spi.h</name>
+					</file>
+					<group>
+						<name>quick_start_dma</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/spi/quick_start_dma/qs_spi_dma_use.h</name>
+						</file>
+					</group>
+					<group>
+						<name>quick_start_master</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/spi/quick_start_master/qs_spi_master_basic.h</name>
+						</file>
+					</group>
+					<group>
+						<name>quick_start_slave</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/spi/quick_start_slave/qs_spi_slave_basic.h</name>
+						</file>
+					</group>
+				</group>
+				<group>
+					<name>usart</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/usart.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/usart.h</name>
+					</file>
+					<group>
+						<name>quick_start_dma</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/quick_start_dma/qs_usart_dma_use.h</name>
+						</file>
+					</group>
+					<group>
+						<name>quick_start</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/quick_start/qs_usart_basic_use.h</name>
+						</file>
+					</group>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom_interrupt.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom_pinout.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom_interrupt.h</name>
+				</file>
+			</group>
+			<group>
 				<name>tc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/tc/tc_interrupt.c</name>
@@ -2785,6 +2789,12 @@
 					<name>quick_start</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/tc/quick_start/qs_tc_basic.h</name>
+					</file>
+				</group>
+				<group>
+					<name>quick_start_timer</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/tc/quick_start_timer/qs_tc_timer.h</name>
 					</file>
 				</group>
 				<group>
@@ -2809,6 +2819,21 @@
 		</group>
 		<group>
 			<name>utils</name>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/stdio/write.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/stdio/read.c</name>
+				</file>
+				<group>
+					<name>stdio_serial</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/stdio/stdio_serial/stdio_serial.h</name>
+					</file>
+				</group>
+			</group>
 			<group>
 				<name>cmsis</name>
 				<group>
@@ -3070,21 +3095,6 @@
 					</group>
 				</group>
 			</group>
-			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/stdio/write.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/stdio/read.c</name>
-				</file>
-				<group>
-					<name>stdio_serial</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/stdio/stdio_serial/stdio_serial.h</name>
-					</file>
-				</group>
-			</group>
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/status_codes.h</name>
 			</file>
@@ -3138,10 +3148,10 @@
 				<group>
 					<name>sam0</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/cycle_counter.c</name>
+						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/systick_counter.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/cycle_counter.h</name>
+						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/systick_counter.h</name>
 					</file>
 				</group>
 				<file>

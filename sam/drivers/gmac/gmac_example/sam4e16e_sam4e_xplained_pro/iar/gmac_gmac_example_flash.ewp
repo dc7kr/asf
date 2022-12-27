@@ -2184,7 +2184,37 @@
 		<group>
 			<name>drivers</name>
 			<group>
+				<name>uart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../uart/uart.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../uart/uart.h</name>
+				</file>
+			</group>
+			<group>
+				<name>pmc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../pmc/sleep.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pmc/pmc.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../pmc/sleep.h</name>
+				</file>
+			</group>
+			<group>
 				<name>gmac</name>
+				<file>
+					<name>$PROJ_DIR$/../../../gmac_raw.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../gmac_phy.c</name>
+				</file>
 				<group>
 					<name>gmac_example</name>
 					<file>
@@ -2216,34 +2246,10 @@
 					</file>
 				</group>
 				<file>
-					<name>$PROJ_DIR$/../../../gmac.c</name>
-				</file>
-				<file>
 					<name>$PROJ_DIR$/../../../gmac.h</name>
 				</file>
-			</group>
-			<group>
-				<name>uart</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../uart/uart.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../uart/uart.h</name>
-				</file>
-			</group>
-			<group>
-				<name>pmc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../pmc/sleep.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pmc/pmc.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pmc/pmc.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../pmc/sleep.h</name>
+					<name>$PROJ_DIR$/../../../gmac_raw.h</name>
 				</file>
 			</group>
 			<group>
@@ -2328,21 +2334,6 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>serial</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
-				</file>
-				<group>
-					<name>sam_uart</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart/uart_serial.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common/services/serial/serial.h</name>
-				</file>
-			</group>
-			<group>
 				<name>clock</name>
 				<group>
 					<name>sam4e</name>
@@ -2373,6 +2364,21 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../common/services/clock/pll.h</name>
+				</file>
+			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/serial/usart_serial.c</name>
+				</file>
+				<group>
+					<name>sam_uart</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common/services/serial/sam_uart/uart_serial.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common/services/serial/serial.h</name>
 				</file>
 			</group>
 			<group>

@@ -2516,6 +2516,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21g17a.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21e18a.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21j18a.h</name>
 							</file>
 							<file>

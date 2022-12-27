@@ -167,8 +167,9 @@
 				<option>
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_ASSERT_ENABLE_</state>
+					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>WDT_CALLBACK_MODE=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
@@ -479,8 +480,9 @@
 				<option>
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_ASSERT_ENABLE_</state>
+					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>WDT_CALLBACK_MODE=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
@@ -1150,8 +1152,9 @@
 				<option>
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_ASSERT_ENABLE_</state>
+					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>WDT_CALLBACK_MODE=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
@@ -1462,8 +1465,9 @@
 				<option>
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
-					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_ASSERT_ENABLE_</state>
+					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>WDT_CALLBACK_MODE=true</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
@@ -2345,6 +2349,9 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_dsu.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_ac.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_adc.h</name>
 							</file>
 							<file>
@@ -2352,9 +2359,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_nvmctrl.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_ac.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_sercom2.h</name>
@@ -2376,6 +2380,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21g17a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21e18a.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21j18a.h</name>
@@ -2494,10 +2501,10 @@
 				<group>
 					<name>sam0</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../common2/services/delay/sam0/cycle_counter.c</name>
+						<name>$PROJ_DIR$/../../../../../../common2/services/delay/sam0/systick_counter.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../common2/services/delay/sam0/cycle_counter.h</name>
+						<name>$PROJ_DIR$/../../../../../../common2/services/delay/sam0/systick_counter.h</name>
 					</file>
 				</group>
 				<file>

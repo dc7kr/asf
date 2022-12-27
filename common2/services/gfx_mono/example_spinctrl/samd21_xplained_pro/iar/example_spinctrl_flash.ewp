@@ -166,11 +166,12 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>SPI_CALLBACK_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD21J18A__</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
+					<state>__SAMD21J18A__</state>
+					<state>SPI_CALLBACK_MODE=true</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -475,11 +476,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>SPI_CALLBACK_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD21J18A__</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
+					<state>__SAMD21J18A__</state>
+					<state>SPI_CALLBACK_MODE=true</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1143,11 +1145,12 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>SPI_CALLBACK_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD21J18A__</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
+					<state>__SAMD21J18A__</state>
+					<state>SPI_CALLBACK_MODE=true</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1452,11 +1455,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>SPI_CALLBACK_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD21J18A__</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
+					<state>__SAMD21J18A__</state>
+					<state>SPI_CALLBACK_MODE=true</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -2053,10 +2057,10 @@
 				<group>
 					<name>sam0</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../delay/sam0/cycle_counter.c</name>
+						<name>$PROJ_DIR$/../../../../delay/sam0/systick_counter.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../delay/sam0/cycle_counter.h</name>
+						<name>$PROJ_DIR$/../../../../delay/sam0/systick_counter.h</name>
 					</file>
 				</group>
 				<file>
@@ -2261,6 +2265,9 @@
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21g16a.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21e18a.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21e16a.h</name>
 							</file>
 							<file>
@@ -2351,6 +2358,9 @@
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_adc.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_dsu.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_ac.h</name>
 							</file>
 							<file>
@@ -2364,9 +2374,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_i2s.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_dsu.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_sercom5.h</name>

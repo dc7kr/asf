@@ -170,6 +170,7 @@
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>__SAMD20J18__</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -480,6 +481,7 @@
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>__SAMD20J18__</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1149,6 +1151,7 @@
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>__SAMD20J18__</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1459,6 +1462,7 @@
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>__SAMD20J18__</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -2487,6 +2491,27 @@
 		</group>
 	</group>
 	<group>
+		<name>common2</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>sam0</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../common2/services/delay/sam0/systick_counter.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../common2/services/delay/sam0/systick_counter.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../common2/services/delay/delay.h</name>
+				</file>
+			</group>
+		</group>
+	</group>
+	<group>
 		<name>common</name>
 		<group>
 			<name>utils</name>
@@ -2526,27 +2551,6 @@
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../common/boards/board.h</name>
 			</file>
-		</group>
-	</group>
-	<group>
-		<name>common2</name>
-		<group>
-			<name>services</name>
-			<group>
-				<name>delay</name>
-				<group>
-					<name>sam0</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../common2/services/delay/sam0/cycle_counter.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../common2/services/delay/sam0/cycle_counter.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../common2/services/delay/delay.h</name>
-				</file>
-			</group>
 		</group>
 	</group>
 </project>

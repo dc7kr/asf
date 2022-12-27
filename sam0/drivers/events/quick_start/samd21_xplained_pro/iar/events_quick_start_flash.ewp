@@ -166,6 +166,7 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
@@ -468,6 +469,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
@@ -1129,6 +1131,7 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
@@ -1431,6 +1434,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
@@ -2035,10 +2039,25 @@
 					</file>
 				</group>
 				<file>
+					<name>$PROJ_DIR$/../../../events_hooks.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../events.c</name>
 				</file>
 				<file>
+					<name>$PROJ_DIR$/../../../events_hooks.h</name>
+				</file>
+				<group>
+					<name>quick_start_interrupt_hook</name>
+					<file>
+						<name>$PROJ_DIR$/../../../quick_start_interrupt_hook/qs_events_interrupt_hook.h</name>
+					</file>
+				</group>
+				<file>
 					<name>$PROJ_DIR$/../../../events.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../events_common.h</name>
 				</file>
 			</group>
 			<group>
@@ -2149,9 +2168,6 @@
 						<group>
 							<name>instance</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_pac1.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_sercom3.h</name>
 							</file>
 							<file>
@@ -2171,6 +2187,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_sercom4.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_pac1.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_pac0.h</name>
@@ -2264,6 +2283,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21g17a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21e18a.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21j16a.h</name>

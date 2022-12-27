@@ -97,7 +97,7 @@
 				</option>
 				<option>
 					<name>OGChipSelectEditMenu</name>
-					<state>SAM4S16C	Atmel SAM4S16C</state>
+					<state>ATSAM4S16C	Atmel SAM4S16C</state>
 				</option>
 				<option>
 					<name>GenLowLevelInterface</name>
@@ -165,7 +165,6 @@
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM4S16C__</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>__FREERTOS__</state>
 					<state>ARM_MATH_CM4=true</state>
 					<state>BOARD=SAM4S_XPLAINED</state>
 				</option>
@@ -473,7 +472,6 @@
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM4S16C__</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>__FREERTOS__</state>
 					<state>ARM_MATH_CM4=true</state>
 					<state>BOARD=SAM4S_XPLAINED</state>
 				</option>
@@ -1039,7 +1037,7 @@
 				</option>
 				<option>
 					<name>OGChipSelectEditMenu</name>
-					<state>SAM4S16C	Atmel SAM4S16C</state>
+					<state>ATSAM4S16C	Atmel SAM4S16C</state>
 				</option>
 				<option>
 					<name>GenLowLevelInterface</name>
@@ -1107,7 +1105,6 @@
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM4S16C__</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>__FREERTOS__</state>
 					<state>ARM_MATH_CM4=true</state>
 					<state>BOARD=SAM4S_XPLAINED</state>
 				</option>
@@ -1415,7 +1412,6 @@
 					<state>_ASSERT_ENABLE_</state>
 					<state>__SAM4S16C__</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>__FREERTOS__</state>
 					<state>ARM_MATH_CM4=true</state>
 					<state>BOARD=SAM4S_XPLAINED</state>
 				</option>

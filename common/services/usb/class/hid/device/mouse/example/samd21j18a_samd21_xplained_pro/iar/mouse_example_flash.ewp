@@ -2013,9 +2013,6 @@
 											<name>$PROJ_DIR$/../ui.c</name>
 										</file>
 										<file>
-											<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
-										</file>
-										<file>
 											<name>$PROJ_DIR$/../conf_board.h</name>
 										</file>
 										<group>
@@ -2026,6 +2023,9 @@
 										</group>
 										<file>
 											<name>$PROJ_DIR$/../conf_clocks.h</name>
+										</file>
+										<file>
+											<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
 										</file>
 										<file>
 											<name>$PROJ_DIR$/../conf_extint.h</name>
@@ -2304,6 +2304,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/component_sysctrl.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/component_evsys.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/component_pac.h</name>
 							</file>
 							<file>
@@ -2344,9 +2347,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/component_dac.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/component_evsys.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/component_dsu.h</name>
@@ -2403,6 +2403,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_tc4.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_dac.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_tcc1.h</name>
 							</file>
 							<file>
@@ -2419,9 +2422,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_usb.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_dac.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_evsys.h</name>
@@ -2485,6 +2485,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21g18a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21e18a.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21j18a.h</name>

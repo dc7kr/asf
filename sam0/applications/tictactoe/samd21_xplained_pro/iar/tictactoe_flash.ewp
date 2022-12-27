@@ -166,11 +166,12 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD21J18A__</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
+					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SPI_CALLBACK_MODE=false</state>
+					<state>__SAMD21J18A__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -475,11 +476,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD21J18A__</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
+					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SPI_CALLBACK_MODE=false</state>
+					<state>__SAMD21J18A__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1143,11 +1145,12 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD21J18A__</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
+					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SPI_CALLBACK_MODE=false</state>
+					<state>__SAMD21J18A__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1452,11 +1455,12 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>SPI_CALLBACK_MODE=false</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD21J18A__</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
+					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SPI_CALLBACK_MODE=false</state>
+					<state>__SAMD21J18A__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1955,98 +1959,26 @@
 		</settings>
 	</configuration>
 	<group>
-		<name>common2</name>
-		<group>
-			<name>services</name>
-			<group>
-				<name>gfx_mono</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/sysfont.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_ug_2832hsweg04.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_generic.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_framebuffer.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_text.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_generic.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/sysfont.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_framebuffer.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_text.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_ug_2832hsweg04.h</name>
-				</file>
-			</group>
-			<group>
-				<name>delay</name>
-				<group>
-					<name>sam0</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../common2/services/delay/sam0/cycle_counter.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../common2/services/delay/sam0/cycle_counter.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../common2/services/delay/delay.h</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>components</name>
-			<group>
-				<name>display</name>
-				<group>
-					<name>ssd1306</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../common2/components/display/ssd1306/ssd1306.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../common2/components/display/ssd1306/ssd1306.h</name>
-					</file>
-				</group>
-			</group>
-		</group>
-	</group>
-	<group>
 		<name>sam0</name>
 		<group>
 			<name>drivers</name>
 			<group>
-				<name>system</name>
+				<name>port</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/port/port.c</name>
+				</file>
 				<group>
-					<name>pinmux</name>
+					<name>quick_start</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.c</name>
+						<name>$PROJ_DIR$/../../../../drivers/port/quick_start/qs_port_basic.h</name>
 					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.h</name>
-					</file>
-					<group>
-						<name>quick_start</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/pinmux/quick_start/qs_pinmux_basic.h</name>
-						</file>
-					</group>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/port/port.h</name>
+				</file>
+			</group>
+			<group>
+				<name>system</name>
 				<group>
 					<name>clock</name>
 					<group>
@@ -2101,6 +2033,21 @@
 						<name>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt.h</name>
 					</file>
 				</group>
+				<group>
+					<name>pinmux</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.h</name>
+					</file>
+					<group>
+						<name>quick_start</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../drivers/system/pinmux/quick_start/qs_pinmux_basic.h</name>
+						</file>
+					</group>
+				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/system/system.c</name>
 				</file>
@@ -2110,6 +2057,9 @@
 			</group>
 			<group>
 				<name>sercom</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom.c</name>
+				</file>
 				<group>
 					<name>spi</name>
 					<file>
@@ -2138,9 +2088,6 @@
 					</group>
 				</group>
 				<file>
-					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom.c</name>
-				</file>
-				<file>
 					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom_interrupt.c</name>
 				</file>
 				<file>
@@ -2151,21 +2098,6 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom_pinout.h</name>
-				</file>
-			</group>
-			<group>
-				<name>port</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/port/port.c</name>
-				</file>
-				<group>
-					<name>quick_start</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/port/quick_start/qs_port_basic.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/port/port.h</name>
 				</file>
 			</group>
 		</group>
@@ -2205,6 +2137,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samd21/include/pio/pio_samd21j18a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../utils/cmsis/samd21/include/pio/pio_samd21e18a.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samd21/include/pio/pio_samd21e15a.h</name>
@@ -2501,6 +2436,78 @@
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../conf_sysfont.h</name>
+					</file>
+				</group>
+			</group>
+		</group>
+	</group>
+	<group>
+		<name>common2</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>gfx_mono</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/sysfont.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_ug_2832hsweg04.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_generic.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_framebuffer.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_text.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_generic.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/sysfont.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_framebuffer.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_text.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common2/services/gfx_mono/gfx_mono_ug_2832hsweg04.h</name>
+				</file>
+			</group>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>sam0</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common2/services/delay/sam0/systick_counter.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common2/services/delay/sam0/systick_counter.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common2/services/delay/delay.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>components</name>
+			<group>
+				<name>display</name>
+				<group>
+					<name>ssd1306</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common2/components/display/ssd1306/ssd1306.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../common2/components/display/ssd1306/ssd1306.h</name>
 					</file>
 				</group>
 			</group>

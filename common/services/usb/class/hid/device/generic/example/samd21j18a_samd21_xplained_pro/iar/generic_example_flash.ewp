@@ -2301,6 +2301,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/component_eic.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/component_sysctrl.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/component_evsys.h</name>
 							</file>
 							<file>
@@ -2308,9 +2311,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/component_ac.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/component_sysctrl.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/component/component_tc.h</name>
@@ -2379,13 +2379,13 @@
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_tcc0.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_adc.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_tc6.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_dmac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_adc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_i2s.h</name>
@@ -2485,6 +2485,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21g18a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21e18a.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21j18a.h</name>

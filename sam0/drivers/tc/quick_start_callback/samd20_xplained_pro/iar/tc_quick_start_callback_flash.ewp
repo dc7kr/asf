@@ -2359,6 +2359,12 @@
 						<name>$PROJ_DIR$/../../../quick_start_dma/qs_tc_dma.h</name>
 					</file>
 				</group>
+				<group>
+					<name>quick_start_timer</name>
+					<file>
+						<name>$PROJ_DIR$/../../../quick_start_timer/qs_tc_timer.h</name>
+					</file>
+				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../tc.h</name>
 				</file>

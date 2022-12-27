@@ -180,6 +180,7 @@
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
+					<state>SYSTICK_MODE</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -518,6 +519,7 @@
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
+					<state>SYSTICK_MODE</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -1215,6 +1217,7 @@
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
+					<state>SYSTICK_MODE</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -1553,6 +1556,7 @@
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>TAL_TYPE=AT86RF212B</state>
+					<state>SYSTICK_MODE</state>
 					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
@@ -2157,10 +2161,10 @@
 									<name>$PROJ_DIR$/../conf_sio2host.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../conf_spi.h</name>
+									<name>$PROJ_DIR$/../conf_board.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../conf_board.h</name>
+									<name>$PROJ_DIR$/../conf_spi.h</name>
 								</file>
 								<group>
 									<name>iar</name>
@@ -2664,6 +2668,12 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc/tc_interrupt.h</name>
 				</file>
+				<group>
+					<name>quick_start_timer</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc/quick_start_timer/qs_tc_timer.h</name>
+					</file>
+				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc/tc.h</name>
 				</file>
@@ -3015,10 +3025,10 @@
 				<group>
 					<name>sam0</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/cycle_counter.c</name>
+						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/systick_counter.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/cycle_counter.h</name>
+						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/systick_counter.h</name>
 					</file>
 				</group>
 				<file>

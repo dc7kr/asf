@@ -97,7 +97,7 @@
 				</option>
 				<option>
 					<name>OGChipSelectEditMenu</name>
-					<state>SAM4S16C	Atmel SAM4S16C</state>
+					<state>ATSAM4S16C	Atmel SAM4S16C</state>
 				</option>
 				<option>
 					<name>GenLowLevelInterface</name>
@@ -181,7 +181,7 @@
 					<state>_SNS1_SNSK1_SAME_PORT_</state>
 					<state>UDD_ENABLE</state>
 					<state>DEF_TOUCH_QDEBUG_ENABLE_QTB=0</state>
-					<state>CONF_GFX_ILI9325_FTM280C34D=1</state>
+					<state>CONF_GFX_ILI93XX=1</state>
 					<state>_QTOUCH_</state>
 					<state>_DEBUG_INTERFACE_</state>
 				</option>
@@ -364,11 +364,11 @@
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../services/resistive_touch</state>
-					<state>$PROJ_DIR$/../../../../components/display/ili9325</state>
 					<state>$PROJ_DIR$/../../../../../common/services/usb/class/msc</state>
 					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../components/display/ili93xx</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -539,7 +539,7 @@
 					<state>_SNS1_SNSK1_SAME_PORT_</state>
 					<state>UDD_ENABLE</state>
 					<state>DEF_TOUCH_QDEBUG_ENABLE_QTB=0</state>
-					<state>CONF_GFX_ILI9325_FTM280C34D=1</state>
+					<state>CONF_GFX_ILI93XX=1</state>
 					<state>_QTOUCH_</state>
 					<state>_DEBUG_INTERFACE_</state>
 				</option>
@@ -689,11 +689,11 @@
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../services/resistive_touch</state>
-					<state>$PROJ_DIR$/../../../../components/display/ili9325</state>
 					<state>$PROJ_DIR$/../../../../../common/services/usb/class/msc</state>
 					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../components/display/ili93xx</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1139,7 +1139,7 @@
 				</option>
 				<option>
 					<name>OGChipSelectEditMenu</name>
-					<state>SAM4S16C	Atmel SAM4S16C</state>
+					<state>ATSAM4S16C	Atmel SAM4S16C</state>
 				</option>
 				<option>
 					<name>GenLowLevelInterface</name>
@@ -1223,7 +1223,7 @@
 					<state>_SNS1_SNSK1_SAME_PORT_</state>
 					<state>UDD_ENABLE</state>
 					<state>DEF_TOUCH_QDEBUG_ENABLE_QTB=0</state>
-					<state>CONF_GFX_ILI9325_FTM280C34D=1</state>
+					<state>CONF_GFX_ILI93XX=1</state>
 					<state>_QTOUCH_</state>
 					<state>_DEBUG_INTERFACE_</state>
 				</option>
@@ -1406,11 +1406,11 @@
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../services/resistive_touch</state>
-					<state>$PROJ_DIR$/../../../../components/display/ili9325</state>
 					<state>$PROJ_DIR$/../../../../../common/services/usb/class/msc</state>
 					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../components/display/ili93xx</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1581,7 +1581,7 @@
 					<state>_SNS1_SNSK1_SAME_PORT_</state>
 					<state>UDD_ENABLE</state>
 					<state>DEF_TOUCH_QDEBUG_ENABLE_QTB=0</state>
-					<state>CONF_GFX_ILI9325_FTM280C34D=1</state>
+					<state>CONF_GFX_ILI93XX=1</state>
 					<state>_QTOUCH_</state>
 					<state>_DEBUG_INTERFACE_</state>
 				</option>
@@ -1731,11 +1731,11 @@
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../services/resistive_touch</state>
-					<state>$PROJ_DIR$/../../../../components/display/ili9325</state>
 					<state>$PROJ_DIR$/../../../../../common/services/usb/class/msc</state>
 					<state>$PROJ_DIR$/../../../../../common/services/ioport</state>
 					<state>$PROJ_DIR$/../../../../drivers/pio</state>
 					<state>$PROJ_DIR$/../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../components/display/ili93xx</state>
 					<state>$PROJ_DIR$/../../../../../common/services/spi</state>
 					<state>$PROJ_DIR$/../../../../../common/services/storage/ctrl_access</state>
 					<state>$PROJ_DIR$/.</state>
@@ -2352,10 +2352,10 @@
 					<name>$PROJ_DIR$/../../../../../common/services/gfx/gfx_text.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../common/services/gfx/gfx_ili9325_ftm280c34d.c</name>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx/gfx_generic.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../common/services/gfx/gfx_generic.c</name>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx/gfx_ili93xx.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/services/gfx/sysfont.c</name>
@@ -2364,13 +2364,13 @@
 					<name>$PROJ_DIR$/../../../../../common/services/gfx/gfx_text.h</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../common/services/gfx/gfx_ili9325_ftm280c34d.h</name>
-				</file>
-				<file>
 					<name>$PROJ_DIR$/../../../../../common/services/gfx/gfx_generic.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/services/gfx/gfx.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/gfx/gfx_ili93xx.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/services/gfx/sysfont.h</name>
@@ -2397,9 +2397,6 @@
 					<name>$PROJ_DIR$/../../../../../common/services/wtk/wtk_button.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../../common/services/wtk/wtk_basic_frame.c</name>
-				</file>
-				<file>
 					<name>$PROJ_DIR$/../../../../../common/services/wtk/wtk_slider.c</name>
 				</file>
 				<file>
@@ -2407,6 +2404,9 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/services/wtk/wtk_plot.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../common/services/wtk/wtk_basic_frame.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../common/services/wtk/wtk.c</name>
@@ -2774,9 +2774,6 @@
 						<name>$PROJ_DIR$/../demo_board.h</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../conf_ili9325.h</name>
-					</file>
-					<file>
 						<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
 					</file>
 					<file>
@@ -2790,6 +2787,9 @@
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../conf_nf.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../conf_ili93xx.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../conf_ads7843.h</name>
@@ -2853,12 +2853,18 @@
 					</file>
 				</group>
 				<group>
-					<name>ili9325</name>
+					<name>ili93xx</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../components/display/ili9325/ili9325.c</name>
+						<name>$PROJ_DIR$/../../../../components/display/ili93xx/ili93xx.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../components/display/ili9325/ili9325.h</name>
+						<name>$PROJ_DIR$/../../../../components/display/ili93xx/ili9341_regs.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../components/display/ili93xx/ili93xx.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../components/display/ili93xx/ili9325_regs.h</name>
 					</file>
 				</group>
 			</group>

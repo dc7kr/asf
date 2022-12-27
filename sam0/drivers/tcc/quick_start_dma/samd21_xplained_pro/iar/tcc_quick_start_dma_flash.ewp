@@ -166,6 +166,7 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>TCC_ASYNC=false</state>
@@ -471,6 +472,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>TCC_ASYNC=false</state>
@@ -1135,6 +1137,7 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>TCC_ASYNC=false</state>
@@ -1440,6 +1443,7 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
 					<state>__SAMD21J18A__</state>
 					<state>TCC_ASYNC=false</state>
@@ -1958,12 +1962,6 @@
 							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21/clock_config_check.h</name>
 						</file>
 					</group>
-					<group>
-						<name>quick_start_clock</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/quick_start_clock/qs_clock_source.h</name>
-						</file>
-					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../../system/clock/gclk.h</name>
 					</file>
@@ -1974,6 +1972,12 @@
 						<name>quick_start_gclk</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../system/clock/quick_start_gclk/qs_gclk_basic.h</name>
+						</file>
+					</group>
+					<group>
+						<name>quick_start_clock</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../system/clock/quick_start_clock/qs_clock_source.h</name>
 						</file>
 					</group>
 				</group>
@@ -2056,6 +2060,12 @@
 					</group>
 				</group>
 				<group>
+					<name>quick_start_buffering</name>
+					<file>
+						<name>$PROJ_DIR$/../../../quick_start_buffering/qs_tcc_buffering.h</name>
+					</file>
+				</group>
+				<group>
 					<name>quick_start</name>
 					<file>
 						<name>$PROJ_DIR$/../../../quick_start/qs_tcc_basic.h</name>
@@ -2070,10 +2080,25 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../events/events.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../events/events_hooks.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../events/events_common.h</name>
+				</file>
 				<group>
 					<name>quick_start</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../events/quick_start/qs_events_basic.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../events/events_hooks.h</name>
+				</file>
+				<group>
+					<name>quick_start_interrupt_hook</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../events/quick_start_interrupt_hook/qs_events_interrupt_hook.h</name>
 					</file>
 				</group>
 				<file>
@@ -2221,6 +2246,9 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_tc6.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_evsys.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_dac.h</name>
 							</file>
 							<file>
@@ -2293,9 +2321,6 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_adc.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_evsys.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_eic.h</name>
 							</file>
 							<file>
@@ -2323,6 +2348,9 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21g17a.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21e18a.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21j16a.h</name>
 							</file>
 							<file>
@@ -2348,6 +2376,9 @@
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21e16a.h</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21.h</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21g16a.h</name>
 						</file>
 						<file>
@@ -2364,9 +2395,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21j16a.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21j17a.h</name>

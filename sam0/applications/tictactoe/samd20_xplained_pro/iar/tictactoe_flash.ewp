@@ -168,9 +168,10 @@
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
-					<state>__SAMD20J18__</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -477,9 +478,10 @@
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
-					<state>__SAMD20J18__</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1145,9 +1147,10 @@
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
-					<state>__SAMD20J18__</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1454,9 +1457,10 @@
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
-					<state>__SAMD20J18__</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -2300,21 +2304,6 @@
 					</file>
 				</group>
 				<group>
-					<name>pinmux</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.c</name>
-					</file>
-					<group>
-						<name>quick_start</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/pinmux/quick_start/qs_pinmux_basic.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.h</name>
-					</file>
-				</group>
-				<group>
 					<name>interrupt</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt.c</name>
@@ -2333,6 +2322,21 @@
 					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt.h</name>
+					</file>
+				</group>
+				<group>
+					<name>pinmux</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.c</name>
+					</file>
+					<group>
+						<name>quick_start</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../drivers/system/pinmux/quick_start/qs_pinmux_basic.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.h</name>
 					</file>
 				</group>
 				<file>
@@ -2482,10 +2486,10 @@
 				<group>
 					<name>sam0</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../common2/services/delay/sam0/cycle_counter.c</name>
+						<name>$PROJ_DIR$/../../../../../common2/services/delay/sam0/systick_counter.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../common2/services/delay/sam0/cycle_counter.h</name>
+						<name>$PROJ_DIR$/../../../../../common2/services/delay/sam0/systick_counter.h</name>
 					</file>
 				</group>
 				<file>

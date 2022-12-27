@@ -163,11 +163,10 @@
 				<option>
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
-					<state>__FREERTOS__</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -471,11 +470,10 @@
 				<option>
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
-					<state>__FREERTOS__</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1105,11 +1103,10 @@
 				<option>
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
-					<state>__FREERTOS__</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1413,11 +1410,10 @@
 				<option>
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>ARM_MATH_CM3=true</state>
 					<state>BOARD=SAM3X_EK</state>
 					<state>__SAM3X8H__</state>
-					<state>__FREERTOS__</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 				</option>
 				<option>
 					<name>AList</name>

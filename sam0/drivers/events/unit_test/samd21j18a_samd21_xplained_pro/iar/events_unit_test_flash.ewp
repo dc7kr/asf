@@ -168,9 +168,10 @@
 					<name>CCDefines</name>
 					<state>TC_ASYNC=false</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>RTC_COUNT_ASYNC=false</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
@@ -481,9 +482,10 @@
 					<name>ADefines</name>
 					<state>TC_ASYNC=false</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>RTC_COUNT_ASYNC=false</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
@@ -1153,9 +1155,10 @@
 					<name>CCDefines</name>
 					<state>TC_ASYNC=false</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>RTC_COUNT_ASYNC=false</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
@@ -1466,9 +1469,10 @@
 					<name>ADefines</name>
 					<state>TC_ASYNC=false</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>_ASSERT_ENABLE_</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>RTC_COUNT_ASYNC=false</state>
+					<state>_ASSERT_ENABLE_</state>
 					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>USART_CALLBACK_MODE=true</state>
 					<state>__SAMD21J18A__</state>
@@ -1976,6 +1980,24 @@
 			<name>drivers</name>
 			<group>
 				<name>system</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../system/system.c</name>
+				</file>
+				<group>
+					<name>pinmux</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../system/pinmux/pinmux.c</name>
+					</file>
+					<group>
+						<name>quick_start</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../system/pinmux/quick_start/qs_pinmux_basic.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../system/pinmux/pinmux.h</name>
+					</file>
+				</group>
 				<group>
 					<name>clock</name>
 					<group>
@@ -2010,24 +2032,6 @@
 					</group>
 				</group>
 				<group>
-					<name>pinmux</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../system/pinmux/pinmux.c</name>
-					</file>
-					<group>
-						<name>quick_start</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../system/pinmux/quick_start/qs_pinmux_basic.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../system/pinmux/pinmux.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../system/system.c</name>
-				</file>
-				<group>
 					<name>interrupt</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../system/interrupt/system_interrupt.c</name>
@@ -2053,12 +2057,102 @@
 				</file>
 			</group>
 			<group>
-				<name>sercom</name>
+				<name>rtc</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../sercom/sercom_interrupt.c</name>
+					<name>$PROJ_DIR$/../../../../rtc/rtc_count.c</name>
+				</file>
+				<group>
+					<name>quick_start_count</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../rtc/quick_start_count/qs_rtc_count_basic.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../rtc/rtc_count.h</name>
+				</file>
+			</group>
+			<group>
+				<name>events</name>
+				<file>
+					<name>$PROJ_DIR$/../../../events_hooks.c</name>
+				</file>
+				<group>
+					<name>unit_test</name>
+					<file>
+						<name>$PROJ_DIR$/../../unit_test.c</name>
+					</file>
+					<group>
+						<name>samd21j18a_samd21_xplained_pro</name>
+						<file>
+							<name>$PROJ_DIR$/../conf_board.h</name>
+						</file>
+						<group>
+							<name>iar</name>
+							<file>
+								<name>$PROJ_DIR$/asf.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../conf_test.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../conf_clocks.h</name>
+						</file>
+					</group>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../events.c</name>
 				</file>
 				<file>
+					<name>$PROJ_DIR$/../../../events_hooks.h</name>
+				</file>
+				<group>
+					<name>quick_start_interrupt_hook</name>
+					<file>
+						<name>$PROJ_DIR$/../../../quick_start_interrupt_hook/qs_events_interrupt_hook.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../events.h</name>
+				</file>
+				<group>
+					<name>quick_start</name>
+					<file>
+						<name>$PROJ_DIR$/../../../quick_start/qs_events_basic.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../events_common.h</name>
+				</file>
+			</group>
+			<group>
+				<name>tc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../tc/tc.c</name>
+				</file>
+				<group>
+					<name>quick_start_dma</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../tc/quick_start_dma/qs_tc_dma.h</name>
+					</file>
+				</group>
+				<group>
+					<name>quick_start</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../tc/quick_start/qs_tc_basic.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../tc/tc.h</name>
+				</file>
+			</group>
+			<group>
+				<name>sercom</name>
+				<file>
 					<name>$PROJ_DIR$/../../../../sercom/sercom.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../sercom/sercom_interrupt.c</name>
 				</file>
 				<group>
 					<name>usart</name>
@@ -2104,60 +2198,6 @@
 				</file>
 			</group>
 			<group>
-				<name>events</name>
-				<group>
-					<name>unit_test</name>
-					<file>
-						<name>$PROJ_DIR$/../../unit_test.c</name>
-					</file>
-					<group>
-						<name>samd21j18a_samd21_xplained_pro</name>
-						<file>
-							<name>$PROJ_DIR$/../conf_board.h</name>
-						</file>
-						<group>
-							<name>iar</name>
-							<file>
-								<name>$PROJ_DIR$/asf.h</name>
-							</file>
-						</group>
-						<file>
-							<name>$PROJ_DIR$/../conf_test.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../conf_clocks.h</name>
-						</file>
-					</group>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../events.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../events.h</name>
-				</file>
-				<group>
-					<name>quick_start</name>
-					<file>
-						<name>$PROJ_DIR$/../../../quick_start/qs_events_basic.h</name>
-					</file>
-				</group>
-			</group>
-			<group>
-				<name>rtc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../rtc/rtc_count.c</name>
-				</file>
-				<group>
-					<name>quick_start_count</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../rtc/quick_start_count/qs_rtc_count_basic.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../rtc/rtc_count.h</name>
-				</file>
-			</group>
-			<group>
 				<name>port</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../port/port.c</name>
@@ -2172,45 +2212,39 @@
 					</file>
 				</group>
 			</group>
-			<group>
-				<name>tc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../tc/tc.c</name>
-				</file>
-				<group>
-					<name>quick_start_dma</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../tc/quick_start_dma/qs_tc_dma.h</name>
-					</file>
-				</group>
-				<group>
-					<name>quick_start</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../tc/quick_start/qs_tc_basic.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../tc/tc.h</name>
-				</file>
-			</group>
 		</group>
 		<group>
 			<name>utils</name>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/stdio/read.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../utils/stdio/write.c</name>
+				</file>
+				<group>
+					<name>stdio_serial</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../utils/stdio/stdio_serial/stdio_serial.h</name>
+					</file>
+				</group>
+			</group>
 			<group>
 				<name>cmsis</name>
 				<group>
 					<name>samd21</name>
 					<group>
 						<name>source</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/source/system_samd21.c</name>
+						</file>
 						<group>
 							<name>iar</name>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/source/iar/startup_samd21.c</name>
 							</file>
 						</group>
-						<file>
-							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/source/system_samd21.c</name>
-						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/source/system_samd21.h</name>
 						</file>
@@ -2286,9 +2320,6 @@
 						<group>
 							<name>instance</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_pac1.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_sercom3.h</name>
 							</file>
 							<file>
@@ -2298,10 +2329,10 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_wdt.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_dac.h</name>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_tc6.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_tc6.h</name>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_dac.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_tc4.h</name>
@@ -2314,6 +2345,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_sercom4.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_pac1.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_pac0.h</name>
@@ -2403,6 +2437,9 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21g17a.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21e18a.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21j16a.h</name>
 							</file>
 							<file>
@@ -2452,21 +2489,6 @@
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21j17a.h</name>
 						</file>
 					</group>
-				</group>
-			</group>
-			<group>
-				<name>stdio</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../utils/stdio/read.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../utils/stdio/write.c</name>
-				</file>
-				<group>
-					<name>stdio_serial</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../utils/stdio/stdio_serial/stdio_serial.h</name>
-					</file>
 				</group>
 			</group>
 			<group>

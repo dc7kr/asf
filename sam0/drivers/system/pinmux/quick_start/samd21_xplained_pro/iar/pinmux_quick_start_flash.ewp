@@ -2067,6 +2067,9 @@
 								<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd21/include/pio/pio_samd21j18a.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd21/include/pio/pio_samd21e18a.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd21/include/pio/pio_samd21e15a.h</name>
 							</file>
 							<file>
@@ -2275,9 +2278,6 @@
 							<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd21/include/samd21j16a.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd21/include/samd21g17a.h</name>
-						</file>
-						<file>
 							<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd21/include/samd21j17a.h</name>
 						</file>
 						<file>
@@ -2294,6 +2294,9 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd21/include/samd21j18a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd21/include/samd21g17a.h</name>
 						</file>
 					</group>
 				</group>

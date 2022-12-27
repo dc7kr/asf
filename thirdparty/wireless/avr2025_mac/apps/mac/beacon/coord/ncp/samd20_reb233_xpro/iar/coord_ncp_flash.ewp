@@ -166,27 +166,28 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
+					<state>SAL_TYPE=AT86RF2xx</state>
+					<state>BEACON_SUPPORT</state>
+					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>FFD</state>
-					<state>STB_ON_SAL</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM0=true</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
+					<state>GTS_SUPPORT</state>
+					<state>SPI_CALLBACK_MODE=false</state>
+					<state>ENABLE_DEEP_SLEEP</state>
+					<state>PAL_USE_SPI_TRX=1</state>
+					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ENABLE_TSTAMP</state>
+					<state>USART_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
-					<state>ENABLE_TSTAMP</state>
-					<state>GTS_SUPPORT</state>
-					<state>__SAMD20J18__</state>
-					<state>SPI_CALLBACK_MODE=false</state>
-					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>ENABLE_DEEP_SLEEP</state>
-					<state>BEACON_SUPPORT</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>SIO_HUB</state>
-					<state>DISABLE_TSTAMP_IRQ=1</state>
-					<state>PAL_USE_SPI_TRX=1</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -509,27 +510,28 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>SAL_TYPE=AT86RF2xx</state>
+					<state>BEACON_SUPPORT</state>
+					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>FFD</state>
-					<state>STB_ON_SAL</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM0=true</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
+					<state>GTS_SUPPORT</state>
+					<state>SPI_CALLBACK_MODE=false</state>
+					<state>ENABLE_DEEP_SLEEP</state>
+					<state>PAL_USE_SPI_TRX=1</state>
+					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ENABLE_TSTAMP</state>
+					<state>USART_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
-					<state>ENABLE_TSTAMP</state>
-					<state>GTS_SUPPORT</state>
-					<state>__SAMD20J18__</state>
-					<state>SPI_CALLBACK_MODE=false</state>
-					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>ENABLE_DEEP_SLEEP</state>
-					<state>BEACON_SUPPORT</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>SIO_HUB</state>
-					<state>DISABLE_TSTAMP_IRQ=1</state>
-					<state>PAL_USE_SPI_TRX=1</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1211,27 +1213,28 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
+					<state>SAL_TYPE=AT86RF2xx</state>
+					<state>BEACON_SUPPORT</state>
+					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>FFD</state>
-					<state>STB_ON_SAL</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM0=true</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
+					<state>GTS_SUPPORT</state>
+					<state>SPI_CALLBACK_MODE=false</state>
+					<state>ENABLE_DEEP_SLEEP</state>
+					<state>PAL_USE_SPI_TRX=1</state>
+					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ENABLE_TSTAMP</state>
+					<state>USART_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
-					<state>ENABLE_TSTAMP</state>
-					<state>GTS_SUPPORT</state>
-					<state>__SAMD20J18__</state>
-					<state>SPI_CALLBACK_MODE=false</state>
-					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>ENABLE_DEEP_SLEEP</state>
-					<state>BEACON_SUPPORT</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>SIO_HUB</state>
-					<state>DISABLE_TSTAMP_IRQ=1</state>
-					<state>PAL_USE_SPI_TRX=1</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1554,27 +1557,28 @@
 				</option>
 				<option>
 					<name>ADefines</name>
+					<state>SAL_TYPE=AT86RF2xx</state>
+					<state>BEACON_SUPPORT</state>
+					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>ANTENNA_DIVERSITY=0</state>
-					<state>FFD</state>
-					<state>STB_ON_SAL</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>ARM_MATH_CM0=true</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
 					<state>_DEBUG_=0</state>
 					<state>TC_ASYNC=true</state>
+					<state>GTS_SUPPORT</state>
+					<state>SPI_CALLBACK_MODE=false</state>
+					<state>ENABLE_DEEP_SLEEP</state>
+					<state>PAL_USE_SPI_TRX=1</state>
+					<state>FFD</state>
+					<state>STB_ON_SAL</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>ENABLE_TSTAMP</state>
+					<state>USART_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=MAC</state>
-					<state>ENABLE_TSTAMP</state>
-					<state>GTS_SUPPORT</state>
-					<state>__SAMD20J18__</state>
-					<state>SPI_CALLBACK_MODE=false</state>
-					<state>SAL_TYPE=AT86RF2xx</state>
-					<state>ENABLE_DEEP_SLEEP</state>
-					<state>BEACON_SUPPORT</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>SIO_HUB</state>
-					<state>DISABLE_TSTAMP_IRQ=1</state>
-					<state>PAL_USE_SPI_TRX=1</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -2145,9 +2149,6 @@
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_associate.c</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_req.c</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_extract_mhr.c</name>
 							</file>
 							<file>
@@ -2197,6 +2198,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_api.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_data_req.c</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../source/mac/src/mac_process_tal_tx_frame_status.c</name>
@@ -2796,6 +2800,12 @@
 					</file>
 				</group>
 				<group>
+					<name>quick_start_timer</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/tc/quick_start_timer/qs_tc_timer.h</name>
+					</file>
+				</group>
+				<group>
 					<name>quick_start_callback</name>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/tc/quick_start_callback/qs_tc_callback.h</name>
@@ -3146,10 +3156,10 @@
 				<group>
 					<name>sam0</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/cycle_counter.c</name>
+						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/systick_counter.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/cycle_counter.h</name>
+						<name>$PROJ_DIR$/../../../../../../../../../../common2/services/delay/sam0/systick_counter.h</name>
 					</file>
 				</group>
 				<file>

@@ -166,27 +166,28 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>FFD</state>
-					<state>ANTENNA_DIVERSITY=0</state>
-					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>CUSTOM_DEFAULT_TX_PWR</state>
-					<state>ENABLE_TFA</state>
-					<state>ARM_MATH_CM0=true</state>
-					<state>_DEBUG_=0</state>
-					<state>TC_ASYNC=true</state>
-					<state>TRX_REG_RAW_VALUE</state>
 					<state>HIGHEST_STACK_LAYER=TAL</state>
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
-					<state>__SAMD20J18__</state>
-					<state>SPI_CALLBACK_MODE=false</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>ENABLE_DEEP_SLEEP</state>
-					<state>CUSTOM_PWR_TABLE</state>
-					<state>TAL_TYPE=AT86RF233</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
+					<state>ANTENNA_DIVERSITY=0</state>
+					<state>ARM_MATH_CM0=true</state>
+					<state>ENABLE_TFA</state>
+					<state>_DEBUG_=0</state>
+					<state>TC_ASYNC=true</state>
+					<state>TRX_REG_RAW_VALUE</state>
+					<state>SPI_CALLBACK_MODE=false</state>
+					<state>ENABLE_DEEP_SLEEP</state>
 					<state>PAL_USE_SPI_TRX=1</state>
+					<state>FFD</state>
+					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>USART_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>TAL_TYPE=AT86RF233</state>
+					<state>CUSTOM_PWR_TABLE</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -508,27 +509,28 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>FFD</state>
-					<state>ANTENNA_DIVERSITY=0</state>
-					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>CUSTOM_DEFAULT_TX_PWR</state>
-					<state>ENABLE_TFA</state>
-					<state>ARM_MATH_CM0=true</state>
-					<state>_DEBUG_=0</state>
-					<state>TC_ASYNC=true</state>
-					<state>TRX_REG_RAW_VALUE</state>
 					<state>HIGHEST_STACK_LAYER=TAL</state>
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
-					<state>__SAMD20J18__</state>
-					<state>SPI_CALLBACK_MODE=false</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>ENABLE_DEEP_SLEEP</state>
-					<state>CUSTOM_PWR_TABLE</state>
-					<state>TAL_TYPE=AT86RF233</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
+					<state>ANTENNA_DIVERSITY=0</state>
+					<state>ARM_MATH_CM0=true</state>
+					<state>ENABLE_TFA</state>
+					<state>_DEBUG_=0</state>
+					<state>TC_ASYNC=true</state>
+					<state>TRX_REG_RAW_VALUE</state>
+					<state>SPI_CALLBACK_MODE=false</state>
+					<state>ENABLE_DEEP_SLEEP</state>
 					<state>PAL_USE_SPI_TRX=1</state>
+					<state>FFD</state>
+					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>USART_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>TAL_TYPE=AT86RF233</state>
+					<state>CUSTOM_PWR_TABLE</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1209,27 +1211,28 @@
 				</option>
 				<option>
 					<name>CCDefines</name>
-					<state>FFD</state>
-					<state>ANTENNA_DIVERSITY=0</state>
-					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>CUSTOM_DEFAULT_TX_PWR</state>
-					<state>ENABLE_TFA</state>
-					<state>ARM_MATH_CM0=true</state>
-					<state>_DEBUG_=0</state>
-					<state>TC_ASYNC=true</state>
-					<state>TRX_REG_RAW_VALUE</state>
 					<state>HIGHEST_STACK_LAYER=TAL</state>
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
-					<state>__SAMD20J18__</state>
-					<state>SPI_CALLBACK_MODE=false</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>ENABLE_DEEP_SLEEP</state>
-					<state>CUSTOM_PWR_TABLE</state>
-					<state>TAL_TYPE=AT86RF233</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
+					<state>ANTENNA_DIVERSITY=0</state>
+					<state>ARM_MATH_CM0=true</state>
+					<state>ENABLE_TFA</state>
+					<state>_DEBUG_=0</state>
+					<state>TC_ASYNC=true</state>
+					<state>TRX_REG_RAW_VALUE</state>
+					<state>SPI_CALLBACK_MODE=false</state>
+					<state>ENABLE_DEEP_SLEEP</state>
 					<state>PAL_USE_SPI_TRX=1</state>
+					<state>FFD</state>
+					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>USART_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>TAL_TYPE=AT86RF233</state>
+					<state>CUSTOM_PWR_TABLE</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1551,27 +1554,28 @@
 				</option>
 				<option>
 					<name>ADefines</name>
-					<state>FFD</state>
-					<state>ANTENNA_DIVERSITY=0</state>
-					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>CUSTOM_DEFAULT_TX_PWR</state>
-					<state>ENABLE_TFA</state>
-					<state>ARM_MATH_CM0=true</state>
-					<state>_DEBUG_=0</state>
-					<state>TC_ASYNC=true</state>
-					<state>TRX_REG_RAW_VALUE</state>
 					<state>HIGHEST_STACK_LAYER=TAL</state>
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>EXT_RF_FRONT_END_CTRL</state>
-					<state>__SAMD20J18__</state>
-					<state>SPI_CALLBACK_MODE=false</state>
-					<state>BOARD=SAMD20_XPLAINED_PRO</state>
-					<state>ENABLE_DEEP_SLEEP</state>
-					<state>CUSTOM_PWR_TABLE</state>
-					<state>TAL_TYPE=AT86RF233</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
+					<state>ANTENNA_DIVERSITY=0</state>
+					<state>ARM_MATH_CM0=true</state>
+					<state>ENABLE_TFA</state>
+					<state>_DEBUG_=0</state>
+					<state>TC_ASYNC=true</state>
+					<state>TRX_REG_RAW_VALUE</state>
+					<state>SPI_CALLBACK_MODE=false</state>
+					<state>ENABLE_DEEP_SLEEP</state>
 					<state>PAL_USE_SPI_TRX=1</state>
+					<state>FFD</state>
+					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>USART_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
+					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>TAL_TYPE=AT86RF233</state>
+					<state>CUSTOM_PWR_TABLE</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -2161,10 +2165,10 @@
 									<name>$PROJ_DIR$/../../src/per_mode_initiator.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../src/peer_search_initiator.c</name>
+									<name>$PROJ_DIR$/../../src/main.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../src/main.c</name>
+									<name>$PROJ_DIR$/../../src/peer_search_initiator.c</name>
 								</file>
 							</group>
 							<group>
@@ -2272,10 +2276,10 @@
 									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_ed.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_slotted_csma.c</name>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_pwr_mgmt.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_pwr_mgmt.c</name>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_slotted_csma.c</name>
 								</file>
 							</group>
 							<group>
@@ -2680,6 +2684,12 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc/tc_interrupt.h</name>
 				</file>
+				<group>
+					<name>quick_start_timer</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc/quick_start_timer/qs_tc_timer.h</name>
+					</file>
+				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc/tc.h</name>
 				</file>
@@ -2840,6 +2850,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20g15.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20e17.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20e14.h</name>
 							</file>
 							<file>
@@ -2862,9 +2875,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20j15.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20e17.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20j18.h</name>
@@ -3023,6 +3033,27 @@
 		</group>
 	</group>
 	<group>
+		<name>common2</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>sam0</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/systick_counter.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/systick_counter.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/delay.h</name>
+				</file>
+			</group>
+		</group>
+	</group>
+	<group>
 		<name>common</name>
 		<group>
 			<name>utils</name>
@@ -3062,27 +3093,6 @@
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../../common/boards/board.h</name>
 			</file>
-		</group>
-	</group>
-	<group>
-		<name>common2</name>
-		<group>
-			<name>services</name>
-			<group>
-				<name>delay</name>
-				<group>
-					<name>sam0</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/cycle_counter.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/cycle_counter.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/delay.h</name>
-				</file>
-			</group>
 		</group>
 	</group>
 </project>

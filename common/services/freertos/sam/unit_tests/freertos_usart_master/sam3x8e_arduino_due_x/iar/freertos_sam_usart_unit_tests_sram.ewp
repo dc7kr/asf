@@ -163,10 +163,9 @@
 				<option>
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3X8E__</state>
-					<state>__FREERTOS__</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -471,10 +470,9 @@
 				<option>
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3X8E__</state>
-					<state>__FREERTOS__</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1105,10 +1103,9 @@
 				<option>
 					<name>CCDefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3X8E__</state>
-					<state>__FREERTOS__</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>
@@ -1413,10 +1410,9 @@
 				<option>
 					<name>ADefines</name>
 					<state>_ASSERT_ENABLE_</state>
-					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
-					<state>ARM_MATH_CM3=true</state>
 					<state>__SAM3X8E__</state>
-					<state>__FREERTOS__</state>
+					<state>ARM_MATH_CM3=true</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
 					<state>BOARD=ARDUINO_DUE_X</state>
 				</option>
 				<option>

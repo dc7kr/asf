@@ -168,9 +168,11 @@
 					<name>CCDefines</name>
 					<state>ADC_CALLBACK_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD20J18__</state>
-					<state>RTC_COUNT_ASYNC=false</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
+					<state>RTC_COUNT_ASYNC=false</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -476,9 +478,11 @@
 					<name>ADefines</name>
 					<state>ADC_CALLBACK_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD20J18__</state>
-					<state>RTC_COUNT_ASYNC=false</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
+					<state>RTC_COUNT_ASYNC=false</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1143,9 +1147,11 @@
 					<name>CCDefines</name>
 					<state>ADC_CALLBACK_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD20J18__</state>
-					<state>RTC_COUNT_ASYNC=false</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
+					<state>RTC_COUNT_ASYNC=false</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1451,9 +1457,11 @@
 					<name>ADefines</name>
 					<state>ADC_CALLBACK_MODE=true</state>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD20J18__</state>
-					<state>RTC_COUNT_ASYNC=false</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
+					<state>RTC_COUNT_ASYNC=false</state>
+					<state>__SAMD20J18__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -2056,6 +2064,9 @@
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samd20/include/instance/instance_gclk.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../utils/cmsis/samd20/include/instance/instance_tc3.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samd20/include/instance/instance_pac1.h</name>
 							</file>
 							<file>
@@ -2063,6 +2074,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samd20/include/instance/instance_ac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../utils/cmsis/samd20/include/instance/instance_pac2.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samd20/include/instance/instance_dsu.h</name>
@@ -2107,13 +2121,7 @@
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samd20/include/instance/instance_tc6.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../utils/cmsis/samd20/include/instance/instance_tc3.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samd20/include/instance/instance_sercom1.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../utils/cmsis/samd20/include/instance/instance_pac2.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samd20/include/instance/instance_tc1.h</name>
@@ -2306,15 +2314,15 @@
 							<name>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samd20/system_interrupt_features.h</name>
 						</file>
 					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt.h</name>
-					</file>
 					<group>
 						<name>quick_start</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../drivers/system/interrupt/quick_start/qs_system_interrupt.h</name>
 						</file>
 					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt.h</name>
+					</file>
 				</group>
 				<group>
 					<name>pinmux</name>
@@ -2407,7 +2415,13 @@
 					<name>$PROJ_DIR$/../../../../drivers/events/events.c</name>
 				</file>
 				<file>
+					<name>$PROJ_DIR$/../../../../drivers/events/events_hooks.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../drivers/events/events.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/events/events_hooks.h</name>
 				</file>
 				<group>
 					<name>quick_start</name>
@@ -2415,6 +2429,15 @@
 						<name>$PROJ_DIR$/../../../../drivers/events/quick_start/qs_events_basic.h</name>
 					</file>
 				</group>
+				<group>
+					<name>quick_start_interrupt_hook</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/events/quick_start_interrupt_hook/qs_events_interrupt_hook.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/events/events_common.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -2478,10 +2501,10 @@
 				<group>
 					<name>sam0</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../common2/services/delay/sam0/cycle_counter.c</name>
+						<name>$PROJ_DIR$/../../../../../common2/services/delay/sam0/systick_counter.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../common2/services/delay/sam0/cycle_counter.h</name>
+						<name>$PROJ_DIR$/../../../../../common2/services/delay/sam0/systick_counter.h</name>
 					</file>
 				</group>
 				<file>

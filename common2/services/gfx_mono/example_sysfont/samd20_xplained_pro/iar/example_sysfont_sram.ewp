@@ -169,6 +169,7 @@
 					<state>ARM_MATH_CM0=true</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>__SAMD20J18__</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
 					<state>SPI_CALLBACK_MODE=true</state>
@@ -479,6 +480,7 @@
 					<state>ARM_MATH_CM0=true</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>__SAMD20J18__</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
 					<state>SPI_CALLBACK_MODE=true</state>
@@ -1148,6 +1150,7 @@
 					<state>ARM_MATH_CM0=true</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>__SAMD20J18__</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
 					<state>SPI_CALLBACK_MODE=true</state>
@@ -1458,6 +1461,7 @@
 					<state>ARM_MATH_CM0=true</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
 					<state>BOARD=SAMD20_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>__SAMD20J18__</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
 					<state>SPI_CALLBACK_MODE=true</state>
@@ -1980,7 +1984,7 @@
 			<group>
 				<name>gfx_mono</name>
 				<file>
-					<name>$PROJ_DIR$/../../../gfx_mono_ug_2832hsweg04.c</name>
+					<name>$PROJ_DIR$/../../../sysfont.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../gfx_mono_framebuffer.c</name>
@@ -2019,7 +2023,7 @@
 					</group>
 				</group>
 				<file>
-					<name>$PROJ_DIR$/../../../sysfont.c</name>
+					<name>$PROJ_DIR$/../../../gfx_mono_ug_2832hsweg04.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../gfx_mono_generic.c</name>
@@ -2048,10 +2052,10 @@
 				<group>
 					<name>sam0</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../delay/sam0/cycle_counter.c</name>
+						<name>$PROJ_DIR$/../../../../delay/sam0/systick_counter.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../delay/sam0/cycle_counter.h</name>
+						<name>$PROJ_DIR$/../../../../delay/sam0/systick_counter.h</name>
 					</file>
 				</group>
 				<file>
@@ -2415,6 +2419,9 @@
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20g15.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20e1f.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20g17.h</name>
 							</file>
 							<file>
@@ -2442,19 +2449,16 @@
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20e17.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20e1f.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20e15.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20g14.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20g16.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20j17.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd20/include/pio/pio_samd20g14.h</name>
 							</file>
 						</group>
 						<file>

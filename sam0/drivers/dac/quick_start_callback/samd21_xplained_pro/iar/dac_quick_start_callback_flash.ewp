@@ -167,10 +167,11 @@
 				<option>
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD21J18A__</state>
 					<state>RTC_COUNT_ASYNC=true</state>
-					<state>DAC_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
+					<state>DAC_CALLBACK_MODE=true</state>
+					<state>__SAMD21J18A__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -473,10 +474,11 @@
 				<option>
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD21J18A__</state>
 					<state>RTC_COUNT_ASYNC=true</state>
-					<state>DAC_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
+					<state>DAC_CALLBACK_MODE=true</state>
+					<state>__SAMD21J18A__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1138,10 +1140,11 @@
 				<option>
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD21J18A__</state>
 					<state>RTC_COUNT_ASYNC=true</state>
-					<state>DAC_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
+					<state>DAC_CALLBACK_MODE=true</state>
+					<state>__SAMD21J18A__</state>
 				</option>
 				<option>
 					<name>CCPreprocFile</name>
@@ -1444,10 +1447,11 @@
 				<option>
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
-					<state>__SAMD21J18A__</state>
 					<state>RTC_COUNT_ASYNC=true</state>
-					<state>DAC_CALLBACK_MODE=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>EVENTS_INTERRUPT_HOOKS_MODE=true</state>
+					<state>DAC_CALLBACK_MODE=true</state>
+					<state>__SAMD21J18A__</state>
 				</option>
 				<option>
 					<name>AList</name>
@@ -1974,9 +1978,6 @@
 							<name>$PROJ_DIR$/../conf_clocks.h</name>
 						</file>
 					</group>
-					<file>
-						<name>$PROJ_DIR$/../../qs_dac_callback.h</name>
-					</file>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../dac_callback.h</name>
@@ -1984,12 +1985,6 @@
 				<file>
 					<name>$PROJ_DIR$/../../../dac.h</name>
 				</file>
-				<group>
-					<name>quick_start</name>
-					<file>
-						<name>$PROJ_DIR$/../../../quick_start/qs_dac_basic.h</name>
-					</file>
-				</group>
 			</group>
 			<group>
 				<name>system</name>
@@ -2116,6 +2111,12 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../events/events.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../events/events_hooks.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../events/events_common.h</name>
+				</file>
 				<group>
 					<name>quick_start</name>
 					<file>
@@ -2123,17 +2124,17 @@
 					</file>
 				</group>
 				<file>
-					<name>$PROJ_DIR$/../../../../events/events.h</name>
+					<name>$PROJ_DIR$/../../../../events/events_hooks.h</name>
 				</file>
-			</group>
-			<group>
-				<name>adc</name>
 				<group>
-					<name>quick_start_dma</name>
+					<name>quick_start_interrupt_hook</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../adc/quick_start_dma/qs_adc_dma_use.h</name>
+						<name>$PROJ_DIR$/../../../../events/quick_start_interrupt_hook/qs_events_interrupt_hook.h</name>
 					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../events/events.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -2240,9 +2241,6 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_wdt.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_rtc.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_tc6.h</name>
 							</file>
 							<file>
@@ -2283,6 +2281,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_tc5.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_rtc.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/instance/instance_sercom5.h</name>
@@ -2345,6 +2346,9 @@
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21g17a.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21e18a.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/pio/pio_samd21j16a.h</name>
 							</file>
 							<file>
@@ -2370,6 +2374,9 @@
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21e16a.h</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21.h</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21g16a.h</name>
 						</file>
 						<file>
@@ -2386,9 +2393,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21j16a.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../utils/cmsis/samd21/include/samd21j17a.h</name>

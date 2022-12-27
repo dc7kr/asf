@@ -168,6 +168,7 @@
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
+					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
 					<state>USART_CALLBACK_MODE=true</state>
@@ -483,6 +484,7 @@
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
+					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
 					<state>USART_CALLBACK_MODE=true</state>
@@ -1157,6 +1159,7 @@
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
+					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
 					<state>USART_CALLBACK_MODE=true</state>
@@ -1472,6 +1475,7 @@
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>GFX_MONO_UG_2832HSWEG04=1</state>
+					<state>SYSTICK_MODE</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
 					<state>GFX_MONO_LCD_HEIGHT=64</state>
 					<state>USART_CALLBACK_MODE=true</state>
@@ -2124,21 +2128,6 @@
 		<group>
 			<name>services</name>
 			<group>
-				<name>delay</name>
-				<group>
-					<name>sam0</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../common2/services/delay/sam0/cycle_counter.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../common2/services/delay/sam0/cycle_counter.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../common2/services/delay/delay.h</name>
-				</file>
-			</group>
-			<group>
 				<name>gfx_mono</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../common2/services/gfx_mono/gfx_mono_text.c</name>
@@ -2172,6 +2161,21 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../common2/services/gfx_mono/gfx_mono_framebuffer.h</name>
+				</file>
+			</group>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>sam0</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common2/services/delay/sam0/systick_counter.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../common2/services/delay/sam0/systick_counter.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../common2/services/delay/delay.h</name>
 				</file>
 			</group>
 		</group>
@@ -2430,6 +2434,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21g16a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21e18a.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21e16a.h</name>

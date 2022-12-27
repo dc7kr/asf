@@ -179,6 +179,7 @@
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>USART_CALLBACK_MODE=false</state>
@@ -518,6 +519,7 @@
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>USART_CALLBACK_MODE=false</state>
@@ -1216,6 +1218,7 @@
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>USART_CALLBACK_MODE=false</state>
@@ -1555,6 +1558,7 @@
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>__SAMD20J18__</state>
 					<state>SPI_CALLBACK_MODE=false</state>
+					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>USART_CALLBACK_MODE=false</state>
@@ -2149,10 +2153,10 @@
 									<name>$PROJ_DIR$/../../src/per_mode_initiator.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../src/peer_search_initiator.c</name>
+									<name>$PROJ_DIR$/../../src/main.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../src/main.c</name>
+									<name>$PROJ_DIR$/../../src/peer_search_initiator.c</name>
 								</file>
 							</group>
 							<group>
@@ -2161,10 +2165,10 @@
 									<name>$PROJ_DIR$/../conf_sio2host.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../conf_spi.h</name>
+									<name>$PROJ_DIR$/../conf_board.h</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../conf_board.h</name>
+									<name>$PROJ_DIR$/../conf_spi.h</name>
 								</file>
 								<group>
 									<name>iar</name>
@@ -2260,10 +2264,10 @@
 									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_ed.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_slotted_csma.c</name>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_pwr_mgmt.c</name>
 								</file>
 								<file>
-									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_pwr_mgmt.c</name>
+									<name>$PROJ_DIR$/../../../../../source/tal/at86rf233/src/tal_slotted_csma.c</name>
 								</file>
 							</group>
 							<group>
@@ -2668,6 +2672,12 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc/tc_interrupt.h</name>
 				</file>
+				<group>
+					<name>quick_start_timer</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc/quick_start_timer/qs_tc_timer.h</name>
+					</file>
+				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/tc/tc.h</name>
 				</file>
@@ -3011,6 +3021,27 @@
 		</group>
 	</group>
 	<group>
+		<name>common2</name>
+		<group>
+			<name>services</name>
+			<group>
+				<name>delay</name>
+				<group>
+					<name>sam0</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/systick_counter.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/systick_counter.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/delay.h</name>
+				</file>
+			</group>
+		</group>
+	</group>
+	<group>
 		<name>common</name>
 		<group>
 			<name>utils</name>
@@ -3050,27 +3081,6 @@
 			<file>
 				<name>$PROJ_DIR$/../../../../../../../../common/boards/board.h</name>
 			</file>
-		</group>
-	</group>
-	<group>
-		<name>common2</name>
-		<group>
-			<name>services</name>
-			<group>
-				<name>delay</name>
-				<group>
-					<name>sam0</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/cycle_counter.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/cycle_counter.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/delay.h</name>
-				</file>
-			</group>
 		</group>
 	</group>
 </project>

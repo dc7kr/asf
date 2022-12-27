@@ -168,6 +168,7 @@
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UHD_ENABLE</state>
@@ -489,6 +490,7 @@
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UHD_ENABLE</state>
@@ -1170,6 +1172,7 @@
 					<name>CCDefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UHD_ENABLE</state>
@@ -1491,6 +1494,7 @@
 					<name>ADefines</name>
 					<state>ARM_MATH_CM0=true</state>
 					<state>BOARD=SAMD21_XPLAINED_PRO</state>
+					<state>SYSTICK_MODE</state>
 					<state>_ASSERT_ENABLE_</state>
 					<state>EXTINT_CALLBACK_MODE=true</state>
 					<state>UHD_ENABLE</state>
@@ -2410,11 +2414,11 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/instance/instance_pac2.h</name>
 							</file>
 						</group>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g16a.h</name>
-						</file>
 						<group>
 							<name>pio</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21e18a.h</name>
+							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21g18a.h</name>
 							</file>
@@ -2443,6 +2447,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/pio/pio_samd21j18a.h</name>
 							</file>
 						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21g16a.h</name>
+						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd21/include/samd21j17a.h</name>
 						</file>
@@ -2679,10 +2686,10 @@
 				<group>
 					<name>sam0</name>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/cycle_counter.c</name>
+						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/systick_counter.c</name>
 					</file>
 					<file>
-						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/cycle_counter.h</name>
+						<name>$PROJ_DIR$/../../../../../../../../common2/services/delay/sam0/systick_counter.h</name>
 					</file>
 				</group>
 				<file>

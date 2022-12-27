@@ -2253,10 +2253,16 @@
 					</file>
 				</group>
 				<file>
-					<name>$PROJ_DIR$/../../../gmac.c</name>
+					<name>$PROJ_DIR$/../../../gmac_raw.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../gmac_phy.c</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../gmac.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../gmac_raw.h</name>
 				</file>
 			</group>
 			<group>
