@@ -305,6 +305,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../system/reset</state>
+					<state>$PROJ_DIR$/../../../i2c_sam0</state>
 					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -323,7 +324,6 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../boards/saml21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/saml21/include</state>
 					<state>$PROJ_DIR$/../../../../../system/clock/clock_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
@@ -588,6 +588,7 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../system/reset</state>
+					<state>$PROJ_DIR$/../../../i2c_sam0</state>
 					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -606,7 +607,6 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../boards/saml21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/saml21/include</state>
 					<state>$PROJ_DIR$/../../../../../system/clock/clock_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
@@ -1296,6 +1296,7 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../system/reset</state>
+					<state>$PROJ_DIR$/../../../i2c_sam0</state>
 					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1314,7 +1315,6 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../boards/saml21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/saml21/include</state>
 					<state>$PROJ_DIR$/../../../../../system/clock/clock_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
@@ -1579,6 +1579,7 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../system/reset</state>
+					<state>$PROJ_DIR$/../../../i2c_sam0</state>
 					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1597,7 +1598,6 @@
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../boards/saml21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../../common2/services/delay/sam0</state>
-					<state>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/saml21/include</state>
 					<state>$PROJ_DIR$/../../../../../system/clock/clock_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
@@ -1988,21 +1988,24 @@
 			<name>drivers</name>
 			<group>
 				<name>sercom</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../sercom_interrupt.c</name>
+				</file>
 				<group>
 					<name>i2c</name>
 					<group>
-						<name>i2c_samd21_r21_d10_d11_l21</name>
+						<name>i2c_sam0</name>
 						<file>
-							<name>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21/i2c_slave.c</name>
+							<name>$PROJ_DIR$/../../../i2c_sam0/i2c_slave_interrupt.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21/i2c_master.c</name>
+							<name>$PROJ_DIR$/../../../i2c_sam0/i2c_slave.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21/i2c_master_interrupt.c</name>
+							<name>$PROJ_DIR$/../../../i2c_sam0/i2c_master_interrupt.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21/i2c_slave_interrupt.c</name>
+							<name>$PROJ_DIR$/../../../i2c_sam0/i2c_master.c</name>
 						</file>
 					</group>
 					<group>
@@ -2081,9 +2084,6 @@
 						</file>
 					</group>
 				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../sercom_interrupt.c</name>
-				</file>
 				<group>
 					<name>usart</name>
 					<file>

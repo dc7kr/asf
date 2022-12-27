@@ -56,18 +56,16 @@ CSRCS = \
        common/components/wifi/winc1500/bus_wrapper/source/nm_bus_wrapper_samd21.c \
        common/components/wifi/winc1500/common/source/nm_common.c \
        common/components/wifi/winc1500/driver/source/m2m_hif.c \
-       common/components/wifi/winc1500/driver/source/m2m_hif_crt.c \
        common/components/wifi/winc1500/driver/source/m2m_ota.c \
        common/components/wifi/winc1500/driver/source/m2m_periph.c \
        common/components/wifi/winc1500/driver/source/m2m_wifi.c \
        common/components/wifi/winc1500/driver/source/nmasic.c \
        common/components/wifi/winc1500/driver/source/nmbus.c \
        common/components/wifi/winc1500/driver/source/nmdrv.c \
-       common/components/wifi/winc1500/driver/source/nmdrv_crt.c \
        common/components/wifi/winc1500/driver/source/nmi2c.c \
        common/components/wifi/winc1500/driver/source/nmspi.c \
        common/components/wifi/winc1500/driver/source/nmuart.c \
-       common/components/wifi/winc1500/provision_ap_example/main_samd21.c \
+       common/components/wifi/winc1500/provision_ap_example/main21.c \
        common/components/wifi/winc1500/socket/source/socket.c \
        common/utils/interrupt/interrupt_sam_nvic.c        \
        common2/services/delay/sam0/systick_counter.c      \
@@ -81,8 +79,8 @@ CSRCS = \
        sam0/drivers/sercom/spi/spi_interrupt.c            \
        sam0/drivers/sercom/usart/usart.c                  \
        sam0/drivers/sercom/usart/usart_interrupt.c        \
-       sam0/drivers/system/clock/clock_samd21_r21/clock.c \
-       sam0/drivers/system/clock/clock_samd21_r21/gclk.c  \
+       sam0/drivers/system/clock/clock_samd21_r21_da/clock.c \
+       sam0/drivers/system/clock/clock_samd21_r21_da/gclk.c \
        sam0/drivers/system/interrupt/system_interrupt.c   \
        sam0/drivers/system/pinmux/pinmux.c                \
        sam0/drivers/system/system.c                       \
@@ -131,7 +129,7 @@ INC_PATH = \
        sam0/drivers/sercom/usart                          \
        sam0/drivers/system                                \
        sam0/drivers/system/clock                          \
-       sam0/drivers/system/clock/clock_samd21_r21         \
+       sam0/drivers/system/clock/clock_samd21_r21_da      \
        sam0/drivers/system/interrupt                      \
        sam0/drivers/system/interrupt/system_interrupt_samd21 \
        sam0/drivers/system/pinmux                         \

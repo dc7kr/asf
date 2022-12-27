@@ -301,7 +301,6 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samr21</state>
@@ -330,6 +329,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/events</state>
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../drivers/adc</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -582,7 +582,6 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samr21</state>
@@ -611,6 +610,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/events</state>
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../drivers/adc</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1288,7 +1288,6 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samr21</state>
@@ -1317,6 +1316,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/events</state>
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../drivers/adc</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1569,7 +1569,6 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samr21</state>
@@ -1598,6 +1597,7 @@
 					<state>$PROJ_DIR$/../../../../drivers/events</state>
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../drivers/adc</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/clock</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
@@ -1979,22 +1979,79 @@
 		<group>
 			<name>drivers</name>
 			<group>
+				<name>events</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/events/events_hooks.c</name>
+				</file>
+				<group>
+					<name>events_sam_d_r</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/events/events_sam_d_r/events.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/events/events.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/events/events_hooks.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/events/events_common.h</name>
+				</file>
+			</group>
+			<group>
+				<name>port</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/port/port.c</name>
+				</file>
+				<group>
+					<name>quick_start</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/port/quick_start/qs_port_basic.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/port/port.h</name>
+				</file>
+			</group>
+			<group>
+				<name>adc</name>
+				<group>
+					<name>adc_sam_d_r</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/adc/adc_sam_d_r/adc.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/adc/adc_sam_d_r/adc_callback.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/adc/adc_sam_d_r/adc_feature.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/adc/adc_callback.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/adc/adc.h</name>
+				</file>
+			</group>
+			<group>
 				<name>system</name>
 				<group>
 					<name>clock</name>
 					<group>
-						<name>clock_samd21_r21</name>
+						<name>clock_samd21_r21_da</name>
 						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21/gclk.c</name>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da/gclk.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21/clock.c</name>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da/clock.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21/clock_feature.h</name>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da/clock_config_check.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21/clock_config_check.h</name>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da/clock_feature.h</name>
 						</file>
 					</group>
 					<file>
@@ -2057,63 +2114,6 @@
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/system/system.h</name>
-				</file>
-			</group>
-			<group>
-				<name>events</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/events/events_hooks.c</name>
-				</file>
-				<group>
-					<name>events_sam_d_r</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/events/events_sam_d_r/events.c</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/events/events.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/events/events_hooks.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/events/events_common.h</name>
-				</file>
-			</group>
-			<group>
-				<name>port</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/port/port.c</name>
-				</file>
-				<group>
-					<name>quick_start</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/port/quick_start/qs_port_basic.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/port/port.h</name>
-				</file>
-			</group>
-			<group>
-				<name>adc</name>
-				<group>
-					<name>adc_sam_d_r</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/adc/adc_sam_d_r/adc.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/adc/adc_sam_d_r/adc_callback.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/adc/adc_sam_d_r/adc_feature.h</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/adc/adc_callback.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/adc/adc.h</name>
 				</file>
 			</group>
 			<group>

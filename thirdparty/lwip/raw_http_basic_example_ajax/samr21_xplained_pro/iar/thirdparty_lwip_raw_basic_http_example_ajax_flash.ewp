@@ -302,7 +302,6 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../lwip-1.4.1/src/include/ipv4</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/reset</state>
@@ -311,9 +310,9 @@
 					<state>$PROJ_DIR$/../../../../../sam0/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../sam0/utils/cmsis/samr21/source</state>
 					<state>$PROJ_DIR$/../../../../../common2/services/delay</state>
-					<state>$PROJ_DIR$/../../../../../sam0/utils</state>
-					<state>$PROJ_DIR$/../../../lwip-1.4.1/src/include</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/sercom/spi</state>
+					<state>$PROJ_DIR$/../../../lwip-1.4.1/src/include</state>
+					<state>$PROJ_DIR$/../../../../../sam0/utils</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/power</state>
 					<state>$PROJ_DIR$/../../../../../sam0/boards</state>
@@ -321,6 +320,7 @@
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/sercom/usart</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/extint/extint_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../network</state>
@@ -340,7 +340,7 @@
 					<state>$PROJ_DIR$/../../../lwip-port-1.4.1/sam/include</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/extint</state>
 					<state>$PROJ_DIR$/../../../../../sam0/utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock</state>
+					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../../sam0/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/tc/tc_sam_d_r</state>
 					<state>$PROJ_DIR$/.</state>
@@ -595,7 +595,6 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../lwip-1.4.1/src/include/ipv4</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/reset</state>
@@ -604,9 +603,9 @@
 					<state>$PROJ_DIR$/../../../../../sam0/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../sam0/utils/cmsis/samr21/source</state>
 					<state>$PROJ_DIR$/../../../../../common2/services/delay</state>
-					<state>$PROJ_DIR$/../../../../../sam0/utils</state>
-					<state>$PROJ_DIR$/../../../lwip-1.4.1/src/include</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/sercom/spi</state>
+					<state>$PROJ_DIR$/../../../lwip-1.4.1/src/include</state>
+					<state>$PROJ_DIR$/../../../../../sam0/utils</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/power</state>
 					<state>$PROJ_DIR$/../../../../../sam0/boards</state>
@@ -614,6 +613,7 @@
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/sercom/usart</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/extint/extint_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../network</state>
@@ -633,7 +633,7 @@
 					<state>$PROJ_DIR$/../../../lwip-port-1.4.1/sam/include</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/extint</state>
 					<state>$PROJ_DIR$/../../../../../sam0/utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock</state>
+					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../../sam0/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/tc/tc_sam_d_r</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1315,7 +1315,6 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../lwip-1.4.1/src/include/ipv4</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/reset</state>
@@ -1324,9 +1323,9 @@
 					<state>$PROJ_DIR$/../../../../../sam0/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../sam0/utils/cmsis/samr21/source</state>
 					<state>$PROJ_DIR$/../../../../../common2/services/delay</state>
-					<state>$PROJ_DIR$/../../../../../sam0/utils</state>
-					<state>$PROJ_DIR$/../../../lwip-1.4.1/src/include</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/sercom/spi</state>
+					<state>$PROJ_DIR$/../../../lwip-1.4.1/src/include</state>
+					<state>$PROJ_DIR$/../../../../../sam0/utils</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/power</state>
 					<state>$PROJ_DIR$/../../../../../sam0/boards</state>
@@ -1334,6 +1333,7 @@
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/sercom/usart</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/extint/extint_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../network</state>
@@ -1353,7 +1353,7 @@
 					<state>$PROJ_DIR$/../../../lwip-port-1.4.1/sam/include</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/extint</state>
 					<state>$PROJ_DIR$/../../../../../sam0/utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock</state>
+					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../../sam0/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/tc/tc_sam_d_r</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1608,7 +1608,6 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../lwip-1.4.1/src/include/ipv4</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/reset</state>
@@ -1617,9 +1616,9 @@
 					<state>$PROJ_DIR$/../../../../../sam0/utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../sam0/utils/cmsis/samr21/source</state>
 					<state>$PROJ_DIR$/../../../../../common2/services/delay</state>
-					<state>$PROJ_DIR$/../../../../../sam0/utils</state>
-					<state>$PROJ_DIR$/../../../lwip-1.4.1/src/include</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/sercom/spi</state>
+					<state>$PROJ_DIR$/../../../lwip-1.4.1/src/include</state>
+					<state>$PROJ_DIR$/../../../../../sam0/utils</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/sercom</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/power</state>
 					<state>$PROJ_DIR$/../../../../../sam0/boards</state>
@@ -1627,6 +1626,7 @@
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/sercom/usart</state>
 					<state>$PROJ_DIR$/../../../../../common/services/serial</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
+					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/extint/extint_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../network</state>
@@ -1646,7 +1646,7 @@
 					<state>$PROJ_DIR$/../../../lwip-port-1.4.1/sam/include</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/extint</state>
 					<state>$PROJ_DIR$/../../../../../sam0/utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock</state>
+					<state>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../../sam0/utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../../sam0/drivers/tc/tc_sam_d_r</state>
 					<state>$PROJ_DIR$/.</state>
@@ -2150,6 +2150,9 @@
 						<group>
 							<name>lwip</name>
 							<file>
+								<name>$PROJ_DIR$/../../../lwip-1.4.1/src/include/lwip/stats.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../lwip-1.4.1/src/include/lwip/def.h</name>
 							</file>
 							<file>
@@ -2222,9 +2225,6 @@
 								<name>$PROJ_DIR$/../../../lwip-1.4.1/src/include/lwip/snmp_structs.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../lwip-1.4.1/src/include/lwip/sys.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../lwip-1.4.1/src/include/lwip/dns.h</name>
 							</file>
 							<file>
@@ -2240,7 +2240,7 @@
 								<name>$PROJ_DIR$/../../../lwip-1.4.1/src/include/lwip/memp_std.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../lwip-1.4.1/src/include/lwip/stats.h</name>
+								<name>$PROJ_DIR$/../../../lwip-1.4.1/src/include/lwip/sys.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../lwip-1.4.1/src/include/lwip/tcp_impl.h</name>
@@ -2397,22 +2397,40 @@
 		<group>
 			<name>drivers</name>
 			<group>
+				<name>tc</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam0/drivers/tc/tc_interrupt.c</name>
+				</file>
+				<group>
+					<name>tc_sam_d_r</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../sam0/drivers/tc/tc_sam_d_r/tc.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam0/drivers/tc/tc_interrupt.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../sam0/drivers/tc/tc.h</name>
+				</file>
+			</group>
+			<group>
 				<name>system</name>
 				<group>
 					<name>clock</name>
 					<group>
-						<name>clock_samd21_r21</name>
+						<name>clock_samd21_r21_da</name>
 						<file>
-							<name>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21/clock.c</name>
+							<name>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21_da/gclk.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21/gclk.c</name>
+							<name>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21_da/clock.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21/clock_config_check.h</name>
+							<name>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21_da/clock_config_check.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21/clock_feature.h</name>
+							<name>$PROJ_DIR$/../../../../../sam0/drivers/system/clock/clock_samd21_r21_da/clock_feature.h</name>
 						</file>
 					</group>
 					<file>
@@ -2475,24 +2493,6 @@
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../sam0/drivers/system/system.h</name>
-				</file>
-			</group>
-			<group>
-				<name>tc</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../sam0/drivers/tc/tc_interrupt.c</name>
-				</file>
-				<group>
-					<name>tc_sam_d_r</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../sam0/drivers/tc/tc_sam_d_r/tc.c</name>
-					</file>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../sam0/drivers/tc/tc_interrupt.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../sam0/drivers/tc/tc.h</name>
 				</file>
 			</group>
 			<group>

@@ -298,8 +298,10 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd10_d11</state>
 					<state>$PROJ_DIR$/../../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../system/reset</state>
+					<state>$PROJ_DIR$/../../../i2c_sam0</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../boards/samd11_xplained_pro</state>
@@ -307,7 +309,6 @@
 					<state>$PROJ_DIR$/../../../../../port</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd10_d11</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd11/source</state>
 					<state>$PROJ_DIR$/../../../../../system/interrupt</state>
@@ -316,7 +317,6 @@
 					<state>$PROJ_DIR$/../../../../../system/reset/reset_sam_d_r</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd11/include</state>
-					<state>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../system</state>
@@ -571,8 +571,10 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
+					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd10_d11</state>
 					<state>$PROJ_DIR$/../../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../system/reset</state>
+					<state>$PROJ_DIR$/../../../i2c_sam0</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../boards/samd11_xplained_pro</state>
@@ -580,7 +582,6 @@
 					<state>$PROJ_DIR$/../../../../../port</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd10_d11</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd11/source</state>
 					<state>$PROJ_DIR$/../../../../../system/interrupt</state>
@@ -589,7 +590,6 @@
 					<state>$PROJ_DIR$/../../../../../system/reset/reset_sam_d_r</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd11/include</state>
-					<state>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../system</state>
@@ -1269,8 +1269,10 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd10_d11</state>
 					<state>$PROJ_DIR$/../../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../system/reset</state>
+					<state>$PROJ_DIR$/../../../i2c_sam0</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../boards/samd11_xplained_pro</state>
@@ -1278,7 +1280,6 @@
 					<state>$PROJ_DIR$/../../../../../port</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd10_d11</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd11/source</state>
 					<state>$PROJ_DIR$/../../../../../system/interrupt</state>
@@ -1287,7 +1288,6 @@
 					<state>$PROJ_DIR$/../../../../../system/reset/reset_sam_d_r</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd11/include</state>
-					<state>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../system</state>
@@ -1542,8 +1542,10 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
+					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd10_d11</state>
 					<state>$PROJ_DIR$/../../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../system/reset</state>
+					<state>$PROJ_DIR$/../../../i2c_sam0</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../../../../../boards/samd11_xplained_pro</state>
@@ -1551,7 +1553,6 @@
 					<state>$PROJ_DIR$/../../../../../port</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd10_d11</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd11/source</state>
 					<state>$PROJ_DIR$/../../../../../system/interrupt</state>
@@ -1560,7 +1561,6 @@
 					<state>$PROJ_DIR$/../../../../../system/reset/reset_sam_d_r</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/samd11/include</state>
-					<state>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../system</state>
@@ -1975,12 +1975,12 @@
 						</file>
 					</group>
 					<group>
-						<name>i2c_samd21_r21_d10_d11_l21</name>
+						<name>i2c_sam0</name>
 						<file>
-							<name>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21/i2c_slave.c</name>
+							<name>$PROJ_DIR$/../../../i2c_sam0/i2c_slave_interrupt.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21/i2c_slave_interrupt.c</name>
+							<name>$PROJ_DIR$/../../../i2c_sam0/i2c_slave.c</name>
 						</file>
 					</group>
 					<group>
@@ -2126,15 +2126,15 @@
 					<name>samd11</name>
 					<group>
 						<name>source</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd11/source/system_samd11.c</name>
-						</file>
 						<group>
 							<name>iar</name>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd11/source/iar/startup_samd11.c</name>
 							</file>
 						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd11/source/system_samd11.c</name>
+						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../utils/cmsis/samd11/source/system_samd11.h</name>
 						</file>

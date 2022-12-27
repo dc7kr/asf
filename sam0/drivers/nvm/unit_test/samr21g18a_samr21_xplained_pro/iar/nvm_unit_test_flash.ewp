@@ -300,7 +300,6 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../port</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../system/reset</state>
@@ -325,6 +324,7 @@
 					<state>$PROJ_DIR$/../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../system</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../system/clock</state>
 					<state>$PROJ_DIR$/.</state>
@@ -577,7 +577,6 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../port</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../system/reset</state>
@@ -602,6 +601,7 @@
 					<state>$PROJ_DIR$/../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../system</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../system/clock</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1279,7 +1279,6 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../port</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../system/reset</state>
@@ -1304,6 +1303,7 @@
 					<state>$PROJ_DIR$/../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../system</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../system/clock</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1556,7 +1556,6 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../port</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../system/reset</state>
@@ -1581,6 +1580,7 @@
 					<state>$PROJ_DIR$/../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../system</state>
 					<state>$PROJ_DIR$/../../../../../utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../../utils/stdio/stdio_serial</state>
 					<state>$PROJ_DIR$/../../../../system/clock</state>
 					<state>$PROJ_DIR$/.</state>
@@ -2002,58 +2002,31 @@
 				</group>
 			</group>
 			<group>
-				<name>sercom</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../sercom/sercom_interrupt.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../sercom/sercom.c</name>
-				</file>
-				<group>
-					<name>usart</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../sercom/usart/usart.c</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../sercom/usart/usart_interrupt.c</name>
-					</file>
-					<group>
-						<name>quick_start_dma</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../sercom/usart/quick_start_dma/qs_usart_dma_use.h</name>
-						</file>
-					</group>
-					<group>
-						<name>quick_start</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../sercom/usart/quick_start/qs_usart_basic_use.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../sercom/usart/usart_interrupt.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../sercom/usart/usart.h</name>
-					</file>
-					<group>
-						<name>quick_start_callback</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../sercom/usart/quick_start_callback/qs_usart_callback.h</name>
-						</file>
-					</group>
-				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../sercom/sercom_pinout.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../sercom/sercom.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../sercom/sercom_interrupt.h</name>
-				</file>
-			</group>
-			<group>
 				<name>system</name>
+				<group>
+					<name>clock</name>
+					<group>
+						<name>clock_samd21_r21_da</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da/clock.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da/gclk.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da/clock_feature.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da/clock_config_check.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../system/clock/gclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../system/clock/clock.h</name>
+					</file>
+				</group>
 				<group>
 					<name>pinmux</name>
 					<file>
@@ -2072,30 +2045,6 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../system/system.c</name>
 				</file>
-				<group>
-					<name>clock</name>
-					<group>
-						<name>clock_samd21_r21</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/gclk.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock_config_check.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock_feature.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../system/clock/gclk.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../system/clock/clock.h</name>
-					</file>
-				</group>
 				<group>
 					<name>interrupt</name>
 					<file>
@@ -2132,6 +2081,57 @@
 						</file>
 					</group>
 				</group>
+			</group>
+			<group>
+				<name>sercom</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../sercom/sercom_interrupt.c</name>
+				</file>
+				<group>
+					<name>usart</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../sercom/usart/usart_interrupt.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../sercom/usart/usart.c</name>
+					</file>
+					<group>
+						<name>quick_start_dma</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../sercom/usart/quick_start_dma/qs_usart_dma_use.h</name>
+						</file>
+					</group>
+					<group>
+						<name>quick_start</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../sercom/usart/quick_start/qs_usart_basic_use.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../sercom/usart/usart_interrupt.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../sercom/usart/usart.h</name>
+					</file>
+					<group>
+						<name>quick_start_callback</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../sercom/usart/quick_start_callback/qs_usart_callback.h</name>
+						</file>
+					</group>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../sercom/sercom.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../sercom/sercom_pinout.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../sercom/sercom.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../sercom/sercom_interrupt.h</name>
+				</file>
 			</group>
 			<group>
 				<name>port</name>
@@ -2284,15 +2284,36 @@
 							</file>
 						</group>
 						<group>
-							<name>component</name>
+							<name>pio</name>
 							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/hmatrixb.h</name>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21e16a.h</name>
 							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21e17a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21g17a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21g16a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21e18a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21g18a.h</name>
+							</file>
+						</group>
+						<group>
+							<name>component</name>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/eic.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/evsys.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/hmatrixb.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/mtb.h</name>
@@ -2347,27 +2368,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/component/sercom.h</name>
-							</file>
-						</group>
-						<group>
-							<name>pio</name>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21e16a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21e17a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21g17a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21g16a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21e18a.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../utils/cmsis/samr21/include/pio/samr21g18a.h</name>
 							</file>
 						</group>
 						<file>

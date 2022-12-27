@@ -300,7 +300,8 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../system/reset</state>
-					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_saml21</state>
+					<state>$PROJ_DIR$/../../../i2c_sam0</state>
+					<state>$PROJ_DIR$/../../../../../../boards/saml21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../dma</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
@@ -313,9 +314,8 @@
 					<state>$PROJ_DIR$/../../../../../system/power/power_sam_l</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../boards/saml21_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_saml21</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/saml21/include</state>
 					<state>$PROJ_DIR$/../../../../../system/clock/clock_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
@@ -574,7 +574,8 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../system/reset</state>
-					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_saml21</state>
+					<state>$PROJ_DIR$/../../../i2c_sam0</state>
+					<state>$PROJ_DIR$/../../../../../../boards/saml21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../dma</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
@@ -587,9 +588,8 @@
 					<state>$PROJ_DIR$/../../../../../system/power/power_sam_l</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../boards/saml21_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_saml21</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/saml21/include</state>
 					<state>$PROJ_DIR$/../../../../../system/clock/clock_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
@@ -1273,7 +1273,8 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../system/reset</state>
-					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_saml21</state>
+					<state>$PROJ_DIR$/../../../i2c_sam0</state>
+					<state>$PROJ_DIR$/../../../../../../boards/saml21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../dma</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
@@ -1286,9 +1287,8 @@
 					<state>$PROJ_DIR$/../../../../../system/power/power_sam_l</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../boards/saml21_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_saml21</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/saml21/include</state>
 					<state>$PROJ_DIR$/../../../../../system/clock/clock_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
@@ -1547,7 +1547,8 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../system/reset</state>
-					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_saml21</state>
+					<state>$PROJ_DIR$/../../../i2c_sam0</state>
+					<state>$PROJ_DIR$/../../../../../../boards/saml21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../../dma</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
@@ -1560,9 +1561,8 @@
 					<state>$PROJ_DIR$/../../../../../system/power/power_sam_l</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../boards/saml21_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_saml21</state>
 					<state>$PROJ_DIR$/..</state>
-					<state>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/cmsis/saml21/include</state>
 					<state>$PROJ_DIR$/../../../../../system/clock/clock_saml21</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
@@ -2051,6 +2051,12 @@
 				<group>
 					<name>i2c</name>
 					<group>
+						<name>i2c_sam0</name>
+						<file>
+							<name>$PROJ_DIR$/../../../i2c_sam0/i2c_master.c</name>
+						</file>
+					</group>
+					<group>
 						<name>quick_start_master_dma</name>
 						<file>
 							<name>$PROJ_DIR$/../../qs_i2c_master_dma.c</name>
@@ -2075,12 +2081,6 @@
 						</group>
 						<file>
 							<name>$PROJ_DIR$/../../qs_i2c_master_dma.h</name>
-						</file>
-					</group>
-					<group>
-						<name>i2c_samd21_r21_d10_d11_l21</name>
-						<file>
-							<name>$PROJ_DIR$/../../../i2c_samd21_r21_d10_d11_l21/i2c_master.c</name>
 						</file>
 					</group>
 					<file>

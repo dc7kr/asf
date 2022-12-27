@@ -57,10 +57,10 @@ CSRCS = \
        sam0/boards/samd21_xplained_pro/board_init.c       \
        sam0/drivers/nvm/nvm.c                             \
        sam0/drivers/port/port.c                           \
-       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21/i2c_slave.c \
+       sam0/drivers/sercom/i2c/i2c_sam0/i2c_slave.c       \
        sam0/drivers/sercom/sercom.c                       \
-       sam0/drivers/system/clock/clock_samd21_r21/clock.c \
-       sam0/drivers/system/clock/clock_samd21_r21/gclk.c  \
+       sam0/drivers/system/clock/clock_samd21_r21_da/clock.c \
+       sam0/drivers/system/clock/clock_samd21_r21_da/gclk.c \
        sam0/drivers/system/interrupt/system_interrupt.c   \
        sam0/drivers/system/pinmux/pinmux.c                \
        sam0/drivers/system/system.c                       \
@@ -85,10 +85,10 @@ INC_PATH = \
        sam0/drivers/port                                  \
        sam0/drivers/sercom                                \
        sam0/drivers/sercom/i2c                            \
-       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21 \
+       sam0/drivers/sercom/i2c/i2c_sam0                   \
        sam0/drivers/system                                \
        sam0/drivers/system/clock                          \
-       sam0/drivers/system/clock/clock_samd21_r21         \
+       sam0/drivers/system/clock/clock_samd21_r21_da      \
        sam0/drivers/system/interrupt                      \
        sam0/drivers/system/interrupt/system_interrupt_samd21 \
        sam0/drivers/system/pinmux                         \

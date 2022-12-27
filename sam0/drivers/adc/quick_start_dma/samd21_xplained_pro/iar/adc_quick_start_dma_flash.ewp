@@ -309,8 +309,8 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../dma</state>
 					<state>$PROJ_DIR$/../../../../dac/dac_sam_d</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../adc_sam_d_r</state>
@@ -585,8 +585,8 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../dma</state>
 					<state>$PROJ_DIR$/../../../../dac/dac_sam_d</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../adc_sam_d_r</state>
@@ -1286,8 +1286,8 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../dma</state>
 					<state>$PROJ_DIR$/../../../../dac/dac_sam_d</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../adc_sam_d_r</state>
@@ -1562,8 +1562,8 @@
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../dma</state>
 					<state>$PROJ_DIR$/../../../../dac/dac_sam_d</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../../../adc_sam_d_r</state>
@@ -1981,6 +1981,30 @@
 			</group>
 			<group>
 				<name>system</name>
+				<group>
+					<name>clock</name>
+					<group>
+						<name>clock_samd21_r21_da</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da/gclk.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da/clock.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da/clock_config_check.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da/clock_feature.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../system/clock/gclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../system/clock/clock.h</name>
+					</file>
+				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../system/system.c</name>
 				</file>
@@ -1997,30 +2021,6 @@
 					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../../system/pinmux/pinmux.h</name>
-					</file>
-				</group>
-				<group>
-					<name>clock</name>
-					<group>
-						<name>clock_samd21_r21</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/gclk.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock_config_check.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock_feature.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../system/clock/gclk.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../system/clock/clock.h</name>
 					</file>
 				</group>
 				<group>

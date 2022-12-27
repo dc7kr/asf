@@ -302,7 +302,6 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include</state>
-					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -318,6 +317,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/interrupt/system_interrupt_samd21</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/power/power_sam_d_r</state>
+					<state>$PROJ_DIR$/../../../../../../sam0/boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/reset/reset_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../delay/sam0</state>
 					<state>$PROJ_DIR$/..</state>
@@ -326,8 +326,8 @@
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../sam0/boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock</state>
+					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -580,7 +580,6 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include</state>
-					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -596,6 +595,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/interrupt/system_interrupt_samd21</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/power/power_sam_d_r</state>
+					<state>$PROJ_DIR$/../../../../../../sam0/boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/reset/reset_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../delay/sam0</state>
 					<state>$PROJ_DIR$/..</state>
@@ -604,8 +604,8 @@
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../sam0/boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock</state>
+					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1283,7 +1283,6 @@
 					<name>CCIncludePath2</name>
 					<state>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include</state>
-					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -1299,6 +1298,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/interrupt/system_interrupt_samd21</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/power/power_sam_d_r</state>
+					<state>$PROJ_DIR$/../../../../../../sam0/boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/reset/reset_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../delay/sam0</state>
 					<state>$PROJ_DIR$/..</state>
@@ -1307,8 +1307,8 @@
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../sam0/boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock</state>
+					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1561,7 +1561,6 @@
 					<name>AUserIncludes</name>
 					<state>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/source</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include</state>
-					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/port</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/reset</state>
 					<state>$PROJ_DIR$/../../..</state>
@@ -1577,6 +1576,7 @@
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/interrupt/system_interrupt_samd21</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/power/power_sam_d_r</state>
+					<state>$PROJ_DIR$/../../../../../../sam0/boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/reset/reset_sam_d_r</state>
 					<state>$PROJ_DIR$/../../../../delay/sam0</state>
 					<state>$PROJ_DIR$/..</state>
@@ -1585,8 +1585,8 @@
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/utils/header_files</state>
-					<state>$PROJ_DIR$/../../../../../../sam0/boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock</state>
+					<state>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1986,6 +1986,9 @@
 				<file>
 					<name>$PROJ_DIR$/../../../gfx_mono_ug_2832hsweg04.c</name>
 				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../gfx_mono_framebuffer.c</name>
+				</file>
 				<group>
 					<name>example_spinctrl</name>
 					<file>
@@ -2032,9 +2035,6 @@
 					<name>$PROJ_DIR$/../../../gfx_mono_generic.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../gfx_mono_framebuffer.c</name>
-				</file>
-				<file>
 					<name>$PROJ_DIR$/../../../gfx_mono_text.h</name>
 				</file>
 				<file>
@@ -2079,9 +2079,6 @@
 			<name>drivers</name>
 			<group>
 				<name>sercom</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam0/drivers/sercom/sercom_interrupt.c</name>
-				</file>
 				<group>
 					<name>spi</name>
 					<file>
@@ -2131,6 +2128,9 @@
 					<name>$PROJ_DIR$/../../../../../../sam0/drivers/sercom/sercom.c</name>
 				</file>
 				<file>
+					<name>$PROJ_DIR$/../../../../../../sam0/drivers/sercom/sercom_interrupt.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../../../sam0/drivers/sercom/sercom_pinout.h</name>
 				</file>
 				<file>
@@ -2142,30 +2142,6 @@
 			</group>
 			<group>
 				<name>system</name>
-				<group>
-					<name>clock</name>
-					<group>
-						<name>clock_samd21_r21</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21/gclk.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21/clock.c</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21/clock_config_check.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21/clock_feature.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/gclk.h</name>
-					</file>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock.h</name>
-					</file>
-				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/system.c</name>
 				</file>
@@ -2182,6 +2158,30 @@
 					</group>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/pinmux/pinmux.h</name>
+					</file>
+				</group>
+				<group>
+					<name>clock</name>
+					<group>
+						<name>clock_samd21_r21_da</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21_da/gclk.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21_da/clock.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21_da/clock_feature.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock_samd21_r21_da/clock_config_check.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/gclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../sam0/drivers/system/clock/clock.h</name>
 					</file>
 				</group>
 				<group>
@@ -2235,6 +2235,18 @@
 						<name>$PROJ_DIR$/../../../../../../sam0/drivers/port/quick_start/qs_port_basic.h</name>
 					</file>
 				</group>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>samd21_xplained_pro</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam0/boards/samd21_xplained_pro/board_init.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../sam0/boards/samd21_xplained_pro/samd21_xplained_pro.h</name>
+				</file>
 			</group>
 		</group>
 		<group>
@@ -2458,9 +2470,6 @@
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/instance/tcc0.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/instance/adc.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/instance/pac0.h</name>
 							</file>
 							<file>
@@ -2506,6 +2515,9 @@
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/instance/dac.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/instance/adc.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/instance/pm.h</name>
 							</file>
 							<file>
@@ -2546,9 +2558,6 @@
 							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/samd21g15a.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/samd21e15b.h</name>
-						</file>
-						<file>
 							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/samd21g18au.h</name>
 						</file>
 						<file>
@@ -2574,6 +2583,9 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/samd21g16a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/samd21e15b.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../sam0/utils/cmsis/samd21/include/samd21j16b.h</name>
@@ -2626,18 +2638,6 @@
 			<file>
 				<name>$PROJ_DIR$/../../../../../../sam0/utils/compiler.h</name>
 			</file>
-		</group>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>samd21_xplained_pro</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam0/boards/samd21_xplained_pro/board_init.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../sam0/boards/samd21_xplained_pro/samd21_xplained_pro.h</name>
-				</file>
-			</group>
 		</group>
 	</group>
 	<group>

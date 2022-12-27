@@ -305,10 +305,10 @@
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../port</state>
 					<state>$PROJ_DIR$/../../../../system/reset</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../dac_sam_d</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -583,10 +583,10 @@
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../port</state>
 					<state>$PROJ_DIR$/../../../../system/reset</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../dac_sam_d</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1286,10 +1286,10 @@
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../port</state>
 					<state>$PROJ_DIR$/../../../../system/reset</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../dac_sam_d</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1564,10 +1564,10 @@
 					<state>$PROJ_DIR$/../../..</state>
 					<state>$PROJ_DIR$/../../../../port</state>
 					<state>$PROJ_DIR$/../../../../system/reset</state>
-					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../dac_sam_d</state>
 					<state>$PROJ_DIR$/../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/../../../../system/power</state>
 					<state>$PROJ_DIR$/../../../../../boards</state>
 					<state>$PROJ_DIR$/../..</state>
@@ -1983,24 +1983,21 @@
 						<name>$PROJ_DIR$/../../../../system/pinmux/pinmux.h</name>
 					</file>
 				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../system/system.c</name>
-				</file>
 				<group>
 					<name>clock</name>
 					<group>
-						<name>clock_samd21_r21</name>
+						<name>clock_samd21_r21_da</name>
 						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/gclk.c</name>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da/clock.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock.c</name>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da/gclk.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock_config_check.h</name>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da/clock_config_check.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21/clock_feature.h</name>
+							<name>$PROJ_DIR$/../../../../system/clock/clock_samd21_r21_da/clock_feature.h</name>
 						</file>
 					</group>
 					<file>
@@ -2010,6 +2007,9 @@
 						<name>$PROJ_DIR$/../../../../system/clock/clock.h</name>
 					</file>
 				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../system/system.c</name>
+				</file>
 				<group>
 					<name>interrupt</name>
 					<file>

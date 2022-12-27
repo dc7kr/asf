@@ -57,8 +57,8 @@ CSRCS = \
        sam0/drivers/port/port.c                           \
        sam0/drivers/rtc/quick_start_calendar/qs_rtc_calendar_basic.c \
        sam0/drivers/rtc/rtc_sam_d_r/rtc_calendar.c        \
-       sam0/drivers/system/clock/clock_samd21_r21/clock.c \
-       sam0/drivers/system/clock/clock_samd21_r21/gclk.c  \
+       sam0/drivers/system/clock/clock_samd21_r21_da/clock.c \
+       sam0/drivers/system/clock/clock_samd21_r21_da/gclk.c \
        sam0/drivers/system/interrupt/system_interrupt.c   \
        sam0/drivers/system/pinmux/pinmux.c                \
        sam0/drivers/system/system.c                       \
@@ -82,7 +82,7 @@ INC_PATH = \
        sam0/drivers/rtc/rtc_sam_d_r                       \
        sam0/drivers/system                                \
        sam0/drivers/system/clock                          \
-       sam0/drivers/system/clock/clock_samd21_r21         \
+       sam0/drivers/system/clock/clock_samd21_r21_da      \
        sam0/drivers/system/interrupt                      \
        sam0/drivers/system/interrupt/system_interrupt_samd21 \
        sam0/drivers/system/pinmux                         \

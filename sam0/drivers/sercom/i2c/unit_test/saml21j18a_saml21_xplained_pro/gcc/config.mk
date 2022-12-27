@@ -57,10 +57,10 @@ CSRCS = \
        common2/services/delay/sam0/systick_counter.c      \
        sam0/boards/saml21_xplained_pro/board_init.c       \
        sam0/drivers/port/port.c                           \
-       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21/i2c_master.c \
-       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21/i2c_master_interrupt.c \
-       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21/i2c_slave.c \
-       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21/i2c_slave_interrupt.c \
+       sam0/drivers/sercom/i2c/i2c_sam0/i2c_master.c      \
+       sam0/drivers/sercom/i2c/i2c_sam0/i2c_master_interrupt.c \
+       sam0/drivers/sercom/i2c/i2c_sam0/i2c_slave.c       \
+       sam0/drivers/sercom/i2c/i2c_sam0/i2c_slave_interrupt.c \
        sam0/drivers/sercom/i2c/unit_test/unit_test.c      \
        sam0/drivers/sercom/sercom.c                       \
        sam0/drivers/sercom/sercom_interrupt.c             \
@@ -92,7 +92,7 @@ INC_PATH = \
        sam0/drivers/port                                  \
        sam0/drivers/sercom                                \
        sam0/drivers/sercom/i2c                            \
-       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21 \
+       sam0/drivers/sercom/i2c/i2c_sam0                   \
        sam0/drivers/sercom/i2c/unit_test                  \
        sam0/drivers/sercom/i2c/unit_test/saml21j18a_saml21_xplained_pro \
        sam0/drivers/sercom/usart                          \

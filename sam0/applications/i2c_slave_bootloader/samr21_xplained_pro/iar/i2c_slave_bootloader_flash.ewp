@@ -299,10 +299,9 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/reset</state>
-					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samr21</state>
+					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_sam0</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samr21/source</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -312,6 +311,7 @@
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samr21</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/power/power_sam_d_r</state>
@@ -319,13 +319,13 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../boards/samr21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samr21/include</state>
-					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../drivers/system</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/clock</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -575,10 +575,9 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/reset</state>
-					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samr21</state>
+					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_sam0</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samr21/source</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -588,6 +587,7 @@
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samr21</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/power/power_sam_d_r</state>
@@ -595,13 +595,13 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../boards/samr21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samr21/include</state>
-					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../drivers/system</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/clock</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1276,10 +1276,9 @@
 				</option>
 				<option>
 					<name>CCIncludePath2</name>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/reset</state>
-					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samr21</state>
+					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_sam0</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samr21/source</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -1289,6 +1288,7 @@
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samr21</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/power/power_sam_d_r</state>
@@ -1296,13 +1296,13 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../boards/samr21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samr21/include</state>
-					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../drivers/system</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/clock</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1552,10 +1552,9 @@
 				</option>
 				<option>
 					<name>AUserIncludes</name>
-					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21</state>
 					<state>$PROJ_DIR$/../../../../drivers/port</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/reset</state>
-					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samr21</state>
+					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_sam0</state>
 					<state>$PROJ_DIR$/../../../../utils/preprocessor</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samr21/source</state>
 					<state>$PROJ_DIR$/../../../../utils</state>
@@ -1565,6 +1564,7 @@
 					<state>$PROJ_DIR$/../../../../boards</state>
 					<state>$PROJ_DIR$/../../../../drivers/wdt</state>
 					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/interrupt/system_interrupt_samr21</state>
 					<state>$PROJ_DIR$/../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/power/power_sam_d_r</state>
@@ -1572,13 +1572,13 @@
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../boards/samr21_xplained_pro</state>
 					<state>$PROJ_DIR$/../../../../utils/cmsis/samr21/include</state>
-					<state>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21</state>
 					<state>$PROJ_DIR$/../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/pinmux</state>
 					<state>$PROJ_DIR$/../../../../drivers/system</state>
 					<state>$PROJ_DIR$/..</state>
 					<state>$PROJ_DIR$/../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../drivers/system/clock</state>
+					<state>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da</state>
 					<state>$PROJ_DIR$/.</state>
 				</option>
 				<option>
@@ -1957,46 +1957,19 @@
 	<group>
 		<name>sam0</name>
 		<group>
-			<name>drivers</name>
+			<name>boards</name>
 			<group>
-				<name>sercom</name>
-				<group>
-					<name>i2c</name>
-					<group>
-						<name>i2c_samd21_r21_d10_d11_l21</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21/i2c_slave.c</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_slave.h</name>
-					</file>
-					<group>
-						<name>quick_start_slave</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../drivers/sercom/i2c/quick_start_slave/qs_i2c_slave_basic_use.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_common.h</name>
-					</file>
-					<group>
-						<name>quick_start_slave_dma</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../drivers/sercom/i2c/quick_start_slave_dma/qs_i2c_slave_dma.h</name>
-						</file>
-					</group>
-				</group>
+				<name>samr21_xplained_pro</name>
 				<file>
-					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom.c</name>
+					<name>$PROJ_DIR$/../../../../boards/samr21_xplained_pro/board_init.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom_pinout.h</name>
+					<name>$PROJ_DIR$/../../../../boards/samr21_xplained_pro/samr21_xplained_pro.h</name>
 				</file>
 			</group>
+		</group>
+		<group>
+			<name>drivers</name>
 			<group>
 				<name>port</name>
 				<file>
@@ -2017,18 +1990,18 @@
 				<group>
 					<name>clock</name>
 					<group>
-						<name>clock_samd21_r21</name>
+						<name>clock_samd21_r21_da</name>
 						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21/gclk.c</name>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da/gclk.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21/clock.c</name>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da/clock.c</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21/clock_feature.h</name>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da/clock_config_check.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21/clock_config_check.h</name>
+							<name>$PROJ_DIR$/../../../../drivers/system/clock/clock_samd21_r21_da/clock_feature.h</name>
 						</file>
 					</group>
 					<file>
@@ -2058,15 +2031,15 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.h</name>
+					</file>
 					<group>
 						<name>quick_start</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../drivers/system/pinmux/quick_start/qs_pinmux_basic.h</name>
 						</file>
 					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../drivers/system/pinmux/pinmux.h</name>
-					</file>
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/system/system.c</name>
@@ -2091,6 +2064,45 @@
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/system/system.h</name>
+				</file>
+			</group>
+			<group>
+				<name>sercom</name>
+				<group>
+					<name>i2c</name>
+					<group>
+						<name>i2c_sam0</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_sam0/i2c_slave.c</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_slave.h</name>
+					</file>
+					<group>
+						<name>quick_start_slave</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../drivers/sercom/i2c/quick_start_slave/qs_i2c_slave_basic_use.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../drivers/sercom/i2c/i2c_common.h</name>
+					</file>
+					<group>
+						<name>quick_start_slave_dma</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../drivers/sercom/i2c/quick_start_slave_dma/qs_i2c_slave_dma.h</name>
+						</file>
+					</group>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom_pinout.h</name>
 				</file>
 			</group>
 			<group>
@@ -2133,18 +2145,6 @@
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/nvm/nvm.h</name>
-				</file>
-			</group>
-		</group>
-		<group>
-			<name>boards</name>
-			<group>
-				<name>samr21_xplained_pro</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../boards/samr21_xplained_pro/board_init.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../boards/samr21_xplained_pro/samr21_xplained_pro.h</name>
 				</file>
 			</group>
 		</group>
@@ -2276,6 +2276,9 @@
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samr21/include/component/tcc.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../utils/cmsis/samr21/include/component/hmatrixb.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samr21/include/component/usb.h</name>
 							</file>
 							<file>
@@ -2307,9 +2310,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samr21/include/component/rfctrl.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../utils/cmsis/samr21/include/component/hmatrixb.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../utils/cmsis/samr21/include/component/sercom.h</name>

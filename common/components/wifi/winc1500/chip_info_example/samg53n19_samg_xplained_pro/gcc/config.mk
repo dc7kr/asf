@@ -57,14 +57,12 @@ CSRCS = \
        common/components/wifi/winc1500/chip_info_example/main.c \
        common/components/wifi/winc1500/common/source/nm_common.c \
        common/components/wifi/winc1500/driver/source/m2m_hif.c \
-       common/components/wifi/winc1500/driver/source/m2m_hif_crt.c \
        common/components/wifi/winc1500/driver/source/m2m_ota.c \
        common/components/wifi/winc1500/driver/source/m2m_periph.c \
        common/components/wifi/winc1500/driver/source/m2m_wifi.c \
        common/components/wifi/winc1500/driver/source/nmasic.c \
        common/components/wifi/winc1500/driver/source/nmbus.c \
        common/components/wifi/winc1500/driver/source/nmdrv.c \
-       common/components/wifi/winc1500/driver/source/nmdrv_crt.c \
        common/components/wifi/winc1500/driver/source/nmi2c.c \
        common/components/wifi/winc1500/driver/source/nmspi.c \
        common/components/wifi/winc1500/driver/source/nmuart.c \

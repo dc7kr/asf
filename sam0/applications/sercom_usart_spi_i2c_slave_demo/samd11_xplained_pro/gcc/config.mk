@@ -56,8 +56,8 @@ CSRCS = \
        sam0/applications/sercom_usart_spi_i2c_slave_demo/main.c \
        sam0/boards/samd11_xplained_pro/board_init.c       \
        sam0/drivers/port/port.c                           \
-       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21/i2c_slave.c \
-       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21/i2c_slave_interrupt.c \
+       sam0/drivers/sercom/i2c/i2c_sam0/i2c_slave.c       \
+       sam0/drivers/sercom/i2c/i2c_sam0/i2c_slave_interrupt.c \
        sam0/drivers/sercom/sercom.c                       \
        sam0/drivers/sercom/sercom_interrupt.c             \
        sam0/drivers/sercom/spi/spi.c                      \
@@ -87,7 +87,7 @@ INC_PATH = \
        sam0/drivers/port                                  \
        sam0/drivers/sercom                                \
        sam0/drivers/sercom/i2c                            \
-       sam0/drivers/sercom/i2c/i2c_samd21_r21_d10_d11_l21 \
+       sam0/drivers/sercom/i2c/i2c_sam0                   \
        sam0/drivers/sercom/spi                            \
        sam0/drivers/sercom/usart                          \
        sam0/drivers/system                                \

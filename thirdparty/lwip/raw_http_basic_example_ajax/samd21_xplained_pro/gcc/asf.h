@@ -101,7 +101,7 @@
 #include <usart.h>
 #include <usart_interrupt.h>
 
-// From module: SYSTEM - Clock Management for SAMD21
+// From module: SYSTEM - Clock Management for SAMD21/R21/DAx
 #include <clock.h>
 #include <gclk.h>
 
@@ -114,10 +114,10 @@
 // From module: SYSTEM - Interrupt Driver
 #include <system_interrupt.h>
 
-// From module: SYSTEM - Power Management for SAM D20/D21/R21/D10/D11
+// From module: SYSTEM - Power Management for SAM D20/D21/R21/D10/D11/DA0/DA1
 #include <power.h>
 
-// From module: SYSTEM - Reset Management for SAM D20/D21/R21/D10/D11
+// From module: SYSTEM - Reset Management for SAM D20/D21/R21/D10/D11/DA0/DA1
 #include <reset.h>
 
 // From module: Stand-alone port(no OS) of the lwIP v141 stack on SAM0 with Micrel KSZ8851SNL hardware module.
