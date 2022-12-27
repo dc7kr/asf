@@ -2150,9 +2150,6 @@
 							<name>$PROJ_DIR$/../conf_usi.h</name>
 						</file>
 						<file>
-							<name>$PROJ_DIR$/../FreeRTOSConfig.h</name>
-						</file>
-						<file>
 							<name>$PROJ_DIR$/../conf_buart_if.h</name>
 						</file>
 						<file>
@@ -2182,6 +2179,9 @@
 								<name>$PROJ_DIR$/asf.h</name>
 							</file>
 						</group>
+						<file>
+							<name>$PROJ_DIR$/../FreeRTOSConfig.h</name>
+						</file>
 						<file>
 							<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
 						</file>
@@ -2514,18 +2514,6 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/drivers/tc/tc.c</name>
 				</file>
-				<group>
-					<name>tc_capture_waveform_example</name>
-					<group>
-						<name>sam4e16e_sam4e_ek</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../sam/drivers/tc/tc_capture_waveform_example/sam4e16e_sam4e_ek/conf_board.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../sam/drivers/tc/tc_capture_waveform_example/tc_capture_waveform_example.h</name>
-					</file>
-				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../sam/drivers/tc/tc.h</name>
 				</file>

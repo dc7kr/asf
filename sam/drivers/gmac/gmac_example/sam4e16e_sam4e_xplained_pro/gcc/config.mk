@@ -58,7 +58,7 @@ CSRCS = \
        common/utils/stdio/read.c                          \
        common/utils/stdio/write.c                         \
        sam/boards/sam4e_xplained_pro/init.c               \
-       sam/components/ethernet_phy/ksz8051mnl/ethernet_phy.c \
+       sam/components/ethernet_phy/ksz8081mnx/ethernet_phy.c \
        sam/drivers/gmac/gmac_example/gmac_example.c       \
        sam/drivers/gmac/gmac_phy.c                        \
        sam/drivers/gmac/gmac_raw.c                        \
@@ -85,7 +85,7 @@ INC_PATH = \
        common/utils/stdio/stdio_serial                    \
        sam/boards                                         \
        sam/boards/sam4e_xplained_pro                      \
-       sam/components/ethernet_phy/ksz8051mnl             \
+       sam/components/ethernet_phy/ksz8081mnx             \
        sam/drivers/gmac                                   \
        sam/drivers/gmac/gmac_example                      \
        sam/drivers/gmac/gmac_example/sam4e16e_sam4e_xplained_pro \

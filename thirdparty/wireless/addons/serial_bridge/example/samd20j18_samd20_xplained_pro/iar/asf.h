@@ -71,12 +71,13 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: SERCOM
+// From module: SERCOM Callback API
 #include <sercom.h>
 #include <sercom_interrupt.h>
 
-// From module: SERCOM USART - Serial Communications (Polled APIs)
+// From module: SERCOM USART - Serial Communications (Callback APIs)
 #include <usart.h>
+#include <usart_interrupt.h>
 
 // From module: SYSTEM - Clock Management for SAMD20
 #include <clock.h>

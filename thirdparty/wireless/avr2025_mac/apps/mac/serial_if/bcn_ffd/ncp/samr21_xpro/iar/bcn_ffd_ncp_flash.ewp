@@ -179,12 +179,12 @@
 					<state>__SAMR21G18A__</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>GTS_SUPPORT</state>
+					<state>USART_CALLBACK_MODE=true</state>
 					<state>STB_ON_SAL</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>BEACON_SUPPORT</state>
 					<state>TAL_TYPE=AT86RF233</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -520,12 +520,12 @@
 					<state>__SAMR21G18A__</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>GTS_SUPPORT</state>
+					<state>USART_CALLBACK_MODE=true</state>
 					<state>STB_ON_SAL</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>BEACON_SUPPORT</state>
 					<state>TAL_TYPE=AT86RF233</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1220,12 +1220,12 @@
 					<state>__SAMR21G18A__</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>GTS_SUPPORT</state>
+					<state>USART_CALLBACK_MODE=true</state>
 					<state>STB_ON_SAL</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>BEACON_SUPPORT</state>
 					<state>TAL_TYPE=AT86RF233</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1561,12 +1561,12 @@
 					<state>__SAMR21G18A__</state>
 					<state>ENABLE_TSTAMP</state>
 					<state>GTS_SUPPORT</state>
+					<state>USART_CALLBACK_MODE=true</state>
 					<state>STB_ON_SAL</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>BEACON_SUPPORT</state>
 					<state>TAL_TYPE=AT86RF233</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -2736,7 +2736,13 @@
 				<group>
 					<name>usart</name>
 					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/usart_interrupt.c</name>
+					</file>
+					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/usart.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/usart_interrupt.h</name>
 					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/usart.h</name>
@@ -2745,6 +2751,12 @@
 						<name>quick_start</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/quick_start/qs_usart_basic_use.h</name>
+						</file>
+					</group>
+					<group>
+						<name>quick_start_callback</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/quick_start_callback/qs_usart_callback.h</name>
 						</file>
 					</group>
 					<group>

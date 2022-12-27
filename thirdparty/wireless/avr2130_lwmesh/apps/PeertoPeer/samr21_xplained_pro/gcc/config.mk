@@ -62,6 +62,7 @@ CSRCS = \
        sam0/drivers/sercom/sercom_interrupt.c             \
        sam0/drivers/sercom/spi/spi.c                      \
        sam0/drivers/sercom/usart/usart.c                  \
+       sam0/drivers/sercom/usart/usart_interrupt.c        \
        sam0/drivers/system/clock/clock_samd21_r21/clock.c \
        sam0/drivers/system/clock/clock_samd21_r21/gclk.c  \
        sam0/drivers/system/interrupt/system_interrupt.c   \
@@ -193,7 +194,7 @@ CPPFLAGS = \
        -D SPI_CALLBACK_MODE=false                         \
        -D SYSTICK_MODE                                    \
        -D TC_ASYNC=true                                   \
-       -D USART_CALLBACK_MODE=false                       \
+       -D USART_CALLBACK_MODE=true                        \
        -D __SAMR21G18A__
 
 # Extra flags to use when linking

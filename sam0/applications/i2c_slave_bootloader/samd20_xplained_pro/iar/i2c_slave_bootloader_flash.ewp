@@ -2419,16 +2419,10 @@
 					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom.c</name>
 				</file>
 				<file>
-					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom_interrupt.c</name>
-				</file>
-				<file>
 					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom_pinout.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/sercom/sercom_interrupt.h</name>
 				</file>
 			</group>
 			<group>

@@ -168,6 +168,8 @@
 					<name>CCDefines</name>
 					<state>ENABLE_STACK_NVM</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
+					<state>CUSTOM_DEFAULT_TX_PWR</state>
+					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
@@ -191,6 +193,7 @@
 					<state>RF4CE_CALLBACK_PARAM</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
+					<state>CUSTOM_PWR_TABLE</state>
 					<state>SIO_HUB</state>
 				</option>
 				<option>
@@ -513,6 +516,8 @@
 					<name>ADefines</name>
 					<state>ENABLE_STACK_NVM</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
+					<state>CUSTOM_DEFAULT_TX_PWR</state>
+					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
@@ -536,6 +541,7 @@
 					<state>RF4CE_CALLBACK_PARAM</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
+					<state>CUSTOM_PWR_TABLE</state>
 					<state>SIO_HUB</state>
 				</option>
 				<option>
@@ -1217,6 +1223,8 @@
 					<name>CCDefines</name>
 					<state>ENABLE_STACK_NVM</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
+					<state>CUSTOM_DEFAULT_TX_PWR</state>
+					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
@@ -1240,6 +1248,7 @@
 					<state>RF4CE_CALLBACK_PARAM</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
+					<state>CUSTOM_PWR_TABLE</state>
 					<state>SIO_HUB</state>
 				</option>
 				<option>
@@ -1562,6 +1571,8 @@
 					<name>ADefines</name>
 					<state>ENABLE_STACK_NVM</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
+					<state>CUSTOM_DEFAULT_TX_PWR</state>
+					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
@@ -1585,6 +1596,7 @@
 					<state>RF4CE_CALLBACK_PARAM</state>
 					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
+					<state>CUSTOM_PWR_TABLE</state>
 					<state>SIO_HUB</state>
 				</option>
 				<option>
@@ -3223,18 +3235,6 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc.c</name>
 				</file>
-				<group>
-					<name>tc_capture_waveform_example</name>
-					<group>
-						<name>sam4e16e_sam4e_ek</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc_capture_waveform_example/sam4e16e_sam4e_ek/conf_board.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc_capture_waveform_example/tc_capture_waveform_example.h</name>
-					</file>
-				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc.h</name>
 				</file>

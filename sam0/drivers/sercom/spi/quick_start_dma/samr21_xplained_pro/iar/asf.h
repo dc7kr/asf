@@ -72,9 +72,8 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: SERCOM
+// From module: SERCOM Polled API
 #include <sercom.h>
-#include <sercom_interrupt.h>
 
 // From module: SERCOM SPI - Serial Peripheral Interface (Polled APIs)
 #include <spi.h>

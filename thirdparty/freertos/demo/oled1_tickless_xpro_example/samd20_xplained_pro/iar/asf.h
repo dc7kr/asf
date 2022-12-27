@@ -91,7 +91,7 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: SERCOM
+// From module: SERCOM Callback API
 #include <sercom.h>
 #include <sercom_interrupt.h>
 

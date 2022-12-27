@@ -178,11 +178,11 @@
 					<state>HIGHEST_STACK_LAYER=TAL</state>
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>__SAMD20J18__</state>
+					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>TAL_TYPE=AT86RF233</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -515,11 +515,11 @@
 					<state>HIGHEST_STACK_LAYER=TAL</state>
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>__SAMD20J18__</state>
+					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>TAL_TYPE=AT86RF233</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1211,11 +1211,11 @@
 					<state>HIGHEST_STACK_LAYER=TAL</state>
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>__SAMD20J18__</state>
+					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>TAL_TYPE=AT86RF233</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -1548,11 +1548,11 @@
 					<state>HIGHEST_STACK_LAYER=TAL</state>
 					<state>HIGH_DATA_RATE_SUPPORT</state>
 					<state>__SAMD20J18__</state>
+					<state>USART_CALLBACK_MODE=true</state>
 					<state>SPI_CALLBACK_MODE=false</state>
 					<state>SYSTICK_MODE</state>
 					<state>ENABLE_DEEP_SLEEP</state>
 					<state>TAL_TYPE=AT86RF233</state>
-					<state>USART_CALLBACK_MODE=false</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
 					<state>PAL_USE_SPI_TRX=1</state>
 				</option>
@@ -2467,12 +2467,24 @@
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/usart/usart.c</name>
 					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/usart/usart_interrupt.c</name>
+					</file>
 					<group>
 						<name>quick_start</name>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/usart/quick_start/qs_usart_basic_use.h</name>
 						</file>
 					</group>
+					<group>
+						<name>quick_start_callback</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/usart/quick_start_callback/qs_usart_callback.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/usart/usart_interrupt.h</name>
+					</file>
 					<file>
 						<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/usart/usart.h</name>
 					</file>
@@ -2718,9 +2730,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/dsu.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/ac.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/sercom.h</name>
 							</file>
 							<file>
@@ -2742,6 +2751,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/pac.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/ac.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/component/evsys.h</name>
 							</file>
 							<file>
@@ -2760,6 +2772,9 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/port.h</name>
 							</file>
 							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/pac0.h</name>
+							</file>
+							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/evsys.h</name>
 							</file>
 							<file>
@@ -2767,9 +2782,6 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/sysctrl.h</name>
-							</file>
-							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/pac0.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/instance/sercom0.h</name>
@@ -2847,9 +2859,6 @@
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20g18.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20e14.h</name>
-							</file>
-							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20j15.h</name>
 							</file>
 							<file>
@@ -2857,6 +2866,9 @@
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20g17u.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20e14.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/pio/samd20g18u.h</name>
@@ -2929,6 +2941,9 @@
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20e16.h</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20e18.h</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20g15.h</name>
 						</file>
 						<file>
@@ -2948,9 +2963,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20j15.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../sam0/utils/cmsis/samd20/include/samd20e18.h</name>
 						</file>
 					</group>
 				</group>
@@ -2974,12 +2986,6 @@
 				<name>$PROJ_DIR$/../../../../../../../../sam0/utils/compiler.h</name>
 			</file>
 			<group>
-				<name>header_files</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam0/utils/header_files/io.h</name>
-				</file>
-			</group>
-			<group>
 				<name>preprocessor</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam0/utils/preprocessor/preprocessor.h</name>
@@ -2995,6 +3001,12 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam0/utils/preprocessor/mrecursion.h</name>
+				</file>
+			</group>
+			<group>
+				<name>header_files</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sam0/utils/header_files/io.h</name>
 				</file>
 			</group>
 			<file>

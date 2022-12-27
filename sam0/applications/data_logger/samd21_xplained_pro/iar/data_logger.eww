@@ -1,6 +1,0 @@
-<workspace>
-	<batchBuild></batchBuild>
-	<project>
-		<path>$WS_DIR$\data_logger_flash.ewp</path>
-	</project>
-</workspace>

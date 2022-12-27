@@ -1884,6 +1884,15 @@
 				</file>
 			</group>
 			<group>
+				<name>usart</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/usart/usart.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../drivers/usart/usart.h</name>
+				</file>
+			</group>
+			<group>
 				<name>efc</name>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/efc/efc.c</name>
@@ -1962,15 +1971,6 @@
 				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../drivers/rstc/rstc.h</name>
-				</file>
-			</group>
-			<group>
-				<name>usart</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/usart/usart.c</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../drivers/usart/usart.h</name>
 				</file>
 			</group>
 		</group>

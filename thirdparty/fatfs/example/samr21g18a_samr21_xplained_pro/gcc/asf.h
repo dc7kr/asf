@@ -89,7 +89,7 @@
 // From module: SD/MMC stack on SPI interface
 #include <sd_mmc.h>
 
-// From module: SERCOM
+// From module: SERCOM Callback API
 #include <sercom.h>
 #include <sercom_interrupt.h>
 

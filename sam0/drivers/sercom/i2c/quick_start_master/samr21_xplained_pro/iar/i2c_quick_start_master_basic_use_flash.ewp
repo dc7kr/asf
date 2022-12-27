@@ -2038,7 +2038,7 @@
 								<name>$PROJ_DIR$/../../../../../../utils/cmsis/samr21/include/instance/dac.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../utils/cmsis/samr21/include/instance/evsys.h</name>
+								<name>$PROJ_DIR$/../../../../../../utils/cmsis/samr21/include/instance/tc3.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../utils/cmsis/samr21/include/instance/adc.h</name>
@@ -2074,10 +2074,10 @@
 								<name>$PROJ_DIR$/../../../../../../utils/cmsis/samr21/include/instance/eic.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../utils/cmsis/samr21/include/instance/nvmctrl.h</name>
+								<name>$PROJ_DIR$/../../../../../../utils/cmsis/samr21/include/instance/evsys.h</name>
 							</file>
 							<file>
-								<name>$PROJ_DIR$/../../../../../../utils/cmsis/samr21/include/instance/tc3.h</name>
+								<name>$PROJ_DIR$/../../../../../../utils/cmsis/samr21/include/instance/nvmctrl.h</name>
 							</file>
 							<file>
 								<name>$PROJ_DIR$/../../../../../../utils/cmsis/samr21/include/instance/usb.h</name>
@@ -2286,9 +2286,6 @@
 			</group>
 			<group>
 				<name>sercom</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../sercom_interrupt.c</name>
-				</file>
 				<group>
 					<name>i2c</name>
 					<group>
@@ -2339,9 +2336,6 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../sercom_pinout.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../sercom_interrupt.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../sercom.h</name>

@@ -82,15 +82,19 @@
 #include <rtc_count.h>
 #include <rtc_count_interrupt.h>
 
-// From module: SERCOM
+// From module: SERCOM Callback API
 #include <sercom.h>
 #include <sercom_interrupt.h>
+
+// From module: SERCOM Polled API
+#include <sercom.h>
 
 // From module: SERCOM SPI - Serial Peripheral Interface (Polled APIs)
 #include <spi.h>
 
-// From module: SERCOM USART - Serial Communications (Polled APIs)
+// From module: SERCOM USART - Serial Communications (Callback APIs)
 #include <usart.h>
+#include <usart_interrupt.h>
 
 // From module: SYSTEM - Clock Management for SAMR21
 #include <clock.h>

@@ -57,7 +57,6 @@ CSRCS = \
        sam0/drivers/dma/dma.c                             \
        sam0/drivers/port/port.c                           \
        sam0/drivers/sercom/sercom.c                       \
-       sam0/drivers/sercom/sercom_interrupt.c             \
        sam0/drivers/sercom/usart/quick_start_dma/qs_usart_dma_use.c \
        sam0/drivers/sercom/usart/usart.c                  \
        sam0/drivers/system/clock/clock_samd10_d11/clock.c \

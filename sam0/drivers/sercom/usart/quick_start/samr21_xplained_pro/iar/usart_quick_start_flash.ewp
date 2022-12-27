@@ -2282,9 +2282,6 @@
 			</group>
 			<group>
 				<name>sercom</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../sercom_interrupt.c</name>
-				</file>
 				<group>
 					<name>usart</name>
 					<group>
@@ -2329,9 +2326,6 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../sercom_pinout.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../sercom_interrupt.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../sercom.h</name>

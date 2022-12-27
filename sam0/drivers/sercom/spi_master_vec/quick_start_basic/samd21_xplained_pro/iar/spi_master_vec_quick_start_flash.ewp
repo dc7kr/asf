@@ -305,18 +305,18 @@
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../port</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd21</state>
+					<state>$PROJ_DIR$/../../../../../system</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../config</state>
 					<state>$PROJ_DIR$/../../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../system/clock</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../system</state>
 					<state>$PROJ_DIR$/../../../../../system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/.</state>
@@ -574,18 +574,18 @@
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../port</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd21</state>
+					<state>$PROJ_DIR$/../../../../../system</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../config</state>
 					<state>$PROJ_DIR$/../../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../system/clock</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../system</state>
 					<state>$PROJ_DIR$/../../../../../system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1268,18 +1268,18 @@
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../port</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd21</state>
+					<state>$PROJ_DIR$/../../../../../system</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../config</state>
 					<state>$PROJ_DIR$/../../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../system/clock</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../system</state>
 					<state>$PROJ_DIR$/../../../../../system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/.</state>
@@ -1537,18 +1537,18 @@
 					<state>$PROJ_DIR$/../../../..</state>
 					<state>$PROJ_DIR$/../../../../../port</state>
 					<state>$PROJ_DIR$/../../../../../../boards</state>
-					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd21</state>
+					<state>$PROJ_DIR$/../../../../../system</state>
 					<state>$PROJ_DIR$/../../../../../../../common/boards</state>
 					<state>$PROJ_DIR$/../config</state>
 					<state>$PROJ_DIR$/../../../../../system/pinmux</state>
 					<state>$PROJ_DIR$/../..</state>
 					<state>$PROJ_DIR$/../../../../../../utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../system/interrupt/system_interrupt_samd21</state>
 					<state>$PROJ_DIR$/../../../../../../utils/header_files</state>
 					<state>$PROJ_DIR$/../../../../../../../common/utils</state>
 					<state>$PROJ_DIR$/../../../../../system/clock</state>
 					<state>$PROJ_DIR$/../../../../../../utils</state>
 					<state>$PROJ_DIR$/../../..</state>
-					<state>$PROJ_DIR$/../../../../../system</state>
 					<state>$PROJ_DIR$/../../../../../system/interrupt</state>
 					<state>$PROJ_DIR$/../../../../../../boards/samd21_xplained_pro</state>
 					<state>$PROJ_DIR$/.</state>

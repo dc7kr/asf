@@ -56,7 +56,6 @@ CSRCS = \
        sam0/boards/samd21_xplained_pro/board_init.c       \
        sam0/drivers/port/port.c                           \
        sam0/drivers/sercom/sercom.c                       \
-       sam0/drivers/sercom/sercom_interrupt.c             \
        sam0/drivers/sercom/spi/quick_start_master/qs_spi_master_basic.c \
        sam0/drivers/sercom/spi/spi.c                      \
        sam0/drivers/system/clock/clock_samd21_r21/clock.c \

@@ -1950,9 +1950,6 @@
 							<file>
 								<name>$PROJ_DIR$/../../phy_tx_test_console.c</name>
 							</file>
-							<file>
-								<name>$PROJ_DIR$/../../phy_embedded_app.h</name>
-							</file>
 							<group>
 								<name>sam4cmp16c_sam4cmp_db</name>
 								<file>
@@ -1983,6 +1980,9 @@
 									<name>$PROJ_DIR$/../conf_phy.h</name>
 								</file>
 							</group>
+							<file>
+								<name>$PROJ_DIR$/../../phy_embedded_app.h</name>
+							</file>
 						</group>
 					</group>
 					<group>
@@ -2054,6 +2054,9 @@
 							<name>$PROJ_DIR$/../../../../../../../freertos/freertos-7.3.0/source/include/list.h</name>
 						</file>
 						<file>
+							<name>$PROJ_DIR$/../../../../../../../freertos/freertos-7.3.0/source/include/croutine.h</name>
+						</file>
+						<file>
 							<name>$PROJ_DIR$/../../../../../../../freertos/freertos-7.3.0/source/include/FreeRTOS.h</name>
 						</file>
 						<file>
@@ -2070,9 +2073,6 @@
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../freertos/freertos-7.3.0/source/include/mpu_wrappers.h</name>
-						</file>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../freertos/freertos-7.3.0/source/include/croutine.h</name>
 						</file>
 						<file>
 							<name>$PROJ_DIR$/../../../../../../../freertos/freertos-7.3.0/source/include/task.h</name>
@@ -2151,18 +2151,6 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc.c</name>
 				</file>
-				<group>
-					<name>tc_capture_waveform_example</name>
-					<group>
-						<name>sam4e16e_sam4e_ek</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc_capture_waveform_example/sam4e16e_sam4e_ek/conf_board.h</name>
-						</file>
-					</group>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc_capture_waveform_example/tc_capture_waveform_example.h</name>
-					</file>
-				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam/drivers/tc/tc.h</name>
 				</file>

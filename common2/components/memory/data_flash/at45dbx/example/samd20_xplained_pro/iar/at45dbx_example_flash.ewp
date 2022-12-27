@@ -2243,9 +2243,6 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/sercom.c</name>
 				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/sercom_interrupt.c</name>
-				</file>
 				<group>
 					<name>spi</name>
 					<file>
@@ -2273,9 +2270,6 @@
 						</file>
 					</group>
 				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/sercom_interrupt.h</name>
-				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../sam0/drivers/sercom/sercom.h</name>
 				</file>

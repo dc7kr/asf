@@ -72,13 +72,12 @@
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: SERCOM
-#include <sercom.h>
-#include <sercom_interrupt.h>
-
 // From module: SERCOM I2C - Slave Mode I2C (Polled APIs)
 #include <i2c_common.h>
 #include <i2c_slave.h>
+
+// From module: SERCOM Polled API
+#include <sercom.h>
 
 // From module: SYSTEM - Clock Management for SAMR21
 #include <clock.h>

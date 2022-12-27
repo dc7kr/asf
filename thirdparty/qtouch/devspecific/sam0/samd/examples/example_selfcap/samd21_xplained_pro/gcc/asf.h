@@ -78,7 +78,7 @@
 #include <rtc_count.h>
 #include <rtc_count_interrupt.h>
 
-// From module: SERCOM
+// From module: SERCOM Callback API
 #include <sercom.h>
 #include <sercom_interrupt.h>
 

@@ -168,9 +168,12 @@
 					<name>CCDefines</name>
 					<state>ZRC_CMD_DISCOVERY</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
+					<state>CUSTOM_DEFAULT_TX_PWR</state>
+					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
+					<state>ANTENNA_DIVERSITY=0</state>
 					<state>ENABLE_TFA</state>
 					<state>TFA_BAT_MON</state>
 					<state>VENDOR_DATA</state>
@@ -188,10 +191,11 @@
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>__SAM4LC4C__</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
 					<state>_DEBUG_=0</state>
+					<state>CUSTOM_PWR_TABLE</state>
 					<state>SIO_HUB</state>
 				</option>
 				<option>
@@ -516,9 +520,12 @@
 					<name>ADefines</name>
 					<state>ZRC_CMD_DISCOVERY</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
+					<state>CUSTOM_DEFAULT_TX_PWR</state>
+					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
+					<state>ANTENNA_DIVERSITY=0</state>
 					<state>ENABLE_TFA</state>
 					<state>TFA_BAT_MON</state>
 					<state>VENDOR_DATA</state>
@@ -536,10 +543,11 @@
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>__SAM4LC4C__</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
 					<state>_DEBUG_=0</state>
+					<state>CUSTOM_PWR_TABLE</state>
 					<state>SIO_HUB</state>
 				</option>
 				<option>
@@ -1223,9 +1231,12 @@
 					<name>CCDefines</name>
 					<state>ZRC_CMD_DISCOVERY</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
+					<state>CUSTOM_DEFAULT_TX_PWR</state>
+					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
+					<state>ANTENNA_DIVERSITY=0</state>
 					<state>ENABLE_TFA</state>
 					<state>TFA_BAT_MON</state>
 					<state>VENDOR_DATA</state>
@@ -1243,10 +1254,11 @@
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>__SAM4LC4C__</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
 					<state>_DEBUG_=0</state>
+					<state>CUSTOM_PWR_TABLE</state>
 					<state>SIO_HUB</state>
 				</option>
 				<option>
@@ -1571,9 +1583,12 @@
 					<name>ADefines</name>
 					<state>ZRC_CMD_DISCOVERY</state>
 					<state>BOARD=SAM4L_XPLAINED_PRO</state>
+					<state>CUSTOM_DEFAULT_TX_PWR</state>
+					<state>EXT_RF_FRONT_END_CTRL</state>
 					<state>SAL_TYPE=AT86RF2xx</state>
 					<state>NLDE_HANDLE</state>
 					<state>DISABLE_TSTAMP_IRQ=1</state>
+					<state>ANTENNA_DIVERSITY=0</state>
 					<state>ENABLE_TFA</state>
 					<state>TFA_BAT_MON</state>
 					<state>VENDOR_DATA</state>
@@ -1591,10 +1606,11 @@
 					<state>ZRC_PROFILE</state>
 					<state>PRIVATE_NIB</state>
 					<state>__SAM4LC4C__</state>
-					<state>TAL_TYPE=AT86RF233</state>
 					<state>RF4CE_CALLBACK_PARAM</state>
+					<state>TAL_TYPE=AT86RF233</state>
 					<state>HIGHEST_STACK_LAYER=RF4CE</state>
 					<state>_DEBUG_=0</state>
+					<state>CUSTOM_PWR_TABLE</state>
 					<state>SIO_HUB</state>
 				</option>
 				<option>
@@ -2854,18 +2870,6 @@
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/tc/tc.c</name>
 				</file>
-				<group>
-					<name>tc_capture_waveform_example</name>
-					<file>
-						<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/tc/tc_capture_waveform_example/tc_capture_waveform_example.h</name>
-					</file>
-					<group>
-						<name>sam4e16e_sam4e_ek</name>
-						<file>
-							<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/tc/tc_capture_waveform_example/sam4e16e_sam4e_ek/conf_board.h</name>
-						</file>
-					</group>
-				</group>
 				<file>
 					<name>$PROJ_DIR$/../../../../../../../../../sam/drivers/tc/tc.h</name>
 				</file>

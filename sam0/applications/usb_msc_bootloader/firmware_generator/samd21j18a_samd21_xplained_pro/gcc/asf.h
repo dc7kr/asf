@@ -97,7 +97,7 @@
 // From module: SAM D21/R21 USB Dual role interface
 #include <usb_dual.h>
 
-// From module: SERCOM
+// From module: SERCOM Callback API
 #include <sercom.h>
 #include <sercom_interrupt.h>
 
@@ -135,7 +135,7 @@
 #include <usb.h>
 
 // From module: USB Host MSC (Single Class support)
-#include <uhi_msc_mem.h>
+#include <uhi_msc.h>
 
 // From module: USB Host stack core
 #include <uhc.h>

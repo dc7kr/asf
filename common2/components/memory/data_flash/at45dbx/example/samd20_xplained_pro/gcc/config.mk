@@ -58,7 +58,6 @@ CSRCS = \
        sam0/boards/samd20_xplained_pro/board_init.c       \
        sam0/drivers/port/port.c                           \
        sam0/drivers/sercom/sercom.c                       \
-       sam0/drivers/sercom/sercom_interrupt.c             \
        sam0/drivers/sercom/spi/spi.c                      \
        sam0/drivers/system/clock/clock_samd20/clock.c     \
        sam0/drivers/system/clock/clock_samd20/gclk.c      \

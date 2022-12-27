@@ -1982,9 +1982,6 @@
 						</file>
 					</group>
 				</group>
-				<file>
-					<name>$PROJ_DIR$/../../../../../system/system.c</name>
-				</file>
 				<group>
 					<name>pinmux</name>
 					<file>
@@ -2001,14 +1998,14 @@
 					</file>
 				</group>
 				<file>
+					<name>$PROJ_DIR$/../../../../../system/system.c</name>
+				</file>
+				<file>
 					<name>$PROJ_DIR$/../../../../../system/system.h</name>
 				</file>
 			</group>
 			<group>
 				<name>sercom</name>
-				<file>
-					<name>$PROJ_DIR$/../../../../sercom_interrupt.c</name>
-				</file>
 				<group>
 					<name>spi</name>
 					<group>
@@ -2062,9 +2059,6 @@
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../sercom_pinout.h</name>
-				</file>
-				<file>
-					<name>$PROJ_DIR$/../../../../sercom_interrupt.h</name>
 				</file>
 				<file>
 					<name>$PROJ_DIR$/../../../../sercom.h</name>

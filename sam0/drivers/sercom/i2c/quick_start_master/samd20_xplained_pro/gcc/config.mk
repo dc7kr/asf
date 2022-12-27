@@ -58,7 +58,6 @@ CSRCS = \
        sam0/drivers/sercom/i2c/i2c_samd20/i2c_master.c    \
        sam0/drivers/sercom/i2c/quick_start_master/qs_i2c_master_basic_use.c \
        sam0/drivers/sercom/sercom.c                       \
-       sam0/drivers/sercom/sercom_interrupt.c             \
        sam0/drivers/system/clock/clock_samd20/clock.c     \
        sam0/drivers/system/clock/clock_samd20/gclk.c      \
        sam0/drivers/system/interrupt/system_interrupt.c   \

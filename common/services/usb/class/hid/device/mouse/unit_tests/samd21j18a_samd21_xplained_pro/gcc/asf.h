@@ -75,7 +75,7 @@
 // From module: SAM D21/R21 USB Dual role interface
 #include <usb_dual.h>
 
-// From module: SERCOM
+// From module: SERCOM Callback API
 #include <sercom.h>
 #include <sercom_interrupt.h>
 
