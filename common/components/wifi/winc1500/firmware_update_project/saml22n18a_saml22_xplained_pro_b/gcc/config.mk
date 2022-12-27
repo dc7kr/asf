@@ -71,26 +71,12 @@ INC_PATH = \
        common/components/wifi/winc1500/firmware_update_project/doc \
        common/components/wifi/winc1500/firmware_update_project/firmware \
        common/components/wifi/winc1500/firmware_update_project/firmware/Tools \
+       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/flash-tools \
        common/components/wifi/winc1500/firmware_update_project/firmware/Tools/gain_builder \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/gain_builder/debug_i2c \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/gain_builder/debug_uart \
        common/components/wifi/winc1500/firmware_update_project/firmware/Tools/gain_builder/gain_sheets \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/image_builder \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/image_builder/debug \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/image_cloner \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/image_cloner/debug_i2c \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/image_cloner/debug_uart \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/image_downloader \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/image_downloader/debug_i2c \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/image_downloader/debug_uart \
        common/components/wifi/winc1500/firmware_update_project/firmware/Tools/root_certificate_downloader \
        common/components/wifi/winc1500/firmware_update_project/firmware/Tools/root_certificate_downloader/binary \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/root_certificate_downloader/debug_i2c \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/root_certificate_downloader/debug_uart \
        common/components/wifi/winc1500/firmware_update_project/firmware/Tools/serial_bridge \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/tls_cert_flash_tool \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/tls_cert_flash_tool/Debug_I2C \
-       common/components/wifi/winc1500/firmware_update_project/firmware/Tools/tls_cert_flash_tool/Debug_UART \
        common/components/wifi/winc1500/firmware_update_project/firmware/ate_firmware \
        common/components/wifi/winc1500/firmware_update_project/firmware/boot_firmware \
        common/components/wifi/winc1500/firmware_update_project/firmware/boot_firmware/release3A0 \

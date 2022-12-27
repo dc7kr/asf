@@ -120,6 +120,7 @@ ASSRCS =
 INC_PATH = \
        common/boards                                      \
        common/components/wifi/winc1500/aws_rsa_example    \
+       common/components/wifi/winc1500/aws_rsa_example/doc \
        common/components/wifi/winc1500/aws_rsa_example/samd21j18a_samd21_xplained_pro \
        common/components/wifi/winc1500/host_drv           \
        common/services/serial                             \
