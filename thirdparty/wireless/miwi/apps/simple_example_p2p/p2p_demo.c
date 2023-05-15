@@ -155,7 +155,11 @@ void run_p2p_demo(void)
 
                     /* IF on the demo , a END_Device displays its own Connection Detail
                              We unicast data packet to just PAN COR*/
-                    if( MiApp_SendData(LONG_ADDR_LEN, connectionTable[select_ed].Address, DE_LEN, (uint8_t*)&DE[(TxSynCount2%6)][0], msghandledemo++, true, dataConfcb) == false )
+#ifdef ENABLE_SECURITY
+                    if( MiApp_SendData(LONG_ADDR_LEN, connectionTable[select_ed].Address, DE_LEN, (uint8_t*)&DE[(TxSynCount2%6)][0], msghandledemo++, true, true, dataConfcb) == false )
+#else
+					if( MiApp_SendData(LONG_ADDR_LEN, connectionTable[select_ed].Address, DE_LEN, (uint8_t*)&DE[(TxSynCount2%6)][0], msghandledemo++, true, false, dataConfcb) == false )
+#endif
                     {
                         DemoOutput_UnicastFail();
                     }
@@ -207,8 +211,12 @@ void run_p2p_demo(void)
                 bool mac_ack_status;
 
                 /* Function MiApp_SendData is used to broadcast a message with address as 0xFFFF */
-                mac_ack_status = MiApp_SendData(SHORT_ADDR_LEN, (uint8_t *)&broadcastAddress, MIWI_TEXT_LEN, (uint8_t *)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, dataConfcb);
-                if (mac_ack_status)
+#ifdef ENABLE_SECURITY
+                mac_ack_status = MiApp_SendData(SHORT_ADDR_LEN, (uint8_t *)&broadcastAddress, MIWI_TEXT_LEN, (uint8_t *)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, true, dataConfcb);
+#else
+				mac_ack_status = MiApp_SendData(SHORT_ADDR_LEN, (uint8_t *)&broadcastAddress, MIWI_TEXT_LEN, (uint8_t *)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, false, dataConfcb);
+#endif               
+			    if (mac_ack_status)
                 {
                     /* Update the bitmap count */
                     TxSynCount++;
@@ -247,8 +255,11 @@ void run_p2p_demo(void)
                         {
                             update_ed = false;
                             chk_sel_status = false;
-
-                            if( MiApp_SendData(LONG_ADDR_LEN, connectionTable[select_ed].Address, DE_LEN, (uint8_t*)&DE[(TxSynCount2%6)][i], msghandledemo++, 1, dataConfcb) == false)
+#ifdef ENABLE_SECURITY
+                            if( MiApp_SendData(LONG_ADDR_LEN, connectionTable[select_ed].Address, DE_LEN, (uint8_t*)&DE[(TxSynCount2%6)][i], msghandledemo++, 1, true, dataConfcb) == false)
+#else
+							if( MiApp_SendData(LONG_ADDR_LEN, connectionTable[select_ed].Address, DE_LEN, (uint8_t*)&DE[(TxSynCount2%6)][i], msghandledemo++, 1, false, dataConfcb) == false)
+#endif
                             {
                                 DemoOutput_UnicastFail();
                             }

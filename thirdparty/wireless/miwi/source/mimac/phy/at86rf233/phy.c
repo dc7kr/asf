@@ -3,7 +3,7 @@
 *
 * \brief Physical Layer Abstraction for AT86RF233 implementation
 *
-* Copyright (c) 2018 - 2019 Microchip Technology Inc. and its subsidiaries. 
+* Copyright (c) 2018 - 2022 Microchip Technology Inc. and its subsidiaries. 
 *
 * \asf_license_start
 *
@@ -236,6 +236,9 @@ void PHY_Init(void)
 
 	phyWriteRegister(TRX_CTRL_2_REG,
 	(1 << RX_SAFE_MODE) | (1 << OQPSK_SCRAM_EN));
+	
+	//Enable Antenna Diversity by default
+	phyWriteRegister(ANT_DIV_REG, (1 << ANT_DIV_EN) | (1 << ANT_EXT_SW_EN));
 
 #if (defined(OTAU_ENABLED) && defined(OTAU_PHY_MODE))
 	/* Interrupt Handler Initialization */
@@ -307,6 +310,12 @@ void PHY_SetTxPower(uint8_t txPower)
 // Radio Sleep
 void PHY_Sleep(void)
 {
+
+	uint8_t ant_div = phyReadRegister(ANT_DIV_REG);
+	ant_div &= ~(1 << ANT_EXT_SW_EN);
+	
+	phyWriteRegister(ANT_DIV_REG, ant_div);
+
 	if (PHY_STATE_SLEEP != phyState)
 	{
 		phyTrxSetState(TRX_CMD_TRX_OFF);
@@ -325,6 +334,9 @@ void PHY_Wakeup(void)
 		TRX_SLP_TR_LOW();
 	 	phySetRxState();
 	 	phyState = PHY_STATE_IDLE;
+
+		//Enable External Antenna Switch after wakeup from Sleep
+		phyWriteRegister(ANT_DIV_REG, (phyReadRegister(ANT_DIV_REG) | (1 << ANT_EXT_SW_EN)));
 	}
 }
 
@@ -333,6 +345,11 @@ void PHY_Wakeup(void)
 // Encrypt Block
 void PHY_EncryptReq(uint8_t *text, uint8_t *key)
 {
+	/* Make sure Transceiver is wakeup  before doing the Encryption */
+	if (phyState == PHY_STATE_SLEEP)
+	{
+		PHY_Wakeup();
+	}
 	sal_aes_setup(key, AES_MODE_ECB, AES_DIR_ENCRYPT);
 	#if (SAL_TYPE == AT86RF2xx)
 	sal_aes_wrrd(text, NULL);
@@ -344,6 +361,11 @@ void PHY_EncryptReq(uint8_t *text, uint8_t *key)
 
 void PHY_EncryptReqCBC(uint8_t *text, uint8_t *key)
 {
+	/* Make sure Transceiver is wakeup  before doing the Encryption */
+	if (phyState == PHY_STATE_SLEEP)
+	{
+		PHY_Wakeup();
+	}
 	sal_aes_setup(key, AES_MODE_CBC, AES_DIR_ENCRYPT);
 	#if (SAL_TYPE == AT86RF2xx)
 	sal_aes_wrrd(text, NULL);
@@ -358,6 +380,11 @@ void PHY_EncryptReqCBC(uint8_t *text, uint8_t *key)
 // Decrypt Block
 void PHY_DecryptReq(uint8_t *text, uint8_t *key)
 {
+	/* Make sure Transceiver is wakeup  before doing the Decryption */
+	if (phyState == PHY_STATE_SLEEP)
+	{
+		PHY_Wakeup();
+	}
 	sal_aes_setup(key, AES_MODE_ECB, AES_DIR_DECRYPT);
 	sal_aes_wrrd(text, NULL);
 	sal_aes_read(text);
@@ -661,8 +688,15 @@ void PHY_TaskHandler(void)
 			{
 				int8_t rssi;
 
-				rssi = (int8_t)phyReadRegister(PHY_ED_LEVEL_REG);
-				trx_frame_read(&size, 1);
+                rssi = (int8_t)phyReadRegister(PHY_ED_LEVEL_REG);
+				/* Wait till TRX come to RX_AACK_ON state after packet reception */
+				phyWaitState(TRX_STATUS_RX_AACK_ON);
+				
+				/* Change the TRX state to TRX_OFF when reading the Frame buffer */
+				phyTrxSetState(TRX_CMD_TRX_OFF);
+				phyWaitState(TRX_CMD_TRX_OFF);
+				
+                trx_frame_read(&size, 1);
 
 				if(size <= MAX_PSDU)
 				{
@@ -678,6 +712,9 @@ void PHY_TaskHandler(void)
 						RxBuffer[RxBank].Payload[RxBuffer[RxBank].PayloadLen - 1] = rssi + PHY_RSSI_BASE_VAL;
 					}
 				}
+				
+				/* Change the TRX state to RX_AACK_ON after reading the frame buffer */
+				phySetRxState();
 				phyWaitState(TRX_STATUS_RX_AACK_ON);
 			}
 		}

@@ -47,8 +47,8 @@ PART = saml21j18b
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = bm70_multilink_multirole_saml21_xplained_pro_b_flash.elf
-TARGET_SRAM = bm70_multilink_multirole_saml21_xplained_pro_b_sram.elf
+TARGET_FLASH = bm70_71_multilink_multirole_saml21_xplained_pro_b_flash.elf
+TARGET_SRAM = bm70_71_multilink_multirole_saml21_xplained_pro_b_sram.elf
 
 # List of C source files.
 CSRCS = \
@@ -173,7 +173,7 @@ DBGFLAGS =
 
 # Application optimization used during compilation and linking:
 # -O0, -O1, -O2, -O3 or -Os
-OPTIMIZATION = -O1
+OPTIMIZATION = -O3
 
 # Extra flags to use when archiving.
 ARFLAGS = 

@@ -3,7 +3,7 @@
 *
 * \brief MiWi P2P Star header defintions.
 *
-* Copyright (c) 2018 - 2019 Microchip Technology Inc. and its subsidiaries.
+* Copyright (c) 2018 - 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * \asf_license_start
 *
@@ -211,6 +211,7 @@ typedef struct _DataFrame_t
 	uint8_t msghandle;
 	uint8_t msgLength;
 	uint8_t msg[MAX_PAYLOAD + 4]; // +4 to support packet forward header
+	bool secEnabled;
 } DataFrame_t;
 
 typedef struct _P2PStarDataFrame_t

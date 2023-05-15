@@ -47,8 +47,8 @@ PART = saml21j18b
 
 # Application target name. Given with suffix .a for library and .elf for a
 # standalone application.
-TARGET_FLASH = bm70_gap_peripheral_saml21_xplained_pro_b_flash.elf
-TARGET_SRAM = bm70_gap_peripheral_saml21_xplained_pro_b_sram.elf
+TARGET_FLASH = bm70_71_gap_peripheral_saml21_xplained_pro_b_flash.elf
+TARGET_SRAM = bm70_71_gap_peripheral_saml21_xplained_pro_b_sram.elf
 
 # List of C source files.
 CSRCS = \
@@ -59,6 +59,7 @@ CSRCS = \
        sam0/drivers/extint/extint_sam_l_c/extint.c        \
        sam0/drivers/port/port.c                           \
        sam0/drivers/sercom/i2c/i2c_sam0/i2c_master.c      \
+       sam0/drivers/sercom/i2c/i2c_sam0/i2c_master_interrupt.c \
        sam0/drivers/sercom/sercom.c                       \
        sam0/drivers/sercom/sercom_interrupt.c             \
        sam0/drivers/sercom/usart/usart.c                  \
@@ -173,7 +174,7 @@ DBGFLAGS =
 
 # Application optimization used during compilation and linking:
 # -O0, -O1, -O2, -O3 or -Os
-OPTIMIZATION = -O1
+OPTIMIZATION = -O3
 
 # Extra flags to use when archiving.
 ARFLAGS = 
@@ -199,7 +200,7 @@ CPPFLAGS = \
        -D BOARD=SAML21_XPLAINED_PRO                       \
        -D EXTINT_CALLBACK_MODE=true                       \
        -D HOST_MCU_DEVICE=HOST_MCU_SAML21                 \
-       -D I2C_MASTER_CALLBACK_MODE=false                  \
+       -D I2C_MASTER_CALLBACK_MODE=true                   \
        -D SYSTICK_MODE                                    \
        -D TC_ASYNC=true                                   \
        -D USART_CALLBACK_MODE=true                        \

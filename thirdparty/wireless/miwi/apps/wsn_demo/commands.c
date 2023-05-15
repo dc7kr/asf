@@ -3,7 +3,7 @@
 *
 * \brief WSNDemo command handler implementation
 *
-* Copyright (c) 2018 - 2019 Microchip Technology Inc. and its subsidiaries. 
+* Copyright (c) 2018 - 2022 Microchip Technology Inc. and its subsidiaries. 
 *
 * \asf_license_start
 *
@@ -239,7 +239,11 @@ uint8_t wsnmsghandle;
 *****************************************************************************/
 static void appCmdDataRequest(uint16_t addr, uint8_t size, uint8_t* payload)
 {
-	MiApp_SendData(SHORT_ADDR_LEN, (uint8_t*)&addr, size, payload, wsnmsghandle, true, appCmdDataConf);
+#ifdef ENABLE_SECURITY
+	MiApp_SendData(SHORT_ADDR_LEN, (uint8_t*)&addr, size, payload, wsnmsghandle, true, true, appCmdDataConf);
+#else
+	MiApp_SendData(SHORT_ADDR_LEN, (uint8_t*)&addr, size, payload, wsnmsghandle, true, false, appCmdDataConf);
+#endif
 }
 
 /*************************************************************************//**

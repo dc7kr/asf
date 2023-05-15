@@ -25,7 +25,7 @@ DOXYFILE_ENCODING      = UTF-8
 # The PROJECT_NAME tag is a single word (or a sequence of words surrounded
 # by quotes) that should identify the project.
 
-PROJECT_NAME           = "GAP-Central Sensor Application - SAM L21 Xplained Pro SAML21J18B"
+PROJECT_NAME           = "BM70_71 GAP-Central Sensor Application - SAM L21 Xplained Pro SAML21J18B"
 
 # The PROJECT_NUMBER tag can be used to enter a project or revision number.
 # This could be handy for archiving the generated documentation or

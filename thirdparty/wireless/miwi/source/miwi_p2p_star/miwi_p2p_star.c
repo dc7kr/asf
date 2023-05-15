@@ -3,7 +3,7 @@
 *
 * \brief MiWi P2P & STAR Protocol Implementation
 *
-* Copyright (c) 2019 Microchip Technology Inc. and its subsidiaries.
+* Copyright (c) 2018 - 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * \asf_license_start
 *
@@ -191,7 +191,11 @@ uint16_t inActiveDeviceCheckTimeInterval = 0;
 uint16_t linkStatusTimeInterval = 0;
 uint8_t linkStatusFailureCount = 0;
 #endif
+uint8_t connectionTbLostCount = 0;
 #endif
+
+#define CONNECTION_TABLE_LOST_MAX 2
+
 #ifdef ENABLE_SLEEP_FEATURE
 SYS_Timer_t rfdDataWaitTimer;
 #endif
@@ -259,7 +263,7 @@ static void removeConnection(uint8_t index);
 #if defined(PROTOCOL_STAR)
 static SYS_Timer_t dataTimer;
 static void dataTimerHandler(SYS_Timer_t *timer);
-static void store_connection_tb(uint8_t *payload);
+static void store_connection_tb(uint8_t *payload, uint8_t payloadSize);
 static uint8_t Find_Index (uint8_t *DestAddr);
 static void startCompleteProcedure(bool timeronly);
 static void startLinkStatusTimer(void);
@@ -268,6 +272,7 @@ static void findInActiveDevices(void);
 static void handleLostConnection(void);
 void appAckWaitDataCallback(uint8_t handle, miwi_status_t status, uint8_t* msgPointer);
 static void MiApp_BroadcastConnectionTable(void);
+static bool parseConnectionTable(uint8_t *payload, uint8_t payloadSize);
 #endif
 #ifdef ENABLE_SLEEP_FEATURE
 static void sendDataRequest(void);
@@ -1353,7 +1358,7 @@ bool MiApp_ResyncConnection(INPUT uint8_t ConnectionIndex, INPUT uint32_t Channe
 #endif
 
 bool MiApp_SendData(uint8_t addr_len, uint8_t *addr, uint8_t msglen, uint8_t *msgpointer, uint8_t msghandle,
-                                                              bool ackReq, DataConf_callback_t ConfCallback)
+					bool ackReq, bool secEnabled, DataConf_callback_t ConfCallback)
 {
 	P2PStarDataFrame_t *dataFramePtr = NULL;
 	if (IN_NETWORK_STATE == p2pStarCurrentState &&  MAX_PAYLOAD >= msglen)
@@ -1385,6 +1390,7 @@ bool MiApp_SendData(uint8_t addr_len, uint8_t *addr, uint8_t msglen, uint8_t *ms
 					dataFramePtr->dataFrame.timeout = INDIRECT_MESSAGE_TIMEOUT;
 					dataFramePtr->dataFrame.ackReq = 0;
 					dataFramePtr->dataFrame.broadcast = 1;
+					dataFramePtr->dataFrame.secEnabled = secEnabled;
 					miQueueAppend(&indirectFrameQueue, (miQueueBuffer_t*)dataFramePtr);
 			    }
 		    }
@@ -1399,8 +1405,9 @@ bool MiApp_SendData(uint8_t addr_len, uint8_t *addr, uint8_t msglen, uint8_t *ms
 			dataFramePtr->dataFrame.msghandle = msghandle;
 			dataFramePtr->dataFrame.msgLength = msglen;
 			dataFramePtr->dataFrame.timeout = 0;
+			dataFramePtr->dataFrame.secEnabled = secEnabled;
 			memcpy(&(dataFramePtr->dataFrame.msg), msgpointer, msglen);
-			frameTransmit(broadcast, myPANID, addr, false, false, msglen, dataFramePtr->dataFrame.msg, msghandle, 0, macAckOnlyDataCallback);
+			frameTransmit(broadcast, myPANID, addr, false, secEnabled, msglen, dataFramePtr->dataFrame.msg, msghandle, 0, macAckOnlyDataCallback);
 			miQueueAppend(&macAckOnlyFrameQueue, (miQueueBuffer_t*)dataFramePtr);
 			return true;
 	    }
@@ -1427,7 +1434,7 @@ bool MiApp_SendData(uint8_t addr_len, uint8_t *addr, uint8_t msglen, uint8_t *ms
 					memcpy(&(dataFramePtr->dataFrame.msg), msgpointer, msglen);
 					dataFramePtr->dataFrame.timeout = INDIRECT_MESSAGE_TIMEOUT;
 					dataFramePtr->dataFrame.ackReq = ackReq;
-					
+					dataFramePtr->dataFrame.secEnabled = secEnabled;
 					miQueueAppend(&indirectFrameQueue, (miQueueBuffer_t*)dataFramePtr);
 					return true;
 			    }
@@ -1454,13 +1461,14 @@ bool MiApp_SendData(uint8_t addr_len, uint8_t *addr, uint8_t msglen, uint8_t *ms
 		dataFramePtr->dataFrame.msgLength = msglen;
 		dataFramePtr->dataFrame.timeout = 0;
 		dataFramePtr->dataFrame.ackReq = ackReq;
+		dataFramePtr->dataFrame.secEnabled = secEnabled;
 #if defined(PROTOCOL_STAR)
 		if (END_DEVICE == role)
 		{
 			if (MY_ADDRESS_LENGTH == addr_len && isSameAddress(addr, miwiDefaultRomOrRamParams->ConnectionTable[0].Address))
 			{
 				memcpy(&(dataFramePtr->dataFrame.msg), msgpointer, msglen);
-				frameTransmit(broadcast, myPANID, addr, false, false, msglen, dataFramePtr->dataFrame.msg, msghandle, ackReq, macAckOnlyDataCallback);
+				frameTransmit(broadcast, myPANID, addr, false, secEnabled, msglen, dataFramePtr->dataFrame.msg, msghandle, ackReq, macAckOnlyDataCallback);
 				miQueueAppend(&macAckOnlyFrameQueue, (miQueueBuffer_t*)dataFramePtr);
 			}
 			else
@@ -1476,13 +1484,13 @@ bool MiApp_SendData(uint8_t addr_len, uint8_t *addr, uint8_t msglen, uint8_t *ms
 				if (ackReq)
 				{
 					dataFramePtr->dataFrame.timeout = SW_ACK_TIMEOUT + 1;
-					frameTransmit(broadcast, myPANID, miwiDefaultRomOrRamParams->ConnectionTable[0].Address, true, false, dataFramePtr->dataFrame.msgLength, dataFramePtr->dataFrame.msg, msghandle, ackReq, appAckWaitDataCallback);
+					frameTransmit(broadcast, myPANID, miwiDefaultRomOrRamParams->ConnectionTable[0].Address, true, secEnabled, dataFramePtr->dataFrame.msgLength, dataFramePtr->dataFrame.msg, msghandle, ackReq, appAckWaitDataCallback);
 					miQueueAppend(&appAckWaitDataQueue, (miQueueBuffer_t*)dataFramePtr);
 					SYS_TimerStart(&dataTimer);
 				}
 				else
 				{
-					frameTransmit(broadcast, myPANID, miwiDefaultRomOrRamParams->ConnectionTable[0].Address, true, false, dataFramePtr->dataFrame.msgLength, dataFramePtr->dataFrame.msg, msghandle, ackReq, macAckOnlyDataCallback);
+					frameTransmit(broadcast, myPANID, miwiDefaultRomOrRamParams->ConnectionTable[0].Address, true, secEnabled, dataFramePtr->dataFrame.msgLength, dataFramePtr->dataFrame.msg, msghandle, ackReq, macAckOnlyDataCallback);
 					miQueueAppend(&macAckOnlyFrameQueue, (miQueueBuffer_t*)dataFramePtr);
 				}
 			}
@@ -1490,12 +1498,12 @@ bool MiApp_SendData(uint8_t addr_len, uint8_t *addr, uint8_t msglen, uint8_t *ms
 		else
 		{
 			memcpy(&(dataFramePtr->dataFrame.msg), msgpointer, msglen);
-			frameTransmit(broadcast, myPANID, addr, false, false, msglen, dataFramePtr->dataFrame.msg, msghandle, ackReq, macAckOnlyDataCallback);
+			frameTransmit(broadcast, myPANID, addr, false, secEnabled, msglen, dataFramePtr->dataFrame.msg, msghandle, ackReq, macAckOnlyDataCallback);
 			miQueueAppend(&macAckOnlyFrameQueue, (miQueueBuffer_t*)dataFramePtr);
 		}
 #else
 		memcpy(&(dataFramePtr->dataFrame.msg), msgpointer, msglen);
-		frameTransmit(broadcast, myPANID, addr, false, false, msglen, dataFramePtr->dataFrame.msg, msghandle, ackReq, macAckOnlyDataCallback);
+		frameTransmit(broadcast, myPANID, addr, false, secEnabled, msglen, dataFramePtr->dataFrame.msg, msghandle, ackReq, macAckOnlyDataCallback);
 		miQueueAppend(&macAckOnlyFrameQueue, (miQueueBuffer_t*)dataFramePtr);
 #endif
 	}
@@ -1620,6 +1628,9 @@ uint8_t AddConnection(uint8_t capacityInfo)
         /* store the capacity info and validate the entry */
         miwiDefaultRomOrRamParams->ConnectionTable[connectionSlot].status.bits.isValid = 1;
         miwiDefaultRomOrRamParams->ConnectionTable[connectionSlot].status.bits.RXOnWhenIdle = (capacityInfo & 0x01);
+#if defined(PROTOCOL_STAR) && defined(ENABLE_LINK_STATUS)
+		miwiDefaultRomOrRamParams->ConnectionTable[connectionSlot].link_status = 1;
+#endif
 
         /* store possible additional connection payload */
 #if ADDITIONAL_NODE_ID_SIZE > 0
@@ -1682,6 +1693,8 @@ static void connectionRespConfCallback(uint8_t msgConfHandle, miwi_status_t stat
     MiMem_Free(msgPointer);
 
 #if defined(PROTOCOL_STAR)
+	/* Reload time interval so that Next broadcast will happen after SHARE_PEER_DEVICE_INFO_TIMEOUT */
+	sharePeerDevInfoTimeInterval = SHARE_PEER_DEVICE_INFO_TIMEOUT;
     /* Broadcast connection table upon a device join */
     MiApp_BroadcastConnectionTable();
 #endif
@@ -1707,7 +1720,11 @@ static void linkStatusConfCallback(uint8_t msgConfHandle, miwi_status_t status, 
             {
                 linkFailureCallback();
             }
-            p2pStarCurrentState = DISCONNECTED;	
+			
+			if (p2pStarCurrentState != ESTABLISHING_NETWORK)
+			{
+				p2pStarCurrentState = DISCONNECTED;
+			}
         }
         ++linkStatusFailureCount;
     }
@@ -1757,6 +1774,8 @@ static void startLinkStatusTimer(void)
 {
     /* Start the timer for sending link status periodically  */
     linkStatusTimeInterval = LINK_STATUS_TIMEOUT;
+	
+	connectionTbLostCount = 0;
 }
 #endif
 #endif
@@ -2118,9 +2137,13 @@ void frameParse(MAC_RECEIVED_PACKET *macRxPacket)
             {
                 if (END_DEVICE == role)
                 {
-                    /* END_devices FFD|| RFD process this Packet */
-                    end_nodes = rxMessage.Payload[1];
-                    store_connection_tb(rxMessage.Payload);
+					if (parseConnectionTable(rxMessage.Payload, rxMessage.PayloadSize))
+					{
+						/* END_devices FFD|| RFD process this Packet */
+						end_nodes = rxMessage.Payload[1];
+						store_connection_tb(rxMessage.Payload, rxMessage.PayloadSize);
+					}
+                    
                 }
             }
             break;
@@ -2169,6 +2192,7 @@ void frameParse(MAC_RECEIVED_PACKET *macRxPacket)
 						}
 						dataPtr->dataFrame.msgLength = dataLen;
 						dataPtr->dataFrame.fromEDToED = 1;
+						dataPtr->dataFrame.secEnabled = rxMessage.flags.bits.secEn;
 						/* If the destination end device is sleeping device, place the data in indirect queue or transmit directly */
 						if(miwiDefaultRomOrRamParams->ConnectionTable[ed_index].status.bits.isValid && miwiDefaultRomOrRamParams->ConnectionTable[ed_index].status.bits.RXOnWhenIdle == 0)
 						{
@@ -2182,7 +2206,7 @@ void frameParse(MAC_RECEIVED_PACKET *macRxPacket)
 						}
 						else
 						{
-							frameTransmit(false, myPANID, miwiDefaultRomOrRamParams->ConnectionTable[ed_index].Address, false, false, dataLen, dataPtr->dataFrame.msg, 1, true, appAckWaitDataCallback);
+							frameTransmit(false, myPANID, miwiDefaultRomOrRamParams->ConnectionTable[ed_index].Address, false, dataPtr->dataFrame.secEnabled, dataLen, dataPtr->dataFrame.msg, 1, true, appAckWaitDataCallback);
 							miQueueAppend(&appAckWaitDataQueue, (miQueueBuffer_t*)dataPtr);
 						}
 					}
@@ -2237,7 +2261,7 @@ void frameParse(MAC_RECEIVED_PACKET *macRxPacket)
 						{
 							if (isSameAddress(rxMessage.SourceAddress, dataFramePtr->dataFrame.destAddress))
 							{
-								frameTransmit(dataFramePtr->dataFrame.broadcast, myPANID, dataFramePtr->dataFrame.destAddress, false, false, dataFramePtr->dataFrame.msgLength, dataFramePtr->dataFrame.msg, 
+								frameTransmit(dataFramePtr->dataFrame.broadcast, myPANID, dataFramePtr->dataFrame.destAddress, false, dataFramePtr->dataFrame.secEnabled, dataFramePtr->dataFrame.msgLength, dataFramePtr->dataFrame.msg, 
 									dataFramePtr->dataFrame.msghandle, dataFramePtr->dataFrame.ackReq, macAckOnlyDataCallback);
 								miQueueAppend(&macAckOnlyFrameQueue, (miQueueBuffer_t *)dataFramePtr);
 								break;
@@ -2659,26 +2683,24 @@ static void MiApp_BroadcastConnectionTable(void)
     uint8_t broadcast_count = 0;
     uint8_t* dataPtr = NULL;
     uint8_t dataLen = 0;
-
-    if ((conn_size  * 4 ) + 4 < TX_BUFFER_SIZE)
-    {
-        broadcast_count = 1;
-    }
-    else
-    {
-        broadcast_count = ((conn_size * 4) + 4 )/ TX_BUFFER_SIZE;
-        if ((conn_size *4) + 4 % TX_BUFFER_SIZE != 0)
-        {
-            broadcast_count = broadcast_count + ((conn_size *4) + 4 )% TX_BUFFER_SIZE;
-        }
-
-    }
+	
+	if (conn_size % ((TX_BUFFER_SIZE - 4) / 4))
+	{
+		broadcast_count = conn_size / ((TX_BUFFER_SIZE - 4) / 4) + 1;
+	}
+	else
+	{
+		broadcast_count = conn_size / ((TX_BUFFER_SIZE - 4) / 4);
+	}
 
     for (i = 0 ; i < broadcast_count ; i++)
     {
         dataPtr = MiMem_Alloc(TX_BUFFER_SIZE);
+				
         if (NULL == dataPtr)
             return;
+			
+		dataLen = 0;
         dataPtr[dataLen++] = CMD_SHARE_CONNECTION_TABLE;
         dataPtr[dataLen++] = conn_size; // No of end devices in network
         dataPtr[dataLen++] = (((TX_BUFFER_SIZE-4)/4)*i);
@@ -2763,30 +2785,41 @@ static void handleLostConnection(void)
             if (myLongAddress[0] == END_DEVICES_Short_Address[i].Address[0] && myLongAddress[1] == END_DEVICES_Short_Address[i].Address[1])
             {
                 stat = true;
+				connectionTbLostCount = 0;
             }
         }
-        if (!stat)
+
+        if (!stat) 
         {
-            /* Stop Timers */
-            linkStatusTimeInterval = 0;
-#ifdef ENABLE_SLEEP_FEATURE
-            dataRequestInterval = 0;
-#endif
-            if ((NULL != linkFailureCallback) && (p2pStarCurrentState != DISCONNECTED))
-            {
-                linkFailureCallback();
-            }
-            p2pStarCurrentState = DISCONNECTED;
-        }
+			connectionTbLostCount++;
+			
+			if(connectionTbLostCount >= CONNECTION_TABLE_LOST_MAX)
+			{
+				/* Stop Timers */
+				linkStatusTimeInterval = 0;
+	#ifdef ENABLE_SLEEP_FEATURE
+				dataRequestInterval = 0;
+	#endif
+				if ((NULL != linkFailureCallback) && (p2pStarCurrentState != DISCONNECTED))
+				{
+					linkFailureCallback();
+				}
+			
+				if (p2pStarCurrentState != ESTABLISHING_NETWORK)
+				{
+					p2pStarCurrentState = DISCONNECTED;
+				}
+			}
+		}
     }
 }
 
 /* Function to store the Connection Table Information which is Broadcasted by PAN Coordinator
    Used by END_DEVICES (FFD || RFD) only */
-static void store_connection_tb(uint8_t *payload)
+static void store_connection_tb(uint8_t *payload, uint8_t payloadSize)
 {
     uint8_t i , j ;
-    for (i = 4; i < RX_BUFFER_SIZE; i+=4)
+    for (i = 4; i < payloadSize; i+=4)
     {
         j = payload[i+3];
         if (0xFF != j)
@@ -2797,7 +2830,13 @@ static void store_connection_tb(uint8_t *payload)
             END_DEVICES_Short_Address[j].Address[2] = payload[i+2];
         }
     }
-    handleLostConnection();
+	
+	if (payload[1] > payload[2] && payload[1] <= payload[3])
+	{
+		//Handle lost connection only when receiving the last frame of connection table
+		handleLostConnection();
+	}
+   
 }
 #endif
 
@@ -2872,7 +2911,7 @@ void appAckWaitDataCallback(uint8_t handle, miwi_status_t status, uint8_t* msgPo
 						if (NULL == dataPtr)
 							return;
 						dataPtr[0] = CMD_DATA_TO_ENDDEV_SUCCESS;
-						frameTransmit(false, myPANID, miwiDefaultRomOrRamParams->ConnectionTable[ed_index].Address, true, true, 1, dataPtr, 0, true, CommandConfCallback);
+						frameTransmit(false, myPANID, miwiDefaultRomOrRamParams->ConnectionTable[ed_index].Address, true, dataFramePtr->dataFrame.secEnabled, 1, dataPtr, 0, true, CommandConfCallback);
 					}
 				}
 				MiMem_Free(dataFramePtr);
@@ -3104,5 +3143,39 @@ bool MiApp_ResetToFactoryNew(void)
     {
         return false;
     }
+}
+#endif
+
+
+#if defined(PROTOCOL_STAR)
+static bool parseConnectionTable(uint8_t *payload, uint8_t payloadSize)
+{
+	uint8_t i;
+	bool parseResult = true;	
+	uint8_t PANCConnSize = payload[1];
+	uint8_t connTabStartIdx = payload[2];
+	uint8_t connTabEndIdx = payload[3];
+	uint8_t deviceIdx;
+	
+	if (PANCConnSize > CONNECTION_SIZE)
+	return false;
+	
+	if (connTabStartIdx >= CONNECTION_SIZE)
+	return false;
+	
+	if (connTabStartIdx + ((TX_BUFFER_SIZE - 4) / 4) != connTabEndIdx)
+	return false;
+	
+	for (i = 4 ; i < payloadSize; i += 4)
+	{
+		deviceIdx = payload[i+3];
+		if (deviceIdx != 0xFF && deviceIdx >= CONNECTION_SIZE)
+		{
+			parseResult = false;
+			break;
+		}
+	}
+	
+	return parseResult;
 }
 #endif

@@ -3,7 +3,7 @@
 *
 * \brief Main file of Simple Example Star.
 *
-* Copyright (c) 2018 - 2020 Microchip Technology Inc. and its subsidiaries.
+* Copyright (c) 2018 - 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * \asf_license_start
 *

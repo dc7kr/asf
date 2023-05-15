@@ -3,7 +3,7 @@
 *
 * \brief Simple demo application for wireless chat.
 *
-* Copyright (c) 2019 - 2020 Microchip Technology Inc. and its subsidiaries.
+* Copyright (c) 2019 - 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * \asf_license_start
 *
@@ -446,8 +446,11 @@ void FormatTxMessage()
 void TransmitMessage()
 {
     //Send message
-
-    if(MiApp_SendData(8, connectionTable[0].Address, TxMessage.MessageSize + 1, &TxMessage.MessageSize, msghandledemo++, true, dataConfcb) == false )
+#ifdef ENABLE_SECURITY
+    if(MiApp_SendData(8, connectionTable[0].Address, TxMessage.MessageSize + 1, &TxMessage.MessageSize, msghandledemo++, true, true, dataConfcb) == false )
+#else
+    if(MiApp_SendData(8, connectionTable[0].Address, TxMessage.MessageSize + 1, &TxMessage.MessageSize, msghandledemo++, true, false, dataConfcb) == false )
+#endif
     {
         //Message TX Failed (peer node 00 was likely being re-programmed by student)
         //Should reset the node to establish new peer connection to send chat to

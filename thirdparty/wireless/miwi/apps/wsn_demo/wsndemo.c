@@ -3,7 +3,7 @@
 *
 * \brief WSNDemo application implementation
 *
-* Copyright (c) 2018 - 2020 Microchip Technology Inc. and its subsidiaries. 
+* Copyright (c) 2018 - 2022 Microchip Technology Inc. and its subsidiaries. 
 *
 * \asf_license_start
 *
@@ -338,7 +338,11 @@ static void appSendData(void)
 	    memcpy(appMsg.caption.text, APP_CAPTION, APP_CAPTION_SIZE);
 		sprintf(&(appMsg.caption.text[APP_CAPTION_SIZE - SHORT_ADDRESS_CAPTION_SIZE]), "-0x%04X", shortAddressLocal);
 	}
-	if (MiApp_SendData(2, (uint8_t *)&dstAddr, sizeof(appMsg), (uint8_t *)&appMsg, wsnmsghandle, true, appDataConf))
+#ifdef ENABLE_SECURITY
+	if (MiApp_SendData(2, (uint8_t *)&dstAddr, sizeof(appMsg), (uint8_t *)&appMsg, wsnmsghandle, true, true, appDataConf))
+#else
+	if (MiApp_SendData(2, (uint8_t *)&dstAddr, sizeof(appMsg), (uint8_t *)&appMsg, wsnmsghandle, true, false, appDataConf))
+#endif
 	{
 		++wsnmsghandle;
 		appState = APP_STATE_WAIT_CONF;

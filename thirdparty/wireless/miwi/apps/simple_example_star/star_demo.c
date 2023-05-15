@@ -200,8 +200,14 @@ void run_star_demo(void)
                     {
                         /* IF on the demo , a END_Device displays its own Connection Detail
                              We unicast data packet to just PAN COR , No forwarding */
+#ifdef ENABLE_SECURITY
                         mac_ack_status = MiApp_SendData(LONG_ADDR_LEN, connectionTable[0].Address, MIWI_TEXT_LEN,
-                                                    (uint8_t*)&MiWi[(TxSynCount2%6)][0], msghandledemo++, true, dataConfcb);
+                                                    (uint8_t*)&MiWi[(TxSynCount2%6)][0], msghandledemo++, true, true, dataConfcb);
+#else
+						mac_ack_status = MiApp_SendData(LONG_ADDR_LEN, connectionTable[0].Address, MIWI_TEXT_LEN,
+													(uint8_t*)&MiWi[(TxSynCount2%6)][0], msghandledemo++, true, false, dataConfcb);
+#endif
+
                         if (mac_ack_status)
                         {
                             TxSynCount2++;
@@ -214,8 +220,13 @@ void run_star_demo(void)
                            To forward a Packet from one ED to another ED , address should be specified with length as 3
                            and address as end dest device short address (3 bytes)
                         */
+#ifdef ENABLE_SECURITY
                         mac_ack_status = MiApp_SendData(3, END_DEVICES_Short_Address[select_ed].Address,
-                        MIWI_TEXT_LEN, (uint8_t *)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, dataConfcb);
+                        MIWI_TEXT_LEN, (uint8_t *)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, true, dataConfcb);
+#else
+						mac_ack_status = MiApp_SendData(3, END_DEVICES_Short_Address[select_ed].Address,
+						MIWI_TEXT_LEN, (uint8_t *)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, false, dataConfcb);
+#endif
 
                         if (mac_ack_status)
                         {
@@ -261,10 +272,15 @@ void run_star_demo(void)
                     /*******************************************************************/
                     uint16_t broadcastAddress = 0xFFFF;
                     bool mac_ack_status;
-
+#ifdef ENABLE_SECURITY
                     /* Function MiApp_SendData is used to broadcast a message with address as 0xFFFF */
                     mac_ack_status = MiApp_SendData(SHORT_ADDR_LEN, (uint8_t *)&broadcastAddress,
-                        MIWI_TEXT_LEN, (uint8_t *)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, dataConfcb);
+                        MIWI_TEXT_LEN, (uint8_t *)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, true, dataConfcb);
+#else
+					/* Function MiApp_SendData is used to broadcast a message with address as 0xFFFF */
+                    mac_ack_status = MiApp_SendData(SHORT_ADDR_LEN, (uint8_t *)&broadcastAddress,
+                        MIWI_TEXT_LEN, (uint8_t *)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, false, dataConfcb);
+#endif
 
                     if (mac_ack_status)
                     {
@@ -318,8 +334,14 @@ void run_star_demo(void)
                                     {
                                         /* IF on the demo , a END_Device displays its own Connection Detail
                                            unicast data packet to just PAN COR , No forwarding */
+#ifdef ENABLE_SECURITY
                                         mac_ack_status = MiApp_SendData(LONG_ADDR_LEN, connectionTable[0].Address,
-                                        MIWI_TEXT_LEN, (uint8_t*)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, dataConfcb);
+                                        MIWI_TEXT_LEN, (uint8_t*)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, true, dataConfcb);
+#else
+										mac_ack_status = MiApp_SendData(LONG_ADDR_LEN, connectionTable[0].Address,
+										MIWI_TEXT_LEN, (uint8_t*)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, false, dataConfcb);
+#endif
+										
 
                                         if (mac_ack_status)
                                         {
@@ -334,9 +356,13 @@ void run_star_demo(void)
                                            To forward a Packet from one ED to another ED , address should be specified with length as 3
                                            and address as end dest device short address (3 bytes)
                                         */
+#ifdef ENABLE_SECURITY
                                         mac_ack_status = MiApp_SendData(3, END_DEVICES_Short_Address[select_ed].Address,
-                                        MIWI_TEXT_LEN, (uint8_t*)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, dataConfcb);
-
+                                        MIWI_TEXT_LEN, (uint8_t*)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, true, dataConfcb);
+#else
+										mac_ack_status = MiApp_SendData(3, END_DEVICES_Short_Address[select_ed].Address,
+										MIWI_TEXT_LEN, (uint8_t*)&MiWi[(TxSynCount%6)][0], msghandledemo++, true, false, dataConfcb);
+#endif
                                         if (mac_ack_status)
                                         {
                                             TxSynCount++;

@@ -27,2008 +27,2671 @@
 				</option>
 				<option>
 					<name>Variant</name>
-					<Timppage output
-his may ber				Agktmppage caaDVoach entitn>
-				ng a yrTAon pleasebug>
-		<settings>rce the real man page, but wi_lte>0</state>
-				</ofaunLocal>1</wantNonLocal>
-				<debug>1</debug>
-				<option>
-					<name>ExePath< and botPretty with
-# other RTF readers or editors.
-
-GENERATE_RTF         /ra>
-					<name>jtago</name>
-					<version>0</version>
-					<the LaTeX  OUTPUT_DIhe LaTeaPUTUUfVersion>
-			<data>
-mn		<version>yntax is X  OUTPUGig>
-					<state>$PROJ_.
-
-MAKE
-					<state>Debug\List</state>
+					<version>20</version>
+					<state>35</state>
 				</option>
 				<option>
-					<name>Variant</nF readers or editorlchain>
-		<debug>1</debug>
-		<settings>
-			<name>GeneraluGeneralu set to YES Doxygen will
-# generate an XML file that captures the structure of
-# the code including all documentation.
-
-GENERATE_XML           = NO
-
-# The XML_OUTPUT tag eLe>OCDriverInfo</name>
-					<state>Bs>
+					<name>GEndianMode</name>
+					<state>0</state>
+				</option>
 				<option>
-					<name>VUgroup membbkMLIS>
-				t output
-his may ber				Agktmppage caaDVoach entitn>
-				ng a yrTAon pleasebug>
-		<settings>rce the real man page, but wi_lte>0</state>
-				</ocee</name>
-					<state></state>
-				</optionbsp benis makes the outpated lr---------------------
-
-# If the GENERATE_MAN tag is set to YESi
+					<name>Input variant</name>
+					<version>3</version>
+					<state>1</state>
+				</option>
+				<option>
+					<name>Input description</name>
+					<state>Full formatting.</state>
+				</option>
+				<option>
+					<name>Output variant</name>
+					<version>2</version>
+					<state>1</state>
+				</option>
+				<option>
+					<name>Output description</name>
+					<state>Full formatting.</state>
+				</option>
+				<option>
+					<name>GOutputBinary</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>FPU</name>
+					<version>2</version>
+					<state>0</state>
+				</option>
+				<option>
+					<name>OGCoreOrChip</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>GRuntimeLibSelect</name>
+					<version>0</version>
+					<state>2</state>
+				</option>
+				<option>
+					<name>GRuntimeLibSelectSlave</name>
+					<version>0</version>
+					<state>2</state>
+				</option>
+				<option>
+					<name>RTDescription</name>
+					<state>Use the normal configuration of the C/C++ runtime library. No locale interface, C locale, no file descriptor support, no multibytes in printf and scanf, and no hex floats in strtod.</state>
+				</option>
+				<option>
+					<name>OGProductVersion</name>
+					<state>5.10.0.159</state>
+				</option>
+				<option>
+					<name>OGLastSavedByProductVersion</name>
+					<state>6.40.1.53794</state>
+				</option>
+				<option>
+					<name>GeneralEnableMisra</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>GeneralMisraVerbose</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>OGChipSelectEditMenu</name>
+					<state>ATSAML21J18A	Atmel ATSAML21J18A</state>
+				</option>
+				<option>
+					<name>GenLowLevelInterface</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>GEndianModeBE</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>OGBufferedTerminalOutput</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>GenStdoutInterface</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>GeneralMisraRules98</name>
+					<version>0</version>
+					<state>1000111110110101101110011100111111101110011011000101110111101101100111111111111100110011111001110111001111111111111111111111111</state>
+				</option>
+				<option>
+					<name>GeneralMisraVer</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>GeneralMisraRules04</name>
+					<version>0</version>
+					<state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+				</option>
+				<option>
+					<name>RTConfigPath2</name>
+					<state>$TOOLKIT_DIR$\INC\c\DLib_Config_Full.h</state>
+				</option>
+				<option>
+					<name>GFPUCoreSlave</name>
+					<version>20</version>
+					<state>35</state>
+				</option>
+				<option>
+					<name>GBECoreSlave</name>
+					<version>20</version>
+					<state>35</state>
+				</option>
+				<option>
+					<name>OGUseCmsis</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>OGUseCmsisDspLib</name>
+					<state>0</state>
+				</option>
+			</data>
+		</settings>
 		<settings>
-			<name>RDI_ID</name>
+			<name>ICCARM</name>
 			<archiveVersion>2</archiveVersion>
 			<data>
-				<version>2</version>
-	bkosLorosLorosLorosLorosLorosLoro_<data>
-	    >2</ss-referlUT ri-refsmrsion>3</archivpaROJaROJaROJaROJaROJaROJaROJaROereal man page, but without them the man command
-# would be unable to find the correct page. The default is NO.
-
-MAN_LINKS              = NO
-
-#---------------------------------------------------------------------------
-# configuration options related to the Xwane------------------------
-# configuration options related to the Xwane-------------optionn opvvnfiguration options related to the Xwasions related to the Xwane-------------optionn opvvnfiguration options relatedkes theaxfnions relatedn_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
+				<version>28</version>
+				<wantNonLocal>1</wantNonLocal>
+				<debug>1</debug>
+				<option>
+					<name>CCOptimizationNoSizeConstraints</name>
 					<state>0</state>
 				</option>
 				<option>
-					<name>CCJTagUpdateBreakpoints</name>
-			te>ufsi_Aons relatedkes theaxfnions relatedn_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
+					<name>CCDefines</name>
+					<state>_ASSERT_ENABLE_</state>
+					<state>__SAML21J18A__</state>
+					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>UDD_ENABLE</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
+					<state>USB_DEVICE_LPM_SUPPORT</state>
+					<state>USART_CALLBACK_MODE=true</state>
+					<state>BOARD=SAML21_XPLAINED_PRO</state>
+				</option>
+				<option>
+					<name>CCPreprocFile</name>
 					<state>0</state>
 				</option>
 				<option>
-					<name>CCJTagUpdateBreakpoints</name>
-			te>ufsi_Aons relatedkes theaxfnions relatedn_h_elatedkes theaxffffffffffffffffffffffffffrce the real man page, but wi_lte>0</state>
-				</ocee</name>
+					<name>CCPreprocComments</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCPreprocLine</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCListCFile</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCListCMnemonics</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCListCMessages</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCListAssFile</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCListAssSource</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCEnableRemarks</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCDiagSuppress</name>
 					<state></state>
-				</opti). These additional files
-# only source the real man pagx_-------------------------de including all dochanging th>VUgt
-# ppdkes theaxfnions relatedn_h_elatedkes theaxffffffffffffffffffffffffffrce the real man page, but wi_lte>0</state>
-				</r			<archiveVerbug\List</statabefffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<archiveVerbug\List</statabefffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<archiveVerbug\List</statabefffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<archiveVerbuL<ete>0</state>
-				</option>t0</stOJaROf_A>0</state>
-				</radditional filePfigjGt		</option>t0</stOJaROf_A>0</state>
-				</radditional filePfigjGt		</opti/
-				</ If
-				</opton>t0</ssi_Aons rell be geneMNtput
-Ke</ssi_Aons rell be generbug\List</statabefffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<archiveVerbug\List</statabefffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<archiveVechiferlUT rieal man page, but wi_lte>0</state,1nothers do n			<# If U/option>
-				<option>
-			sf0</stOJaROf_A>0</state>
-				</radditional filePfigjGt		</option>t0</stOJaROf_A>0<n<xMMsbefffffffrcat_a0.1</state>
-				</optionI0.1</state>
-				</optionI0.1</state>
-				</optionI0.1</state>
-				</optionI0.1</state>
-				</optionI0.1</state>
-				</optionI0.1<				<option>
-					<name>CThirdPartyLogFileCheck</name>
-					<state>0</state>
-				</optiStions t_<option>
-					<name>CThirdPartyLogFileCheck</name>
-					<state>0</state>
-				</optiStions t_<option>
-					<name>CThirdPartyLogFileCheck</name>
-					<state>0</state>
-				</optiStions t_<option>
-					<name>CThirdPartyLogFileCheck</name>
-					<state>0</state>
-	poBpTr
 				</option>
-	r			<WWAnvvnfiguration optiaal					<stattate>
-				</r			<archie>
-	poBpTr
-				</option>
-	r			<WWAnvvnfiguration optiaal					<stattate>
-				</rrri>
-		<<te>0</state>
-	poBpTr
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-	Bled (see GENERATE_TREEVIEW) then this tag can be
-# used5aJATEsptiStions t_<option>
-					<name>CThirdPartyLogFileCheck</name>
-					<state>ao
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-	Bled (see GENERATE_TREEVIEW) then this e the FORMULA_TRANPARENT tag to determine whether or not the images
-# generated fmqname>xKK then tLsATE_TREEVo
-	Bled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</radditional filePfigjGt		<n tLsATE_TREEVo
-	Bled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</radditional filePfigjGt		<n tLsATE_TREEVo
-	Bled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</radditional filePfigjGt		<n tLsATE_TREEVo
-	Bled (see GENERATE_List</statabefffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<archiveVechiferlUT rieal man page, but wi_lte>0</state,1nothers do n			<# If U/option>
 				<option>
-			sf0</stOJaROf_A>0</state>
-				</radditional filePfigjGt		</option>t0</stBstate>0</state>
-	Mwhle>CThirdaEuf_A>0</secnlp----optionn opvvnfiguration options relatedkes theaxfnions relatedn_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
+					<name>CCDiagRemark</name>
+					<state></state>
+				</option>
+				<option>
+					<name>CCDiagWarning</name>
+					<state></state>
+				</option>
+				<option>
+					<name>CCDiagError</name>
+					<state></state>
+				</option>
+				<option>
+					<name>CCObjPrefix</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CCAllowList</name>
+					<version>0</version>
+					<state>1111111</state>
+				</option>
+				<option>
+					<name>CCDebugInfo</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IEndianMode</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IProcessor</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IExtraOptionsCheck</name>
 					<state>0</state>
 				</option>
 				<option>
-					<name>CCJTagUpdateBreakpoints</name>
-			te>ufsi_Aons relatedkes theaxfnaoate>
-				</r			<archiveVechifer>
-	Mwhle>CThirdaEuf_A>0</secnlp----optionn opvvnfiguration options relatedkes dditional filePfe rdNlatedkes dditional filePfe rdNlatete>
-	puIR$\INC\c\D<ar_latedk_ionI.hows
-# full text search. Thereakpoints</name>
-			eckme>
-	poBpTr
-				</option>
-	r			7aLd the real man page, but wi_lte>0</state>
-				</r			<archiveVerbug\List<BEme>
-	poBpTr
-				</option>
-	r			7aLd the real man page, but wi_lte>0</state>
-				</r			<archiveVerbug\ListOG		<Cmsisled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rad		<CmsisDsp<ar_h_elatedkes theaxfniows
-# full text search. Thbut>
-				<owserbug\List<eVerbug\List</statabICCan page, but Ld the real man p2ge, but wi_lte>0</state>
-				</r			<archiv8Verbug\List</statabefffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<aCCOtatmiz			</NoSizelat			</sts_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCDefines_h_elatedkes theaxfn_ASSERT_ENABLE_ows
-# full te theaxfn__	</radditi__ows
-# full te theaxfnEXTINT_CALLBACK_MODE=trueows
-# full te theaxfnUDD_ENABLEows
-# full te theaxfnTEST_SUITE_DEFINE_ASSERT_MACROows
-# full te theaxfnan _MATH_CM0PLUS=trueows
-# full te theaxfnUSB_DEVICE_LPM_SUPPORTows
-# full te theaxfnUSART_CALLBACK_MODE=trueows
-# full te theaxfnBOARD=	</rad_XPLAINED_PROows
-# full text search. Thereakpoints</name>
-		CCPreprocF			_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCPreprocCommests_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCPreprocLine_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCons CF			_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCons CMnemonics_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCons CMessages_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCons AssF			_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCons AssSourc	_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCo
-				Remarks_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCDiagS			ress_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		CCDiagRemark_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		CCDiagWarnug\_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		CCDiagError_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		CCfilerefixled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rCCallATEns re			</option>
-				<option>
-					<name>CCJTagUpdatnfiguration options relatedkes dditional filePfe rCCDewi_Infoled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rI/statabefffffffrcaters7aLd theEEVIEW) then this e thcJaROf_A>0</state>
-				</rICThcessor_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rI/x		<O>0</ssCheckfffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<a/x		<O>0</ss_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		CCLanglate	</onc	_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCSignedPl</sCharled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rCCRequireCThtotypes_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCM</o
-				S				</_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCDiagWarnAreErr_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCComp			r	</r			Infoled (see GENERATE_TR real man page, but wi_lte>0</state>
-				</r			<aFpuCThcessor_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rgjGt		F			_h_elatedkes theaxfn$FILE_BNAME$.oows
-# full text search. Thereakpoints</name>
-		CConblatedkHeader_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rereInclufffffffrcaters7aLd theows
-# full text search. Thereakpoints</name>
-		Comp			rte>0<On>
-rid	_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCIncluffes dditional filePfe rdNlaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/		</_hs
-# full te theaxfnaPROJpuIR$/../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/reset_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/boards/samlad_xpl</sed_pro_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/	reprocessor_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/power_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/boards_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/usart_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../serifffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../sleepmgr_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../util	_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/
-				rupt_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/power/power_sam_ffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usb/usb_sam_ffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../udcfrs
-# full te theaxfnaPROJpuIR$/../../../../../../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/
-				rupt/system_
-				rupt_samlad_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/ext
-		/ext
-		_sam_f_cfrs
-# full te theaxfnaPROJpuIR$/..frs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usb/heack_iman page, s
-# full te theaxfnaPROJpuIR$/../../../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/
-	cluffffs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/sourc	_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/clock/clock_samlad_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../boards_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/reset/reset_sam_ffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/pinmuxfrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usbfrs
-# full te theaxfnaPROJpuIR$/../../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/ext
-		_hs
-# full te theaxfnaPROJpuIR$/../../../../..ffs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/header_
-			sffs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/stdio/stdio_serifffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/clockfrs
-# full te theaxfnaPROJpuIR$/.ows
-# full text search. Thereakpoints</name>
-		CCStdIncCheckfffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<CCCodeSec		</o
-				</o
-				</o
-		.textreal man page, but wi_lte>0</state>
-				</r			<a man work2led (see GENERATE_TR real man page, but wi_lte>0</state>
-				</r			<aCThcessorbeff2led (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rCCOptE_TREled (see GENERATE_TR3EVIEW) then this e thcJaROf_A>0</state>
-				</rCCOptStrW) gyre			</option>
-				<option>
-					<name>CCJTagUpEVIEW) then this e thcJaROf_A>0</state>
-				</rCCOptE_TRE	poBpTr
-				</optioATE_TR3EVIEW) then this e thcJaROf_A>0</state>
-				</rComp			rte>0<0</state,1nothers do n			<# If U/option>
-				<option>
-			sf0</stOJaROf_A>0</state>
-				</radditional filePfigjGt		</option>t0</stBstate>0</state>
-	Mwhle>CThirdaEuf_A>0</secnlp----optionn opvvnfiguration options relatedkes theaxComp			rte>0<0</ste>
+					<name>IExtraOptions</name>
+					<state></state>
 				</option>
 				<option>
-					<name>CCJTagUpdateBreakpoints</name>
-			te>ufsi_Aons relatedkes theaxfnaoate>
-				</r			<archiveVechifer>
-	Mwhle>CThirdaEuf_A>0</secnlp----optionn opvvnfiguration options relatedkes dditional filePfe rCCPosIndRopi_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCPosIndRwpi_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCPosIndNoDynIni/_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		IccLang_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		IccCDiaame>
-					<state>0heaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rIccallATVLA_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		IccCppDiaame>
-					<state>0heaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rIccExce>0</ss_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rIccRTTI_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rIccSEW)icDestr_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rIccCppInlineSemantics_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		IccCmsisled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rIccF
-			Semantics_h_elatedkes theaxfniows
-# full text search. Thbut>
-				<owserbug\List<eVerbug\List</statabAan page, but Ld the real man p2ge, but wi_lte>0</state>
-				</r			<archi8Verbug\List</statabefffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<aAfilerefixled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rA/stataled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rACaseSensitivityled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rMacroChars
-				</option>
-				<option>
-					<name>CCJTagUiows
-# full text search. Thereakpoints</name>
-		AWarno
-				_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		AWarnWhat_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		AWarnOnffffffrcaters7aLd theows
-# full text search. Thereakpoints</name>
-		AWarnRange1fffffrcaters7aLd theows
-# full text search. Thereakpoints</name>
-		AWarnRange2fffffrcaters7aLd theows
-# full text search. Thereakpoints</name>
-		AstatabefffffffrENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rAltRegisterN	</s_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		ADefines_h_elatedkes theaxfn_ASSERT_ENABLE_ows
-# full te theaxfn__	</radditi__ows
-# full te theaxfnEXTINT_CALLBACK_MODE=trueows
-# full te theaxfnUDD_ENABLEows
-# full te theaxfnTEST_SUITE_DEFINE_ASSERT_MACROows
-# full te theaxfnan _MATH_CM0PLUS=trueows
-# full te theaxfnUSB_DEVICE_LPM_SUPPORTows
-# full te theaxfnUSART_CALLBACK_MODE=trueows
-# full te theaxfnBOARD=	</rad_XPLAINED_PROows
-# full text search. Thereakpoints</name>
-		AEns re			</option>heaxfniows
-# full text search. Thereakpoints</name>
-		AEns Header_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rAEns ug\_h_elatedkes theaxfnhers do n			<# If U/option>
-				<option>
-			sf0</scluffs_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		MacDefs_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		MacExpsled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rMacExecr or not the images
-# generated fmqname>xKK then tLsATE_TREEVo
-	Bled nlyAssed_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		M</o
-Line_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		PageLengthCheckfffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<PageLengthfffffrcaters7aLd the8 real man page, but wi_lte>0</state>
-				</r			<TabSpacug\_h_elatedkes theaxfn8EVIEW) then this e thcJaROf_A>0</state>
-				</rAXRefre			</option>heaxfniows
-# full text search. Thereakpoints</name>
-		AXRefDefines_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		AXRef man nalre			</option>heaxfniows
-# full text search. Thereakpoints</name>
-		AXRefDualre			</option>heaxfniows
-# full text search. Thereakpoints</name>
-		ACThcessor_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rAFpuCThcessor_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rAgjGt		F			_h_elatedkes theaxfn$FILE_BNAME$.oows
-# full text search. Thereakpoints</name>
-		AM</o
-				S				</_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		AEnmitErrorsCheckfffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<AEnmitErrorsTE_T_h_elatedkes theaxfnE0 real man page, but wi_lte>0</state>
-				</r			<AIgne>
-	tdInclufffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<AUser/scluffs_h_elatedkes theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/		</_hs
-# full te theaxfnaPROJpuIR$/../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/reset_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/boards/samlad_xpl</sed_pro_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/	reprocessor_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/power_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/boards_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/usart_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../serifffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../sleepmgr_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../util	_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/
-				rupt_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/power/power_sam_ffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usb/usb_sam_ffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../udcfrs
-# full te theaxfnaPROJpuIR$/../../../../../../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/
-				rupt/system_
-				rupt_samlad_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/ext
-		/ext
-		_sam_f_cfrs
-# full te theaxfnaPROJpuIR$/..frs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usb/heack_iman page, s
-# full te theaxfnaPROJpuIR$/../../../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/
-	cluffffs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/sourc	_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/clock/clock_samlad_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../boards_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/reset/reset_sam_ffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/pinmuxfrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usbfrs
-# full te theaxfnaPROJpuIR$/../../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/ext
-		_hs
-# full te theaxfnaPROJpuIR$/../../../../..ffs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/header_
-			sffs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/stdio/stdio_serifffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/clockfrs
-# full te theaxfnaPROJpuIR$/.ows
-# full text search. Thereakpoints</name>
-		A/x		<O>0</ssCheckV2led (see GENERATE_TR real man page, but wi_lte>0</state>
-				</r			<A/x		<O>0</ssV2fffffrcaters7aLd theows
-# full text search. Thbut>
-				<owserbug\List<eVerbug\List</statabOBJCOPYpage, but Ld the real man p0ge, but wi_lte>0</state>
-				</r			<archieVerbug\List</statabefffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<aOOCgjGt		F1<			</name>
-					<state>0</state>
-				</optiStionsal					<stattate>
-				</rrri>
-		<<te>0</state>
-	OCgjGt		On>
-rid	_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		OOCgjGt		F			_h_elatedkes theaxfnmouse_unit_tests_flash.binows
-# full text search. Thereakpoints</name>
-		OOCCommandLineCThirder_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rOOCgbjCopyo
-				_h_elatedkes theaxfn1ows
-# full text search. Thbut>
-				<owserbug\List<eVerbug\List</statabCUSTOMfrcaters7aLd the real man page, but wi_lte>0</state>
-				</r	extensi/sseowextensi/sse		</r	cmdlineeowcmdlinee. Thbut>
-				<owserbug\List<eVerbug\List</statabBICOMPpage, but Ld the real man p0ge, but wi_lte>0</state>
-		but>
-				<owserbug\List<eVerbug\List</statabBUILDACTIONpage, but Ld the real man p1ge, but wi_lte>0</state>
-				</r		rebuild	bu	rebuild			</r		ostbuild	bu	ostbuild	. Thbut>
-				<owserbug\List<eVerbug\List</statabILINKpage, but Ld the real man p0ge, but wi_lte>0</state>
-				</r			<archie5Verbug\List</statabefffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<aIlinkgjGt		F			_h_elatedkes theaxfnmouse_unit_tests_flash.outreal man page, but wi_lte>0</state>
-				</r			<alinkLibIOlatedk_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rXLinkte>0<Handldn_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alink/stOJF				poBpTr
-				</optioATE_TRiows
-# full text search. Thereakpoints</name>
-		alinkDewi_Infoo
-				_h_elatedkes theaxfn1ows
-# full text search. Thereakpoints</name>
-		alinkKeepSymbols_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkRawtate>0F			_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkRawtate>0Symbol_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkRawtate>0Segmest_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkRawtate>0Align_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkDefines_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinklatedkDefines_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkMapF			_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkLogF			_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkLogIni/iffiz			</_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkLogMhir		_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkLogSec		</o
-				</o
-				</o
-		iows
-# full text search. Thereakpoints</name>
-		alinkLogVenedn_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alink/cfOn>
-rid	_h_elatedkes theaxfn1ows
-# full text search. Thereakpoints</name>
-		alink/cfF			_h_elatedkes theaxfn$PROJpuIR$/../../../../../../../../../../sam0/util	/linker_s
-				s/samlad/
-ar/samladj18a_flash.icfows
-# full text search. Thereakpoints</name>
-		alink/cfF				poBpTr
-				</optioATE_TRows
-# full text search. Thereakpoints</name>
-		alinko
-				Remarks_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkS			ressDiags_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkTreatAsRem_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkTreatAsWarn_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkTreatAsErr_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkWarnug\sAreErrors_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkUse/x		<O>0</ss_h_elatedkes theaxfn1ows
-# full text search. Thereakpoints</name>
-		alink/x		<O>0</ss_h_elatedkesxt search. Thereakpoints</name>
-		alinkLoTE_TREEVIEW) th	poBpTr
-				</optioATE_TR1ows
-# full text search. Thereakpoints</name>
-		alinkAutoLibo
-				_h_elatedkes theaxfn1ows
-# full text search. Thereakpoints</name>
-		alinkAddikpoialLibs_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkOn>
-rid	CThgramEntryLabel_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkCThgramEntryLabel/name>
-					<state>0heaxfniows
-# full text search. Thereakpoints</name>
-		alinkCThgramEntryLabel_h_elatedkes theaxfn__
-ar_program_heartreal man page, but wi_lte>0</state>
-				</r			<DoF		l_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		F		lerByt	_h_elatedkes theaxfnixFFows
-# full text search. Thereakpoints</name>
-		F		lerSeartre_elatedkes theaxfnixiows
-# full text search. Thereakpoints</name>
-		F		lerEndre_elatedkes theaxfnixiows
-# full text search. Thereakpoints</name>
-		CrcSizere			</option>
-				<option>
-					<name>CCJTagUpEVIEW) then this e thcJaROf_A>0</state>
-				</rCrcAlign_h_elatedkes theaxfnpEVIEW) then this e thcJaROf_A>0</state>
-				</rCrcPol0</state>
-				</optiStx1102pEVIEW) then this e thcJaROf_A>0</state>
-				</rCrcCompl
-				</option>
-				<option>
-					<name>CCJTagUiows
-# full text search. Thereakpoints</name>
-		CrcBitOrder_h_elatedkes t
-				<option>
-					<name>CCJTagUiows
-# full text search. Thereakpoints</name>
-		CrcIni/iffValuere_elatedkes theaxfnixiows
-# full text search. Thereakpoints</name>
-		DoCrc
-					<state>0heaxfniows
-# full text search. Thereakpoints</name>
-		alinkBE8	poBpTr
-				</optioATE_TR1ows
-# full text search. Thereakpoints</name>
-		alinkditional filePfigjGt		<n tLsATE_TREEVo
-	Bl1ows
-# full text search. Thereakpoints</name>
-		alinke real man page	poBpTr
-				</optioATE_TR1ows
-# full text search. Thereakpoints</name>
-		CrcionISizere			</option>heaxfniows
-# full text search. Thereakpoints</name>
-		alink/ElfToolPostCThcesso
-				</o
-				</o
-		iows
-# full text search. Thereakpoints</name>
-		alinkLogAutoLib/name>
-					<state>0heaxfniows
-# full text search. Thereakpoints</name>
-		alinkLogRedirSymbols_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkLogUnusedFragmests_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinklrcRen>
-	eByt	Order_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinklrcUseAs/stOJ<n tLsATE_TREEVo
-	Bl1ows
-# full text search. Thereakpoints</name>
-		alinkO>0Inline_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkO>0Exce>0</ssallAT<n tLsATE_TREEVo
-	Bl1ows
-# full text search. Thereakpoints</name>
-		alinkO>0Exce>0</ssForc	_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinklmsisled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rIlinkO>0MergeDuplSec		</s_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkO>0UseVfeled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rIlinkO>0Forc	Vfeled (see GENERATE_TRiows
-# full text search. Thereakpoints</name>
-		alinkSeackAPfiysiso
-				_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkSeackControlF			_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkSeackCallGraphF			_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		CrcAlgorithmre			</option>
-				<option>
-					<name>CCJTagUpEVIEW) then this e thcJaROf_A>0</state>
-				</rCrcUni/Sizere			</option>
-				<option>
-					<name>CCJTagUiows
-# full text search. Thbut>
-				<owserbug\List<eVerbug\List</statabIARCHIVEpage, but Ld the real man p0ge, but wi_lte>0</state>
-				</r			<archi0Verbug\List</statabefffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<aI, but w/stOJs_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		a, but wOn>
-rid	_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		a, but wOjGt		<n tLsATE_TREEVo
-	Bl###Uni/iffized###ows
-# full text search. Thbut>
-				<owserbug\List<eVerbug\List</statabBILINKpage, but Ld the real man p0ge, but wi_lte>0</state>
-		but>
-				<owserbug\List</		<archiveVerbug			<archiveVerbug\List</Rnamaher or not tcaters7aLd the real man page, but wi_lte>0</state>
-				<0r			<archiveVerbug\List</statabefffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<archiveVerbug\List</statabefffffffrcaters7aLd the real man page,0but wi_lte>0</state>
-				</r			<archiveVerbuL<ete>0</state>
-Rnamahe/option>t0</stOJaROf_A>0</state>
-				</radditional filePfigjGt		</option>t0</sRnamahe/f_A>0</state>
-				</radditional filePfigjGt		</opti/
-				</ If
-				</opton>t0<Rnamahe/ons rell be geneMNtput
-Ke</ssi_Aons rell be generbug\List</statabefffffffrcaters7aLd the real man page, b0 wi_lte>0</state>
-				</r			<archiveVerbug\List</statabefffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<archiveVechiferlUT rieal man page, but wi_lte>0</state,1nothers do n			<# If U/option>
-				<option>
-			sf0</stOJaROf_A>0</state>
-				</radditional filePfigjGt		</option>t0</stOJaROf_A>0<n<xMMsbefffffffrcat_a0.1</state>
-				</optionI0.1</state>
-				</optionI0.1</state>
-				</optionI0.1</state>
-				</optionI0.1</state>
-				</optionI0.1</state>
-				</optionI0.1<				<option>
-					<name>CThirdPartyLogFileCheck</name>
-					<state>0</state>
-				</optiStions t_<option>
-					<name>CThirdPartyLogFileCheck</name>
-					<state>0</state>
-				</optiStions t_<option>
-					<name>CThirdPartyLogFileCheck</name>
-					<state>0</state>
-				</optiStions t_<option>
-					<name>CThirdPartyLogFileCheck</name>
-					<state>0</state>
-	poBpTr
-				</option>
-	r			<WWAnvvnfiguration optiaal					<stattate>
-				</r			<archie>
-	poBpTr
-				</option>
-	r			<WWAnvvnfiguration optiaal					<stattate>
-				</rrri>
-		<<te>0</state>
-	poBpTr
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-	Bled (see GENERATE_TREEVIEW) then this tag can be
-# used5aJATEsptiStions t_<option>
-					<name>CThirdPartyLogFileCheck</name>
-					3state>141				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-				</o
-	Bled (see GENERATE_TREEVIEW) then this e the FORMULA_TRANPARENT tag to determine whether or not the images
-# generated fmqname>xKK then tLsATE_TREEVo
-	Bled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</radditional filePfigjGt		<n tLsATE_TREEVo
-	Bled (see GENERATE_TREEVIEW) then this e thcJaROf_A00</state>
-				</radditional filePfigjGt		<n tLsATE_TREEVo
-	Bled (see GENERATE_TR0EVIEW) then this e thcJaROf_A>0</state>
-				</radditional filePfigjGt		<n tLsATE_TREEVo
-	Bled (see GENERATE_List</statabefffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<archiveVechiferlUT rieal man page, but wi_lte>0</state,1nothers do n			<# If U/option>
-				<option>
-			sf0</stOJaROf_A>0</state>
-				</radditional filePfigjGt		</option>t0</stBstate>0</state>
-	Mwhle>CThirdaEuf_A>0</secnlp----optionn opvvnfiguration options relatedkes theaxfnions relatedn_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
+					<name>CCLangConformance</name>
 					<state>0</state>
 				</option>
 				<option>
-					<name>CCJTagUpdateBreakpoints</name>
-			te>ufsi_Aons relatedkes theaxfnaoate>
-				</r			<archiveVechifer>
-	Mwhle>CThirdaEuf_A>0</secnlp----optionn opvvnfiguration options relatedkes dditional filePfe rdNlatedkes dditional filePfe rdNlatete>
-	puIR$\INC\c\D<ar_latedk_ionI.hows
-# full text search. Thereakpoints</name>
-			eckme>
-	poBpTr
-				</option>
-	r			7aLd the real man page, b0 wi_lte>0</state>
-				</r			<archiveVerbug\List<BEme>
-	poBpTr
-				</option>
-	r			7aLd the real man page, b0 wi_lte>0</state>
-				</r			<archiveVerbug\ListOG		<Cmsisled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rad		<CmsisDsp<ar_h_elatedkes theaxfniows
-# full text search. Thbut>
-				<owserbug\List<eVerbug\List</statabICCan page, but Ld the real man p2ge, but wi_lte>0</state>
-				</r			<archiv8Verbug\List</statabefffffffrcaters7aLd the real man page,0but wi_lte>0</state>
-				</r			<aCCOtatmiz			</NoSizelat			</sts_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCDefines_h_elatedkes theaxfn_ASSERT_ENABLE_ows
-# full te theaxfn__	</radditi__ows
-# full te theaxfnEXTINT_CALLBACK_MODE=trueows
-# full te theaxfnUDD_ENABLEows
-# full te theaxfnTEST_SUITE_DEFINE_ASSERT_MACROows
-# full te theaxfnan _MATH_CM0PLUS=trueows
-# full te theaxfnUSB_DEVICE_LPM_SUPPORTows
-# full te theaxfnUSART_CALLBACK_MODE=trueows
-# full te theaxfnBOARD=	</rad_XPLAINED_PROows
-# full text search. Thereakpoints</name>
-		CCPreprocF			_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCPreprocCommests_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCPreprocLine_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCons CF			_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCons CMnemonics_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCons CMessages_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCons AssF			_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCons AssSourc	_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCo
-				Remarks_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCDiagS			ress_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		CCDiagRemark_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		CCDiagWarnug\_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		CCDiagError_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		CCfilerefixled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rCCallATEns re			</option>
-				<option>
-					<name>CCJTagUpdatnfiguration options relatedkes dditional filePfe rCCDewi_Infoled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rI/statabefffffffrcaters7aLd theEEVIEW) then this e thcJaROf_A>0</state>
-				</rICThcessor_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rI/x		<O>0</ssCheckfffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<a/x		<O>0</ss_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		CCLanglate	</onc	_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCSignedPl</sCharled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rCCRequireCThtotypes_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCM</o
-				S				</_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCDiagWarnAreErr_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCComp			r	</r			Infoled (see GENERATE_TR real man page, but wi_lte>0</state>
-				</r			<aFpuCThcessor_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rgjGt		F			_h_elatedkes theaxfn$FILE_BNAME$.oows
-# full text search. Thereakpoints</name>
-		CConblatedkHeader_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rereInclufffffffrcaters7aLd theows
-# full text search. Thereakpoints</name>
-		Comp			rte>0<On>
-rid	_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCIncluffes dditional filePfe rdNlaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/		</_hs
-# full te theaxfnaPROJpuIR$/../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/reset_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/boards/samlad_xpl</sed_pro_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/	reprocessor_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/power_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/boards_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/usart_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../serifffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../sleepmgr_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../util	_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/
-				rupt_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/power/power_sam_ffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usb/usb_sam_ffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../udcfrs
-# full te theaxfnaPROJpuIR$/../../../../../../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/
-				rupt/system_
-				rupt_samlad_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/ext
-		/ext
-		_sam_f_cfrs
-# full te theaxfnaPROJpuIR$/..frs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usb/heack_iman page, s
-# full te theaxfnaPROJpuIR$/../../../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/
-	cluffffs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/sourc	_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/clock/clock_samlad_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../boards_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/reset/reset_sam_ffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/pinmuxfrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usbfrs
-# full te theaxfnaPROJpuIR$/../../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/ext
-		_hs
-# full te theaxfnaPROJpuIR$/../../../../..ffs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/header_
-			sffs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/stdio/stdio_serifffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/clockfrs
-# full te theaxfnaPROJpuIR$/.ows
-# full text search. Thereakpoints</name>
-		CCStdIncCheckfffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<CCCodeSec		</o
-				</o
-				</o
-		.textreal man page, but wi_lte>0</state>
-				</r			<a man work2led (see GENERATE_TR1real man page, but wi_lte>0</state>
-				</r			<aCThcessorbeff2led (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rCCOptE_TREled (see GENERATE_TR3EVIEW) then this e thcJaROf_A>0</state>
-				</rCCOptStrW) gyre			</option>
-				<option>
-					<name>CCJTagUpEVIEW) then this e thcJaROf_A>0</state>
-				</rCCOptE_TRE	poBpTr
-				</optioATE_TR3EVIEW) then this e thcJaROf_A>0</state>
-				</rComp			rte>0<0</state,1nothers do n			<# If U/option>
-				<option>
-			sf0</stOJaROf_A>0</state>
-				</radditional filePfigjGt		</option>t0</stBstate>0</state>
-	Mwhle>CThirdaEuf_A>0</secnlp----optionn opvvnfiguration options relatedkes theaxComp			rte>0<0</ste>
+					<name>CCSignedPlainChar</name>
+					<state>1</state>
 				</option>
 				<option>
-					<name>CCJTagUpdateBreakpoints</name>
-			te>ufsi_Aons relatedkes theaxfnaoate>
-				</r			<archiveVechifer>
-	Mwhle>CThirdaEuf_A>0</secnlp----optionn opvvnfiguration options relatedkes dditional filePfe rCCPosIndRopi_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCPosIndRwpi_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		CCPosIndNoDynIni/_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		IccLang_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		IccCDiaame>
-					<state>0heaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rIccallATVLA_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		IccCppDiaame>
-					<state>0heaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rIccExce>0</ss_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rIccRTTI_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rIccSEW)icDestr_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rIccCppInlineSemantics_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		IccCmsisled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rIccF
-			Semantics_h_elatedkes theaxfniows
-# full text search. Thbut>
-				<owserbug\List<eVerbug\List</statabAan page, but Ld the real man p2ge, but wi_lte>0</state>
-				</r			<archi8Verbug\List</statabefffffffrcaters7aLd the real man page,0but wi_lte>0</state>
-				</r			<aAfilerefixled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rA/stataled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rACaseSensitivityled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rMacroChars
-				</option>
-				<option>
-					<name>CCJTagUiows
-# full text search. Thereakpoints</name>
-		AWarno
-				_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		AWarnWhat_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		AWarnOnffffffrcaters7aLd theows
-# full text search. Thereakpoints</name>
-		AWarnRange1fffffrcaters7aLd theows
-# full text search. Thereakpoints</name>
-		AWarnRange2fffffrcaters7aLd theows
-# full text search. Thereakpoints</name>
-		AstatabefffffffrENERATE_TR0EVIEW) then this e thcJaROf_A>0</state>
-				</rAltRegisterN	</s_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		ADefines_h_elatedkes theaxfn_ASSERT_ENABLE_ows
-# full te theaxfn__	</radditi__ows
-# full te theaxfnEXTINT_CALLBACK_MODE=trueows
-# full te theaxfnUDD_ENABLEows
-# full te theaxfnTEST_SUITE_DEFINE_ASSERT_MACROows
-# full te theaxfnan _MATH_CM0PLUS=trueows
-# full te theaxfnUSB_DEVICE_LPM_SUPPORTows
-# full te theaxfnUSART_CALLBACK_MODE=trueows
-# full te theaxfnBOARD=	</rad_XPLAINED_PROows
-# full text search. Thereakpoints</name>
-		AEns re			</option>heaxfniows
-# full text search. Thereakpoints</name>
-		AEns Header_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rAEns ug\_h_elatedkes theaxfnhers do n			<# If U/option>
-				<option>
-			sf0</scluffs_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		MacDefs_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		MacExpsled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rMacExecr or not the images
-# generated fmqname>xKK then tLsATE_TREEVo
-	Bled nlyAssed_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		M</o
-Line_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		PageLengthCheckfffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<PageLengthfffffrcaters7aLd the8 real man page, but wi_lte>0</state>
-				</r			<TabSpacug\_h_elatedkes theaxfn8EVIEW) then this e thcJaROf_A>0</state>
-				</rAXRefre			</option>heaxfniows
-# full text search. Thereakpoints</name>
-		AXRefDefines_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		AXRef man nalre			</option>heaxfniows
-# full text search. Thereakpoints</name>
-		AXRefDualre			</option>heaxfniows
-# full text search. Thereakpoints</name>
-		ACThcessor_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rAFpuCThcessor_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rAgjGt		F			_h_elatedkes theaxfn$FILE_BNAME$.oows
-# full text search. Thereakpoints</name>
-		AM</o
-				S				</_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		AEnmitErrorsCheckfffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<AEnmitErrorsTE_T_h_elatedkes theaxfnE0 real man page, but wi_lte>0</state>
-				</r			<AIgne>
-	tdInclufffffffrcaters7aLd the real man page, but wi_lte>0</state>
-				</r			<AUser/scluffs_h_elatedkes theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/		</_hs
-# full te theaxfnaPROJpuIR$/../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/reset_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/boards/samlad_xpl</sed_pro_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/	reprocessor_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/power_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/boards_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/usart_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../serifffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../sleepmgr_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../util	_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/
-				rupt_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/power/power_sam_ffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usb/usb_sam_ffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../udcfrs
-# full te theaxfnaPROJpuIR$/../../../../../../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/
-				rupt/system_
-				rupt_samlad_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/ext
-		/ext
-		_sam_f_cfrs
-# full te theaxfnaPROJpuIR$/..frs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usb/heack_iman page, s
-# full te theaxfnaPROJpuIR$/../../../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/
-	cluffffs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/sourc	_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/clock/clock_samlad_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../boards_hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/reset/reset_sam_ffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/pinmuxfrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usbfrs
-# full te theaxfnaPROJpuIR$/../../.._hs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/ext
-		_hs
-# full te theaxfnaPROJpuIR$/../../../../..ffs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/header_
-			sffs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/util	/stdio/stdio_serifffrs
-# full te theaxfnaPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/clockfrs
-# full te theaxfnaPROJpuIR$/.ows
-# full text search. Thereakpoints</name>
-		A/x		<O>0</ssCheckV2led (see GENERATE_TR real man page, but wi_lte>0</state>
-				</r			<A/x		<O>0</ssV2fffffrcaters7aLd theows
-# full text search. Thbut>
-				<owserbug\List<eVerbug\List</statabOBJCOPYpage, but Ld the real man p0ge, but wi_lte>0</state>
-				</r			<archieVerbug\List</statabefffffffrcaters7aLd the real man page,0but wi_lte>0</state>
-				</r			<aOOCgjGt		F1<			</name>
+					<name>CCRequirePrototypes</name>
 					<state>0</state>
-				</optiStions0l					<stattate>
-				</rrri>
-		<<te>0</state>
-	OCgjGt		On>
-rid	_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		OOCgjGt		F			_h_elatedkes theaxfnmouse_unit_tests_flash.binows
-# full text search. Thereakpoints</name>
-		OOCCommandLineCThirder_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rOOCgbjCopyo
-				_h_elatedkes theaxfn0ows
-# full text search. Thbut>
-				<owserbug\List<eVerbug\List</statabCUSTOMfrcaters7aLd the real man page, but wi_lte>0</state>
-				</r	extensi/sseowextensi/sse		</r	cmdlineeowcmdlinee. Thbut>
-				<owserbug\List<eVerbug\List</statabBICOMPpage, but Ld the real man p0ge, but wi_lte>0</state>
-		but>
-				<owserbug\List<eVerbug\List</statabBUILDACTIONpage, but Ld the real man p1ge, but wi_lte>0</state>
-				</r		rebuild	bu	rebuild			</r		ostbuild	bu	ostbuild	. Thbut>
-				<owserbug\List<eVerbug\List</statabILINKpage, but Ld the real man p0ge, but wi_lte>0</state>
-				</r			<archie5Verbug\List</statabefffffffrcaters7aLd the real man page,0but wi_lte>0</state>
-				</r			<aIlinkgjGt		F			_h_elatedkes theaxfnmouse_unit_tests_flash.outreal man page, but wi_lte>0</state>
-				</r			<alinkLibIOlatedk_h_elatedkes theaxfnEEVIEW) then this e thcJaROf_A>0</state>
-				</rXLinkte>0<Handldn_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alink/stOJF				poBpTr
-				</optioATE_TRiows
-# full text search. Thereakpoints</name>
-		alinkDewi_Infoo
-				_h_elatedkes theaxfn1ows
-# full text search. Thereakpoints</name>
-		alinkKeepSymbols_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkRawtate>0F			_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkRawtate>0Symbol_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkRawtate>0Segmest_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkRawtate>0Align_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkDefines_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinklatedkDefines_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkMapF			_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkLogF			_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkLogIni/iffiz			</_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkLogMhir		_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkLogSec		</o
-				</o
-				</o
-		iows
-# full text search. Thereakpoints</name>
-		alinkLogVenedn_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alink/cfOn>
-rid	_h_elatedkes theaxfn0ows
-# full text search. Thereakpoints</name>
-		alink/cfF			_h_elatedkes theaxfn$PROJpuIR$/../../../../../../../../../../sam0/util	/linker_s
-				s/samlad/
-ar/samladj18a_flash.icfows
-# full text search. Thereakpoints</name>
-		alink/cfF				poBpTr
-				</optioATE_TRows
-# full text search. Thereakpoints</name>
-		alinko
-				Remarks_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkS			ressDiags_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkTreatAsRem_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkTreatAsWarn_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkTreatAsErr_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkWarnug\sAreErrors_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkUse/x		<O>0</ss_h_elatedkes theaxfn1ows
-# full text search. Thereakpoints</name>
-		alink/x		<O>0</ss_h_elatedkesxt search. Thereakpoints</name>
-		alinkLoTE_TREEVIEW) th	poBpTr
-				</optioATE_TR1ows
-# full text search. Thereakpoints</name>
-		alinkAutoLibo
-				_h_elatedkes theaxfn1ows
-# full text search. Thereakpoints</name>
-		alinkAddikpoialLibs_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkOn>
-rid	CThgramEntryLabel_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkCThgramEntryLabel/name>
-					<state>0heaxfniows
-# full text search. Thereakpoints</name>
-		alinkCThgramEntryLabel_h_elatedkes theaxfnreal man page, but wi_lte>0</state>
-				</r			<DoF		l_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		F		lerByt	_h_elatedkes theaxfnixFFows
-# full text search. Thereakpoints</name>
-		F		lerSeartre_elatedkes theaxfnixiows
-# full text search. Thereakpoints</name>
-		F		lerEndre_elatedkes theaxfnixiows
-# full text search. Thereakpoints</name>
-		CrcSizere			</option>
-				<option>
-					<name>CCJTagUpEVIEW) then this e thcJaROf_A>0</state>
-				</rCrcAlign_h_elatedkes theaxfnpEVIEW) then this e thcJaROf_A>0</state>
-				</rCrcPol0</state>
-				</optiStx1102pEVIEW) then this e thcJaROf_A>0</state>
-				</rCrcCompl
 				</option>
 				<option>
-					<name>CCJTagUiows
-# full text search. Thereakpoints</name>
-		CrcBitOrder_h_elatedkes t
+					<name>CCMultibyteSupport</name>
+					<state>0</state>
+				</option>
 				<option>
-					<name>CCJTagUiows
-# full text search. Thereakpoints</name>
-		CrcIni/iffValuere_elatedkes theaxfnixiows
-# full text search. Thereakpoints</name>
-		DoCrc
-					<state>0heaxfniows
-# full text search. Thereakpoints</name>
-		alinkBE8	poBpTr
-				</optioATE_TR1ows
-# full text search. Thereakpoints</name>
-		alinkditional filePfigjGt		<n tLsATE_TREEVo
-	Bl1ows
-# full text search. Thereakpoints</name>
-		alinke real man page	poBpTr
-				</optioATE_TR1ows
-# full text search. Thereakpoints</name>
-		CrcionISizere			</option>heaxfniows
-# full text search. Thereakpoints</name>
-		alink/ElfToolPostCThcesso
-				</o
-				</o
-		iows
-# full text search. Thereakpoints</name>
-		alinkLogAutoLib/name>
-					<state>0heaxfniows
-# full text search. Thereakpoints</name>
-		alinkLogRedirSymbols_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkLogUnusedFragmests_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinklrcRen>
-	eByt	Order_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinklrcUseAs/stOJ<n tLsATE_TREEVo
-	Bl1ows
-# full text search. Thereakpoints</name>
-		alinkO>0Inline_h_elatedkes theaxfn1ows
-# full text search. Thereakpoints</name>
-		alinkO>0Exce>0</ssallAT<n tLsATE_TREEVo
-	Bl1ows
-# full text search. Thereakpoints</name>
-		alinkO>0Exce>0</ssForc	_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinklmsisled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rIlinkO>0MergeDuplSec		</s_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkO>0UseVfeled (see GENERATE_TREEVIEW) then this e thcJaROf_A>0</state>
-				</rIlinkO>0Forc	Vfeled (see GENERATE_TRiows
-# full text search. Thereakpoints</name>
-		alinkSeackAPfiysiso
-				_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		alinkSeackControlF			_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		alinkSeackCallGraphF			_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		CrcAlgorithmre			</option>
+					<name>CCDiagWarnAreErr</name>
+					<state>0</state>
+				</option>
 				<option>
-					<name>CCJTagUpEVIEW) then this e thcJaROf_A>0</state>
-				</rCrcUni/Sizere			</option>
+					<name>CCCompilerRuntimeInfo</name>
+					<state>0</state>
+				</option>
 				<option>
-					<name>CCJTagUiows
-# full text search. Thbut>
-				<owserbug\List<eVerbug\List</statabIARCHIVEpage, but Ld the real man p0ge, but wi_lte>0</state>
-				</r			<archi0Verbug\List</statabefffffffrcaters7aLd the real man page,0but wi_lte>0</state>
-				</r			<aI, but w/stOJs_h_elatedkes theaxfnows
-# full text search. Thereakpoints</name>
-		a, but wOn>
-rid	_h_elatedkes theaxfniows
-# full text search. Thereakpoints</name>
-		a, but wOjGt		<n tLsATE_TREEVo
-	Bl###Uni/iffized###ows
-# full text search. Thbut>
-				<owserbug\List<eVerbug\List</statabBILINKpage, but Ld the real man p0ge, but wi_lte>0</state>
-		but>
-				<owserbug\List</		<archiveVerbug	groupbug\List</comm</o
-				</o
-	groupbug\\List</util	_hge, but Ldgroupbug\\\List</
-				rupt_h_elatedkesx
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../util	/
-				rupt/
-				rupt_sam_nvic.c_h_elatedkesxt
-			nts</nx
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../util	/
-				rupt/
-				rupt_sam_nvic.h_h_elatedkesxt
-			nts</</groupbug\\Lgroupbug\\\List</unit_test_h_elatedkesx
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../util	/unit_test/suite.c_h_elatedkesxt
-			nts</nx
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../util	/unit_test/suite.h_h_elatedkesxt
-			nts</</groupbug\\L
-			nts</nxe>
-		aPROJpuIR$/../../../../../../../../../util	/
-				rupt.h_h_elatedkext
-			nts</<
-			nts</nxe>
-		aPROJpuIR$/../../../../../../../../../util	/parts.h_h_elatedkext
-			nts<</groupbug\	groupbug\\List</service	_hge, but Ldgroupbug\\\List</usbfr_elatedkesxgroupbug\\\\List</classo
-				</o
-				groupbug\\\\\List</hidre_elatedkes 		groupbug\\\\\\List</devicere_elatedkes 			groupbug\\\\\\\List</mousere_elatedkes 		nx
-			nts</nas</nxe>
-		aPROJpuIR$/../../../udi_hid_mouse_</o
-.c_h_elatedkesdkesxt
-			nts</ns 			groupbug\\\\\\\\List</unit_tests_h_elatedkesdkesnx
-			nts</nas</nnxe>
-		aPROJpuIR$/../../unit_tests.c_h_elatedkesdkessxt
-			nts</ns 				groupbug\\\\\\\\\List</samladj18a_samlad_xpl</sed_pro_h_elatedkesdkessnx
-			nts</nas</nnnxe>
-		aPROJpuIR$/../		<a_board.h_h_elatedkessdkessxt
-			nts</ns 					groupbug\\\\\\\\\\List</
-arled (see GENEdkessnx
-			nts</nas</nnnnxe>
-		aPROJpuIR$/asf.h_h_elatedkessdkesssxt
-			nts</ns 					/groupbug\\\\\\\\\L
-			nts</nas</nnnxe>
-		aPROJpuIR$/../		<a_sleepmgr.h_h_elatedkessdkessxt
-			nts</ns 					
-			nts</nas</nnnxe>
-		aPROJpuIR$/../		<a_test.h_h_elatedkessdkessxt
-			nts</ns 					
-			nts</nas</nnnxe>
-		aPROJpuIR$/../		<a_clocks.h_h_elatedkessdkessxt
-			nts</ns 					
-			nts</nas</nnnxe>
-		aPROJpuIR$/../		<a_ext
-		.h_h_elatedkessdkessxt
-			nts</ns 				/groupbug\\\\\\\\x
-			nts</nas</nnxe>
-		aPROJpuIR$/../../		<a_usb.h_h_elatedkessdkesxt
-			nts</ns 				
-			nts</nas</nnxe>
-		aPROJpuIR$/../../unit_tests.h_h_elatedkessdkesxt
-			nts</ns 			/groupbug\\\\\\\x
-			nts</nas</nxe>
-		aPROJpuIR$/../../../udi_hid_mouse.c_h_elatedkesdkesxt
-			nts</ns 			
-			nts</nas</nxe>
-		aPROJpuIR$/../../../udi_hid_mouse.h_h_elatedkesdkesxt
-			nts</ns 			
-			nts</nas</nxe>
-		aPROJpuIR$/../../../udi_hid_mouse_		<a.h_h_elatedkesdkesxt
-			nts</ns 		/groupbug\\\\\\	
-			nts</nas</xe>
-		aPROJpuIR$/../../../../udi_hid.c_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../udi_hid.h_h_elatedkesdkext
-			nts</ns 	/groupbug\\\\\	
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../usb_pThtocol_hid.h_h_elatedkesdkxt
-			nts</ns	/groupbug\\\	/groupbug\\\	groupbug\\\\List</udcfr				</o
-				
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../udc/udc.c_h_elatedkesdxt
-			nts</ns	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../udc/udi.h_h_elatedkesdxt
-			nts</ns	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../udc/udd.h_h_elatedkesdxt
-			nts</ns	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../udc/udc.h_h_elatedkesdxt
-			nts</ns	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../udc/udc_</o
-.h_h_elatedkesdxt
-			nts</n	/groupbug\\\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../usb_pThtocol.h_h_elatedkesxt
-			nts</\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../usb_ate>
-.h_h_elatedkesxt
-			nts</</groupbug\\Lgroupbug\\\List</sleepmgr_h_elatedkesxgroupbug\\\\List</samlfr				</o
-				
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../sleepmgr/saml/sleepmgr.c_h_elatedkesdxt
-			nts</ns	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../sleepmgr/saml/sleepmgr.h_h_elatedkesdxt
-			nts</n	/groupbug\\\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../sleepmgr/sleepmgr.h_h_elatedkesxt
-			nts</</groupbug\\Lgroupbug\\\List</serifffr_elatedkesx
-			nts</name>
-		aPROJpuIR$/../../../../../../../../seriff/seriff.h_h_elatedkesxt
-			nts</\	groupbug\\\\List</sam0_usart_h				</o
-				
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../seriff/sam0_usart/usart_seriff.h_h_elatedkesdxt
-			nts</n	/groupbug\\</groupbug\	/groupbug\	groupbug\\List</boards_hge, but Ld
-			nts</nxe>
-		aPROJpuIR$/../../../../../../../../../boards/board.h_h_elatedkext
-			nts<</groupbug</groupbug<groupbug\List</sam0o
-				</o
-	groupbug\\List</drin>
-	_hge, but Ldgroupbug\\\List</ext
-		_h_elatedkesx
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/ext
-		/ext
-		_callback.c_h_elatedkesxt
-			nts</nxgroupbug\\\\List</ext
-		_sam_f_cfr				</o
-				
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/ext
-		/ext
-		_sam_f_c/ext
-		.c_h_elatedkesdxt
-			nts</n	/groupbug\\\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/ext
-		/ext
-		.h_h_elatedkesxt
-			nts</\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/ext
-		/ext
-		_callback.h_h_elatedkesxt
-			nts</</groupbug\\Lgroupbug\\\List</sercom_h_elatedkesx
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/sercom.c_h_elatedkesxt
-			nts</nxgroupbug\\\\List</usart_h				</o
-				
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/usart/usart_
-				rupt.c_h_elatedkesdxt
-			nts</ns	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/usart/usart.c_h_elatedkesdxt
-			nts</ns	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/usart/usart_
-				rupt.h_h_elatedkesdxt
-			nts</ns	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/usart/usart.h_h_elatedkesdxt
-			nts</ns	groupbug\\\\\List</quick_seart_dma_h_elatedkesdkx
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/usart/quick_seart_dma/qs_usart_dma_use.h_h_elatedkesdkxt
-			nts</ns	/groupbug\\\s	groupbug\\\\\List</quick_seart_h_elatedkesdkx
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/usart/quick_seart/qs_usart_basic_use.h_h_elatedkesdkxt
-			nts</ns	/groupbug\\\s	groupbug\\\\\List</quick_seart_callback_h_elatedkesdkx
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/usart/quick_seart_callback/qs_usart_callback.h_h_elatedkesdkxt
-			nts</ns	/groupbug\\\s	groupbug\\\\\List</quick_seart_lin_h_elatedkesdkx
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/usart/quick_seart_lin/qs_lin.h_h_elatedkesdkxt
-			nts</ns	/groupbug\\\	/groupbug\\\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/sercom_
-				rupt.c_h_elatedkesxt
-			nts</\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/sercom.h_h_elatedkesxt
-			nts</\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/sercom_
-				rupt.h_h_elatedkesxt
-			nts</\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/sercom/sercom_pinout.h_h_elatedkesxt
-			nts</</groupbug\\Lgroupbug\\\List</		</_h_elatedkes	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/		<//		</.c_h_elatedkesxt
-			nts</nxgroupbug\\\\List</quick_seart_h_elatedkesd	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/		<//quick_seart/qs_		</_basic.h_h_elatedkesdxt
-			nts</n	/groupbug\\\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/		<//		</.h_h_elatedkesxt
-			nts</</groupbug\\Lgroupbug\\\List</system_h_elatedkesxgroupbug\\\\List</pinmuxfr				</o
-				
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/pinmux/pinmux.c_h_elatedkesdxt
-			nts</ns	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/pinmux/pinmux.h_h_elatedkesdxt
-			nts</ns	groupbug\\\\\List</quick_seart_h_elatedkesdkx
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/pinmux/quick_seart/qs_	inmux_basic.h_h_elatedkesdkxt
-			nts</ns	/groupbug\\\	/groupbug\\\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/system.c_h_elatedkesxt
-			nts</nxgroupbug\\\\List</clockfr				</o
-				groupbug\\\\\List</clock_samlad_h_elatedkesdkx
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/clock/clock_samlad/gclk.c_h_elatedkesdkxt
-			nts</ns 	
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/clock/clock_samlad/clock.c_h_elatedkesdkxt
-			nts</ns 	
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/clock/clock_samlad/clock_		<arc_check.h_h_elatedkesdkxt
-			nts</ns 	
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/clock/clock_samlad/clock_feature.h_h_elatedkesdkxt
-			nts</ns	/groupbug\\\s	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/clock/gclk.h_h_elatedkesdxt
-			nts</ns	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/clock/clock.h_h_elatedkesdxt
-			nts</n	/groupbug\\\	groupbug\\\\List</
-				rupt_h_elatedkess	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/
-				rupt/system_
-				rupt.c_h_elatedkesdxt
-			nts</ns	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/
-				rupt/system_
-				rupt.h_h_elatedkesdxt
-			nts</ns	groupbug\\\\\List</system_
-				rupt_samlad_h_elatedkesdkx
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/
-				rupt/system_
-				rupt_samlad/system_
-				rupt_features.h_h_elatedkesdkxt
-			nts</ns	/groupbug\\\	/groupbug\\\	groupbug\\\\List</reset_h				</o
-				groupbug\\\\\List</reset_sam_ffr_elatedkesdkx
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/reset/reset_sam_f/reset.h_h_elatedkesdkxt
-			nts</ns	/groupbug\\\	/groupbug\\\	groupbug\\\\List</power_h				</o
-				groupbug\\\\\List</power_sam_ffr_elatedkesdkx
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/power/power_sam_f/power.h_h_elatedkesdkxt
-			nts</ns	/groupbug\\\	/groupbug\\\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/system/system.h_h_elatedkesxt
-			nts</</groupbug\\Lgroupbug\\\List</usbfr_elatedkesxgroupbug\\\\List</heack_iman page, _elatedkess	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usb/heack_iman page/usb_dual.c_h_elatedkesdxt
-			nts</ns	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usb/heack_iman page/usb_device_udd.c_h_elatedkesdxt
-			nts</ns	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usb/heack_iman page/usb_duff.h_h_elatedkesdxt
-			nts</n	/groupbug\\nxgroupbug\\\\List</usb_sam_ffr_elatedkesd	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usb/usb_sam_f/usb.c_h_elatedkesdxt
-			nts</n	/groupbug\\\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/drin>
-	/usb/usb.h_h_elatedkesxt
-			nts</</groupbug\	/groupbug\	groupbug\\List</util	_hge, but Ldgroupbug\\\List</stdio_h_elatedkes	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/stdio/write.c_h_elatedkesxt
-			nts</nx
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/stdio/read.c_h_elatedkesxt
-			nts</nxgroupbug\\\\List</stdio_serifffr_elatedkesd	
-			nts</ns 	e>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/stdio/stdio_seriff/stdio_seriff.h_h_elatedkesdxt
-			nts</n	/groupbug\\</groupbug\Ldgroupbug\\\List</cmsisled (see GENxgroupbug\\\\List</samlad_h_elatedkesd	groupbug\\\\\List</sourc	_h_elatedkesdkx
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/sourc	/system_samlad.c_h_elatedkesdkxt
-			nts</ns 	groupbug\\\\\\List</
-arled (see GENEdk	
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/sourc	/
-ar/seartup_samlad.c_h_elatedkesdkext
-			nts</ns 	/groupbug\\\\\	
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/sourc	/system_samlad.h_h_elatedkesdkxt
-			nts</ns	/groupbug\\\s	groupbug\\\\\List</inclufffffffrcaters7 	groupbug\\\\\\List</
-nseancere_elatedkes 			
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/mclk_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/gclk_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/tcc1_200.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/tcc0_200.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/nvmctrl_301.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/oscctrl.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/rtc_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/aes.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/usb.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/sercom5.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/tc3_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/dac.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/supc_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/eic_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/tc2_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/tc1_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/ac.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/wdt.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/dsu.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/adc_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/ccl.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/tal.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/sercom2.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/mtb.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/		</.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/sercom4.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/	ac_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/sercom1.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/sercom3.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/tc4_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/osc32kctrl.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/pm_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/tc0_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/rstc_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/trng.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/tcc2_200.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/dmac.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/opamp.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/evsys.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/
-nseance/sercom0.h_h_elatedkesdkext
-			nts</ns 	/groupbug\\\\\	groupbug\\\\\\List</piore_elatedkes 			
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/pio/samlade18a.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/pio/samladj18a.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/pio/samladg18a.h_h_elatedkesdkext
-			nts</ns 	/groupbug\\\\\	groupbug\\\\\\List</componest_h_elatedkes  		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/evsys.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/dmac.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/trng.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/tcc_200.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/ac.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/tal.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/tc_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/opamp.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/sercom.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/	ac_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/oscctrl.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/mtb.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/aes.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/dsu.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/usb.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/rtc_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/rstc_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/supc_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/mclk_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/	m_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/		</.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/dac.h_h_elatedkessdkxt
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/wdt.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/gclk_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/eic_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/adc_100.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/nvmctrl_301.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/ccl.h_h_elatedkesdkext
-			nts</ns 		
-			nts</nas</xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/componest/osc32kctrl.h_h_elatedkesdkext
-			nts</ns 	/groupbug\\\\\	
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/samladg18a.h_h_elatedkesdkxt
-			nts</ns 	
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/samladj18a.h_h_elatedkesdkxt
-			nts</ns 	
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/samlade18a.h_h_elatedkesdkxt
-			nts</ns 	
-			nts</nas<xe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/cmsis/samlad/incluff/samlad.h_h_elatedkesdkxt
-			nts</ns	/groupbug\\\	/groupbug\\</groupbug\\Lgroupbug\\\List</	repThcessor_h_elatedkes	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/	repThcessor/	repThcessor.h_h_elatedkesxt
-			nts</\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/	repThcessor/stringz.h_h_elatedkesxt
-			nts</\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/	repThcessor/mrepeat.h_h_elatedkesxt
-			nts</\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/	repThcessor/mreculte>0.h_h_elatedkesxt
-			nts</\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/	repThcessor/tpaste.h_h_elatedkesxt
-			nts</</groupbug\\L
-			nts</nxe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/comp			r.h_h_elatedkext
-			nts</<
-			nts</nxe>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/status_codes.h_h_elatedkext
-			nts</<groupbug\\\List</header_
-			sff_elatedkes	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/util	/header_
-			s/io.h_h_elatedkesxt
-			nts</</groupbug\	/groupbug\	groupbug\\List</boards_hge, but Ldgroupbug\\\List</samlad_xpl</sed_pro_h_elatedkes	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/boards/samlad_xpl</sed_pro/board_init.c_h_elatedkesxt
-			nts</\	
-			nts</name>
-		aPROJpuIR$/../../../../../../../../../../sam0/boards/samlad_xpl</sed_pro/samlad_xpl</sed_pro.h_h_elatedkesxt
-			nts</</groupbug\	/groupbug	/groupbubu	roject>
+					<name>IFpuProcessor</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>OutputFile</name>
+					<state>$FILE_BNAME$.o</state>
+				</option>
+				<option>
+					<name>CCLibConfigHeader</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>PreInclude</name>
+					<state></state>
+				</option>
+				<option>
+					<name>CompilerMisraOverride</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/port</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/reset</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/boards/saml21_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/power</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../../serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system</state>
+					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/power/power_sam_l</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb/usb_sam_l</state>
+					<state>$PROJ_DIR$/../../../../../../../udc</state>
+					<state>$PROJ_DIR$/../../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_saml21</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/extint/extint_sam_l_c</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb/stack_interface</state>
+					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/source</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/clock/clock_saml21</state>
+					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/reset/reset_sam_l</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/extint</state>
+					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/clock</state>
+					<state>$PROJ_DIR$/.</state>
+				</option>
+				<option>
+					<name>CCStdIncCheck</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCCodeSection</name>
+					<state>.text</state>
+				</option>
+				<option>
+					<name>IInterwork2</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IProcessorMode2</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CCOptLevel</name>
+					<state>3</state>
+				</option>
+				<option>
+					<name>CCOptStrategy</name>
+					<version>0</version>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CCOptLevelSlave</name>
+					<state>3</state>
+				</option>
+				<option>
+					<name>CompilerMisraRules98</name>
+					<version>0</version>
+					<state>1000111110110101101110011100111111101110011011000101110111101101100111111111111100110011111001110111001111111111111111111111111</state>
+				</option>
+				<option>
+					<name>CompilerMisraRules04</name>
+					<version>0</version>
+					<state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+				</option>
+				<option>
+					<name>CCPosIndRopi</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCPosIndRwpi</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCPosIndNoDynInit</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IccLang</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IccCDialect</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IccAllowVLA</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IccCppDialect</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IccExceptions</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IccRTTI</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IccStaticDestr</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IccCppInlineSemantics</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IccCmsis</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IccFloatSemantics</name>
+					<state>0</state>
+				</option>
+			</data>
+		</settings>
+		<settings>
+			<name>AARM</name>
+			<archiveVersion>2</archiveVersion>
+			<data>
+				<version>8</version>
+				<wantNonLocal>1</wantNonLocal>
+				<debug>1</debug>
+				<option>
+					<name>AObjPrefix</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>AEndian</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>ACaseSensitivity</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>MacroChars</name>
+					<version>0</version>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AWarnEnable</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AWarnWhat</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AWarnOne</name>
+					<state></state>
+				</option>
+				<option>
+					<name>AWarnRange1</name>
+					<state></state>
+				</option>
+				<option>
+					<name>AWarnRange2</name>
+					<state></state>
+				</option>
+				<option>
+					<name>ADebug</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>AltRegisterNames</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>ADefines</name>
+					<state>_ASSERT_ENABLE_</state>
+					<state>__SAML21J18A__</state>
+					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>UDD_ENABLE</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
+					<state>USB_DEVICE_LPM_SUPPORT</state>
+					<state>USART_CALLBACK_MODE=true</state>
+					<state>BOARD=SAML21_XPLAINED_PRO</state>
+				</option>
+				<option>
+					<name>AList</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AListHeader</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>AListing</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>Includes</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>MacDefs</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>MacExps</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>MacExec</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>OnlyAssed</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>MultiLine</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>PageLengthCheck</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>PageLength</name>
+					<state>80</state>
+				</option>
+				<option>
+					<name>TabSpacing</name>
+					<state>8</state>
+				</option>
+				<option>
+					<name>AXRef</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AXRefDefines</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AXRefInternal</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AXRefDual</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AProcessor</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>AFpuProcessor</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>AOutputFile</name>
+					<state>$FILE_BNAME$.o</state>
+				</option>
+				<option>
+					<name>AMultibyteSupport</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>ALimitErrorsCheck</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>ALimitErrorsEdit</name>
+					<state>100</state>
+				</option>
+				<option>
+					<name>AIgnoreStdInclude</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AUserIncludes</name>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/port</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/reset</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/boards/saml21_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/power</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../../serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system</state>
+					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/power/power_sam_l</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb/usb_sam_l</state>
+					<state>$PROJ_DIR$/../../../../../../../udc</state>
+					<state>$PROJ_DIR$/../../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_saml21</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/extint/extint_sam_l_c</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb/stack_interface</state>
+					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/source</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/clock/clock_saml21</state>
+					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/reset/reset_sam_l</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/extint</state>
+					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/clock</state>
+					<state>$PROJ_DIR$/.</state>
+				</option>
+				<option>
+					<name>AExtraOptionsCheckV2</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AExtraOptionsV2</name>
+					<state></state>
+				</option>
+			</data>
+		</settings>
+		<settings>
+			<name>OBJCOPY</name>
+			<archiveVersion>0</archiveVersion>
+			<data>
+				<version>1</version>
+				<wantNonLocal>1</wantNonLocal>
+				<debug>1</debug>
+				<option>
+					<name>OOCOutputFormat</name>
+					<version>2</version>
+					<state>2</state>
+				</option>
+				<option>
+					<name>OCOutputOverride</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>OOCOutputFile</name>
+					<state>mouse_unit_tests_flash.bin</state>
+				</option>
+				<option>
+					<name>OOCCommandLineProducer</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>OOCObjCopyEnable</name>
+					<state>1</state>
+				</option>
+			</data>
+		</settings>
+		<settings>
+			<name>CUSTOM</name>
+			<archiveVersion>3</archiveVersion>
+			<data>
+				<extensions></extensions>
+				<cmdline></cmdline>
+			</data>
+		</settings>
+		<settings>
+			<name>BICOMP</name>
+			<archiveVersion>0</archiveVersion>
+			<data></data>
+		</settings>
+		<settings>
+			<name>BUILDACTION</name>
+			<archiveVersion>1</archiveVersion>
+			<data>
+				<prebuild></prebuild>
+				<postbuild></postbuild>
+			</data>
+		</settings>
+		<settings>
+			<name>ILINK</name>
+			<archiveVersion>0</archiveVersion>
+			<data>
+				<version>15</version>
+				<wantNonLocal>1</wantNonLocal>
+				<debug>1</debug>
+				<option>
+					<name>IlinkOutputFile</name>
+					<state>mouse_unit_tests_flash.out</state>
+				</option>
+				<option>
+					<name>IlinkLibIOConfig</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>XLinkMisraHandler</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkInputFileSlave</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkDebugInfoEnable</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkKeepSymbols</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkRawBinaryFile</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkRawBinarySymbol</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkRawBinarySegment</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkRawBinaryAlign</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkDefines</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkConfigDefines</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkMapFile</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogFile</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogInitialization</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogModule</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogSection</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogVeneer</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkIcfOverride</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkIcfFile</name>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/linker_scripts/saml21/iar/saml21j18a_flash.icf</state>
+				</option>
+				<option>
+					<name>IlinkIcfFileSlave</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkEnableRemarks</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkSuppressDiags</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkTreatAsRem</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkTreatAsWarn</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkTreatAsErr</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkWarningsAreErrors</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkUseExtraOptions</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkExtraOptions</name>
+				</option>
+				<option>
+					<name>IlinkLowLevelInterfaceSlave</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkAutoLibEnable</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkAdditionalLibs</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkOverrideProgramEntryLabel</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkProgramEntryLabelSelect</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkProgramEntryLabel</name>
+					<state>__iar_program_start</state>
+				</option>
+				<option>
+					<name>DoFill</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>FillerByte</name>
+					<state>0xFF</state>
+				</option>
+				<option>
+					<name>FillerStart</name>
+					<state>0x0</state>
+				</option>
+				<option>
+					<name>FillerEnd</name>
+					<state>0x0</state>
+				</option>
+				<option>
+					<name>CrcSize</name>
+					<version>0</version>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CrcAlign</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CrcPoly</name>
+					<state>0x11021</state>
+				</option>
+				<option>
+					<name>CrcCompl</name>
+					<version>0</version>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CrcBitOrder</name>
+					<version>0</version>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CrcInitialValue</name>
+					<state>0x0</state>
+				</option>
+				<option>
+					<name>DoCrc</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkBE8Slave</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkBufferedTerminalOutput</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkStdoutInterfaceSlave</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CrcFullSize</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkIElfToolPostProcess</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogAutoLibSelect</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogRedirSymbols</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogUnusedFragments</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkCrcReverseByteOrder</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkCrcUseAsInput</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkOptInline</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkOptExceptionsAllow</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkOptExceptionsForce</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkCmsis</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkOptMergeDuplSections</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkOptUseVfe</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkOptForceVfe</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkStackAnalysisEnable</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkStackControlFile</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkStackCallGraphFile</name>
+					<state></state>
+				</option>
+				<option>
+					<name>CrcAlgorithm</name>
+					<version>0</version>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CrcUnitSize</name>
+					<version>0</version>
+					<state>0</state>
+				</option>
+			</data>
+		</settings>
+		<settings>
+			<name>IARCHIVE</name>
+			<archiveVersion>0</archiveVersion>
+			<data>
+				<version>0</version>
+				<wantNonLocal>1</wantNonLocal>
+				<debug>1</debug>
+				<option>
+					<name>IarchiveInputs</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IarchiveOverride</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IarchiveOutput</name>
+					<state>###Unitialized###</state>
+				</option>
+			</data>
+		</settings>
+		<settings>
+			<name>BILINK</name>
+			<archiveVersion>0</archiveVersion>
+			<data></data>
+		</settings>
+	</configuration>
+	<configuration>
+		<name>Release</name>
+		<toolchain>
+			<name>ARM</name>
+		</toolchain>
+		<debug>0</debug>
+		<settings>
+			<name>General</name>
+			<archiveVersion>3</archiveVersion>
+			<data>
+				<version>21</version>
+				<wantNonLocal>1</wantNonLocal>
+				<debug>0</debug>
+				<option>
+					<name>ExePath</name>
+					<state>Release\Exe</state>
+				</option>
+				<option>
+					<name>ObjPath</name>
+					<state>Release\Obj</state>
+				</option>
+				<option>
+					<name>ListPath</name>
+					<state>Release\List</state>
+				</option>
+				<option>
+					<name>Variant</name>
+					<version>20</version>
+					<state>0</state>
+				</option>
+				<option>
+					<name>GEndianMode</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>Input variant</name>
+					<version>3</version>
+					<state>1</state>
+				</option>
+				<option>
+					<name>Input description</name>
+					<state>Full formatting.</state>
+				</option>
+				<option>
+					<name>Output variant</name>
+					<version>2</version>
+					<state>1</state>
+				</option>
+				<option>
+					<name>Output description</name>
+					<state>Full formatting.</state>
+				</option>
+				<option>
+					<name>GOutputBinary</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>FPU</name>
+					<version>2</version>
+					<state>0</state>
+				</option>
+				<option>
+					<name>OGCoreOrChip</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>GRuntimeLibSelect</name>
+					<version>0</version>
+					<state>2</state>
+				</option>
+				<option>
+					<name>GRuntimeLibSelectSlave</name>
+					<version>0</version>
+					<state>2</state>
+				</option>
+				<option>
+					<name>RTDescription</name>
+					<state>Use the normal configuration of the C/C++ runtime library. No locale interface, C locale, no file descriptor support, no multibytes in printf and scanf, and no hex floats in strtod.</state>
+				</option>
+				<option>
+					<name>OGProductVersion</name>
+					<state>5.10.0.159</state>
+				</option>
+				<option>
+					<name>OGLastSavedByProductVersion</name>
+					<state>6.30.1.53141</state>
+				</option>
+				<option>
+					<name>GeneralEnableMisra</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>GeneralMisraVerbose</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>OGChipSelectEditMenu</name>
+					<state>ATSAML21J18A	Atmel ATSAML21J18A</state>
+				</option>
+				<option>
+					<name>GenLowLevelInterface</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>GEndianModeBE</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>OGBufferedTerminalOutput</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>GenStdoutInterface</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>GeneralMisraRules98</name>
+					<version>0</version>
+					<state>1000111110110101101110011100111111101110011011000101110111101101100111111111111100110011111001110111001111111111111111111111111</state>
+				</option>
+				<option>
+					<name>GeneralMisraVer</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>GeneralMisraRules04</name>
+					<version>0</version>
+					<state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+				</option>
+				<option>
+					<name>RTConfigPath2</name>
+					<state>$TOOLKIT_DIR$\INC\c\DLib_Config_Full.h</state>
+				</option>
+				<option>
+					<name>GFPUCoreSlave</name>
+					<version>20</version>
+					<state>0</state>
+				</option>
+				<option>
+					<name>GBECoreSlave</name>
+					<version>20</version>
+					<state>0</state>
+				</option>
+				<option>
+					<name>OGUseCmsis</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>OGUseCmsisDspLib</name>
+					<state>0</state>
+				</option>
+			</data>
+		</settings>
+		<settings>
+			<name>ICCARM</name>
+			<archiveVersion>2</archiveVersion>
+			<data>
+				<version>28</version>
+				<wantNonLocal>1</wantNonLocal>
+				<debug>0</debug>
+				<option>
+					<name>CCOptimizationNoSizeConstraints</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCDefines</name>
+					<state>_ASSERT_ENABLE_</state>
+					<state>__SAML21J18A__</state>
+					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>UDD_ENABLE</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
+					<state>USB_DEVICE_LPM_SUPPORT</state>
+					<state>USART_CALLBACK_MODE=true</state>
+					<state>BOARD=SAML21_XPLAINED_PRO</state>
+				</option>
+				<option>
+					<name>CCPreprocFile</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCPreprocComments</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCPreprocLine</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCListCFile</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCListCMnemonics</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCListCMessages</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCListAssFile</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCListAssSource</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCEnableRemarks</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCDiagSuppress</name>
+					<state></state>
+				</option>
+				<option>
+					<name>CCDiagRemark</name>
+					<state></state>
+				</option>
+				<option>
+					<name>CCDiagWarning</name>
+					<state></state>
+				</option>
+				<option>
+					<name>CCDiagError</name>
+					<state></state>
+				</option>
+				<option>
+					<name>CCObjPrefix</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CCAllowList</name>
+					<version>0</version>
+					<state>1111111</state>
+				</option>
+				<option>
+					<name>CCDebugInfo</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IEndianMode</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IProcessor</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IExtraOptionsCheck</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IExtraOptions</name>
+					<state></state>
+				</option>
+				<option>
+					<name>CCLangConformance</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCSignedPlainChar</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CCRequirePrototypes</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCMultibyteSupport</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCDiagWarnAreErr</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCCompilerRuntimeInfo</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IFpuProcessor</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>OutputFile</name>
+					<state>$FILE_BNAME$.o</state>
+				</option>
+				<option>
+					<name>CCLibConfigHeader</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>PreInclude</name>
+					<state></state>
+				</option>
+				<option>
+					<name>CompilerMisraOverride</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCIncludePath2</name>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/port</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/reset</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/boards/saml21_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/power</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../../serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system</state>
+					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/power/power_sam_l</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb/usb_sam_l</state>
+					<state>$PROJ_DIR$/../../../../../../../udc</state>
+					<state>$PROJ_DIR$/../../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_saml21</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/extint/extint_sam_l_c</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb/stack_interface</state>
+					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/source</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/clock/clock_saml21</state>
+					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/reset/reset_sam_l</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/extint</state>
+					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/clock</state>
+					<state>$PROJ_DIR$/.</state>
+				</option>
+				<option>
+					<name>CCStdIncCheck</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCCodeSection</name>
+					<state>.text</state>
+				</option>
+				<option>
+					<name>IInterwork2</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IProcessorMode2</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CCOptLevel</name>
+					<state>3</state>
+				</option>
+				<option>
+					<name>CCOptStrategy</name>
+					<version>0</version>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CCOptLevelSlave</name>
+					<state>3</state>
+				</option>
+				<option>
+					<name>CompilerMisraRules98</name>
+					<version>0</version>
+					<state>1000111110110101101110011100111111101110011011000101110111101101100111111111111100110011111001110111001111111111111111111111111</state>
+				</option>
+				<option>
+					<name>CompilerMisraRules04</name>
+					<version>0</version>
+					<state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+				</option>
+				<option>
+					<name>CCPosIndRopi</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCPosIndRwpi</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CCPosIndNoDynInit</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IccLang</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IccCDialect</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IccAllowVLA</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IccCppDialect</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IccExceptions</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IccRTTI</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IccStaticDestr</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IccCppInlineSemantics</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IccCmsis</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IccFloatSemantics</name>
+					<state>0</state>
+				</option>
+			</data>
+		</settings>
+		<settings>
+			<name>AARM</name>
+			<archiveVersion>2</archiveVersion>
+			<data>
+				<version>8</version>
+				<wantNonLocal>1</wantNonLocal>
+				<debug>0</debug>
+				<option>
+					<name>AObjPrefix</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>AEndian</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>ACaseSensitivity</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>MacroChars</name>
+					<version>0</version>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AWarnEnable</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AWarnWhat</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AWarnOne</name>
+					<state></state>
+				</option>
+				<option>
+					<name>AWarnRange1</name>
+					<state></state>
+				</option>
+				<option>
+					<name>AWarnRange2</name>
+					<state></state>
+				</option>
+				<option>
+					<name>ADebug</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AltRegisterNames</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>ADefines</name>
+					<state>_ASSERT_ENABLE_</state>
+					<state>__SAML21J18A__</state>
+					<state>EXTINT_CALLBACK_MODE=true</state>
+					<state>UDD_ENABLE</state>
+					<state>TEST_SUITE_DEFINE_ASSERT_MACRO</state>
+					<state>ARM_MATH_CM0PLUS=true</state>
+					<state>USB_DEVICE_LPM_SUPPORT</state>
+					<state>USART_CALLBACK_MODE=true</state>
+					<state>BOARD=SAML21_XPLAINED_PRO</state>
+				</option>
+				<option>
+					<name>AList</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AListHeader</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>AListing</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>Includes</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>MacDefs</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>MacExps</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>MacExec</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>OnlyAssed</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>MultiLine</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>PageLengthCheck</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>PageLength</name>
+					<state>80</state>
+				</option>
+				<option>
+					<name>TabSpacing</name>
+					<state>8</state>
+				</option>
+				<option>
+					<name>AXRef</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AXRefDefines</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AXRefInternal</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AXRefDual</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AProcessor</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>AFpuProcessor</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>AOutputFile</name>
+					<state>$FILE_BNAME$.o</state>
+				</option>
+				<option>
+					<name>AMultibyteSupport</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>ALimitErrorsCheck</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>ALimitErrorsEdit</name>
+					<state>100</state>
+				</option>
+				<option>
+					<name>AIgnoreStdInclude</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AUserIncludes</name>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/port</state>
+					<state>$PROJ_DIR$/../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/reset</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/boards/saml21_xplained_pro</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/preprocessor</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/power</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart</state>
+					<state>$PROJ_DIR$/../../../../../../../../serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system</state>
+					<state>$PROJ_DIR$/../../../../../../../../sleepmgr</state>
+					<state>$PROJ_DIR$/../../../../../../../../../utils</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/interrupt</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/power/power_sam_l</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb/usb_sam_l</state>
+					<state>$PROJ_DIR$/../../../../../../../udc</state>
+					<state>$PROJ_DIR$/../../../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_saml21</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/extint/extint_sam_l_c</state>
+					<state>$PROJ_DIR$/..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb/stack_interface</state>
+					<state>$PROJ_DIR$/../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/source</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/clock/clock_saml21</state>
+					<state>$PROJ_DIR$/../../../../../../../../../boards</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/reset/reset_sam_l</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb</state>
+					<state>$PROJ_DIR$/../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/extint</state>
+					<state>$PROJ_DIR$/../../../../..</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/header_files</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/stdio/stdio_serial</state>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/clock</state>
+					<state>$PROJ_DIR$/.</state>
+				</option>
+				<option>
+					<name>AExtraOptionsCheckV2</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>AExtraOptionsV2</name>
+					<state></state>
+				</option>
+			</data>
+		</settings>
+		<settings>
+			<name>OBJCOPY</name>
+			<archiveVersion>0</archiveVersion>
+			<data>
+				<version>1</version>
+				<wantNonLocal>1</wantNonLocal>
+				<debug>0</debug>
+				<option>
+					<name>OOCOutputFormat</name>
+					<version>2</version>
+					<state>0</state>
+				</option>
+				<option>
+					<name>OCOutputOverride</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>OOCOutputFile</name>
+					<state>mouse_unit_tests_flash.bin</state>
+				</option>
+				<option>
+					<name>OOCCommandLineProducer</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>OOCObjCopyEnable</name>
+					<state>0</state>
+				</option>
+			</data>
+		</settings>
+		<settings>
+			<name>CUSTOM</name>
+			<archiveVersion>3</archiveVersion>
+			<data>
+				<extensions></extensions>
+				<cmdline></cmdline>
+			</data>
+		</settings>
+		<settings>
+			<name>BICOMP</name>
+			<archiveVersion>0</archiveVersion>
+			<data></data>
+		</settings>
+		<settings>
+			<name>BUILDACTION</name>
+			<archiveVersion>1</archiveVersion>
+			<data>
+				<prebuild></prebuild>
+				<postbuild></postbuild>
+			</data>
+		</settings>
+		<settings>
+			<name>ILINK</name>
+			<archiveVersion>0</archiveVersion>
+			<data>
+				<version>15</version>
+				<wantNonLocal>1</wantNonLocal>
+				<debug>0</debug>
+				<option>
+					<name>IlinkOutputFile</name>
+					<state>mouse_unit_tests_flash.out</state>
+				</option>
+				<option>
+					<name>IlinkLibIOConfig</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>XLinkMisraHandler</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkInputFileSlave</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkDebugInfoEnable</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkKeepSymbols</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkRawBinaryFile</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkRawBinarySymbol</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkRawBinarySegment</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkRawBinaryAlign</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkDefines</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkConfigDefines</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkMapFile</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogFile</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogInitialization</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogModule</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogSection</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogVeneer</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkIcfOverride</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkIcfFile</name>
+					<state>$PROJ_DIR$/../../../../../../../../../../sam0/utils/linker_scripts/saml21/iar/saml21j18a_flash.icf</state>
+				</option>
+				<option>
+					<name>IlinkIcfFileSlave</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkEnableRemarks</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkSuppressDiags</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkTreatAsRem</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkTreatAsWarn</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkTreatAsErr</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkWarningsAreErrors</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkUseExtraOptions</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkExtraOptions</name>
+				</option>
+				<option>
+					<name>IlinkLowLevelInterfaceSlave</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkAutoLibEnable</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkAdditionalLibs</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkOverrideProgramEntryLabel</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkProgramEntryLabelSelect</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkProgramEntryLabel</name>
+					<state></state>
+				</option>
+				<option>
+					<name>DoFill</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>FillerByte</name>
+					<state>0xFF</state>
+				</option>
+				<option>
+					<name>FillerStart</name>
+					<state>0x0</state>
+				</option>
+				<option>
+					<name>FillerEnd</name>
+					<state>0x0</state>
+				</option>
+				<option>
+					<name>CrcSize</name>
+					<version>0</version>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CrcAlign</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CrcPoly</name>
+					<state>0x11021</state>
+				</option>
+				<option>
+					<name>CrcCompl</name>
+					<version>0</version>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CrcBitOrder</name>
+					<version>0</version>
+					<state>0</state>
+				</option>
+				<option>
+					<name>CrcInitialValue</name>
+					<state>0x0</state>
+				</option>
+				<option>
+					<name>DoCrc</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkBE8Slave</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkBufferedTerminalOutput</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkStdoutInterfaceSlave</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CrcFullSize</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkIElfToolPostProcess</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogAutoLibSelect</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogRedirSymbols</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkLogUnusedFragments</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkCrcReverseByteOrder</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkCrcUseAsInput</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkOptInline</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkOptExceptionsAllow</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkOptExceptionsForce</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkCmsis</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkOptMergeDuplSections</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkOptUseVfe</name>
+					<state>1</state>
+				</option>
+				<option>
+					<name>IlinkOptForceVfe</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkStackAnalysisEnable</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IlinkStackControlFile</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IlinkStackCallGraphFile</name>
+					<state></state>
+				</option>
+				<option>
+					<name>CrcAlgorithm</name>
+					<version>0</version>
+					<state>1</state>
+				</option>
+				<option>
+					<name>CrcUnitSize</name>
+					<version>0</version>
+					<state>0</state>
+				</option>
+			</data>
+		</settings>
+		<settings>
+			<name>IARCHIVE</name>
+			<archiveVersion>0</archiveVersion>
+			<data>
+				<version>0</version>
+				<wantNonLocal>1</wantNonLocal>
+				<debug>0</debug>
+				<option>
+					<name>IarchiveInputs</name>
+					<state></state>
+				</option>
+				<option>
+					<name>IarchiveOverride</name>
+					<state>0</state>
+				</option>
+				<option>
+					<name>IarchiveOutput</name>
+					<state>###Unitialized###</state>
+				</option>
+			</data>
+		</settings>
+		<settings>
+			<name>BILINK</name>
+			<archiveVersion>0</archiveVersion>
+			<data></data>
+		</settings>
+	</configuration>
+	<group>
+		<name>common</name>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>interrupt</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/interrupt/interrupt_sam_nvic.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/interrupt/interrupt_sam_nvic.h</name>
+				</file>
+			</group>
+			<group>
+				<name>unit_test</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/unit_test/suite.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../utils/unit_test/suite.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../utils/interrupt.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../utils/parts.h</name>
+			</file>
+		</group>
+		<group>
+			<name>services</name>
+			<group>
+				<name>usb</name>
+				<group>
+					<name>class</name>
+					<group>
+						<name>hid</name>
+						<group>
+							<name>device</name>
+							<group>
+								<name>mouse</name>
+								<file>
+									<name>$PROJ_DIR$/../../../udi_hid_mouse_desc.c</name>
+								</file>
+								<group>
+									<name>unit_tests</name>
+									<file>
+										<name>$PROJ_DIR$/../../unit_tests.c</name>
+									</file>
+									<group>
+										<name>saml21j18a_saml21_xplained_pro</name>
+										<file>
+											<name>$PROJ_DIR$/../conf_board.h</name>
+										</file>
+										<group>
+											<name>iar</name>
+											<file>
+												<name>$PROJ_DIR$/asf.h</name>
+											</file>
+										</group>
+										<file>
+											<name>$PROJ_DIR$/../conf_sleepmgr.h</name>
+										</file>
+										<file>
+											<name>$PROJ_DIR$/../conf_test.h</name>
+										</file>
+										<file>
+											<name>$PROJ_DIR$/../conf_clocks.h</name>
+										</file>
+										<file>
+											<name>$PROJ_DIR$/../conf_extint.h</name>
+										</file>
+									</group>
+									<file>
+										<name>$PROJ_DIR$/../../conf_usb.h</name>
+									</file>
+									<file>
+										<name>$PROJ_DIR$/../../unit_tests.h</name>
+									</file>
+								</group>
+								<file>
+									<name>$PROJ_DIR$/../../../udi_hid_mouse.c</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../udi_hid_mouse.h</name>
+								</file>
+								<file>
+									<name>$PROJ_DIR$/../../../udi_hid_mouse_conf.h</name>
+								</file>
+							</group>
+							<file>
+								<name>$PROJ_DIR$/../../../../udi_hid.c</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../udi_hid.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../usb_protocol_hid.h</name>
+						</file>
+					</group>
+				</group>
+				<group>
+					<name>udc</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../udc/udc.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../udc/udi.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../udc/udd.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../udc/udc.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../udc/udc_desc.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../usb_protocol.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../usb_atmel.h</name>
+				</file>
+			</group>
+			<group>
+				<name>sleepmgr</name>
+				<group>
+					<name>saml</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../sleepmgr/saml/sleepmgr.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../sleepmgr/saml/sleepmgr.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../sleepmgr/sleepmgr.h</name>
+				</file>
+			</group>
+			<group>
+				<name>serial</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../serial/serial.h</name>
+				</file>
+				<group>
+					<name>sam0_usart</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../serial/sam0_usart/usart_serial.h</name>
+					</file>
+				</group>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../boards/board.h</name>
+			</file>
+		</group>
+	</group>
+	<group>
+		<name>sam0</name>
+		<group>
+			<name>drivers</name>
+			<group>
+				<name>extint</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/extint/extint_callback.c</name>
+				</file>
+				<group>
+					<name>extint_sam_l_c</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/extint/extint_sam_l_c/extint.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/extint/extint.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/extint/extint_callback.h</name>
+				</file>
+			</group>
+			<group>
+				<name>sercom</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom.c</name>
+				</file>
+				<group>
+					<name>usart</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/usart_interrupt.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/usart.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/usart_interrupt.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/usart.h</name>
+					</file>
+					<group>
+						<name>quick_start_dma</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/quick_start_dma/qs_usart_dma_use.h</name>
+						</file>
+					</group>
+					<group>
+						<name>quick_start</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/quick_start/qs_usart_basic_use.h</name>
+						</file>
+					</group>
+					<group>
+						<name>quick_start_callback</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/quick_start_callback/qs_usart_callback.h</name>
+						</file>
+					</group>
+					<group>
+						<name>quick_start_lin</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/usart/quick_start_lin/qs_lin.h</name>
+						</file>
+					</group>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom_interrupt.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom_interrupt.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/sercom/sercom_pinout.h</name>
+				</file>
+			</group>
+			<group>
+				<name>port</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/port/port.c</name>
+				</file>
+				<group>
+					<name>quick_start</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/port/quick_start/qs_port_basic.h</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/port/port.h</name>
+				</file>
+			</group>
+			<group>
+				<name>system</name>
+				<group>
+					<name>pinmux</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux/pinmux.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux/pinmux.h</name>
+					</file>
+					<group>
+						<name>quick_start</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/pinmux/quick_start/qs_pinmux_basic.h</name>
+						</file>
+					</group>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/system.c</name>
+				</file>
+				<group>
+					<name>clock</name>
+					<group>
+						<name>clock_saml21</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/clock/clock_saml21/gclk.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/clock/clock_saml21/clock.c</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/clock/clock_saml21/clock_config_check.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/clock/clock_saml21/clock_feature.h</name>
+						</file>
+					</group>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/clock/gclk.h</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/clock/clock.h</name>
+					</file>
+				</group>
+				<group>
+					<name>interrupt</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/interrupt/system_interrupt.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/interrupt/system_interrupt.h</name>
+					</file>
+					<group>
+						<name>system_interrupt_saml21</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/interrupt/system_interrupt_saml21/system_interrupt_features.h</name>
+						</file>
+					</group>
+				</group>
+				<group>
+					<name>reset</name>
+					<group>
+						<name>reset_sam_l</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/reset/reset_sam_l/reset.h</name>
+						</file>
+					</group>
+				</group>
+				<group>
+					<name>power</name>
+					<group>
+						<name>power_sam_l</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/power/power_sam_l/power.h</name>
+						</file>
+					</group>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/system/system.h</name>
+				</file>
+			</group>
+			<group>
+				<name>usb</name>
+				<group>
+					<name>stack_interface</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb/stack_interface/usb_dual.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb/stack_interface/usb_device_udd.c</name>
+					</file>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb/stack_interface/usb_dual.h</name>
+					</file>
+				</group>
+				<group>
+					<name>usb_sam_l</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb/usb_sam_l/usb.c</name>
+					</file>
+				</group>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/drivers/usb/usb.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>utils</name>
+			<group>
+				<name>stdio</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/stdio/write.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/stdio/read.c</name>
+				</file>
+				<group>
+					<name>stdio_serial</name>
+					<file>
+						<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/stdio/stdio_serial/stdio_serial.h</name>
+					</file>
+				</group>
+			</group>
+			<group>
+				<name>cmsis</name>
+				<group>
+					<name>saml21</name>
+					<group>
+						<name>source</name>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/source/system_saml21.c</name>
+						</file>
+						<group>
+							<name>iar</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/source/iar/startup_saml21.c</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/source/system_saml21.h</name>
+						</file>
+					</group>
+					<group>
+						<name>include</name>
+						<group>
+							<name>instance</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/mclk_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/gclk_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/tcc1_200.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/tcc0_200.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/nvmctrl_301.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/oscctrl.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/rtc_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/aes.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/usb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/sercom5.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/tc3_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/dac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/supc_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/eic_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/tc2_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/tc1_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/ac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/wdt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/dsu.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/adc_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/ccl.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/tal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/sercom2.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/mtb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/port.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/sercom4.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/pac_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/sercom1.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/sercom3.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/tc4_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/osc32kctrl.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/pm_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/tc0_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/rstc_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/trng.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/tcc2_200.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/dmac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/opamp.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/evsys.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/instance/sercom0.h</name>
+							</file>
+						</group>
+						<group>
+							<name>pio</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/pio/saml21e18a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/pio/saml21j18a.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/pio/saml21g18a.h</name>
+							</file>
+						</group>
+						<group>
+							<name>component</name>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/evsys.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/dmac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/trng.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/tcc_200.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/ac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/tal.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/tc_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/opamp.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/sercom.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/pac_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/oscctrl.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/mtb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/aes.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/dsu.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/usb.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/rtc_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/rstc_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/supc_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/mclk_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/pm_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/port.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/dac.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/wdt.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/gclk_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/eic_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/adc_100.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/nvmctrl_301.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/ccl.h</name>
+							</file>
+							<file>
+								<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/component/osc32kctrl.h</name>
+							</file>
+						</group>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/saml21g18a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/saml21j18a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/saml21e18a.h</name>
+						</file>
+						<file>
+							<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/cmsis/saml21/include/saml21.h</name>
+						</file>
+					</group>
+				</group>
+			</group>
+			<group>
+				<name>preprocessor</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/preprocessor/preprocessor.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/preprocessor/stringz.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/preprocessor/mrepeat.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/preprocessor/mrecursion.h</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/preprocessor/tpaste.h</name>
+				</file>
+			</group>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/compiler.h</name>
+			</file>
+			<file>
+				<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/status_codes.h</name>
+			</file>
+			<group>
+				<name>header_files</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/utils/header_files/io.h</name>
+				</file>
+			</group>
+		</group>
+		<group>
+			<name>boards</name>
+			<group>
+				<name>saml21_xplained_pro</name>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/boards/saml21_xplained_pro/board_init.c</name>
+				</file>
+				<file>
+					<name>$PROJ_DIR$/../../../../../../../../../../sam0/boards/saml21_xplained_pro/saml21_xplained_pro.h</name>
+				</file>
+			</group>
+		</group>
+	</group>
+</project>

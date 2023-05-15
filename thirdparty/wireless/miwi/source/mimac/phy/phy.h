@@ -3,7 +3,7 @@
 *
 * \brief Physical Layer Abstraction for AT86RF212B interface
 *
-* Copyright (c) 2018 - 2019 Microchip Technology Inc. and its subsidiaries. 
+* Copyright (c) 2018 - 2022 Microchip Technology Inc. and its subsidiaries. 
 *
 * \asf_license_start
 *
@@ -228,6 +228,12 @@
 #define PHY_STATUS_ERROR                   1
 #define PHY_STATUS_CHANNEL_ACCESS_FAILURE  2
 #define PHY_STATUS_NO_ACK                  3
+
+/* ANT_DIV  */
+#define ANT_SEL			 7
+#define ANT_DIV_EN		 3
+#define ANT_EXT_SW_EN    2
+#define ANT_CTRL         0
 
 /**
  * Defines a mask for the frame type. (Table 65 IEEE 802.15.4 Specification)
